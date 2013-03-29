@@ -252,3 +252,9 @@ li.us-flag {
 	height: 30px;
 	background-color: #8db4d3;
 }
+
+.tweet .core .body{
+	font-weight: lighter; 
+	font-style: italic;
+	font-size: 18px;
+}
