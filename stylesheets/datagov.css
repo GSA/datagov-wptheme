@@ -258,3 +258,21 @@ li.us-flag {
 	font-style: italic;
 	font-size: 18px;
 }
+
+.tweet .tweet-author{
+	color: #22629a;
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+
+.tweet .tweet-author img{
+	-webkit-border-radius: 40em;
+	-moz-border-radius: 40em;
+	border-radius: 40em;
+	float: left;
+	margin-right: 10px;
+}
+
+.tweet .author-details{
+	padding-top: 10px;
+}
