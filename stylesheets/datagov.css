@@ -305,7 +305,11 @@ li.us-flag {
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 	@media only screen and (max-width: 479px) {
-
+		
+		.header {
+			width: 479px;
+		}
+		
 		.search input{
 			height: 20px;
 			width: 240px;
