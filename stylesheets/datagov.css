@@ -1,0 +1,78 @@
+/* Top Section */
+.header{
+	background-color: #8db4d3;
+	height: 400px;
+	width: 3000px;
+	display: block;
+	position: absolute;
+	z-index: -10;
+}
+
+.top{
+	height: 420px;
+}
+
+/* Navigation */
+
+.nav{
+	font-weight: normal; 
+	font-family: 'Abel', Helvetica, sans-serif;  
+	text-transform: uppercase;
+	font-size: 16px;
+	margin-top:  10px;
+}
+
+.nav a{
+	color: #ededed;
+	text-decoration: none;
+}
+
+.nav .primary a{
+	color: #ffffff;
+}
+
+.nav li{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+li.us-flag {
+	width: 21px; 
+	height: 13px;
+	background: url("../assets/us-flag.png");
+	text-indent: -9999px;
+	margin: 0px 10px 0px 0px;
+}
+
+/* Search */
+
+.logo{
+	font-weight: normal; 
+	font-family: 'Abel', Helvetica, sans-serif;  
+	text-transform: uppercase;
+	font-size: 28px;
+	color: #fcfcfc;
+	margin: 20px 0px 20px 0px;
+}
+
+.stats{
+	font-weight: normal; 
+	font-family: 'Lato', Helvetica, sans-serif; 
+	font-size: 18px;
+	color: #fcfcfc;
+	margin: 20px 0px 20px 0px;
+}
+
+.categories a{
+	font-weight: normal; 
+	font-family: 'Lato', Helvetica, sans-serif; 
+	font-size: 14px;
+	color: #fcfcfc;
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+.categories li{
+	margin: 0px;
+}
+
