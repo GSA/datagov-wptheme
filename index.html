@@ -27,9 +27,17 @@
 	<link href='http://fonts.googleapis.com/css?family=Abel|Lato:100,300,400,700' rel='stylesheet' type='text/css'>
 
 
+	<!-- JavaScript
+  ================================================== -->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script src="js/jquery.masonry.min.js"></script>
+	<script src="js/jquery.lazyload.min.js"></script>
+
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+
 
 	<!-- Favicons
 	================================================== -->
@@ -114,7 +122,8 @@
 
 		<div class="content">
 
-			<div class="sixteen columns posts">
+			<div class="sixteen columns">
+			<div id="posts">
 
 				<!-- lead-image -->
 				<!-- source -->
@@ -125,56 +134,99 @@
 
 				<!-- Content - Link -->
 				<div class="post small link">
-					<div class="source">New York Times</div>
-					<div class="body">
-						<p>“This is an incredibly clever use of health data to help consumers find the insurance plan that is right for them.”</p>
+					<div class="core">
+						<div class="source">New York Times</div>
+						<div class="body">
+							<p>“This is an incredibly clever use of health data to help consumers find the insurance plan that is right for them.”</p>
+						</div>
 					</div>
-					<div class="timestamp">7 hours ago</div>
-					<div class="topic">Health</div>
+					<div class="meta">
+						<div class="timestamp">7 hours ago</div>
+						<div class="corner">
+							<div class="block"></div>
+							<div class="topic">Health</div>
+						</div>
+					</div>
 				</div>
 
 				<!-- Content - Blog Post -->
 				<div class="post medium blog">
-					<div class="title">Launching a New Data.Gov</div>
-					<div class="body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pulvinar, elit sit amet sollicitudin imperdiet, tortor est facilisis elit, non consequat velit leo non sapien. Suspendisse potenti.</p>
+					<div class="core">
+						<div class="title">Launching a New Data.Gov</div>
+						<div class="body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pulvinar, elit sit amet sollicitudin imperdiet, tortor est facilisis elit, non consequat velit leo non sapien. Suspendisse potenti.</p>
 
-						<p>Vestibulum feugiat, ligula a adipiscing accumsan, lacus nibh tincidunt tellus, quis vestibulum felis leo at quam. Aenean vel urna tortor. Sed lobortis vulputate tincidunt. Sed eget felis augue, in hendrerit ipsum. Curabitur ac velit justo.</p>
+							<p>Vestibulum feugiat, ligula a adipiscing accumsan, lacus nibh tincidunt tellus, quis vestibulum felis leo at quam. Aenean vel urna tortor. Sed lobortis vulputate tincidunt. Sed eget felis augue, in hendrerit ipsum. Curabitur ac velit justo.</p>
 
-						<p>Phasellus nibh nulla, aliquam id facilisis in, vehicula et odio. Donec ultrices dictum tellus, nec aliquet lacus vulputate et. Vestibulum vel metus a nisi gravida aliquam nec et velit. Sed lobortis vulputate tincidunt. Sed eget felis augue, in hendrerit ipsum.</p>
+							<p>Phasellus nibh nulla, aliquam id facilisis in, vehicula et odio. Donec ultrices dictum tellus, nec aliquet lacus vulputate et. Vestibulum vel metus a nisi gravida aliquam nec et velit. Sed lobortis vulputate tincidunt. Sed eget felis augue, in hendrerit ipsum.</p>
 
-						<p>Read more</p>
+							<p>Read more</p>
+						</div>
 					</div>
-					<div class="timestamp">1 day ago</div>
-					<div class="topic">Announcement</div>
+					<div class="meta">
+						<div class="timestamp">7 hours ago</div>
+						<div class="corner">
+							<div class="block"></div>
+							<div class="topic">Health</div>
+						</div>
+					</div>
 				</div>
 
 				<!-- Content - dataset -->
-				<div class="post medium dataset">
-					<div class="lead-image"><img src="assets/dataset.png"></div>
-					<div class="title">Launching a New Data.Gov</div>
-					<div class="body">
-						<p>Download 24-hour artificial light readings from across the globe</p>
+				<div class="post small dataset">
+					<div class="lead">
+						<div class="lead-image"><img src="assets/dataset.png"></div>
 					</div>
-					<div class="timestamp">1 day ago</div>
-					<div class="topic">Announcement</div>
+					<div class="core">
+						<div class="title">Launching a New Data.Gov</div>
+						<div class="body">
+							<p>Download 24-hour artificial light readings from across the globe</p>
+						</div>
+					</div>
+					<div class="meta">
+						<div class="timestamp">7 hours ago</div>
+						<div class="corner">
+							<div class="block"></div>
+							<div class="topic">Health</div>
+						</div>
+					</div>
 				</div>
 
 				<!-- Content - Tweet -->
 				<div class="post small tweet">
-					<div class="tweet-author">Valerie Jarrett - <a href="http://twitter.com/vj44">@vj44</a></div>
-					<div class="body">
-						<p>New jobs #s: Economy adds 246k private sector jobs in Feb. 6.35M jobs over 36 mo. http://at.wh.gov/izom0</p>
+					<div class="core">
+						<div class="tweet-author">Valerie Jarrett - <a href="http://twitter.com/vj44">@vj44</a></div>
+						<div class="body">
+							<p>New jobs #s: Economy adds 246k private sector jobs in Feb. 6.35M jobs over 36 mo. http://at.wh.gov/izom0</p>
+						</div>
 					</div>
-					<div class="timestamp">7 hours ago</div>
-					<div class="topic">Health</div>
+					<div class="meta">
+						<div class="timestamp">7 hours ago</div>
+						<div class="corner">
+							<div class="block"></div>
+							<div class="topic">Health</div>
+						</div>
+					</div>
 				</div>
 
 			</div> <!-- posts -->
+			</div> <!-- sixteen columns -->
 
 		</div> <!-- content -->
 
 	</div><!-- container -->
+
+<script>
+$(window).load(function(){
+  $('#posts').masonry({
+    // options
+    itemSelector : '.post',
+    isResizable: true,
+    isAnimated: true,
+    gutterWidth: 25,
+  });
+});
+</script>
 
 
 <!-- End Document
