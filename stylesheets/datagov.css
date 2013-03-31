@@ -16,6 +16,29 @@ body{
 	height: 465px;
 }
 
+.catalog .header{
+	height: 180px;
+}
+
+.catalog .top{
+	height: 195px;
+}
+
+.catalog .title{
+	margin-top: 60px;
+}
+
+.catalog .title h1{
+	font-family: 'Lato', Helvetica, sans-serif; 
+	font-weight: lighter;
+	color: #4d4d4d;
+}
+
+.catalog .title .tag{
+	font-weight: bold;
+	color: #fff;
+}
+
 /* Navigation */
 
 .nav{
@@ -46,6 +69,11 @@ li.us-flag {
 	background: url("../assets/us-flag.png");
 	text-indent: -9999px;
 	margin: 0px 10px 0px 0px;
+}
+
+.catalog .search{
+	float: right;
+	margin-top: 13px;
 }
 
 /* Search */
