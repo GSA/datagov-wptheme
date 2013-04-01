@@ -57,10 +57,10 @@
 							<div class="core">
 								<div class="tweet-author">
 									<div class="author-image">
-										<img src="https://si0.twimg.com/profile_images/2277589677/bh8ffk8e7xar0tk7bmiw.jpeg" height="40" width="40">
+										<img src="<?php the_field('twitter_photo'); ?>" height="40" width="40">
 									</div>
 									<div class="author-details">
-										Valerie Jarrett - <a href="http://twitter.com/vj44">@vj44</a>
+										<?php the_field('persons_name'); ?> - <a href="<?php the_field('link_to_tweet'); ?>">@<?php the_field('twitter_handle'); ?></a>
 									</div>
 								</div>
 								<div class="body">
@@ -71,7 +71,7 @@
 								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
 								<div class="corner">
 									<div class="block"></div>
-									<div class="topic">Health</div>
+									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
 								</div>
 							</div>
 						</div>
@@ -81,7 +81,7 @@
 						<!-- Content - Link -->
 						<div class="post small link">
 							<div class="core">
-								<div class="source"><a href="#">New York Times</a></div>
+								<div class="source"><a href="<?php the_field('link_to_url'); ?>"><?php the_field('source'); ?></a></div>
 								<div class="body">
 									<?php the_content('Read the rest of this entry »'); ?>
 								</div>
@@ -90,7 +90,7 @@
 								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
 								<div class="corner">
 									<div class="block"></div>
-									<div class="topic">Health</div>
+									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
 								</div>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 						<!-- Content - dataset -->
 						<div class="post small dataset">
 							<div class="lead">
-								<div class="lead-image"><img class="scale-with-grid" src="<?php echo get_bloginfo('template_directory'); ?>/assets/dataset.png"></div>
+								<div class="lead-image"><a href="<?php the_field('link_to_dataset'); ?>"><img class="scale-with-grid" src="<?php the_field('dataset_image'); ?>"></a></div>
 							</div>
 							<div class="core">
 								<div class="title"><?php the_title(); ?></div>
@@ -112,7 +112,7 @@
 								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
 								<div class="corner">
 									<div class="block"></div>
-									<div class="topic">Health</div>
+									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
 								</div>
 							</div>
 						</div>
@@ -132,7 +132,7 @@
 								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
 								<div class="corner">
 									<div class="block"></div>
-									<div class="topic">Health</div>
+									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
 								</div>
 							</div>
 					    </div>  
