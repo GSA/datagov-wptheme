@@ -207,15 +207,15 @@
 /* #Forms
 ================================================== */
 
-	.next form {
+	form.next {
 		margin-bottom: 20px; }
-	.next fieldset {
+	fieldset.next {
 		margin-bottom: 20px; }
-	.next input[type="text"],
-	.next input[type="password"],
-	.next input[type="email"],
-	.next textarea,
-	.next select {
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	textarea,
+	select {
 		border: 1px solid #ccc;
 		padding: 6px 4px;
 		outline: none;
@@ -230,30 +230,30 @@
 		display: block;
 		margin-bottom: 20px;
 		background: #fff; }
-	.next select {
+	select {
 		padding: 0; }
-	.next input[type="text"]:focus,
-	.next input[type="password"]:focus,
-	.next input[type="email"]:focus,
-	.next textarea:focus {
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="email"]:focus,
+	textarea:focus {
 		border: 1px solid #aaa;
  		color: #444;
  		-moz-box-shadow: 0 0 3px rgba(0,0,0,.2);
 		-webkit-box-shadow: 0 0 3px rgba(0,0,0,.2);
 		box-shadow:  0 0 3px rgba(0,0,0,.2); }
-	.next textarea {
+	textarea {
 		min-height: 60px; }
-	.next label,
-	.next legend {
+	label.next,
+	legend {
 		display: block;
 		font-weight: bold;
 		font-size: 13px;  }
-	.next select {
+	select {
 		width: 220px; }
-	.next input[type="checkbox"] {
+	input[type="checkbox"] {
 		display: inline; }
-	.next label span,
-	.next legend span {
+	label span,
+	legend span {
 		font-weight: normal;
 		font-size: 13px;
 		color: #444; }

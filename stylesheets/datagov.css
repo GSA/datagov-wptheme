@@ -126,6 +126,11 @@ li.next-us-flag {
 	top: 14px;
 }
 
+.next-search{
+	display: inline-block;
+	margin-bottom: -4px;
+}
+
 .next-search label{
 	text-indent: -9999px;
 	height: 0px;
@@ -151,7 +156,7 @@ li.next-us-flag {
 	border: 0px;
 }
 
-.next-search-label, .next-search-icon, next-search-input {
+.next-search-label, .next-search-icon, .next-search-input {
 	float: left;
 }
 

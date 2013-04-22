@@ -3,7 +3,7 @@ body{
 }
 
 /* Top Section */
-.header{
+.next-header{
 	background-color: #8db4d3;
 	height: 445px;
 	width: 3000px;
@@ -12,36 +12,36 @@ body{
 	z-index: -100;
 }
 
-.top{
+.next-top{
 	height: 465px;
 }
 
-.catalog .header{
+.catalog .next-header{
 	height: 180px;
 }
 
-.catalog .top{
+.catalog .next-top{
 	height: 195px;
 }
 
-.catalog .title{
+.catalog .next-title{
 	margin-top: 60px;
 }
 
-.catalog .title h1{
+.catalog .next-title h1{
 	font-family: 'Lato', Helvetica, sans-serif; 
 	font-weight: lighter;
 	color: #4d4d4d;
 }
 
-.catalog .title .tag{
+.catalog .next-title .next-tag{
 	font-weight: bold;
 	color: #fff;
 }
 
 /* Navigation */
 
-.nav{
+.next-nav{
 	font-weight: normal; 
 	font-family: 'Abel', Helvetica, sans-serif;  
 	text-transform: uppercase;
@@ -49,21 +49,21 @@ body{
 	margin-top:  10px;
 }
 
-.nav a{
+.next-nav a{
 	color: #ededed;
 	text-decoration: none;
 }
 
-.nav .primary a{
+.next-nav .next-primary a{
 	color: #ffffff;
 }
 
-.nav li{
+.next-nav li{
 	display: inline-block;
 	margin-right: 20px;
 }
 
-li.us-flag {
+li.next-us-flag {
 	width: 21px; 
 	height: 13px;
 	background: url("../assets/us-flag.png");
@@ -71,14 +71,14 @@ li.us-flag {
 	margin: 0px 10px 0px 0px;
 }
 
-.catalog .search{
+.catalog .next-search{
 	float: right;
 	margin-top: 13px;
 }
 
 /* Search */
 
-.logo{
+.next-logo{
 	font-weight: normal; 
 	font-family: 'Abel', Helvetica, sans-serif;  
 	text-transform: uppercase;
@@ -88,7 +88,7 @@ li.us-flag {
 }
 
 
-.logo .background{
+.next-logo .next-background{
 	background: #000000;
 	width: 1125px;
 	height: 50px;
@@ -98,12 +98,12 @@ li.us-flag {
 	opacity: .35;
 }
 
-.logo .object{
+.next-logo .next-object{
 	position: relative;
 	top: 14px;
 }
 
-.stats{
+.next-stats{
 	font-weight: normal; 
 	font-family: 'Lato', Helvetica, sans-serif; 
 	font-size: 18px;
@@ -111,7 +111,7 @@ li.us-flag {
 	margin: 20px 0px 31px 0px;
 }
 
-.stats .background{
+.next-stats .next-background{
 	background: #000000;
 	width: 1160px;
 	height: 50px;
@@ -121,17 +121,22 @@ li.us-flag {
 	opacity: .65;
 }
 
-.stats .object{
+.next-stats .next-object{
 	position: relative;
 	top: 14px;
 }
 
-.search label{
+.next-search{
+	display: inline-block;
+	margin-bottom: -4px;
+}
+
+.next-search label{
 	text-indent: -9999px;
 	height: 0px;
 }
 
-.search input{
+.next-search input{
 	height: 20px;
 	width: 300px;
 	font-weight: lighter; 
@@ -144,23 +149,23 @@ li.us-flag {
 	border: 0px;
 }
 
-.search input:focus{
+.next-search input:focus{
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
 	border: 0px;
 }
 
-.search-label, .search-icon, search-input {
+.next-search-label, .next-search-icon, .next-search-input {
 	float: left;
 }
 
-.search-icon{
+.next-search-icon{
 	margin-top: 5px;
 	margin-right: 15px;
 }
 
-.search .background{
+.next-search .next-background{
 	background: #000000;
 	width: 1372px;
 	height: 50px;
@@ -170,12 +175,12 @@ li.us-flag {
 	opacity: .50;
 }
 
-.search .object{
+.next-search .next-object{
 	position: relative;
 	top: 10px;
 }
 
-.categories a{
+.next-categories a{
 	font-weight: normal; 
 	font-family: 'Lato', Helvetica, sans-serif; 
 	font-size: 14px;
@@ -184,11 +189,11 @@ li.us-flag {
 	text-transform: lowercase;
 }
 
-.categories li{
+.next-categories li{
 	margin: 0px;
 }
 
-.categories .background{
+.next-categories .next-background{
 	background: #000000;
 	width: 1145px;
 	height: 170px;
@@ -198,7 +203,7 @@ li.us-flag {
 	opacity: .40;
 }
 
-.categories .object{
+.next-categories .next-object{
 	position: relative;
 	top: 14px;
 }
@@ -243,11 +248,6 @@ li.us-flag {
 	color: #22629a;
 	font-size: 12px;
 	margin-bottom: 10px;
-}
-
-.post .source a{
-	color: #22629a;
-	text-decoration: none;
 }
 
 .link .core .body{
@@ -339,20 +339,20 @@ li.us-flag {
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 	@media only screen and (max-width: 479px) {
 		
-		.header {
+		.next-header {
 			width: 479px;
 		}
 		
-		.search input{
+		.next-search input{
 			height: 20px;
 			width: 240px;
 		}
 		
-		.nav li{
+		.next-nav li{
 			display: none;
 		}
 		
-		.nav .us-flag{
+		.next-nav .next-us-flag{
 			display: block;
 		}
 		
@@ -362,3 +362,13 @@ li.us-flag {
 	}
 
 
+
+/* Catalog */
+
+ol.breadcrumb li.home{
+	display: none;
+}
+
+body.catalog footer.site-footer{
+	background-color: #4d4d4d;
+}

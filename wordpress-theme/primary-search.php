@@ -1,29 +1,29 @@
 			<div class="sixteen columns">
-				<div class="logo">
-					<div class="background"></div>
-					<div class="object">Data.Gov</div>
+				<div class="next-logo">
+					<div class="next-background"></div>
+					<div class="next-object">Data.Gov</div>
 				</div>
-				<div class="stats">
-					<div class="background"></div>
-					<div class="object">120,303 datasets</div>
+				<div class="next-stats">
+					<div class="next-background"></div>
+					<div class="next-object">120,303 datasets</div>
 				</div>
-				<div class="search">
-					<div class="background"></div>
-					<div class="object">
-						<div class="search-label">
-							<label for="search-box">Search</label>
+				<div class="next-search">
+					<div class="next-background"></div>
+					<div class="next-object">
+						<div class="next-search-label">
+							<label for="next-search-box">Search</label>
 						</div>
-						<div class="search-icon">
+						<div class="next-search-icon">
 							<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/search.png">
 						</div>
-						<div class="search-input">
+						<div class="next-search-input">
 	  						<input type="text" />
 	  					</div>
   					</div>
 				</div>
-				<div class="categories">
-					<div class="background"></div>
-					<div class="object">
+				<div class="next-categories">
+					<div class="next-background"></div>
+					<div class="next-object">
 						<ul>
 							<li><a href="#">Agriculture</a></li>
 							<li><a href="#">Commerce</a></li>

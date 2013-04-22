@@ -14,7 +14,7 @@
 	<!-- Header Background Color, Image, or Visualization
 	================================================== -->
 	
-	<div class="header">
+	<div class="next-header">
 	</div>
 
 
@@ -22,7 +22,7 @@
 	================================================== -->
 
 	<div class="container">
-		<div class="top">
+		<div class="next-top">
 
 			<?php get_template_part('navigation'); ?>
 			<?php get_template_part('primary-search'); ?>
