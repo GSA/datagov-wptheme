@@ -204,7 +204,59 @@
 	}
 
 
+/* #Forms
+================================================== */
 
+	.next form {
+		margin-bottom: 20px; }
+	.next fieldset {
+		margin-bottom: 20px; }
+	.next input[type="text"],
+	.next input[type="password"],
+	.next input[type="email"],
+	.next textarea,
+	.next select {
+		border: 1px solid #ccc;
+		padding: 6px 4px;
+		outline: none;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #777;
+		margin: 0;
+		width: 210px;
+		max-width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		background: #fff; }
+	.next select {
+		padding: 0; }
+	.next input[type="text"]:focus,
+	.next input[type="password"]:focus,
+	.next input[type="email"]:focus,
+	.next textarea:focus {
+		border: 1px solid #aaa;
+ 		color: #444;
+ 		-moz-box-shadow: 0 0 3px rgba(0,0,0,.2);
+		-webkit-box-shadow: 0 0 3px rgba(0,0,0,.2);
+		box-shadow:  0 0 3px rgba(0,0,0,.2); }
+	.next textarea {
+		min-height: 60px; }
+	.next label,
+	.next legend {
+		display: block;
+		font-weight: bold;
+		font-size: 13px;  }
+	.next select {
+		width: 220px; }
+	.next input[type="checkbox"] {
+		display: inline; }
+	.next label span,
+	.next legend span {
+		font-weight: normal;
+		font-size: 13px;
+		color: #444; }
 
 /* #Misc
 ================================================== */
