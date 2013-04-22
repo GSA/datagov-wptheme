@@ -357,3 +357,9 @@ li.next-us-flag {
 	}
 
 
+
+/* Catalog */
+
+ol.breadcrumb li.home{
+	display: none;
+}
