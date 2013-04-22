@@ -363,3 +363,7 @@ li.next-us-flag {
 ol.breadcrumb li.home{
 	display: none;
 }
+
+body.catalog footer.site-footer{
+	background-color: #4d4d4d;
+}
