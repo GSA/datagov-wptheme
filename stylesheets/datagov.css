@@ -384,3 +384,7 @@ div.results strong{
 li.nav-item{
 	margin-bottom: 0px;
 }
+
+div.toolbar{
+	display: none;
+}
