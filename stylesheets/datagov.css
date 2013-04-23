@@ -137,7 +137,7 @@ li.next-us-flag {
 	height: 0px;
 }
 
-.next-search input{
+.next-search .next-search-input input{
 	height: 20px;
 	width: 300px;
 	font-weight: lighter; 
