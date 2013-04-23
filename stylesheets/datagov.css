@@ -222,7 +222,11 @@ li.next-us-flag {
   box-shadow: 0px 2px 5px 1px #dadada;
 }
 
-.post .core a, .post .core a:visited{
+a.post{
+	color: ##22629a;
+}
+
+a:visited.post{
 	color: ##22629a;
 }
 
