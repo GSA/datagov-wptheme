@@ -211,11 +211,11 @@
 		margin-bottom: 20px; }
 	fieldset.next {
 		margin-bottom: 20px; }
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	textarea,
-	select {
+	input[type="text"].next,
+	input[type="password"].next,
+	input[type="email"].next,
+	textarea.next,
+	select.next {
 		border: 1px solid #ccc;
 		padding: 6px 4px;
 		outline: none;
@@ -230,7 +230,7 @@
 		display: block;
 		margin-bottom: 20px;
 		background: #fff; }
-	select {
+	select.next {
 		padding: 0; }
 	input[type="text"]:focus,
 	input[type="password"]:focus,
@@ -244,7 +244,7 @@
 	textarea {
 		min-height: 60px; }
 	label.next,
-	legend {
+	legend.next {
 		display: block;
 		font-weight: bold;
 		font-size: 13px;  }
@@ -252,8 +252,8 @@
 		width: 220px; }
 	input[type="checkbox"] {
 		display: inline; }
-	label span,
-	legend span {
+	label span.next,
+	legend span.next {
 		font-weight: normal;
 		font-size: 13px;
 		color: #444; }
