@@ -380,3 +380,7 @@ a.read-more{
 div.results strong{
 	color: #444444;
 }
+
+li.nav-item{
+	margin-bottom: 0px;
+}
