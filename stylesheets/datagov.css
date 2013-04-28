@@ -119,6 +119,10 @@ li.next-us-flag {
 	opacity: .35;
 }
 
+.next-logo .next-background.education{
+	width: 1200px;
+}
+
 .next-logo .next-object{
 	position: relative;
 	top: 14px;

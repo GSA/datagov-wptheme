@@ -14,7 +14,7 @@
 	<!-- Header Background Color, Image, or Visualization
 	================================================== -->
 	
-	<div class="next-header category <?php the_category ?>">
+	<div class="next-header category <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 	</div>
 
 
@@ -22,7 +22,7 @@
 	================================================== -->
 
 	<div class="container">
-		<div class="next-top category">
+		<div class="next-top category <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 
 			<?php get_template_part('navigation'); ?>
 			<?php get_template_part('category-search'); ?>
@@ -34,17 +34,6 @@
 	================================================== -->
 
 		<div class="content">
-
-			<p>Category Page</p>
-
-			<?php if (is_category('health')) : ?>
-			<p>This is the text to describe Health</p>
-			<?php elseif (is_category('finance')) : ?>
-			<p>This is the text to describe Finance</p>
-			<?php else : ?>
-			<p>This is some generic text to describe all other category pages, 
-			I could be left blank</p>
-			<?php endif; ?>
 
 			<div class="sixteen columns">
 			<div id="posts">
