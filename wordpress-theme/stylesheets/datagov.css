@@ -6,10 +6,15 @@ body{
 .next-header{
 	background-color: #8db4d3;
 	height: 445px;
-	width: 3000px;
+	width: 100%;
 	display: block;
 	position: absolute;
 	z-index: -100;
+}
+
+.next-header .category{
+	background-color: #8db4d3;
+	height: 200px;
 }
 
 .next-top{
