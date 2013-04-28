@@ -22,7 +22,7 @@
 	================================================== -->
 
 	<div class="container">
-		<div class="next-top">
+		<div class="next-top category">
 
 			<?php get_template_part('navigation'); ?>
 			<?php get_template_part('category-search'); ?>
