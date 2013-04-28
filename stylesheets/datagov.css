@@ -12,13 +12,17 @@ body{
 	z-index: -100;
 }
 
-.next-header .category{
+.next-header.category{
 	background-color: #8db4d3;
-	height: 200px;
+	height: 220px;
 }
 
 .next-top{
 	height: 465px;
+}
+
+.next-top.category{
+	height: 240px;
 }
 
 .catalog .next-header{
