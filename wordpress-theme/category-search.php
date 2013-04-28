@@ -1,7 +1,7 @@
 			<div class="sixteen columns">
 				<div class="next-logo">
 					<div class="next-background"></div>
-					<div class="next-object">Data.Gov</div>
+					<div class="next-object"><?php single_cat_title( $prefix = '', $display = true ); ?></div>
 				</div>
 				<div class="next-search">
 					<div class="next-background"></div>

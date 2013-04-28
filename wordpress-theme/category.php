@@ -14,7 +14,7 @@
 	<!-- Header Background Color, Image, or Visualization
 	================================================== -->
 	
-	<div class="next-header category">
+	<div class="next-header category <?php the_category ?>">
 	</div>
 
 

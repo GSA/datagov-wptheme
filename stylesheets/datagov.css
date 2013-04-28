@@ -13,8 +13,19 @@ body{
 }
 
 div.next-header.category{
-	background-color: #8db4d3;
 	height: 225px;
+}
+
+div.next-header.category.health{
+	background-color: #8db4d3;
+}
+
+div.next-header.category.energy{
+	background-color: #83B03C;
+}
+
+div.next-header.category.finance{
+	background-color: #BD8620;
 }
 
 .next-top{
