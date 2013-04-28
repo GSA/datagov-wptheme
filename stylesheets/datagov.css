@@ -12,7 +12,7 @@ body{
 	z-index: -100;
 }
 
-.next-header.category{
+div.next-header.category{
 	background-color: #8db4d3;
 	height: 220px;
 }
@@ -21,7 +21,7 @@ body{
 	height: 465px;
 }
 
-.next-top.category{
+div.next-top.category{
 	height: 240px;
 }
 
