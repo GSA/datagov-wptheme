@@ -429,3 +429,7 @@ li.nav-item{
 div.toolbar{
 	display: none;
 }
+
+.posts .blog.medium img{
+	width: 560px;
+}
