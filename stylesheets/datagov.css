@@ -430,6 +430,6 @@ div.toolbar{
 	display: none;
 }
 
-.posts .blog.medium img{
+.posts .post.medium.blog img{
 	width: 560px;
 }
