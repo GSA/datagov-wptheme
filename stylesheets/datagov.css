@@ -430,6 +430,7 @@ div.toolbar{
 	display: none;
 }
 
-.posts .blog img{
+.blog .body img{
 	width: 560px;
+	height: auto;
 }
