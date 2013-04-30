@@ -310,7 +310,6 @@ a:visited.post{
 .post .meta .corner .topic{
 	float: right;
 	font-size: 16px;
-	color: #8db4d3;
 	margin-top: 5px;
 	margin-right: 10px;
 }
@@ -320,7 +319,6 @@ a:visited.post{
 	float: right;
 	width: 30px;
 	height: 30px;
-	background-color: #8db4d3;
 }
 
 .corner .topic{
