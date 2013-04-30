@@ -2,6 +2,15 @@ body{
 	background: #efefef url(../assets/textured-bg.png) repeat;
 }
 
+.posts p a{
+	color: #22629a;
+	text-decoration: none;
+}
+
+.posts p a:hover{
+	color: #22629a;
+}
+
 /* Top Section */
 .next-header{
 	background-color: #8db4d3;

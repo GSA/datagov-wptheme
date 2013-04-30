@@ -69,7 +69,7 @@
 							</div>
 							<div class="meta">
 								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
-								<div class="corner">
+								<div class="corner <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 									<div class="block"></div>
 									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
 								</div>
@@ -88,7 +88,7 @@
 							</div>
 							<div class="meta">
 								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
-								<div class="corner">
+								<div class="corner <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 									<div class="block"></div>
 									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
 								</div>
@@ -110,7 +110,7 @@
 							</div>
 							<div class="meta">
 								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
-								<div class="corner">
+								<div class="corner <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 									<div class="block"></div>
 									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
 								</div>
@@ -130,7 +130,7 @@
 							</div>
 							<div class="meta">
 								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
-								<div class="corner">
+								<div class="corner <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 									<div class="block"></div>
 									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
 								</div>
