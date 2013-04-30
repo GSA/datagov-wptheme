@@ -323,12 +323,45 @@ a:visited.post{
 	background-color: #8db4d3;
 }
 
+.corner .topic{
+	color: #8db4d3;
+}
+
+.corner .block{
+	background-color: #8db4d3;
+}
+
+
 .corner.energy .topic{
 	color: #83B03C;
 }
 
 .corner.energy .block{
 	background-color: #83B03C;
+}
+
+.corner.education .topic{
+	color: #B25445;
+}
+
+.corner.education .block{
+	background-color: #B25445;
+}
+
+.corner.finance .topic{
+	color: #BD8620;
+}
+
+.corner.finance .block{
+	background-color: #BD8620;
+}
+
+.corner.health .topic{
+	color: #3E6B85;
+}
+
+.corner.health .block{
+	background-color: #3E6B85;
 }
 
 
