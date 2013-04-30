@@ -17,7 +17,10 @@
 							<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/search.png">
 						</div>
 						<div class="next-search-input">
-	  						<input class="next" type="text" />
+							<form method="get" action="http://54.225.111.163/dataset">
+	  							<input class="next" name="q" type="text" />
+								<input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+							</form>
 	  					</div>
   					</div>
 				</div>
@@ -27,11 +30,11 @@
 						<ul>
 							<li><a href="#">Agriculture</a></li>
 							<li><a href="#">Commerce</a></li>
-							<li><a href="#">Education</a></li>
-							<li><a href="#">Energy</a></li>
-							<li><a href="#">Finance</a></li>
+							<li><a href="/education">Education</a></li>
+							<li><a href="/energy">Energy</a></li>
+							<li><a href="/finance">Finance</a></li>
 							<li><a href="#">Global Development</a></li>
-							<li><a href="#">Health</a></li>
+							<li><a href="/health">Health</a></li>
 							<li><a href="#">Safety</a></li>
 						</ul>
 					</div>

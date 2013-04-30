@@ -323,6 +323,15 @@ a:visited.post{
 	background-color: #8db4d3;
 }
 
+.corner.energy .topic{
+	color: #83B03C;
+}
+
+.corner.energy .block{
+	background-color: #83B03C;
+}
+
+
 .tweet .core .body{
 	font-weight: lighter; 
 	font-style: italic;
