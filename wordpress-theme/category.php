@@ -29,6 +29,24 @@
 
 		</div> <!-- top -->
 
+	</div>
+
+		<div class="page-nav">	
+		</div>
+
+<div class="container">
+
+
+		<div class="sixteen columns page-nav-items">
+			<ul>
+				<li>Stream</li>
+				<li>Data</li>
+				<li>Apps</li>
+				<li>Maps</li>
+				<li>Challenges</li>
+				<li>Resources</li>
+			</ul>
+		</div>
 
 	<!-- WordPress Content
 	================================================== -->
