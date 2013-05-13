@@ -38,14 +38,15 @@
 
 
 		<div class="sixteen columns page-nav-items">
-			<ul>
-				<li>Stream</li>
-				<li>Data</li>
-				<li>Apps</li>
-				<li>Maps</li>
-				<li>Challenges</li>
-				<li>Resources</li>
-			</ul>
+
+			<?php
+			if ( is_category() ) {
+			$cat = get_query_var('energy');
+			$category=get_category($cat);
+			$args = array(
+				'categorize'=>0, 'title_li'=>0);
+			wp_list_bookmarks($args); } ?>
+
 		</div>
 
 	<!-- WordPress Content
