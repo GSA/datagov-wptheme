@@ -30,11 +30,11 @@
 						<ul>
 							<li><a href="#">Agriculture</a></li>
 							<li><a href="#">Commerce</a></li>
-							<li><a href="/education">Education</a></li>
-							<li><a href="/energy">Energy</a></li>
-							<li><a href="/finance">Finance</a></li>
+							<li><a href="education">Education</a></li>
+							<li><a href="energy">Energy</a></li>
+							<li><a href="finance">Finance</a></li>
 							<li><a href="#">Global Development</a></li>
-							<li><a href="/health">Health</a></li>
+							<li><a href="health">Health</a></li>
 							<li><a href="#">Safety</a></li>
 						</ul>
 					</div>

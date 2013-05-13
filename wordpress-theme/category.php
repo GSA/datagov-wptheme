@@ -41,7 +41,7 @@
 
 			<?php
 			$args = array(
-				'category_name'=>get_query_var('category_name'), 'categorize'=>0, 'title_li'=>0);
+				'category_name'=>get_query_var('category_name'), 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
 			wp_list_bookmarks($args); ?>
 
 		</div>
