@@ -512,3 +512,11 @@ div.toolbar{
 	display: inline-block;
 	margin-right: 40px;
 }
+
+.page-nav-items a{
+	color: #696969;
+}
+
+.page-nav-items a:hover{
+	color: #696969;
+}

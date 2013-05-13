@@ -40,12 +40,9 @@
 		<div class="sixteen columns page-nav-items">
 
 			<?php
-			if ( is_category() ) {
-			$cat = get_query_var('energy');
-			$category=get_category($cat);
 			$args = array(
-				'categorize'=>0, 'title_li'=>0);
-			wp_list_bookmarks($args); } ?>
+				'category_name'=>get_query_var('category_name'), 'categorize'=>0, 'title_li'=>0);
+			wp_list_bookmarks($args); ?>
 
 		</div>
 
