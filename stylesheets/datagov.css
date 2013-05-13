@@ -250,6 +250,9 @@ li.next-us-flag {
 
 .posts{
   float: left;
+}
+
+#posts{
   margin-top: 20px;
 }
 
