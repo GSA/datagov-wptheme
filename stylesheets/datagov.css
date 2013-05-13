@@ -54,7 +54,7 @@ div.next-top.category{
 }
 
 .catalog .next-top{
-	height: 195px;
+	height: 175px;
 }
 
 .catalog .next-title{
@@ -482,4 +482,29 @@ div.toolbar{
 .blog .body img{
 	width: 560px;
 	height: auto;
+}
+
+
+/* Page */
+
+.page-nav{
+	background-color: #ffffff;
+	width: 100%;
+	height: 38px;
+	display: block;
+	position: absolute;
+	z-index: -100;
+}
+
+.page-nav-items{
+	margin-top: 8px;
+	font-weight: normal; 
+	font-family: 'Abel', Helvetica, sans-serif;  
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+.page-nav-items li{
+	display: inline-block;
+	margin-right: 40px;
 }
