@@ -13,10 +13,10 @@
 
 	<!-- CSS
   ================================================== -->
-	<link rel="stylesheet" href="http://gsa.github.io/datagov-design/stylesheets/base.css">
-	<link rel="stylesheet" href="http://gsa.github.io/datagov-design/stylesheets/skeleton.css">
-	<link rel="stylesheet" href="http://gsa.github.io/datagov-design/stylesheets/layout.css">
-	<link rel="stylesheet" href="http://gsa.github.io/datagov-design/stylesheets/datagov.css">
+	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/stylesheets/base.css">
+	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/stylesheets/skeleton.css">
+	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/stylesheets/layout.css">
+	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/stylesheets/datagov.css">
 
 
 	<link href='http://fonts.googleapis.com/css?family=Abel|Lato:100,300,400,700' rel='stylesheet' type='text/css'>
