@@ -19,6 +19,7 @@ body{
 	display: block;
 	position: absolute;
 	z-index: -100;
+	text-align: center;
 }
 
 div.next-header.category{
