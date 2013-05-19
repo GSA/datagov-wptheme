@@ -550,17 +550,19 @@ div.toolbar{
 /* Page */
 
 .page-nav{
-
+	background-color: #ffffff;
 	width: 100%;
 	height: 38px;
 	display: block;
 	position: absolute;
 	z-index: -100;
+	border-bottom: 1px solid #e0e0e0;
 
 
 }
 
 .page-nav-items{
+
 	margin-top: 8px;
 	font-weight: normal; 
 	font-family: 'Abel', Helvetica, sans-serif;  
@@ -569,6 +571,7 @@ div.toolbar{
 }
 
 .page-nav-items li{
+	display: inline-block;
 	margin-right: 40px;
 	list-style-type: none;
 }
