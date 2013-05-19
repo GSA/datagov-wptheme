@@ -33,6 +33,9 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 	<script src="js/jquery.masonry.min.js"></script>
 	<script src="js/jquery.lazyload.min.js"></script>
+	<script src="js/jquery.text.fadeto.js"></script>
+
+	
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -55,7 +58,7 @@
 	================================================== -->
 	
 	<div class="next-header">
-		<img src="test2.jpg">
+		
 	</div>
 
 
@@ -83,7 +86,9 @@
 				</div>
 				<div class="next-stats">
 					<div class="next-background"></div>
-					<div class="next-object">120,303 datasets</div>
+					<div id="rotate-stats" class="next-object" data-strings='
+    { "targets" : ["120,303 datasets","130TB of datasets","20 agencies","Search 400 APIs", "120,303 datasets", "Powered by CKAN", "120,303 datasets"]}'>&nbsp;</div>
+
 				</div>
 				<div class="next-search">
 					<div class="next-background"></div>
@@ -238,6 +243,24 @@ $(window).load(function(){
     isAnimated: true,
     gutterWidth: 25
   });
+});
+</script>
+
+<script>
+$(function () {
+  var
+    $demo = $('#rotate-stats'),
+    strings = JSON.parse($demo.attr('data-strings')).targets,
+     randomString;
+
+  randomString = function () {
+    return strings[Math.floor(Math.random() * strings.length)];
+  };
+
+  $demo.fadeTo(randomString());
+  setInterval(function () {
+    $demo.fadeTo(randomString());
+  }, 5000);
 });
 </script>
 
