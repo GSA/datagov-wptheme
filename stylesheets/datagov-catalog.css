@@ -1,0 +1,103 @@
+body{
+	background: #efefef url(../assets/textured-bg.png) repeat;
+}
+
+.container{ position: relative; width: 940px; margin: 0 auto; padding: 0; }
+
+
+
+a{
+	color: #003399;
+}
+
+.single{
+	background: #ffffff;
+}
+
+
+.posts p a{
+	color: #22629a;
+	text-decoration: none;
+}
+
+.posts p a:hover{
+	color: #22629a;
+	text-decoration: underline;
+}
+
+/* Top Section */
+.next-header{
+	background-color: #8db4d3;
+	height: 160px;
+	width: 100%;
+	display: block;
+	position: absolute;
+	z-index: -100;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.next-top{
+	height: 485px;
+}
+
+.catalog .next-top{
+	height: 165px;
+}
+
+.catalog .next-title{
+	margin-top: 76px;
+}
+
+.catalog .next-title h1{
+	font-family: 'Lato', Helvetica, sans-serif; 
+	font-weight: lighter;
+	color: #4d4d4d;
+}
+
+.catalog .next-title .next-tag{
+	font-weight: bold;
+	color: #fff;
+	text-transform: capitalize;
+}
+
+/* Navigation */
+
+.next-nav{
+	font-weight: normal; 
+	font-family: 'Abel', Helvetica, sans-serif;  
+	text-transform: uppercase;
+	font-size: 16px;
+	margin-top:  10px;
+}
+
+.next-nav a{
+	color: #ededed;
+	text-decoration: none;
+}
+
+.next-nav a:hover{
+	text-decoration: underline;
+}
+
+.next-nav .next-primary a{
+	color: #ffffff;
+}
+
+.next-nav li{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+li.next-us-flag {
+	width: 21px; 
+	height: 13px;
+	background: url("../assets/us-flag.png");
+	text-indent: -9999px;
+	margin: 0px 10px 0px 0px;
+}
+
+.catalog .next-search{
+	float: right;
+	margin-top: 13px;
+}
