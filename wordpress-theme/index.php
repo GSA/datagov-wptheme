@@ -170,6 +170,24 @@ $(window).load(function(){
 </script>
 
 
+<script>
+$(function () {
+  var
+    $demo = $('#rotate-stats'),
+    strings = JSON.parse($demo.attr('data-strings')).targets,
+     randomString;
+
+  randomString = function () {
+    return strings[Math.floor(Math.random() * strings.length)];
+  };
+
+  $demo.fadeTo(randomString());
+  setInterval(function () {
+    $demo.fadeTo(randomString());
+  }, 5000);
+});
+</script>
+
 <!-- End Document
 ================================================== -->
 </body>
