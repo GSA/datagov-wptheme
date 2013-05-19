@@ -276,7 +276,6 @@ li.next-us-flag {
 }
 
 .post {
-  float: left;
   margin: 0px 0px 30px 0px;
   background-color: #ffffff;
   box-shadow: 0px 2px 5px 1px #dadada;
@@ -424,24 +423,50 @@ a:visited.post{
 
 /* Smaller than standard 960 (devices and browsers) */
 	@media only screen and (max-width: 959px) {
-	
+
+		.post.medium{
+			width: 287px;
+		}	
+
 	}
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
 	@media only screen and (min-width: 768px) and (max-width: 959px) {
+	
+		.post.medium{
+			width: 287px;
+		}
+		
+		#posts{
+			width: 768px;
+		}
 	
 	
 	}
 
 	/* All Mobile Sizes (devices and browser) */
 	@media only screen and (max-width: 767px) {
+		
+		.post.medium{
+			width: 287px;
+		}
 	
 	}
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 	@media only screen and (min-width: 480px) and (max-width: 767px) {
 		
-	
+		.next-nav li{
+			display: none;
+		}
+		
+		.next-nav .next-us-flag{
+			display: block;
+		}
+		
+		.next-search .next-background{
+			width: 1365px;
+		}
 	
 	}
 
@@ -449,17 +474,31 @@ a:visited.post{
 	@media only screen and (max-width: 479px) {
 		
 		.next-header {
-			width: 479px;
+			width: 100%;
 		}
 		
-		.next-search input{
+		.next-search .next-search-input input{
 			height: 20px;
 			width: 240px;
+		}
+		
+		.next-search .next-background{
+			width: 1305px;
 		}
 		
 		.next-nav li{
 			display: none;
 		}
+		
+		div.next-top.category{
+			height: 200px;
+			margin-bottom: 30px;
+		}
+
+		div.next-header.category{
+			height: 205px;
+		}
+
 		
 		.next-nav .next-us-flag{
 			display: block;
@@ -511,13 +550,13 @@ div.toolbar{
 /* Page */
 
 .page-nav{
-	background-color: #ffffff;
+
 	width: 100%;
 	height: 38px;
 	display: block;
 	position: absolute;
 	z-index: -100;
-	border-bottom: 1px solid #e0e0e0;
+
 
 }
 
@@ -530,8 +569,8 @@ div.toolbar{
 }
 
 .page-nav-items li{
-	display: inline-block;
 	margin-right: 40px;
+	list-style-type: none;
 }
 
 .page-nav-items a{
