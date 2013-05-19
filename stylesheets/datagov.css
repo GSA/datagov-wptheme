@@ -2,6 +2,15 @@ body{
 	background: #efefef url(../assets/textured-bg.png) repeat;
 }
 
+a{
+	color: #003399;
+}
+
+.single{
+	background: #ffffff;
+}
+
+
 .posts p a{
 	color: #22629a;
 	text-decoration: none;
@@ -9,6 +18,7 @@ body{
 
 .posts p a:hover{
 	color: #22629a;
+	text-decoration: underline;
 }
 
 /* Top Section */
@@ -87,6 +97,10 @@ div.next-top.category{
 .next-nav a{
 	color: #ededed;
 	text-decoration: none;
+}
+
+.next-nav a:hover{
+	text-decoration: underline;
 }
 
 .next-nav .next-primary a{
@@ -226,6 +240,10 @@ li.next-us-flag {
 	color: #fcfcfc;
 	text-decoration: none;
 	text-transform: lowercase;
+}
+
+.next-categories a:hover{
+	text-decoration: underline;
 }
 
 .next-categories li{
@@ -499,6 +517,8 @@ div.toolbar{
 	display: block;
 	position: absolute;
 	z-index: -100;
+	border-bottom: 1px solid #e0e0e0;
+
 }
 
 .page-nav-items{
@@ -520,4 +540,23 @@ div.toolbar{
 
 .page-nav-items a:hover{
 	color: #696969;
+}
+
+/* Single Post */
+
+.single-post{
+	margin-top: 30px;
+}
+
+.single-post .title{
+	font-size: 36px;
+}
+
+.single-post .body{
+	margin-top: 20px;
+}
+
+.single-post .body h2{
+	font-size: 20px;
+	font-weight: normal;
 }
