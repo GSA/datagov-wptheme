@@ -5,7 +5,8 @@
 				</div>
 				<div class="next-stats">
 					<div class="next-background"></div>
-					<div class="next-object">120,303 datasets</div>
+					<div id="rotate-stats" class="next-object" data-strings='
+    { "targets" : ["120,303 datasets","1,830 TB of data", "Search 400 APIs", "120,303 datasets"]}'>&nbsp;</div>
 				</div>
 				<div class="next-search">
 					<div class="next-background"></div>

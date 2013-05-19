@@ -28,6 +28,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.masonry.min.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.lazyload.min.js"></script>
+	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.text.fadeto.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
