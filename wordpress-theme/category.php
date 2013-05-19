@@ -61,8 +61,8 @@
 				<!-- timestamp -->
 				<!-- topic -->
 
-
-				<?php query_posts('meta_key=community_content&meta_value=No'); ?>
+				<?php global $query_string; ?>
+				<?php query_posts( $query_string . '&meta_key=community_content&meta_value=No' ); ?>
 
 				<?php if (have_posts()) : ?>  
 				    <?php while (have_posts()) : the_post(); ?>
