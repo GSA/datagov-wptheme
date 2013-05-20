@@ -46,7 +46,7 @@
 				<!-- topic -->
 
 
-				<?php query_posts('meta_key=featured_datagov&meta_value=Yes'); ?>
+				<?php query_posts('meta_key=featured_datagov&meta_value=Yes&ignore_sticky_posts=1'); ?>
 
 				<?php if (have_posts()) : ?>  
 				    <?php while (have_posts()) : the_post(); ?>
