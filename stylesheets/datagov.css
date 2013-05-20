@@ -40,6 +40,11 @@ div.next-header.category.health{
 	background-color: #3E6B85;
 }
 
+div.next-header.category.oceans{
+	background-color: #3E6B85;
+}
+
+
 div.next-header.category.energy{
 	background-color: #83B03C;
 }
@@ -114,7 +119,7 @@ div.next-top.category{
 
 li.next-us-flag {
 	width: 21px; 
-	height: 13px;
+	height: 15px;
 	background: url("../assets/us-flag.png");
 	text-indent: -9999px;
 	margin: 0px 10px 0px 0px;
@@ -448,7 +453,7 @@ div.toolbar{
 }
 
 .blog .body img{
-	width: 560px;
+	width: 250px;
 	height: auto;
 }
 
@@ -508,6 +513,18 @@ div.toolbar{
 	font-size: 20px;
 	font-weight: normal;
 }
+
+.single-post .body h3{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.single-post .body li{
+	list-style-type: square;
+	margin-left: 18px;
+}
+
 
 
 /* Media Queries */

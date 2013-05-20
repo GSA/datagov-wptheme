@@ -137,7 +137,7 @@
 					<?php elseif (get_post_format() == ''): ?>
 
 						<!-- Content - Blog Post -->
-					    <div class="post medium blog" id="post-<?php the_ID(); ?>">  
+					    <div class="post small blog" id="post-<?php the_ID(); ?>">  
 
 							<div class="core">
 								<div class="title"><?php the_title(); ?></div>
