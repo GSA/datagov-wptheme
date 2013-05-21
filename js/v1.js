@@ -18,17 +18,17 @@ function drawData(loadedData) {
 		.attr("width", 1200)
 		.attr("height", 450);
 
-	var x = d3.scale.linear().domain([0, 8]).range([0, 400]);
+	var x = d3.scale.linear().domain([0, 8]).range([0, 500]);
 	var o = d3.scale.linear().domain([0, 650]).range([.2, 1]);
 
 	chart.selectAll("rect")
 		.data(loadedData)
 		.enter().append("rect")
 		.attr("x", function (d,i) {return i * 25;} )
-		.attr("y", function (d,i) {return 400 - x(loadedData[i].magnitude);})
+		.attr("y", function (d,i) {return 445 - x(loadedData[i].magnitude);})
 		.attr("width", 20)
 		.attr("height", function (d,i) {return x(loadedData[i].magnitude);})
-		.style("fill", "steelblue")
+		.style("fill", "white")
 		.style("fill-opacity", function (d,i) {return o(loadedData[i].depth);});
 
 }
