@@ -97,6 +97,8 @@ $(window).load(function(){
 });
 </script>
 
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/autosize.js"></script>
+
 
 <!-- End Document
 ================================================== -->
