@@ -6,17 +6,41 @@ a{
 	color: #003399;
 }
 
+.disclaimer {
+  background: #eee;
+  padding: .5em;
+  color: #fff;
+  background: rgba(0,0,0,.6);
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+.disclaimer p, .disclaimer a {color: #fff; margin-bottom: 0px;}
+.disclaimer a {margin-left: 1em; font-size: .9em;  text-decoration: none; border-bottom: 1px solid #eee; border-bottom: 1px solid rgba(255,255,255,.5);}
+
+
 .single{
 	background: #ffffff;
 }
 
 
-.posts p a{
+.author-details a, .post p a{
 	color: #22629a;
 	text-decoration: none;
 }
 
-.posts p a:hover{
+.author-details a:hover, .post p a:hover{
+	color: #22629a;
+	text-decoration: underline;
+}
+
+
+#posts .title a{
+	color: #696969;
+	text-decoration: none;
+}
+
+#posts .title a:hover{
 	color: #22629a;
 	text-decoration: underline;
 }
@@ -30,42 +54,6 @@ a{
 	position: absolute;
 	z-index: -100;
 	text-align: center;
-}
-
-div.next-header.category{
-	height: 225px;
-}
-
-div.next-header.category.health{
-	background-color: #3E6B85;
-}
-
-div.next-header.category.oceans{
-	background-color: #3E6B85;
-}
-
-div.next-header.category.agriculture{
-	background-color: #46594B;
-}
-
-div.next-header.category.development{
-	background-color: #F25757;
-}
-
-div.next-header.category.safety{
-	background-color: #D9A74A;
-}
-
-div.next-header.category.energy{
-	background-color: #83B03C;
-}
-
-div.next-header.category.finance{
-	background-color: #BD8620;
-}
-
-div.next-header.category.education{
-	background-color: #B25445;
 }
 
 .next-top{
@@ -237,6 +225,10 @@ li.next-us-flag {
 	border-top: 1px solid #e0e0e0;
 }
 
+.ui-autocomplete a, .ui-autocomplete a:hover{
+	color: #696969;
+}
+
 .ui-state-focus{
 	background-color: #eee;
 }
@@ -341,6 +333,7 @@ a:visited.post{
 .post .title{
 	font-weight: bold; 
 	font-size: 18px;
+	line-height: 22px;
 	margin-bottom: 10px;
 }
 
@@ -384,6 +377,43 @@ a:visited.post{
 	height: 30px;
 }
 
+div.next-header.category{
+	height: 225px;
+}
+
+div.next-header.category.health{
+	background-color: #3E6B85;
+}
+
+div.next-header.category.oceans{
+	background-color: #3E6B85;
+}
+
+div.next-header.category.agriculture{
+	background-color: #46594B;
+}
+
+div.next-header.category.development{
+	background-color: #603813;
+}
+
+div.next-header.category.safety{
+	background-color: #15226D;
+}
+
+div.next-header.category.energy{
+	background-color: #83B03C;
+}
+
+div.next-header.category.finance{
+	background-color: #f0ab2e;
+}
+
+div.next-header.category.education{
+	background-color: #B25445;
+}
+
+
 .corner .topic{
 	color: #8db4d3;
 }
@@ -410,11 +440,11 @@ a:visited.post{
 }
 
 .corner.finance .topic{
-	color: #BD8620;
+	color: #f0ab2e;;
 }
 
 .corner.finance .block{
-	background-color: #BD8620;
+	background-color: #f0ab2e;;
 }
 
 .corner.health .topic{
@@ -442,19 +472,19 @@ a:visited.post{
 }
 
 .corner.development .topic{
-	color: #F25757;
+	color: #603813;
 }
 
 .corner.development .block{
-	background-color: #F25757;
+	background-color: #603813;
 }
 
 .corner.safety .topic{
-	color: #D9A74A;
+	color: #15226D;
 }
 
 .corner.safety .block{
-	background-color: #D9A74A;
+	background-color: #15226D;
 }
 
 
@@ -563,6 +593,7 @@ div.toolbar{
 
 .single-post .title{
 	font-size: 36px;
+	line-height: 40px;
 }
 
 .single-post .body{
