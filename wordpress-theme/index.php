@@ -9,12 +9,18 @@
 
 <body>
 
+	<div class="banner disclaimer">
+	<p>This is a preview of the future direction of Data.gov. <span> <a href="https://twitter.com/ProjectOpenData"><b>Tweet us</b> with feedback.</a></span></p>
+	</div>
 
 
 	<!-- Header Background Color, Image, or Visualization
 	================================================== -->
 	
 	<div class="next-header">
+
+		<div id="data-viz"></div>
+
 	</div>
 
 
@@ -104,7 +110,7 @@
 								<div class="lead-image"><a href="<?php the_field('link_to_dataset'); ?>"><img class="scale-with-grid" src="<?php the_field('dataset_image'); ?>"></a></div>
 							</div>
 							<div class="core">
-								<div class="title"><?php the_title(); ?></div>
+								<div class="title"><a href="<?php the_field('link_to_dataset'); ?>"><?php the_title(); ?></a></div>
 								<div class="body">
 									<?php the_content('Read the rest of this entry »'); ?>
 								</div>
@@ -124,13 +130,13 @@
 					    <div class="post small blog" id="post-<?php the_ID(); ?>">  
 
 							<div class="core">
-								<div class="title"><?php the_title(); ?></div>
+								<div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 								<div class="body">
 									<?php the_content('Read the rest of this entry »'); ?>  
 								</div>
 							</div>
 							<div class="meta">
-								<div class="timestamp"><a href="<?php the_permalink(); ?>"><?php the_time('F jS, Y') ?></a></div>
+								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
 								<div class="corner <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 									<div class="block"></div>
 									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
@@ -187,6 +193,9 @@ $(function () {
   }, 5000);
 });
 </script>
+
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/v1.js"></script>
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/autosize.js"></script>
 
 <!-- End Document
 ================================================== -->
