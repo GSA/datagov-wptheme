@@ -26,9 +26,12 @@
   ================================================== -->
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.masonry.min.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.lazyload.min.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.text.fadeto.js"></script>
+	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/autocomplete.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
