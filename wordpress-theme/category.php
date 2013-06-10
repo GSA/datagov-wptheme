@@ -140,13 +140,13 @@
 					    <div class="post small blog" id="post-<?php the_ID(); ?>">  
 
 							<div class="core">
-								<div class="title"><?php the_title(); ?></div>
+								<div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 								<div class="body">
 									<?php the_content('Read the rest of this entry »'); ?>  
 								</div>
 							</div>
 							<div class="meta">
-								<div class="timestamp"><a href="<?php the_permalink(); ?>"><?php the_time('F jS, Y') ?></a></div>
+								<div class="timestamp"><?php the_time('F jS, Y') ?></div>
 								<div class="corner <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 									<div class="block"></div>
 									<div class="topic"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></div>
