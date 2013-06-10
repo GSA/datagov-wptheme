@@ -15,7 +15,7 @@ a{
   text-align: center;
 }
 
-.disclaimer p, a {color: #fff; margin-bottom: 0px;}
+.disclaimer p, .disclaimer a {color: #fff; margin-bottom: 0px;}
 .disclaimer a {margin-left: 1em; font-size: .9em;  text-decoration: none; border-bottom: 1px solid #eee; border-bottom: 1px solid rgba(255,255,255,.5);}
 
 
@@ -24,15 +24,16 @@ a{
 }
 
 
-.author-details a, .posts p a{
+.author-details a, .post p a{
 	color: #22629a;
 	text-decoration: none;
 }
 
-.author-details a:hover, .posts p a:hover{
+.author-details a:hover, .post p a:hover{
 	color: #22629a;
 	text-decoration: underline;
 }
+
 
 #posts .title a{
 	color: #696969;
@@ -222,6 +223,10 @@ li.next-us-flag {
 	padding-top: 10px;
 	padding-bottom: 1px;
 	border-top: 1px solid #e0e0e0;
+}
+
+.ui-autocomplete a, .ui-autocomplete a:hover{
+	color: #696969;
 }
 
 .ui-state-focus{
