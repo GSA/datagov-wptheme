@@ -34,7 +34,7 @@
 							<li><a href="finance">Finance</a></li>
 							<li><a href="development">Global Development</a></li>
 							<li><a href="health">Health</a></li>
-							<li><a href="health">Research</a></li>
+							<li><a href="research">Research</a></li>
 							<li><a href="safety">Safety</a></li>
 							<li><a href="#">all communities</a></li>
 						</ul>
