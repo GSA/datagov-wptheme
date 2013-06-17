@@ -10,7 +10,7 @@
 <body>
 
 	<div class="banner disclaimer">
-	<p>This is a preview of the future direction of Data.gov. <span> <a href="https://twitter.com/ProjectOpenData"><b>Help shape it.</b></a></span></p>
+	<p>This is a preview of the future direction of Data.gov. <span> Give us your feedback on <a href="https://twitter.com/ProjectOpenData">Twitter</a> or <a href="http://quora.com">Quora</a></span></p>
 	</div>
 
 
