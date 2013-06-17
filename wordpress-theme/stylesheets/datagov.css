@@ -29,7 +29,7 @@ a{
 	text-decoration: none;
 }
 
-.author-details a:hover, .post p a:hover{
+.author-details a:hover, .post p a:hover, .author-details a:focus, .post p a:focus, .author-details a:active, .post p a:active{
 	color: #22629a;
 	text-decoration: underline;
 }
@@ -40,9 +40,16 @@ a{
 	text-decoration: none;
 }
 
-#posts .title a:hover{
+#posts .title a:hover, #posts .title a:active{
 	color: #22629a;
 	text-decoration: underline;
+}
+
+#posts .title a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
 }
 
 /* Top Section */
@@ -103,13 +110,29 @@ div.next-top.category{
 	text-decoration: none;
 }
 
-.next-nav a:hover{
+.next-nav a:hover, .next-nav a:active{
 	text-decoration: underline;
 }
+
+.next-nav a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
+}
+
 
 .next-nav .next-primary a{
 	color: #ffffff;
 }
+
+.next-nav .next-primary a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
+}
+
 
 .next-nav li{
 	display: inline-block;
@@ -266,8 +289,15 @@ li.next-us-flag {
 	text-transform: lowercase;
 }
 
-.next-categories a:hover{
+.next-categories a:hover, .next-categories a:active{
 	text-decoration: underline;
+}
+
+.next-categories a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
 }
 
 .next-categories li{
