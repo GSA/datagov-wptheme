@@ -17,7 +17,12 @@ a{
 
 .disclaimer p, .disclaimer a {color: #fff; margin-bottom: 0px;}
 .disclaimer a {font-size: .9em;  text-decoration: none; border-bottom: 1px solid #eee; border-bottom: 1px solid rgba(255,255,255,.5);}
-
+.disclaimer a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
+}
 
 .single{
 	background: #ffffff;
