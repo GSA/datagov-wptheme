@@ -36,8 +36,14 @@
 							<li><a href="health">Health</a></li>
 							<li><a href="research">Research</a></li>
 							<li><a href="safety">Safety</a></li>
-							<li><a href="#">all communities</a></li>
+							<li><a href="#" onclick="comingSoon()">all communities</a></li>
 						</ul>
 					</div>
 				</div>
 			</div> <!-- sixteen columns -->
+
+				<script>
+		function comingSoon(){
+			alert("This functionality coming soon.");
+		}
+		</script>
