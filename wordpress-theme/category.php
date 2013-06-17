@@ -74,7 +74,7 @@
 							<div class="core">
 								<div class="tweet-author">
 									<div class="author-image">
-										<img src="<?php the_field('twitter_photo'); ?>" height="40" width="40">
+										<img alt="" src="<?php the_field('twitter_photo'); ?>" height="40" width="40">
 									</div>
 									<div class="author-details">
 										<?php the_field('persons_name'); ?> - <a href="<?php the_field('link_to_tweet'); ?>">@<?php the_field('twitter_handle'); ?></a>
