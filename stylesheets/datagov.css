@@ -466,6 +466,13 @@ div.next-header.category.education{
 	color: #8db4d3;
 }
 
+.corner .topic a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
+}
+
 .corner .block{
 	background-color: #8db4d3;
 }

@@ -34,6 +34,24 @@ a{
 	text-decoration: underline;
 }
 
+.author-details a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
+}
+
+.post p a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
+}
+
+.post p img a:focus{
+	border: 3px solid #fcf8c3;
+}
+
 
 #posts .title a{
 	color: #696969;
@@ -446,6 +464,13 @@ div.next-header.category.education{
 
 .corner .topic{
 	color: #8db4d3;
+}
+
+.corner .topic a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
 }
 
 .corner .block{
