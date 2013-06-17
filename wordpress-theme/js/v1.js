@@ -1,36 +1,96 @@
-var viz = d3.select("#viz"),
-	width = 1000,
-	height = 200,
-	xRange = d3.scale.linear().range([0,1200]).domain([0,400]),
-	yRange = d3.scale.linear().range([0,200]).domain([0,400]);
+var x = d3.scale.linear().domain([0, 8]).range([0, 300]);
+var o = d3.scale.linear().domain([0, 650]).range([.2, 1]);
 
+var latRange = d3.scale.linear().domain([-90,90]).range([0,600]);
+var longRange = d3.scale.linear().domain([-180,180]).range([0,1200]);
+var magRange = d3.scale.linear().domain([0.01,8]).range([1,7]);
+var magColor = d3.scale.linear().domain([0.01,8]).range(['dark-grey','red']);
+
+var globalData;
+
+
+//	d3.csv("http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/1.0_week.csv")
 
 function loadData(){
-	d3.csv("http://54.225.112.145/wp-content/themes/datagov-may20h/assets/earthquakes.csv")
-			.row(function(d){ return {depth: +d.Depth, magnitude: +d.Magnitude};})
-			.get(function(error, rows) {console.log(rows); drawData(rows);});
+	d3.csv("http://54.225.112.145/wp-content/themes/datagov-jun13a/assets/earthquakes.csv")
+			.row(function(d){ return {latitude: +d.Latitude, longitude: +d.Longitude, depth: +d.Depth, magnitude: +d.Magnitude};})
+			.get(function(error, rows) {drawData(rows);});
 }
 
 function drawData(loadedData) {
 
+	globalData = loadedData;
+
 	var chart = d3.select("#data-viz").append("svg")
-		.attr("class", "chart")
 		.attr("width", 1200)
-		.attr("height", 450);
+		.attr("height", 450)
+		.attr("class", "chart");
 
-	var x = d3.scale.linear().domain([0, 8]).range([0, 500]);
-	var o = d3.scale.linear().domain([0, 650]).range([.2, 1]);
+	/* chart.selectAll("circle")
+		.data(loadedData)
+		.enter().insert("svg:circle")
+			.attr("cx", function (d,i) {return longRange(d.longitude);})
+			.attr("cy", function (d,i) {return latRange(-1 * d.latitude);})
+			.attr("r", function (d,i) {return magRange(d.magnitude);})
+			.style("fill-opacity", 0.6)
+			.style("fill", function (d,i) { return magColor(d.magnitude)})
+			.on("mouseover", function (d,i) { 
+				d3.select(this)
+					.transition()
+					.delay(0)
+					.duration(300)
+					.attr("r", function (d,i) {return 5 * magRange(d.magnitude);});})
+			.on("mouseout", function (d,i){
+				d3.select(this)
+				.transition()
+				.delay(100)
+				.duration(200)
+				.attr("r", function (d,i) {return magRange(d.magnitude);} );
+			}); */
 
-	chart.selectAll("rect")
+		chart.selectAll("rect")
 		.data(loadedData)
 		.enter().append("rect")
-		.attr("x", function (d,i) {return i * 25;} )
-		.attr("y", function (d,i) {return 445 - x(loadedData[i].magnitude);})
-		.attr("width", 20)
-		.attr("height", function (d,i) {return x(loadedData[i].magnitude);})
-		.style("fill", "white")
-		.style("fill-opacity", function (d,i) {return o(loadedData[i].depth);});
+			.attr("x", function (d,i) {return i * 5;} )
+			.attr("y", function (d,i) {return 225 - x(loadedData[i].magnitude);})
+			.attr("width", 2)
+			.attr("height", function (d,i) {return 2 * x(loadedData[i].magnitude);})
+			.style("fill", "white")
+			.style("fill-opacity", function (d,i) {return o(loadedData[i].depth);})
+		.on("mouseover", function (d,i) {
+			d3.select(this)
+				.transition()
+				.delay(0)
+				.duration(300)
+				.style("fill-opacity", .8);
+		})
+		.on("mouseout", function (d,i) {
+			d3.select(this)
+				.transition()
+				.delay(200)
+				.duration(1000)
+				.style("fill-opacity", function (d,i) {return o(loadedData[i].depth);})
+		})
+		;
 
+
+
+}
+
+function scaleCircle(){
+	d3.select(this)
+		.transition()
+		.delay(0)
+		.duration(300)
+		.attr("r", 20);
+}
+
+function shrinkCircle(d,i){
+	d3.select(this)
+		.transition()
+		.delay(0)
+		.duration(300)
+		.attr("r", 10);
 }
 
 function update() {
@@ -81,4 +141,3 @@ function randomRange (min, max) {
 }
 
 loadData();
-update();
