@@ -120,7 +120,7 @@
 								<div class="lead-image"><a href="<?php the_field('link_to_dataset'); ?>"><img class="scale-with-grid" src="<?php the_field('dataset_image'); ?>"></a></div>
 							</div>
 							<div class="core">
-								<div class="title"><?php the_title(); ?></div>
+								<div class="title"><a href="<?php the_field('link_to_dataset'); ?>"><?php the_title(); ?></a></div>
 								<div class="body">
 									<?php the_content('Read the rest of this entry »'); ?>
 								</div>
