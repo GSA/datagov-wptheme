@@ -116,3 +116,7 @@ li.nav-item{
 div.toolbar{
 	display: none;
 }
+
+.prose h3{
+	font-size: 18px;
+}
