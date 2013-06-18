@@ -86,6 +86,7 @@ a{
 	position: absolute;
 	z-index: -100;
 	text-align: center;
+	overflow-x: hidden;
 }
 
 .next-top{
