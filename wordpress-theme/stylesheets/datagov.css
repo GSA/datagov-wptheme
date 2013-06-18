@@ -260,6 +260,22 @@ li.next-us-flag {
 	border: 0px;
 }
 
+#next-search-submit{
+	position: absolute; 
+	left: -9999px; 
+	width: 1px; 
+	height: 1px;"
+}
+
+.hddn{
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+}
+
+
 .ui-helper-hidden-accessible{
 	display: none;
 }

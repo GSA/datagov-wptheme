@@ -14,8 +14,9 @@
 						</div>
 						<div class="next-search-input">
 							<form method="get" action="http://54.225.111.163/dataset">
-	  							<input id="tags" class="next" name="q" type="text" />
-								<input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+								<label for="search-textbox" class="hddn" title="Search Data.gov">Search Data.gov</label>
+	  							<input id="search-textbox" class="next" name="q" type="text" />
+								<input id="next-search-submit" type="submit" />
 							</form>
 	  					</div>
   					</div>

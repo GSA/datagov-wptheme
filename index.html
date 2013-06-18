@@ -87,7 +87,7 @@
 	      "Scala",
 	      "Scheme"
 	    ];
-	    $( "#tags" ).autocomplete({
+	    $( "#search-textbox" ).autocomplete({
 	      source: availableTags
 	    });
 	  });
@@ -156,8 +156,9 @@
 						</div>
 						<div class="next-search-input">
 							<form method="get" action="http://54.225.111.163/dataset">
-	  							<input id="tags" class="next" name="q" type="text" />
-								<input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+								<label for="search-textbox" class="hddn" title="Search Data.gov">Search Data.gov</label>
+	  							<input id="search-textbox" class="next" name="q" type="text" />
+								<input id="next-search-submit" type="submit" />
 							</form>
 	  					</div>
   					</div>
@@ -285,10 +286,10 @@
 			</div> <!-- sixteen columns -->
 
 			<div class="sixteen columns footer">
-				<div class="eight columns alpha">
+				<div class="twelve columns alpha">
 					<p><a href="#">Accessibility</a> <a href="#">Data Policy</a> <a href="#">Privacy Policy</a> <a href="https://github.com/GSA/datagov-design/">Improve this site</a></p>
 				</div>
-				<div class="eight columns omega right-align">
+				<div class="four columns omega right-align">
 					<p>Next.Data.Gov</p>
 				</div>
 			</div>

@@ -1,29 +1,15 @@
 $(function() {
 var availableTags = [
-  "ActionScript",
-  "AppleScript",
-  "Asp",
-  "BASIC",
-  "C",
-  "C++",
-  "Clojure",
-  "COBOL",
-  "ColdFusion",
-  "Erlang",
-  "Fortran",
-  "Groovy",
-  "Haskell",
-  "Java",
-  "JavaScript",
-  "Lisp",
-  "Perl",
-  "PHP",
-  "Python",
-  "Ruby",
-  "Scala",
-  "Scheme"
+  "education",
+  "health",
+  "finance",
+  "development",
+  "energy",
+  "schools",
+  "hospital quality scores",
+  "charge data"
 ];
-$( "#tags" ).autocomplete({
+$( "#search-textbox" ).autocomplete({
   source: availableTags
 });
 });
