@@ -6,6 +6,8 @@ a{
 	color: #003399;
 }
 
+
+
 .disclaimer {
   background: #eee;
   padding: .5em;
@@ -676,6 +678,29 @@ div.toolbar{
 	margin-left: 18px;
 }
 
+.footer{
+	border-top: 1px solid #cecece;
+	margin-top: 10px;
+	padding-top: 10px;
+	font-weight: normal; 
+	font-family: 'Abel', Helvetica, sans-serif;  
+	text-transform: uppercase;
+}
+
+.footer a{
+	margin-right: 20px;
+}
+
+.footer a:focus{
+	color: #22629a;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+	background-color: #fcf8c3;
+}
+
+.right-align{
+	text-align: right;
+}
 
 
 /* Media Queries */

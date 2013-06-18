@@ -158,6 +158,8 @@
 			</div> <!-- posts -->
 			</div> <!-- sixteen columns -->
 
+			<?php get_template_part('footer'); ?>
+
 		</div> <!-- content -->
 
 	</div><!-- container -->
