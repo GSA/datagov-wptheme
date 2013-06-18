@@ -46,6 +46,7 @@ a{
 	position: fixed;
 	top: 0;
 	right: 80px;
+	display: none;
 }
 
 /* Navigation */
