@@ -12,7 +12,7 @@ var globalData;
 //	d3.csv("http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/1.0_week.csv")
 
 function loadData(){
-	d3.csv("http://54.225.112.145/wp-content/themes/datagov-jun13a/assets/earthquakes.csv")
+	d3.csv("earthquakes.csv")
 			.row(function(d){ return {latitude: +d.Latitude, longitude: +d.Longitude, depth: +d.Depth, magnitude: +d.Magnitude};})
 			.get(function(error, rows) {drawData(rows);});
 }
@@ -52,29 +52,29 @@ function drawData(loadedData) {
 		.data(loadedData)
 		.enter().append("rect")
 			.attr("x", function (d,i) {return i * 5;} )
-			.attr("y", function (d,i) {return 225 - x(loadedData[i].magnitude);})
+			.attr("y", function (d,i) {return 250 - x(loadedData[i].magnitude);})
 			.attr("width", 2)
 			.attr("height", function (d,i) {return 2 * x(loadedData[i].magnitude);})
 			.style("fill", "white")
 			.style("fill-opacity", function (d,i) {return o(loadedData[i].depth);})
-		.on("mouseover", function (d,i) {
-			d3.select(this)
-				.transition()
-				.delay(0)
-				.duration(300)
-				.style("fill-opacity", .8);
-		})
-		.on("mouseout", function (d,i) {
-			d3.select(this)
-				.transition()
-				.delay(200)
-				.duration(1000)
-				.style("fill-opacity", function (d,i) {return o(loadedData[i].depth);})
-		})
 		;
 
+		updateBars()
+}
 
+function updateBars(){
 
+	d3.select("#data-viz").selectAll("rect")
+		.data(globalData)
+		.transition()
+			.duration(1000)
+			.attr("y", function (d,i) {return 250 - x(globalData[i].magnitude + Math.random());})
+			.attr("height", function (d,i) {return (2 * (x(globalData[i].magnitude + Math.random())));})
+		;
+
+	console.log("Updating Bars");
+
+	setTimeout (updateBars, 800);
 }
 
 function scaleCircle(){
