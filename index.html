@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="stylesheets/skeleton.css">
 	<link rel="stylesheet" href="stylesheets/layout.css">
 	<link rel="stylesheet" href="stylesheets/datagov.css">
+	<link rel=" stylesheet" type="text/css" href="stylesheets/joyride-2.1.css">
 
 
 	<link href='http://fonts.googleapis.com/css?family=Abel|Lato:100,300,400,700' rel='stylesheet' type='text/css'>
@@ -30,13 +31,12 @@
 	<!-- JavaScript
   ================================================== -->
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="js/jquery.masonry.min.js"></script>
 	<script src="js/jquery.lazyload.min.js"></script>
 	<script src="js/jquery.text.fadeto.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
 	
 
 	<!--[if lt IE 9]>
@@ -298,6 +298,22 @@
 
 	</div><!-- container -->
 
+
+<ol id="joyRideTipContent" data-joyride>
+  <li data-id="next-logo-title" data-text="Next">
+		<h2>Stop #1</h2>
+        <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
+  </li>
+  <li data-id="search-textbox">
+  		<h2>Stop #2</h2>
+        <p>Get the details right by styling Joyride with a custom stylesheet!</p>
+  </li>
+</ol>
+
+<script src="js/jquery.joyride-2.1.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/modernizr.mq.js"></script>
+
 <script>
 $(window).load(function(){
   $('#posts').masonry({
@@ -308,6 +324,11 @@ $(window).load(function(){
     isAnimated: true,
     gutterWidth: 25
   });
+
+  $("#joyRideTipContent").joyride({
+      autoStart: true,
+      modal: true
+    });
 });
 </script>
 
@@ -329,7 +350,7 @@ $(function () {
 });
 </script>
 
-<script src="js/v1.js"></script>
+<!-- <script src="js/v1.js"></script> -->
 
 	  <script>
 
@@ -340,9 +361,7 @@ $(function () {
 
 	  $('#next-logo-title-bg').css({'width': calcWidth});
 
-	  alert(y);
-
-	  </script>
+</script>
 
 
 <!-- End Document
