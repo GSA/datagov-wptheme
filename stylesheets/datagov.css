@@ -87,6 +87,7 @@ a{
 	z-index: -100;
 	text-align: center;
 	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 .next-top{
