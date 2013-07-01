@@ -12,7 +12,7 @@ var globalData;
 //	d3.csv("http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/1.0_week.csv")
 
 function loadData(){
-	d3.csv("http://54.225.112.145/wp-content/themes/datagov-jun13a/assets/earthquakes.csv")
+	d3.csv("http://next.data.gov/wp-content/themes/datagov-jun13a/assets/earthquakes.csv")
 			.row(function(d){ return {latitude: +d.Latitude, longitude: +d.Longitude, depth: +d.Depth, magnitude: +d.Magnitude};})
 			.get(function(error, rows) {drawData(rows);});
 }
