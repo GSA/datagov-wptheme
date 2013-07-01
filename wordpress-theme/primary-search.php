@@ -32,7 +32,7 @@
 						<ul>
 							<li><a href="education">Education</a></li>
 							<li><a href="energy">Energy</a></li>
-							<li><a href="finance">Finance</a></li>
+							<li><a href="#" onclick="comingSoonCommunity()">Finance</a></li>
 							<li><a href="development">Global Development</a></li>
 							<li><a href="health">Health</a></li>
 							<li><a href="research">Research</a></li>
@@ -46,5 +46,11 @@
 				<script>
 		function comingSoon(){
 			alert("This functionality coming soon.");
+		}
+		</script>
+
+						<script>
+		function comingSoonCommunity(){
+			alert("This community is coming soon.");
 		}
 		</script>
