@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/stylesheets/skeleton.css">
 	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/stylesheets/layout.css">
 	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/stylesheets/datagov.css">
+	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/stylesheets/joyride-2.1.css">
 
 
 	<link href='http://fonts.googleapis.com/css?family=Abel|Lato:100,300,400,700' rel='stylesheet' type='text/css'>
@@ -25,7 +26,7 @@
 	<!-- JavaScript
   ================================================== -->
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.masonry.min.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.lazyload.min.js"></script>

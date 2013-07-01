@@ -34,7 +34,7 @@
 							<li><a href="energy">Energy</a></li>
 							<li><a href="#" onclick="comingSoonCommunity()">Finance</a></li>
 							<li><a href="development">Global Development</a></li>
-							<li><a href="health">Health</a></li>
+							<li id="stop3"><a href="health">Health</a></li>
 							<li><a href="research">Research</a></li>
 							<li><a href="safety">Safety</a></li>
 							<li><a href="#" onclick="comingSoon()">all communities</a></li>

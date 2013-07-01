@@ -10,7 +10,7 @@
 <body>
 
 	<div class="banner disclaimer">
-	<p>This is a demonstration site exploring the future of Data.gov. <span> Give us your feedback on <a href="https://twitter.com/ProjectOpenData">Twitter</a> or <a href="http://quora.com">Quora</a></span></p>
+	<p>This is a demonstration site exploring the future of Data.gov. <span id="stop-disclaimer"> Give us your feedback on <a href="https://twitter.com/ProjectOpenData">Twitter</a> or <a href="http://quora.com">Quora</a></span></p>
 	</div>
 
 
@@ -164,6 +164,33 @@
 
 	</div><!-- container -->
 
+<ol id="joyRideTipContent" data-joyride>
+  <li data-id="next-logo-title">
+		<h2>Early Preview</h2>
+        <p>This is an early look at the future of Data.gov. The new experience showcases the wide range of information assets that exist within the federal government. We are actively making changes, so pardon the dust.</p>
+  </li>
+  <li data-id="search-textbox">
+  		<h2>Search</h2>
+        <p>Explore datasets from agencies across the federal government following the <a href="http://www.whitehouse.gov/the-press-office/2013/05/09/executive-order-making-open-and-machine-readable-new-default-government-">Open Data Executive Order</a>. Agencies that have successfully published their <a href="http://project-open-data.github.io/schema/">common core metadata</a> will appear in the search results. If you can't find what you are looking for, please visit <a href="http://data.gov">http://data.gov</a>.</p>
+  </li>
+  <li data-id="stop3">
+  		<h2>Data Communities</h2>
+        <p>You'll find resources on a wide range of topics from education to health. See examples of how companies across the US are using these datasets.</p>
+  </li>
+  <li data-id="posts" data-options="tipLocation:top;">
+  		<h2>Rich Stream</h2>
+        <p>Across Next.Data.Gov you will see rich streams that enable the Data.gov community to publish blog posts, feature tweets, highlight quotes in publications, and feature datasets.</p>
+  </li>
+  <li data-id="stop-disclaimer" data-text="Explore Next.Data.Gov">
+  		<h2>Your Voice</h2>
+        <p>Help shape the future of Data.Gov. <a href="#">Tell us what you think</a>. If you are a developer, <a href="#">contribute via GitHub</a>.</p>
+  </li>
+</ol>
+
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.joyride-2.1.js"></script>
+<script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/modernizr.mq.js"></script>
+
 <script>
 $(window).load(function(){
   $('#posts').masonry({
@@ -174,6 +201,14 @@ $(window).load(function(){
     isAnimated: true,
     gutterWidth: 25
   });
+
+  $("#joyRideTipContent").joyride({
+      autoStart: true,
+      modal: true,
+      cookieMonster: true,
+      cookieName: 'datagov',
+      cookieDomain: 'next.data.gov'
+    });
 });
 </script>
 
