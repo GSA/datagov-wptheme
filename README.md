@@ -1,8 +1,8 @@
 Next.Data.gov
 ==============
-We built Next.Data.Gov using new tools. This project tapped into two very active open source projects: WordPress and CKAN. The content and community sections of Next.Data.Gov are powered by WordPress. The data catalog is powered by CKAN. 
+We built [Next.Data.gov](http://next.data.gov) using new tools. This project tapped into two very active open source projects: [WordPress](http://wordpress.org) and [CKAN](http://ckan.org). The content and community sections of Next.Data.gov are powered by WordPress. The data catalog is powered by CKAN. 
 
-This repository contains the HTML and WordPress template files for the content and community sections.
+This repository contains the HTML and WordPress template files for the content and community sections. The repository for the CKAN extensions will be published shortly.
 
 #HTML
 This directory contains HTML, CSS, and JavaScript that embodies the design for Next.Data.gov.
