@@ -121,3 +121,24 @@ div.toolbar{
 .prose h3{
 	font-size: 18px;
 }
+
+.catalog-disclaimer{
+  font-size: 13px;
+  padding: 10px 15px 10px 15px;
+  background-color: #f3dd95;
+  border: 1px solid #d4bf80;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background-image: -ms-linear-gradient(top, #FEECBD 0%, #F3DC94 100%);
+  background-image: -moz-linear-gradient(top, #FEECBD 0%, #F3DC94 100%);
+  background-image: -o-linear-gradient(top, #FEECBD 0%, #F3DC94 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FEECBD), color-stop(1, #F3DC94));
+  background-image: -webkit-linear-gradient(top, #FEECBD 0%, #F3DC94 100%);
+  background-image: linear-gradient(to bottom, #FEECBD 0%, #F3DC94 100%);
+}
+
+.catalog-disclaimer b{
+  font-weight: bold;
+}
+
