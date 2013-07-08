@@ -227,7 +227,7 @@ $(function () {
   $demo.fadeTo(randomString());
   setInterval(function () {
     $demo.fadeTo(randomString());
-  }, 5000);
+  }, 15000);
 });
 </script>
 

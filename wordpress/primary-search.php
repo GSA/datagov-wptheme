@@ -6,7 +6,7 @@
 				<div class="next-stats">
 					<div class="next-background"></div>
 					<div id="rotate-stats" class="next-object" data-strings='
-    { "targets" : ["75,714 datasets", "Search 100 APIs", "75,714 datasets", "CKAN Powered"]}'>&nbsp;</div>
+    { "targets" : ["75,714 datasets", "Search 100 APIs", "CKAN Powered"]}'>&nbsp;</div>
 				</div>
 				<div class="next-search">
 					<div class="next-background"></div>
