@@ -13,7 +13,7 @@
 							<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/search.png">
 						</div>
 						<div class="next-search-input">
-							<form method="get" action="http://54.225.111.163/dataset">
+							<form method="get" action="http://catalog-next.data.gov/dataset">
 								<label for="search-textbox" class="hddn" title="Search Data.gov">Search Data.gov</label>
 	  							<input id="search-textbox" role="search" class="next" name="q" type="text" />
 								<input id="next-search-submit" type="submit" />
