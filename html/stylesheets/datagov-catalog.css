@@ -2,6 +2,10 @@ body{
 	background: #efefef url(../assets/textured-bg.png) repeat;
 }
 
+body.catalog{
+	background: #efefef url(../assets/textured-bg.png) repeat;
+}
+
 .container{ position: relative; width: 940px; margin: 0 auto; padding: 0; }
 
 
