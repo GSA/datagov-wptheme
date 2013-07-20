@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-
-
-<?php get_template_part('header'); ?>
-
-<body class="single">
+<?php get_header(); ?>
 
 
 	<div class="banner disclaimer">
@@ -84,29 +75,4 @@
 
 			</div> <!-- sixteen columns -->
 
-		</div> <!-- content -->
-
-	</div><!-- container -->
-
-<script>
-$(window).load(function(){
-  $('#posts').masonry({
-    // options
-    columnWidth: 287,
-    itemSelector : '.post',
-    isResizable: true,
-    isAnimated: true,
-    gutterWidth: 25
-  });
-});
-</script>
-
-<script src="<?php echo get_bloginfo('template_directory'); ?>/js/autosize.js"></script>
-
-
-<!-- End Document
-================================================== -->
-</body>
-
-
-</html>
+<?php get_footer(); ?>
