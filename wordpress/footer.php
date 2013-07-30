@@ -14,6 +14,7 @@
 
 	</div><!-- container -->
 
+	<?php if (is_home()) : ?>
 <ol id="joyRideTipContent" data-joyride>
   <li data-id="next-logo-title">
 		<h2>Early Preview</h2>
@@ -36,6 +37,7 @@
         <p>Help shape the future of Data.Gov. <a href="#">Tell us what you think</a>. If you are a developer, <a href="#">contribute via GitHub</a>.</p>
   </li>
 </ol>
+<?php endif; ?>
 
 <!-- End Document
 ================================================== -->
