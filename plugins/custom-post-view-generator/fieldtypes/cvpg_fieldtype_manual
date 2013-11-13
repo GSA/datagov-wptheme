@@ -1,0 +1,90 @@
+<?php
+//CLASSNAME MUST HAVE THE SAME NAME OF THE FILENAME
+class cpvg_testtype{
+	/*
+	 * FUNCTION THAT WILL DISPLAY OPTIONS ON THE ADMINISTRATION PAGE (MANDATORY)
+	 */
+    public function adminProperties() {
+		/*
+		 MANDATORY: PARAMETER ARRAY MUST HAVE KEY AND KEY MUST HAVE THE SAME NAME AS THE CLASS
+		 MANDATORY: PARAMETER ARRAY MUST HAVE AT THE LABEL
+		 OPTIONAL: CAN HAVE AT LEAST 4 OPTIONS ARRAYS THE WILL DISPLAYED AS DROPDOWN BOXES IN THE ADMINISTRATION WHEN THIS TYPE IS SELECTED.
+
+		 MINIMUM EXAMPLE:
+		 return array('cpvg_testtype' => array('label'=>'Test Type'));
+
+		 COMPLEX EXAMPLE:
+		 $output_options1 = array('key11'=>'value11','key12'=>'value12');
+		 $output_options2 = array('key21'=>'value21','key22'=>'value22');
+		 $output_options3 = array('key31'=>'value31','key32'=>'value32');
+		 $output_options4 = array('key41'=>'value41','key42'=>'value42');
+
+		 return array('cpvg_testtype' => array('label'=>'Test Type',
+											   'options'=>array($output_options1,
+																$output_options2,
+																$output_options3,
+																$output_options4)));*/
+    }
+
+ 	/*
+	 * FUNCTION THAT WILL PROCESS THE VALUE IN THE FRONTED (MANDATORY)
+	 */
+    public function processValue($value='NOT_SET',$output_options='',$additional_data) {
+		/*
+		$value - VAR THAT CONTAINS THE VALUE. WHEN IS NOT_SET MEANS THIS FUNCTION IS BEING CALLED FROM THE PREVIEW BUTON.
+		$output_options - ARRAY WITH THE OUTPUT OPTIONS SELECTED BY THE USER
+		$additional_data - CONTAINS DATA FROM SPECIFIC CUSTOM POST TYPE PLUGINS. NOT NECESSARY FOR THE MAJORITY OF FIELD TYPES.
+
+		MINIMUM EXAMPLE:
+		if($value=='NOT_SET'){
+			//EXAMPLE VALUE FOR THE PREVIEW
+			return "FIELDTYPE EXAMPE";
+		}else{
+			//DO STUFF
+			return $value;
+		}
+
+		COMPLEX EXAMPLE:
+		if($value=='NOT_SET'){
+			//DO STUFF
+			return "FIELDTYPE EXAMPE";
+		}else{
+			//PROCESS VALUE
+			switch($output_options[1]){
+				case 'key11': //DO STUFF
+					break;
+				case 'key12': //DO STUFF
+					break;
+				default: //DO STUFF
+					break;
+			}
+			switch($output_options[2]){
+				case 'key21': //DO STUFF
+					break;
+				case 'key22': //DO STUFF
+					break;
+				default: //DO STUFF
+					break;
+			}
+			switch($output_options[3]){
+				case 'key31': //DO STUFF
+					break;
+				case 'key32': //DO STUFF
+					break;
+				default: //DO STUFF
+					break;
+			}
+			switch($output_options[4]){
+				case 'key41': //DO STUFF
+					break;
+				case 'key42': //DO STUFF
+					break;
+				default: //DO STUFF
+					break;
+			}
+			return $value;
+		}
+		*/
+	}
+}
+?>

@@ -1,0 +1,22 @@
+{
+	"header": {
+		"hu": "Elutas\u00edtott azonos\u00edt\u00e1si m\u00f3d",
+		"sv": "Felaktig autentiseringsteknik",
+		"nn": "Feil innloggingsmetode",
+		"da": "Forkert authentication context",
+		"fr": "Contexte d'authentification \u00e9rron\u00e9",
+		"et": "Vale autentimiskontekst",
+		"lt": "Neteisingas autentifikacijos kontekstas",
+		"sr": "Pogre\u0161an kontekst za autentifikaciju"
+	},
+	"description": {
+		"hu": "A m\u00f3d, ahogyan azonos\u00edtott t\u00e9ged a szem\u00e9lyazonoss\u00e1g szolg\u00e1ltat\u00f3d, nem elfogadott enn\u00e9l a szolg\u00e1ltat\u00e1sn\u00e1l. Val\u00f3sz\u00edn\u0171leg t\u00fal gyenge, vagy nem k\u00e9tfaktoros.",
+		"sv": "Din autentiseringsteknik \u00e4r inte godk\u00e4nd av denna tj\u00e4nst, troligen \u00e4r den f\u00f6r svag eller \u00e4r inte en tv\u00e5-faktorsteknik.",
+		"nn": "Du pr\u00f8ver \u00e5 logga inn med ein innloggingsmetode som ikkje er st\u00f8tta i tenesta. Truleg er autentiseringsniv\u00e5iet for l\u00e5gt, eller tenesta krav tofaktor-innlogging.",
+		"da": "Din authentication context er ikke accepteret at denne tjeneste. Formentlig for svag eller manglende 2-faktor login.",
+		"fr": "Votre contexte d'authentification n'est pas accept\u00e9 pour ce service. Probablement trop faible ou pas forte.",
+		"et": "See teenus ei aktsepteeri sinu autentimiskonteksti. T\u00f5en\u00e4oliselt on see liiga n\u00f5rk v\u00f5i pole kaheastmeline.",
+		"lt": "J\u016bs\u0173 autentikacijos kontekstas \u0161ioje paslaugoje nepriimamas. Grei\u010diausiai jis yra per silpnas arba ne dviej\u0173 faktori\u0173.",
+		"sr": "Va\u0161 kontekst za autentifikaciju nije podr\u017ean od strane ovog servisa. Verovatno je previ\u0161e slab, ili nije autentifikacija sa dva faktora."
+	}
+}

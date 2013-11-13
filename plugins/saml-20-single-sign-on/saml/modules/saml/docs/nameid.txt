@@ -1,0 +1,110 @@
+NameID generation filters
+=========================
+
+This document describes the NameID generation filters in the saml module.
+
+
+Common options
+--------------
+
+`NameQualifier`
+:   The NameQualifier attribute for the generated NameID.
+    This can be a string that is used as the value directly.
+    It can also be `TRUE`, in which case we use the IdP entity ID as the NameQualifier.
+    If it is `FALSE`, no NameQualifier will be included.
+
+:   The default is `FALSE`, which means that we will not include a NameQualifier by default.
+
+`SPNameQualifier`
+:   The SPNameQualifier attribute for the generated NameID.
+    This can be a string that is used as the value directly.
+    It can also be `TRUE`, in which case we use the SP entity ID as the SPNameQualifier.
+    If it is `FALSE`, no SPNameQualifier will be included.
+
+:   The default is `TRUE`, which means that we will use the SP entity ID.
+
+
+`saml:AttributeNameID`
+----------------------
+
+Uses the value of an attribute to generate a NameID.
+
+### Options
+
+`attribute`
+:   The name of the attribute we should use as the unique user ID.
+
+`Format`
+:   The `Format` attribute of the generated NameID.
+
+
+
+`saml:PersistentNameID`
+-----------------------
+
+Generates a persistent NameID with the format `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`.
+The filter will take the user ID from the attribute described in the `attribute` option, and hash it with the `secretsalt` from `config.php`, and the SP and IdP entity ID.
+The resulting hash is sent as the persistent NameID.
+
+### Options
+
+`attribute`
+:   The name of the attribute we should use as the unique user ID.
+
+
+`saml:TransientNameID`
+----------------------
+
+Generates a transient NameID with the format `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
+
+No extra options are available for this filter.
+
+
+`saml:SQLPersistentNameID`
+--------------------------
+
+Generates and stores persistent NameIDs in a SQL datastore.
+
+This filter generates and stores a persistent NameID in a SQL datastore.
+To use this filter, simpleSAMLphp must be configured to use a SQL datastore.
+See the `store.type` configuration option in `config.php`.
+
+This filter will only create new NameIDs when the SP specifies `AllowCreate="true"` in the authentication request.
+
+### Options
+
+`attribute`
+:   The name of the attribute we should use as the unique user ID.
+
+
+Example
+-------
+
+This example makes three NameIDs available:
+
+    'authproc' => array(
+        1 => array(
+            'class' => 'saml:TransientNameID',
+        ),
+        2 => array(
+            'class' => 'saml:PersistentNameID',
+            'attribute' => 'eduPersonPrincipalName',
+        ),
+        3 => array(
+            'class' => 'saml:AttributeNameID',
+            'attribute' => 'mail',
+            'Format' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+        ),
+    ),
+
+Storing persistent NameIDs in a SQL database:
+
+    'authproc' => array(
+        1 => array(
+            'class' => 'saml:TransientNameID',
+        ),
+        2 => array(
+            'class' => 'saml:SQLPersistentNameID',
+            'attribute' => 'eduPersonPrincipalName',
+        ),
+    ),

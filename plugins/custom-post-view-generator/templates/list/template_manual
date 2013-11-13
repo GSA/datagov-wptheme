@@ -1,0 +1,126 @@
+RECORDS DATA ARRAY:
+	$records_data
+
+RECORD DATA ARRAY:
+	$record_data
+
+RECORD DATA FIELDS:
+	value, name, label, type, options1, options2, options3, options4,...,options_n, pagination
+
+BASIC TEMPLATE:
+
+<?php
+	foreach($records_data as $record_index => $record_data){
+		foreach($record_data as $record){
+			echo $record['label'].":".$record['value']."<br/>";
+		}
+		echo "<br /><br />";
+	}
+?>
+
+TEMPLATE WIHT PAGING SUPPORT:
+
+To enable paging support for a list view it is required to:
+	-add aditional css
+	-add some javascript (for more info check other templates and http://www.egrappler.com/jquery-pagination-plugin-smart-paginator/)
+	-each record be surrounded by a html element specified on the javascript (table,div,etc)
+	-add a div surrounding all the records
+	-add a div that will contain the paging bar
+
+<style type="text/css">
+	/* PAGINATION CSS */
+	.pager{ font-family: "Bitstream Cyberbit","MS Georgia","Times New Roman",Bodoni,Garamond,"Minion Web","ITC Stone Serif","Helvetica";height: 32px;padding: 0;margin: 0;padding-top: 5px;padding-left: 3px;margin-bottom: 18px; }
+	.pager div.short{ float: right;margin: 0;padding: 0;margin-right: 10px;width: 74px;	}
+	.pager div.short input{ width: 28px;height: 20px;8CACBBborder: none;float: left; }
+	.pager ul{ list-style: none;padding: 0;margin: 0;float: left;margin-right: 4px; }
+	.pager ul li{ display: inline;margin-left: 2px; }
+	.pager ul li a.normal{ text-decoration: none;display: inline-table;width: 20px;height: 20px;text-align: center;	}
+	.pager span{ margin-left: 4px;float: left; }
+	.pager .btn{ display: block;text-align: center;float: left;padding: 0;margin: 0;margin-left: 4px;cursor: pointer; }
+	.pager.themecolor .btn{ height: 26px; }
+	.pager ul li a.active{text-decoration: none;display: inline-table;width: 20px;height: 20px;text-align: center; }
+
+	/* PAGINATION THEME CSS */
+	.themecolor{background-color: #DEE7EC;border: 1px solid #8CACBB;color: #7F7F7F; }
+	.themecolor.normal{background-color: #A4B8C4;color: White;border: solid 1px #8CACBB; }
+	.themecolor.active{background-color: #53758A;color: White;border: solid 1px #8CACBB; }
+	.pager.themecolor .btn{background-color: #A4B8C4;color: White;border: solid 1px #8CACBB; }
+</style>
+
+<script type='text/javascript'>
+jQuery(document).ready(function(){
+	<?php if(isset($pagination)){ ?>
+		jQuery('#cpvg-paginator').smartpaginator({ totalrecords: <?php $val = count($records_data)/$pagination; if(is_int($val)){ echo $val; }else{ echo intval($val)+1; } ?>, 
+												    recordsperpage: 1,
+												    datacontainer: 'cpvg-records',
+												    dataelement: 'table',
+												    vertical_th: true }); 
+	<?php } ?>
+});
+</script>
+
+<?php
+	//PAGINATION DIV
+	echo "<div id='cpvg-paginator'></div>";
+	
+	//RECORDS
+	echo "<div id='cpvg-records'>";
+		foreach($records_data as $record_index => $record_data){
+			echo "<div>";
+			foreach($record_data as $record){
+				echo "<b>".$record['label']."</b>: ".$record['value']."<br>";
+			}
+			echo "</div>";
+		}	
+	echo "</div>";
+?>
+
+
+TEMPLATE WIHT USER SORTING SUPPORT:
+To enable paging support for a list view it is required to:
+	-add aditional css
+	-add some javascript (for more info check other templates and http://tablesorter.com/docs/)
+	-template must use the table html tag with thead and tbody.
+
+<style type="text/css">
+    /* SORTER CSS */
+    table.cpvg-table thead tr .header {	background-image: url(<?php echo CPVG_PLUGIN_URL.'libs/tablesorter/bg.gif'; ?>); background-repeat: no-repeat; background-position: center right; cursor: pointer; }
+    table.cpvg-table thead tr .headerSortUp { background-image: url(<?php echo CPVG_PLUGIN_URL.'libs/tablesorter/asc.gif'; ?>); }
+    table.cpvg-table thead tr .headerSortDown {	background-image: url(<?php echo CPVG_PLUGIN_URL.'libs/tablesorter/desc.gif'; ?>); }
+
+    /* SORTER THEME CSS */
+    table.cpvg-table tbody tr.odd td { background-color:#F0F0F6; }
+    table.cpvg-table thead tr .headerSortDown, table.cpvg-table thead tr .headerSortUp { background-color: #000000; }	
+</style>
+
+
+<script type='text/javascript'>
+jQuery(document).ready(function(){
+    <?php if(isset($usersorting)){ if($usersorting == 'usersorting_enabled'){ ?>
+    	jQuery(".cpvg-table").tablesorter();    
+    <?php }} ?> 	
+});
+</script>
+
+<?php
+	if(isset($records_data[0])){	
+		//RECORDS TABLE HEAD
+		echo "<table id='cpvg-records' class='cpvg-table'>\n";
+		echo "<thead><tr>\n";
+		foreach($records_data[0] as $record){
+			echo "<th>".$record['label']."</th>";
+		}
+		echo "</tr></thead>\n";
+		
+		//RECORDS TABLE RECORDS
+		echo "<tbody>";		
+		foreach($records_data as $record_index => $record_data){
+			echo "<tr>";
+			foreach($record_data as $record_idx => $record_data){
+				echo "<td>".$record_data['value']."</td>";
+			}
+			echo "</tr>";
+		}
+		echo "</tbody></table>";											
+	}						
+?>
