@@ -1,0 +1,85 @@
+`core:AttributeAlter`
+==========
+
+This filter can be used to substitute and replace different parts of the attribute value based on regular expressions.
+
+Parameters
+----------
+
+`class`
+:   This is the name of the filter.
+    It must be `'core:AttributeAlter'`.
+
+`subject`
+:   The attribute in which the search is preformed.
+    This parameter is REQUIRED and the filter will throw an exception if this parameter is not set.
+    
+`pattern`
+:   The regular expression used.
+    This parameter is REQUIRED and the filter will throw an exception if this parameter is not set.
+    It is not possible to use backreference.
+    
+`replacement`
+:   The value used to replace the searched value.
+    This parameter is REQUIRED if `%replace` is not used.
+    If `%replace` is used and `replacement` is not set, then the matched text is used instead.
+    
+`target`
+:   The target attribute where the replaced attribute value is put.
+    This parameter is OPTIONAL.
+    If this parameter is not set `subject` is used as `target`.
+
+`%replace`
+:   Indicate whether the searched part should be replaced or the whole value.
+    this parameter is OPTIONAL.
+    
+Examples
+--------
+
+Change the domain on the `mail` attribute (when both the new and old domain is known):
+
+    10 => array(
+        'class' => 'core:AttributeAlter',
+        'subject' => 'mail',
+        'pattern' => '/olddomain.com/',
+        'replacement' => 'newdomain.com',
+    ),
+
+Change the domain on the `mail` attribute (when new domain is known):
+
+	10 => array(
+		'class' => 'core:AttributeAlter',
+		'subject' => 'mail',
+		'pattern' => '/(?:[A-Za-z0-9-]+\.)+[A-Za-z]{2,6}$/',
+		'replacement' => 'newdomain.com',
+	),
+    
+Set the eduPersonPrimaryAffiliation based on users distinguishedName:
+
+    10 => array(
+        'class' => 'core:AttributeAlter',
+        'subject' => 'dn',
+        'pattern' => '/OU=Staff/',
+        'replacement' => 'staff',
+        'target' => 'eduPersonPrimaryAffiliation',
+    ),
+    
+Change the eduPersonPrimaryAffiliation:
+
+    10 => array(
+        'class' => 'core:AttributeAlter',
+        'subject' => 'eduPersonPrimaryAffiliation',
+        'pattern' => '/Student in school/',
+        'replacement' => 'student',
+        '%replace',
+    ),
+    
+Get the domain of the email and put it in a seperat attribute:
+
+    10 => array(
+        'class' => 'core:AttributeAlter',
+        'subject' => 'mail',
+        'pattern' => '/(?:[A-Za-z0-9-]+\.)+[A-Za-z]{2,6}$/',
+        'target' => 'domain',
+        '%replace',
+    ),

@@ -1,0 +1,77 @@
+`sqlauth:SQL`
+=============
+
+This is a authentication module for authenticating an user against a SQL database.
+
+
+Options
+-------
+
+`dsn`
+:   The DSN which should be used to connect to the database server.
+    Check the various database drivers in the [PHP documentation](http://php.net/manual/en/pdo.drivers.php) for a description of the various DSN formats.
+
+`username`
+:   The username which should be used when connecting to the database server.
+
+
+`password`
+:   The password which should be used when connecting to the database server.
+
+`query`
+:   The SQL query which should be used to retrieve the user.
+    The parameters :username and :password are available.
+    If the username/password is incorrect, the query should return no rows.
+    The name of the columns in resultset will be used as attribute names.
+    If the query returns multiple rows, they will be merged into the attributes.
+    Duplicate values and NULL values will be removed.
+
+
+Examples
+--------
+
+Database layout used in examples:
+
+    CREATE TABLE users (
+      username VARCHAR(30) NOT NULL PRIMARY KEY,
+      password TEXT NOT NULL,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL
+    );
+    CREATE TABLE usergroups (
+      username TEXT REFERENCES users (username) ON DELETE CASCADE ON UPDATE CASCADE,
+      groupname TEXT,
+      UNIQUE(username, groupname)
+    );
+
+Example - simple setup, PostgreSQL server:
+
+    'sql-exampleorg' => array(
+      'sqlauth:SQL',
+      'dsn' => 'pgsql:host=sql.example.org;port=5432;dbname=simplesaml',
+      'username' => 'userdb',
+      'password' => 'secretpassword',
+      'query' => 'SELECT username, name, email FROM users WHERE username = :username AND password = :password',
+    ),
+
+Example - multiple groups, MySQL server:
+
+    'sql-exampleorg-groups' => array(
+      'sqlauth:SQL',
+      'dsn' => 'mysql:host=sql.example.org;dbname=simplesaml',
+      'username' => 'userdb',
+      'password' => 'secretpassword',
+      'query' => 'SELECT users.username, name, email, groupname AS groups FROM users LEFT JOIN usergroups ON users.username=usergroups.username WHERE users.username = :username AND password = :password',
+    ),
+
+Example query - MD5 of salt + password, stored as salt + md5(salt + password) in password-field, MySQL server:
+
+    SELECT username, name, email
+    FROM users
+    WHERE username = :username AND SUBSTRING(password, -32) = MD5(CONCAT(SUBSTRING(password, 1, LENGTH(password) - 32), :password))
+
+Example query - MD5 of salt + password, stored as salt + md5(salt + password) in password-field, PostgreSQL server:
+
+    SELECT username, name, email
+    FROM users
+    WHERE username = :username AND SUBSTRING(password FROM LENGTH(password) - 31) = MD5(SUBSTRING(password FROM 1 FOR LENGTH(password) - 32) || :password)

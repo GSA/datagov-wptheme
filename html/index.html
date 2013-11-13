@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Next.Data.Gov</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+	<link rel="stylesheet" href="stylesheets/datagov.css">
+	<link rel=" stylesheet" type="text/css" href="stylesheets/joyride-2.1.css">
+
+
+	<link href='http://fonts.googleapis.com/css?family=Abel|Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+
+
+	<!-- JavaScript
+  ================================================== -->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="js/jquery.masonry.min.js"></script>
+	<script src="js/jquery.lazyload.min.js"></script>
+	<script src="js/jquery.text.fadeto.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	  <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
+	  <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
+	  <!--[if lte IE 8]>
+	    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.ie.css' rel='stylesheet' >
+	  <![endif]-->
+	  <style>
+	    body { margin:0; padding:0; }
+	    #map { position:absolute; top:0; bottom:0; width:100%; }
+	  </style>
+
+	  <script>
+	  $(function() {
+	    var availableTags = [
+	      "ActionScript",
+	      "AppleScript",
+	      "Asp",
+	      "BASIC",
+	      "C",
+	      "C++",
+	      "Clojure",
+	      "COBOL",
+	      "ColdFusion",
+	      "Erlang",
+	      "Fortran",
+	      "Groovy",
+	      "Haskell",
+	      "Java",
+	      "JavaScript",
+	      "Lisp",
+	      "Perl",
+	      "PHP",
+	      "Python",
+	      "Ruby",
+	      "Scala",
+	      "Scheme"
+	    ];
+	    $( "#search-textbox" ).autocomplete({
+	      source: availableTags
+	    });
+	  });
+	  </script>
+
+</head>
+<body>
+
+	<div class="banner disclaimer">
+	<p>This is a preview of the future direction of Data.gov. <span> Give us your feedback on <a href="https://twitter.com/ProjectOpenData">Twitter</a> or <a href="http://www.quora.com/Government/How-should-we-continue-to-improve-Data-gov">Quora</a></span></p>
+	</div>
+
+
+
+	<!-- Header Background Color, Image, or Visualization
+	================================================== -->
+
+	
+	<div class="next-header">
+
+<!--
+		<div id='map'></div>
+		<script type='text/javascript'>
+		var map = L.mapbox.map('map', 'fcc.unserved_fixed_broadband');
+		</script>-->
+
+	</div>
+
+
+	<!-- Navigation & Search
+	================================================== -->
+
+	<div class="container">
+		<div class="next-top">
+			<div class="sixteen columns">
+				<ul class="next-nav">
+					<li class="next-us-flag">Official US Government Website</li>
+					<li class="next-primary"><a href="#">Data.Gov</a></li>
+					<li><a href="#">Agencies</a></li>
+					<li><a href="#">Companies</a></li>
+					<li><a href="#">For Developers</a></li>
+					<li><a href="#">Strategy</a></li>
+					<li><a href="#">About</a></li>
+				</ul><!-- nav -->
+			</div> <!-- sixteen columns -->
+
+			<div class="sixteen columns">
+				<div class="next-logo">
+					<div id="next-logo-title-bg" class="next-background"></div>
+					<div class="next-object"><span id="next-logo-title">Data.Gov</span></div>
+				</div>
+				<div class="next-stats">
+					<div class="next-background"></div>
+					<div id="rotate-stats" class="next-object" data-strings='
+    { "targets" : ["120,303 datasets","130TB of datasets","20 agencies","Search 400 APIs", "120,303 datasets", "Powered by CKAN", "120,303 datasets"]}'>&nbsp;</div>
+
+				</div>
+				<div class="next-search">
+					<div class="next-background"></div>
+					<div class="next-object">
+						<div class="next-search-label">
+							<label class="next" for="next-search-box">Search</label>
+						</div>
+						<div class="next-search-icon">
+							<img src="assets/search.png">
+						</div>
+						<div class="next-search-input">
+							<form method="get" action="http://54.225.111.163/dataset">
+								<label for="search-textbox" class="hddn" title="Search Data.gov">Search Data.gov</label>
+	  							<input id="search-textbox" class="next" name="q" type="text" />
+								<input id="next-search-submit" type="submit" />
+							</form>
+	  					</div>
+  					</div>
+				</div>
+				<div class="next-categories">
+					<div class="next-background"></div>
+					<div class="next-object">
+						<ul>
+							<li><a href="education">Education</a></li>
+							<li><a href="energy">Energy</a></li>
+							<li><a href="/consumer">Finance</a></li>
+							<li><a href="development">Global Development</a></li>
+                            				<li><a href="http://www.healthdata.gov" target="_blank">Health</a></li>
+							<li><a href="health">Research</a></li>
+							<li><a href="safety">Safety</a></li>
+							<li><a href="#">all communities</a></li>
+						</ul>
+					</div>
+				</div>
+			</div> <!-- sixteen columns -->
+		</div> <!-- top -->
+
+
+	<!-- WordPress Content
+	================================================== -->
+
+		<div class="content">
+
+			<div class="sixteen columns">
+			<div id="posts">
+
+				<!-- lead-image -->
+				<!-- source -->
+				<!-- title -->
+				<!-- body -->
+				<!-- timestamp -->
+				<!-- topic -->
+
+				<!-- Content - Link -->
+				<div class="post small link">
+					<div class="core">
+						<div class="source">New York Times</div>
+						<div class="body">
+							<p>“This is an incredibly clever use of health data to help consumers find the insurance plan that is right for them.”</p>
+						</div>
+					</div>
+					<div class="meta">
+						<div class="timestamp">7 hours ago</div>
+						<div class="corner">
+							<div class="block"></div>
+							<div class="topic">Health</div>
+						</div>
+					</div>
+				</div>
+				
+
+				<!-- Content - Blog Post -->
+				<div class="post medium blog">
+					<div class="core">
+						<div class="title"><a href="#">Launching a New Data.Gov</a></div>
+						<div class="body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pulvinar, elit sit amet sollicitudin imperdiet, tortor est facilisis elit, non consequat velit leo non sapien. Suspendisse potenti.</p>
+
+							<p>Vestibulum feugiat, ligula a adipiscing accumsan, lacus nibh tincidunt tellus, quis vestibulum felis leo at quam. Aenean vel urna tortor. Sed lobortis vulputate tincidunt. Sed eget felis augue, in hendrerit ipsum. Curabitur ac velit justo.</p>
+
+							<p>Phasellus nibh nulla, aliquam id facilisis in, vehicula et odio. Donec ultrices dictum tellus, nec aliquet lacus vulputate et. Vestibulum vel metus a nisi gravida aliquam nec et velit. Sed lobortis vulputate tincidunt. Sed eget felis augue, in hendrerit ipsum.</p>
+
+							<p>Read more</p>
+						</div>
+					</div>
+					<div class="meta">
+						<div class="timestamp">7 hours ago</div>
+						<div class="corner">
+							<div class="block"></div>
+							<div class="topic">Health</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Content - dataset -->
+				<div class="post small dataset">
+					<div class="lead">
+						<div class="lead-image"><img class="scale-with-grid" src="assets/dataset.png"></div>
+					</div>
+					<div class="core">
+						<div class="title">Launching a New Data.Gov</div>
+						<div class="body">
+							<p>Download 24-hour artificial light readings from across the globe</p>
+						</div>
+					</div>
+					<div class="meta">
+						<div class="timestamp">7 hours ago</div>
+						<div class="corner">
+							<div class="block"></div>
+							<div class="topic">Health</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Content - Tweet -->
+				<div class="post small tweet">
+					<div class="core">
+						<div class="tweet-author">
+							<div class="author-image">
+								<img src="https://si0.twimg.com/profile_images/2277589677/bh8ffk8e7xar0tk7bmiw.jpeg" height="40" width="40">
+							</div>
+							<div class="author-details">
+								Valerie Jarrett - <a href="http://twitter.com/vj44">@vj44</a>
+							</div>
+						</div>
+						<div class="body">
+							<p>New jobs #s: Economy adds 246k private sector jobs in Feb. 6.35M jobs over 36 mo. http://at.wh.gov/izom0</p>
+						</div>
+					</div>
+					<div class="meta">
+						<div class="timestamp">7 hours ago</div>
+						<div class="corner">
+							<div class="block"></div>
+							<div class="topic">Health</div>
+						</div>
+					</div>
+				</div>
+
+			</div> <!-- posts -->
+			</div> <!-- sixteen columns -->
+
+			<div class="sixteen columns footer">
+				<div class="twelve columns alpha">
+					<p><a href="#">Accessibility</a> <a href="#">Data Policy</a> <a href="#">Privacy Policy</a> <a href="https://github.com/GSA/datagov-design/">Improve this site</a></p>
+				</div>
+				<div class="four columns omega right-align">
+					<p>Next.Data.Gov</p>
+				</div>
+			</div>
+
+		</div> <!-- content -->
+
+	</div><!-- container -->
+
+
+<ol id="joyRideTipContent" data-joyride>
+  <li data-id="next-logo-title" data-text="Next">
+		<h2>Stop #1</h2>
+        <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
+  </li>
+  <li data-id="search-textbox">
+  		<h2>Stop #2</h2>
+        <p>Get the details right by styling Joyride with a custom stylesheet!</p>
+  </li>
+   <li data-id="stop3">
+  		<h2>Stop #2</h2>
+        <p>Get the details right by styling Joyride with a custom stylesheet!</p>
+  </li>
+</ol>
+
+<script src="js/jquery.joyride-2.1.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/modernizr.mq.js"></script>
+
+<script>
+$(window).load(function(){
+  $('#posts').masonry({
+    // options
+    columnWidth: 287,
+    itemSelector : '.post',
+    isResizable: true,
+    isAnimated: true,
+    gutterWidth: 25
+  });
+
+  $("#joyRideTipContent").joyride({
+      autoStart: true,
+      modal: true
+    });
+});
+</script>
+
+<script>
+$(function () {
+  var
+    $demo = $('#rotate-stats'),
+    strings = JSON.parse($demo.attr('data-strings')).targets,
+     randomString;
+
+  randomString = function () {
+    return strings[Math.floor(Math.random() * strings.length)];
+  };
+
+  $demo.fadeTo(randomString());
+  setInterval(function () {
+    $demo.fadeTo(randomString());
+  }, 5000);
+});
+</script>
+
+<!-- <script src="js/v1.js"></script> -->
+
+	  <script>
+
+	  var textWidth = $('#next-logo-title').width();
+	  var initial = 1010;
+	  var padding = 10;
+	  var calcWidth = initial + textWidth + padding;
+
+	  $('#next-logo-title-bg').css({'width': calcWidth});
+
+</script>
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

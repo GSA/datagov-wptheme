@@ -1,0 +1,140 @@
+<script id='cpvg_list_views' type='text/html'>
+	<span class="cvpg_list_views_metabox">
+		<table>
+		<tr>
+			<td>
+				<ul id='cpvg-listview-select' class='cpvg-record-list'>
+					{{each(list_index, list_value) available_list_views()}}
+						<li>
+							<a href="#" data-bind="click: function(){ viewModel.listViewAction('select',list_index,list_value.value()) }">${value}</a>
+							<a href="#" data-bind="click: function(){ viewModel.listViewAction('delete',list_index); }">(Delete)</a>
+						</li>
+					{{/each}}
+				</ul>
+				<input class='button-secondary action' data-bind="click: function(){ viewModel.listViewAction('add'); }" type='button' value='Create List View' >
+			</td>
+			<td>
+				<table class='cpvg-rounded-border' data-bind='visible: selected_list.index() > -1'>
+					<tr><td>View Name:</td><td><input data-bind="value: selected_list.name"/> Shortcode: <b>[cpvg_list name='<span data-bind="text: selected_list.name"></span>']<b></td></tr>
+					<tr><td>Template:</td><td><select name='cpvg-template-select' id='cpvg-template-select' data-bind="options: available_template_files,
+																													   optionsText: 'value',
+																													   optionsValue: 'key',
+																													   value:selected_list.template"></select></td></tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</span>
+</script>
+
+<script id='cpvg_fields' type='text/html'>
+	<div data-bind="template:'cpvg_fieldtypes_form'"></div>
+</script>
+
+<script id='cpvg_parameters' type='text/html'>
+	<table>
+	<tr>
+		<td colspan='2'>
+			<label>Option type: <select  id='cpvg-param-type-select'
+										data-bind="options: available_param_names,
+												   optionsValue:'value',
+												   optionsText:'text',
+												   value:selected_param.type" ></select></label>
+		</td>
+	<tr>
+	<tr>
+		<td id='cpvg_param' valign='top' data-bind="visible: selected_param.type()!=null">
+			<ul id='cpvg-param-select' class='cpvg-record-list' data-bind="template: { name:'cpvg-param-selection',
+																			  foreach: getParamData('current_records') }"></ul>
+			<br>
+			<button class='button-secondary' data-bind="enable: selected_list.index() > -1, click: runParamAction">Add ${selected_param.type()}</button>
+		</td>
+		<td id='cpvg_param_options' class='cpvg-rounded-border' data-bind="visible: selected_param.visible_form">
+			<table>
+				<tr><td >Name:</td><td>
+					<input data-bind="value: getParamData('name')" />
+				</td></tr>
+				<tr><td>Section:</td><td>
+					<select data-bind="options: getParamData('sections'),
+									   optionsText: function(item) { return item.charAt(0).toUpperCase() + item.slice(1); },
+									   value:getParamData('section')"></select>
+				</td></tr>
+				<tr><td>Parameter:</td><td>
+					<select data-bind="options: getParamData('fields'),
+									   optionsText:'value',
+									   optionsValue:'key',
+									   value: getParamData('parameter')"></select>
+				</td></tr>
+				<tr data-bind="visible: getParamData('operators')"><td>Operator:</td><td>
+					<select data-bind="options: getParamData('operators'),
+									   optionsText:'value',
+									   optionsValue:'key',
+									   value: getParamData('operator')"></select>
+				</td></tr>
+				<tr><td>Value:</td><td>
+
+				<select	multiple=""
+						class='cvpg-multi-select'
+						data-bind="visible: getParamData('choices'),
+								   enable: !getParamData('select_input_value',true),
+								   options: getParamData('choices'),
+								   optionsText:'value',
+								   optionsValue:'key',
+								   optionsCaption: 'Choose a Option...',
+								   selectedOptions: getParamData('select_value')"></select>
+				</td></tr>
+				<tr>
+					<td><label data-bind="visible: getParamData('choices')">Custom Value:</label></td>
+					<td><input type="checkbox" data-bind="visible: getParamData('choices'), checked: getParamData('select_input_value')" />
+						<input 	class='cvpg-input-suggest'
+								data-bind="enable: !getParamData('choices') || getParamData('select_input_value'),
+										   value: getParamData('input_value')" /></td>
+				</tr>
+				<tr data-bind="visible: getParamData('types')">
+					<td>Type:</td>
+					<td><select data-bind="options: getParamData('types'),
+										   optionsText:'value',
+										   optionsValue:'key',
+										   value: getParamData('type')"></select>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td id='cpvg_param_section_message' class='cpvg-rounded-border' data-bind="visible: selected_param.visible_form">
+			<ul class='cpvg-record-list'>
+				{{each(msg_index, msg_value) viewModel.getParamData('messages')}}
+					<li>${msg_value}</li>
+				{{/each}}
+			</ul>
+		</td>
+	</tr>
+	</table>
+</script>
+
+<script id='cpvg-param-selection' type='text/html'>
+	<li>
+		<a href="#" data-bind="click: function(){ viewModel.runParamAction('select',$item.data); }">${name}</a>&nbsp;
+		<a href="#" data-bind="click: function(){ viewModel.runParamAction('remove',$item.data); }">(Delete)</a>
+	</li>
+</script>
+
+<script id='cpvg_finish' type='text/html'>
+	<div id='cpvg_listview_buttons'>
+		Mandatory:
+		<input class='button-secondary action' type='button'
+			   id='cpvg-save-layout' value='Save layout'
+			   data-bind="enable: selected_list.index() > -1 , click: function(){ viewModel.listViewAction('save') }"><br/><br/>
+
+		Optional:
+		<input data-bind="enable: selected_list.index() > -1 , value: post_page_name"/>
+
+		<input class='button-secondary action' type='button'
+			   id='cpvg-save-layout' value='Create post for this list'
+			   data-bind="enable: selected_list.index() > -1, click: function(){ viewModel.createPostPage('post') }">
+		<input class='button-secondary action' type='button'
+			   id='cpvg-save-layout' value='Create page for this list'
+			   data-bind="enable: selected_list.index() > -1, click: function(){ viewModel.createPostPage('page') }">
+		<br><br>
+		<span class='action-message'></span>
+	</div>
+</script>

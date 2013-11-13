@@ -1,0 +1,267 @@
+/* POST VIEW FORM */
+#cpvg-wrap{
+	width:98%;
+}
+#cpvg-wrap h2{
+	padding-top:20px;
+}
+
+#cpvg-posttype-type{
+	border: 1px #00FF00 solid;
+	#padding: 3px;
+}
+#cpvg-posttype-type > div{
+	padding: 5px;
+	line-height: 20px;
+}
+#cpvg-posttype-type div select{
+	min-width: 120px;
+}
+
+#cpvg-posttype-view{
+	width:70%;
+	float:left;
+	padding: 10px;
+}
+#cpvg-posttype-view ol{
+	margin: 0;
+	padding: 1em 0 1em 3em;
+}
+
+#cpvg-step-fields .inside div{
+	padding:3px;
+
+}
+
+#cpvg-posttype-fields{
+	float:right;
+	width:25%;
+	padding: 10px;
+}
+
+#cpvg-posttype-fields-content{
+	border: 1px #7F7F7F dashed;
+	min-height: 30px;
+	padding-bottom: 5px;
+}
+
+#cpvg-posttype-fields-content div{
+	margin: 3px;
+}
+
+.cvpg-posttype-form-input{
+	line-height: 25px;
+}
+
+#cpvg-posttype-select{
+	min-width: 120px;
+}
+
+#cpvg-posttype-preview{
+	width:98%;
+	float:left;
+	padding:10px;
+}
+#cpvg-posttype-preview-content{
+	border: 1px #7F7F7F dashed;
+	min-height: 100px;
+}
+
+#cpvg-fieldlist{
+	border: 1px #7F7F7F dashed;
+	min-height: 100px;
+}
+
+#cpvg-post-type-file{
+	font-weight:bold;
+}
+
+.cpvg-field-draggable{
+	padding: 3px;
+	float:left;
+	border-width:1px;
+	border-style:solid;
+	font-size:12px;
+	font-weight:bold;
+	height:20px;
+	background-color:#E5E5E5;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	cursor:default;
+}
+
+.cpvg-fieldlist-item {
+	padding-left: 5px;
+	background-color:#E5E5E5;
+	font-weight:bold;
+	border-width:1px;
+	border-style:solid;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	cursor:default;
+}
+.cpvg-fieldlist-item{
+	
+
+}
+.cpvg-fieldlist-item .cpvg_form_option_field_table{
+	width:99%;		
+}
+
+.cvpg_extra_field {
+	width:99%;	
+}
+
+
+.cpvg-fieldlist-item .cvpg-list-button{
+	margin-left: auto;
+	margin-right: auto;
+	width: 35px;	
+}
+
+.cvpg-list-button div{
+	padding: 3px;
+	float:left;
+	border-width:1px;
+	border-style:solid;
+	background-color:#E5E5E5;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	cursor:default;
+	width: 25px;
+	height: 25px;
+	
+
+}
+.cvpg-list-button-up{
+	background:transparent url(templates/admin/up.png) no-repeat;
+}
+.cvpg-list-button-down{
+	background:transparent url(templates/admin/down.png) no-repeat;
+}
+
+
+
+.cpvg-fieldlist-item .cpvg-input-span{
+	line-height: 30px;
+}
+
+.cpvg-fieldlist-item span span{
+	padding: 0 3px 0 3px;
+
+}
+.cpvg-fieldlist-name{
+	text-decoration: underline;
+}
+
+#action-buttons{
+	padding-top:14px;
+	padding-bottom:7px;
+}
+
+.action-message{
+	display: none;
+	font-weight:bold;
+	padding-left: 3px;
+	width: 300px;
+}
+
+/* LIST VIEWS */
+#cpvg_param{
+	min-width:150px;
+	text-align: center;
+	padding: 3px;
+
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -khtml-background-size: 100%;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#cpvg_param select{
+	min-width:150px;
+}
+
+.cpvg-record-list{
+	min-width:150px;
+	font-size:11px;
+	list-style: disc outside none;
+	padding-left: 15px;
+	padding-right: 4px;
+	margin-top: 5px;
+}
+
+.cpvg-record-list li{
+	line-height: 100%;
+}
+.cpvg-rounded-border{
+	border: 2px #BFBFBF solid;
+
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -khtml-background-size: 100%;
+
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+#cpvg_param_options{
+	padding: 3px;
+}
+
+#cpvg_param_section_message{
+	padding: 15px;
+}
+
+.cvpg_list_views_metabox table{
+	padding:3px;
+}
+.cvpg_list_views_metabox table td{
+	padding:0 15px 0 0;
+}
+
+.cvpg-options-config-table{
+	width: 100%;
+	padding: 10px;
+}
+
+.cpvg-template-select{
+	height:50px;
+}
+
+#param_section_message{
+	padding: 5px;
+}
+
+#cpvg_listview_buttons{
+	padding: 10px;
+}
+
+/*SOLVE WORDPRESS MULTISELECT SIZE BUG*/
+#wpcontent select {
+	height: auto;
+}
+/*DISPLAY LIST STYLE*/
+#cvpg-admin-help ul, #vpg-admin-help ol {
+	border-top: 1px dashed #eee;
+	border-bottom: 1px dashed #eee;
+}
+#cvpg-admin-help ul li {
+	margin: 0 1em;
+	padding: 0.2em;
+	list-style: square inside;
+}
+#cvpg-admin-help ol li {
+	margin: 0 3em;
+	padding: 0.2em;
+	list-style: decimal outside;
+}

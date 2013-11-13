@@ -1,0 +1,147 @@
+body{
+	background: #efefef url(../assets/textured-bg.png) repeat;
+}
+
+body.catalog{
+	background: #efefef url(../assets/textured-bg.png) repeat;
+}
+
+.container{ position: relative; width: 940px; margin: 0 auto; padding: 0; }
+
+
+a{
+	color: #003399;
+}
+
+.single{
+	background: #ffffff;
+}
+
+
+.posts p a{
+	color: #22629a;
+	text-decoration: none;
+}
+
+.posts p a:hover{
+	color: #22629a;
+	text-decoration: underline;
+}
+
+/* Top Section */
+
+.next-header{
+	background-color: #8db4d3;
+	height: 50px;
+	width: 100%;
+	display: block;
+	position: absolute;
+	z-index: -100;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.catalog .next-top{
+	height: 50px;
+}
+
+.next-search{
+	position: fixed;
+	top: 0;
+	right: 80px;
+	display: none;
+}
+
+/* Navigation */
+
+.next-nav{
+	font-weight: normal; 
+	font-family: 'Abel', Helvetica, sans-serif;  
+	text-transform: uppercase;
+	font-size: 16px;
+	margin-top:  10px;
+}
+
+.next-nav a{
+	color: #ededed;
+	text-decoration: none;
+}
+
+.next-nav a:hover{
+	text-decoration: underline;
+}
+
+.next-nav .next-primary a{
+	color: #ffffff;
+}
+
+.next-nav li{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+li.next-us-flag {
+	width: 21px; 
+	height: 15px;
+	background: url("../assets/us-flag.png");
+	text-indent: -9999px;
+	margin: 0px 10px 0px 0px;
+}
+
+.catalog .next-search{
+	float: right;
+	margin-top: 13px;
+}
+
+ol.breadcrumb li.home{
+	display: none;
+}
+
+body.catalog footer.site-footer{
+	background-color: #4d4d4d;
+}
+
+a.read-more{
+	color: #444444;
+}
+
+div.results strong{
+	color: #444444;
+}
+
+.module .read-more{
+	color: #444444;
+}
+
+li.nav-item{
+	margin-bottom: 0px;
+}
+
+div.toolbar{
+	display: none;
+}
+
+.prose h3{
+	font-size: 18px;
+}
+
+.catalog-disclaimer{
+  font-size: 13px;
+  padding: 10px 15px 10px 15px;
+  background-color: #f3dd95;
+  border: 1px solid #d4bf80;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background-image: -ms-linear-gradient(top, #FEECBD 0%, #F3DC94 100%);
+  background-image: -moz-linear-gradient(top, #FEECBD 0%, #F3DC94 100%);
+  background-image: -o-linear-gradient(top, #FEECBD 0%, #F3DC94 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FEECBD), color-stop(1, #F3DC94));
+  background-image: -webkit-linear-gradient(top, #FEECBD 0%, #F3DC94 100%);
+  background-image: linear-gradient(to bottom, #FEECBD 0%, #F3DC94 100%);
+}
+
+.catalog-disclaimer b{
+  font-weight: bold;
+}
+

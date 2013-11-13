@@ -1,0 +1,54 @@
+<?php
+//CLASSNAME MUST HAVE THE SAME NAME OF THE FILENAME
+class cpvg_plugincode{
+	/*
+	 * FUNCTION THAT WILL DETERMINE IF THE CLASS IF ACTIVE OR NOT (MANDATORY)
+	 */
+    public function isEnabled(){
+		//EXAMPLE 1 - only enabled if a certain plugin is activated
+		//return in_array("custom-post-type/index.php",get_option("active_plugins"));
+
+		//EXAMPLE 2 - enabled without any condition
+		//return true;
+    }
+
+	/*
+	 * RETURNS LIST OF CUSTOM POST FIELDS (MANDATORY)
+	 */
+	public function getCustomfields($custom_post_type){
+		/*MUST RETURN ARRAY WITH LABEL AS KEY AND FIELD NAME AS VALUES
+			$custom_fields_data = array();
+			$custom_fields_data['Custom Field 1'] = 'custom_field_1';
+			$custom_fields_data['Custom Field 2'] = 'custom_field_2';
+		*/
+		$custom_fields_data = array();
+
+		//GET FIELDS, FILL THE ARRAY
+
+		return $custom_fields_data;
+	}
+
+	/*
+	 * PRE-PROCESSED THE DATA OF EACH FIELDS IF THE DATA WAS SANATIZED, ENCODED, SERIALIZED, ETC (MANDATORY)
+	 * NOTE: IF THE NO CHANGES ARE NEEDED, JUST RETURN THE $data VALUE.
+	 */
+	public function processPageAdditionalCode($singular_type_name, $data){
+		/*
+		The custom fields paramaters is located in $data['fields'] and is in a non-associative array
+		with the paramaters 'name','label','type', 'options1', 'options2', 'options3', 'options4' for each custom field.
+
+		If any of this PARAMETERS is sanatized, encoded, serialized and suffered any similar change,
+		this should be changed in $data['fields'] like it what changed with cpvg_cctm.php wich is
+		used whe Custom Content Type Manager By Everett Griffiths is used.
+
+		If the field VALUE is sanatized, encoded, serialized and suffered any similar change, it is
+		recomended to add the parameter 'additional_data' (ex: $data['fields'][FIELD_INDEX]['additional_data'] ).
+		The Content Types By Brian S. Reed sanatizes the values on some fields, so processPageAdditionalCode function
+		in cpvg_ct.php will fills the 'additional_data' value with unsanatized values so that files 'filetypes' like
+		cpvg_text.php uses them.
+		*/
+
+		return $data;
+	}
+}
+?>

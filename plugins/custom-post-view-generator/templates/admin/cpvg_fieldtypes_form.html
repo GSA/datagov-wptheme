@@ -1,0 +1,206 @@
+<script id='cpvg_fieldtypes_form' type='text/html'>
+	<div data-bind="value: available_post_types"></div>
+
+	<div id='cpvg-posttype-options'>
+		<div class='cvpg-posttype-form-input'>
+			<label>Touchscreen:<input type="checkbox" data-bind="checked: touchscreen" /></label>
+		</div>
+		<div class='cvpg-posttype-form-input'>
+			<label>Post type:
+				<select name='cpvg-posttype-select' id='cpvg-posttype-select' data-bind="enable: selected_list.index() > -1 || viewModel.view_type == 'post',
+																						 options:available_post_types,
+																						 optionsText: 'value',
+																						 optionsValue: 'key',
+																						 optionsCaption: ' ',
+																						 value: selected_post_type"></select>
+			</label>
+		</div class='cvpg-posttype-form-input'>
+		<div data-bind="visible: view_type == 'post'">
+			<label for='cpvg-template-select' data-bind="visible: view_type == 'post'">Template:</label>
+			<select name='cpvg-template-select' id='cpvg-template-select' data-bind="visible: view_type == 'post', options: available_template_files,
+																													 optionsText: 'value',
+																													 optionsValue: 'key',
+																													 value: selected_post_template"></select>
+		</div>
+			<div id='action-buttons' data-bind="visible: view_type == 'post'">
+				<input class='button-secondary action' type='button'
+					   id='cpvg-preview' value='Generate Preview'
+					   data-bind="click: function(){ viewModel.sendData('generate_preview') }">
+				<input class='button-secondary action' type='button'
+					   id='cpvg-save-layout' value='Save layout'
+					   data-bind="click: function(){ viewModel.sendData('save_layout') }">
+				<input class='button-secondary action' type='button'
+					   id='cpvg-delete-layout' value='Delete Selected layout'
+					   data-bind="click: function(){ viewModel.sendData('delete_layout'); 
+													 viewModel.current_fieldtype_options.removeAll(); }">
+			
+					   
+				<span class='action-message'></span>
+			</div>
+	</div>
+	<div id='cpvg-posttype-view'>
+		Drag the desired fields here:
+		<ol id='cpvg-fieldlist' data-bind="template: { name:'cpvg_form_option_field',
+													   foreach: current_fieldtype_options }, 
+													   sortableList: current_fieldtype_options"></ol>
+	</div>
+	<div id='cpvg-posttype-fields' data-bind="visible: selected_post_type()">
+		<label for='cpvg-posttype-select'>Field Section:</label>
+		<select name='cpvg-field-select' id='cpvg-field-select' data-bind="options: viewModel.getAvailableSections(),
+																		   optionsText: function(item) { if(item){ return item.charAt(0).toUpperCase() + item.slice(1); } },
+																		   value: selected_field_section"></select>
+		<br>
+		Available fields:
+		<div id='cpvg-posttype-fields-content'>
+			{{if viewModel.view_type == 'post' }}
+				{{each(section_index, section) viewModel.available_fields.field_sections}}
+					<div id='${section}-fieldgroup' class='cpvg-fieldgroup' data-bind='visible: section == selected_field_section()'>
+						{{each(field_index, field) viewModel.available_fields[section]}}
+							<div id='${section}.${field_index}' class='cpvg-field-draggable'>${field}</div>
+						{{/each}}
+					</div>
+				{{/each}}
+			{{else}}
+				{{each(section_index, section) viewModel.available_fields.field_sections}}
+					<div id='${section}-fieldgroup' class='cpvg-fieldgroup' data-bind='visible: section == selected_field_section()'>
+						{{each(field_index, field) viewModel.available_fields[section]}}
+							<div id='${section}.${field_index}' class='cpvg-field-draggable' data-bind="visible: viewModel.getDatafieldExtraData(section+'.'+field_index,'label')">${field}</div>
+						{{/each}}
+					</div>
+				{{/each}}			
+			{{/if}}
+			
+
+			{{each(section_index, section) viewModel.available_custom_fields.field_sections}}
+				<div id='${section}-fieldgroup' class='cpvg-fieldgroup' data-bind="visible: section == selected_field_section()">
+					{{each(field_index, field) viewModel.available_custom_fields[section]}}
+						<div id='${section}.${field}' class='cpvg-field-draggable'>${field}</div>
+					{{/each}}
+				</div>
+			{{/each}}
+			<div class='clear'></div>
+		</div>
+	</div>
+	<div id='cpvg-posttype-preview' data-bind="visible: view_type == 'post'">Preview<div id='cpvg-posttype-preview-content'></div></div>
+	<div class='clear'></div>
+</script>
+
+<script id='cpvg_form_option_field' type='text/html'>
+	<li class='cpvg-fieldlist-item' >
+		<div>
+			<span class="cpvg-fieldlist-name" data-bind="text:viewModel.formartFieldtypeOptionName(name())"></span>
+			<span><a href="#" data-bind="click: removeOptionCtp, text: 'Remove'"></a></span>
+		</div>
+		<table class="cpvg_form_option_field_table">
+		<tr>
+			<td rowspan="2">
+				<label data-bind="visible: viewModel.getDatafieldExtraData($item['data'].name(),'label')">
+					Label:<input type="text" class="cpvg-fieldlist-label" data-bind="value: label">
+				</label>
+			
+				<span data-bind="visible: viewModel.getDatafieldExtraData($item['data'].name(),'type')">Type:
+					<select data-bind="options: viewModel.available_fieldtypes.types,
+												optionsText: 'value',
+												optionsValue: 'key',
+												value: type"></select>
+												
+				</span>
+				<div data-bind="visible: (viewModel.available_fieldtypes[type()]) && (viewModel.getDatafieldExtraData($item['data'].name(),'options'))">Output:
+					{{each(output_index,output_option) viewModel.available_fieldtypes[type()]}}
+						<select data-bind="options: output_option,
+										   optionsText: 'value',
+										   optionsValue: 'key',
+										   value: getOutputVar(output_index)"></select>
+					{{/each}}
+				</div>
+				<div data-bind="visible: viewModel.getDatafieldExtraData($item['data'].name(),'hide_empty')">
+					<span>Hide when empty:<input type="checkbox" data-bind="checked: hide_empty" /></span>  
+				</div>
+				<div>
+					{{each(ff_index,ff_item) viewModel.getDatafieldExtraData($item['data'].name(),'form_fields')}}
+						<label>
+							{{if ff_index == 'line_change' }}
+								<br>	
+							{{else}}
+								${ff_item.label}:	
+							{{/if}}
+							
+							{{if ff_item.type == 'input' }}
+								<input type="text" class="cvpg_extra_field" data-bind="value: $item['data']['extra_options'][ff_index]"><br>
+							{{else ff_item.type == 'textarea' }}
+								<textarea rows="3" class="cvpg_extra_field" data-bind="value: $item['data']['extra_options'][ff_index]"></textarea><br>
+							{{else ff_item.type == 'checkbox' }}
+								<input type="checkbox" class="cvpg_extra_field" value="${ff_item.value}" data-bind="checked: $item['data']['extra_options']['checkboxes']()">&nbsp;&nbsp;
+							{{else ff_item.type == 'select' }}		
+								<select class="cvpg_extra_field" data-bind="options: ff_item.options,
+																			optionsText: 'value',
+																			optionsValue: 'key',
+																		    value: $item['data']['extra_options'][ff_index]"></select>										
+							{{else ff_item.type == 'multi_select' }}		
+								<select multiple="" class="cvpg_extra_field" data-bind="options: ff_item.options,
+																						optionsText: 'value',
+																						optionsValue: 'key',
+																						value: $item['data']['extra_options'][ff_index]"></select>
+																				
+							{{/if}}
+							
+							{{if ff_item.append_field_type == 'true' }}
+								<div>
+									<select data-bind="options: viewModel.available_all_fields,
+													   optionsText: 'value',
+													   optionsValue: 'key',
+													   value: temp_data[ff_index]"></select>
+
+									<input class="button-secondary action" type="button"
+										   value="Append Field"
+										   data-bind="click: function(){ viewModel.displayFieldtypeOptionWindow(temp_data[ff_index](),ff_index,$item['data']['extra_options'][ff_index]); }">
+								</div>		
+								<div id="cpvg-fieldtype-modal" data-bind="template: { name:'cpvg_form_option_field_modal',
+																					  data: viewModel.temp_data[ff_index] }" style='display:none;'>
+								</div>									
+							{{/if}}
+						</label>
+					{{/each}}
+					
+				</div>
+			</td>
+			<td class="cvpg-list-button">
+				<span>
+					<a href="#" data-bind="click: moveOptionCtpUp">
+						<div class="cvpg-list-button-up" data-bind="visible:viewModel.touchscreen"></div>
+					</a>
+				</span>	
+			</td>
+		</tr>
+		<tr>
+			<td class="cvpg-list-button">
+				<span data-bind="visible:viewModel.touchscreen">
+					<a href="#" data-bind="click: moveOptionCtpDown" data-bind="visible:touchscreen">
+						<div class="cvpg-list-button-down"></div>
+					</a>
+				</span>
+			</td>
+		</tr>
+		</table>
+	</li>
+</script>
+
+<script id='cpvg_form_option_field_modal' type='text/html'>
+	<li class='cpvg-fieldlist-item'>
+		<span data-bind="visible: viewModel.getDatafieldExtraData($item['data'].name(),'type')">Type:
+			<select data-bind="options: viewModel.available_fieldtypes.types,
+										optionsText: 'value',
+										optionsValue: 'key',
+										value: type"></select>
+										
+		</span>
+		<div data-bind="visible: (viewModel.available_fieldtypes[type()]) && (viewModel.getDatafieldExtraData($item['data'].name(),'options'))">Output:
+			{{each(output_index,output_option) viewModel.available_fieldtypes[type()]}}
+				<select data-bind="options: output_option,
+								   optionsText: 'value',
+								   optionsValue: 'key',
+								   value: getOutputVar(output_index)"></select>
+			{{/each}}
+		</div>
+	</li>
+</script>
