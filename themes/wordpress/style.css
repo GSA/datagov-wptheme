@@ -17,13 +17,13 @@ Version: 1.0
 .customcontactform input[type='text']
 {
     width:50%;
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 }
 .customcontactform input[type='checkbox']
 {
 
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 }
 .customcontactform label
@@ -41,7 +41,7 @@ Version: 1.0
     width:50%;
     resize: none;
     overflow-y: hidden;
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 }
 .customcontactform label.select
 {
@@ -53,7 +53,7 @@ Version: 1.0
 }
 .customcontactform select
 {
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 
 }
@@ -90,6 +90,7 @@ Version: 1.0
     word-wrap: break-word;
 }
 /* End Web form */
+
 
 /* css for Category-Blogs */
 .cats .content .blog{
