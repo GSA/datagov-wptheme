@@ -13,9 +13,7 @@ Template Name: Ocean-Map-National
 
 <body class="<?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?> single page">
 
-<div class="banner disclaimer">
-    <p>This is a demonstration site exploring the future of Data.gov. <span id="stop-disclaimer"> Give us your feedback on <a href="https://twitter.com/usdatagov">Twitter</a>, <a href="http://quora.com">Quora</a></span>, <a href="https://github.com/GSA/datagov-design/">Github</a>, or <a href="http://www.data.gov/contact-us">contact us</a></p>
-</div>
+
 
 
 <!-- Header Background Color, Image, or Visualization
@@ -67,7 +65,30 @@ Template Name: Ocean-Map-National
 
         wp_list_bookmarks($args); ?>
     </div>
+    <?php
+   /* $mapsperpage = 8;
+    $total_maps = 12;
+    $total_pages = ceil($total_maps / $mapsperpage);
+    if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
+        $currentpage = (int) $_GET['currentpage'];
+    }
+    else {
+        $currentpage = 1;
+    }
 
+    if ($currentpage > $total_pages) {
+        $currentpage  = $total_pages;
+    }
+
+    if ($currentpage < 1) {
+        $currentpage = 1;
+    }
+
+    $start = ($currentpage - 1) * $mapsperpage + 1;
+    echo "the value of start is ".$start;*/
+    $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+    //echo "the vlaue of the page is ".$page;
+    ?>
     <!-- WordPress Content
     ================================================== -->
     <div class="category-content">
@@ -86,27 +107,82 @@ Template Name: Ocean-Map-National
                             </div>
 
                             <div class="map-gallery-wrap">
-                                <div class="map-align">
-                                    <a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=72c523c47ae241f0821f21773eb20709" target="_blank">
-                                        <img title="Current Ocean Conditions Map" alt="Current Ocean Conditions Map"  src="http://www.arcgis.com/sharing/content/items/72c523c47ae241f0821f21773eb20709/info/thumbnail/Ocean.JPG" class="map-gallery-thumbnail">
-                                        <div class="map-gallery-caption">Current Ocean Conditions Map</div></a></div>
-                                <div class="map-align">
-                                    <a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=48b8cec7ebf04b5fbdcaf70d09daff21" target="_blank">
-                                        <img title="Oceans" alt="Oceans" src="http://www.arcgis.com/sharing/content/items/48b8cec7ebf04b5fbdcaf70d09daff21/info/thumbnail/tempoceans.jpg" class="map-gallery-thumbnail">
-                                        <div class="map-gallery-caption">Oceans</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=8156eea196514f7fb5f6a7a44a0b5947" target="_blank">
-                                    <img title="National Marine Habitat Ranges by Lease Block" alt="National Marine Habitat Ranges by Lease Block" src="http://www.arcgis.com/sharing/content/items/8156eea196514f7fb5f6a7a44a0b5947/info/thumbnail/thumbnail.png" class="map-gallery-thumbnail">
-                                    <div class="map-gallery-caption">National Marine Habitat Ranges by Lease Block</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=a452068c1f7f4561ba9c7fee2961d359" target="_blank">
-                                    <img title="U.S. Maritime Limits and Boundaries" alt="U.S. Maritime Limits and Boundaries" src="http://www.arcgis.com/sharing/content/items/a452068c1f7f4561ba9c7fee2961d359/info/thumbnail/ago_downloaded.png" class="map-gallery-thumbnail">
-                                    <div class="map-gallery-caption">U.S. Maritime Limits and Boundaries</div></a>
-                                </div>
+                                <?php
+                                $args = array(
+                                    'meta_key'         => 'map_category',
+                                    'meta_value'       => 'national',
+                                    'post_type'        => 'arcgis_maps',
+                                    'post_status'      => 'publish',
+                                    'posts_per_page'   => '4',
+                                    'suppress_filters' => true );
+                                $query = new WP_Query($args);
+                                $count = 0;
+                                if( $query->have_posts() ) {
+                                    while ($query->have_posts()) : $query->the_post();
+                                        $map_category = get_post_meta($post->ID, 'map_category',TRUE);
+                                            $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
+                                            $map_id = get_post_meta($post->ID, 'map_id',TRUE);
+                                            $request = arcgis_map_process_info($server, $map_id, '', 1);
+                                            if(!empty($request["thumbnail_src"])){
+                                                $output .= '<div class="map-align">';
+                                                $output .= '<a target=_blank href="'. $request["img_href"] . '">';
+                                                $output .= '<img class="map-gallery-thumbnail" src="'. $request["thumbnail_src"] . '" title="' . $request["title"] .'">';
+                                                $output .= '<div class="map-gallery-caption">'. $request["title"] . '</div>';
+                                                $output .= '</a>';
+                                                $output .= '</div>';
+                                            }
+                                        $count++;
+                                    endwhile;
+                                    wp_reset_query();
+                                }
+                               /* if($total_maps > $mapsperpage) {
+                                    $range = 10;
+                                    if ($currentpage > 1) {
+                                        $output .= "<br clear='both'/><li class='pager-first first'><a href='?currentpage=1'><<< FIRST </a></li> ";
+                                        $prevpage = $currentpage - 1;
+                                        $output .= "<li class='pager-previous'><a href='?currentpage=$prevpage'>< PREVIOUS  </a> </li>";
+                                    }
+
+                                    for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
+                                        if (($x > 0) && ($x <= $total_pages)) {
+                                            if ($x == $currentpage) {
+                                                if ($currentpage == 1) {
+                                                    $output .="<br clear='both'/><br/>";
+                                                }
+                                                if ($total_pages > 1) {
+                                                    $output .= "<li class='pager-current first'>$x</li>";
+                                                }
+                                            }
+                                            else {
+                                                $output .= "<li class='pager-item'><a href='?currentpage=$x'> $x </a></li>";
+                                            }
+                                        }
+                                    }
+
+                                    if ($currentpage != $total_pages) {
+                                        $nextpage = $currentpage + 1;
+                                        $output .= " <li class='pager-next'> <a href='?currentpage=$nextpage'>NEXT ></a></li> ";
+                                        $output .= " <li class='pager-last last'><a href='?currentpage=$total_pages'>  LAST >>></a> </li>";
+                                    }
+                                }
+
+                                print $output;*/
+                                print $output;
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
                 &nbsp;
             </div>
+            <ul class="pagination">
+                <li id="previous-posts">
+                    <?php previous_posts_link( '<< Previous Posts', $query->max_num_pages ); ?>
+                </li>
+                <li id="next-posts">
+                    <?php next_posts_link( 'Next Posts >>', $query->max_num_pages ); ?>
+                </li>
+            </ul>
 
             <?php get_template_part('footer'); ?>
 
