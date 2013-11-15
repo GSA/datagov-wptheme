@@ -58,37 +58,18 @@ Template Name: Ocean-Map-National
         <?php
         $category = get_the_category(  );
         $cat_name=$category[0]->cat_name;
-
-
         $args = array(
             'category_name'=>$cat_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
 
-        wp_list_bookmarks($args); ?>
+        wp_list_bookmarks($args);
+
+        // Pagination variables. the display settings shoule be read from global variable
+        $display_count = get_option('arcgis_maps_per_page');
+        $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+        $offset = ( $page - 1 ) * $display_count;
+        ?>
     </div>
-    <?php
-   /* $mapsperpage = 8;
-    $total_maps = 12;
-    $total_pages = ceil($total_maps / $mapsperpage);
-    if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
-        $currentpage = (int) $_GET['currentpage'];
-    }
-    else {
-        $currentpage = 1;
-    }
 
-    if ($currentpage > $total_pages) {
-        $currentpage  = $total_pages;
-    }
-
-    if ($currentpage < 1) {
-        $currentpage = 1;
-    }
-
-    $start = ($currentpage - 1) * $mapsperpage + 1;
-    echo "the value of start is ".$start;*/
-    $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-    //echo "the vlaue of the page is ".$page;
-    ?>
     <!-- WordPress Content
     ================================================== -->
     <div class="category-content">
@@ -113,8 +94,10 @@ Template Name: Ocean-Map-National
                                     'meta_value'       => 'national',
                                     'post_type'        => 'arcgis_maps',
                                     'post_status'      => 'publish',
-                                    'posts_per_page'   => '4',
-                                    'suppress_filters' => true );
+                                    'posts_per_page'   => $display_count,
+                                    'page'             => $page,
+                                    'offset'           => $offset
+                                );
                                 $query = new WP_Query($args);
                                 $count = 0;
                                 if( $query->have_posts() ) {
@@ -135,38 +118,6 @@ Template Name: Ocean-Map-National
                                     endwhile;
                                     wp_reset_query();
                                 }
-                               /* if($total_maps > $mapsperpage) {
-                                    $range = 10;
-                                    if ($currentpage > 1) {
-                                        $output .= "<br clear='both'/><li class='pager-first first'><a href='?currentpage=1'><<< FIRST </a></li> ";
-                                        $prevpage = $currentpage - 1;
-                                        $output .= "<li class='pager-previous'><a href='?currentpage=$prevpage'>< PREVIOUS  </a> </li>";
-                                    }
-
-                                    for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
-                                        if (($x > 0) && ($x <= $total_pages)) {
-                                            if ($x == $currentpage) {
-                                                if ($currentpage == 1) {
-                                                    $output .="<br clear='both'/><br/>";
-                                                }
-                                                if ($total_pages > 1) {
-                                                    $output .= "<li class='pager-current first'>$x</li>";
-                                                }
-                                            }
-                                            else {
-                                                $output .= "<li class='pager-item'><a href='?currentpage=$x'> $x </a></li>";
-                                            }
-                                        }
-                                    }
-
-                                    if ($currentpage != $total_pages) {
-                                        $nextpage = $currentpage + 1;
-                                        $output .= " <li class='pager-next'> <a href='?currentpage=$nextpage'>NEXT ></a></li> ";
-                                        $output .= " <li class='pager-last last'><a href='?currentpage=$total_pages'>  LAST >>></a> </li>";
-                                    }
-                                }
-
-                                print $output;*/
                                 print $output;
                                 ?>
                             </div>
@@ -177,10 +128,10 @@ Template Name: Ocean-Map-National
             </div>
             <ul class="pagination">
                 <li id="previous-posts">
-                    <?php previous_posts_link( '<< Previous Posts', $query->max_num_pages ); ?>
+                    <?php previous_posts_link( '<< Previous', $query->max_num_pages ); ?>
                 </li>
                 <li id="next-posts">
-                    <?php next_posts_link( 'Next Posts >>', $query->max_num_pages ); ?>
+                    <?php next_posts_link( 'Next >>', $query->max_num_pages ); ?>
                 </li>
             </ul>
 

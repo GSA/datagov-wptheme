@@ -62,7 +62,13 @@ Template Name: Ocean-Map-Regional
         $args = array(
             'category_name'=>$cat_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
 
-        wp_list_bookmarks($args); ?>
+        wp_list_bookmarks($args);
+
+        // Pagination variables. the display settings shoule be read from global variable
+        $display_count = get_option('arcgis_maps_per_page');
+        $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+        $offset = ( $page - 1 ) * $display_count;
+        ?>
     </div>
 
     <!-- WordPress Content
@@ -86,7 +92,10 @@ Template Name: Ocean-Map-Regional
                                     'meta_value'       => 'regional',
                                     'post_type'        => 'arcgis_maps',
                                     'post_status'      => 'publish',
-                                    'suppress_filters' => true );
+                                    'posts_per_page'   => $display_count,
+                                    'page'             => $page,
+                                    'offset'           => $offset
+                                );
                                 $query = new WP_Query($args);
                                 $count = 0;
                                 if( $query->have_posts() ) {
@@ -115,7 +124,14 @@ Template Name: Ocean-Map-Regional
                 </div>
                 &nbsp;
             </div>
-
+            <ul class="pagination">
+                <li id="previous-posts">
+                    <?php previous_posts_link( '<< Previous', $query->max_num_pages ); ?>
+                </li>
+                <li id="next-posts">
+                    <?php next_posts_link( 'Next >>', $query->max_num_pages ); ?>
+                </li>
+            </ul>
             <?php get_template_part('footer'); ?>
         </div> <!-- content -->
     </div>    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
