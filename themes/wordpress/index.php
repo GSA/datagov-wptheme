@@ -85,10 +85,6 @@
                             <?php
                             $category = get_the_category();
                             $url = get_category_link($category[0]->cat_ID);
-                            if(strtolower($cat->slug)=="health")
-                            {
-                                $url= "http://www.healthdata.gov";
-                            }
                             if(strtolower($cat->slug)=="ethics"){
                                 $url = "http://ethics.data.gov";
                             }
@@ -115,10 +111,6 @@
                             <?php
                             $category = get_the_category();
                             $url = get_category_link($category[0]->cat_ID);
-                            if(strtolower($cat->slug)=="health")
-                            {
-                                $url= "http://www.healthdata.gov";
-                            }
                             if(strtolower($cat->slug)=="ethics"){
                                 $url = "http://ethics.data.gov";
                             }
@@ -148,10 +140,6 @@
                             <?php
                             $category = get_the_category();
                             $url = get_category_link($category[0]->cat_ID);
-                            if(strtolower($cat->slug)=="health")
-                            {
-                                $url= "http://www.healthdata.gov";
-                            }
                             if(strtolower($cat->slug)=="ethics"){
                                 $url = "http://ethics.data.gov";
                             }
@@ -182,10 +170,6 @@
                             <?php
                             $category = get_the_category();
                             $url = get_category_link($category[0]->cat_ID);
-                            if(strtolower($cat->slug)=="health")
-                            {
-                                $url= "http://www.healthdata.gov";
-                            }
                             if(strtolower($cat->slug)=="ethics"){
                                 $url = "http://ethics.data.gov";
                             }
@@ -213,10 +197,6 @@
                             <?php
                             $category = get_the_category();
                             $url = get_category_link($category[0]->cat_ID);
-                            if(strtolower($cat->slug)=="health")
-                            {
-                                $url= "http://www.healthdata.gov";
-                            }
                             if(strtolower($cat->slug)=="ethics"){
                                 $url = "http://ethics.data.gov";
                             }
