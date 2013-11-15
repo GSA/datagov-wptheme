@@ -3,10 +3,65 @@
 Plugin Name: ArcGis Map Validation
 Description: This plugin validates map using the the map id and group id 
 */
+
+    add_action('admin_menu', 'arcgis_map_settings');
+
     if (!session_id())
         session_start();
     add_action('save_post','validate_map_id' );
     add_action( 'admin_notices', 'my_admin_notices');
+
+    function arcgis_map_settings() {
+
+        add_menu_page('ArcGis Map Settings', 'ArcGis Map Settings', 'administrator', 'map_config', 'arcgis_map_config');
+
+    }
+
+    function arcgis_map_config(){
+
+        $arcgis_maps_per_page = (get_option('arcgis_maps_per_page') != '') ? get_option('arcgis_maps_per_page') : '4';
+        $arcgis_default_server = (get_option('arcgis_default_server') != '') ? get_option('arcgis_default_server') : 'http://www.geoplatform.gov';
+        $arcgis_refresh_cache = (get_option('arcgis_refresh_cache') != '') ? get_option('arcgis_refresh_cache') : '15';
+        ?>
+        <form action="options.php" method="post" name="options">
+			<h2>ArcGis Map Configuration</h2> <?php wp_nonce_field('update-options');?>
+            <div>
+                <div class="form-item form-type-select form-item-mapsperpage">
+                    <label for="edit-mapsperpage">Maps per page <span title="This field is required." class="form-required">*</span></label>
+                    <select class="form-select required" name="arcgis_maps_per_page" id="arcgis_maps_per_page">
+                        <option value="1" <?php if($arcgis_maps_per_page == 1) { echo 'selected="selected"'; }?>> 1 </option>
+                        <option value="2" <?php if($arcgis_maps_per_page == 2) { echo 'selected="selected"'; }?>> 2 </option>
+                        <option value="3" <?php if($arcgis_maps_per_page == 3) { echo 'selected="selected"'; }?>> 3 </option>
+                        <option value="4" <?php if($arcgis_maps_per_page == 4) { echo 'selected="selected"'; }?>>4</option>
+                        <option value="8" <?php if($arcgis_maps_per_page == 8) { echo 'selected="selected"'; }?>>8</option>
+                        <option value="12" <?php if($arcgis_maps_per_page == 12) { echo 'selected="selected"'; }?>>12</option>
+                        <option value="16" <?php if($arcgis_maps_per_page == 16) { echo 'selected="selected"'; }?>>16</option>
+                        <option value="24" <?php if($arcgis_maps_per_page == 24) { echo 'selected="selected"'; }?>>24</option>
+                    </select>
+                </div>
+                <div class="form-item form-type-textfield form-item-server-info">
+                    <label for="edit-server-info">Default Server <span title="This field is required." class="form-required">*</span></label>
+                    <input type="text" class="form-text required" maxlength="128" size="60" value="<?=$arcgis_default_server?>" name="arcgis_default_server" id="arcgis_default_server">
+                    <div class="description">Please enter the server info. Example: http://www.geoplatform.gov</div>
+                </div>
+                <div class="form-item form-type-select form-item-refresh-cache">
+                    <label for="edit-refresh-cache">Refresh Cache </label>
+                    <select class="form-select" name="arcgis_refresh_cache" id="arcgis_refresh_cache">
+                        <option value="5" <?php if($arcgis_refresh_cache == 5) { echo 'selected="selected"'; }?>>5 mins</option>
+                        <option value="15" <?php if($arcgis_refresh_cache == 15) { echo 'selected="selected"'; }?>>15 mins</option>
+                        <option value="30" <?php if($arcgis_refresh_cache == 30) { echo 'selected="selected"'; }?>>30 mins</option>
+                        <option value="1440" <?php if($arcgis_refresh_cache == 1440) { echo 'selected="selected"'; }?>>1 day</option>
+                        <option value="2880" <?php if($arcgis_refresh_cache == 2880) { echo 'selected="selected"'; }?>>2 days</option>
+                        <option value="4320" <?php if($arcgis_refresh_cache == 4320) { echo 'selected="selected"'; }?>>3 days</option>
+                    </select>
+                    <div class="description">Please select time interval after which cache will be refereshed.</div>
+                 </div>
+                </div><input type="hidden" name="action" value="update" />
+                <input type="hidden" name="page_options" value="arcgis_maps_per_page,arcgis_default_server,arcgis_refresh_cache" />
+                <input type="submit" name="Submit" value="Update" />
+                </form>
+    <?php
+    }
 
     function validate_map_id($post_id,$post){
         $slug = "arcgis_maps";
@@ -57,14 +112,11 @@ Description: This plugin validates map using the the map id and group id
 
 function arcgis_map_process_info($server, $map_id, $group_id,$display=null) {
         // call the info based on national or regional type
-
-
         $request = get_arcgis_map_info($server, $map_id, $group_id, 1);
         if ($request['message']!="OK") {
             $returnval= '<div class="error"><p>An error occurred and processing did not complete.</p><br></div>';
             return;
         }
-
             // Parse the xml. TODO put into a function.
         $map = new SimpleXMLElement($request['body']);
 
