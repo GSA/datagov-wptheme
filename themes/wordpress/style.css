@@ -1427,3 +1427,9 @@ margin-top: 0px !important;
 .post-115912 ul ul ul{
     font-size:100%;
 }
+ul#pagination li a{
+    color: #284A78;
+    margin-right:45px;
+    font-weight:bold;
+    float:right;
+}

@@ -85,6 +85,7 @@ Template Name: Ocean-Map-Regional
                             <div id="regionalcontent" >
                                 <p><span style="color: #666666; font-family: Arial, Helvetica, Verdana, 'Bitstream Vera Sans', sans-serif; font-size: 13px; line-height: 19px;">The following maps are from data sources that are regional in scope.These are some of the data sources available in the Ocean Community that are most useful in the identified region.This includes several of the human use atlases now available.</span></p>
                             </div>
+                            <h3 class="fieldcontentregion" style="margin:10px; ">Regional/State Maps</h3>
                             <div class="map-gallery-wrap">
                                 <?php
                                 $args = array(
@@ -101,87 +102,87 @@ Template Name: Ocean-Map-Regional
                                 if( $query->have_posts() ) {
                                     while ($query->have_posts()) : $query->the_post();
                                         $map_category = get_post_meta($post->ID, 'map_category',TRUE);
-                                            $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
-                                            $map_id = get_post_meta($post->ID, 'map_id',TRUE);
-                                            $request = arcgis_map_process_info($server, $map_id, '', 1);
-                                            if(!empty($request["thumbnail_src"])){
-                                                $output .= '<div class="map-align">';
-                                                $output .= '<a target=_blank href="'. $request["img_href"] . '">';
-                                                $output .= '<img class="map-gallery-thumbnail" src="'. $request["thumbnail_src"] . '" title="' . $request["title"] .'">';
-                                                $output .= '<div class="map-gallery-caption">'. $request["title"] . '</div>';
-                                                $output .= '</a>';
-                                                $output .= '</div>';
+                                        $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
+                                        $map_id = get_post_meta($post->ID, 'map_id',TRUE);
+                                        $request = arcgis_map_process_info($server, $map_id, '', 1);
+                                        if(!empty($request["thumbnail_src"])){
+                                            $output .= '<div class="map-align">';
+                                            $output .= '<a target=_blank href="'. $request["img_href"] . '">';
+                                            $output .= '<img class="map-gallery-thumbnail" src="'. $request["thumbnail_src"] . '" title="' . $request["title"] .'">';
+                                            $output .= '<div class="map-gallery-caption">'. $request["title"] . '</div>';
+                                            $output .= '</a>';
+                                            $output .= '</div>';
 
-                                            }
+                                        }
                                         $count++;
                                     endwhile;
                                     wp_reset_query();
                                 }
                                 print $output;
                                 ?>
+                            </div>
                         </div>
                     </div>
+                    &nbsp;
                 </div>
-                &nbsp;
-            </div>
-            <ul class="pagination">
-                <li id="previous-posts">
-                    <?php previous_posts_link( '<< Previous', $query->max_num_pages ); ?>
-                </li>
-                <li id="next-posts">
-                    <?php next_posts_link( 'Next >>', $query->max_num_pages ); ?>
-                </li>
-            </ul>
-            <?php get_template_part('footer'); ?>
-        </div> <!-- content -->
-    </div>    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/modernizr.mq.js"></script>
+                <ul id="pagination">
+                    <li id="previous-posts">
+                        <?php previous_posts_link( '<< Previous', $query->max_num_pages ); ?>
+                    </li>
+                    <li id="next-posts">
+                        <?php next_posts_link( 'Next >>', $query->max_num_pages ); ?>
+                    </li>
+                </ul>
+                <?php get_template_part('footer'); ?>
+            </div> <!-- content -->
+        </div>    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/modernizr.mq.js"></script>
 
-    <script>
-        $(window).load(function(){
-            $('#posts').masonry({
-                // options
-                columnWidth: 287,
-                itemSelector : '.post',
-                isResizable: true,
-                isAnimated: true,
-                gutterWidth: 25
+        <script>
+            $(window).load(function(){
+                $('#posts').masonry({
+                    // options
+                    columnWidth: 287,
+                    itemSelector : '.post',
+                    isResizable: true,
+                    isAnimated: true,
+                    gutterWidth: 25
+                });
+
+                $("#joyRideTipContent").joyride({
+                    autoStart: true,
+                    modal: true,
+                    cookieMonster: true,
+                    cookieName: 'datagov',
+                    cookieDomain: 'next.data.gov'
+                });
             });
-
-            $("#joyRideTipContent").joyride({
-                autoStart: true,
-                modal: true,
-                cookieMonster: true,
-                cookieName: 'datagov',
-                cookieDomain: 'next.data.gov'
-            });
-        });
-    </script>
+        </script>
 
 
-    <script>
-        $(function () {
-            var
-                    $demo = $('#rotate-stats'),
-                    strings = JSON.parse($demo.attr('data-strings')).targets,
-                    randomString;
+        <script>
+            $(function () {
+                var
+                        $demo = $('#rotate-stats'),
+                        strings = JSON.parse($demo.attr('data-strings')).targets,
+                        randomString;
 
-            randomString = function () {
-                return strings[Math.floor(Math.random() * strings.length)];
-            };
+                randomString = function () {
+                    return strings[Math.floor(Math.random() * strings.length)];
+                };
 
-            $demo.fadeTo(randomString());
-            setInterval(function () {
                 $demo.fadeTo(randomString());
-            }, 15000);
-        });
-    </script>
+                setInterval(function () {
+                    $demo.fadeTo(randomString());
+                }, 15000);
+            });
+        </script>
 
-    <script src="<?php echo get_bloginfo('template_directory'); ?>/js/v1.js"></script>
-    <script src="<?php echo get_bloginfo('template_directory'); ?>/js/autosize.js"></script>
+        <script src="<?php echo get_bloginfo('template_directory'); ?>/js/v1.js"></script>
+        <script src="<?php echo get_bloginfo('template_directory'); ?>/js/autosize.js"></script>
 
-    <!-- End Document
-    ================================================== -->
+        <!-- End Document
+        ================================================== -->
 </body>
 
 

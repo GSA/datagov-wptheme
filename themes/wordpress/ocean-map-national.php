@@ -15,7 +15,6 @@ Template Name: Ocean-Map-National
 
 
 
-
 <!-- Header Background Color, Image, or Visualization
 ================================================== -->
 <div class="menu-container">
@@ -86,7 +85,7 @@ Template Name: Ocean-Map-National
                                     These data sources are already being used by some regional portals and are the basic building blocks of information for regional planning.
                                     These data include administrative boundaries, bathymetry, and other types of data that have already been identified as needed for regional planning efforts.</span></p>
                             </div>
-
+                            <h3 class="fieldcontentregion" style="margin:10px; ">National Maps</h3>
                             <div class="map-gallery-wrap">
                                 <?php
                                 $args = array(
@@ -103,17 +102,17 @@ Template Name: Ocean-Map-National
                                 if( $query->have_posts() ) {
                                     while ($query->have_posts()) : $query->the_post();
                                         $map_category = get_post_meta($post->ID, 'map_category',TRUE);
-                                            $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
-                                            $map_id = get_post_meta($post->ID, 'map_id',TRUE);
-                                            $request = arcgis_map_process_info($server, $map_id, '', 1);
-                                            if(!empty($request["thumbnail_src"])){
-                                                $output .= '<div class="map-align">';
-                                                $output .= '<a target=_blank href="'. $request["img_href"] . '">';
-                                                $output .= '<img class="map-gallery-thumbnail" src="'. $request["thumbnail_src"] . '" title="' . $request["title"] .'">';
-                                                $output .= '<div class="map-gallery-caption">'. $request["title"] . '</div>';
-                                                $output .= '</a>';
-                                                $output .= '</div>';
-                                            }
+                                        $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
+                                        $map_id = get_post_meta($post->ID, 'map_id',TRUE);
+                                        $request = arcgis_map_process_info($server, $map_id, '', 1);
+                                        if(!empty($request["thumbnail_src"])){
+                                            $output .= '<div class="map-align">';
+                                            $output .= '<a target=_blank href="'. $request["img_href"] . '">';
+                                            $output .= '<img class="map-gallery-thumbnail" src="'. $request["thumbnail_src"] . '" title="' . $request["title"] .'">';
+                                            $output .= '<div class="map-gallery-caption">'. $request["title"] . '</div>';
+                                            $output .= '</a>';
+                                            $output .= '</div>';
+                                        }
                                         $count++;
                                     endwhile;
                                     wp_reset_query();
@@ -126,8 +125,8 @@ Template Name: Ocean-Map-National
                 </div>
                 &nbsp;
             </div>
-            <ul class="pagination">
-                <li id="previous-posts">
+            <ul id="pagination">
+                <li id="previous-posts"  >
                     <?php previous_posts_link( '<< Previous', $query->max_num_pages ); ?>
                 </li>
                 <li id="next-posts">
