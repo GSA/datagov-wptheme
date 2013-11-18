@@ -115,9 +115,9 @@ Description: This plugin validates map using the the map id and group id
             $url =  $server. "/sharing/content/items/$map_id/info/iteminfo.xml";
 
         }
-        elseif(!empty($group_id) && $display == 0) {
+       /* elseif(!empty($group_id) && $display == 0) {
             $url =  $server. "/sharing/community/groups?q=id:".$group_id."&f=json&_=".time();
-        }
+        }*/
            /* elseif(!empty($group_id) && $display == 0) {
                 $url =  $server. "/sharing/community/groups?q=id:".$group_id."&f=json&_=".time();
             }
