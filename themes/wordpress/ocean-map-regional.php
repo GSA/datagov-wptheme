@@ -12,9 +12,7 @@ Template Name: Ocean-Map-Regional
 <?php get_template_part('header'); ?>
 
 <body class="<?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?> single page">
-<div class="banner disclaimer">
-    <p>This is a demonstration site exploring the future of Data.gov. <span id="stop-disclaimer"> Give us your feedback on <a href="https://twitter.com/usdatagov">Twitter</a>, <a href="http://quora.com">Quora</a></span>, <a href="https://github.com/GSA/datagov-design/">Github</a>, or <a href="http://www.data.gov/contact-us">contact us</a></p>
-</div>
+
 <div class="menu-container">
     <div class="header-next-top" >
 
@@ -64,7 +62,13 @@ Template Name: Ocean-Map-Regional
         $args = array(
             'category_name'=>$cat_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
 
-        wp_list_bookmarks($args); ?>
+        wp_list_bookmarks($args);
+
+        // Pagination variables. the display settings shoule be read from global variable
+        $display_count = get_option('arcgis_maps_per_page');
+        $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+        $offset = ( $page - 1 ) * $display_count;
+        ?>
     </div>
 
     <!-- WordPress Content
@@ -82,19 +86,52 @@ Template Name: Ocean-Map-Regional
                                 <p><span style="color: #666666; font-family: Arial, Helvetica, Verdana, 'Bitstream Vera Sans', sans-serif; font-size: 13px; line-height: 19px;">The following maps are from data sources that are regional in scope.These are some of the data sources available in the Ocean Community that are most useful in the identified region.This includes several of the human use atlases now available.</span></p>
                             </div>
                             <div class="map-gallery-wrap">
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=9c18550c87944accb309083eb9d12561" target="_blank"><img title="Oregon Submarine Cables" alt="Oregon Submarine Cables" src="http://www.arcgis.com/sharing/content/items/9c18550c87944accb309083eb9d12561/info/thumbnail/ago_downloaded.png" class="map-gallery-thumbnail"><div class="map-gallery-caption">Oregon Submarine Cables</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=a0af6b3964a14046a24ccb76afe8ea59" target="_blank"><img title="Marine Reserves and Protected areas of Oregon" alt="Marine Reserves and Protected areas of Oregon" src="http://www.arcgis.com/sharing/content/items/a0af6b3964a14046a24ccb76afe8ea59/info/thumbnail/ago_downloaded.png" class="map-gallery-thumbnail"><div class="map-gallery-caption">Marine Reserves and Protected areas of Oregon</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=2abaac22ad3241148796ace1e34aab30" target="_blank"><img title="Arctic Ocean - Seafloor Bathymetry with Hillshade - UNH/CCOM-JHC" alt="Arctic Ocean - Seafloor Bathymetry with Hillshade - UNH/CCOM-JHC" src="http://www.arcgis.com/sharing/content/items/2abaac22ad3241148796ace1e34aab30/info/thumbnail/thumbnail.png" class="map-gallery-thumbnail"><div class="map-gallery-caption">Arctic Ocean - Seafloor Bathymetry with Hillshade - UNH/CCOM-JHC</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=a5cd5026efb1466f969488cfdd1a5809" target="_blank"><img title="North Carolina Offshore Renewable Energy Planning" alt="North Carolina Offshore Renewable Energy Planning" src="http://www.arcgis.com/sharing/content/items/a5cd5026efb1466f969488cfdd1a5809/info/thumbnail/thumbnail.png" class="map-gallery-thumbnail"><div class="map-gallery-caption">North Carolina Offshore Renewable Energy Planning</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=0aa00417d26e430c84caaa2ea930c596" target="_blank"><img title="South Carolina Offshore Renewable Energy Planning" alt="South Carolina Offshore Renewable Energy Planning" src="http://www.arcgis.com/sharing/content/items/0aa00417d26e430c84caaa2ea930c596/info/thumbnail/ago_downloaded.png" class="map-gallery-thumbnail"><div class="map-gallery-caption">South Carolina Offshore Renewable Energy Planning</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=151b60d286704dd19b51bf32e926c0f7" target="_blank"><img title="North-Atlantic Shipping and Whale Occurrences" alt="North-Atlantic Shipping and Whale Occurrences" src="http://www.arcgis.com/sharing/content/items/151b60d286704dd19b51bf32e926c0f7/info/thumbnail/thumbnail.png" class="map-gallery-thumbnail"><div class="map-gallery-caption">North-Atlantic Shipping and Whale Occurrences</div></a></div>
-                            </div>
+                                <?php
+                                $args = array(
+                                    'meta_key'         => 'map_category',
+                                    'meta_value'       => 'regional',
+                                    'post_type'        => 'arcgis_maps',
+                                    'post_status'      => 'publish',
+                                    'posts_per_page'   => $display_count,
+                                    'page'             => $page,
+                                    'offset'           => $offset
+                                );
+                                $query = new WP_Query($args);
+                                $count = 0;
+                                if( $query->have_posts() ) {
+                                    while ($query->have_posts()) : $query->the_post();
+                                        $map_category = get_post_meta($post->ID, 'map_category',TRUE);
+                                            $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
+                                            $map_id = get_post_meta($post->ID, 'map_id',TRUE);
+                                            $request = arcgis_map_process_info($server, $map_id, '', 1);
+                                            if(!empty($request["thumbnail_src"])){
+                                                $output .= '<div class="map-align">';
+                                                $output .= '<a target=_blank href="'. $request["img_href"] . '">';
+                                                $output .= '<img class="map-gallery-thumbnail" src="'. $request["thumbnail_src"] . '" title="' . $request["title"] .'">';
+                                                $output .= '<div class="map-gallery-caption">'. $request["title"] . '</div>';
+                                                $output .= '</a>';
+                                                $output .= '</div>';
+
+                                            }
+                                        $count++;
+                                    endwhile;
+                                    wp_reset_query();
+                                }
+                                print $output;
+                                ?>
                         </div>
                     </div>
                 </div>
                 &nbsp;
             </div>
-
+            <ul class="pagination">
+                <li id="previous-posts">
+                    <?php previous_posts_link( '<< Previous', $query->max_num_pages ); ?>
+                </li>
+                <li id="next-posts">
+                    <?php next_posts_link( 'Next >>', $query->max_num_pages ); ?>
+                </li>
+            </ul>
             <?php get_template_part('footer'); ?>
         </div> <!-- content -->
     </div>    <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>

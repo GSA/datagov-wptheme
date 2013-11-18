@@ -17,13 +17,13 @@ Version: 1.0
 .customcontactform input[type='text']
 {
     width:50%;
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 }
 .customcontactform input[type='checkbox']
 {
 
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 }
 .customcontactform label
@@ -41,7 +41,7 @@ Version: 1.0
     width:50%;
     resize: none;
     overflow-y: hidden;
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 }
 .customcontactform label.select
 {
@@ -53,7 +53,7 @@ Version: 1.0
 }
 .customcontactform select
 {
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 
 }
@@ -90,6 +90,7 @@ Version: 1.0
     word-wrap: break-word;
 }
 /* End Web form */
+
 
 /* css for Category-Blogs */
 .cats .content .blog{
@@ -834,14 +835,14 @@ tr.odd, tr.odd td a {
     margin-top:15px;
 }
 .greyblock ul {
-    list-style:inherit;
+    list-style:disc outside none;
 
 }
 .greyblock li {
     margin-left:12px;
 }
 .greyblock ul li {
-    margin: 0; padding: 0;
+    padding: 0;
 }
 .greyblock ul li a{
     color: #4295B0;
@@ -954,7 +955,7 @@ a.btn-readmore {
 
 }
 
-.map-gallery-caption { width:200px;min-height:60px;}
+.map-gallery-caption { width:200px;min-height:70px;}
 
 
 
