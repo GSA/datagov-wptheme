@@ -2,7 +2,7 @@
     <div class="next-logo">
         <!--<div id="next-logo-title-bg" class="next-background"></div> -->
         <div class="next-object"><!--  <span id="next-logo-title">Data.Gov</span>  -->
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/datagov.png">
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/datagov.png" alt="Data Gov Logo">
         </div>
     </div>
     <div class="next-stats">
@@ -13,9 +13,9 @@
     <div class="next-search">
         <div class="next-background"></div>
         <div class="next-object">
-            <div class="next-search-label">
+          <!--  <div class="next-search-label">
                 <label class="next" for="next-search-box">Search</label>
-            </div>
+            </div> -->
             <div class="next-search-icon">
                 <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/search.png" alt="Primary Search">
             </div>
