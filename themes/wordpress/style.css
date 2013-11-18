@@ -1433,3 +1433,21 @@ ul#pagination li a{
     font-weight:bold;
     float:right;
 }
+.gallery{
+    padding: 25px;
+    width: 60%;
+    border-style: dashed;
+    border-color: rgb(0, 0, 0);
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-image: none;
+    border-width: 1px 0pt;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0pt auto;
+}
+.gallery-center{
+    margin-top:20px;
+}
