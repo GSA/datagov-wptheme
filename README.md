@@ -57,7 +57,7 @@ This template requires the following plugins:
 * Custom Contact Form - http://wordpress.org/plugins/custom-contact-forms/
 * PHP Code for posts - http://wordpress.org/plugins/php-code-for-posts/
 * Broken Link Checker - http://wordpress.org/plugins/broken-link-checker/
-* Interactive World Map(paid plugin) - http://wordpress.org/plugins/interactive-world-map/
+* Interactive World Map(paid plugin) - http://cmoreira.net/interactive-world-maps-demo/
 * Redirection - http://wordpress.org/plugins/redirection/
 * Custom Permalink - http://wordpress.org/plugins/custom-permalinks/
 * Date and Time Picker - http://wordpress.org/plugins/acf-field-date-time-picker/
