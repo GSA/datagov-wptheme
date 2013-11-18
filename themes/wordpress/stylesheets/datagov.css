@@ -578,12 +578,11 @@ div.next-header.category.education{
 	background-color: #15226D;
 }
 
-
-
 .tweet .core .body{
 	font-weight: lighter; 
 	font-style: italic;
 	font-size: 18px;
+    word-wrap:break-word;
 }
 
 .tweet .tweet-author{
