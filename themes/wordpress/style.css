@@ -835,14 +835,14 @@ tr.odd, tr.odd td a {
     margin-top:15px;
 }
 .greyblock ul {
-    list-style:inherit;
+    list-style:disc outside none;
 
 }
 .greyblock li {
     margin-left:12px;
 }
 .greyblock ul li {
-    margin: 0; padding: 0;
+    padding: 0;
 }
 .greyblock ul li a{
     color: #4295B0;
