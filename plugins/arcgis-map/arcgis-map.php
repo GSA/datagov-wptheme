@@ -43,7 +43,7 @@ Description: This plugin validates map using the the map id and group id
                 </div>
                 <div class="form-item form-type-textfield form-item-server-info">
                     <label for="edit-server-info">Default Server <span title="This field is required." class="form-required">*</span></label>
-                    <input type="text" class="form-text required" maxlength="128" size="60" value="<?=$arcgis_default_server?>" name="arcgis_default_server" id="arcgis_default_server">
+                    <input type="text" class="form-text required" maxlength="128" size="60" value="<?php echo $arcgis_default_server;?>" name="arcgis_default_server" id="arcgis_default_server">
                     <div class="description">Please enter the server info. Example: http://www.geoplatform.gov</div>
                 </div>
                 <div class="form-item form-type-select form-item-refresh-cache">
@@ -110,9 +110,13 @@ Description: This plugin validates map using the the map id and group id
     }
 
     function get_arcgis_map_info($server, $map_id, $group_id=NULL, $display) {
+
         if(!empty($map_id)){
             $url =  $server. "/sharing/content/items/$map_id/info/iteminfo.xml";
 
+        }
+        elseif(!empty($group_id) && $display == 0) {
+            $url =  $server. "/sharing/community/groups?q=id:".$group_id."&f=json&_=".time();
         }
            /* elseif(!empty($group_id) && $display == 0) {
                 $url =  $server. "/sharing/community/groups?q=id:".$group_id."&f=json&_=".time();
