@@ -10,6 +10,8 @@ Description: This plugin validates map using the the map id and group id
         session_start();
     add_action('save_post','validate_map_id' );
     add_action( 'admin_notices', 'my_admin_notices');
+    add_filter('redirect_post_location','arcgismap_redirect_location',10,2);
+
 
     function arcgis_map_settings() {
 
@@ -63,9 +65,12 @@ Description: This plugin validates map using the the map id and group id
     <?php
     }
 
-    function validate_map_id($post_id,$post){
+    function validate_map_id($post_id){
         $slug = "arcgis_maps";
         $_SESSION['my_admin_notices']="";
+        $prevent_publish= false;
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+            return;
         if ( $slug != $_POST['post_type'] ) {
             return true;
         } else {
@@ -78,15 +83,30 @@ Description: This plugin validates map using the the map id and group id
             }
             $request = get_arcgis_map_info($server, $map_id, '', 0);
             if ($request['message']!="OK") {
+                $prevent_publish= true;
                 $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID.</p></div>';
-                return false;
+                if ($prevent_publish) {
+                    remove_action('save_post', 'validate_map_id');
+                    wp_update_post(array('ID' => $post_id, 'post_status' => 'draft'));
+                    add_action('save_post', 'save_post');
+                }
+                return ;
             }
+
         }
     }
 
-    function my_admin_notices(){
+    function my_admin_notices($post_id){
         if(!empty($_SESSION['my_admin_notices'])) print  $_SESSION['my_admin_notices'];
         unset ($_SESSION['my_admin_notices']);
+    }
+    function arcgismap_redirect_location($location,$post_id){
+        if (isset($_POST['publish'])){
+            $status = get_post_status( $post_id );
+            if($status=='draft')
+                $location = add_query_arg('message', 10, $location);
+        }
+        return $location;
     }
 
     function get_arcgis_map_info($server, $map_id, $group_id=NULL, $display) {
