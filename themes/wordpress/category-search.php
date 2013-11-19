@@ -14,9 +14,9 @@
     <div class="next-search">
         <div class="next-background"></div>
         <div class="next-object">
-            <div class="next-search-label">
+         <!--   <div class="next-search-label">
                 <label class="next" for="next-search-box">Search</label>
-            </div>
+            </div> -->
             <div class="next-search-icon">
                 <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/search.png" alt="Category Search">
             </div>
