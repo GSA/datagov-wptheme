@@ -63,7 +63,7 @@ Template Name: Ocean-Map-National
         wp_list_bookmarks($args);
 
         // Pagination variables. the display settings shoule be read from global variable
-        $display_count = get_option('arcgis_maps_per_page');
+        $display_count = (get_option('arcgis_maps_per_page') != '') ? get_option('arcgis_maps_per_page') : '8';
         $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
         $offset = ( $page - 1 ) * $display_count;
         ?>
