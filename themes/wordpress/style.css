@@ -955,7 +955,7 @@ a.btn-readmore {
 
 }
 
-.map-gallery-caption { width:200px;min-height:70px;}
+.map-gallery-caption { width:200px;min-height:70px;color: #666666;font: bold 12px Arial,Helvetica,sans-serif;}
 
 
 
@@ -964,12 +964,12 @@ a.btn-readmore {
 
     float: left;
 
-    margin: 0 20px;
+    margin: 0 10px;
 
 }
 .Apps-wrapper {
     margin-bottom: 20px;
-    position:relative;
+
 }
 .Apps-post {
     background-color: #FFFFFF;
