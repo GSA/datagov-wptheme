@@ -70,13 +70,24 @@
     };
 </script>
 <script type="text/javascript">
-    $('#search-textbox').blur(function() {
-        $("#searchlist").hide()
+    $('#search-textbox').focus(function() {
+        $("#searchlist").show();
+    });
+    $( document ).ready(function() {
+        $( '#search-textbox' ).focusout( function() {
+            $( '#searchlist' ).hover(
+                    function() {
+                        return;
+                    },
+                    function() {
+                        $( '#searchlist' ).fadeOut( 'slow' );
+
+                    });
+        });
     });
 
-    $('#search-textbox').focus(function() {
-        $("#searchlist").show()
-    });
+
+
 </script>
 <script type="text/javascript">
     $('input[type="text"]').each(function(){
