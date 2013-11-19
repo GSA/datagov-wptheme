@@ -104,19 +104,26 @@ Template Name: Ocean-Map-National
                                         $map_category = get_post_meta($post->ID, 'map_category',TRUE);
                                         $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
                                         $map_id = get_post_meta($post->ID, 'map_id',TRUE);
-                                        $request = arcgis_map_process_info($server, $map_id, '', 1);
-                                        if(!empty($request["thumbnail_src"])){
-                                            $output .= '<div class="map-align">';
-                                            $output .= '<a target=_blank href="'. $request["img_href"] . '">';
-                                            $output .= '<img class="map-gallery-thumbnail" src="'. $request["thumbnail_src"] . '" title="' . $request["title"] .'">';
-                                            $output .= '<div class="map-gallery-caption">'. $request["title"] . '</div>';
-                                            $output .= '</a>';
-                                            $output .= '</div>';
+                                        $group_id = get_post_meta($post->ID, 'group_id',TRUE);
+                                        $request = arcgis_map_process_info($server, $map_id, $group_id, 1);
+                                        $res = sizeof($request['map_info']);
+                                        //echo "The value of size is ".$res."<br/></br>";
+                                        for($i=0; $i< $res; $i++){
+                                            if(!empty($request["map_info"][$i]["img_src"])){
+                                                $output .= '<div class="map-align">';
+                                                $output .= '<a target=_blank href="'. $request["map_info"][$i]["img_href"] . '">';
+                                                $output .= '<img class="map-gallery-thumbnail" src="'. $request["map_info"][$i]["img_src"] . '" title="' . $request["map_info"][$i]["title"] .'">';
+
+                                                $output .= '<div class="map-gallery-caption">'. $request["map_info"][$i]["title"] . '</div>';
+                                                $output .= '</a>';
+                                                $output .= '</div>';
+                                            }
                                         }
                                         $count++;
                                     endwhile;
                                     wp_reset_query();
                                 }
+                                //echo "the value of count is ".$count;
                                 print $output;
                                 ?>
                             </div>

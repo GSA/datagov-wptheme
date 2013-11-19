@@ -43,7 +43,7 @@ Description: This plugin validates map using the the map id and group id
                 </div>
                 <div class="form-item form-type-textfield form-item-server-info">
                     <label for="edit-server-info">Default Server <span title="This field is required." class="form-required">*</span></label>
-                    <input type="text" class="form-text required" maxlength="128" size="60" value="<?php echo $arcgis_default_server;?>" name="arcgis_default_server" id="arcgis_default_server">
+                    <input type="text" class="form-text required" maxlength="128" size="60" value="<?=$arcgis_default_server?>" name="arcgis_default_server" id="arcgis_default_server">
                     <div class="description">Please enter the server info. Example: http://www.geoplatform.gov</div>
                 </div>
                 <div class="form-item form-type-select form-item-refresh-cache">
@@ -76,24 +76,28 @@ Description: This plugin validates map using the the map id and group id
         } else {
             $server = get_post_meta( get_the_ID(), 'arcgis_server_address', true );
             $map_id = get_post_meta( get_the_ID(), 'map_id', true );
+            $group_id = get_post_meta( get_the_ID(), 'group_id', true );
             $map_id = preg_replace('/[^A-Fa-f0-9]+/', '', $map_id);
             if (empty($server) || empty($map_id))  {
                 // TODO let default validate catch it.
                 return;
             }
-            $request = get_arcgis_map_info($server, $map_id, '', 0);
+            $request = get_arcgis_map_info($server, $map_id, $group_id, 0);
             if ($request['message']!="OK") {
                 $prevent_publish= true;
                 $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID.</p></div>';
-                if ($prevent_publish) {
-                    remove_action('save_post', 'validate_map_id');
-                    wp_update_post(array('ID' => $post_id, 'post_status' => 'draft'));
-                    add_action('save_post', 'save_post');
-                }
-                return ;
+            }   elseif(!empty($group_id) && $request['total'] == 0){
+                $prevent_publish= true;
+                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID.</p></div>';
             }
-
         }
+        if ($prevent_publish) {
+            remove_action('save_post', 'validate_map_id');
+            wp_update_post(array('ID' => $post_id, 'post_status' => 'draft'));
+            add_action('save_post', 'save_post');
+            return ;
+        }
+
     }
 
     function my_admin_notices($post_id){
@@ -109,53 +113,88 @@ Description: This plugin validates map using the the map id and group id
         return $location;
     }
 
-    function get_arcgis_map_info($server, $map_id, $group_id=NULL, $display) {
-
+    function get_arcgis_map_info($server, $map_id=null, $group_id=null, $display) {
         if(!empty($map_id)){
             $url =  $server. "/sharing/content/items/$map_id/info/iteminfo.xml";
 
         }
-       /* elseif(!empty($group_id) && $display == 0) {
-            $url =  $server. "/sharing/community/groups?q=id:".$group_id."&f=json&_=".time();
-        }*/
-           /* elseif(!empty($group_id) && $display == 0) {
-                $url =  $server. "/sharing/community/groups?q=id:".$group_id."&f=json&_=".time();
-            }
-            elseif(!empty($group_id) && $display == 1) {
-                $url =  $server."/sharing/search?_=".time()."&q=group:".$group_id."&f=json&sortField=uploaded&sortOrder=desc&num=99&start=1";
-                $url2 =  $server. "/sharing/community/groups?q=id:".$group_id."&f=json&_=".time();
-                $result[1] = drupal_http_request($url2);
-            }*/
+        if(!empty($group_id) && $display == 0) {
+            $url =  $server."/sharing/search?_=".time()."&q=group:".$group_id."&f=json&sortField=uploaded&sortOrder=desc&num=99&start=1";
+        }
+        elseif(!empty($group_id) && $display == 1) {
+            $url =  $server."/sharing/search?_=".time()."&q=group:".$group_id."&f=json&sortField=uploaded&sortOrder=desc&num=99&start=1";
+            $url2 =  $server. "/sharing/community/groups?q=id:".$group_id."&f=json&_=".time();
+            //$result[1] = drupal_http_request($url2);
+        }
         $response = wp_remote_get( $url );
         $result['body'] = wp_remote_retrieve_body($response) ;
         $result['code'] = wp_remote_retrieve_response_code( $response );
         $result['message'] = wp_remote_retrieve_response_message( $response );
+        $result['total'] = json_decode($response["body"])->total;
         return $result;
     }
 
 
-function arcgis_map_process_info($server, $map_id, $group_id,$display=null) {
+function arcgis_map_process_info($server, $map_id, $group_id,$display) {
         // call the info based on national or regional type
-        $request = get_arcgis_map_info($server, $map_id, $group_id, 1);
-        if ($request['message']!="OK") {
-            $returnval= '<div class="error"><p>An error occurred and processing did not complete.</p><br></div>';
-            return;
-        }
-            // Parse the xml. TODO put into a function.
-        $map = new SimpleXMLElement($request['body']);
+    $request = get_arcgis_map_info($server, $map_id, $group_id, $display);
+    if ($request['message']!="OK") {
+        $returnval= '<div class="error"><p>An error occurred and processing did not complete.</p><br></div>';
+        return;
+    }
+    $count=0;
+    if(!empty($group_id) && isJson($request['body'])) {
+        $count++;
+        $info = (array)json_decode($request['body']);
+        $vars['info']['title'] = strip_tags($info["results"][0]->title);
+        $vars['info']['description'] = strip_tags($info["results"][0]->description);
+        $vars['info']['snippet'] = strip_tags($info["results"][0]->snippet);
+        $vars['info']['thumbnail_src'] = $server.'/sharing/community/groups/' . strip_tags($info["results"][0]->id) . '/info/' . strip_tags($info["results"][0]->thumbnail);
+        $vars['info']['type'] = 'Group';
+        $res = sizeof($info['results']);
+        $vars['map_info']['total_maps'] = $res;
 
-        $vars['title'] = strip_tags($map->title->asXML());
-        $vars['description'] = strip_tags($map->description->asXML());
-        $vars['snippet'] = strip_tags($map->snippet->asXML());
-        $vars['thumbnail_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
-        $vars['type'] = 'Map';
+        for($i=0; $i<$res; $i++) {
+
+            $title = $info['results'][$i]->title;
+            if (empty($title)){continue;}
+            $vars['map_info'][$i]['title'] = $title;
+            if($info['results'][$i]->type == "Web Map")
+                $vars['map_info'][$i]['img_href'] = $server.'/home/webmap/viewer.html?webmap='.$info['results'][$i]->id;
+            elseif($info['results'][$i]->type == "Map Service" || $info['results'][$i]->type == "WMS")
+                $vars['map_info'][$i]['img_href'] = $server.'/home/webmap/viewer.html?services='.$info['results'][$i]->id;
+            else
+                $vars['map_info'][$i]['img_href'] = $server.'/home/item.html?id='.$info['results'][$i]->id;
+            $vars['map_info'][$i]['img_src'] = $server.'/sharing/content/items/'.$info['results'][$i]->id.'/info/'.$info['results'][$i]->thumbnail;
+        }
+    }
+    else {
+
+        $map = new SimpleXMLElement($request['body']);
+        $vars['info']['title'] = strip_tags($map->title->asXML());
+        $vars['info']['description'] = strip_tags($map->description->asXML());
+        $vars['info']['snippet'] = strip_tags($map->snippet->asXML());
+        $vars['info']['thumbnail_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
+        $vars['info']['type'] = 'Map';
+        // Pass info into theme.
+        $vars['map_info'][0]['title'] = strip_tags($map->title->asXML());
         if($map->type == "Web Map")
-            $vars['img_href'] = $server . '/home/webmap/viewer.html?webmap=' . $map_id;
+            $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?webmap=' . $map_id;
         elseif($map->type == "Map Service" || $map->type == "WMS")
-            $vars['img_href'] = $server . '/home/webmap/viewer.html?services=' . $map_id;
+            $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?services=' . $map_id;
         else
-            $vars['img_href'] = $server . '/home/item.html?id=' . $map_id;
-        return $vars;
+            $vars['map_info'][0]['img_href'] = $server . '/home/item.html?id=' . $map_id;
+        $vars['map_info'][0]['img_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
+    }
+    return $vars;
+}
+
+function isJson($string) {
+//check if input is string
+    if(is_string($string))
+        json_decode($string);
+
+    return (json_last_error() == JSON_ERROR_NONE);
 }
 
 
