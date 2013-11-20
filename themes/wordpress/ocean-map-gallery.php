@@ -80,19 +80,21 @@ Template Name: Ocean-Map-Gallery
                         <h2 class="pane-title block-title">Map Gallery</h2>
 
                         <!-- Top -->
-                        <p><span style="color: #666666; font-family: Arial, Helvetica, Verdana, 'Bitstream Vera Sans', sans-serif; font-size: 13px; line-height: 19px;">Planning for ocean, coastal, and Great Lakes management involves the creation of maps. Much of the data available through the Ocean Community are spatial, i.e. can be displayed on a map.This gallery allows you to visualize the data that may be most useful for regional planning.As more data become available, we will be adding to this gallery. We have divided the data in to those data sets that are national in scale and those that are regional.</span></p>
+                    <p style="margin-left:10px;">Planning for ocean, coastal, and Great Lakes management involves the creation of maps. Much of the data available through the Ocean Community are spatial, i.e. can be displayed on a map.This gallery allows you to visualize the data that may be most useful for regional planning.As more data become available, we will be adding to this gallery. We have divided the data in to those data sets that are national in scale and those that are regional.</span></p>
                         <!-- left Side -->
-                        <div class="col1" style="float:left;width 45%;">
-                        <a href="ocean-map-national"><img src="/wp-content/themes/wordpress/images/map_gallery_national_map.png" alt="Map Gallery National Category"></a> <br><h2>National</h2>
+                    <div class="col1" style="float:left;margin-left:80px;">
+                        <a href="ocean-map-national"><img src="/wp-content/themes/wordpress/images/map_gallery_national_map.png" alt="Map Gallery National Category"></a> <br><h2 align="center">National</h2>
                         </div>
                         <!-- Right Side -->
-                        <div class="col1" style="float:left;width 45%;">
-                        <a href="ocean-map-regional"><img src="/wp-content/themes/wordpress/images/map_gallery_state_map.png" alt="Map Gallery Regional/State Categoty"></a><br><h2>Regional/State</h2>
+                    <div class="col1" style="float:right;margin-right:80px;">
+                        <a href="ocean-map-regional"><img src="/wp-content/themes/wordpress/images/map_gallery_state_map.png" alt="Map Gallery Regional/State Categoty"></a><br><h2 align="center">Regional/State</h2>
                         </div>
                         <br clear ="all" />
                         <!-- Bottom -->
 
-                        <p style="padding: 25px; width: 60%; border-style: dashed; border-color: rgb(0, 0, 0); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; border-width: 1px 0pt; font-size: 1.2em; text-align: center; margin: 0pt auto;">Create your own maps at the <a style="font-size: 1em;" href="http://www.geoplatform.gov/">Federal Geospatial Platform.</a></p>
+                    <div class="gallery-center">
+                        <p class="gallery">Create your own maps at the <a style="font-size: 1em;" href="http://www.geoplatform.gov/">Federal Geospatial Platform.</a></p>
+                    </div>
 
                 </div>
             </div>

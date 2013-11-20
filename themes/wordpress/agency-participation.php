@@ -23,9 +23,7 @@ $cat_slug = $category[0]->slug;
 ?>
 <body class="single page post-<?php the_ID(); ?>">
 
-<div class="banner disclaimer">
-    <p>This is a demonstration site exploring the future of Data.gov. <span id="stop-disclaimer"> Give us your feedback on <a href="https://twitter.com/usdatagov">Twitter</a>, <a href="http://quora.com">Quora</a></span>, <a href="https://github.com/GSA/datagov-design/">Github</a>, or <a href="http://www.data.gov/contact-us">contact us</a></p>
-</div>
+
 
 <!-- Header Background Color, Image, or Visualization
 
@@ -84,6 +82,8 @@ $cat_slug = $category[0]->slug;
     <!-- WordPress Content
    ================================================== -->
 
+
+
     <div class="category-content">
 
         <div class="content">
@@ -95,16 +95,32 @@ $cat_slug = $category[0]->slug;
                         the_post();
                         ?>
           <div class="Apps-wrapper">
-
-           <div id="appstitle" class="Appstitle" style="padding-left: 0px;" ><?php the_title();?></div>
+          <div class="Apps-post" id="post-<?php the_ID(); ?>">
+           <div id="appstitle" class="Appstitle" ><?php the_title();?></div>
                         <?php the_content();   ?>
                         <?php }?>
+                </div>
+                </div>
+                </div>
 
-                </div>
-                </div>
+                This report is also available for download in the following formats: <a href="/wp-content/uploads/agency-list.csv"> CSV </a> | <a href="/wp-content/uploads/agency-list.xls"> EXCEL </a><br/>
+                <?php
+                $metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
+                echo "Data last updated on: ". date("Y-m-d H:i A",$metric_sync)."<br />";
+
+
+
+                $total_agencies = $wpdb->get_var( "SELECT count(*) FROM next_datagov.wp_posts where post_type = 'metric_organization' and post_title <> 'Department/Agency Level'");
+                echo "Agencies and Subagencies: " .$total_agencies;
+
+
+
+                ?>
 
                 <h2 class="fieldcontentregion agencytitle">Departments/Agencies/Organizations</h2>
                 <div class="sixteen columns">
+
+
 
 
                     <div class="view-content">
@@ -118,7 +134,6 @@ $cat_slug = $category[0]->slug;
 
                             </thead>
                             <tbody class="datasets_published_per_month_tbody">
-
                             <?php $count=0; ?>
 
                             <?php
@@ -158,8 +173,8 @@ $cat_slug = $category[0]->slug;
 
                                     echo '</td>';
                                     echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
-                                    if(get_post_meta($post->ID, 'metric_sync_timestamp', TRUE))
-                                        echo get_post_meta($post->ID, 'metric_sync_timestamp', TRUE);
+                                    if(get_post_meta($post->ID, 'metric_last_entry', TRUE))
+                                        echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
                                     else
                                         echo "-";
                                     echo '</td>';
@@ -192,8 +207,8 @@ $cat_slug = $category[0]->slug;
                                 <td  width="20%" align="center">
                                     <?php
 
-                                    $last_entry = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
-                                    echo  $last_entry;
+                                    $last_entry = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_last_entry'");
+                                    echo $last_entry;
 
                                     ?>
 

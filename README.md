@@ -73,6 +73,7 @@ This template requires the following plugins:
 * Custom Post View Generator - http://wordpress.org/plugins/custom-post-view-generator/
 * Metric Count	
 * Datagov Custom Post Types
+* ArcGis Map Validation
 
 ## Exportables
 This folder contains advanced custom fields definitions in xml format that can be imported manually via acf plugin.

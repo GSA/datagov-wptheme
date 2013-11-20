@@ -86,7 +86,7 @@ $cat_slug = $category[0]->slug;
                 <div id="appstitle" class="Appstitle" style="padding-left: 0px;"><div class="title"><?php the_title(); ?></div>
                 </div></div>
             <?php the_content(); ?></div>
-            <?php the_content(); ?>
+
         </div>
         <?php //comments_template( '', true ); ?>
 

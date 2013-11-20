@@ -13,9 +13,6 @@ Template Name: Ocean-Map-National
 
 <body class="<?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?> single page">
 
-<div class="banner disclaimer">
-    <p>This is a demonstration site exploring the future of Data.gov. <span id="stop-disclaimer"> Give us your feedback on <a href="https://twitter.com/usdatagov">Twitter</a>, <a href="http://quora.com">Quora</a></span>, <a href="https://github.com/GSA/datagov-design/">Github</a>, or <a href="http://www.data.gov/contact-us">contact us</a></p>
-</div>
 
 
 <!-- Header Background Color, Image, or Visualization
@@ -60,12 +57,16 @@ Template Name: Ocean-Map-National
         <?php
         $category = get_the_category(  );
         $cat_name=$category[0]->cat_name;
-
-
         $args = array(
             'category_name'=>$cat_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
 
-        wp_list_bookmarks($args); ?>
+        wp_list_bookmarks($args);
+
+        // Pagination variables. the display settings shoule be read from global variable
+        $display_count = (get_option('arcgis_maps_per_page') != '') ? get_option('arcgis_maps_per_page') : '8';
+        $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+        $offset = ( $page - 1 ) * $display_count;
+        ?>
     </div>
 
     <!-- WordPress Content
@@ -84,29 +85,61 @@ Template Name: Ocean-Map-National
                                     These data sources are already being used by some regional portals and are the basic building blocks of information for regional planning.
                                     These data include administrative boundaries, bathymetry, and other types of data that have already been identified as needed for regional planning efforts.</span></p>
                             </div>
-
+                            <h3 class="fieldcontentregion" style="margin:10px; ">National Maps</h3>
                             <div class="map-gallery-wrap">
-                                <div class="map-align">
-                                    <a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=72c523c47ae241f0821f21773eb20709" target="_blank">
-                                        <img title="Current Ocean Conditions Map" alt="Current Ocean Conditions Map"  src="http://www.arcgis.com/sharing/content/items/72c523c47ae241f0821f21773eb20709/info/thumbnail/Ocean.JPG" class="map-gallery-thumbnail">
-                                        <div class="map-gallery-caption">Current Ocean Conditions Map</div></a></div>
-                                <div class="map-align">
-                                    <a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=48b8cec7ebf04b5fbdcaf70d09daff21" target="_blank">
-                                        <img title="Oceans" alt="Oceans" src="http://www.arcgis.com/sharing/content/items/48b8cec7ebf04b5fbdcaf70d09daff21/info/thumbnail/tempoceans.jpg" class="map-gallery-thumbnail">
-                                        <div class="map-gallery-caption">Oceans</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=8156eea196514f7fb5f6a7a44a0b5947" target="_blank">
-                                    <img title="National Marine Habitat Ranges by Lease Block" alt="National Marine Habitat Ranges by Lease Block" src="http://www.arcgis.com/sharing/content/items/8156eea196514f7fb5f6a7a44a0b5947/info/thumbnail/thumbnail.png" class="map-gallery-thumbnail">
-                                    <div class="map-gallery-caption">National Marine Habitat Ranges by Lease Block</div></a></div>
-                                <div class="map-align"><a href="http://www.arcgis.com/home/webmap/viewer.html?webmap=a452068c1f7f4561ba9c7fee2961d359" target="_blank">
-                                    <img title="U.S. Maritime Limits and Boundaries" alt="U.S. Maritime Limits and Boundaries" src="http://www.arcgis.com/sharing/content/items/a452068c1f7f4561ba9c7fee2961d359/info/thumbnail/ago_downloaded.png" class="map-gallery-thumbnail">
-                                    <div class="map-gallery-caption">U.S. Maritime Limits and Boundaries</div></a>
-                                </div>
+                                <?php
+                                $args = array(
+                                    'meta_key'         => 'map_category',
+                                    'meta_value'       => 'national',
+                                    'post_type'        => 'arcgis_maps',
+                                    'post_status'      => 'publish',
+                                    'posts_per_page'   => $display_count,
+                                    'page'             => $page,
+                                    'offset'           => $offset
+                                );
+                                $query = new WP_Query($args);
+                                $count = 0;
+                                if( $query->have_posts() ) {
+                                    while ($query->have_posts()) : $query->the_post();
+                                        $map_category = get_post_meta($post->ID, 'map_category',TRUE);
+                                        $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
+                                        $map_id = get_post_meta($post->ID, 'map_id',TRUE);
+                                        $group_id = get_post_meta($post->ID, 'group_id',TRUE);
+                                        $request = arcgis_map_process_info($server, $map_id, $group_id, 1);
+                                        $res = sizeof($request['map_info']);
+                                        //echo "The value of size is ".$res."<br/></br>";
+                                        for($i=0; $i< $res; $i++){
+                                            if(!empty($request["map_info"][$i]["img_src"])){
+                                                $output .= '<div class="map-align">';
+                                                $output .= '<a target=_blank href="'. $request["map_info"][$i]["img_href"] . '">';
+                                                $output .= '<img class="map-gallery-thumbnail" src="'. $request["map_info"][$i]["img_src"] . '" title="' . $request["map_info"][$i]["title"] .'">';
+
+                                                $output .= '<div class="map-gallery-caption">'. $request["map_info"][$i]["title"] . '</div>';
+                                                $output .= '</a>';
+                                                $output .= '</div>';
+                                            }
+                                        }
+                                        $count++;
+                                    endwhile;
+                                    wp_reset_query();
+                                }
+                                //echo "the value of count is ".$count;
+                                print $output;
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
                 &nbsp;
             </div>
+            <ul id="pagination">
+                <li id="previous-posts"  >
+                    <?php previous_posts_link( '<< Previous', $query->max_num_pages ); ?>
+                </li>
+                <li id="next-posts">
+                    <?php next_posts_link( 'Next >>', $query->max_num_pages ); ?>
+                </li>
+            </ul>
 
             <?php get_template_part('footer'); ?>
 

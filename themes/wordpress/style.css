@@ -17,13 +17,13 @@ Version: 1.0
 .customcontactform input[type='text']
 {
     width:50%;
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 }
 .customcontactform input[type='checkbox']
 {
 
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 }
 .customcontactform label
@@ -41,7 +41,7 @@ Version: 1.0
     width:50%;
     resize: none;
     overflow-y: hidden;
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 }
 .customcontactform label.select
 {
@@ -53,7 +53,7 @@ Version: 1.0
 }
 .customcontactform select
 {
-    margin:10px 10px 10px 0px;
+    margin:3px 10px 10px 0px;
 
 
 }
@@ -90,6 +90,7 @@ Version: 1.0
     word-wrap: break-word;
 }
 /* End Web form */
+
 
 /* css for Category-Blogs */
 .cats .content .blog{
@@ -652,6 +653,20 @@ div#searchlist input[type="checkbox"]{
     top: -1px;
     *overflow: hidden;
 }
+div#searchlist input[type="radio"]{
+    border: 0 none;
+    border-radius: 0 0 0 0;
+
+    height: 20px;
+
+    width: 10px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}
 div#searchlist label{
     display: block;
     padding-left: 15px;
@@ -834,14 +849,14 @@ tr.odd, tr.odd td a {
     margin-top:15px;
 }
 .greyblock ul {
-    list-style:inherit;
+    list-style:disc outside none;
 
 }
 .greyblock li {
     margin-left:12px;
 }
 .greyblock ul li {
-    margin: 0; padding: 0;
+    padding: 0;
 }
 .greyblock ul li a{
     color: #4295B0;
@@ -954,7 +969,7 @@ a.btn-readmore {
 
 }
 
-.map-gallery-caption { width:200px;min-height:60px;}
+.map-gallery-caption { width:200px;min-height:70px;color: #666666;font: bold 12px Arial,Helvetica,sans-serif;}
 
 
 
@@ -963,12 +978,12 @@ a.btn-readmore {
 
     float: left;
 
-    margin: 0 20px;
+    margin: 0 10px;
 
 }
 .Apps-wrapper {
     margin-bottom: 20px;
-    position:relative;
+
 }
 .Apps-post {
     background-color: #FFFFFF;
@@ -1414,6 +1429,8 @@ margin-top: 0px !important;
 }
 .ag_button {
     background: linear-gradient(to bottom, #77B55A 5%, #72B352 100%) repeat scroll 0 0 #77B55A;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
     border: 1px solid #4B8F29;
     border-radius: 4px;
     box-shadow: 0 10px 14px -7px #3E7327;
@@ -1422,4 +1439,34 @@ margin-top: 0px !important;
     font-size: 16px !important;
     padding: 10px 15px;
     text-decoration: none;
+}
+.post-115912 ul ul ul{
+    font-size:100%;
+}
+ul#pagination li a{
+    color: #284A78;
+    margin-right:45px;
+    font-weight:bold;
+    float:right;
+}
+.gallery{
+    padding: 25px;
+    width: 60%;
+    border-style: dashed;
+    border-color: rgb(0, 0, 0);
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-image: none;
+    border-width: 1px 0pt;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0pt auto;
+}
+.gallery-center{
+    margin-top:20px;
+}
+.post-127129 .agriculture p a,.post-127129 .agriculture li a,.post-127129 .agriculture tr td a{color:#83B03C;
+
 }

@@ -81,6 +81,46 @@
                         <?php the_content('Read the rest of this entry »'); ?>
                         <?php echo "<strong>Application URL:</strong>&nbsp;".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
                         <br />
+                        <?php
+                        $terms = get_the_terms( $post->ID , 'category' );
+
+                        echo "<strong>Category:</strong>&nbsp;" ;
+                        if ( $terms != null ){
+                            foreach( $terms as $term ) {
+
+                                echo $term->name."<br/>" ;
+
+                                unset($term);
+                            } } ?>
+                        <br />
+                        <?php
+                        $terms = get_the_terms( $post->ID , 'application_categories' );
+
+                        echo "<strong>Application Categories:</strong>&nbsp;" ;
+                        if ( $terms != null ){
+                            foreach( $terms as $term ) {
+
+                                echo $term->name."<br/>" ;
+
+                                unset($term);
+                            } } ?>
+
+
+                        <br/>
+                        <?php
+                        $terms = get_the_terms( $post->ID , 'application_types' );
+
+                        echo "<strong>Application Types:</strong>&nbsp;" ;
+                        if ( $terms != null ){
+                            foreach( $terms as $term ) {
+
+                                echo $term->name."<br/>" ;
+
+                                unset($term);
+                            } } ?>
+
+
+                        <br/>
                         <?php echo "<strong>Application Image:<strong> " ?>
                         <?php
                         $imagefile=get_field_object('field_5240b9c982f41');
