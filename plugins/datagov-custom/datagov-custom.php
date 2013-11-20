@@ -265,3 +265,41 @@ array( 'hierarchical' => true,
 )
 ) ); 
 }
+
+    function download_links(){
+        $fileName= "Link_Export";
+        header("Content-type: text/xml");
+        header("Content-Disposition: attachment; filename=".$fileName.".xml");
+        header("Pragma: cache");
+        header("Expires: -1");
+       // header('Content-Type: text/xml; charset=' . get_option('blog_charset'), true);
+        $cats = get_categories(array('taxonomy' => 'link_category', 'hierarchical' => 0));
+       $output =  '<?xml version="1.0"?'.">\n";
+       $output .=  '<opml version="1.0">
+        <head>
+            <title>Links for %s'.esc_attr(get_bloginfo('name', 'display')).'</title>
+            <dateCreated>'.gmdate("D, d M Y H:i:s").' GMT</dateCreated>
+        </head>
+        <body>';
+        foreach ( (array)$cats as $cat ) {
+            $catname = apply_filters('link_category', $cat->name);
+            if(in_array($catname,array('Primary','Footer'))){
+                 //echo "the value of category is ".$catname."<br><br>";
+               $output .= '<outlines type="category" title="'.esc_attr($catname).'">';
+                $bookmarks = get_bookmarks(array("category" => $cat->term_id));
+                foreach ( (array)$bookmarks as $bookmark ){
+                    $title = apply_filters('link_title', $bookmark->link_name);
+                    $output .='<outline text="'.esc_attr($title).'" type="link" xmlUrl="'. esc_attr($bookmark->link_rss).'" htmlUrl="'.esc_attr($bookmark->link_url).'" rating="'.$bookmark->link_rating.'" updated="'.$bookmark->link_updated.'" ></outline>';
+                }
+                $output .='</outlines>';
+            }
+        }
+        $output .='</body>
+        </opml>';
+        print htmlspecialchars($output);
+    }
+    function add_export_link(){
+        add_links_page('Download Links', 'Download Links', 8, '', 'download_links');
+    }
+    add_action('admin_menu', 'add_export_link');
+
