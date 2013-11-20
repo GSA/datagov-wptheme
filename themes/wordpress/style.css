@@ -653,6 +653,20 @@ div#searchlist input[type="checkbox"]{
     top: -1px;
     *overflow: hidden;
 }
+div#searchlist input[type="radio"]{
+    border: 0 none;
+    border-radius: 0 0 0 0;
+
+    height: 20px;
+
+    width: 10px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}
 div#searchlist label{
     display: block;
     padding-left: 15px;
@@ -1415,6 +1429,8 @@ margin-top: 0px !important;
 }
 .ag_button {
     background: linear-gradient(to bottom, #77B55A 5%, #72B352 100%) repeat scroll 0 0 #77B55A;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
     border: 1px solid #4B8F29;
     border-radius: 4px;
     box-shadow: 0 10px 14px -7px #3E7327;
@@ -1450,4 +1466,7 @@ ul#pagination li a{
 }
 .gallery-center{
     margin-top:20px;
+}
+.post-127129 .agriculture p a,.post-127129 .agriculture li a,.post-127129 .agriculture tr td a{color:#83B03C;
+
 }
