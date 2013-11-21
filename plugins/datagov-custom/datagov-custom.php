@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: Datagov Custom Post Types
-Description: This plugin holds custom types/taxnomies definitions
+Plugin Name: Datagov Custom
+Description: This plugin holds custom types/taxnomies definitions, actions, filters etc.
 Version: 1.0
 */
 
@@ -271,4 +271,17 @@ function add_export_link(){
     add_links_page('Download Links', 'Download Links', 8,'../wp-content/plugins/datagov-custom/wp_download_links.php', '');
 }
 
-
+/* Adds Subscribe2 support for custom post types */
+function my_post_types($types) {
+    $types = array('applications',
+      'arcgis_maps',
+      'attachment',
+      'challenge',
+      'events',
+      'metric_organization',
+      'page',
+      'qa_faqs',
+      'regional_planning'
+    );
+    return $types;
+}
