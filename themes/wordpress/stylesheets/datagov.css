@@ -245,7 +245,7 @@ li.next-us-flag {
 .next-search .next-search-input input{
 	height: 20px;
 	width: 300px;
-	font-weight: normal;
+	font-weight: lighter; 
 	font-family: 'Lato', Helvetica, sans-serif; 
 	font-size: 18px;
 	padding-left: 12px;
@@ -253,7 +253,6 @@ li.next-us-flag {
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
 	border: 0px;
-    color: #444444;
 }
 
 .next-search input:focus{
@@ -582,7 +581,7 @@ div.next-header.category.education{
 .tweet .core .body{
 	/*font-weight: lighter;*/
 	font-style: italic;
-	font-size: 16px;
+	font-size: 18px;
     word-wrap:break-word;
 }
 
@@ -613,6 +612,12 @@ body.catalog footer.site-footer{
 	background-color: #4d4d4d;
 }
 
+.container .footer .twelve.columns {
+   width: 770px;
+}
+.container .footer .four.columns {
+   width: 150px;
+}
 a.read-more{
 	color: #444444;
 }
