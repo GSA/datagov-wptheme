@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: Datagov Custom Post Types
-Description: This plugin holds custom types/taxnomies definitions
+Plugin Name: Datagov Custom
+Description: This plugin holds custom types/taxnomies definitions, actions, filters etc.
 Version: 1.0
 */
 
