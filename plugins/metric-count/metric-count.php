@@ -57,24 +57,23 @@ function ckan_metric_get_taxonomies() {
     $response =  wp_remote_get($url);
     $body = json_decode(wp_remote_retrieve_body(&$response), TRUE);
     $taxonomies = $body['taxonomies'];
+
     return $taxonomies;
 }
 
+
 function ckan_metric_convert_structure($taxonomies) {
-
     $ret = array();
-
     // This should be the ONLY loop that go thru all taxonomies.
     foreach ($taxonomies as $taxonomy) {
-
         $taxonomy = $taxonomy['taxonomy'];
-
         if (strlen($taxonomy['unique id']) == 0) { // bad ones
             continue;
         }
         if ($taxonomy['unique id'] != $taxonomy['term']) { // ignore 3rd level ones
             continue;
         }
+
         if (!isset($ret[$taxonomy['vocabulary']])) { // Make sure we got $ret[$sector]
             $ret[$taxonomy['vocabulary']] = array();
         }
@@ -103,6 +102,7 @@ function ckan_metric_convert_structure($taxonomies) {
                 // Has not been set by its subunits before
                 $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']] = array(
                     'id' => $taxonomy['unique id'], // leave it without [ ] if no subs.
+                    'is_cfo' => $taxonomy['is_cfo'],
                     'subs' => array(),
                 );
             }
@@ -110,9 +110,10 @@ function ckan_metric_convert_structure($taxonomies) {
                 // Has been added by subunits before. so let us change it from [,sub_id1,sub_id2] to [id,sub_id1,sub_id2]
                 $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'] = "[" . $taxonomy['unique id'] . trim($ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'], "[]") . "]";
             }
-        }
-    }
 
+        }
+
+    }
 
     return $ret;
 
@@ -131,21 +132,28 @@ function get_ckan_metric_info() {
     // Initialise the Excel row number
     $rowcount = 1;
 
-    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, 'Agency/Sub-Agency/Organization');
-    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, 'Metric Count');
-    $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 'Last Entry');
+    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, 'Agency Name');
+    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, 'Sub-Agency Name');
+    $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 'Datasets');
+    $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, 'Last Entry');
+    $objPHPExcel->getActiveSheet()->getStyle('A'.$rowcount)->getFont()->setBold(true);
+    $objPHPExcel->getActiveSheet()->getStyle('B'.$rowcount)->getFont()->setBold(true);
+    $objPHPExcel->getActiveSheet()->getStyle('C'.$rowcount)->getFont()->setBold(true);
+    $objPHPExcel->getActiveSheet()->getStyle('D'.$rowcount)->getFont()->setBold(true);
+
+
+
     $rowcount++;
 
 
     chdir('../wp-content/uploads/');
-
 
     $fp_csv = fopen('agency-list.csv', 'w');
 
     if($fp_csv == false ){
         die("unable to create file");
     }
-    fputcsv($fp_csv, array('Agency/Sub-Agency/Organization', 'Metric Count', 'Last Entry'));
+    fputcsv($fp_csv, array('Agency Name', 'Sub-Agency Name', 'Datasets', 'Last Entry'));
 
 
     if(!empty($structure['Federal Organization'])) {
@@ -185,14 +193,14 @@ function get_ckan_metric_info() {
             }
 
             if(sizeof($item['subs']) > 0 && strlen($parent_org) > 0){
-                create_metric_content($item['is_cfo'], "Department/Agency Level", $parent_org, "organization:" . urlencode($parent_org), $parent_nid, 0,$fp_csv, $objPHPExcel, $rowcount);
+                create_metric_content($item['is_cfo'], "Department/Agency Level", $parent_org, "organization:" . urlencode($parent_org), $parent_nid, 0,$fp_csv, $objPHPExcel, $rowcount, $item['name']);
                 $rowcount++;
             }
 
 
             foreach($item['subs'] as $key=>$value) {
                 $orgs = 'organization:' . urlencode($value['id']);
-                create_metric_content($value['is_cfo'], $key, $value['id'], $orgs, $parent_nid, 0, $fp_csv, $objPHPExcel, $rowcount);
+                create_metric_content($value['is_cfo'], $key, $value['id'], $orgs, $parent_nid, 0, $fp_csv, $objPHPExcel, $rowcount, $item['name']);
                 $rowcount++;
             }
         }
@@ -208,8 +216,9 @@ function get_ckan_metric_info() {
 
 }
 
-function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $fp_csv = FALSE, $objPHPExcel = FALSE, $rowcount = 0 ) {
+function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $fp_csv = FALSE, $objPHPExcel = FALSE, $rowcount = 0, $parent_name='' ) {
     $results = array();
+
 
 
     if(strlen($ckan_id) != 0) {
@@ -298,6 +307,8 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         else
             add_post_meta($new_post_id, 'metric_sector', 'Other');
 
+
+
         add_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
         add_post_meta($new_post_id, 'metric_last_entry', $last_entry);
         add_post_meta($new_post_id, 'metric_sync_timestamp', $metric_timestamp);
@@ -341,6 +352,9 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         update_post_meta($new_post_id, 'metric_sync_timestamp', $metric_timestamp);
         update_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $orgs);
 
+        if($parent_node != 0)
+            update_post_meta($new_post_id, 'parent_organization', $parent_node);
+
         if($agency_level != 0){
             for($i=0; $i<12; $i++){
                 $j = $i+1;
@@ -356,30 +370,57 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
 
     }
     if($fp_csv){
-        $results['title'] = $title;
-        $results['count'] = $count;
+        if($parent_name){
+            $results['Agency'] = $parent_name;
+            $results['SubAgency'] = $title;
+        }else{
+            $results['Agency'] = $title;
+            $results['SubAgency'] = '';
+        }
+
+        $results['datasets'] = $count;
         if($count > 0)
-            $results['time'] = $last_entry;
+            $results['last_entry'] = $last_entry;
         else
-            $results['time'] = 'NA';
+            $results['last_entry'] = 'NA';
+
+        // $results['cfo'] = $cfo;
 
         fputcsv($fp_csv, $results);
 
     }
 
     if($objPHPExcel && $rowcount){
+        if($parent_name){
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, $parent_name);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, $title);
+            if($count > 0){
+                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, $count);
+                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, $last_entry);
+            }
+            else{
+                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 0);
+                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, 'NA');
+            }
+        }else{
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, $title);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, '');
+            if($count > 0){
+                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, $count);
+                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, $last_entry);
+            }
+            else{
+                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 0);
+                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, 'NA');
+            }
 
-        $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, $title);
-        if($count > 0){
-            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, $count);
-            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, $last_entry);
+            $objPHPExcel->getActiveSheet()->getStyle('A'.$rowcount)->getFont()->setBold(true);
+            $objPHPExcel->getActiveSheet()->getStyle('C'.$rowcount)->getFont()->setBold(true);
+            $objPHPExcel->getActiveSheet()->getStyle('D'.$rowcount)->getFont()->setBold(true);
         }
-        else{
-            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, 0);
-            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 'NA');
-        }
+
+
     }
-
 
     return $new_post_id;
 }

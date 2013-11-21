@@ -811,12 +811,12 @@ thead th {
 tbody {
     border-top: 1px solid #CCCCCC;
 }
-tr.even, tr.even td {
+tr.odd, tr.odd td {
     background-color: #EEEEEE;
 
 }
-tr.even, tr.even td a {
-    background-color: #EEEEEE;
+tr.odd, tr.odd td a {
+
     text-decoration:none;
     color:black;
 }
@@ -825,11 +825,11 @@ tr.even, tr.odd {
 
     padding: 0.1em 0.6em;
 }
-tr.odd, tr.odd td {
+tr.even, tr.even td {
     background-color: #FFFFFF;
 
 }
-tr.odd, tr.odd td a {
+tr.even, tr.even td a {
     background-color: #FFFFFF;
     text-decoration:none;
     color:#4295B0;
@@ -1469,4 +1469,44 @@ ul#pagination li a{
 }
 .post-46152 .agriculture p a,.post-46152 .agriculture li a,.post-46152 .agriculture tr td a{color:#83B03C;
 
+}
+#open-data-sites-boxes.agencies .open-data-sites-box {
+    height: 30px;
+    margin: 10px 0 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 500px;
+}
+div.open-data-sites-box {
+    background: -moz-linear-gradient(center top , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    display: block;
+    float: left;
+    height: 120px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 120px;
+}
+#open-data-sites-boxes.agencies .open-data-sites-box .region {
+    float: left;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+}
+div.open-data-sites-box div.region {
+    color: #666666;
+
+}
+#open-data-sites-boxes.agencies .open-data-sites-box .numbers {
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 0;
+}
+div.open-data-sites-box div.numbers {
+    color: #3366AC;
 }

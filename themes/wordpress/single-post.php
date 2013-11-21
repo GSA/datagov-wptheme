@@ -86,8 +86,18 @@ $cat_slug = $category[0]->slug;
 		
 						<div class="title"><?php the_title(); ?></div>
 						<div class="body">
-										<?php the_content('Read the rest of this entry »'); ?>  
-						</div>
+										<?php the_content('Read the rest of this entry »'); ?>
+                            <?php if (get_post_format() == 'image'): ?>
+                            <img class="scale-with-grid" src="<?php the_field('dataset_image'); ?>">
+                            <?php elseif (get_post_format() == 'gallery'): ?>
+                            <?php
+                            $imagefile=get_field_object('field_52432c4d9b06f');
+                            ?>
+
+                            <img class="scale-with-grid" src="<?php echo $imagefile['value']; ?>">
+                            <?php endif; ?>
+
+                        </div>
 					</div>
                                     <?php comments_template( '', true ); ?>
 				    <?php endwhile; ?>  
