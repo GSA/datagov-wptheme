@@ -67,6 +67,7 @@ This template requires the following plugins:
 * bbPress - http://wordpress.org/plugins/bbpress/
 * Posts in Page - http://wordpress.org/plugins/posts-in-page/
 * WP-reCAPTCHA - http://wordpress.org/plugins/wp-recaptcha/
+* Subscribe2 - http://wordpress.org/plugins/subscribe2/
 	
 #### Locally hosted plugins
 * SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
