@@ -1,0 +1,69 @@
+ul.s2_blogs {
+	float: left;
+	width: 99%;
+}
+
+ul.s2_blogs li {
+	position: relative;
+	display: block;
+	float: left;
+	margin: 3px;
+	padding: 0.5em;
+	width: 47%;
+	border: 1px solid #E0E0E0;
+	background-color: #E3E3E3;
+	white-space: nowrap;
+}
+
+ul.s2_blogs li: hover {
+	border-color: #666;
+}
+
+ul.s2_blogs li .name {
+	display: block;
+	float: left;
+}
+
+ul.s2_blogs li .buttons {
+	display: block;
+	float: right;
+	margin-left: -6px;
+	white-space: nowrap;
+	font-size: .8em;
+}
+
+ul.s2_blogs li .buttons a {
+	display: block;
+	float: left;
+	margin: 0 0 0 1em;
+	padding: .1em .5em;
+	background-color: #666;
+	color: white;
+}
+
+ul.s2_blogs li .buttons a:hover {
+	background-color: whitesmoke;
+	color: #666;
+}
+
+ul.s2_blogs div.additional_info {
+	position: absolute;
+	bottom: 2.4em;
+	left: -2px;
+	z-index: 9;
+	display: none;
+	margin-bottom: 2px;
+	padding: .5em 1em;
+	width: 75%;
+	border: 1px solid white;
+	border-bottom: medium none;
+	background-color: #666;
+	color: #fff;
+	font-style: italic;
+	-moz-border-radius-topright: .5em;
+	-moz-border-radius-topleft: .5em;
+}
+
+ul.s2_blogs li:hover div.additional_info {
+	display: block;
+}
