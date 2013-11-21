@@ -61,21 +61,19 @@ function ckan_metric_get_taxonomies() {
     return $taxonomies;
 }
 
+
 function ckan_metric_convert_structure($taxonomies) {
-
     $ret = array();
-
     // This should be the ONLY loop that go thru all taxonomies.
     foreach ($taxonomies as $taxonomy) {
-
         $taxonomy = $taxonomy['taxonomy'];
-
         if (strlen($taxonomy['unique id']) == 0) { // bad ones
             continue;
         }
         if ($taxonomy['unique id'] != $taxonomy['term']) { // ignore 3rd level ones
             continue;
         }
+
         if (!isset($ret[$taxonomy['vocabulary']])) { // Make sure we got $ret[$sector]
             $ret[$taxonomy['vocabulary']] = array();
         }
@@ -104,6 +102,7 @@ function ckan_metric_convert_structure($taxonomies) {
                 // Has not been set by its subunits before
                 $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']] = array(
                     'id' => $taxonomy['unique id'], // leave it without [ ] if no subs.
+                    'is_cfo' => $taxonomy['is_cfo'],
                     'subs' => array(),
                 );
             }
@@ -111,9 +110,10 @@ function ckan_metric_convert_structure($taxonomies) {
                 // Has been added by subunits before. so let us change it from [,sub_id1,sub_id2] to [id,sub_id1,sub_id2]
                 $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'] = "[" . $taxonomy['unique id'] . trim($ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'], "[]") . "]";
             }
-        }
-    }
 
+        }
+
+    }
 
     return $ret;
 
@@ -218,6 +218,8 @@ function get_ckan_metric_info() {
 
 function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $fp_csv = FALSE, $objPHPExcel = FALSE, $rowcount = 0, $parent_name='' ) {
     $results = array();
+
+
 
     if(strlen($ckan_id) != 0) {
         $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
@@ -382,6 +384,7 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         else
             $results['last_entry'] = 'NA';
 
+        // $results['cfo'] = $cfo;
 
         fputcsv($fp_csv, $results);
 
