@@ -57,7 +57,7 @@ function ckan_metric_get_taxonomies() {
     $response =  wp_remote_get($url);
     $body = json_decode(wp_remote_retrieve_body(&$response), TRUE);
     $taxonomies = $body['taxonomies'];
-    //var_dump($taxonomies); exit;
+
     return $taxonomies;
 }
 
@@ -218,11 +218,6 @@ function get_ckan_metric_info() {
 
 function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $fp_csv = FALSE, $objPHPExcel = FALSE, $rowcount = 0, $parent_name='' ) {
     $results = array();
-
-    if($ckan_id == 'epa-gov') {
-
-        echo $cfo; exit;
-    }
 
     if(strlen($ckan_id) != 0) {
         $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
@@ -387,7 +382,6 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         else
             $results['last_entry'] = 'NA';
 
-        // $results['cfo'] = $cfo;
 
         fputcsv($fp_csv, $results);
 
