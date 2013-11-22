@@ -805,7 +805,7 @@ thead th, th {
     color: #FFFFFE;
 }
 
-thead th {
+thead th,thead td {
     padding: 10px;
 }
 tbody {
@@ -818,7 +818,7 @@ tr.odd, tr.odd td {
 tr.odd, tr.odd td a {
 
     text-decoration:none;
-    color:black;
+    color:#4295B0;
 }
 tr.even, tr.odd {
 
@@ -1509,4 +1509,11 @@ div.open-data-sites-box div.region {
 }
 div.open-data-sites-box div.numbers {
     color: #3366AC;
+}
+.challenges #cat-posts{margin-top:15px;}
+.openC {
+    margin-bottom: 25px;
+}
+.upcomingC {
+    margin-bottom: 25px;
 }

@@ -97,18 +97,25 @@ $cat_slug = $category[0]->slug;
         the_post();
         ?>
 
-        <div id="appstitle" class="Appstitle" style="margin-left:-20px;" ><?php the_title();?></div>
+
+
+        <div id="appstitle" class="Appstitle"  style="margin-left:-30px;"><?php the_title();?></div>
+
 
         <?php }?>
 
+
 </div>
-This report is also available for download in the following formats: <a href="/wp-content/uploads/agency-list.csv"> CSV </a> | <a href="/wp-content/uploads/agency-list.xls"> EXCEL </a><br/><br/>
+<div style="float: LEFT;">
+    This report is also available for download in the following formats: <a href="/wp-content/uploads/agency-list.csv"> CSV </a> | <a href="/wp-content/uploads/agency-list.xls"> EXCEL </a><br/><br/>
+</div><div style="float: right;margin-left:280px;"> <?php the_content(); ?>    </div>
 <?php
 $metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
-echo '<div style="font-style:italic;">';
+echo '<div style="font-style:italic;clear:both;">';
 echo "Data last updated on: ". date("m/d/Y H:i A",$metric_sync)."<br />";
 echo "</div>";
 ?>
+
 <div id="open-data-sites-boxes" class="agencies">
     <div class="open-data-sites-box">
         <div class="region">Agencies and Subagencies:</div><div class="numbers">
@@ -125,7 +132,7 @@ echo "</div>";
 </div>
 <div class="clear"> </div>
 
-<h2 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Departments/Agencies/Organizations</h2>
+<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Departments/Agencies/Organizations</h3>
 
 
 
@@ -325,7 +332,7 @@ echo "</div>";
     </table>
 </div>
 </div>
-<h2 class="fieldcontentregion agencytitle">Other Agencies</h2>
+<h3 class="fieldcontentregion agencytitle">Other Agencies</h3>
 <div class="sixteen columns">
     <div class="view-content">
         <table class="views-table cols-4 datasets_published_per_month_table">
@@ -485,7 +492,7 @@ echo "</div>";
         </table>
     </div>
 </div>
-<h2 class="fieldcontentregion agencytitle">Summary</h2>
+<h3 class="fieldcontentregion agencytitle">Summary</h3>
 <div class="sixteen columns">
 
     <div class="view-content">

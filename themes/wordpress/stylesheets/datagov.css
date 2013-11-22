@@ -736,7 +736,29 @@ div.toolbar{
 .right-align{
 	text-align: right;
 }
+#skiplink a
+{
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 
+#skiplink a:hover, #skiplink a:focus, #skiplink a:active {
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 160%;
+    color: #FFF;
+    background-color: #022945;
+}
 
 /* Media Queries */
 
@@ -813,6 +835,8 @@ div.toolbar{
         margin-left: 150px !important;
         width: 7% !important;
     }
+    #Appsitem #itemimage img{height:50px !important;}
+    #itemtitle a{font-size:13px !important;}
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -883,6 +907,8 @@ div.toolbar{
     }
     .cat-post .core{height:auto !important;}
     .cat-post{height:auto !important;}
+    #Appsitem #itemimage img{height:50px !important;}
+    #itemtitle a{font-size:13px !important;}
 }
 
 
