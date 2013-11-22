@@ -807,6 +807,12 @@ div.toolbar{
     .Mobile-post .appscontainer .appsitem{width:auto !important;}
     #itemtitle a{font-size:13px;}
     .Mobile-post p{font-size:11px;}
+    .meta .image {
+        float: left;
+        height: 25px;
+        margin-left: 150px !important;
+        width: 7% !important;
+    }
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -869,6 +875,14 @@ div.toolbar{
     .Mobile-post .appscontainer .appsitem{width:auto !important;}
     #itemtitle a{font-size:13px;}
     .Mobile-post p{font-size:11px;}
+    .meta .image {
+        float: left;
+        height: 25px;
+        margin-left: 50px !important;
+        width: 9% !important;
+    }
+    .cat-post .core{height:auto !important;}
+    .cat-post{height:auto !important;}
 }
 
 

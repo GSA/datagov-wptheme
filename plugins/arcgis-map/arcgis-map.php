@@ -75,20 +75,30 @@ Description: This plugin validates map using the the map id and group id
             return true;
         } else {
             $server = get_post_meta( get_the_ID(), 'arcgis_server_address', true );
+            $add_maps = get_post_meta( get_the_ID(), 'add_maps', true );
             $map_id = get_post_meta( get_the_ID(), 'map_id', true );
             $group_id = get_post_meta( get_the_ID(), 'group_id', true );
+            if($add_maps=="group_id")
+                unset($map_id);
+            else
+                unset($group_id);
             $map_id = preg_replace('/[^A-Fa-f0-9]+/', '', $map_id);
-            if (empty($server) || empty($map_id))  {
+            if (empty($server) || (empty($map_id) && empty($group_id)) ) {
+                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
+                remove_action('save_post', 'validate_map_id');
+                wp_update_post(array('ID' => $post_id, 'post_status' => 'draft'));
+                add_action('save_post', 'save_post');
+                return ;
                 // TODO let default validate catch it.
-                return;
+                //return;
             }
             $request = get_arcgis_map_info($server, $map_id, $group_id, 0);
             if ($request['message']!="OK") {
                 $prevent_publish= true;
-                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID.</p></div>';
+                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
             }   elseif(!empty($group_id) && $request['total'] == 0){
                 $prevent_publish= true;
-                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID.</p></div>';
+                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
             }
         }
         if ($prevent_publish) {
