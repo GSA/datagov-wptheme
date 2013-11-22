@@ -22,8 +22,8 @@
             </div>
             <div class="next-search-input">
                 <form method="get" action="http://catalog.data.gov/dataset">
-                    <label for="search-textbox" class="hddn" title="Search Data.gov">Search Data.gov</label>
-                    <input id="search-textbox" role="search" class="next" name="q" type="text" title="Start Searching"  onKeyUp="hidesearch();return false;"  >
+                    <label for="Search_TextBox" class="hddn" title="Search Data.gov">Search Data.gov</label>
+                    <input id="Search_TextBox" role="search" class="next" name="q" type="text" title="Start Searching"  onKeyUp="hidesearch();return false;"  >
                     <a href="#" id="bottle" onMouseOver="displaysearch();return false;" ><span id="g-search-button"></span></a>
                     <div id="searchlist" style="display:none; ">
                         <label><input type="radio" id="SearchCatalog" name="SearchSite" value="" checked="true">&nbsp;&nbsp;Search Data Catalog</label><br>

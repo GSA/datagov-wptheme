@@ -736,7 +736,29 @@ div.toolbar{
 .right-align{
 	text-align: right;
 }
+#skiplink a
+{
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 
+#skiplink a:hover, #skiplink a:focus, #skiplink a:active {
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 160%;
+    color: #FFF;
+    background-color: #022945;
+}
 
 /* Media Queries */
 
