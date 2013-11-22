@@ -24,9 +24,7 @@ $cat_slug = $category[0]->slug;
 <body class="single page post-<?php the_ID(); ?>">
 
 
-<div class="banner disclaimer">
-    <p>This is a demonstration site exploring the future of Data.gov. <span id="stop-disclaimer"> Give us your feedback on <a href="https://twitter.com/usdatagov">Twitter</a>, <a href="http://quora.com">Quora</a></span>, <a href="https://github.com/GSA/datagov-design/">Github</a>, or <a href="http://www.data.gov/contact-us">contact us</a></p>
-</div>
+
 <!-- Header Background Color, Image, or Visualization
 
 ================================================== -->
@@ -88,8 +86,8 @@ $cat_slug = $category[0]->slug;
 
 <div class="content">
 
-<div id="main-inner" class="dataset-inner" style="margin-top:30px;">
-<div class="Appstitle" style="padding-left:5px; margin-bottom:10px">Datasets Published per Month</div>
+<div id="main-inner" class="dataset-inner">
+<h1 class="title">Datasets Published per Month</h1>
 <div class="sixteen columns">
 
 
@@ -102,10 +100,12 @@ $cat_slug = $category[0]->slug;
     <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col" rowspan="2"> Total in the Past 12 Months </th>
     <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-ckan-id datasets_published_per_month_table_head_fields" scope="col" rowspan="2"> </th></tr>
 <tr class="datasets_published_per_month_row_tr_head">
-    <th></th>
     <?php
+    echo '<th></th>';
     for($i = 0; $i <= 11; $i++) {
+
         echo '<th class="datasets_published_per_month_table_head_calendar">';
+
         echo '<span class="datasets_published_month">';
         $current=12- date("m");
         if($i==0){
@@ -145,8 +145,12 @@ $cat_slug = $category[0]->slug;
 </tr>
 </thead>
 <tbody class="datasets_published_per_month_tbody">
-
-
+<div style="float: right;margin-left:280px;"> <?php the_content(); ?></div>
+<?php
+$metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
+echo '<div style="font-style:italic;">';
+echo "Data last updated on: ". date("m/d/Y H:i A",$metric_sync)."<br />";
+?>
 
 
 <?php $count=0; ?>
@@ -705,7 +709,7 @@ if( $query->have_posts() ) {
             $parent = get_post_meta($post->ID, 'parent_agency', TRUE);
 
             if($parent)
-            $total=$total + get_post_meta($post->ID, 'metric_count', TRUE );
+                $total=$total + get_post_meta($post->ID, 'metric_count', TRUE );
 
             ?>
 
