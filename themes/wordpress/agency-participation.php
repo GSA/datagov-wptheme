@@ -97,7 +97,7 @@ $cat_slug = $category[0]->slug;
         the_post();
         ?>
 
-        <div id="appstitle" class="Appstitle" ><?php the_title();?></div>
+        <div id="appstitle" class="Appstitle" style="margin-left:-20px;" ><?php the_title();?></div>
 
         <?php }?>
 
