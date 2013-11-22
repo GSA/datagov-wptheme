@@ -1,5 +1,11 @@
-<?php get_header(); ?>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 
+
+<?php get_template_part('header'); ?>
 <?php
 $category = get_the_category();
 $term_name = $category[0]->cat_name;
@@ -18,36 +24,37 @@ $cat_slug = $category[0]->slug;
 </div>
 
 
-	<!-- Header Background Color, Image, or Visualization
-	================================================== -->
-    <div class="menu-container">
-        <div class="header-next-top" >
+<!-- Header Background Color, Image, or Visualization
+================================================== -->
+<div class="menu-container">
+    <div class="header-next-top" >
 
 
-            <?php get_template_part('navigation'); ?>
+        <?php get_template_part('navigation'); ?>
 
 
 
-        </div>
     </div>
-	<div class="next-header category <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
-	</div>
+</div>
+<div class="next-header category <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
+</div>
 
 
-	<!-- Navigation & Search
-	================================================== -->
+<!-- Navigation & Search
+================================================== -->
 
-	<div class="container">
-		<div class="next-top category <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
+<div class="container">
+    <div class="next-top category <?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?>">
 
-			<?php get_template_part('category-search'); ?>
 
-		</div> <!-- top -->
+        <?php get_template_part('category-search'); ?>
 
-	</div>
+    </div> <!-- top -->
 
-		<div class="page-nav">	
-		</div>
+</div>
+
+<div class="page-nav">
+</div>
 
 <div class="container">
 
@@ -72,48 +79,91 @@ $cat_slug = $category[0]->slug;
 
     </div>
 
-	<!-- WordPress Content
-	================================================== -->
+    <!-- WordPress Content
+    ================================================== -->
 
-		<div class="content">
+    <div class="content">
 
-			<div class="sixteen columns">
+        <div class="sixteen columns">
 
-			<?php if (have_posts()) : ?>  
-				    <?php while (have_posts()) : the_post(); ?>
+            <?php if (have_posts()) : ?>
+            <?php while (have_posts()) : the_post(); ?>
 
-				    <div class="single-post">
-		
-						<div class="title"><?php the_title(); ?></div>
-						<div class="body">
-										<?php the_content('Read the rest of this entry »'); ?>
-                            <?php if (get_post_format() == 'image'): ?>
-                            <img class="scale-with-grid" src="<?php the_field('dataset_image'); ?>">
-                            <?php elseif (get_post_format() == 'gallery'): ?>
-                            <?php
-                            $imagefile=get_field_object('field_52432c4d9b06f');
-                            ?>
+                <div class="single-post">
 
-                            <img class="scale-with-grid" src="<?php echo $imagefile['value']; ?>">
-                            <?php endif; ?>
+                    <div class="title"><?php the_title(); ?></div>
+                    <div class="body">
+                        <?php the_content('Read the rest of this entry »'); ?>
+                        <?php if (get_post_format() == 'gallery'): ?>
 
-                        </div>
-					</div>
-                                    <?php comments_template( '', true ); ?>
-				    <?php endwhile; ?>  
+                        <?php
+                        $imagefile=get_field_object('field_52432c4d9b06f');
+
+                        ?>
+
+                        <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
 
 
-					<?php else : ?>  
+                        <?php elseif (get_post_format() == 'image'): ?>
 
-					    <h2 class="center">Not Found</h2>  
-					    <p class="center">Sorry, but you are looking for something that isn't here.</p>  
-					    <?php include (TEMPLATEPATH . "/searchform.php"); ?>  
 
-			<?php endif; ?>  
+                        <?php
+                        $imagefile2=get_field_object('field_5176014eb8099');
 
-			
+                        ?>
 
-			</div>
+                        <img class="scale-with-grid" src="<?php echo $imagefile2['value']['url']; ?>" alt="<?php echo $imagefile2['value']['alt']; ?>">
 
-			</div> <!-- sixteen columns -->
-<?php get_footer(); ?>
+
+
+
+
+
+                        <?php endif; ?>
+
+                    </div>
+                </div>
+                <?php comments_template( '', true ); ?>
+                <?php endwhile; ?>
+
+
+            <?php else : ?>
+
+            <h2 class="center">Not Found</h2>
+            <p class="center">Sorry, but you are looking for something that isn't here.</p>
+            <?php include (TEMPLATEPATH . "/searchform.php"); ?>
+
+            <?php endif; ?>
+
+
+
+        </div>
+
+    </div> <!-- sixteen columns -->
+    <?php get_template_part('footer'); ?>
+</div> <!-- content -->
+
+</div><!-- container -->
+
+<script>
+    $(window).load(function(){
+        $('#posts').masonry({
+            // options
+            columnWidth: 287,
+            itemSelector : '.post',
+            isResizable: true,
+            isAnimated: true,
+            gutterWidth: 25
+        });
+    });
+</script>
+
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/autosize.js"></script>
+
+
+<!-- End Document
+================================================== -->
+</body>
+
+
+</html>
