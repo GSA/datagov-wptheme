@@ -813,6 +813,8 @@ div.toolbar{
         margin-left: 150px !important;
         width: 7% !important;
     }
+    #Appsitem #itemimage img{height:50px !important;}
+    #itemtitle a{font-size:13px !important;}
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -883,6 +885,8 @@ div.toolbar{
     }
     .cat-post .core{height:auto !important;}
     .cat-post{height:auto !important;}
+    #Appsitem #itemimage img{height:50px !important;}
+    #itemtitle a{font-size:13px !important;}
 }
 
 
