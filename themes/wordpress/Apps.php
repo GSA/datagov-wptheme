@@ -26,14 +26,28 @@ $cat_slug = $category[0]->slug;
 ?>
 <script type="text/javascript">
 
+
     $(document).ready(function(){
-        $('.bxslider').bxSlider({
-            minSlides: 3,
-            maxSlides: 4,
-            slideWidth: 220,
-            slideMargin: 10
-        });
+
+        if ($(window).width() < 480) {
+            $('.bxslider').bxSlider({
+                minSlides: 1,
+                maxSlides: 1,
+                slideWidth: 220,
+                slideMargin: 10
+            });
+        }
+        else{
+            $('.bxslider').bxSlider({
+                minSlides: 3,
+                maxSlides: 4,
+                slideWidth: 220,
+                slideMargin: 10
+            });
+        }
     });
+
+
 </script>
 <body class="<?php echo $cat_slug;?>">
 <div class="banner disclaimer">
