@@ -155,7 +155,7 @@ if ( have_posts() ){
                                     <?php
                                     $imagefile=get_field_object('field_5240b9c982f41');
                                     ?>
-                                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" style="height:85px;">
+                                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" style="height:85px;">
                                 </center>
                             </div>
                             <div id="itemcontent">
@@ -229,7 +229,7 @@ if ( have_posts() ){
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -286,7 +286,7 @@ if ( have_posts() ){ ?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -340,7 +340,7 @@ if ( have_posts() ){?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -397,7 +397,7 @@ if ( have_posts() ){
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -454,7 +454,7 @@ if ( have_posts() ){?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -509,7 +509,7 @@ if ( have_posts() ){ ?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -565,7 +565,7 @@ if ( have_posts() ){ ?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -620,7 +620,7 @@ if ( have_posts() ){?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -675,7 +675,7 @@ if ( have_posts() ){?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -730,7 +730,7 @@ if ( have_posts() ){?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -786,7 +786,7 @@ if ( have_posts() ){?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
@@ -842,7 +842,7 @@ if ( have_posts() ){?>
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">

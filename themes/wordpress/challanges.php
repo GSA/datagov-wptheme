@@ -126,9 +126,9 @@ $cat_slug = $category[0]->slug;
                         <?php
                         $image=  strlen($imagefile['value']['url']);
                         if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;">
-                            <?php }else{?>
-                            <img class="scale-with-grid" src="test">
+                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" style="float:right; margin-left:10px; height:80px;">
+
+
                             <?php }?>
                         <?php the_content() ?>
                     </div>
@@ -197,9 +197,8 @@ $cat_slug = $category[0]->slug;
                         <?php
                         $image=  strlen($imagefile['value']['url']);
                         if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;">
-                            <?php }else{?>
-                            <img class="scale-with-grid" src="test">
+                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" style="float:right; margin-left:10px; height:80px;">
+
                             <?php }?>
                         <?php the_content() ?>
                     </div>
@@ -268,9 +267,8 @@ $cat_slug = $category[0]->slug;
                         <?php
                         $image=  strlen($imagefile['value']['url']);
                         if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;">
-                            <?php }else{?>
-                            <img class="scale-with-grid" src="test">
+                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" style="float:right; margin-left:10px; height:80px;">
+
                             <?php }  ?>
                         <?php the_content() ?>
                     </div>
@@ -338,9 +336,8 @@ $cat_slug = $category[0]->slug;
                         <?php
                         $image=  strlen($imagefile['value']['url']);
                         if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;">
-                            <?php }else{?>
-                            <img class="scale-with-grid" src="test">
+                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" style="float:right; margin-left:10px; height:80px;">
+
                             <?php }  ?>
                         <?php the_content() ?>
                     </div>
