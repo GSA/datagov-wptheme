@@ -245,7 +245,7 @@ li.next-us-flag {
 .next-search .next-search-input input{
 	height: 20px;
 	width: 300px;
-	font-weight: lighter; 
+	font-weight: normal;
 	font-family: 'Lato', Helvetica, sans-serif; 
 	font-size: 18px;
 	padding-left: 12px;
@@ -253,6 +253,7 @@ li.next-us-flag {
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
 	border: 0px;
+    color: #444444;
 }
 
 .next-search input:focus{
