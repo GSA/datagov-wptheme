@@ -85,9 +85,12 @@ Description: This plugin validates map using the the map id and group id
             $map_id = preg_replace('/[^A-Fa-f0-9]+/', '', $map_id);
             if (empty($server) || (empty($map_id) && empty($group_id)) ) {
                 $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
-                $prevent_publish = true;
+                remove_action('save_post', 'validate_map_id');
+                wp_update_post(array('ID' => $post_id, 'post_status' => 'draft'));
+                add_action('save_post', 'save_post');
+                return ;
                 // TODO let default validate catch it.
-                return;
+                //return;
             }
             $request = get_arcgis_map_info($server, $map_id, $group_id, 0);
             if ($request['message']!="OK") {
