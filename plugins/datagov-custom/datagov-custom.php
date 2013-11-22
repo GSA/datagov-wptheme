@@ -267,6 +267,34 @@ array( 'hierarchical' => true,
 ) ); 
 }
 
+#Migrate legacy Tags
+add_action('init', 'cptui_register_my_taxes_legacy_datacomm_tags');
+function cptui_register_my_taxes_legacy_datacomm_tags() {
+register_taxonomy( 'legacy_datacomm_tags',array (
+  0 => 'post',
+),
+array( 'hierarchical' => true,
+	'label' => 'Migrate legacy Tags',
+	'show_ui' => true,
+	'query_var' => true,
+	'show_admin_column' => false,
+	'labels' => array (
+  'search_items' => 'Migrate legacy Tag',
+  'popular_items' => '',
+  'all_items' => '',
+  'parent_item' => '',
+  'parent_item_colon' => '',
+  'edit_item' => '',
+  'update_item' => '',
+  'add_new_item' => '',
+  'new_item_name' => '',
+  'separate_items_with_commas' => '',
+  'add_or_remove_items' => '',
+  'choose_from_most_used' => '',
+)
+) ); 
+}
+
 function add_export_link(){
     add_links_page('Download Links', 'Download Links', 8,'../wp-content/plugins/datagov-custom/wp_download_links.php', '');
 }
