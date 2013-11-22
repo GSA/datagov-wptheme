@@ -1517,3 +1517,11 @@ div.open-data-sites-box div.numbers {
 .upcomingC {
     margin-bottom: 25px;
 }
+tr.odd td a.link_dataset{
+
+    color: #4295B0;
+}
+tr.even td a.link_dataset{
+
+    color: #4295B0;
+}
