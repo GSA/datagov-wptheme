@@ -92,10 +92,10 @@ Description: This plugin validates map using the the map id and group id
             $request = get_arcgis_map_info($server, $map_id, $group_id, 0);
             if ($request['message']!="OK") {
                 $prevent_publish= true;
-                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID.</p></div>';
+                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
             }   elseif(!empty($group_id) && $request['total'] == 0){
                 $prevent_publish= true;
-                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID.</p></div>';
+                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
             }
         }
         if ($prevent_publish) {
