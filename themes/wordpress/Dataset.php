@@ -153,8 +153,8 @@ $cat_slug = $category[0]->slug;
 
 <?php
 $args = array(
-    'orderby'          => '',
-    'order'            => 'DESC',
+    'orderby'          => 'title',
+    'order'            => 'ASC',
     'post_type'        => 'metric_organization',
     'posts_per_page' => 500,
     'post_status'      => 'publish',

@@ -97,7 +97,7 @@ function ckan_metric_convert_structure($taxonomies) {
                 'is_cfo' => $taxonomy['is_cfo'],
             );
         }
-        else { // This is agecny
+        else { // This is agency
             if (!isset($ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']])) {
                 // Has not been set by its subunits before
                 $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']] = array(
@@ -116,7 +116,6 @@ function ckan_metric_convert_structure($taxonomies) {
     }
 
     return $ret;
-
 }
 
 function get_ckan_metric_info() {
@@ -141,20 +140,15 @@ function get_ckan_metric_info() {
     $objPHPExcel->getActiveSheet()->getStyle('C'.$rowcount)->getFont()->setBold(true);
     $objPHPExcel->getActiveSheet()->getStyle('D'.$rowcount)->getFont()->setBold(true);
 
-
-
     $rowcount++;
 
-
     chdir('../wp-content/uploads/');
-
     $fp_csv = fopen('agency-list.csv', 'w');
 
     if($fp_csv == false ){
         die("unable to create file");
     }
     fputcsv($fp_csv, array('Agency Name', 'Sub-Agency Name', 'Datasets', 'Last Entry'));
-
 
     if(!empty($structure['Federal Organization'])) {
         foreach ($structure['Federal Organization'] as $unit => $unit_info) {
@@ -166,6 +160,10 @@ function get_ckan_metric_info() {
                 'is_cfo' => $unit_info['is_cfo'],
                 'subs' => $unit_info['subs'],
             );
+
+            if($item['name'] == 'Executive Office of the President'){
+                //var_dump($item['subs']);
+            }
 
             $orgs = trim($item['id'], "[,]");
             $orgs = explode(",", $orgs);
@@ -199,8 +197,9 @@ function get_ckan_metric_info() {
 
 
             foreach($item['subs'] as $key=>$value) {
+
                 $orgs = 'organization:' . urlencode($value['id']);
-                create_metric_content($value['is_cfo'], $key, $value['id'], $orgs, $parent_nid, 0, $fp_csv, $objPHPExcel, $rowcount, $item['name']);
+                create_metric_content($value['is_cfo'], $key, $value['id'], $orgs, $parent_nid, 0, $fp_csv, $objPHPExcel, $rowcount, $item['name'], 1);
                 $rowcount++;
             }
         }
@@ -213,13 +212,10 @@ function get_ckan_metric_info() {
     // Write the Excel file to filename some_excel_file.xlsx in the current directory
     $objWriter->save('agency-list.xls');
 
-
 }
 
-function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $fp_csv = FALSE, $objPHPExcel = FALSE, $rowcount = 0, $parent_name='' ) {
+function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $fp_csv = FALSE, $objPHPExcel = FALSE, $rowcount = 0, $parent_name='', $subagency = 0) {
     $results = array();
-
-
 
     if(strlen($ckan_id) != 0) {
         $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
@@ -228,6 +224,7 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         $response = wp_remote_get($url);
         $body = json_decode(wp_remote_retrieve_body(&$response), true);
         $count = $body['result']['count'];
+
         $last_entry = $body['result']['results'][0]['metadata_modified'];
         $last_entry = substr($last_entry, 0, 10);
         $metric_timestamp = time();
@@ -274,9 +271,17 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
             $i++;
         }
     }
+
     $content_id = get_page_by_title($title, OBJECT, 'metric_organization')->ID;
 
-
+    if($subagency){
+        global $wpdb;
+        $myrows = $wpdb->get_var( "SELECT id FROM `wp_posts` p
+								   inner join wp_postmeta pm on pm.post_id = p.id
+								   where post_title = '".$title."' and post_type = 'metric_organization'
+								   and meta_key = 'ckan_unique_id' and meta_value = '".$ckan_id."'" );
+        $content_id = $myrows;
+    }
 
 
     if($title == "Department/Agency Level") {
@@ -306,8 +311,6 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
             add_post_meta($new_post_id, 'metric_sector', 'Federal');
         else
             add_post_meta($new_post_id, 'metric_sector', 'Other');
-
-
 
         add_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
         add_post_meta($new_post_id, 'metric_last_entry', $last_entry);
