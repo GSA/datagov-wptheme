@@ -805,7 +805,7 @@ thead th, th {
     color: #FFFFFE;
 }
 
-thead th {
+thead th,thead td {
     padding: 10px;
 }
 tbody {
@@ -818,7 +818,7 @@ tr.odd, tr.odd td {
 tr.odd, tr.odd td a {
 
     text-decoration:none;
-    color:black;
+    color:#4295B0;
 }
 tr.even, tr.odd {
 
