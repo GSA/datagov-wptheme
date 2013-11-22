@@ -74,7 +74,7 @@ $cat_slug = $category[0]->slug;
     ================================================== -->
   <div class="category-content">
     <div class="content" style="margin-top:20px;">
-     
+
       <div class="sixteen columns">
           <div class="content">
               <?php
