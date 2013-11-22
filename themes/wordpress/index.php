@@ -159,11 +159,15 @@
                 <div class="post small blog" id="post-<?php the_ID(); ?>">
                     <?php
                     $imagefile=get_field_object('field_52432c4d9b06f');
+                    $slidelink = get_post_meta($post->ID, 'field_slide_url', TRUE);
+                    if (!preg_match("~^(?:f|ht)tps?://~i", $slidelink)) {
+                        $slidelink = "http://" . $slidelink;
+                    }
 
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
                     <div class="core">
-                        <div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
+                        <div class="title"><a href="<?php echo $slidelink; ?>"><?php the_title(); ?></a></div>
                         <div class="body">
                             <?php the_content('Read the rest of this entry »'); ?>
                         </div>
