@@ -132,7 +132,7 @@ echo "</div>";
 </div>
 <div class="clear"> </div>
 
-<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Departments/Agencies/Organizations</h3>
+<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;font-family: 'Abel',Helvetica,sans-serif;">Departments/Agencies/Organizations</h3>
 
 
 
@@ -213,7 +213,7 @@ echo "</div>";
                     $dataset_count = get_post_meta($post->ID, 'metric_count', TRUE);
                     if($dataset_count > 0){
                         echo '<tr class="datasets_published_per_month_row_tr_even odd">';
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
                         echo '</td>';
 
                         echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -240,7 +240,7 @@ echo "</div>";
 
                                 echo '<tr class="datasets_published_per_month_row_tr_even even">';
 
-                                echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                                echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                                 echo '</td>';
 
                                 echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -273,10 +273,10 @@ echo "</div>";
                                 echo '<tr class="datasets_published_per_month_row_tr_even even">';
 
 
-                                echo '<td style="text-indent: 10px;"class="datasets_published_per_month_table_row_fields" width="60%">';  echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                                echo '<td style="text-indent: 10px;"class="datasets_published_per_month_table_row_fields" width="60%">';  echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                                 echo '</td>';
 
-                                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
+                                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center" >'; echo get_post_meta($post->ID, 'metric_count', TRUE);
                                 echo '</td>';
 
                                 echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
@@ -303,7 +303,7 @@ echo "</div>";
 
                     if($dataset_count > 0){
                         echo '<tr class="datasets_published_per_month_row_tr_even odd">';
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                         echo '</td>';
 
                         echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -332,7 +332,7 @@ echo "</div>";
     </table>
 </div>
 </div>
-<h3 class="fieldcontentregion agencytitle">Other Agencies</h3>
+<h3 class="fieldcontentregion agencytitle" style="font-family: 'Abel',Helvetica,sans-serif; ">Other Agencies</h3>
 <div class="sixteen columns">
     <div class="view-content">
         <table class="views-table cols-4 datasets_published_per_month_table">
@@ -410,7 +410,7 @@ echo "</div>";
 
 
                         echo '<tr class="datasets_published_per_month_row_tr_even odd">';
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                         echo '</td>';
 
                         echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
@@ -440,7 +440,7 @@ echo "</div>";
 
                                     echo '<tr class="datasets_published_per_month_row_tr_even even">';
 
-                                    echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                                    echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                                     echo '</td>';
 
                                     echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -468,7 +468,7 @@ echo "</div>";
 
                         if($dataset_count > 0){
                             echo '<tr class="datasets_published_per_month_row_tr_even odd">';
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                            echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                             echo '</td>';
 
                             echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -492,10 +492,11 @@ echo "</div>";
         </table>
     </div>
 </div>
-<h3 class="fieldcontentregion agencytitle">Summary</h3>
+<h3 class="fieldcontentregion agencytitle" style="font-family: 'Abel',Helvetica,sans-serif;clear: both;padding-top: 12px; ">Summary</h3>
 <div class="sixteen columns">
 
     <div class="view-content">
+
 
         <table class="views-table cols-4 datasets_published_per_month_table">
             <thead>
@@ -586,9 +587,9 @@ echo "</div>";
 <script>
     $(function () {
         var
-            $demo = $('#rotate-stats'),
-            strings = JSON.parse($demo.attr('data-strings')).targets,
-            randomString;
+                $demo = $('#rotate-stats'),
+                strings = JSON.parse($demo.attr('data-strings')).targets,
+                randomString;
 
         randomString = function () {
             return strings[Math.floor(Math.random() * strings.length)];

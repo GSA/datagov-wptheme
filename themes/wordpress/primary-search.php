@@ -25,8 +25,8 @@
                     <input id="Search_TextBox" role="search" class="next" name="q" type="text" title="Start Searching"  onKeyUp="hidesearch();return false;"  >
                     <a href="#" id="bottle"  onMouseOver="displaysearch();return false;" ><span id="g-search-button"></span></a>
                     <div id="searchlist" style="display:none; ">
-                        <label><input type="radio" id="SearchCatalog" name="SearchSite" value="SearchSite" checked="true">&nbsp;&nbsp;Search Data Catalog</label><br>
-                        <label><input type="radio" id="SearchSite" name="SearchSite" value="SearchSite">&nbsp;&nbsp;Search Site Content</label><br>
+                        <label><input type="radio" id="SearchCatalog" name="SearchSite" value="" checked="true">&nbsp;&nbsp;Search Data Catalog</label><br>
+                        <label><input type="radio" id="SearchSite" name="SearchSite" value="">&nbsp;&nbsp;Search Site Content</label><br>
                     </div>
                     <input id="next-search-submit" type="submit" />
                 </form>

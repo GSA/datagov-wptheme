@@ -837,6 +837,9 @@ div.toolbar{
     }
     #Appsitem #itemimage img{height:50px !important;}
     #itemtitle a{font-size:13px !important;}
+    .container .footer .twelve.columns {
+        width: 420px;
+    }
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -909,6 +912,9 @@ div.toolbar{
     .cat-post{height:auto !important;}
     #Appsitem #itemimage img{height:50px !important;}
     #itemtitle a{font-size:13px !important;}
+    .container .footer .twelve.columns {
+        width: 300px;
+    }
 }
 
 
