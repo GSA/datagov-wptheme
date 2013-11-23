@@ -3,9 +3,9 @@
         <p>
             <?php
             if ( is_user_logged_in() ) {
-                $args = array('category_name'=>'footer', 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating','before'=>' ','after'=>' ','exclude'=>'269');
+                $args = array('category_name'=>'footer', 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating','before'=>' ','after'=>' ','exclude'=>'336');
             } else {
-                $args = array('category_name'=>'footer', 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating','before'=>' ','after'=>' ','exclude'=>'273');
+                $args = array('category_name'=>'footer', 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating','before'=>' ','after'=>' ','exclude'=>'337');
             }
             wp_list_bookmarks($args);
             ?>
