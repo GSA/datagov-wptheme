@@ -162,7 +162,15 @@ $args = array(
     'post_type'        => 'metric_organization',
     'posts_per_page' => 500,
     'post_status'      => 'publish',
-    'suppress_filters' => true );
+    'suppress_filters' => true,
+    'meta_query' => array(
+        array(
+            'key' => 'metric_sector',
+            'value' => 'Federal',
+            'compare' => 'LIKE'
+        )
+    )
+);
 
 $query = null;
 $query = new WP_Query($args);
@@ -171,10 +179,11 @@ if( $query->have_posts() ) {
 
     while ($query->have_posts()) : $query->the_post();
 
-
+        $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
         $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+        $title = get_the_title();
 
-        if($parent) {
+        if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
 
             if($count/2==0){
 
@@ -449,8 +458,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
 
-            $total1=$total1 + get_post_meta($post->ID, 'month_1_dataset_count', TRUE );;
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total1=$total1 + get_post_meta($post->ID, 'month_1_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -471,9 +486,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
 
-            $total2=$total2 + get_post_meta($post->ID, 'month_2_dataset_count', TRUE );
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
 
+                $total2=$total2 + get_post_meta($post->ID, 'month_2_dataset_count', TRUE );
+            }
             ?>
 
             <?php endwhile;?>
@@ -493,8 +513,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $total3=$total3 + get_post_meta($post->ID, 'month_3_dataset_count', TRUE );
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
 
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total3=$total3 + get_post_meta($post->ID, 'month_3_dataset_count', TRUE );
+            }
             ?>
 
             <?php endwhile;?>
@@ -514,8 +540,15 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
 
-            $total4=$total4 + get_post_meta($post->ID, 'month_4_dataset_count', TRUE );
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+
+                $total4=$total4 + get_post_meta($post->ID, 'month_4_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -536,7 +569,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $total5=$total5 + get_post_meta($post->ID, 'month_5_dataset_count', TRUE );
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
+
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total5=$total5 + get_post_meta($post->ID, 'month_5_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -558,8 +598,15 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
 
-            $total6=$total6 + get_post_meta($post->ID, 'month_6_dataset_count', TRUE );
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+
+                $total6=$total6 + get_post_meta($post->ID, 'month_6_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -580,7 +627,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $total7=$total7 + get_post_meta($post->ID, 'month_7_dataset_count', TRUE );
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
+
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total7=$total7 + get_post_meta($post->ID, 'month_7_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -601,7 +655,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $total8=$total8 + get_post_meta($post->ID, 'month_8_dataset_count', TRUE );
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
+
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total8=$total8 + get_post_meta($post->ID, 'month_8_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -622,7 +683,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $total9=$total9 + get_post_meta($post->ID, 'month_9_dataset_count', TRUE );
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
+
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total9=$total9 + get_post_meta($post->ID, 'month_9_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -643,7 +711,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $total10=$total10 + get_post_meta($post->ID, 'month_10_dataset_count', TRUE );
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
+
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total10=$total10 + get_post_meta($post->ID, 'month_10_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -664,7 +739,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $total11=$total11 + get_post_meta($post->ID, 'month_11_dataset_count', TRUE );
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
+
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total11=$total11 + get_post_meta($post->ID, 'month_11_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -685,7 +767,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $total12=$total12 + get_post_meta($post->ID, 'month_12_dataset_count', TRUE );
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
+
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
+                $total12=$total12 + get_post_meta($post->ID, 'month_12_dataset_count', TRUE );
+            }
 
             ?>
 
@@ -706,11 +795,14 @@ if( $query->have_posts() ) {
     if( $query->have_posts() ) {
 
         while ($query->have_posts()) : $query->the_post();
-            $parent = get_post_meta($post->ID, 'parent_agency', TRUE);
+            $parent_node = get_post_meta($post->ID, "parent_organization", TRUE );
+            $parent = get_post_meta($post->ID, "parent_agency", TRUE );
+            $title = get_the_title();
 
-            if($parent)
+            if(($parent || !$parent_node ) && $title != "Department/Agency Level") {
+
                 $total=$total + get_post_meta($post->ID, 'metric_count', TRUE );
-
+            }
             ?>
 
             <?php endwhile;?>
@@ -775,9 +867,9 @@ if( $query->have_posts() ) {
 <script>
     $(function () {
         var
-                $demo = $('#rotate-stats'),
-                strings = JSON.parse($demo.attr('data-strings')).targets,
-                randomString;
+            $demo = $('#rotate-stats'),
+            strings = JSON.parse($demo.attr('data-strings')).targets,
+            randomString;
 
         randomString = function () {
             return strings[Math.floor(Math.random() * strings.length)];
