@@ -6,13 +6,9 @@ Description: This plugin makes API call to Ckan and stores dataset count for eac
 
 /** Include PHPExcel */
 require_once 'Classes/PHPExcel.php';
+require_once 'Classes/PHPExcel/IOFactory.php';
 
-$results = array();
-$excel = array('agency'=>'','subagency'=>'','dataset'=>'','date'=>'');
-
-
-
-
+$results =  array();
 
 
 add_action('admin_menu', 'metric_configuration');
@@ -127,18 +123,12 @@ function ckan_metric_convert_structure($taxonomies) {
 
 function get_ckan_metric_info() {
 
-    // Instantiate a new PHPExcel object
-    $objPHPExcel = new PHPExcel();
-    // Set the active Excel worksheet to sheet 0
-    $objPHPExcel->setActiveSheetIndex(0);
-    // Initialise the Excel row number
-    $rowcount = 1;
 
 
     $taxonomies = ckan_metric_get_taxonomies();
     $structure = ckan_metric_convert_structure($taxonomies);
     $count = 0;
-    global $results, $excel;
+    global $results;
 
 
 
@@ -176,7 +166,7 @@ function get_ckan_metric_info() {
 
             //Mark parent agency
             if(sizeof($item['subs']) > 0 && strlen($parent_org) > 0){
-                create_metric_content($item['is_cfo'], $item['name'], $parent_org, $orgs, $parent_nid, 1, '', 0, 1);
+                create_metric_content($item['is_cfo'], $item['name'], $parent_org, $orgs, $parent_nid, 1, '', 0);
 
             }
 
@@ -184,6 +174,8 @@ function get_ckan_metric_info() {
                 create_metric_content($item['is_cfo'], "Department/Agency Level", $parent_org, "organization:" . urlencode($parent_org), $parent_nid, 0, $item['name'], 0, 1);
 
             }
+
+
 
             foreach($item['subs'] as $key=>$value) {
 
@@ -193,7 +185,7 @@ function get_ckan_metric_info() {
             }
         }
     }
-
+    asort($results);
     chdir('../wp-content/uploads/');
     $fp_csv = fopen('federal-agency-participation.csv', 'w');
 
@@ -201,7 +193,7 @@ function get_ckan_metric_info() {
         die("unable to create file");
     }
     fputcsv($fp_csv, array('Agency Name', 'Sub-Agency Name', 'Datasets', 'Last Entry'));
-    asort($results);
+
 
     foreach($results as $record){
 
@@ -209,27 +201,33 @@ function get_ckan_metric_info() {
 
     }
     fclose($fp_csv);
+    // Instantiate a new PHPExcel object
+    $objPHPExcel = new PHPExcel();
+    // Set the active Excel worksheet to sheet 0
+    $objPHPExcel->setActiveSheetIndex(0);
+    // Initialise the Excel row number
+    $row = 1;
+
+    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$row, 'Agency Name');
+    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$row, 'Sub-Agency Name');
+    $objPHPExcel->getActiveSheet()->SetCellValue('C'.$row, 'Datasets');
+    $objPHPExcel->getActiveSheet()->SetCellValue('D'.$row, 'Last Entry');
+    $row++;
 
 
-    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, 'Agency Name');
-    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, 'Sub-Agency Name');
-    $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 'Datasets');
-    $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, 'Last Entry');
-    $objPHPExcel->getActiveSheet()->getStyle('A'.$rowcount)->getFont()->setBold(true);
-    $objPHPExcel->getActiveSheet()->getStyle('B'.$rowcount)->getFont()->setBold(true);
-    $objPHPExcel->getActiveSheet()->getStyle('C'.$rowcount)->getFont()->setBold(true);
-    $objPHPExcel->getActiveSheet()->getStyle('D'.$rowcount)->getFont()->setBold(true);
-    $rowcount++;
+    foreach($results as $record){
+        if($record){
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$row, $record[0]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$row, $record[1]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$row, $record[2]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$row, $record[3]);
+            $row++;
+        }
 
-    asort($excel);
-    foreach($excel as $record){
-        $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, $record['agency']);
-        $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, $record['subagency']);
-        $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, $record['dataset']);
-        $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, $record['date']);
-        $rowcount++;
 
     }
+
+    // $objPHPExcel->getActiveSheet()->fromArray($results);
 
     // Instantiate a Writer to create an OfficeOpenXML Excel .xlsx file
     $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
@@ -240,7 +238,7 @@ function get_ckan_metric_info() {
 
 function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $parent_name='', $subagency = 0, $export = 0) {
 
-    global $results, $excel;
+    global $results;
 
 
     if(strlen($ckan_id) != 0) {
@@ -365,17 +363,25 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         if($agency_level != 0)
             add_post_meta($new_post_id,'parent_agency', 1, true);
 
+        $flag = false;
+        if($count > 0 ){
 
 
-        if($export != 0 && $count > 0 ){
+            if($export != 0){
 
-            if($parent_name == ''){
-                $parent_name = $title;
-                $title = '';
+                $results[] = array($parent_name,$title, $count, $last_entry);
+
+
             }
 
-            $results[] = array($parent_name,$title, $count, $last_entry);
-            $excel[] = array($parent_name,$title, $count, $last_entry);
+            if($parent_node == 0 && $flag == false){
+                $parent_name = $title;
+                $title = '';
+
+                $results[] = array($parent_name,$title, $count, $last_entry);
+
+
+            }
 
 
         }
@@ -425,18 +431,29 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
             update_post_meta($new_post_id,'parent_agency', 1, true);
 
 
-        if($export != 0 && $count > 0){
+        $flag = false;
+        if($count > 0 ){
 
-            if($parent_name == ''){
-                $parent_name = $title;
-                $title = '';
+
+            if($export != 0){
+
+                $results[] = array($parent_name,$title, $count, $last_entry);
+
+
             }
 
-            $results[] = array($parent_name,$title, $count, $last_entry);
-            $excel[] = array($parent_name,$title, $count, $last_entry);
+            if($parent_node == 0 && $flag == false){
+                $parent_name = $title;
+                $title = '';
+
+                $results[] = array($parent_name,$title, $count, $last_entry);
+
+
+            }
 
 
         }
+
     }
 
 
@@ -459,3 +476,4 @@ function my_deactivation() {
 //add_action('admin_init', 'get_ckan_metric_info');
 
 ?>
+
