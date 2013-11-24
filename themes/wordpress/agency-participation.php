@@ -107,7 +107,7 @@ $cat_slug = $category[0]->slug;
 
 </div>
 <div style="float: LEFT;">
-    This report is also available for download in the following formats: <a href="/wp-content/uploads/agency-list.csv"> CSV </a> | <a href="/wp-content/uploads/agency-list.xls"> EXCEL </a><br/><br/>
+    This report is also available for download in the following formats: <a href="/wp-content/uploads/federal-agency-participation.csv"> CSV </a> | <a href="/wp-content/uploads/federal-agency-participation.xls"> EXCEL </a><br/><br/>
 </div><div style="float: right;margin-left:280px;"> <?php the_content(); ?>    </div>
 <?php
 $metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
