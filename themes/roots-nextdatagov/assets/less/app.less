@@ -46,6 +46,72 @@ ul#menu-primary-navigation li,
 	font-size: 16px;
 }
 
+
+
+/* ==========================================================================
+   Search
+   ========================================================================== */
+
+
+div.frontpage-search {
+    
+    input[type="search"]::-webkit-input-placeholder {
+        -webkit-transition: opacity 0.3s linear; 
+    	color: gray;
+    }
+
+    input[type="search"]:focus::-webkit-input-placeholder {
+        opacity: 0;
+    }
+
+    input.search-field.form-control::-moz-placeholder {
+    	transition: opacity 0.3s linear; 
+    	color: gray;
+    }
+
+    input.search-field.form-control:focus::-moz-placeholder {
+    	opacity: 0;
+    }
+
+    input.search-field.form-control, 
+    #search-prompt {
+        font-family : 'Lato', sans-serif;
+        font-weight : 300;
+        font-style : italic;
+        font-size : 20px;
+    }
+
+    #search-prompt {
+         display: inline-block;
+    	 height : 44px;
+    	 padding-top : 8px;
+    	 padding-right : 0;
+    	 text-align : right;
+    }
+
+    .search-field.form-control {
+    height : 44px;
+    }
+
+    .search-form .btn {
+    font-size : 21px;
+    }
+
+    .search-form .btn-default {
+    color : #9E9E9E;
+    }    
+    
+}
+
+
+.navbar {
+    .search-form {
+        padding-top : 8px
+    }
+}
+
+
+
 /* ==========================================================================
    Content
    ========================================================================== */
@@ -101,51 +167,6 @@ ul#menu-primary-navigation li,
 
 
 
-input[type="search"]::-webkit-input-placeholder {
-    -webkit-transition: opacity 0.3s linear; 
-	color: gray;
-}
-
-input[type="search"]:focus::-webkit-input-placeholder {
-    opacity: 0;
-}
-
-input.search-field.form-control::-moz-placeholder {
-	transition: opacity 0.3s linear; 
-	color: gray;
-}
-
-input.search-field.form-control:focus::-moz-placeholder {
-	opacity: 0;
-}
-
-input.search-field.form-control, 
-#search-prompt {
-    font-family : 'Lato', sans-serif;
-    font-weight : 300;
-    font-style : italic;
-    font-size : 20px;
-}
-
-#search-prompt {
-     display: inline-block;
-	 height : 44px;
-	 padding-top : 8px;
-	 padding-right : 0;
-	 text-align : right;
-}
-
-.search-field.form-control {
-height : 44px;
-}
-
-.search-form .btn {
-font-size : 21px;
-}
-
-.search-form .btn-default {
-color : #9E9E9E;
-}
 
 
 /* ==========================================================================

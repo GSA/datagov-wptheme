@@ -18,15 +18,23 @@
         endif;
       ?>
       
+      <?php if(!is_front_page()): ?>
+        <?php get_search_form(); ?>
+      <?php endif; ?>      
+      
+      
     </nav>    
   </div>
 </div>
 
+<?php if(is_front_page()): ?>
 <div class="header banner frontpage-search">
     <div class="container">
+        <span id="search-prompt" class="col-md-5 col-lg-5">Search 89,234 datasets including</span>    
         <?php get_search_form(); ?>
     </div>
 </div>
+<?php endif; ?>
 
 
 <div class="header banner page-heading">
