@@ -220,8 +220,8 @@ if( $query->have_posts() ) {
 
             if($dataset_count > 0){
 
-                echo '<tr class="datasets_published_per_month_row_tr_even odd">';
-                echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
+                echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
+                echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
                 echo '</td>';
 
                 echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -246,7 +246,7 @@ if( $query->have_posts() ) {
 
                         echo '<tr class="datasets_published_per_month_row_tr_even even">';
 
-                        echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                        echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                         echo '</td>';
 
                         echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -282,7 +282,7 @@ if( $query->have_posts() ) {
                         echo '<tr class="datasets_published_per_month_row_tr_even even">';
 
 
-                        echo '<td style="text-indent: 10px;"class="datasets_published_per_month_table_row_fields" width="60%">';  echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                        echo '<td style="text-indent: 10px;"class="datasets_published_per_month_table_row_fields" width="60%">';  echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                         echo '</td>';
 
                         echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -318,7 +318,7 @@ if( $query->have_posts() ) {
 
 
                 echo '<tr class="datasets_published_per_month_row_tr_even odd">';
-                echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                 echo '</td>';
 
                 echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -427,8 +427,8 @@ if( $query->have_posts() ) {
 
                         if($dataset_count > 0){
 
-                            echo '<tr class="datasets_published_per_month_row_tr_even odd">';
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
+                            echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
+                            echo '<td class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
                             echo '</td>';
 
                             echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -452,7 +452,7 @@ if( $query->have_posts() ) {
 
                                     echo '<tr class="datasets_published_per_month_row_tr_even even">';
 
-                                    echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                                    echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                                     echo '</td>';
 
                                     echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -482,8 +482,8 @@ if( $query->have_posts() ) {
 
                         if($dataset_count > 0){
 
-                            echo '<tr class="datasets_published_per_month_row_tr_even odd">';
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="60%">'; echo '<a href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
+                            echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
+                            echo '<td class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;"  href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
                             echo '</td>';
 
                             echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
@@ -615,9 +615,9 @@ if( $query->have_posts() ) {
 <script>
     $(function () {
         var
-            $demo = $('#rotate-stats'),
-            strings = JSON.parse($demo.attr('data-strings')).targets,
-            randomString;
+                $demo = $('#rotate-stats'),
+                strings = JSON.parse($demo.attr('data-strings')).targets,
+                randomString;
 
         randomString = function () {
             return strings[Math.floor(Math.random() * strings.length)];

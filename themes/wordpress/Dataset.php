@@ -315,7 +315,7 @@ if( $query->have_posts() ) {
             {
 
                 echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
-                echo '<td class="datasets_published_per_month_table_row_fields">'; echo the_title();
+                echo '<td class="datasets_published_per_month_table_row_fields" style="color:#000000;">'; echo the_title();
                 echo '</td>';
 
 
