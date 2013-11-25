@@ -777,12 +777,18 @@ div.toolbar{
     #posts {
         width: 768px;
     }
+    .post.small {
+        width:48%;
+    }
 }
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
     .post.medium {
         width: 287px;
+    }
+    .post.small {
+        width:100%;
     }
 }
 
