@@ -132,7 +132,8 @@ echo "</div>";
 </div>
 <div class="clear"> </div>
 
-<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Departments/Agencies/Organizations</h3>
+<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;font-family: 'Abel',Helvetica,sans-serif;">Departments/Agencies/Organizations</h3>
+
 
 
 
@@ -347,237 +348,237 @@ if( $query->have_posts() ) {
 </table>
 </div>
 </div>
-<h3 class="fieldcontentregion agencytitle">Other Agencies</h3>
-<div class="sixteen columns">
-    <div class="view-content">
-        <table class="views-table cols-4 datasets_published_per_month_table">
-            <thead class="datasets_published_per_month_thead">
-            <tr class="datasets_published_per_month_row_tr_head">
-                <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields" scope="col" width="60%" align="left" >Agency/Sub-Agency/Organization </th>
-                <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col" width="20%" > Datasets </th>
-                <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col" width="60%" > Latest Entry</th>
-            </tr>
+<h3 class="fieldcontentregion agencytitle" style="font-family: 'Abel',Helvetica,sans-serif;margin-left:-1px; ">Other Agencies</h3>
 
-            </thead>
-            <tbody class="datasets_published_per_month_tbody">
+<div class="view-content">
+    <table class="views-table cols-4 datasets_published_per_month_table">
+        <thead class="datasets_published_per_month_thead">
+        <tr class="datasets_published_per_month_row_tr_head">
+            <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields" scope="col" width="60%" align="left" >Agency/Sub-Agency/Organization </th>
+            <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col" width="20%" > Datasets </th>
+            <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col" width="60%" > Latest Entry</th>
+        </tr>
+
+        </thead>
+        <tbody class="datasets_published_per_month_tbody">
 
 
-            <?php
+        <?php
 
-            $args = array(
-                'orderby'          => 'title',
-                'order'            => 'ASC',
-                'post_type'        => 'metric_organization',
-                'posts_per_page' => 500,
-                'post_status'      => 'publish',
-                'suppress_filters' => true,
-                'meta_query' => array(
-                    array(
-                        'key' => 'metric_sector',
-                        'value' => 'Other',
-                        'compare' => 'LIKE'
-                    )
+        $args = array(
+            'orderby'          => 'title',
+            'order'            => 'ASC',
+            'post_type'        => 'metric_organization',
+            'posts_per_page' => 500,
+            'post_status'      => 'publish',
+            'suppress_filters' => true,
+            'meta_query' => array(
+                array(
+                    'key' => 'metric_sector',
+                    'value' => 'Other',
+                    'compare' => 'LIKE'
                 )
-            );
-            $query = null;
-            $query = new WP_Query( $args );
+            )
+        );
+        $query = null;
+        $query = new WP_Query( $args );
 
 
-            if( $query->have_posts() ) {
+        if( $query->have_posts() ) {
 
-                while ($query->have_posts()) : $query->the_post();
+            while ($query->have_posts()) : $query->the_post();
 
-                    $id =  $post->ID;
-                    $parent = get_post_meta($post->ID, 'parent_agency', TRUE);
-                    $parent_org = get_post_meta($post->ID, 'parent_organization', TRUE);
-                    $agency_title = get_the_title();
-
-
-                    if($parent){
-
-                        $subargs = array(
-                            'orderby'          => 'title',
-                            'order'            => 'ASC',
-                            'post_type'        => 'metric_organization',
-                            'posts_per_page' => 500,
-                            'post_status'      => 'publish',
-                            'suppress_filters' => true,
-                            'meta_query' => array(
-                                'relation' => 'AND',
-                                array(
-                                    'key' => 'parent_organization',
-                                    'value' => $id,
-                                    'compare' => 'LIKE'
-                                ),
-                                array(
-                                    'key' => 'metric_sector',
-                                    'value' => 'Other',
-                                    'compare' => 'LIKE'
-                                )
-                            )
-                        );
+                $id =  $post->ID;
+                $parent = get_post_meta($post->ID, 'parent_agency', TRUE);
+                $parent_org = get_post_meta($post->ID, 'parent_organization', TRUE);
+                $agency_title = get_the_title();
 
 
-                        $subquery = null;
-                        $subquery = new WP_Query($subargs);
-                        $agency_title = get_the_title();
-                        $dataset_count = get_post_meta($post->ID, 'metric_count', TRUE);
-                        $last_entry = get_post_meta($post->ID, 'metric_last_entry', TRUE);
+                if($parent){
 
-
-                        if($dataset_count > 0){
-
-                            echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
-                            echo '</td>';
-
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
-                            echo '</td>';
-
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
-                            echo '</td>';
-                            echo '</tr>';
-                        }
-
-
-                        if( $subquery->have_posts() ) {
-
-                            while ($subquery->have_posts()) : $subquery->the_post();
-
-                                $title = get_the_title();
-                                $dataset_count = get_post_meta($post->ID, 'metric_count', TRUE);
-                                $last_entry = get_post_meta($post->ID, 'metric_last_entry', TRUE);
-
-                                if($title != $agency_title && $dataset_count > 0 && $title != 'Department/Agency Level'){
-
-                                    echo '<tr class="datasets_published_per_month_row_tr_even even">';
-
-                                    echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
-                                    echo '</td>';
-
-                                    echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
-                                    echo '</td>';
-
-                                    echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
-                                    if(get_post_meta($post->ID, 'metric_last_entry', TRUE))
-                                        echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
-                                    else
-                                        echo "-";
-                                    echo '</td>';
-                                    echo '</tr>';
-
-                                }
-
-                            endwhile;
-                        }
-
-                    }
-                    else if(!$parent_org){
-
-
-                        $dataset_count = get_post_meta($post->ID, 'metric_count', TRUE);
-
-                        $last_entry = get_post_meta($post->ID, 'metric_last_entry', TRUE);
-
-
-                        if($dataset_count > 0){
-
-                            echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;"  href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
-                            echo '</td>';
-
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
-                            echo '</td>';
-
-                            echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
-                            echo '</td>';
-                            echo '</tr>';
-                        }
-
-
-                    }
-                endwhile;
-            }
-
-            ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-<h3 class="fieldcontentregion agencytitle">Summary</h3>
-<div class="sixteen columns">
-
-    <div class="view-content">
-
-        <table class="views-table cols-4 datasets_published_per_month_table">
-            <thead>
-            <tr>
-                <td width="60%">Total</td>
-                <td  width="20%" align="center">
-                    <?php
-                    $total = 0;
-
-
-                    $args = array(
-                        'orderby'          => '',
+                    $subargs = array(
+                        'orderby'          => 'title',
                         'order'            => 'ASC',
                         'post_type'        => 'metric_organization',
                         'posts_per_page' => 500,
                         'post_status'      => 'publish',
-                        'suppress_filters' => true
-
-
+                        'suppress_filters' => true,
+                        'meta_query' => array(
+                            'relation' => 'AND',
+                            array(
+                                'key' => 'parent_organization',
+                                'value' => $id,
+                                'compare' => 'LIKE'
+                            ),
+                            array(
+                                'key' => 'metric_sector',
+                                'value' => 'Other',
+                                'compare' => 'LIKE'
+                            )
+                        )
                     );
 
-                    $query = new WP_Query( $args );
 
-                    if( $query->have_posts() ) {
+                    $subquery = null;
+                    $subquery = new WP_Query($subargs);
+                    $agency_title = get_the_title();
+                    $dataset_count = get_post_meta($post->ID, 'metric_count', TRUE);
+                    $last_entry = get_post_meta($post->ID, 'metric_last_entry', TRUE);
 
-                        while ($query->have_posts()) : $query->the_post();
-                            $parent = get_post_meta($post->ID, 'parent_agency', TRUE );
-                            $parent_node = get_post_meta($post->ID, 'parent_organization', TRUE );
-                            $cfo = get_post_meta($post->ID, 'metric_sector', TRUE);
-                            if($parent || !$parent_node){
 
-                                $total=$total + get_post_meta($post->ID, 'metric_count', TRUE );
+                    if($dataset_count > 0){
+
+                        echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
+                        echo '</td>';
+
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
+                        echo '</td>';
+
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
+                        echo '</td>';
+                        echo '</tr>';
+                    }
+
+
+                    if( $subquery->have_posts() ) {
+
+                        while ($subquery->have_posts()) : $subquery->the_post();
+
+                            $title = get_the_title();
+                            $dataset_count = get_post_meta($post->ID, 'metric_count', TRUE);
+                            $last_entry = get_post_meta($post->ID, 'metric_last_entry', TRUE);
+
+                            if($title != $agency_title && $dataset_count > 0 && $title != 'Department/Agency Level'){
+
+                                echo '<tr class="datasets_published_per_month_row_tr_even even">';
+
+                                echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
+                                echo '</td>';
+
+                                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
+                                echo '</td>';
+
+                                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
+                                if(get_post_meta($post->ID, 'metric_last_entry', TRUE))
+                                    echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
+                                else
+                                    echo "-";
+                                echo '</td>';
+                                echo '</tr>';
 
                             }
 
+                        endwhile;
+                    }
 
-                            ?>
-
-                            <?php endwhile;?>
-                        <?php } ?>
-
-                    <?php
+                }
+                else if(!$parent_org){
 
 
-                    echo $total;
+                    $dataset_count = get_post_meta($post->ID, 'metric_count', TRUE);
 
-                    ?> </td>
-                <td  width="20%" align="center">
-                    <?php
-
-                    $last_entry = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_last_entry'");
-
-                    echo $last_entry;
+                    $last_entry = get_post_meta($post->ID, 'metric_last_entry', TRUE);
 
 
+                    if($dataset_count > 0){
 
-                    ?>
+                        echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%" >'; echo '<a style="color: #4295B0;"  href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
+                        echo '</td>';
+
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
+                        echo '</td>';
+
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
+                        echo '</td>';
+                        echo '</tr>';
+                    }
+
+
+                }
+            endwhile;
+        }
+
+        ?>
+        </tbody>
+    </table>
+</div>
+
+<h3 class="fieldcontentregion agencytitle" style="font-family: 'Abel',Helvetica,sans-serif;clear: both;padding-top: 12px;margin-left:-1px;  ">Summary</h3>
+
+
+<div class="view-content">
+
+    <table class="views-table cols-4 datasets_published_per_month_table">
+        <thead>
+        <tr>
+            <td width="60%">Total</td>
+            <td  width="20%" align="center">
+                <?php
+                $total = 0;
+
+
+                $args = array(
+                    'orderby'          => '',
+                    'order'            => 'ASC',
+                    'post_type'        => 'metric_organization',
+                    'posts_per_page' => 500,
+                    'post_status'      => 'publish',
+                    'suppress_filters' => true
+
+
+                );
+
+                $query = new WP_Query( $args );
+
+                if( $query->have_posts() ) {
+
+                    while ($query->have_posts()) : $query->the_post();
+                        $parent = get_post_meta($post->ID, 'parent_agency', TRUE );
+                        $parent_node = get_post_meta($post->ID, 'parent_organization', TRUE );
+                        $cfo = get_post_meta($post->ID, 'metric_sector', TRUE);
+                        if($parent || !$parent_node){
+
+                            $total=$total + get_post_meta($post->ID, 'metric_count', TRUE );
+
+                        }
+
+
+                        ?>
+
+                        <?php endwhile;?>
+                    <?php } ?>
+
+                <?php
+
+
+                echo $total;
+
+                ?> </td>
+            <td  width="20%" align="center">
+                <?php
+
+                $last_entry = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_last_entry'");
+
+                echo $last_entry;
+
+
+
+                ?>
 
 
 
 
-                </td>
-            </tr>
-            </thead>
-        </table>
+            </td>
+        </tr>
+        </thead>
+    </table>
 
-    </div>
+</div>
 
 
-</div> <!-- sixteen columns -->
+<!-- sixteen columns -->
 
 
 <?php get_template_part('footer'); ?>

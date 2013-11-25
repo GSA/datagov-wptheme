@@ -797,15 +797,13 @@ table.datasets_published_per_month_table thead {
     background: #8DB4D3;
     color: #FFFFFF;
 }
-table.datasets_published_per_month_table thead {
-    color: #FFFFFF;
-}
+
 thead th, th {
     background-color: #8DB4D3;
     color: #FFFFFE;
 }
 
-thead th,thead td {
+thead th, thead td {
     padding: 10px;
 }
 tbody {
@@ -816,9 +814,9 @@ tr.odd, tr.odd td {
 
 }
 tr.odd, tr.odd td a {
-
-    text-decoration:none;
     color:#4295B0;
+    text-decoration:none;
+    color:black;
 }
 tr.even, tr.odd {
 
@@ -1479,6 +1477,8 @@ ul#pagination li a{
 }
 div.open-data-sites-box {
     background: -moz-linear-gradient(center top , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: linear-gradient(center top , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 );
     border: 1px solid #CCCCCC;
     border-radius: 5px;
     display: block;
