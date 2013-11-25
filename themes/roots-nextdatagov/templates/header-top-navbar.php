@@ -1,4 +1,5 @@
-<header class="banner navbar navbar-default navbar-static-top" role="banner">
+<header>
+<div class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,10 +19,27 @@
       ?>
       
     </nav>    
-
-    <?php get_search_form(); ?>
-
   </div>
+</div>
+
+<div class="header banner frontpage-search">
+    <div class="container">
+        <?php get_search_form(); ?>
+    </div>
+</div>
+
+
+<div class="header banner page-heading">
+    <div class="container">
+        <div class="page-header">
+          <h1>
+            <?php echo roots_title(); ?>
+          </h1>
+        </div>
+    </div>
+</div>
+
+
 </header>
 
 
