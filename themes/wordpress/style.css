@@ -814,9 +814,9 @@ tr.odd, tr.odd td {
 
 }
 tr.odd, tr.odd td a {
-    color:#4295B0;
+
     text-decoration:none;
-    color:black;
+    color:#000000;
 }
 tr.even, tr.odd {
 
@@ -830,7 +830,7 @@ tr.even, tr.even td {
 tr.even, tr.even td a {
     background-color: #FFFFFF;
     text-decoration:none;
-    color:#4295B0;
+    color:#000000;
 }
 /*ocean-technical guide */
 .technical-wrapper {
