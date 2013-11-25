@@ -85,7 +85,7 @@ $cat_slug = $category[0]->slug;
     <div class="category-content">
 
         <div class="content">
-            <div id="blog" class="blog" style="font-size:30px;margin-left:5px;">Events</div>
+            <div id="blog" class="blog" style="font-size:30px;margin-left:8px;margin-top:40px;">Events</div>
             <div class="sixteen columns">
                 <div id="communities-left">
 
