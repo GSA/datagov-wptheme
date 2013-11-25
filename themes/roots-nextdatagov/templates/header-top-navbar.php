@@ -37,6 +37,7 @@
 <?php endif; ?>
 
 
+<?php if(!is_front_page()): ?>
 <div class="header banner page-heading">
     <div class="container">
         <div class="page-header">
@@ -46,7 +47,7 @@
         </div>
     </div>
 </div>
-
+<?php endif; ?>
 
 </header>
 
