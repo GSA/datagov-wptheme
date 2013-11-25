@@ -780,6 +780,9 @@ div.toolbar{
     .post.small {
         width:48%;
     }
+    .header-next-top {
+        width: auto !important;
+    }
 }
 
 /* All Mobile Sizes (devices and browser) */
@@ -789,6 +792,9 @@ div.toolbar{
     }
     .post.small {
         width:100%;
+    }
+    .header-next-top {
+        width: auto !important;
     }
 }
 
