@@ -149,7 +149,7 @@ $cat_slug = $category[0]->slug;
         </div>
 
         </div> <!-- sixteen columns -->
-
+        <?php get_template_part('footer'); ?>
     </div> <!-- content -->
 
 </div><!-- container -->

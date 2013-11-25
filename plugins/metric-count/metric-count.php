@@ -6,6 +6,9 @@ Description: This plugin makes API call to Ckan and stores dataset count for eac
 
 /** Include PHPExcel */
 require_once 'Classes/PHPExcel.php';
+require_once 'Classes/PHPExcel/IOFactory.php';
+
+$results =  array();
 
 
 add_action('admin_menu', 'metric_configuration');
@@ -120,35 +123,15 @@ function ckan_metric_convert_structure($taxonomies) {
 
 function get_ckan_metric_info() {
 
+
+
     $taxonomies = ckan_metric_get_taxonomies();
     $structure = ckan_metric_convert_structure($taxonomies);
     $count = 0;
+    global $results;
 
-    // Instantiate a new PHPExcel object
-    $objPHPExcel = new PHPExcel();
-    // Set the active Excel worksheet to sheet 0
-    $objPHPExcel->setActiveSheetIndex(0);
-    // Initialise the Excel row number
-    $rowcount = 1;
 
-    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, 'Agency Name');
-    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, 'Sub-Agency Name');
-    $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 'Datasets');
-    $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, 'Last Entry');
-    $objPHPExcel->getActiveSheet()->getStyle('A'.$rowcount)->getFont()->setBold(true);
-    $objPHPExcel->getActiveSheet()->getStyle('B'.$rowcount)->getFont()->setBold(true);
-    $objPHPExcel->getActiveSheet()->getStyle('C'.$rowcount)->getFont()->setBold(true);
-    $objPHPExcel->getActiveSheet()->getStyle('D'.$rowcount)->getFont()->setBold(true);
 
-    $rowcount++;
-
-    chdir('../wp-content/uploads/');
-    $fp_csv = fopen('agency-list.csv', 'w');
-
-    if($fp_csv == false ){
-        die("unable to create file");
-    }
-    fputcsv($fp_csv, array('Agency Name', 'Sub-Agency Name', 'Datasets', 'Last Entry'));
 
     if(!empty($structure['Federal Organization'])) {
         foreach ($structure['Federal Organization'] as $unit => $unit_info) {
@@ -161,9 +144,6 @@ function get_ckan_metric_info() {
                 'subs' => $unit_info['subs'],
             );
 
-            if($item['name'] == 'Executive Office of the President'){
-                //var_dump($item['subs']);
-            }
 
             $orgs = trim($item['id'], "[,]");
             $orgs = explode(",", $orgs);
@@ -184,38 +164,82 @@ function get_ckan_metric_info() {
             $parent_nid = create_metric_content($item['is_cfo'], $item['name'], $item['id'], $orgs);
 
 
-            //dataset published per month
+            //Mark parent agency
             if(sizeof($item['subs']) > 0 && strlen($parent_org) > 0){
-                create_metric_content($item['is_cfo'], $item['name'], $parent_org, $orgs, $parent_nid, 1, $fp_csv,  $objPHPExcel, $rowcount);
-                $rowcount++;
+                create_metric_content($item['is_cfo'], $item['name'], $parent_org, $orgs, $parent_nid, 1, '', 0);
+
             }
 
             if(sizeof($item['subs']) > 0 && strlen($parent_org) > 0){
-                create_metric_content($item['is_cfo'], "Department/Agency Level", $parent_org, "organization:" . urlencode($parent_org), $parent_nid, 0,$fp_csv, $objPHPExcel, $rowcount, $item['name']);
-                $rowcount++;
+                create_metric_content($item['is_cfo'], "Department/Agency Level", $parent_org, "organization:" . urlencode($parent_org), $parent_nid, 0, $item['name'], 0, 1);
+
             }
+
 
 
             foreach($item['subs'] as $key=>$value) {
 
                 $orgs = 'organization:' . urlencode($value['id']);
-                create_metric_content($value['is_cfo'], $key, $value['id'], $orgs, $parent_nid, 0, $fp_csv, $objPHPExcel, $rowcount, $item['name'], 1);
-                $rowcount++;
+                create_metric_content($value['is_cfo'], $key, $value['id'], $orgs, $parent_nid, 0, $item['name'], 1, 1);
+
             }
         }
     }
+    asort($results);
+    chdir('../wp-content/uploads/');
+    $fp_csv = fopen('federal-agency-participation.csv', 'w');
 
+    if($fp_csv == false ){
+        die("unable to create file");
+    }
+    fputcsv($fp_csv, array('Agency Name', 'Sub-Agency Name', 'Datasets', 'Last Entry'));
+
+
+    foreach($results as $record){
+
+        fputcsv($fp_csv, $record);
+
+    }
     fclose($fp_csv);
+    // Instantiate a new PHPExcel object
+    $objPHPExcel = new PHPExcel();
+    // Set the active Excel worksheet to sheet 0
+    $objPHPExcel->setActiveSheetIndex(0);
+    // Initialise the Excel row number
+    $row = 1;
+
+    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$row, 'Agency Name');
+    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$row, 'Sub-Agency Name');
+    $objPHPExcel->getActiveSheet()->SetCellValue('C'.$row, 'Datasets');
+    $objPHPExcel->getActiveSheet()->SetCellValue('D'.$row, 'Last Entry');
+    $row++;
+
+
+    foreach($results as $record){
+        if($record){
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$row, $record[0]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$row, $record[1]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$row, $record[2]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$row, $record[3]);
+            $row++;
+        }
+
+
+    }
+
+    // $objPHPExcel->getActiveSheet()->fromArray($results);
 
     // Instantiate a Writer to create an OfficeOpenXML Excel .xlsx file
     $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
     // Write the Excel file to filename some_excel_file.xlsx in the current directory
-    $objWriter->save('agency-list.xls');
+    $objWriter->save('federal-agency-participation.xls');
 
 }
 
-function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $fp_csv = FALSE, $objPHPExcel = FALSE, $rowcount = 0, $parent_name='', $subagency = 0) {
-    $results = array();
+function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0, $parent_name='', $subagency = 0, $export = 0) {
+
+    global $results;
+
 
     if(strlen($ckan_id) != 0) {
         $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
@@ -232,7 +256,7 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
     else
         $count = 0;
 
-    if($agency_level != 0) {
+    if($cfo == 'Y' &&  $title != "Department/Agency Level") {
         //get list of last 12 months
         $month = date("m");
         $startDate = date('Y-m-d', mktime(0,0,0,$month-11,1,date('Y')));
@@ -307,10 +331,25 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         add_post_meta($new_post_id, 'metric_count', $count);
 
 
-        if($cfo == 'Y')
+        if($cfo == 'Y' &&  $title != "Department/Agency Level") {
+            for($i=0; $i<12; $i++){
+                $j = $i+1;
+                add_post_meta($new_post_id,'month_'.$j.'_dataset_count', $dataset_count[$i]);
+            }
+
+            for($i=0; $i<12; $i++){
+                $j = $i+1;
+                add_post_meta($new_post_id,'month_'.$j.'_dataset_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=('.$orgs.')+AND+dataset_type:dataset+AND+metadata_created:'.$dataset_range[$i]);
+            }
+
+        }
+        if($cfo == 'Y'){
             add_post_meta($new_post_id, 'metric_sector', 'Federal');
-        else
+        }
+        else{
             add_post_meta($new_post_id, 'metric_sector', 'Other');
+        }
+
 
         add_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
         add_post_meta($new_post_id, 'metric_last_entry', $last_entry);
@@ -321,18 +360,32 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         if($parent_node != 0)
             add_post_meta($new_post_id, 'parent_organization', $parent_node);
 
-        if($agency_level != 0){
-            for($i=0; $i<12; $i++){
-                $j = $i+1;
-                add_post_meta($new_post_id,'month_'.$j.'_dataset_count', $dataset_count[$i]);
+        if($agency_level != 0)
+            add_post_meta($new_post_id,'parent_agency', 1, true);
+
+        $flag = false;
+        if($count > 0 ){
+
+
+            if($export != 0){
+
+                $results[] = array($parent_name,$title, $count, $last_entry);
+
+
             }
 
-            for($i=0; $i<12; $i++){
-                $j = $i+1;
-                add_post_meta($new_post_id,'month_'.$j.'_dataset_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=('.$orgs.')+AND+dataset_type:dataset+AND+metadata_created:'.$dataset_range[$i]);
+            if($parent_node == 0 && $flag == false){
+                $parent_name = $title;
+                $title = '';
+
+                $results[] = array($parent_name,$title, $count, $last_entry);
+
+
             }
-            add_post_meta($new_post_id,'parent_agency', 1, true);
+
+
         }
+
 
     }
     else {
@@ -346,19 +399,7 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         update_post_meta($new_post_id, 'metric_count',  $count);
         update_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
 
-        if($cfo == 'Y')
-            update_post_meta($new_post_id, 'metric_sector', 'Federal');
-        else
-            update_post_meta($new_post_id, 'metric_sector', 'Other');
-
-        update_post_meta($new_post_id, 'metric_last_entry', $last_entry);
-        update_post_meta($new_post_id, 'metric_sync_timestamp', $metric_timestamp);
-        update_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $orgs);
-
-        if($parent_node != 0)
-            update_post_meta($new_post_id, 'parent_organization', $parent_node);
-
-        if($agency_level != 0){
+        if($cfo == 'Y' &&  $title != "Department/Agency Level") {
             for($i=0; $i<12; $i++){
                 $j = $i+1;
                 update_post_meta($new_post_id,'month_'.$j.'_dataset_count', $dataset_count[$i]);
@@ -368,62 +409,53 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
                 $j = $i+1;
                 update_post_meta($new_post_id,'month_'.$j.'_dataset_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=(' . $orgs.')+AND+dataset_type:dataset+AND+metadata_created:'.$dataset_range[$i]);
             }
+
+        }
+
+        if($cfo == 'Y'){
+            update_post_meta($new_post_id, 'metric_sector', 'Federal');
+        }
+        else{
+            update_post_meta($new_post_id, 'metric_sector', 'Other');
+        }
+
+
+        update_post_meta($new_post_id, 'metric_last_entry', $last_entry);
+        update_post_meta($new_post_id, 'metric_sync_timestamp', $metric_timestamp);
+        update_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $orgs);
+
+        if($parent_node != 0)
+            update_post_meta($new_post_id, 'parent_organization', $parent_node);
+
+        if($agency_level != 0)
             update_post_meta($new_post_id,'parent_agency', 1, true);
+
+
+        $flag = false;
+        if($count > 0 ){
+
+
+            if($export != 0){
+
+                $results[] = array($parent_name,$title, $count, $last_entry);
+
+
+            }
+
+            if($parent_node == 0 && $flag == false){
+                $parent_name = $title;
+                $title = '';
+
+                $results[] = array($parent_name,$title, $count, $last_entry);
+
+
+            }
+
+
         }
 
     }
-    if($fp_csv){
-        if($parent_name){
-            $results['Agency'] = $parent_name;
-            $results['SubAgency'] = $title;
-        }else{
-            $results['Agency'] = $title;
-            $results['SubAgency'] = '';
-        }
 
-        $results['datasets'] = $count;
-        if($count > 0)
-            $results['last_entry'] = $last_entry;
-        else
-            $results['last_entry'] = 'NA';
-
-        // $results['cfo'] = $cfo;
-
-        fputcsv($fp_csv, $results);
-
-    }
-
-    if($objPHPExcel && $rowcount){
-        if($parent_name){
-            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, $parent_name);
-            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, $title);
-            if($count > 0){
-                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, $count);
-                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, $last_entry);
-            }
-            else{
-                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 0);
-                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, 'NA');
-            }
-        }else{
-            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowcount, $title);
-            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowcount, '');
-            if($count > 0){
-                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, $count);
-                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, $last_entry);
-            }
-            else{
-                $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowcount, 0);
-                $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowcount, 'NA');
-            }
-
-            $objPHPExcel->getActiveSheet()->getStyle('A'.$rowcount)->getFont()->setBold(true);
-            $objPHPExcel->getActiveSheet()->getStyle('C'.$rowcount)->getFont()->setBold(true);
-            $objPHPExcel->getActiveSheet()->getStyle('D'.$rowcount)->getFont()->setBold(true);
-        }
-
-
-    }
 
     return $new_post_id;
 }
@@ -444,3 +476,4 @@ function my_deactivation() {
 //add_action('admin_init', 'get_ckan_metric_info');
 
 ?>
+
