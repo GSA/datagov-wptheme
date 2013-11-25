@@ -83,11 +83,23 @@ background-color : #F8F8F8;
    ========================================================================== */
 
 
-input[type="search"]::-webkit-input-placeholder  {
-    -webkit-transition: opacity 0.3s linear; color: gray;
+
+input[type="search"]::-webkit-input-placeholder {
+    -webkit-transition: opacity 0.3s linear; 
+	color: gray;
 }
-input[type="search"]:focus::-webkit-input-placeholder  {
+
+input[type="search"]:focus::-webkit-input-placeholder {
     opacity: 0;
+}
+
+input.search-field.form-control::-moz-placeholder {
+	transition: opacity 0.3s linear; 
+	color: gray;
+}
+
+input.search-field.form-control:focus::-moz-placeholder {
+	opacity: 0;
 }
 
 .search-field.form-control {
