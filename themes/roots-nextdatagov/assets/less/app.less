@@ -16,15 +16,26 @@ body { }
    Header
    ========================================================================== */
 
+.navbar {
+margin-bottom : 0;
+padding-bottom : 20px;
+}
+
 .banner { }
 
+
+.header.banner {
+background-color : #F8F8F8;
+}
 
 
 /* ==========================================================================
    Content
    ========================================================================== */
 
-.content { }
+.content { 
+
+}
 
 
 
@@ -65,6 +76,31 @@ body { }
 
 .content-info { }
 
+
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+
+input[type="search"]::-webkit-input-placeholder  {
+    -webkit-transition: opacity 0.3s linear; color: gray;
+}
+input[type="search"]:focus::-webkit-input-placeholder  {
+    opacity: 0;
+}
+
+.search-field.form-control {
+height : 44px;
+}
+
+.search-form .btn {
+font-size : 21px;
+}
+
+.search-form .btn-default {
+color : #9E9E9E;
+}
 
 
 /* ==========================================================================

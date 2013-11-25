@@ -1,13 +1,29 @@
 // Modified http://paulirish.com/2009/markup-based-unobtrusive-comprehensive-dom-ready-execution/
 // Only fires on body class (working off strictly WordPress body_class)
-
+var $j = jQuery;
 var ExampleSite = {
   // All pages
   common: {
     init: function() {
       // JS here
+
+
+      var
+        $demo = jQuery('#search-examples'),
+        strings = JSON.parse($demo.attr('data-strings')).targets,
+         randomString;
+
+      randomString = function () {
+        return strings[Math.floor(Math.random() * strings.length)];
+      };
+
+      $demo.attr('placeholder', randomString());
+      setInterval(function () {
+          $demo.attr('placeholder', randomString());
+      }, 5500);
+
     },
-    finalize: function() { }
+    finalize: function() {}
   },
   // Home page
   home: {
@@ -35,12 +51,12 @@ var UTIL = {
 
     UTIL.fire('common');
 
-    $.each(document.body.className.replace(/-/g, '_').split(/\s+/),function(i,classnm) {
+    $j.each(document.body.className.replace(/-/g, '_').split(/\s+/),function(i,classnm) {
       UTIL.fire(classnm);
     });
-
+    
     UTIL.fire('common', 'finalize');
   }
 };
 
-$(document).ready(UTIL.loadEvents);
+$j(document).ready(UTIL.loadEvents);
