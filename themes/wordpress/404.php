@@ -43,18 +43,19 @@
     <!-- WordPress Content
     ================================================== -->
 
-    <div class="content">
-        <?php while ( have_posts() ) : the_post(); ?>
-        <div class="single-post">
-            <?php //get_template_part( 'content', 'page' ); ?>
-            <h2> Page Not Found</h2>
-            <h3><?php _e( 'This is somewhat embarrassing, isn’t it?', 'wordpress' ); ?></h3>
-            <p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'wordpress' ); ?></p>
+    <div id="content" class="site-content" role="main">
 
-        </div>
-        <?php //comments_template( '', true ); ?>
+        <header class="page-header">
+            <h1 class="page-title"><?php _e( 'Not Found', 'wordpress' ); ?></h1>
+        </header>
 
-        <?php endwhile; // end of the loop. ?>
-        <?php get_template_part('footer'); ?>
+        <div class="page-wrapper">
+            <div class="page-content">
+                <h2><?php _e( 'This is somewhat embarrassing, isn’t it?', 'wordpress' ); ?></h2>
+                <p><?php _e( 'It looks like nothing was found at this location.', 'wordpress' ); ?></p>
 
-    </div> <!-- content -->
+
+            </div><!-- .page-content -->
+        </div><!-- .page-wrapper -->
+
+    </div><!-- #content -->
