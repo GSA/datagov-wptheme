@@ -34,7 +34,7 @@ $cat_slug = $category[0]->slug;
 
     </div>
 </div>
-<div class="next-header category <?php echo get_category_by_slug($slug)->name;  ?>">
+<div class="next-header category <?php echo get_category_by_slug($slug)->slug; ?>">
 </div>
 
 
@@ -42,7 +42,7 @@ $cat_slug = $category[0]->slug;
 ================================================== -->
 
 <div class="container">
-    <div class="next-top category <?php echo get_category_by_slug($slug)->name;  ?>">
+    <div class="next-top category <?php echo get_category_by_slug($slug)->slug;?>">
 
 
         <?php get_template_part('category-search'); ?>
