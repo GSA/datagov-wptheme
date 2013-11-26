@@ -22,6 +22,11 @@
         <?php get_search_form(); ?>
       <?php endif; ?>      
       
+      <ul class="social-nav pull-right nav navbar-nav">
+          <li><a href="/contact/"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="/contact/"><i class="fa fa-stack-exchange"></i></a></li>  
+          <li><a href="/contact/"><i class="fa fa-envelope"></i></a></li>    
+      </ul>      
       
     </nav>    
   </div>

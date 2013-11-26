@@ -24,6 +24,14 @@ background: url("../img/textured-bg.png") repeat scroll 0 0 #EFEFEF;
 margin-bottom : 0;
 }
 
+.navbar-brand {
+    text-indent : -9999em;
+    overflow : hidden;
+    background: url("../img/logo.png") 15px center no-repeat;
+    width : 106px; /*91+15*/
+    margin-right : 15px;        
+}
+
 .navbar-default {
     background-color : #fff;
 }
@@ -51,9 +59,24 @@ ul#menu-primary-navigation li,
 	font-weight: normal; 
 	font-family: 'Abel', Helvetica, sans-serif;  
 	text-transform: uppercase;
-	font-size: 16px;
+	font-size: 17px;
 }
 
+
+ul.navbar-nav#menu-primary-navigation.nav > li > a {
+    padding : 15px 10px;
+    color : #000;	
+}
+
+.navbar-default ul.social-nav.navbar-nav > li > a {
+font-size : 18px;
+color : #6BACDA;
+padding : 15px 10px;
+}
+
+.navbar-default ul.social-nav.navbar-nav > li > a:hover {
+color : #000;
+}
 
 
 /* ==========================================================================
@@ -131,6 +154,10 @@ div.frontpage-search {
 
     .page-header {
         border : 0;        
+        
+        h1 {
+            font-family: 'Abel', Helvetica, sans-serif;      	        
+        }
     }
 
 }
