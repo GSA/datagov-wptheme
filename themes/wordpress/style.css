@@ -826,7 +826,7 @@ tr.even, tr.odd {
 }
 tr.even, tr.even td {
     background-color: #FFFFFF;
-    text-align:center;
+
 
 }
 tr.even, tr.even td a {
