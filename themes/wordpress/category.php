@@ -126,7 +126,7 @@ $cat_slug = $category[0]->slug;
             <!-- topic -->
 
             <?php global $query_string; ?>
-            <?php query_posts( $query_string . '&meta_key=community_content&meta_value=No' ); ?>
+            <?php query_posts( $query_string . '&meta_key=community_content&meta_value=Yes' ); ?>
 
             <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
