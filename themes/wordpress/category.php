@@ -126,10 +126,10 @@ $cat_slug = $category[0]->slug;
             <!-- topic -->
 
             <?php global $query_string; ?>
-            <?php query_posts( $query_string . '&meta_key=community_content&meta_value=Yes' ); ?>
-
-            <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post(); ?>
+            <?php global $query_string; ?>
+            <?php $query = new WP_Query($query_string.'&meta_key=community_content&meta_compare=>=&meta_value=Yes' );?>
+            <?php if ($query->have_posts()) : ?>
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
 
                 <?php if (get_post_format() == 'status'): ?>
 
