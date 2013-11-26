@@ -98,13 +98,13 @@ $cat_slug = $category[0]->slug;
     <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields" scope="col" rowspan="2"> Agency Name </th>
     <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col" colspan="12"> Number of Datasets published by month </th>
     <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col" rowspan="2"> Total in the Past 12 Months </th>
-    <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-ckan-id datasets_published_per_month_table_head_fields" scope="col" rowspan="2"> </th></tr>
-<tr class="datasets_published_per_month_row_tr_head">
+
+<tr class="datasets_published_per_month_row_tr_head" >
     <?php
     echo '<th></th>';
     for($i = 0; $i <= 11; $i++) {
 
-        echo '<th class="datasets_published_per_month_table_head_calendar">';
+        echo '<th class="datasets_published_per_month_table_head_calendar"  >';
 
         echo '<span class="datasets_published_month">';
         $current=12- date("m");
@@ -127,7 +127,7 @@ $cat_slug = $category[0]->slug;
 
         if($i>=$current){
 
-            echo  $year;
+            echo $year;
         }
         else
         {
@@ -149,7 +149,7 @@ $cat_slug = $category[0]->slug;
 <?php
 $metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
 echo '<div style="font-style:italic;">';
-echo "Data last updated on: ". date("m/d/Y H:i A",$metric_sync)."<br />";
+echo "Data last updated on: ". date("m/d/Y H:i A",$metric_sync)."<br /><br />";
 ?>
 
 
@@ -188,7 +188,7 @@ if( $query->have_posts() ) {
             if($count/2==0){
 
                 echo '<tr class="datasets_published_per_month_row_tr_even even">';
-                echo '<td class="datasets_published_per_month_table_row_fields" style="color:#000000;">'; echo the_title();
+                echo '<td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">'; echo the_title();
                 echo '</td>';
                 if(get_post_meta($post->ID, 'month_1_dataset_count', TRUE )==0)
                 {
@@ -315,7 +315,7 @@ if( $query->have_posts() ) {
             {
 
                 echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
-                echo '<td class="datasets_published_per_month_table_row_fields" style="color:#000000;">'; echo the_title();
+                echo '<td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">'; echo the_title();
                 echo '</td>';
 
 
@@ -450,7 +450,7 @@ if( $query->have_posts() ) {
 </tbody>
 <thead>
 <tr>
-<td>Total</td>
+<td style="text-align:left; ">Total</td>
 <td> <?php $total1=0; ?>
 
     <?php
@@ -867,9 +867,9 @@ if( $query->have_posts() ) {
 <script>
     $(function () {
         var
-            $demo = $('#rotate-stats'),
-            strings = JSON.parse($demo.attr('data-strings')).targets,
-            randomString;
+                $demo = $('#rotate-stats'),
+                strings = JSON.parse($demo.attr('data-strings')).targets,
+                randomString;
 
         randomString = function () {
             return strings[Math.floor(Math.random() * strings.length)];
