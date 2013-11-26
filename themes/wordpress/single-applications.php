@@ -157,8 +157,9 @@
 
         </div>
 
-    </div> <!-- sixteen columns -->
 
+    </div> <!-- sixteen columns -->
+    <?php get_template_part('footer'); ?>
 </div> <!-- content -->
 
 </div><!-- container -->

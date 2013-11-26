@@ -777,12 +777,24 @@ div.toolbar{
     #posts {
         width: 768px;
     }
+    .post.small {
+        width:48%;
+    }
+    .header-next-top {
+        width: auto !important;
+    }
 }
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
     .post.medium {
         width: 287px;
+    }
+    .post.small {
+        width:100%;
+    }
+    .header-next-top {
+        width: auto !important;
     }
 }
 

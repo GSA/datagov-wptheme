@@ -6,7 +6,10 @@
             // do not show category if it Uncategorized
             $category = get_the_category();
             if ($category[0]->cat_name != 'Uncategorized') {
-                echo $category[0]->cat_name;
+
+                $slug = $wp_query->query_vars['category_name'];
+                echo get_category_by_slug($slug)->name;
+
             }
             ?></span>
         </div>
@@ -14,9 +17,9 @@
     <div class="next-search">
         <div class="next-background"></div>
         <div class="next-object">
-         <!--   <div class="next-search-label">
-                <label class="next" for="next-search-box">Search</label>
-            </div> -->
+            <!--   <div class="next-search-label">
+                   <label class="next" for="next-search-box">Search</label>
+               </div> -->
             <div class="next-search-icon">
                 <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/search.png" alt="Category Search">
             </div>
@@ -24,7 +27,7 @@
                 <form method="get" action="http://catalog.data.gov/dataset">
                     <label for="Search_TextBox" class="hddn" title="Search Data.gov">Search Data.gov</label>
                     <input id="Search_TextBox" role="search" class="next" name="q" type="text" title="Start Searching"  onKeyUp="hidesearch();return false;"  >
-                    <a href="#" id="bottle" onMouseOver="displaysearch();return false;" ><span id="g-search-button"></span></a>
+                    <a href="#" id="bottle" onClick="displaysearch();return false;" ><span id="g-search-button"></span></a>
                     <div id="searchlist" style="display:none; ">
                         <label><input type="radio" id="SearchCatalog" name="SearchSite" value="" checked="true">&nbsp;&nbsp;Search Data Catalog</label><br>
                         <label><input type="radio" id="SearchSite" name="SearchSite" value="">&nbsp;&nbsp;Search Site Content</label><br>
@@ -43,24 +46,15 @@
     };
 </script>
 <script type="text/javascript">
-    $('#search-textbox').focus(function() {
+    $('#Search_TextBox').focusin(function() {
         $("#searchlist").show();
     });
-    $( document ).ready(function() {
-        $( '#search-textbox' ).focusout( function() {
-            $( '#searchlist' ).hover(
-                    function() {
-                        return;
-                    },
-                    function() {
-                        $( '#searchlist' ).fadeOut( 'slow' );
-
-                    });
-        });
+    $('#Search_TextBox').focusout(function() {
+        $( '#searchlist' ).fadeOut( 'slow' );
     });
-
-
-
+    $('#bottle').focusout(function() {
+        $( '#searchlist' ).fadeOut( 'slow' );
+    });
 </script>
 <script type="text/javascript">
     $('input[type="text"]').each(function(){

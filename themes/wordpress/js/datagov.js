@@ -1,7 +1,7 @@
 jQuery(window).load(function(){
   jQuery('#posts').masonry({
     // options
-    columnWidth: 287,
+
     itemSelector : '.post',
     isResizable: true,
     isAnimated: true,

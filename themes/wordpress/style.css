@@ -805,12 +805,13 @@ thead th, th {
 
 thead th, thead td {
     padding: 10px;
+    text-align:center;
 }
 tbody {
     border-top: 1px solid #CCCCCC;
 }
 tr.odd, tr.odd td {
-
+    text-align:center;
 
 }
 tr.odd, tr.odd td a {
@@ -825,6 +826,7 @@ tr.even, tr.odd {
 }
 tr.even, tr.even td {
     background-color: #FFFFFF;
+    text-align:center;
 
 }
 tr.even, tr.even td a {
@@ -1364,14 +1366,14 @@ ol.commentlist  {
 
 }
 .page .single-post {
-margin-top: 0px !important;
+    margin-top: 0px !important;
 }
 .page.uncategorized .single-post {margin-top:30px !important;}
 .ivycat-post{padding:15px;}
 .ivycat-post a{color:#444;}
 .ivycat-post .entry-utility{display:none;}
 .announcement .cat-post .core{
-   height: auto;
+    height: auto;
 }
 .nocomments{display:none;}
 .announcement .cat-post {
@@ -1429,15 +1431,15 @@ margin-top: 0px !important;
     background: linear-gradient(to bottom, #77B55A 5%, #72B352 100%) repeat scroll 0 0 #77B55A;
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
     -ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
-    border: 1px solid #4B8F29;
-    border-radius: 4px;
-    box-shadow: 0 10px 14px -7px #3E7327;
-    color: #FFFFFF !important;
-    display: inline-block;
-    font-size: 16px !important;
-    padding: 10px 15px;
-    text-decoration: none;
-}
+border: 1px solid #4B8F29;
+border-radius: 4px;
+box-shadow: 0 10px 14px -7px #3E7327;
+color: #FFFFFF !important;
+display: inline-block;
+font-size: 16px !important;
+padding: 10px 15px;
+text-decoration: none;
+    }
 .post-115912 ul ul ul{
     font-size:100%;
 }
@@ -1478,6 +1480,7 @@ ul#pagination li a{
 div.open-data-sites-box {
     background: -moz-linear-gradient(center top , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     background: linear-gradient(center top , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: linear-gradient(to bottom , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 );
     border: 1px solid #CCCCCC;
     border-radius: 5px;
