@@ -58,7 +58,7 @@ function ckan_metric_get_taxonomies() {
     $url = (get_option('org_server') != '') ? get_option('org_server') : 'http://idm.data.gov/fed_agency.json';
 
     $response =  wp_remote_get($url);
-    $body = json_decode(wp_remote_retrieve_body(&$response), TRUE);
+    $body = json_decode(wp_remote_retrieve_body($response), TRUE);
     $taxonomies = $body['taxonomies'];
 
     return $taxonomies;
