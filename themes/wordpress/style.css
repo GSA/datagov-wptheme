@@ -805,13 +805,13 @@ thead th, th {
 
 thead th, thead td {
     padding: 10px;
-    text-align:center;
+    text-align:right;
 }
 tbody {
     border-top: 1px solid #CCCCCC;
 }
 tr.odd, tr.odd td {
-    text-align:center;
+    text-align:right;
 
 }
 tr.odd, tr.odd td a {

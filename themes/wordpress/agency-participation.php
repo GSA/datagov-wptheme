@@ -124,7 +124,7 @@ echo "</div>";
         $department_level = $wpdb->get_var("SELECT count(*) FROM next_datagov.wp_postmeta pm where pm.meta_key = 'metric_count' and pm.meta_value > 0 and post_id in(
                                                              SELECT ID from wp_posts where  post_type = 'metric_organization' and post_title = 'Department/Agency Level')");
         $total_agencies = $total_agencycount - $department_level;
-        echo  $total_agencies;
+        echo  echo number_format($total_agencies);
 
         ?>
 
@@ -227,10 +227,13 @@ if( $query->have_posts() ) {
                 echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
                 echo '</td>';
 
-                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
+                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
+
+                echo number_format(get_post_meta($post->ID, 'metric_count', TRUE));
+
                 echo '</td>';
 
-                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
+                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
                 echo '</td>';
                 echo '</tr>';
             }
@@ -252,10 +255,11 @@ if( $query->have_posts() ) {
                         echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                         echo '</td>';
 
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">'; echo number_format(get_post_meta($post->ID, 'metric_count', TRUE));
+
                         echo '</td>';
 
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
                         if(get_post_meta($post->ID, 'metric_last_entry', TRUE))
                             echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
                         else
@@ -288,10 +292,11 @@ if( $query->have_posts() ) {
                         echo '<td style="text-indent: 10px;"class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">';  echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                         echo '</td>';
 
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">'; echo number_format(get_post_meta($post->ID, 'metric_count', TRUE));
+
                         echo '</td>';
 
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
                         if(get_post_meta($post->ID, 'metric_last_entry', TRUE))
                             echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
                         else
@@ -324,10 +329,12 @@ if( $query->have_posts() ) {
                 echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                 echo '</td>';
 
-                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
+                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
+                echo number_format(get_post_meta($post->ID, 'metric_count', TRUE));
+
                 echo '</td>';
 
-                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
+                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
                 if(get_post_meta($post->ID, 'metric_last_entry', TRUE))
                     echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
                 else
@@ -434,10 +441,11 @@ if( $query->have_posts() ) {
                         echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;" >'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
                         echo '</td>';
 
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';echo number_format(get_post_meta($post->ID, 'metric_count', TRUE));
+
                         echo '</td>';
 
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
                         echo '</td>';
                         echo '</tr>';
                     }
@@ -458,10 +466,11 @@ if( $query->have_posts() ) {
                                 echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;" >'; echo '<a style="color: #4295B0;" href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.get_the_title().'</a>';
                                 echo '</td>';
 
-                                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_count', TRUE);
+                                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';echo number_format(get_post_meta($post->ID, 'metric_count', TRUE));
+
                                 echo '</td>';
 
-                                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';
+                                echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
                                 if(get_post_meta($post->ID, 'metric_last_entry', TRUE))
                                     echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
                                 else
@@ -489,10 +498,11 @@ if( $query->have_posts() ) {
                         echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;" >'; echo '<a style="color: #4295B0;"  href="'.get_post_meta($post->ID, 'metric_url', TRUE ).'">'.$agency_title.'</a>';
                         echo '</td>';
 
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">';echo get_post_meta($post->ID, 'metric_count', TRUE);
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';echo number_format(get_post_meta($post->ID, 'metric_count', TRUE));
+
                         echo '</td>';
 
-                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="center">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">'; echo get_post_meta($post->ID, 'metric_last_entry', TRUE);
                         echo '</td>';
                         echo '</tr>';
                     }
@@ -555,7 +565,9 @@ if( $query->have_posts() ) {
                 <?php
 
 
-                echo $total;
+                echo number_format($total);
+
+
 
                 ?> </td>
             <td  width="20%" align="center">
