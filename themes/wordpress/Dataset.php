@@ -98,7 +98,7 @@ $cat_slug = $category[0]->slug;
     <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields" scope="col" rowspan=""> Agency Name </th>
     <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col" colspan="12" style="text-align:center";> Number of Datasets published by month </th>
     <th id="C_NumberofDatasetsampToolspublishedbymonth" class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col" rowspan="2"> Total in the Past 12 Months </th>
-
+</tr>
 <tr class="datasets_published_per_month_row_tr_head" >
     <?php
     echo '<th></th>';

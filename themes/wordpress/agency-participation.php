@@ -124,7 +124,7 @@ echo "</div>";
         $department_level = $wpdb->get_var("SELECT count(*) FROM next_datagov.wp_postmeta pm where pm.meta_key = 'metric_count' and pm.meta_value > 0 and post_id in(
                                                              SELECT ID from wp_posts where  post_type = 'metric_organization' and post_title = 'Department/Agency Level')");
         $total_agencies = $total_agencycount - $department_level;
-        echo  echo number_format($total_agencies);
+        echo number_format($total_agencies);
 
         ?>
 
