@@ -1,3 +1,5 @@
+
+
 <p>
 This is the front-page.php template
 </p>

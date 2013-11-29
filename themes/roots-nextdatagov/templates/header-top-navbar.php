@@ -11,31 +11,41 @@
       <a class="navbar-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
     </div>
 
-    <nav class="collapse navbar-collapse" role="navigation">
+    <nav class="collapse navbar-collapse " role="navigation">
+
+        <?php if(!is_front_page()): ?>
+          <?php get_search_form(); ?>
+        <?php endif; ?>
+
       <?php
         if (has_nav_menu('primary_navigation')) :
-          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
+          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav pull-right'));
         endif;
       ?>
-      
-      <?php if(!is_front_page()): ?>
-        <?php get_search_form(); ?>
-      <?php endif; ?>      
-      
-      <ul class="social-nav pull-right nav navbar-nav">
-          <li><a href="/contact/"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="/contact/"><i class="fa fa-stack-exchange"></i></a></li>  
-          <li><a href="/contact/"><i class="fa fa-envelope"></i></a></li>    
-      </ul>      
-      
+  
     </nav>    
   </div>
 </div>
 
 <?php if(is_front_page()): ?>
+
+<div class="header banner page-heading">
+    <div class="container">
+    <div class="hero-unit">
+        <h1>Welcome to the home of the US government's open data</h1>
+        <p>Here you will find data, APIs, tools, and resources to develop web and mobile applications, design data visualizations, conduct research, and more</p>
+        <p>
+            <a class="btn btn-primary btn-large">
+            Read more
+            </a>
+        </p>
+        </div>
+    </div>
+</div>
+
+
 <div class="header banner frontpage-search">
     <div class="container">
-        <span id="search-prompt" class="col-md-5 col-lg-5">Search 89,234 datasets including</span>    
         <?php get_search_form(); ?>
     </div>
 </div>
