@@ -14,7 +14,7 @@ function roots_scripts() {
   wp_enqueue_style('datagov-googlefonts', '//fonts.googleapis.com/css?family=Abel|Lato:100,300,400,700');
   wp_enqueue_style('fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');  
   
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'd03235eecd0a3c93268036bb1b54e717');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'a763ca114ae27e5c109a5f592404c61d');
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
