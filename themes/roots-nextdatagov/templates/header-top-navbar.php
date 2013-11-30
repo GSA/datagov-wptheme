@@ -29,19 +29,19 @@
 
 <?php if(is_front_page()): ?>
 
+<?php while (have_posts()) : the_post(); ?>
+
 <div class="header banner page-heading">
     <div class="container">
-    <div class="hero-unit">
-        <h1>Welcome to the home of the US government's open data</h1>
-        <p>Here you will find data, APIs, tools, and resources to develop web and mobile applications, design data visualizations, conduct research, and more</p>
-        <p>
-            <a class="btn btn-primary btn-large">
-            Read more
-            </a>
-        </p>
+        <div class="hero-unit">
+
+            <h1><?php the_title(); ?></h1>
+            <?php the_content(); ?>      
+     
         </div>
     </div>
 </div>
+<?php endwhile; ?>
 
 
 <div class="header banner frontpage-search">
