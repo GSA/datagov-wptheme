@@ -4,11 +4,45 @@
 
 
   <div class="row">
+  
+    <!--
     <div class="col-lg-4">
       <?php dynamic_sidebar('sidebar-footer'); ?>
-      <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
+      <p>&copy; <?php echo date('Y') . ' '; bloginfo('name'); ?></p>
     </div>
-    <div class="col-lg-4">
+    -->
+    
+    
+    <div class="col-md-4 col-lg-4">
+    
+        <form role="search" method="get" class="search-form form-inline" action="<?php echo home_url('/'); ?>">
+          <div class="input-group">
+            <input type="search" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
+            <label class="hide"><?php _e('Search for:', 'roots'); ?></label>
+            <span class="input-group-btn">
+              <button type="submit" class="search-submit btn btn-default"><?php _e('Search', 'roots'); ?></button>
+            </span>
+          </div>
+        </form>    
+    
+        
+    </div>
+    
+    <nav class="col-md-4 col-lg-4" role="navigation">    
+    <?php
+      if (has_nav_menu('primary_navigation')) :
+        wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
+      endif;
+    ?>    
+    
+    <?php
+      if (has_nav_menu('footer_navigation')) :
+        wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav navbar-nav'));
+      endif;
+    ?>    
+    </nav>
+    
+    <div class="col-md-4 col-lg-4">
 
         <ul class="social-nav pull-right nav navbar-nav">
             <li><a href="/contact/"><i class="fa fa-twitter"></i></a></li>

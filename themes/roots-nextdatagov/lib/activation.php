@@ -7,6 +7,13 @@ if (is_admin() && isset($_GET['activated']) && 'themes.php' == $GLOBALS['pagenow
   exit;
 }
 
+// add support for page categories
+add_action( 'init', 'enable_category_taxonomy_for_pages', 500 );
+
+function enable_category_taxonomy_for_pages() {
+    register_taxonomy_for_object_type('category','page');
+}
+
 function roots_theme_activation_options_init() {
   register_setting(
     'roots_activation_options',
