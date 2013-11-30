@@ -14,6 +14,15 @@ function enable_category_taxonomy_for_pages() {
     register_taxonomy_for_object_type('category','page');
 }
 
+// rename some special Post Formats
+function rename_post_formats( $safe_text ) {
+    if ( $safe_text == 'Image' )
+        return 'Data';
+
+    return $safe_text;
+}
+add_filter( 'esc_html', 'rename_post_formats' );
+
 function roots_theme_activation_options_init() {
   register_setting(
     'roots_activation_options',
