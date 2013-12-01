@@ -58,6 +58,13 @@
           <h1>
             <?php echo roots_title(); ?>
           </h1>
+          
+          <?php if (is_category()): ?>          
+          <div class="tagline">
+              <?php echo category_description(); ?>
+          </div>
+          <?php endif; ?>
+          
         </div>
     </div>
 </div>

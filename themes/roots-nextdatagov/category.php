@@ -2,10 +2,26 @@ This is category.php
 
 <?php if (get_query_var('paged') < 1): ?>
 
-    <?php
-    echo '<br> Show landing page stuff only on the first page';
-    ?>
+<?php 
 
+// See if there is a frontpage for the category.
+$cat = get_query_var('cat');
+$this_category = get_category ($cat);
+$intro_page = $this_category->slug;
+$args = array('name' => $intro_page, 'post_type' => 'page');
+    
+$category_intro = new WP_Query($args);
+?>
+
+<?php while ($category_intro->have_posts()) : $category_intro->the_post(); ?>
+    <h1>Intro Text</h1>
+    <?php the_content(); ?>      
+<?php endwhile; ?>
+
+<h1>Highlights</h1>
+<p>Perhaps reuse highlights template_part from frontpage</p>
+
+<h1>News</h1>
 <?php endif; ?>
 
 
