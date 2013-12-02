@@ -11,17 +11,21 @@
       <a class="navbar-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
     </div>
 
-    <nav class="collapse navbar-collapse " role="navigation">
-
-        <?php if(!is_front_page()): ?>
-          <?php get_search_form(); ?>
-        <?php endif; ?>
-
-      <?php
-        if (has_nav_menu('primary_navigation')) :
-          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav pull-right'));
-        endif;
-      ?>
+    <nav class="collapse navbar-collapse" role="navigation">
+    
+        <div>
+            <?php if(!is_front_page()): ?>
+              <?php get_search_form(); ?>
+            <?php endif; ?>  
+        </div>
+    
+        <div class="navbar-row">        
+          <?php
+            if (has_nav_menu('primary_navigation')) :
+              wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav navbar-right'));
+            endif;
+          ?>
+        </div>
   
     </nav>    
   </div>

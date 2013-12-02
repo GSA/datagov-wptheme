@@ -78,6 +78,10 @@ padding : 15px 10px;
 color : #000;
 }
 
+.navbar-row {
+    clear : right;
+}
+
 /* ==========================================================================
    Topic Browse
    ========================================================================== */
@@ -228,8 +232,18 @@ div.frontpage-search {
 
 .navbar {
     .search-form {
-        padding-top : 8px
+        padding-top : 8px;
     }
+}
+
+@media (min-width: @screen-sm-min) {
+
+    .navbar {
+        .search-form {
+            padding-right : 0;            
+        }
+    }
+        
 }
 
 
@@ -327,7 +341,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    Media Queries
    ========================================================================== */
 
-@media (min-width: @screen-sm-min) { }
+@media (min-width: @screen-sm-min) {}
 
 @media (min-width: @screen-md-min) { }
 
