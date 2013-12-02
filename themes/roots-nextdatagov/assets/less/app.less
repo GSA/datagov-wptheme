@@ -1,0 +1,348 @@
+/*!
+ * Roots 6.5.1
+ */
+
+@import "bootstrap/bootstrap.less";
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+body {
+    
+background: url("../img/textured-bg.png") repeat scroll 0 0 #EFEFEF;
+    
+}
+
+
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.navbar {
+margin-bottom : 0;
+}
+
+.navbar-brand {
+    text-indent : -9999em;
+    overflow : hidden;
+    background: url("../img/logo.png") 15px center no-repeat;
+    width : 106px; /*91+15*/
+    margin-right : 15px;        
+}
+
+.navbar-default {
+    background-color : #fff;
+}
+
+.banner { }
+
+
+.header.banner {
+background-color : #F8F8F8;
+}
+
+.frontpage-search {
+    padding : 2em 0;
+    border-bottom : 1px solid #E7E7E7;
+}
+
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+
+ul#menu-primary-navigation li, 
+.navbar-header .navbar-brand {
+	font-weight: normal; 
+	font-family: 'Abel', Helvetica, sans-serif;  
+	text-transform: uppercase;
+	font-size: 17px;
+}
+
+
+ul.navbar-nav#menu-primary-navigation.nav > li > a {
+    padding : 15px 10px;
+    color : #000;	
+}
+
+.navbar-default ul.social-nav.navbar-nav > li > a {
+font-size : 18px;
+color : #6BACDA;
+padding : 15px 10px;
+}
+
+.navbar-default ul.social-nav.navbar-nav > li > a:hover {
+color : #000;
+}
+
+.navbar-row {
+    clear : right;
+}
+
+/* ==========================================================================
+   Topic Browse
+   ========================================================================== */
+
+   ul.topics {
+        margin: 0px;
+        padding: 0px;
+        text-align : center;
+        
+         li {
+             list-style-type: none;
+             display : inline-block;
+
+             a {
+                     border: 1px solid blue;
+                     display: inline-block;
+                     height: 120px;
+                     line-height: 15px;
+                     margin: 0px 25px 0px 0px;
+                     overflow: hidden;
+                     padding-top: 90px;
+                     text-align: center;
+                     width: 130px;
+                     
+                     background-size : contain;                            
+                }        
+        }        
+        
+       
+        
+   }
+   
+
+   .svg .topics {
+       
+                    li.topic-health a {
+                        background : url(../img/topic-health.svg) no-repeat;
+                    }       
+
+                    li.topic-energy a {
+                        background : url(../img/topic-energy.svg) no-repeat;
+                    }
+                    
+                    li.topic-education a {
+                        background : url(../img/topic-education.svg) no-repeat;
+                    }
+                    
+                    li.topic-finance a {
+                        background : url(../img/topic-finance.svg) no-repeat;
+                    }
+                    
+                    li.topic-climate a {
+                        background : url(../img/topic-climate.svg) no-repeat;
+                    }
+
+                    li.topic-law a {
+                        background : url(../img/topic-law.svg) no-repeat;
+                    }
+                    
+                    li.topic-research a {
+                        background : url(../img/topic-research.svg) no-repeat;
+                    }
+                    
+                    li.topic-safety a {
+                        background : url(../img/topic-safety.svg) no-repeat;
+                    }
+
+                    li.topic-food a {
+                        background : url(../img/topic-food.svg) no-repeat;
+                    }
+                    
+                    li.topic-ocean a {
+                        background : url(../img/topic-ocean.svg) no-repeat;
+                    }
+                    
+                    li.topic-development a {
+                        background : url(../img/topic-development.svg) no-repeat;
+                    }
+                        
+                    li.topic-manufacturing a {
+                        background : url(../img/topic-manufacturing.svg) no-repeat;
+                    }                   
+
+                    li.topic-consumer a {
+                        background : url(../img/topic-consumer.svg) no-repeat;
+                    } 
+                    
+                    
+
+   }   
+     
+
+/* ==========================================================================
+   Search
+   ========================================================================== */
+
+
+div.frontpage-search {
+    
+    input[type="search"]::-webkit-input-placeholder {
+        -webkit-transition: opacity 0.3s linear; 
+    	color: gray;
+    }
+
+    input[type="search"]:focus::-webkit-input-placeholder {
+        opacity: 0;
+    }
+
+    input.search-field.form-control::-moz-placeholder {
+    	transition: opacity 0.3s linear; 
+    	color: gray;
+    }
+
+    input.search-field.form-control:focus::-moz-placeholder {
+    	opacity: 0;
+    }
+
+    input.search-field.form-control, 
+    #search-prompt {
+        font-family : 'Lato', sans-serif;
+        font-weight : 300;
+        font-style : italic;
+        font-size : 20px;
+    }
+
+    #search-prompt {
+         display: inline-block;
+    	 height : 44px;
+    	 padding-top : 8px;
+    	 padding-right : 0;
+    	 text-align : right;
+    }
+
+    .search-field.form-control {
+    height : 44px;
+    }
+
+    .search-form .btn {
+    font-size : 21px;
+    }
+
+    .search-form .btn-default {
+    color : #9E9E9E;
+    }    
+    
+}
+
+
+.navbar {
+    .search-form {
+        padding-top : 8px;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+
+    .navbar {
+        .search-form {
+            padding-right : 0;            
+        }
+    }
+        
+}
+
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.header.banner.page-heading {
+    background-color : #76adf0;
+    background-color : rgba(0, 131, 223, .5);
+    color : #fff;    
+
+    .page-header {
+        border : 0;        
+        
+        h1 {
+            font-family: 'Abel', Helvetica, sans-serif;      	        
+        }
+    }
+
+}
+
+
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.content { 
+
+}
+
+
+
+/* ==========================================================================
+   Primary Content
+   ========================================================================== */
+
+.main { }
+
+/* Gallery Shortcode */
+.gallery-row { padding: 15px 0; }
+
+
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.sidebar { }
+
+
+
+/* ==========================================================================
+   Posts
+   ========================================================================== */
+
+.hentry header { }
+.hentry time { }
+.hentry .byline { }
+.hentry .entry-content { }
+.hentry footer { }
+
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.content-info { }
+
+
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+
+
+
+
+/* ==========================================================================
+   WordPress Generated Classes
+   See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+   ========================================================================== */
+
+.aligncenter { display: block; margin: 0 auto; }
+.alignleft { float: left; }
+.alignright { float: right; }
+figure.alignnone { margin-left: 0; margin-right: 0; }
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (min-width: @screen-sm-min) {}
+
+@media (min-width: @screen-md-min) { }
+
+@media (min-width: @screen-lg-min) { }
