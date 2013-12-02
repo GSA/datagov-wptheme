@@ -5,14 +5,14 @@ Template Name: USA Search
 
 
 // If q - search term and group information passed the call the usa search api
-if(isset($_GET['q']) && isset($_GET['group']) )
+if(isset($_GET['q']) && $_GET['group'] != '')
 {
     $query = $_GET['q'];
     $group = $_GET['group'];
 
     usasearch_display_results($query, $group);
 }
-else if(isset($_GET['q']) && !isset($_GET['group']))
+else if(isset($_GET['q']) && $_GET['group'] == '')
 {
     $query = $_GET['q'];
     // echo $query;
