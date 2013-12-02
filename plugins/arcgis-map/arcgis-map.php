@@ -11,8 +11,51 @@ Description: This plugin validates map using the the map id and group id
     add_action('save_post','validate_map_id' );
     add_action( 'admin_notices', 'my_admin_notices');
     add_filter('redirect_post_location','arcgismap_redirect_location',10,2);
-
-
+    add_action('init','arcgis_national_map_process_details');
+    add_action('init','arcgis_regional_map_process_details');
+    function arcgis_national_map_process_details(){
+        global $map_results;
+        $args = array(
+            'meta_key'         => 'map_category',
+            'meta_value'       => 'national',
+            'post_type'        => 'arcgis_maps',
+            'post_status'      => 'publish'
+        );
+        $query = new WP_Query($args);
+        $count = 0;
+        if( $query->have_posts() ) {
+            while ($query->have_posts()) : $query->the_post();
+                $map_category = get_post_meta(get_the_ID(), 'map_category',TRUE);
+                $server = get_post_meta(get_the_ID(), 'arcgis_server_address',TRUE);
+                $map_id = get_post_meta(get_the_ID(), 'map_id',TRUE);
+                $group_id = get_post_meta(get_the_ID(), 'group_id',TRUE);
+                $map_results[] = arcgis_map_process_info($server, $map_id, $group_id, 1);
+            endwhile;
+           // var_dump($map_results);
+            wp_reset_query();
+        }
+    }
+    function arcgis_regional_map_process_details(){
+        global $regional_map_results;
+        $args = array(
+            'meta_key'         => 'map_category',
+            'meta_value'       => 'regional',
+            'post_type'        => 'arcgis_maps',
+            'post_status'      => 'publish'
+        );
+        $query = new WP_Query($args);
+        $count = 0;
+        if( $query->have_posts() ) {
+            while ($query->have_posts()) : $query->the_post();
+                $map_category = get_post_meta(get_the_ID(), 'map_category',TRUE);
+                $server = get_post_meta(get_the_ID(), 'arcgis_server_address',TRUE);
+                $map_id = get_post_meta(get_the_ID(), 'map_id',TRUE);
+                $group_id = get_post_meta(get_the_ID(), 'group_id',TRUE);
+                $regional_map_results[] = arcgis_map_process_info($server, $map_id, $group_id, 1);
+            endwhile;
+            wp_reset_query();
+        }
+    }
     function arcgis_map_settings() {
 
         add_menu_page('ArcGis Map Settings', 'ArcGis Map Settings', 'administrator', 'map_config', 'arcgis_map_config');
@@ -146,7 +189,13 @@ Description: This plugin validates map using the the map id and group id
 
 
 function arcgis_map_process_info($server, $map_id, $group_id,$display) {
+    /*$arg_list = func_get_args();
+    $numargs = func_num_args();
+    for ($i = 0; $i < $numargs; $i++) {
+        echo "Argument $i is: " . $arg_list[$i] . "<br />\n";
+    }*/
         // call the info based on national or regional type
+    //global $vars;
     $request = get_arcgis_map_info($server, $map_id, $group_id, $display);
     if ($request['message']!="OK") {
         $returnval= '<div class="error"><p>An error occurred and processing did not complete.</p><br></div>';
