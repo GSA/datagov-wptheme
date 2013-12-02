@@ -55,17 +55,12 @@ Template Name: Ocean-Map-National
 
 
         <?php
+        //add_action('init','arcgis_map_process_details');
         $category = get_the_category(  );
         $cat_name=$category[0]->cat_name;
         $args = array(
             'category_name'=>$cat_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
-
         wp_list_bookmarks($args);
-
-        // Pagination variables. the display settings shoule be read from global variable
-        $display_count = (get_option('arcgis_maps_per_page') != '') ? get_option('arcgis_maps_per_page') : '8';
-        $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-        $offset = ( $page - 1 ) * $display_count;
         ?>
     </div>
 
@@ -87,59 +82,103 @@ Template Name: Ocean-Map-National
                             </div>
                             <h3 class="fieldcontentregion" style="margin:10px; ">National Maps</h3>
                             <div class="map-gallery-wrap">
-                                <?php
-                                $args = array(
-                                    'meta_key'         => 'map_category',
-                                    'meta_value'       => 'national',
-                                    'post_type'        => 'arcgis_maps',
-                                    'post_status'      => 'publish',
-                                    'posts_per_page'   => $display_count,
-                                    'page'             => $page,
-                                    'offset'           => $offset
-                                );
-                                $query = new WP_Query($args);
-                                $count = 0;
-                                if( $query->have_posts() ) {
-                                    while ($query->have_posts()) : $query->the_post();
-                                        $map_category = get_post_meta($post->ID, 'map_category',TRUE);
-                                        $server = get_post_meta($post->ID, 'arcgis_server_address',TRUE);
-                                        $map_id = get_post_meta($post->ID, 'map_id',TRUE);
-                                        $group_id = get_post_meta($post->ID, 'group_id',TRUE);
-                                        $request = arcgis_map_process_info($server, $map_id, $group_id, 1);
-                                        $res = sizeof($request['map_info']);
-                                        //echo "The value of size is ".$res."<br/></br>";
-                                        for($i=0; $i< $res; $i++){
-                                            if(!empty($request["map_info"][$i]["img_src"])){
-                                                $output .= '<div class="map-align">';
-                                                $output .= '<a target=_blank href="'. $request["map_info"][$i]["img_href"] . '">';
-                                                $output .= '<img class="map-gallery-thumbnail" src="'. $request["map_info"][$i]["img_src"] . '" title="' . $request["map_info"][$i]["title"] .'">';
+                            <?php
+                            global $map_results;
+                            $mapinfo = array();
+                            $groupinfo = array();
+                            $groupmapinfo = array();
+                            for($i=0;$i<count($map_results);$i++){
+                               if($map_results[$i]["info"]["type"]=="Map"){
+                                   $mapinfo[$i] = array_merge($map_results[$i]["map_info"][0]);
+                               }
+                               if($map_results[$i]["info"]["type"]=="Group"){
+                                   $groupinfo[$i] = array_merge($map_results[$i]["map_info"]);
+                               }
+                            }
+                            for($j=0;$j<count($groupinfo);$j++){
+                               unset($groupinfo[$j]["total_maps"]);
+                              $groupmapinfo[] = array_merge($groupinfo[$j]);
+                            }
+                            $group = array();
+                            foreach ($groupmapinfo as $array) {
+                                $group = array_merge($group, $array);
+                            }
+                            $merged_maps = array_merge($mapinfo,$group);
 
-                                                $output .= '<div class="map-gallery-caption">'. $request["map_info"][$i]["title"] . '</div>';
-                                                $output .= '</a>';
-                                                $output .= '</div>';
+                            $total_maps = count($merged_maps);
+
+                            //code for pagination
+                            $mapsperpage = (get_option('arcgis_maps_per_page') != '') ? get_option('arcgis_maps_per_page') : '8';
+                            if(isset($map_results)) {
+                                $total_pages = ceil($total_maps / $mapsperpage);
+                            } else {
+                                $total_pages = 1;
+                                $total_maps = 0;
+                            }
+                            if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
+                                $currentpage = (int) $_GET['currentpage'];
+                            } else {
+                                $currentpage = 1;
+                            }
+                            if ($currentpage > $total_pages) {
+                                $currentpage  = $total_pages;
+                            }
+                            if ($currentpage < 1) {
+                                $currentpage = 1;
+                            }
+                            $start = ($currentpage - 1) * $mapsperpage + 1;
+                            $count =0;
+                            $output = "";
+                            for($i=$start-1; $i<$start-1+$mapsperpage; $i++){
+                            if(isset($merged_maps[$i])) {
+                                $output .= '<div class="map-align">';
+                                $output .= '<a target=_blank href="'. $merged_maps[$i]["img_href"] . '">';
+                                $output .= '<img class="map-gallery-thumbnail" src="'. $merged_maps[$i]["img_src"] . '" title="' . $merged_maps[$i]["title"] .'">';
+
+                                $output .= '<div class="map-gallery-caption">'. $merged_maps[$i]["title"] . '</div>';
+                                $output .= '</a>';
+                                $output .= '</div>';
+                            }
+                                $count ++;
+                            }
+                            $output .= "</div><div class='item-list'><ul class='pager'>";
+                            if($total_maps > $mapsperpage) {
+                                $range = 10;
+                                if ($currentpage > 1) {
+                                    $output .= "<br clear='both'/><li class='pager-first first'><a href='?currentpage=1'><<< FIRST </a></li> ";
+                                    $prevpage = $currentpage - 1;
+                                    $output .= "<li class='pager-previous'><a href='?currentpage=$prevpage'>< PREVIOUS  </a> </li>";
+                                }
+                                for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
+                                    if (($x > 0) && ($x <= $total_pages)) {
+                                        if ($x == $currentpage) {
+                                            if ($currentpage == 1) {
+                                                $output .="<br clear='both'/><br/>";
+                                            }
+                                            if ($total_pages > 1) {
+                                                $output .= "<li class='pager-current first'>$x</li>";
                                             }
                                         }
-                                        $count++;
-                                    endwhile;
-                                    wp_reset_query();
+                                        else {
+                                            $output .= "<li class='pager-item'><a href='?currentpage=$x'> $x </a></li>";
+                                        }
+                                    }
                                 }
-                                //echo "the value of count is ".$count;
-                                print $output;
-                                ?>
+                                if ($currentpage != $total_pages) {
+                                    $nextpage = $currentpage + 1;
+                                    $output .= " <li class='pager-next'> <a href='?currentpage=$nextpage'>NEXT ></a></li> ";
+                                    $output .= " <li class='pager-last last'><a href='?currentpage=$total_pages'>  LAST >>></a> </li>";
+                                }
+                            }
+                            print $output;
+                            ?>
                             </div>
                         </div>
                     </div>
                 </div>
                 &nbsp;
             </div>
-            <ul id="pagination">
-                <li id="previous-posts"  >
-                    <?php previous_posts_link( '<< Previous', $query->max_num_pages ); ?>
-                </li>
-                <li id="next-posts">
-                    <?php next_posts_link( 'Next >>', $query->max_num_pages ); ?>
-                </li>
-            </ul>
+
 
             <?php get_template_part('footer'); ?>
 
