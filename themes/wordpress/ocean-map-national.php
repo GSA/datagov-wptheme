@@ -103,10 +103,9 @@ Template Name: Ocean-Map-National
                             foreach ($groupmapinfo as $array) {
                                 $group = array_merge($group, $array);
                             }
-                            $merged_maps = array_merge($mapinfo,$group);
-
+                            $merged_maps_tosort = array_merge($mapinfo,$group);
+                            $merged_maps = subval_sort($merged_maps_tosort,"title");
                             $total_maps = count($merged_maps);
-
                             //code for pagination
                             $mapsperpage = (get_option('arcgis_maps_per_page') != '') ? get_option('arcgis_maps_per_page') : '8';
                             if(isset($map_results)) {

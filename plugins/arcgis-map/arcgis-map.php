@@ -248,13 +248,24 @@ function arcgis_map_process_info($server, $map_id, $group_id,$display) {
     return $vars;
 }
 
-function isJson($string) {
-//check if input is string
-    if(is_string($string))
-        json_decode($string);
+    function isJson($string) {
+    //check if input is string
+        if(is_string($string))
+            json_decode($string);
 
-    return (json_last_error() == JSON_ERROR_NONE);
-}
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
+
+    function subval_sort($a,$subkey) {
+        foreach($a as $k=>$v) {
+            $b[$k] = strtolower($v[$subkey]);
+        }
+        asort($b);
+        foreach($b as $key=>$val) {
+            $c[] = $a[$key];
+        }
+        return $c;
+    }
 
 
 
