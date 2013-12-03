@@ -1,3 +1,4 @@
+<div class="wrap container">
 <?php get_template_part('templates/page', 'header'); ?>
 
 <div class="alert alert-warning">
@@ -11,3 +12,4 @@
 </ul>
 
 <?php get_search_form(); ?>
+</div>

@@ -18,9 +18,9 @@
         
   ?>
 
-  <div class="wrap container" role="document">
+  <div role="document">
     <div class="content row">
-      <main class="main <?php echo roots_main_class(); ?>" role="main">
+      <main class="main" role="main">
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->
        
