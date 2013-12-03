@@ -20,13 +20,13 @@
                 <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/search.png" alt="Primary Search">
             </div>
             <div class="next-search-input">
-                <form method="get" action="http://catalog.data.gov/dataset">
+                <form method="get" action="/search-results/1/">
                     <label for="Search_TextBox" class="hddn" title="Search Data.gov">Search Data.gov</label>
                     <input id="Search_TextBox" role="search" class="next" name="q" type="text" title="Start Searching"  onKeyUp="hidesearch();return false;"  >
                     <a href="#" id="bottle"  onClick="displaysearch();return false;" ><span id="g-search-button"></span></a>
                     <div id="searchlist" style="display:none; ">
-                        <label><input type="radio" id="SearchCatalog" name="SearchSite" value="" checked="true">&nbsp;&nbsp;Search Data Catalog</label><br>
-                        <label><input type="radio" id="SearchSite" name="SearchSite" value="">&nbsp;&nbsp;Search Site Content</label><br>
+                        <label><input type="radio" id="SearchCatalog" name="group" value="catalog" checked="true">&nbsp;&nbsp;Search Data Catalog</label><br>
+                        <label><input type="radio" id="SearchSite" name="group" value="site">&nbsp;&nbsp;Search Site Content</label><br>
                     </div>
                     <input id="next-search-submit" type="submit" />
                 </form>
