@@ -1528,3 +1528,29 @@ tr.even td a.link_dataset{
 
     color: #4295B0;
 }
+/* Maps pagination */
+.item-list .pager {
+    clear: both;
+    text-align: center;
+}
+.item-list .pager li {
+    padding: 0;
+}
+.item-list .pager li {
+    background-image: none;
+    display: inline;
+    list-style-type: none;
+    padding: 0.5em;
+}
+ul.pager li.pager-current {
+    background-color: #777777;
+    color: #FFFFFF !important;
+}
+
+ul.pager a, ul.pager li.pager-current {
+    border-color: #333333;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3px 6px 2px;
+    text-decoration: none;
+}
