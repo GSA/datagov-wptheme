@@ -22,28 +22,28 @@ $category_intro = new WP_Query($args);
 <?php
 $args = array( 
                 'post_type' => 'post',
-                'ignore_sticky_posts' => 1,                
+                'ignore_sticky_posts' => 1,  
+                'cat' => $cat,                              
                 'tax_query' => array(
+    		                        'relation' => 'AND',                    
                 	                array(
                 	                'taxonomy' => 'post_format',
                 	                'field' => 'slug',
                 	                'terms' => array( 'post-format-link', 'post-format-status', 'post-format-gallery'),
                 	                'operator' => 'NOT IN'
-                	                )
-                                ),               
-                'meta_query' => array(
-                                    array(
-                                    'key' => 'highlight',
-                                    'value' => 'Yes',
-                                    'compare' => '=='
-                                    )
+                	                ), 
+                	                array(
+                	                'taxonomy' => 'featured',
+                	                'field' => 'slug',
+                	                'terms' => array( 'highlights'),
+                	                'operator' => 'IN'
+                	                )                	                
                                 ),                 
                 'posts_per_page' => 1 );
 
 $highlight_posts = new WP_Query($args);
 
 ?>
-
 <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
   <h1>Highlights</h1>
   
@@ -84,7 +84,7 @@ $args = array(
                                     )                                    
                                 ),
                 'paged' => $paged,                 
-                'posts_per_page' => 15 );
+                'posts_per_page' => 5 );
 
 $category_query = new WP_Query($args);
 
