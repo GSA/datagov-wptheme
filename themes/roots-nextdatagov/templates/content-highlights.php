@@ -25,12 +25,11 @@ $highlight_posts = new WP_Query($args);
 
 ?>
 
-<div style="background-color : #F0FEFF;">
+<section class="wrap wrap-lightblue">
 <div class="container">
 
 <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
 
-<section class="highlights">
 	<h1 class="label">Highlights</h1>
     <div class="highlight">
         <h2 class="entry-title"><?php the_title(); ?></h2>
@@ -43,8 +42,7 @@ $highlight_posts = new WP_Query($args);
     		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra metus vitae iaculis mattis. Nam gravida dictum dui, sit amet congue odio pulvinar in. Quisque vitae dictum elit. In non leo quis tellus</p>
     		<button>Button Two</button>
     	</div>
-    </div><!--/highlight-->
-</section>
+    </div><!--/.highlight-->
 
 
 <?php endwhile; ?>
@@ -53,5 +51,5 @@ $highlight_posts = new WP_Query($args);
 wp_reset_postdata();    
 ?>
 
-</div>
-</div>
+</div><!--/.container-->
+</section><!--/.wrap-lightblue-->
