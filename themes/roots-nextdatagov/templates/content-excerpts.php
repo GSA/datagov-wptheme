@@ -1,3 +1,5 @@
+<section class="updates">
+
 
 <h1>News</h1>
 
@@ -27,12 +29,6 @@ $args = array(
 $new_query = new WP_Query($args);
 
 ?>
-
-
-<p>
-Latests posts from data.gov and topics
-</p>
-
 
 
 <?php while ($new_query->have_posts()) : $new_query->the_post(); ?>
@@ -102,5 +98,5 @@ $new_query = new WP_Query($args);
 wp_reset_postdata();    
 ?>
 
-
+</section>
 

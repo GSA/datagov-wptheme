@@ -19,45 +19,7 @@ $category_intro = new WP_Query($args);
 <?php endwhile; ?>
 
 
-<?php
-$args = array( 
-                'post_type' => 'post',
-                'ignore_sticky_posts' => 1,  
-                'cat' => $cat,                              
-                'tax_query' => array(
-    		                        'relation' => 'AND',                    
-                	                array(
-                	                'taxonomy' => 'post_format',
-                	                'field' => 'slug',
-                	                'terms' => array( 'post-format-link', 'post-format-status', 'post-format-gallery'),
-                	                'operator' => 'NOT IN'
-                	                ), 
-                	                array(
-                	                'taxonomy' => 'featured',
-                	                'field' => 'slug',
-                	                'terms' => array( 'highlights'),
-                	                'operator' => 'IN'
-                	                )                	                
-                                ),                 
-                'posts_per_page' => 1 );
-
-$highlight_posts = new WP_Query($args);
-
-?>
-<?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
-  <h1>Highlights</h1>
-  
-  <article <?php post_class(); ?>>
-    <header>
-      <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-    </header>
-    <div class="entry-summary">
-        <?php the_content(); ?>      
-    </div>
-  </article>  
-    
-<?php endwhile; ?>
-
+<?php get_template_part('templates/content','highlights'); ?>
 
 <h1>News</h1>
 <?php endif; ?>

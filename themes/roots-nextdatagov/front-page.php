@@ -42,23 +42,7 @@ foreach ($categories as $category) {
 Show more
 </p>
 
-<section class="highlights">
-	<h1 class="label">Highlights</h1>
-<div class="highlight">
-	<h2>Lorem Ipsum Dolor Sit Amet</h2>
-	<div class="col-md-8">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quam ante, fermentum ac varius eu, imperdiet eu nisl. Vivamus consequat sem at est cursus condimentum. Phasellus consequat sagittis nunc, facilisis bibendum nisl eleifend in. Duis quis diam diam. Ut eu quam id arcu eleifend cursus. Morbi fringilla enim non placerat gravida. Morbi nec neque leo. Integer massa urna, malesuada nec risus sed, eleifend sagittis libero. Phasellus eget lobortis tortor, non vulputate magna. Fusce faucibus tristique feugiat. Aenean in faucibus dui. Aliquam sem massa, dapibus et nibh non, congue condimentum turpis.
-		</p>
-	</div>
-	<div class="col-md-4">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra metus vitae iaculis mattis. Nam gravida dictum dui, sit amet congue odio pulvinar in. Quisque vitae dictum elit. In non leo quis tellus</p>
-		<button>Button One</button>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra metus vitae iaculis mattis. Nam gravida dictum dui, sit amet congue odio pulvinar in. Quisque vitae dictum elit. In non leo quis tellus</p>
-		<button>Button Two</button>
-	</div>
-</div><!--/highlight-->
-</section>
+<?php get_template_part('templates/content','highlights'); ?>
 
-<section class="updates">
+
 <?php get_template_part('templates/content','excerpts'); ?>
-</section>
