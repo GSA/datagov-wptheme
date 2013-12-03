@@ -25,6 +25,8 @@ $highlight_posts = new WP_Query($args);
 
 ?>
 
+<div style="background-color : #F0FEFF;">
+<div class="container">
 
 <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
 
@@ -50,3 +52,6 @@ $highlight_posts = new WP_Query($args);
 <?php
 wp_reset_postdata();    
 ?>
+
+</div>
+</div>

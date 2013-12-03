@@ -1,3 +1,5 @@
+<div class="wrap container">
+
 This is category.php 
 
 <?php if (get_query_var('paged') < 1): ?>
@@ -68,3 +70,4 @@ $category_query = new WP_Query($args);
 <?php your_pagination($category_query) ;?>  
 </nav>
 <?php endif; ?>
+</div>
