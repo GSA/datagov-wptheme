@@ -35,8 +35,12 @@
 
 <?php while (have_posts()) : the_post(); ?>
 
-            <?php the_content(); ?>      
+<div class="jumbotron">
+  <div class="container">
+    <?php the_content(); ?>
+  </div>
 </div>
+
 <?php endwhile; ?>
 
 
