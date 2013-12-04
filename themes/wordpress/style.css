@@ -1554,3 +1554,16 @@ ul.pager a, ul.pager li.pager-current {
     padding: 3px 6px 2px;
     text-decoration: none;
 }
+a.search-results{
+    font-size: 1.2em;
+    font-weight:bold;
+    color: #284A78 !important;
+}
+div.search-notice {
+    margin-bottom: 10px;
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+}
+ul.pager a:link, ul.pager a:visited {
+    color: inherit;
+}
