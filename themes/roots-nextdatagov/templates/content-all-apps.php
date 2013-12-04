@@ -160,13 +160,13 @@ $cat_slug = $category[0]->slug;
       <div id="bottomimages">
         <center>
           <?php if (strlen(get_post_meta($post->ID, 'field_ios_app_download_url', TRUE ))>10) :?>
-          <a href="<?php echo get_post_meta($post->ID, 'field_ios_app_download_url', TRUE );?>"> <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/jquery.bxslider/images/ios.png" class="iconApp"> </a>
+          <a href="<?php echo get_post_meta($post->ID, 'field_ios_app_download_url', TRUE );?>"> <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/ios.png" class="iconApp"> </a>
           <?php endif; ?>
           <?php if (strlen(get_post_meta($post->ID, 'field_android_app_download_url', TRUE ))>10) :?>
-          <a href="<?php echo get_post_meta($post->ID, 'field_android_app_download_url', TRUE );?>"> <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/jquery.bxslider/images/android.png" class="iconApp" > </a>
+          <a href="<?php echo get_post_meta($post->ID, 'field_android_app_download_url', TRUE );?>"> <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/android.png" class="iconApp" > </a>
           <?php endif; ?>
           <?php if (strlen(get_post_meta($post->ID, 'field_windows_phone_app_download', TRUE ))>10) :?>
-          <a href="<?php echo get_post_meta($post->ID, 'field_windows_phone_app_download', TRUE );?>"> <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/jquery.bxslider/images/windows.png" class="iconApp"> </a>
+          <a href="<?php echo get_post_meta($post->ID, 'field_windows_phone_app_download', TRUE );?>"> <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/windows.png" class="iconApp"> </a>
           <?php endif; ?>
         </center>
       </div>
