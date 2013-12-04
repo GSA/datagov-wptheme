@@ -27,7 +27,7 @@ $args = array(
 $categories = get_categories($args); 
 foreach ($categories as $category) {
 	$option = '<li class="topic-' . $category->category_nicename . '"><a href="/'.$category->category_nicename.'">';
-	$option .= $category->cat_name;
+	$option .= "<i></i><span>{$category->cat_name}</span>";
 	$option .= '</a></li>';
 	echo $option;
 }
