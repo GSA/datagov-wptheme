@@ -1,11 +1,7 @@
-
-
-<p>
-This is the front-page.php template
-</p>
-
-<h1>Browse Topics</h1>
-
+<div class="wrap container">
+<div class="page-header">
+  <h1>Browse Topics <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small></h1>
+</div>
 <?php  
 
 $args = array(
@@ -31,21 +27,20 @@ $args = array(
 $categories = get_categories($args); 
 foreach ($categories as $category) {
 	$option = '<li class="topic-' . $category->category_nicename . '"><a href="/'.$category->category_nicename.'">';
-	$option .= $category->cat_name;
+	$option .= "<i></i><span>{$category->cat_name}</span>";
 	$option .= '</a></li>';
 	echo $option;
 }
 ?>
 </ul> 
 
-<p>
-Show more
-</p>
+<h5>MORE TOPICS</h5>
 
-<h1>Highlights</h1>
-<p>
-One featured, but expandable to show multiple
-</p>
+</div><!--/.container-->
 
 
+<?php get_template_part('templates/content','highlights'); ?>
+
+<div class="wrap container">
 <?php get_template_part('templates/content','excerpts'); ?>
+</div><!--/.container-->

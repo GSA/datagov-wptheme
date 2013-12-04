@@ -1,6 +1,6 @@
-<footer class="content-info container" role="contentinfo">
+<footer class="content-info" role="contentinfo">
 
-
+<div class="container">
 
 
   <div class="row">
@@ -52,6 +52,7 @@
 
     </div>    
   </div>
+</div>
 </footer>
 
 <?php wp_footer(); ?>
