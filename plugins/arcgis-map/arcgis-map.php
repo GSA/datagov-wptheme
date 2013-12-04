@@ -127,11 +127,11 @@ Description: This plugin validates map using the the map id and group id
                 unset($group_id);
             $map_id = preg_replace('/[^A-Fa-f0-9]+/', '', $map_id);
             if (empty($server) || (empty($map_id) && empty($group_id)) ) {
-                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
+               /* $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
                 remove_action('save_post', 'validate_map_id');
                 wp_update_post(array('ID' => $post_id, 'post_status' => 'draft'));
                 add_action('save_post', 'save_post');
-                return ;
+                return ;*/
                 // TODO let default validate catch it.
                 //return;
             }
@@ -139,7 +139,7 @@ Description: This plugin validates map using the the map id and group id
             if ($request['message']!="OK") {
                 $prevent_publish= true;
                 $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
-            }   elseif(!empty($group_id) && $request['total'] == 0){
+            } else if(!empty($group_id) && $request['total'] == 0){
                 $prevent_publish= true;
                 $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
             }
@@ -149,6 +149,8 @@ Description: This plugin validates map using the the map id and group id
             wp_update_post(array('ID' => $post_id, 'post_status' => 'draft'));
             add_action('save_post', 'save_post');
             return ;
+        } else {
+            unset($_SESSION['my_admin_notices']);
         }
 
     }
