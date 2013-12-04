@@ -30,7 +30,7 @@ $highlight_posts = new WP_Query($args);
 
 <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
 
-	<h1 class="label">Highlights</h1>
+	<h5>HIGHLIGHTS</h5>
     <div class="highlight">
         <h2 class="entry-title"><?php the_title(); ?></h2>
     	<div class="col-md-8">

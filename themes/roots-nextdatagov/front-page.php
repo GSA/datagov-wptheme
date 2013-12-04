@@ -1,11 +1,5 @@
 <div class="wrap container">
-
-<p>
-This is the front-page.php template
-</p>
-
-
-<h1>Browse Topics</h1>
+<h5>BROWSE TOPICS</h5>
 
 <?php  
 
@@ -39,15 +33,13 @@ foreach ($categories as $category) {
 ?>
 </ul> 
 
-<p>
-Show more
-</p>
+<h5>MORE TOPICS</h5>
 
-</div>
+</div><!--/.container-->
 
 
 <?php get_template_part('templates/content','highlights'); ?>
 
 <div class="wrap container">
 <?php get_template_part('templates/content','excerpts'); ?>
-</div>
+</div><!--/.container-->

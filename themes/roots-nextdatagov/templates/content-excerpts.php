@@ -1,7 +1,7 @@
 <section class="updates">
 
 
-<h1>News</h1>
+<h5>UPDATES</h5>
 
 
 <?php
