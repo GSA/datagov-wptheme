@@ -1,6 +1,7 @@
 <div class="wrap container">
-<h5>BROWSE TOPICS</h5>
-
+<div class="page-header">
+  <h1>Browse Topics <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small></h1>
+</div>
 <?php  
 
 $args = array(

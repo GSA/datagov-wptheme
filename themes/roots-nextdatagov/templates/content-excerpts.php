@@ -1,7 +1,9 @@
 <section class="updates">
 
 
-<h5>UPDATES</h5>
+<div class="page-header">
+  <h1>Updates</h1>
+</div>
 
 
 <?php
