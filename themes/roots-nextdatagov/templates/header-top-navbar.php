@@ -37,9 +37,13 @@
 
 <div class="jumbotron">
   <div class="container">
-    <?php the_content(); ?>
-  </div>
-</div>
+    <div class="col-md-8 col-md-offset-2 center"><?php the_content(); ?></div>
+    <div class="col-md-8 center col-md-offset-2">
+          <p>GET STARTED<br>
+          <i class="fa fa-caret-down"></i></p>
+    </div>
+  </div><!--/.container-->
+</div><!--/.jumbotron-->
 
 <?php endwhile; ?>
 

@@ -1,6 +1,6 @@
 <?php
 $args = array( 
-                'post_type' => 'post',
+                'post_type' => 'page',
                 'ignore_sticky_posts' => 1,  
                 'tax_query' => array(
     		                        'relation' => 'AND',                    
