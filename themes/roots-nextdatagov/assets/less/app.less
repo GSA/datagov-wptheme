@@ -96,6 +96,10 @@ body.home .navbar-row {
    Topic Browse
    ========================================================================== */
 
+/* ==========================================================================
+   Topic Browse
+   ========================================================================== */
+
    ul.topics {
         margin: 0px;
         padding: 0px;
@@ -106,18 +110,12 @@ body.home .navbar-row {
              display : inline-block;
 
              a {
-                     border: 1px solid blue;
-                     display: inline-block;
-                     height: 120px;
-                     line-height: 15px;
-                     margin: 0px 25px 0px 0px;
-                     overflow: hidden;
-                     padding-top: 90px;
-                     text-align: center;
-                     width: 130px;
-                     
-                     background-size : contain;                            
-                }        
+                 
+                 display: inline-block;
+                 margin: 0px 20px 15px 0px;                 
+                 
+             }
+
 
              a i {
 
@@ -139,6 +137,9 @@ body.home .navbar-row {
                 
             } 
         }        
+         
+       
+        
    }
    
 
@@ -199,6 +200,79 @@ body.home .navbar-row {
                     
 
    }   
+     
+
+/* ==========================================================================
+   Search
+   ========================================================================== */
+
+
+div.frontpage-search {
+    
+    input[type="search"]::-webkit-input-placeholder {
+        -webkit-transition: opacity 0.3s linear; 
+      color: gray;
+    }
+
+    input[type="search"]:focus::-webkit-input-placeholder {
+        opacity: 0;
+    }
+
+    input.search-field.form-control::-moz-placeholder {
+      transition: opacity 0.3s linear; 
+      color: gray;
+    }
+
+    input.search-field.form-control:focus::-moz-placeholder {
+      opacity: 0;
+    }
+
+    input.search-field.form-control, 
+    #search-prompt {
+        font-weight : 300;
+        font-style : italic;
+        font-size : 20px;
+    }
+
+    #search-prompt {
+       display: inline-block;
+       height : 44px;
+       padding-top : 8px;
+       padding-right : 0;
+       text-align : right;
+    }
+
+    .search-field.form-control {
+    height : 44px;
+    }
+
+    .search-form .btn {
+    font-size : 21px;
+    }
+
+    .search-form .btn-default {
+    color : #9E9E9E;
+    }    
+    
+}
+
+
+.navbar {
+    .search-form {
+        padding-top : 8px;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+
+    .navbar {
+        .search-form {
+            padding-right : 0;            
+        }
+    }
+        
+}
+
      
 
 /* ==========================================================================
