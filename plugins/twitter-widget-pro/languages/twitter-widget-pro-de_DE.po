@@ -1,0 +1,382 @@
+# Copyright (C) 2012 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Twitter Widget Pro - German 0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/twitter-widget-pro\n"
+"POT-Creation-Date: 2012-10-11 14:15:52+00:00\n"
+"PO-Revision-Date: 2012-10-24 17:37+0100\n"
+"Last-Translator: Lioman <blog@lioman.de>\n"
+"Language-Team: Lioman  - http://www.lioman.de <blog@lioman.de>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"Plural-Forms: nplurals=2;plural=n != 1\n"
+
+#: range-plugin-framework.php:251
+msgid "Update Options &raquo;"
+msgstr "Optionen aktualisieren"
+
+#: range-plugin-framework.php:297
+msgid "Rate Plugin"
+msgstr "Bewerte das Plugin"
+
+#: range-plugin-framework.php:303
+msgid "Support"
+msgstr "Support"
+
+#: range-plugin-framework.php:311
+msgid "Donate to show your appreciation."
+msgstr "Spende etwas, um die Entwicklung zu unterstützen"
+
+#: range-plugin-framework.php:322
+msgid "Give it a good rating on WordPress.org."
+msgstr "Bewerte das Plugin auf WordPress.org"
+
+#: range-plugin-framework.php:332
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: range-plugin-framework.php:361
+msgid "Like this Plugin?"
+msgstr "Du magst das Plugin?"
+
+#: range-plugin-framework.php:364
+msgid "Need Support?"
+msgstr "Brauchst du Unterstützung?"
+
+#: range-plugin-framework.php:367
+msgid "Latest news from Range"
+msgstr "Neuigkeiten von Range"
+
+#: range-plugin-framework.php:372
+msgid "Then please do any or all of the following:"
+msgstr "Dann tue doch eines oder mehrere der folgenden Dinge:"
+
+#: range-plugin-framework.php:377
+msgid "Link to it so others can find out about it."
+msgstr "Verlinke das Plugin, damit andere davon erfahren"
+
+#: range-plugin-framework.php:389
+msgid "If you have any problems with this plugin or ideas for improvements or enhancements, please use the <a href=\"%s\">Support Forums</a>."
+msgstr "Falls es irgendwelche Probleme mit dem Plugin gibt oderdu Vorschläge zu dessen Verbesserung hast, nutze doch das <a href=\"%s\">Support Forum</a>"
+
+#: wp-twitter-widget.php:44
+msgid "Follow a Twitter Feed"
+msgstr "Folge einem Twitterfeed"
+
+#: wp-twitter-widget.php:51
+#: wp-twitter-widget.php:197
+msgid "Twitter Widget Pro"
+msgstr "Twitter Widget Pro"
+
+#: wp-twitter-widget.php:66
+#: wp-twitter-widget.php:340
+msgid "Twitter username:"
+msgstr "Benutzername bei Twitter:"
+
+#: wp-twitter-widget.php:70
+#: wp-twitter-widget.php:348
+msgid "Give the feed a title ( optional ):"
+msgstr "Gib dem Feed einen Titel ( optional ):"
+
+#: wp-twitter-widget.php:74
+#: wp-twitter-widget.php:356
+msgid "How many items would you like to display?"
+msgstr "Wie viele Einträge sollen angezeigt werden?"
+
+#: wp-twitter-widget.php:84
+#: wp-twitter-widget.php:370
+msgid "Display profile image?"
+msgstr "Soll das Profilbild angezeigt werden?"
+
+#: wp-twitter-widget.php:86
+#: wp-twitter-widget.php:374
+msgid "Do not show"
+msgstr "nicht anzeigen"
+
+#: wp-twitter-widget.php:87
+#: wp-twitter-widget.php:375
+msgid "Mini - 24px by 24px"
+msgstr "Mini - 24px x 24px"
+
+#: wp-twitter-widget.php:88
+#: wp-twitter-widget.php:376
+msgid "Normal - 48px by 48px"
+msgstr "Normal - 48px x 48px"
+
+#: wp-twitter-widget.php:89
+#: wp-twitter-widget.php:377
+msgid "Bigger - 73px by 73px"
+msgstr "Groß - 73px x 73px"
+
+#: wp-twitter-widget.php:90
+#: wp-twitter-widget.php:378
+msgid "Original"
+msgstr "Original"
+
+#: wp-twitter-widget.php:96
+#: wp-twitter-widget.php:429
+msgid "Include retweets"
+msgstr "Retweets mit anzeigen"
+
+#: wp-twitter-widget.php:100
+#: wp-twitter-widget.php:432
+msgid "Hide @replies"
+msgstr "Erwähnungen ausblenden"
+
+#: wp-twitter-widget.php:104
+#: wp-twitter-widget.php:435
+msgid "Hide sending applications"
+msgstr "Verstecke sendende Applikationen (via)"
+
+#: wp-twitter-widget.php:109
+#: wp-twitter-widget.php:439
+msgid "Show Tweet Intents (reply, retweet, favorite)"
+msgstr "Zeige Tweetaktionen (Erwähnung, RT, Favorisierung)"
+
+#: wp-twitter-widget.php:114
+#: wp-twitter-widget.php:443
+msgid "Show Follow Link"
+msgstr "Followlink anzeigen"
+
+#: wp-twitter-widget.php:117
+#: wp-twitter-widget.php:384
+msgid "What to display when Twitter is down ( optional ):"
+msgstr "Was soll angezeigt werden, wenn Twitter nicht erreichbar ist ( optional ):"
+
+#: wp-twitter-widget.php:121
+#: wp-twitter-widget.php:392
+msgid "Number of seconds to wait for a response from Twitter ( default 2 ):"
+msgstr "Sekunden, die auf Antwort von Twitter gewartet werden soll (Stanard 2)"
+
+#: wp-twitter-widget.php:125
+#: wp-twitter-widget.php:400
+msgid "Show date/time of Tweet ( rather than 2 ____ ago ):"
+msgstr "Datum und Zeit des Tweets anzeigen ( statt vor ??s):"
+
+#: wp-twitter-widget.php:127
+#: wp-twitter-widget.php:404
+msgid "Always"
+msgstr "Immer"
+
+#: wp-twitter-widget.php:128
+#: wp-twitter-widget.php:405
+msgid "If over an hour old"
+msgstr "Wenn länger als eine Stunde her"
+
+#: wp-twitter-widget.php:129
+#: wp-twitter-widget.php:406
+msgid "If over a day old"
+msgstr "Wenn länger als ein Tag her"
+
+#: wp-twitter-widget.php:130
+#: wp-twitter-widget.php:407
+msgid "If over a week old"
+msgstr "Wenn länger als eine Woche her"
+
+#: wp-twitter-widget.php:131
+#: wp-twitter-widget.php:408
+msgid "If over a month old"
+msgstr "Wenn länger als einen Monat her"
+
+#: wp-twitter-widget.php:132
+#: wp-twitter-widget.php:409
+msgid "If over a year old"
+msgstr "Wenn länger als ein Jahr her"
+
+#: wp-twitter-widget.php:133
+#: wp-twitter-widget.php:410
+msgid "Never"
+msgstr "Nie"
+
+#: wp-twitter-widget.php:137
+#: wp-twitter-widget.php:416
+msgid "Format to display the date in, uses <a href=\"%s\">PHP date()</a> format:"
+msgstr "Datumsformat, nutzt <a href=\"%s\">PHP date()</a>:"
+
+#: wp-twitter-widget.php:142
+#: wp-twitter-widget.php:446
+msgid "Open links in a new window"
+msgstr "Links in einem neuen Fenster öffnen"
+
+#: wp-twitter-widget.php:146
+#: wp-twitter-widget.php:449
+msgid "Show Link to Twitter Widget Pro"
+msgstr "Link zu Twitter Widget Pro anzeigen"
+
+#: wp-twitter-widget.php:198
+msgid "Twitter Widget"
+msgstr "Twitter Widget"
+
+#: wp-twitter-widget.php:262
+msgid "There were no locks to clear!"
+msgstr "Es gab keine Zugriffssperren zum Löschen!"
+
+#: wp-twitter-widget.php:264
+msgid "Successfully cleared %d lock."
+msgid_plural "Successfully cleared %d locks."
+msgstr[0] "Erfolgreich %d Sperre gelöscht"
+msgstr[1] "Erfolgreich %d Sperren gelöscht"
+
+#: wp-twitter-widget.php:270
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: wp-twitter-widget.php:271
+msgid "Default Settings for Shortcodes"
+msgstr "Vorgaben für Shortcodes"
+
+#: wp-twitter-widget.php:280
+msgid "HTTP vs HTTPS"
+msgstr "HTTP vs HTTPS"
+
+#: wp-twitter-widget.php:284
+msgid "Use Twitter API via HTTPS"
+msgstr "Benutze Twitter API via HTTPS"
+
+#: wp-twitter-widget.php:287
+msgid "Use Twitter API via HTTP"
+msgstr "Benutze Twitter API via HTTP"
+
+#: wp-twitter-widget.php:289
+msgid "Some servers seem to have issues connecting via HTTPS.  If you're experiencing issues with your feed not updating, try setting this to HTTP."
+msgstr "Manche Server haben Probleme mit HTTPS. Falls das Feed nicht aktualisiert wird, stelle hier HTTP ein"
+
+#: wp-twitter-widget.php:294
+#: wp-twitter-widget.php:297
+msgid "Clear Update Locks"
+msgstr "Updatesperren löschen"
+
+#: wp-twitter-widget.php:298
+msgid "A small percentage of servers seem to have issues where an update lock isn't getting cleared.  If you're experiencing issues with your feed not updating, try clearing the update locks."
+msgstr "Weinige Server scheinen Probleme zu haben, wenn die Updatesperren nicht gelöscht werden. Wenn das Feed nicht aktualisiert wird versuche diese hier zu löschen."
+
+#: wp-twitter-widget.php:303
+msgid "Current API Usage"
+msgstr "Derzeitige API Benutzung"
+
+#: wp-twitter-widget.php:314
+msgid "Used: %d"
+msgstr "Benutzt: %d"
+
+#: wp-twitter-widget.php:315
+msgid "Remaining: %d"
+msgstr "Verbleibend: %d"
+
+#: wp-twitter-widget.php:318
+msgid "Limits reset in: %d minutes"
+msgid_plural "Limits reset in: %d minutes"
+msgstr[0] "Limitierung werden in %d Minute zurückgesetzt"
+msgstr[1] "Limitierung werden in %d Minuten zurückgesetzt"
+
+#: wp-twitter-widget.php:320
+msgid "This is overall usage, not just usage from Twitter Widget Pro"
+msgstr "Dies ist die Gesamtnutzung, nicht nur die durch Twwitter Widget Pro"
+
+#: wp-twitter-widget.php:325
+msgid "There was an error checking your rate limit."
+msgstr "Es ist ein Fehler beim testen deiner Limits aufgetreten"
+
+#: wp-twitter-widget.php:336
+msgid "These settings are the default for the shortcodes and all of them can be overridden by specifying a different value in the shortcode itself.  All settings for widgets are locate in the individual widget."
+msgstr "Diese Einstellungen sind die vorgegebenen für die Shortcodes und alle können auf einen Beliebigen Wert geändert werden. Alle Widgeteinstellungen befinden sich in einem eigenen Widget"
+
+#: wp-twitter-widget.php:424
+msgid "Other Setting:"
+msgstr "Sonstige Einstellungen"
+
+#: wp-twitter-widget.php:637
+msgid "No Tweets Available"
+msgstr "Keine Tweets vorhanden"
+
+#: wp-twitter-widget.php:655
+msgid "from %s"
+msgstr "von &s"
+
+#: wp-twitter-widget.php:659
+msgid "in reply to %s"
+msgstr "in Antwort auf %s"
+
+#: wp-twitter-widget.php:676
+msgid "Reply"
+msgstr "Antwort"
+
+#: wp-twitter-widget.php:682
+msgid "Retweet"
+msgstr "Retweet"
+
+#: wp-twitter-widget.php:688
+msgid "Favorite"
+msgstr "Favourit"
+
+#: wp-twitter-widget.php:709
+msgid "Follow %s"
+msgstr "Folge %s"
+
+#: wp-twitter-widget.php:723
+msgid "Brought to you by Range - A WordPress design and development company"
+msgstr "Entwickelt von Range - WordPress Design und Entwicklung"
+
+#: wp-twitter-widget.php:725
+msgid "Powered by"
+msgstr "Powered by"
+
+#: wp-twitter-widget.php:794
+msgid "Invalid Twitter Response."
+msgstr "Ungültige Twitterantwort"
+
+#: wp-twitter-widget.php:804
+msgid "Could not connect to Twitter"
+msgstr "Keine Verbindung zu Twitter"
+
+#: wp-twitter-widget.php:886
+msgid "about %s year ago"
+msgid_plural "about %s years ago"
+msgstr[0] "ungefähr %s Jahr her"
+msgstr[1] "ungefähr %s Jahre her"
+
+#: wp-twitter-widget.php:887
+msgid "about %s month ago"
+msgid_plural "about %s months ago"
+msgstr[0] "ungefähr %s Monat her"
+msgstr[1] "ungefähr %s Monate her"
+
+#: wp-twitter-widget.php:888
+msgid "about %s week ago"
+msgid_plural "about %s weeks ago"
+msgstr[0] "ungefähr %s Woche her"
+msgstr[1] "ungefähr %s Wochen her"
+
+#: wp-twitter-widget.php:889
+msgid "about %s day ago"
+msgid_plural "about %s days ago"
+msgstr[0] "ungefähr %s Tag her"
+msgstr[1] "ungefähr %s Tage her"
+
+#: wp-twitter-widget.php:890
+msgid "about %s hour ago"
+msgid_plural "about %s hours ago"
+msgstr[0] "ungefähr %s Stunde her"
+msgstr[1] "ungefähr %s Stunden her"
+
+#: wp-twitter-widget.php:891
+msgid "about %s minute ago"
+msgid_plural "about %s minutes ago"
+msgstr[0] "ungefähr %s Minute her"
+msgstr[1] "ungefähr %s Minuten her"
+
+#: wp-twitter-widget.php:892
+msgid "about %s second ago"
+msgid_plural "about %s seconds ago"
+msgstr[0] "ungefähr %s Sekunde her"
+msgstr[1] "ungefähr %s Sekunden her"
+
+#: wp-twitter-widget.php:944
+#: wp-twitter-widget.php:1018
+msgid "h:i:s A F d, Y"
+msgstr "h:i:s A F d, Y"
+

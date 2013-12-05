@@ -1,0 +1,201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Twitter Widget Pro 1.4.5\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/twitter-widget-pro\n"
+"POT-Creation-Date: 2009-07-07 22:39+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hugo Krantz <poedit@hugokrantz.se>\n"
+"Language-Team: Hugo Krantz <poedit@hugokrantz.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=n != 1;\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_c;_e;__ngettext:1,2;__ngettext_noop:1,2\n"
+
+#: wp-twitter-widget.php:48
+msgid "Twitter Widget Pro"
+msgstr "Twitter Widget Pro"
+
+#: wp-twitter-widget.php:64
+msgid "Twitter Widget Pro Options"
+msgstr "Inställningar för Twitter Widget Pro"
+
+#: wp-twitter-widget.php:70
+msgid "Click for Help!"
+msgstr "Klicka för hjälp"
+
+#: wp-twitter-widget.php:71
+msgid "System Information:"
+msgstr "Systeminformation:"
+
+#: wp-twitter-widget.php:76
+msgid "I agree to send anonymous system information"
+msgstr "Jag accepterer att sända anonym systeminformation"
+
+#: wp-twitter-widget.php:78
+msgid "You can help by sending anonymous system information that will help Xavisys make better decisions about new features."
+msgstr "Du kan hjälpa genom att sända anonym systeminformation, som hjälper Xavisys att fatta bättre beslut om nya funktioner."
+
+#: wp-twitter-widget.php:79
+msgid "The information will be sent anonymously, but a unique identifier will be sent to prevent duplicate entries from the same installation."
+msgstr "Informationen sänds anonymt, men ett unikt id skickas med för att säkerställa att alla registreringar från samma installation är unika."
+
+#: wp-twitter-widget.php:85
+msgid "Update Options &raquo;"
+msgstr "Uppdatera inställningar &raquo;"
+
+#: wp-twitter-widget.php:114
+msgid "Could not connect to Twitter"
+msgstr "Kunde inte få förbindelse till Twitter"
+
+#: wp-twitter-widget.php:273
+msgid "Syndicate this content"
+msgstr "Följ detta innehåll via RSS"
+
+#: wp-twitter-widget.php:286
+msgid "No Tweets Available"
+msgstr "Inga Tweets tillgängliga"
+
+#: wp-twitter-widget.php:307
+#, php-format
+msgid "from %s"
+msgstr "via %s"
+
+#: wp-twitter-widget.php:311
+#, php-format
+msgid "in reply to %s"
+msgstr "som svar på %s"
+
+#: wp-twitter-widget.php:331
+#, php-format
+msgid "Powered by <a href=\"%s\" title=\"Get Twitter Widget for your WordPress site\">WordPress Twitter Widget Pro</a>"
+msgstr "Använder <a href=\"%s\" title=\"Få Twitter Widget till din WordPress-site\">WordPress-Twitter Widget Pro</a>"
+
+#: wp-twitter-widget.php:441
+msgid "Follow a Twitter Feed"
+msgstr "Följ ett Twitter-flöde"
+
+#: wp-twitter-widget.php:443
+msgid "Twitter Feed"
+msgstr "Twitter-flöde"
+
+#: wp-twitter-widget.php:485
+msgid "Twitter username:"
+msgstr "Twitter-användarnamn:"
+
+#: wp-twitter-widget.php:489
+msgid "Give the feed a title (optional):"
+msgstr "Ge flödet en titel (valfritt):"
+
+#: wp-twitter-widget.php:493
+msgid "How many items would you like to display?"
+msgstr "Hur många tweets vill du visa?"
+
+#: wp-twitter-widget.php:503
+msgid "What to display when Twitter is down (optional):"
+msgstr "Vad skall visas om Twitter är nere (valfritt):"
+
+#: wp-twitter-widget.php:507
+msgid "Number of seconds to wait for a response from Twitter (default 2):"
+msgstr "Antal sekunder att vänta på svar från Twitter (standard: 2):"
+
+#: wp-twitter-widget.php:511
+msgid "Show date/time of Tweet (rather than 2 ____ ago):"
+msgstr "Visa Tweetens datum/klockslag (istf. 2 ___ sedan):"
+
+#: wp-twitter-widget.php:513
+msgid "Always"
+msgstr "Alltid"
+
+#: wp-twitter-widget.php:514
+msgid "If over an hour old"
+msgstr "Om över en timme gammalt"
+
+#: wp-twitter-widget.php:515
+msgid "If over a day old"
+msgstr "Om över en dag gammalt"
+
+#: wp-twitter-widget.php:516
+msgid "If over a week old"
+msgstr "Om över en vecka gammalt"
+
+#: wp-twitter-widget.php:517
+msgid "If over a month old"
+msgstr "Om över en månad gammalt"
+
+#: wp-twitter-widget.php:518
+msgid "If over a year old"
+msgstr "Om över ett år gammalt"
+
+#: wp-twitter-widget.php:519
+msgid "Never"
+msgstr "Aldrig"
+
+#: wp-twitter-widget.php:523
+msgid "Hide RSS Icon and Link"
+msgstr "Göm RSS-ikon och -länk"
+
+#: wp-twitter-widget.php:526
+msgid "Show Profile Image"
+msgstr "Visa profilbild"
+
+#: wp-twitter-widget.php:530
+msgid "Show Link to Twitter Widget Pro"
+msgstr "Visa länk till Twitter Widget Pro"
+
+#: wp-twitter-widget.php:571
+#, php-format
+msgid "about %s year ago"
+msgid_plural "about %s years ago"
+msgstr[0] "ca %s år sedan"
+msgstr[1] "ca %s år sedan"
+
+#: wp-twitter-widget.php:572
+#, php-format
+msgid "about %s month ago"
+msgid_plural "about %s months ago"
+msgstr[0] "ca %s månad sedan"
+msgstr[1] "ca %s månader sedan"
+
+#: wp-twitter-widget.php:573
+#, php-format
+msgid "about %s week ago"
+msgid_plural "about %s weeks ago"
+msgstr[0] "ca %s vecka sedan"
+msgstr[1] "ca %s veckor sedan"
+
+#: wp-twitter-widget.php:574
+#, php-format
+msgid "about %s day ago"
+msgid_plural "about %s days ago"
+msgstr[0] "ca %s dag sedan"
+msgstr[1] "ca %s dagar sedan"
+
+#: wp-twitter-widget.php:575
+#, php-format
+msgid "about %s hour ago"
+msgid_plural "about %s hours ago"
+msgstr[0] "ca %s timme sedan"
+msgstr[1] "ca %s timmar sedan"
+
+#: wp-twitter-widget.php:576
+#, php-format
+msgid "about %s minute ago"
+msgid_plural "about %s minutes ago"
+msgstr[0] "ca %s minut sedan"
+msgstr[1] "ca %s minuter sedan"
+
+#: wp-twitter-widget.php:577
+#, php-format
+msgid "about %s second ago"
+msgid_plural "about %s seconds ago"
+msgstr[0] "ca %s sekund sedan"
+msgstr[1] "ca %s sekunder sedan"
+
+#: wp-twitter-widget.php:645
+msgid "Settings"
+msgstr "Inställningar"
+
