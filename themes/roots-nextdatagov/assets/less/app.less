@@ -356,7 +356,7 @@ div.frontpage-search {
 }
 
 .wrap-lightblue {
-    background-color: #60A1D3;
+    background-color: @blue-lightblue;
     a {
       color: #ffffff;
     }
@@ -366,11 +366,11 @@ div.frontpage-search {
     margin-bottom: 0;
 
     h1 {
-      font-size: (@font-size-base * 2.1);
+      font-size: (@font-size-base * 2.5);
     }
 }
 
-.page-header {
+.home .page-header {
     padding-bottom: ((@line-height-computed / 20) - 1);
     margin: (@line-height-computed * 2) 0 @line-height-computed;
     border-bottom: none;
@@ -387,14 +387,17 @@ div.frontpage-search {
 
 .main { }
 
-.center {
-  p, h1, h2, h3, h4, h5 { text-align:center }
-}
-
 .jumbotron .fa-caret-down { font-size: (@font-size-base * 2.8) }
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
+
+/* This may need to be refactored */
+.getstarted p {
+line-height: (@line-height-computed * 0.8);
+margin-bottom: -(@line-height-computed * 0.8);
+margin-top: 14px;
+}
 
 /* ==========================================================================
    Sidebar
