@@ -45,6 +45,19 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 0;
 $args = array(
                 'post_type' => 'post',
                 'cat' => get_query_var('cat'),
+                'meta_query' => array(
+                                     'relation' => 'OR',
+                                    array(
+                                    'key' => 'highlight',
+                                    'value' => 'Yes',
+                                    'compare' => '!='
+                                    ),
+                                    array(
+                                    'key' => 'highlight',
+                                    'value' => 'Yes',
+                                    'compare' => 'NOT EXISTS'
+                                    )
+                                ),                
                 'paged' => $paged,                 
                 'posts_per_page' => 5 );
 

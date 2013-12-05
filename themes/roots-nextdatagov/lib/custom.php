@@ -11,8 +11,8 @@
   */
  function add_custom_taxonomies() {
      
- 	// Add new "Locations" taxonomy to Posts
- 	register_taxonomy('featured', 'page', array(
+ 	// Add new "Featured" taxonomy to Posts, Pages
+ 	register_taxonomy('featured', array('page','post'), array(
  		// Hierarchical taxonomy (like categories)
  		'hierarchical' => true,
  		// This array of options controls the labels displayed in the WordPress Admin UI
@@ -36,6 +36,7 @@
  			'hierarchical' => true // This will allow URL's like "/featured/highlights/something"
  		),
  	));
+ 	
  }
  add_action( 'init', 'add_custom_taxonomies', 0 );
  
