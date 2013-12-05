@@ -3,7 +3,6 @@
  * Custom functions
  */
 
-
  /**
   * Add custom taxonomies
   *
@@ -11,8 +10,9 @@
   * http://codex.wordpress.org/Function_Reference/register_taxonomy
   */
  function add_custom_taxonomies() {
+     
  	// Add new "Locations" taxonomy to Posts
- 	register_taxonomy('featured', 'post', array(
+ 	register_taxonomy('featured', 'page', array(
  		// Hierarchical taxonomy (like categories)
  		'hierarchical' => true,
  		// This array of options controls the labels displayed in the WordPress Admin UI

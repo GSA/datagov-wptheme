@@ -7,12 +7,23 @@ This is category.php
 <?php 
 
 // See if there is a frontpage for the category.
-$cat = get_query_var('cat');
-$this_category = get_category ($cat);
-$intro_page = $this_category->slug;
-$args = array('name' => $intro_page, 'post_type' => 'page');
-    
+
+$args = array( 
+                'post_type' => 'page',
+                'ignore_sticky_posts' => 1,  
+                'cat' => get_query_var('cat'),
+                'tax_query' => array(
+                	                array(
+                	                'taxonomy' => 'featured',
+                	                'field' => 'slug',
+                	                'terms' => array( 'browse'),
+                	                'operator' => 'IN'
+                	                )                	                
+                                ),                 
+                'posts_per_page' => 1 );
+                         
 $category_intro = new WP_Query($args);
+
 ?>
 
 <?php while ($category_intro->have_posts()) : $category_intro->the_post(); ?>
@@ -34,19 +45,6 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 0;
 $args = array(
                 'post_type' => 'post',
                 'cat' => get_query_var('cat'),
-                'meta_query' => array(
-                    		        'relation' => 'OR',
-                                    array(
-                                    'key' => 'highlight',
-                                    'value' => 'Yes',
-                                    'compare' => '!='
-                                    ),
-                                    array(
-                                    'key' => 'highlight',
-                                    'value' => 'Yes',
-                                    'compare' => 'NOT EXISTS'
-                                    )                                    
-                                ),
                 'paged' => $paged,                 
                 'posts_per_page' => 5 );
 
