@@ -1,6 +1,65 @@
-<div class="wrap container">
+<?php
 
-This is category.php 
+$term_name = get_term_by('id', get_query_var('cat'), 'category')->name;
+$term_slug = get_query_var('category_name');
+
+// show Links associated to a community
+// we need to build $args based either term_name or term_slug
+$args = array(
+                'category_name'=> $term_slug, 
+                'categorize'=>0, 
+                'title_li'=>0,
+                'echo' =>0,
+                'orderby'=>'rating'
+            );
+            
+$subnav = wp_list_bookmarks($args);
+
+if (strcasecmp($term_name,$term_slug)!=0) {
+  $args = array(
+                  'category_name'=> $term_name, 
+                  'categorize'=>0, 
+                  'title_li'=>0,
+                  'echo' =>0,
+                  'orderby'=>'rating',
+                  );
+                  
+  $subnav_extra = wp_list_bookmarks($args);                  
+}
+
+
+if($subnav OR $subnav_extra):
+?>
+
+    <div class="subnav banner">
+        <div class="container">
+
+        <?php if($subnav): ?>
+
+           <nav class="topic-subnav" role="navigation">
+               <ul class="nav navbar-nav">         
+                <?php echo $subnav ?>
+                </ul>
+            </nav>
+        
+        <?php endif; ?>
+
+        <?php if($subnav): ?>
+
+           <nav class="topic-subnav" role="navigation">
+               <ul class="nav navbar-nav">         
+                <?php echo $subnav_extra ?>
+                </ul>
+            </nav>
+        <?php endif; ?>
+
+        </div>
+    </div>
+
+<?php endif; ?>
+
+
+<div class="wrap container">
 
 <?php if (get_query_var('paged') < 1): ?>
 
@@ -45,6 +104,19 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 0;
 $args = array(
                 'post_type' => 'post',
                 'cat' => get_query_var('cat'),
+                'meta_query' => array(
+                                     'relation' => 'OR',
+                                    array(
+                                    'key' => 'highlight',
+                                    'value' => 'Yes',
+                                    'compare' => '!='
+                                    ),
+                                    array(
+                                    'key' => 'highlight',
+                                    'value' => 'Yes',
+                                    'compare' => 'NOT EXISTS'
+                                    )
+                                ),                
                 'paged' => $paged,                 
                 'posts_per_page' => 5 );
 
