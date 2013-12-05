@@ -1,6 +1,6 @@
 <div class="wrap container">
 <div class="page-header">
-  <h1>Browse Topics <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small></h1>
+  <h1>Browse Topics</h1>
 </div>
 <?php  
 
