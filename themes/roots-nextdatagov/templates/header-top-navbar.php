@@ -35,15 +35,12 @@
 
 <?php while (have_posts()) : the_post(); ?>
 
-<div class="header banner page-heading">
-    <div class="container">
-        <div class="hero-unit">
-
-            <?php the_content(); ?>      
-     
-        </div>
-    </div>
+<div class="jumbotron">
+  <div class="container">
+    <?php the_content(); ?>
+  </div>
 </div>
+
 <?php endwhile; ?>
 
 

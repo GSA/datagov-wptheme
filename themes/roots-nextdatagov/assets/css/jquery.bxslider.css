@@ -46,13 +46,14 @@
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(images/bx_loader.gif) center center no-repeat #fff;
+	background: url(../img/bx_loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 2000;
+    display:none;
 }
 
 /* PAGER */
@@ -95,12 +96,12 @@
 
 .bx-wrapper .bx-prev {
 	left: -65px;
-	background: url(images/left.png) no-repeat 0 -32px;
+	background: url(../img/left.png) no-repeat 0 -32px;
 }
 
 .bx-wrapper .bx-next {
 	right: -65px;
-	background: url(images/right.png) no-repeat -43px -32px;
+	background: url(../img/right.png) no-repeat -43px -32px;
 }
 
 /*.bx-wrapper .bx-prev:hover {
@@ -138,7 +139,7 @@
 	width: 10px;
 	height: 11px;
 	outline: 0;
-	background: url(images/controls.png) -86px -11px no-repeat;
+	background: url(../img/controls.png) -86px -11px no-repeat;
 	margin: 0 3px;
 }
 
@@ -153,7 +154,7 @@
 	width: 9px;
 	height: 11px;
 	outline: 0;
-	background: url(images/controls.png) -86px -44px no-repeat;
+	background: url(../img/controls.png) -86px -44px no-repeat;
 	margin: 0 3px;
 }
 
@@ -180,7 +181,7 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	background: #666\9;
+	background: #666;
 	background: rgba(80, 80, 80, 0.75);
 	width: 100%;
 }
