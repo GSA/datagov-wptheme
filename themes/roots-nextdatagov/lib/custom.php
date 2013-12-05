@@ -38,3 +38,26 @@
  	));
  }
  add_action( 'init', 'add_custom_taxonomies', 0 );
+ 
+ 
+ 
+ /**
+  * Redirect topic introduction pages to their topic landing page
+  *
+ **/
+ function redirect_intro() {
+     
+     $post       = &get_post($post->ID);
+     $intro_page = has_term( 'browse', 'featured', $post );
+     
+     if($intro_page) {
+         $categories         = get_the_category( $post->ID );
+         $category_slug      = $categories[0]->slug;
+         $redirect           = home_url() . '/' . $category_slug;
+     
+         wp_redirect( $redirect, 301 ); exit;    
+     }     
+ }
+ 
+add_action( 'wp', 'redirect_intro', 100);
+ 
