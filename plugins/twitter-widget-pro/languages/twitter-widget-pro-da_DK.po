@@ -1,0 +1,207 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Twitter Widget Pro 1.4.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-07-18 00:03+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Team Blogos <wordpress@blogos.dk>\n"
+"Language-Team: Team Blogos <wordpress@blogos.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=n != 1;\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_c;_e;__ngettext:1,2;__ngettext_noop:1,2\n"
+"X-Poedit-Basepath: d:\\wordpress\\plugins\\twitter-widget-pro\n"
+"X-Poedit-SearchPath-0: d:\\wordpress\\plugins\\twitter-widget-pro\n"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:67
+msgid "Twitter Widget Pro"
+msgstr "Twitter Widget Pro"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:83
+msgid "Twitter Widget Pro Options"
+msgstr "Indstiller for Twitter Widget Pro"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:89
+msgid "Click for Help!"
+msgstr "Klik for hjælp"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:90
+msgid "System Information:"
+msgstr "System Information:"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:95
+msgid "I agree to send anonymous system information"
+msgstr "Jeg accepterer at sende anonyme system-informationer"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:97
+msgid "You can help by sending anonymous system information that will help Xavisys make better decisions about new features."
+msgstr "Du kan hjælpe ved at sende anonyme system-informationer, som vil hjælpe Xavisys med at træffe bedre beslutninger om nye funktioner."
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:98
+msgid "The information will be sent anonymously, but a unique identifier will be sent to prevent duplicate entries from the same installation."
+msgstr "Informationerne sendes anonymt, men en unik id vil blive sendt med for at sikre, at alle registreringer fra samme installation er unikke."
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:104
+msgid "Update Options &raquo;"
+msgstr "Opdatér indstillinger &raquo;"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:142
+msgid "Could not connect to Twitter"
+msgstr "Kunne ikke få forbindelse til Twitter"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:301
+msgid "Syndicate this content"
+msgstr "Følg dette indhold via RSS"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:314
+msgid "No Tweets Available"
+msgstr "Ingen tilgængelige Tweets"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:335
+#, php-format
+msgid "from %s"
+msgstr "fra %s"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:339
+#, php-format
+msgid "in reply to %s"
+msgstr "som svar på %s"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:359
+#, php-format
+msgid "Powered by <a href=\"%s\" title=\"Get Twitter Widget for your WordPress site\">WordPress Twitter Widget Pro</a>"
+msgstr "Kører på <a href=\"%s\" title=\"Få Twitter Widget til din WordPress-site\">WordPress-Twitter Widget Pro</a>"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:473
+msgid "Follow a Twitter Feed"
+msgstr "Følg et Twitter-feed"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:475
+msgid "Twitter Feed"
+msgstr "Twitter-feed"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:517
+msgid "Twitter username:"
+msgstr "Twitter-brugernavn:"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:521
+msgid "Give the feed a title (optional):"
+msgstr "Giv feedet en titel (valgfri):"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:525
+msgid "How many items would you like to display?"
+msgstr "Hvor mange tweets vil du vise?"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:535
+msgid "What to display when Twitter is down (optional):"
+msgstr "Hvad skal der vises, hvis Twitter er nede (valgfri):"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:539
+msgid "Number of seconds to wait for a response from Twitter (default 2):"
+msgstr "Antal sekunder at vente på svar fra Twitter (standard: 2):"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:543
+msgid "Show date/time of Tweet (rather than 2 ____ ago):"
+msgstr "Vis Tweetets dato/klokkeslæt (i st. f. 2 ___ siden):"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:545
+msgid "Always"
+msgstr "Altid"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:546
+msgid "If over an hour old"
+msgstr "Hvis over end en time gammelt"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:547
+msgid "If over a day old"
+msgstr "Hvis over en dag gammelt"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:548
+msgid "If over a week old"
+msgstr "Hvis over en uge gammelt"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:549
+msgid "If over a month old"
+msgstr "Hvis over en måned gammelt"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:550
+msgid "If over a year old"
+msgstr "Hvis over et år gammelt"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:551
+msgid "Never"
+msgstr "Aldrig"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:555
+msgid "Hide RSS Icon and Link"
+msgstr "Skjul RSS-ikon og -link"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:558
+msgid "Show Profile Image"
+msgstr "Vis profilbillede"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:562
+msgid "Show Link to Twitter Widget Pro"
+msgstr "Vis link til Twitter Widget Pro"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:592
+msgid "h:i:s A F d, Y"
+msgstr "j. F Y H.i.s"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:603
+#, php-format
+msgid "about %s year ago"
+msgid_plural "about %s years ago"
+msgstr[0] "ca. %s år siden"
+msgstr[1] "ca. %s år siden"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:604
+#, php-format
+msgid "about %s month ago"
+msgid_plural "about %s months ago"
+msgstr[0] "ca %s måned siden"
+msgstr[1] "ca. %s måneder siden"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:605
+#, php-format
+msgid "about %s week ago"
+msgid_plural "about %s weeks ago"
+msgstr[0] "ca. %s uge siden"
+msgstr[1] "ca. %s uger siden"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:606
+#, php-format
+msgid "about %s day ago"
+msgid_plural "about %s days ago"
+msgstr[0] "ca. %s dag siden"
+msgstr[1] "ca. %s dage siden"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:607
+#, php-format
+msgid "about %s hour ago"
+msgid_plural "about %s hours ago"
+msgstr[0] "ca. %s time siden"
+msgstr[1] "ca. %s timer siden"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:608
+#, php-format
+msgid "about %s minute ago"
+msgid_plural "about %s minutes ago"
+msgstr[0] "ca. %s minut siden"
+msgstr[1] "ca. %s minutter siden"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:609
+#, php-format
+msgid "about %s second ago"
+msgid_plural "about %s seconds ago"
+msgstr[0] "ca. %s sekund siden"
+msgstr[1] "ca. %s sekunder siden"
+
+#: d:\wordpress\plugins\twitter-widget-pro/wp-twitter-widget.php:677
+msgid "Settings"
+msgstr "Indstillinger"
+
