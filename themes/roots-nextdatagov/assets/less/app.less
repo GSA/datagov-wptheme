@@ -9,7 +9,7 @@
    ========================================================================== */
 
 body {
-background: url("../img/textured-bg.png") repeat scroll 0 0 #EFEFEF;
+background: #fff;
 font-family: 'Lato', Arial, sans-serif;
 }
 
@@ -27,11 +27,14 @@ margin-bottom : 0;
 }
 
 .navbar-brand {
-    text-indent : -9999em;
-    overflow : hidden;
-    background: url("../img/logo.png") 15px center no-repeat;
-    width : 340px; /*325+15*/
-    margin-right : 15px;
+    background: url("../img/logo.png") no-repeat scroll center center transparent;
+    background-size : contain;
+    background-position : 0 48px;
+    height: 80px;
+    margin-right: 15px;
+    overflow: hidden;
+    text-indent: -9999em;
+    width: 150px;    
 }
 
 .navbar-default {
@@ -80,7 +83,13 @@ color : #000;
 }
 
 .navbar-row {
+    padding-top : 10px;
     clear : right;
+}
+
+
+body.home .navbar-row {
+    padding-top : 45px;
 }
 
 /* ==========================================================================
@@ -110,60 +119,86 @@ color : #000;
                      background-size : contain;                            
                 }        
         }                
+                 display: inline-block;
+                 margin: 0px 20px 15px 0px;                 
+                 
+             }
+
+
+             a i {
+
+                      background-position: center center !important;
+                      display: inline-block;
+                      height: 120px;
+                      line-height: 15px;
+                      overflow: hidden;
+                      padding-top: 90px;
+                      text-align: center;
+                      width: 130px;
+                      clear : both;                           
+                }
+                
+            a span {
+                display: block;
+                width: 130px;
+                word-wrap:break-word;
+                
+            } 
+        }        
    }
    
 
    .svg .topics {
        
-                    li.topic-health a {
+                    li.topic-health a i {
                         background : url(../img/topic-health.svg) no-repeat;
                     }       
 
-                    li.topic-energy a {
+                    li.topic-energy a i {
                         background : url(../img/topic-energy.svg) no-repeat;
                     }
                     
-                    li.topic-education a {
+                    li.topic-education a i {
                         background : url(../img/topic-education.svg) no-repeat;
                     }
                     
-                    li.topic-finance a {
+                    li.topic-finance a i {
                         background : url(../img/topic-finance.svg) no-repeat;
                     }
                     
-                    li.topic-climate a {
+                    li.topic-climate a i {
                         background : url(../img/topic-climate.svg) no-repeat;
                     }
 
-                    li.topic-law a {
+                    li.topic-law a i {
                         background : url(../img/topic-law.svg) no-repeat;
                     }
                     
-                    li.topic-research a {
+                    li.topic-research a i {
                         background : url(../img/topic-research.svg) no-repeat;
                     }
                     
-                    li.topic-safety a {
+                    li.topic-safety a i {
                         background : url(../img/topic-safety.svg) no-repeat;
                     }
 
-                    li.topic-food a {
+                    li.topic-food a i {
                         background : url(../img/topic-food.svg) no-repeat;
                     }
                     
-                    li.topic-ocean a {
+                    li.topic-ocean a i {
                         background : url(../img/topic-ocean.svg) no-repeat;
                     }
                     
-                    li.topic-development a {
+                    li.topic-development a i {
                         background : url(../img/topic-development.svg) no-repeat;
                     }
                         
-                    li.topic-manufacturing a {
+                    li.topic-manufacturing a i {
                         background : url(../img/topic-manufacturing.svg) no-repeat;
                     }                   
 
-                    li.topic-consumer a {
+                    li.topic-consumer a i {
                         background : url(../img/topic-consumer.svg) no-repeat;
                     } 
                     
@@ -317,7 +352,11 @@ div.frontpage-search {
    Footer
    ========================================================================== */
 
-.content-info { }
+.content-info { 
+
+background-color : #efefef;
+    
+}
 
 
 

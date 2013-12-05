@@ -1,12 +1,24 @@
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" id="Layer_1" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" inkscape:version="0.48.1 " sodipodi:docname="NounProject_Law.svg"><metadata id="metadata22"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/><dc:title/><cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/><dc:date>28 Nov 2012</dc:date></cc:Work><cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/"><cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/><cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/><cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/></cc:License></rdf:RDF></metadata><sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1280" inkscape:window-height="744" id="namedview20" showgrid="false" inkscape:zoom="2.63" inkscape:cx="-3.2319392" inkscape:cy="46.768061" inkscape:window-x="-4" inkscape:window-y="-4" inkscape:window-maximized="1" inkscape:current-layer="Layer_1"/>
-    <defs id="defs3">
-		<path id="label" d="M0,0 h2 q5,0 5,5 v3.2 q0,5 -5,5 h-2 Z"/>
-	</defs>
-	
-	
-	
-	
-	
-	
-	
-<path d="M 20.40625 10 C 17.072917 10 15.40625 11.666667 15.40625 15 L 15.40625 85 C 15.40625 88.333333 17.072917 90 20.40625 90 L 23.40625 90 L 23.40625 10 L 20.40625 10 z M 25.40625 10 L 25.40625 90 L 82.5625 90.375 L 82.5625 10.375 L 25.40625 10 z M 51.4375 23.46875 L 56.15625 23.46875 L 56.15625 30.875 L 71.5625 30.875 L 71.5625 33.96875 L 79.65625 52.875 C 79.65625 55.467791 76.033435 57.59375 71.5625 57.59375 C 67.088461 57.59375 63.46875 55.467791 63.46875 52.875 L 71.5625 33.96875 L 56.15625 33.96875 L 56.15625 69.25 L 63.28125 69.25 L 63.28125 72.34375 L 44.34375 72.34375 L 44.34375 69.25 L 51.4375 69.25 L 51.4375 33.96875 L 36.03125 33.96875 L 44.15625 52.875 C 44.15625 55.467791 40.505288 57.59375 36.03125 57.59375 C 31.560314 57.59375 27.9375 55.467791 27.9375 52.875 L 36.03125 33.96875 L 36.03125 30.875 L 51.4375 30.875 L 51.4375 23.46875 z M 36.03125 37.09375 L 29.28125 52.875 L 42.8125 52.875 L 36.03125 37.09375 z M 71.5625 37.09375 L 64.8125 52.875 L 78.3125 52.875 L 71.5625 37.09375 z " id="polygon3"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="71.138px" height="62.205px" viewBox="273.413 47.196 71.138 62.205" enable-background="new 273.413 47.196 71.138 62.205"
+	 xml:space="preserve">
+<g id="Your_Icon">
+	<g>
+		<path fill="#8792A4" d="M328.513,70.172L312.67,54.327l-9.312,9.311l6.498,6.498c-0.146,0.157-0.281,0.303-0.432,0.463
+			c-1.708,1.818-3.751,3.896-5.994,6.064c-1.104,1.102-2.295,2.189-3.489,3.31c-1.191,1.127-2.422,2.247-3.673,3.351
+			c-2.464,2.238-4.995,4.413-7.371,6.449c-2.403,2.009-4.66,3.871-6.638,5.423c-3.93,3.125-6.715,5.047-6.715,5.047
+			c-0.485,0.338-0.937,0.776-1.294,1.294c-1.59,2.306-1.01,5.464,1.294,7.052c2.303,1.592,5.463,1.013,7.053-1.293
+			c0,0,1.922-2.783,5.046-6.717c1.555-1.976,3.415-4.232,5.425-6.636c2.035-2.375,4.212-4.906,6.448-7.372
+			c1.105-1.25,2.225-2.481,3.348-3.673c1.124-1.196,2.21-2.386,3.312-3.491c2.168-2.242,4.248-4.281,6.064-5.99
+			c0.16-0.151,0.306-0.288,0.461-0.432l6.5,6.497L328.513,70.172z"/>
+		<path fill="#8792A4" d="M301.641,62.738l10.129-10.127c0.585-0.584,0.59-1.537,0-2.123c-0.588-0.586-1.537-0.586-2.123,0
+			l-10.128,10.126c-0.587,0.586-0.587,1.538,0,2.123C300.105,63.326,301.055,63.325,301.641,62.738z"/>
+		<path fill="#8792A4" d="M332.353,71.07c-0.587-0.586-1.538-0.586-2.123,0l-10.129,10.127c-0.587,0.587-0.587,1.537,0,2.123
+			s1.535,0.586,2.12,0l10.131-10.127C332.938,72.607,332.939,71.655,332.353,71.07z"/>
+	</g>
+	<path fill="#8792A4" d="M307.176,109.486c-1.363,0-2.466-1.103-2.466-2.464l0,0c0-1.361,1.103-2.466,2.466-2.466h33.751
+		c1.363,0,2.465,1.104,2.465,2.466l0,0c0,1.36-1.102,2.464-2.465,2.464H307.176z"/>
+</g>
+</svg>
