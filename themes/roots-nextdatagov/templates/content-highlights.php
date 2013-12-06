@@ -45,10 +45,11 @@ if (($highlight_posts->have_posts())):
     </div><!--/.highlight-->
 <?php endwhile; ?>
 
+</div><!--/.container-->
+</section><!--/.wrap-lightblue-->
+
 <?php
 endif;
 wp_reset_postdata();    
 ?>
 
-</div><!--/.container-->
-</section><!--/.wrap-lightblue-->
