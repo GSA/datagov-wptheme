@@ -29,7 +29,7 @@ margin-bottom : 0;
 .navbar-brand {
     background: url("../img/logo.png") no-repeat scroll center center transparent;
     background-size : contain;
-    background-position : 0 48px;
+    background-position : 0 60px;
     height: 100px;
     margin-right: 15px;
     overflow: hidden;
@@ -38,7 +38,9 @@ margin-bottom : 0;
 }
 
 .svg .navbar-brand {    
-    background: url("../img/logo.svg") no-repeat scroll 0px 50px / contain  transparent;    
+    background: url("../img/logo.svg") no-repeat scroll;   
+    background-position : 0 60px;     
+    background-size : contain;
 }
 
 .navbar-default {
@@ -47,7 +49,7 @@ margin-bottom : 0;
 
 .banner { }
 
-
+     
 .header.banner, 
 .intro.banner {
 background-color : #F8F8F8;
@@ -55,7 +57,14 @@ background-color : #F8F8F8;
 
 .frontpage-search {
     padding : 2em 0;
-    border-bottom : 1px solid #E7E7E7;
+}
+
+.header.banner, .frontpage-search, .subnav.banner {
+     border-bottom: 1px solid #E7E7E7;
+}
+
+footer.content-info {
+     border-top: 1px solid #E7E7E7;
 }
 
 
@@ -283,6 +292,10 @@ div.frontpage-search {
 /* ==========================================================================
    Search
    ========================================================================== */
+
+.search-submit.btn {
+    font-size : @font-size-base - 1px;
+}
 
 
 div.frontpage-search {
