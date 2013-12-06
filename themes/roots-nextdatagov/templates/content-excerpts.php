@@ -17,15 +17,14 @@ $args = array(
                 	                'field' => 'slug',
                 	                'terms' => array( 'post-format-link', 'post-format-status', 'post-format-gallery', 'post-format-image' ),
                 	                'operator' => 'NOT IN'
-                	                )
-                                ),               
-                'meta_query' => array(
+                	                ),
                                     array(
-                                    'key' => 'featured_datagov',
-                                    'value' => 'Yes',
-                                    'operator' => '=='
-                                    )
-                                ),                 
+                	                'taxonomy' => 'featured',
+                	                'field' => 'slug',
+                	                'terms' => array( 'highlights'),
+                	                'operator' => 'NOT IN'
+                	                )                	                
+                                ),                                                                             
                 'posts_per_page' => 3 );
 
 $new_query = new WP_Query($args);
@@ -66,15 +65,14 @@ $args = array(
                 	                'taxonomy' => 'post_format',
                 	                'field' => 'slug',
                 	                'terms' => array( 'post-format-status'),
-                	                )
-                                ),               
-                'meta_query' => array(
+                	                ),
                                     array(
-                                    'key' => 'featured_datagov',
-                                    'value' => 'Yes',
-                                    'operator' => '=='
-                                    )
-                                ),                 
+                	                'taxonomy' => 'featured',
+                	                'field' => 'slug',
+                	                'terms' => array( 'highlights'),
+                	                'operator' => 'NOT IN'
+                	                )
+                                ),                
                 'posts_per_page' => 3 );
 
 $new_query = new WP_Query($args);
