@@ -76,12 +76,18 @@ footer.content-info {
    Navigation
    ========================================================================== */
 
-.searchbox-row {
+body .searchbox-row.skip-navigation {
    height : 3em;
 }
 
-.home .searchbox-row.skip-navigation {
-    .sr-only();    
+body.home .searchbox-row.skip-navigation {
+    
+    height : 0;
+    
+    @media (min-width: @screen-sm) {
+        height : 3em;        
+    }  
+    
 }
 
 .skip-link {
