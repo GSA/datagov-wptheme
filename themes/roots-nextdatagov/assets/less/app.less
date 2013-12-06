@@ -22,23 +22,29 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
    Header
    ========================================================================== */
 
-.navbar {
-margin-bottom : 0;
-}
-
-.navbar-brand {
+.navbar-brand {    
     background: url("../img/logo.png") no-repeat scroll center center transparent;
     background-size : contain;
-    background-position : 0 48px;
-    height: 100px;
-    margin-right: 15px;
+    width: 200px;    
+    margin-left : 15px;
+
     overflow: hidden;
-    text-indent: -9999em;
-    width: 150px;  
+    text-indent: -9999em; 
+ 
 }
 
+
 .svg .navbar-brand {    
-    background: url("../img/logo.svg") no-repeat scroll 0px 50px / contain  transparent;    
+    background: url("../img/logo.svg") no-repeat scroll;   
+    background-size : contain;
+}
+
+body.home .navbar.nav ul#menu-primary-navigation {
+    margin-top : 5px;
+}
+
+.navbar {
+margin-bottom : 0;
 }
 
 .navbar-default {
@@ -47,7 +53,7 @@ margin-bottom : 0;
 
 .banner { }
 
-
+     
 .header.banner, 
 .intro.banner {
 background-color : #F8F8F8;
@@ -55,13 +61,40 @@ background-color : #F8F8F8;
 
 .frontpage-search {
     padding : 2em 0;
-    border-bottom : 1px solid #E7E7E7;
+}
+
+.header.banner, .frontpage-search, .subnav.banner {
+     border-bottom: 1px solid #E7E7E7;
+}
+
+footer.content-info {
+     border-top: 1px solid #E7E7E7;
 }
 
 
 /* ==========================================================================
    Navigation
    ========================================================================== */
+
+body .searchbox-row.skip-navigation {
+   height : 3em;
+}
+
+body.home .searchbox-row.skip-navigation {
+    
+    height : 0;
+    
+    @media (min-width: @screen-sm) {
+        height : 3em;        
+    }  
+    
+}
+
+.skip-link {
+    .sr-only();  
+}
+
+
 
 
 ul#menu-primary-navigation li, 
@@ -87,15 +120,8 @@ padding : 15px 10px;
 color : #000;
 }
 
-.navbar-row {
-    padding-top : 10px;
-    clear : right;
-}
 
 
-body.home .navbar-row {
-    padding-top : 45px;
-}
 
 /* ==========================================================================
    Topic Browse
@@ -114,33 +140,46 @@ body.home .navbar-row {
              list-style-type: none;
              display : inline-block;
 
-             a {
-                 
+             a {                 
                  display: inline-block;
-                 margin: 0px 20px 15px 0px;                 
-                 
+                 margin: 0px 20px 15px 0px;  
+                 outline : 0;               
              }
-
 
              a i {
 
                       background-position: center center !important;
                       display: inline-block;
-                      height: 120px;
+                      height: 130px;
+                      width: 130px;                      
                       line-height: 15px;
                       overflow: hidden;
                       padding-top: 90px;
                       text-align: center;
-                      width: 130px;
                       clear : both;                           
                 }
                 
             a span {
                 display: block;
                 width: 130px;
-                word-wrap:break-word;
-                
+                word-wrap:break-word;                
             } 
+            
+            a:hover, a:hover span {
+                text-decoration : none !important;
+            }
+            
+            a:hover i, a:focus i {
+                background-color: #EFEFEF !important;
+                border-radius: 50%;            
+         	-webkit-transition: background-color 0.4s ease-in-out;
+         	-moz-transition: background-color 0.4s ease-in-out;
+         	-ms-transition: background-color 0.4s ease-in-out;
+         	-o-transition: background-color 0.4s ease-in-out;
+         	transition: background-color 0.4s ease-in-out;               
+             }  
+  
+            
         }        
          
        
@@ -283,6 +322,10 @@ div.frontpage-search {
 /* ==========================================================================
    Search
    ========================================================================== */
+
+.search-submit.btn {
+    font-size : @font-size-base - 1px;
+}
 
 
 div.frontpage-search {
