@@ -68,12 +68,11 @@ $items = array_slice($feed->items, 0, 3); // specify first and last item
 <span style="text-transform:uppercase;font-size:15px;">
 Engage the Data.gov on twitter or find the account for a specific<br/> <a href="">community or agency.</a></span>
 <div  class="separator"></div>
-[twitter-widget username="usdatagov" before_widget="
+    <?php echo do_shortcode( '[twitter-widget username="usdatagov" before_widget="
 <div class="half-box">" after_widget="</div>
 " before_title="
 <h1>" after_title="</h1>
-" errmsg="Uh oh!" hiderss="true" hidereplies="true" targetBlank="true" avatar="1" showXavisysLink="1" items="4" showts="60" title="Recent Tweets"]
-</div>
+" errmsg="Uh oh!" hiderss="true" hidereplies="true" targetBlank="true" avatar="1" showXavisysLink="1" items="4" showts="60" title="Recent Tweets"]' ) ?>
 
 </div>
 </div>
