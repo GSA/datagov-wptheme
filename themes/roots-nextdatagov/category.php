@@ -99,13 +99,10 @@ $category_intro = new WP_Query($args);
 <?php get_template_part('templates/content','highlights'); ?>
 
 
-
-<div class="container">
-
-<h1>News</h1>
 <?php endif; ?>
 
-
+<div class="container">
+<h1>News</h1>
 
 <?php
 
