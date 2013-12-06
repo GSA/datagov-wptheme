@@ -35,7 +35,10 @@ if (($highlight_posts->have_posts())):
 <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
     <div class="highlight <?php get_category_by_slug( $slug ) ?>">
         <header>
-            <h5 class="category"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></h5>
+            <?php if(!is_category()): ?>
+                <h5 class="category"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></h5>
+            <?php endif; ?>
+            
             <h2 class="entry-title"><?php the_title(); ?></h2>
         </header>
 		<?php the_content(); ?>                  
