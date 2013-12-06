@@ -1,3 +1,109 @@
 /* ==========================================================================
    Add REI styles here. Please include a heading for each section like this
    ========================================================================== */
+
+/* ==========================================================================
+   Styles Below are for Apps and challenges pages
+   ========================================================================== */
+.Apps-wrapper {
+    margin-bottom: 20px;
+    position:relative;
+}
+.Apps-post {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px 1px #DADADA;
+
+    padding: 20px 20px ;
+}
+.Apps-post p {
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:15px;
+}
+.Appstitle {
+    font-family: 'Abel', Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+    padding-bottom:15px;
+    padding-top:15px;
+    padding-left:20px;
+    padding-right:20px;
+}
+.Mobile-post {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px 1px #DADADA;
+
+    padding: 10px 10px 0;
+}
+.Mobile-post p {
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:15px;
+}
+.Mobile-post .appscontainer {
+    margin-top: 20px;
+    position:relative;
+
+}
+.Mobile-post .appscontainer .appsitem {
+    margin-top: 5px;
+    margin-bottom:5px;
+    margin-left:20px;
+
+    width:200px;
+    background-color:#F2F2F2;
+    float:left;
+}
+#itemtitle {
+    text-align:center;
+    font-weight:bold;
+    font-size:20px;
+    color:#009900;
+    padding-top:20px;
+    padding-bottom:5px;
+}
+#itemtitle  a {
+    font-weight:bold;
+    font-size:20px;
+    color:#444444;
+}
+
+#itemimage {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+#itemcontent {
+
+    font-size:15px;
+    color:#333333;
+    padding-left:5px;
+    padding-right:5px;
+
+}
+#bottomimages {
+    margin-bottom:10px;
+}
+#centerimages {
+    margin-bottom:20px;
+}
+.webcontainer {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+#webimage {
+    height:60px;
+    width:80px;
+    float:left;
+    margin-left:20px;
+}
+#webcontent {
+    width:750px;
+    float:left;
+    margin-left:20px;
+}
+#webcontent h2 a{color:#333333;}
+#webcontent #webtext {
+    font-weight:bold;
+    font-size:12px;
+}
+#webtext p{padding-left:0;}
