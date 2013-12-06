@@ -69,12 +69,12 @@ ul#menu-primary-navigation li,
 
 ul.navbar-nav#menu-primary-navigation.nav > li > a {
     padding : 15px 10px;
-    color : #000; 
+    color : #333; 
 }
 
 .navbar-default ul.social-nav.navbar-nav > li > a {
 font-size : 18px;
-color : #6BACDA;
+color : #F0F0F0;
 padding : 15px 10px;
 }
 
@@ -372,22 +372,26 @@ div.frontpage-search {
 
 .home .jumbotron {
     margin-bottom: 0;
-
-    h1 {
-      font-size: (@font-size-base * 2.5);
-    }
+    padding-bottom: (@line-height-computed * 1.2);
 }
+
+.home .jumbotron h1 {
+      font-size: (@font-size-base * 2.4);
+}
+
 
 .home .page-header {
     padding-bottom: 0;
     margin: (@line-height-computed * 2) 0 0;
     border-bottom: none;
+}
 
-     h1 {
+
+.home .page-header h1 {
       font-size: (@font-size-base * 1.1);
       text-transform: uppercase;
      }
-}
+
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }

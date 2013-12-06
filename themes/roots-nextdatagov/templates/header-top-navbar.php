@@ -46,7 +46,7 @@
 
 <div class="header banner frontpage-search">
     <div class="container">
-<div class="col-md-10 col-md-offset-1 text-center getstarted"><h4>GET STARTED<br><small>SEARCH &gt; 90,000 DATASETS</small><br><i class="fa fa-caret-down"></i></h4></div>        <?php get_search_form(); ?>
+<div class="text-center getstarted"><h4>GET STARTED<br><small>SEARCH &gt; 90,000 DATASETS</small><br><i class="fa fa-caret-down"></i></h4></div>        <?php get_search_form(); ?>
     </div>
 </div>
 <?php endif; ?>
