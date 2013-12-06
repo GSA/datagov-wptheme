@@ -49,7 +49,7 @@
 
 <div class="header banner frontpage-search">
     <div class="container">
-      <div class="text-center getstarted"><h4>GET STARTED<br><small>SEARCH &gt; 90,000 DATASETS</small><br /><i class="fa fa-caret-down"></i></h4></div>
+      <div class="text-center getstarted"><h4>Get Started<br><small>Search over 85,000 datasets</small><br /><i class="fa fa-caret-down"></i></h4></div>
       <?php get_search_form(); ?>
     </div><!--/.container-->
 </div>

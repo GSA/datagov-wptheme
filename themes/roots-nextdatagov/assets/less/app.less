@@ -453,8 +453,7 @@ div.frontpage-search {
      
 .header.banner .page-header h1 {
     border : 0;
-}
-    
+}   
 
 .more-link {
     text-align : center;
@@ -463,6 +462,19 @@ div.frontpage-search {
         text-align : center;
         margin : 3em 0 1.5em 0;
     }
+}
+
+.category {
+/*  border-bottom: 1px solid @gray-lighter;*/
+  text-transform: uppercase;
+}
+
+.updates, .highlights {
+  h2 { margin-top: 0}
+}
+
+.updates article, .highlights article {
+  margin-bottom: (@line-height-computed * 2)
 }
 
 /* ==========================================================================
@@ -478,6 +490,7 @@ padding-bottom : 2em;
 
 /* This may need to be refactored */
 .getstarted {
+    text-transform: uppercase;        
   .fa-caret-down { font-size: (@font-size-base * 2.1) }
   h4 { margin-top: 0; }
 }
@@ -506,12 +519,16 @@ padding-bottom : 2em;
    Footer
    ========================================================================== */
 
-.content-info { 
 
+.footer-logo {
+margin-top : 3em;
+}
+
+
+.content-info { 
 background-color : #efefef;
 padding : 3em 0;
 }
-
 
 .social-nav .nav li a span {
 display : inline-block;
