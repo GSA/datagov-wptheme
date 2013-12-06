@@ -17,26 +17,25 @@ $args = array(
                 	                'field' => 'slug',
                 	                'terms' => array( 'post-format-link', 'post-format-status', 'post-format-gallery', 'post-format-image' ),
                 	                'operator' => 'NOT IN'
-                	                )
-                                ),               
-                'meta_query' => array(
+                	                ),
                                     array(
-                                    'key' => 'featured_datagov',
-                                    'value' => 'Yes',
-                                    'operator' => '=='
-                                    )
-                                ),                 
+                	                'taxonomy' => 'featured',
+                	                'field' => 'slug',
+                	                'terms' => array( 'highlights'),
+                	                'operator' => 'NOT IN'
+                	                )                	                
+                                ),                                                                             
                 'posts_per_page' => 3 );
 
 $new_query = new WP_Query($args);
 
 ?>
 
-
 <?php while ($new_query->have_posts()) : $new_query->the_post(); ?>
 
 <article <?php post_class(); ?>>
   <header>
+    <h5 class="category"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></h5>
     <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     <?php get_template_part('templates/entry-meta'); ?>
   </header>
@@ -48,15 +47,11 @@ $new_query = new WP_Query($args);
 <?php endwhile; ?>
 
 <?php
-wp_reset_postdata();    
+wp_reset_postdata();
 ?>
-
-
-
 
 <?php
 //'terms' => array( 'post-format-link', 'post-format-status', 'post-format-gallery', 'post-format-image' ),
-
 
 $args = array( 
                 'post_type' => 'post',
@@ -66,26 +61,24 @@ $args = array(
                 	                'taxonomy' => 'post_format',
                 	                'field' => 'slug',
                 	                'terms' => array( 'post-format-status'),
-                	                )
-                                ),               
-                'meta_query' => array(
+                	                ),
                                     array(
-                                    'key' => 'featured_datagov',
-                                    'value' => 'Yes',
-                                    'operator' => '=='
-                                    )
-                                ),                 
+                	                'taxonomy' => 'featured',
+                	                'field' => 'slug',
+                	                'terms' => array( 'highlights'),
+                	                'operator' => 'NOT IN'
+                	                )
+                                ),                
                 'posts_per_page' => 3 );
 
 $new_query = new WP_Query($args);
 
 ?>
 
-
-
 <?php while ($new_query->have_posts()) : $new_query->the_post(); ?>
 
 <article <?php post_class(); ?>>
+
     <div class="author-details">
         <?php the_field('persons_name'); ?> - <a href="<?php the_field('link_to_tweet'); ?>">@<?php the_field('twitter_handle'); ?></a>
     </div>

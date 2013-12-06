@@ -9,8 +9,12 @@
    ========================================================================== */
 
 body {
-background: #fff;
+background: #efefef;
 font-family: 'Lato', Arial, sans-serif;
+}
+
+main.main {
+background-color : #fff;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -22,19 +26,29 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
    Header
    ========================================================================== */
 
-.navbar {
-margin-bottom : 0;
-}
-
-.navbar-brand {
+.navbar-brand {    
     background: url("../img/logo.png") no-repeat scroll center center transparent;
     background-size : contain;
-    background-position : 0 48px;
-    height: 80px;
-    margin-right: 15px;
+    width: 200px;    
+    margin-left : 15px;
+
     overflow: hidden;
-    text-indent: -9999em;
-    width: 150px;    
+    text-indent: -9999em; 
+ 
+}
+
+
+.svg .navbar-brand {    
+    background: url("../img/logo.svg") no-repeat scroll;   
+    background-size : contain;
+}
+
+body.home .navbar.nav ul#menu-primary-navigation {
+    margin-top : 5px;
+}
+
+.navbar {
+margin-bottom : 0;
 }
 
 .navbar-default {
@@ -43,21 +57,56 @@ margin-bottom : 0;
 
 .banner { }
 
-
+     
 .header.banner, 
-.intro.banner {
+body.category .intro {
 background-color : #F8F8F8;
+}
+
+
+.category .intro .container {
+padding-top : 1.5em;
+padding-bottom : 1.5em;
+line-height : 2em;
+font-size : 1.25em;
 }
 
 .frontpage-search {
     padding : 2em 0;
-    border-bottom : 1px solid #E7E7E7;
+}
+
+.header.banner, .frontpage-search, .subnav.banner {
+     border-bottom: 1px solid #E7E7E7;
+}
+
+footer.content-info {
+     border-top: 1px solid #E7E7E7;
 }
 
 
 /* ==========================================================================
    Navigation
    ========================================================================== */
+
+body .searchbox-row.skip-navigation {
+   height : 3em;
+}
+
+body.home .searchbox-row.skip-navigation {
+    
+    height : 0;
+    
+    @media (min-width: @screen-sm) {
+        height : 3em;        
+    }  
+    
+}
+
+.skip-link {
+    .sr-only();  
+}
+
+
 
 
 ul#menu-primary-navigation li, 
@@ -70,7 +119,7 @@ ul#menu-primary-navigation li,
 
 ul.navbar-nav#menu-primary-navigation.nav > li > a {
     padding : 15px 10px;
-    color : #000; 
+    color : #333; 
 }
 
 .navbar-default ul.social-nav.navbar-nav > li > a {
@@ -83,15 +132,8 @@ padding : 15px 10px;
 color : #000;
 }
 
-.navbar-row {
-    padding-top : 10px;
-    clear : right;
-}
 
 
-body.home .navbar-row {
-    padding-top : 45px;
-}
 
 /* ==========================================================================
    Topic Browse
@@ -110,33 +152,46 @@ body.home .navbar-row {
              list-style-type: none;
              display : inline-block;
 
-             a {
-                 
+             a {                 
                  display: inline-block;
-                 margin: 0px 20px 15px 0px;                 
-                 
+                 margin: 0px 20px 15px 0px;  
+                 outline : 0;               
              }
-
 
              a i {
 
                       background-position: center center !important;
                       display: inline-block;
-                      height: 120px;
+                      height: 130px;
+                      width: 130px;                      
                       line-height: 15px;
                       overflow: hidden;
                       padding-top: 90px;
                       text-align: center;
-                      width: 130px;
                       clear : both;                           
                 }
                 
             a span {
                 display: block;
                 width: 130px;
-                word-wrap:break-word;
-                
+                word-wrap:break-word;                
             } 
+            
+            a:hover, a:hover span {
+                text-decoration : none !important;
+            }
+            
+            a:hover i, a:focus i {
+                background-color: #EFEFEF !important;
+                border-radius: 50%;            
+         	-webkit-transition: background-color 0.4s ease-in-out;
+         	-moz-transition: background-color 0.4s ease-in-out;
+         	-ms-transition: background-color 0.4s ease-in-out;
+         	-o-transition: background-color 0.4s ease-in-out;
+         	transition: background-color 0.4s ease-in-out;               
+             }  
+  
+            
         }        
          
        
@@ -280,6 +335,10 @@ div.frontpage-search {
    Search
    ========================================================================== */
 
+.search-submit.btn {
+    font-size : @font-size-base - 1px;
+}
+
 
 div.frontpage-search {
     
@@ -347,6 +406,10 @@ div.frontpage-search {
         
 }
 
+.intro.banner .container {
+    padding : 2em 0;
+}
+
 
 /* ==========================================================================
    Content
@@ -356,30 +419,80 @@ div.frontpage-search {
 
 }
 
+
+/* ==========================================================================
+   Primary Content
+   ========================================================================== */
+
+.main { }
+
+
 .wrap-lightblue {
     background-color: @blue-lightblue;
+    padding-bottom : 2em;
     a {
       color: #ffffff;
+    }
+    
+    .page-header h1 {
+        color : #fff;
+        border-bottom : 1px solid #98C7D8;
+        
     }
 }
 
 .home .jumbotron {
     margin-bottom: 0;
+    padding-bottom: (@line-height-computed * 1.2);
+    padding-top : 1em;
+}
 
-    h1 {
-      font-size: (@font-size-base * 2.5);
+.home .jumbotron h1 {
+      font-size: (@font-size-base * 2.4);
+}
+
+.page-header {
+    padding-bottom: 0;
+    margin: (@line-height-computed * 2) 0 @line-height-computed;
+    border-bottom: none;
+}
+
+.page-header h1 {
+      font-size: (@font-size-base * 1.1);
+      text-transform: uppercase;
+      border-bottom : 1px solid #E2E2E2;
+      padding-bottom : .2em;
+     }
+     
+.header.banner .page-header h1 {
+    border : 0;
+}   
+
+.more-link {
+    text-align : center;
+    h5 {
+        text-transform: uppercase;    
+        text-align : center;
+        margin : 3em 0 1.5em 0;
     }
 }
 
-.home .page-header {
-    padding-bottom: ((@line-height-computed / 20) - 1);
-    margin: (@line-height-computed * 2) 0 @line-height-computed;
-    border-bottom: none;
+.updates h5.category {
+  text-transform: uppercase;
+}
 
-     h1 {
-      font-size: (@font-size-base * 1.1);
-      text-transform: uppercase;
-     }
+.updates, #highlights {    
+    h2 { 
+        margin-top: 0;
+    }  
+}
+
+#highlights {
+    color : #fff;
+}
+
+.updates article, #highlights article {
+  margin-bottom: (@line-height-computed * 2)
 }
 
 /* ==========================================================================
@@ -387,22 +500,17 @@ div.frontpage-search {
    ========================================================================== */
 
 .main { 
-    
-
 padding-bottom : 2em;
-    
 }
-
-.jumbotron .fa-caret-down { font-size: (@font-size-base * 2.8) }
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
 
 /* This may need to be refactored */
-.getstarted p {
-line-height: (@line-height-computed * 0.8);
-margin-bottom: -(@line-height-computed * 0.8);
-margin-top: 14px;
+.getstarted {
+    text-transform: uppercase;        
+  .fa-caret-down { font-size: (@font-size-base * 2.1) }
+  h4 { margin-top: 0; }
 }
 
 /* ==========================================================================
@@ -429,12 +537,17 @@ margin-top: 14px;
    Footer
    ========================================================================== */
 
-.content-info { 
+.footer-logo a {
+    width : 100%;
+    clear : both;
+    margin : 2em 0 2em 0
+}
 
+
+.content-info { 
 background-color : #efefef;
 padding : 3em 0;
 }
-
 
 .social-nav .nav li a span {
 display : inline-block;

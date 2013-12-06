@@ -44,7 +44,7 @@ if($subnav OR $subnav_extra):
         
         <?php endif; ?>
 
-        <?php if($subnav): ?>
+        <?php if($subnav_extra): ?>
 
            <nav class="topic-subnav" role="navigation">
                <ul class="nav navbar-nav">         
@@ -87,9 +87,8 @@ $category_intro = new WP_Query($args);
 
 
 <?php while ($category_intro->have_posts()) : $category_intro->the_post(); ?>
-<div class="intro banner">
+<div class="intro">
     <div class="container">
-        <h1>Intro Text</h1>
         <?php the_content(); ?>      
     </div>
 </div>    
@@ -100,13 +99,10 @@ $category_intro = new WP_Query($args);
 <?php get_template_part('templates/content','highlights'); ?>
 
 
-
-<div class="container">
-
-<h1>News</h1>
 <?php endif; ?>
 
-
+<div class="container">
+<h1>News</h1>
 
 <?php
 
@@ -114,19 +110,14 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 0;
 $args = array(
                 'post_type' => 'post',
                 'cat' => get_query_var('cat'),
-                'meta_query' => array(
-                                     'relation' => 'OR',
-                                    array(
-                                    'key' => 'highlight',
-                                    'value' => 'Yes',
-                                    'compare' => '!='
-                                    ),
-                                    array(
-                                    'key' => 'highlight',
-                                    'value' => 'Yes',
-                                    'compare' => 'NOT EXISTS'
-                                    )
-                                ),                
+                'tax_query' => array(
+                	                array(
+                	                'taxonomy' => 'featured',
+                	                'field' => 'slug',
+                	                'terms' => array( 'highlights'),
+                	                'operator' => 'NOT IN'
+                	                )                	                
+                                ),               
                 'paged' => $paged,                 
                 'posts_per_page' => 5 );
 
