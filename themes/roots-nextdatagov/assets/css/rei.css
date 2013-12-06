@@ -989,3 +989,4 @@ a.faq-top {
     display: inline-block !important;
     margin: 0 5px;
 }
+#comments .alert.alert-warning{display:none;}
