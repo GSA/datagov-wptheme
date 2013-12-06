@@ -22,25 +22,33 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
    Header
    ========================================================================== */
 
-.navbar {
-margin-bottom : 0;
-}
-
 .navbar-brand {
+    
+    height: 50px;   
+    background-position : 0 5px !important;
+    margin-left : 10px;  
+
     background: url("../img/logo.png") no-repeat scroll center center transparent;
     background-size : contain;
-    background-position : 0 60px;
-    height: 100px;
     margin-right: 15px;
     overflow: hidden;
     text-indent: -9999em;
-    width: 150px;  
+    width: 200px;    
+
+    @media (min-width: @screen-sm) {         
+        height: 105px;
+        background-position : 0 48px !important;        
+    }  
 }
+
 
 .svg .navbar-brand {    
     background: url("../img/logo.svg") no-repeat scroll;   
-    background-position : 0 60px;     
     background-size : contain;
+}
+
+.navbar {
+margin-bottom : 0;
 }
 
 .navbar-default {
