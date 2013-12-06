@@ -12,18 +12,18 @@ $cat_slug = $category[0]->slug;
 <script type="text/javascript">
 
 
-	$(document).ready(function(){
+    jQuery(document).ready(function(){
  
-   if ($(window).width() < 480) {
-	     $('.bxslider').bxSlider({
+   if (jQuery(window).width() < 480) {
+       jQuery('.bxslider').bxSlider({
 	  minSlides: 1,
   maxSlides: 1,
   slideWidth: 220,
   slideMargin: 10
   });
    }
-   else{ 
-   $('.bxslider').bxSlider({
+   else{
+       jQuery('.bxslider').bxSlider({
 	    minSlides: 3,
   		maxSlides: 4,
   		slideWidth: 220,
