@@ -87,7 +87,7 @@ $category_intro = new WP_Query($args);
 
 
 <?php while ($category_intro->have_posts()) : $category_intro->the_post(); ?>
-<div class="intro banner">
+<div class="intro">
     <div class="container">
         <?php the_content(); ?>      
     </div>

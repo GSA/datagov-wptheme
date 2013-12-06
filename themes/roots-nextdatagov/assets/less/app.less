@@ -59,8 +59,16 @@ margin-bottom : 0;
 
      
 .header.banner, 
-.intro.banner {
+body.category .intro {
 background-color : #F8F8F8;
+}
+
+
+.category .intro .container {
+padding-top : 1.5em;
+padding-bottom : 1.5em;
+line-height : 2em;
+font-size : 1.25em;
 }
 
 .frontpage-search {
@@ -436,6 +444,7 @@ div.frontpage-search {
 .home .jumbotron {
     margin-bottom: 0;
     padding-bottom: (@line-height-computed * 1.2);
+    padding-top : 1em;
 }
 
 .home .jumbotron h1 {
@@ -472,11 +481,17 @@ div.frontpage-search {
   text-transform: uppercase;
 }
 
-.updates, .highlights {
-  h2 { margin-top: 0}
+.updates, #highlights {    
+    h2 { 
+        margin-top: 0;
+    }  
 }
 
-.updates article, .highlights article {
+#highlights {
+    color : #fff;
+}
+
+.updates article, #highlights article {
   margin-bottom: (@line-height-computed * 2)
 }
 
