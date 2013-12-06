@@ -355,6 +355,14 @@ div.frontpage-search {
 
 }
 
+
+/* ==========================================================================
+   Primary Content
+   ========================================================================== */
+
+.main { }
+
+
 .wrap-lightblue {
     background-color: @blue-lightblue;
     a {
@@ -371,8 +379,8 @@ div.frontpage-search {
 }
 
 .home .page-header {
-    padding-bottom: ((@line-height-computed / 20) - 1);
-    margin: (@line-height-computed * 2) 0 @line-height-computed;
+    padding-bottom: 0;
+    margin: (@line-height-computed * 2) 0 0;
     border-bottom: none;
 
      h1 {
@@ -381,22 +389,13 @@ div.frontpage-search {
      }
 }
 
-/* ==========================================================================
-   Primary Content
-   ========================================================================== */
-
-.main { }
-
-.jumbotron .fa-caret-down { font-size: (@font-size-base * 2.8) }
-
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
 
 /* This may need to be refactored */
-.getstarted p {
-line-height: (@line-height-computed * 0.8);
-margin-bottom: -(@line-height-computed * 0.8);
-margin-top: 14px;
+.getstarted {
+  line-height: (@line-height-computed);
+  .fa-caret-down { font-size: (@font-size-base * 3.0) }
 }
 
 /* ==========================================================================
