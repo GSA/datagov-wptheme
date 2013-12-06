@@ -37,11 +37,8 @@
 
 <div class="jumbotron">
   <div class="container">
-    <div class="col-md-8 col-md-offset-2 center"><?php the_content(); ?></div>
-    <div class="col-md-8 center col-md-offset-2">
-          <p>GET STARTED<br>
-          <i class="fa fa-caret-down"></i></p>
-    </div>
+    <div class="col-md-10 col-md-offset-1 text-center"><?php the_content(); ?></div>
+    <div class="col-md-10 col-md-offset-1 text-center getstarted"><p>GET STARTED<br><i class="fa fa-caret-down"></i></p></div>
   </div><!--/.container-->
 </div><!--/.jumbotron-->
 
