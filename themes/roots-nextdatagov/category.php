@@ -44,7 +44,7 @@ if($subnav OR $subnav_extra):
         
         <?php endif; ?>
 
-        <?php if($subnav): ?>
+        <?php if($subnav_extra): ?>
 
            <nav class="topic-subnav" role="navigation">
                <ul class="nav navbar-nav">         
