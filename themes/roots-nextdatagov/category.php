@@ -89,7 +89,6 @@ $category_intro = new WP_Query($args);
 <?php while ($category_intro->have_posts()) : $category_intro->the_post(); ?>
 <div class="intro banner">
     <div class="container">
-        <h1>Intro Text</h1>
         <?php the_content(); ?>      
     </div>
 </div>    
@@ -100,13 +99,10 @@ $category_intro = new WP_Query($args);
 <?php get_template_part('templates/content','highlights'); ?>
 
 
-
-<div class="container">
-
-<h1>News</h1>
 <?php endif; ?>
 
-
+<div class="container">
+<h1>News</h1>
 
 <?php
 

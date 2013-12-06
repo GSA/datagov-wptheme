@@ -23,56 +23,24 @@ if (is_category()) $args['cat'] = get_query_var('cat');
          
 $highlight_posts = new WP_Query($args);
 
+if (($highlight_posts->have_posts())):
 ?>
 
-<section class="wrap wrap-lightblue">
+<section id="highlights" class="wrap wrap-lightblue">
 <div class="container">
-
-<?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
-
     <div class="page-header">
       <h1>Highlights</h1>
     </div>
-    <div class="highlight">
-        <h2 class="entry-title"><?php the_title(); ?></h2>
-    	<div class="col-md-8">
+
+<?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
+    <div class="highlight <?php get_category_by_slug( $slug ) ?>">
+        <h2 class="entry-title"><?php the_title(); ?></h2></div>
     		<?php the_content(); ?>                  
-    	</div>
-    	<div class="col-md-4">
-    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra metus vitae iaculis mattis. Nam gravida dictum dui, sit amet congue odio pulvinar in. Quisque vitae dictum elit. In non leo quis tellus</p>
-    		<button>Button One</button>
-    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra metus vitae iaculis mattis. Nam gravida dictum dui, sit amet congue odio pulvinar in. Quisque vitae dictum elit. In non leo quis tellus</p>
-    		<button>Button Two</button>
-    	</div>
     </div><!--/.highlight-->
-
-    <div class="highlight">
-        <h2 class="entry-title"><?php the_title(); ?></h2>
-        <div class="col-md-8">
-            <?php the_content(); ?>                  
-        </div>
-        <div class="col-md-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra metus vitae iaculis mattis. Nam gravida dictum dui, sit amet congue odio pulvinar in. Quisque vitae dictum elit. In non leo quis tellus</p>
-            <div class="btn">Button One</div>
-        </div>
-    </div><!--/.highlight-->
-
-    <div class="highlight">
-        <h2 class="entry-title"><?php the_title(); ?></h2>
-        <div class="col-md-8">
-            <?php the_content(); ?>                  
-        </div>
-        <div class="col-md-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra metus vitae iaculis mattis. Nam gravida dictum dui, sit amet congue odio pulvinar in. Quisque vitae dictum elit. In non leo quis tellus</p>
-            <button>Button One</button>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra metus vitae iaculis mattis. Nam gravida dictum dui, sit amet congue odio pulvinar in. Quisque vitae dictum elit. In non leo quis tellus</p>
-            <button>Button Two</button>
-        </div>
-    </div><!--/.highlight-->
-
 <?php endwhile; ?>
 
 <?php
+endif;
 wp_reset_postdata();    
 ?>
 
