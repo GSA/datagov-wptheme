@@ -59,7 +59,6 @@ if($subnav OR $subnav_extra):
 <?php endif; ?>
 
 
-<div class="wrap container">
 
 <?php if (get_query_var('paged') < 1): ?>
 
@@ -85,13 +84,24 @@ $category_intro = new WP_Query($args);
 
 ?>
 
+
+
 <?php while ($category_intro->have_posts()) : $category_intro->the_post(); ?>
-    <h1>Intro Text</h1>
-    <?php the_content(); ?>      
+<div class="intro banner">
+    <div class="container">
+        <h1>Intro Text</h1>
+        <?php the_content(); ?>      
+    </div>
+</div>    
 <?php endwhile; ?>
 
 
+
 <?php get_template_part('templates/content','highlights'); ?>
+
+
+
+<div class="container">
 
 <h1>News</h1>
 <?php endif; ?>

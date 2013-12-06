@@ -44,7 +44,8 @@ margin-bottom : 0;
 .banner { }
 
 
-.header.banner {
+.header.banner, 
+.intro.banner {
 background-color : #F8F8F8;
 }
 
@@ -356,7 +357,7 @@ div.frontpage-search {
 }
 
 .wrap-lightblue {
-    background-color: #60A1D3;
+    background-color: @blue-lightblue;
     a {
       color: #ffffff;
     }
@@ -366,11 +367,11 @@ div.frontpage-search {
     margin-bottom: 0;
 
     h1 {
-      font-size: (@font-size-base * 2.1);
+      font-size: (@font-size-base * 2.5);
     }
 }
 
-.page-header {
+.home .page-header {
     padding-bottom: ((@line-height-computed / 20) - 1);
     margin: (@line-height-computed * 2) 0 @line-height-computed;
     border-bottom: none;
@@ -385,16 +386,24 @@ div.frontpage-search {
    Primary Content
    ========================================================================== */
 
-.main { }
+.main { 
+    
 
-.center {
-  p, h1, h2, h3, h4, h5 { text-align:center }
+padding-bottom : 2em;
+    
 }
 
 .jumbotron .fa-caret-down { font-size: (@font-size-base * 2.8) }
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
+
+/* This may need to be refactored */
+.getstarted p {
+line-height: (@line-height-computed * 0.8);
+margin-bottom: -(@line-height-computed * 0.8);
+margin-top: 14px;
+}
 
 /* ==========================================================================
    Sidebar
@@ -423,9 +432,18 @@ div.frontpage-search {
 .content-info { 
 
 background-color : #efefef;
-    
+padding : 3em 0;
 }
 
+
+.social-nav .nav li a span {
+display : inline-block;
+padding-left : 1em;
+}
+
+.social-nav .nav li a i {
+font-size : 2em;
+}
 
 
 /* ==========================================================================
