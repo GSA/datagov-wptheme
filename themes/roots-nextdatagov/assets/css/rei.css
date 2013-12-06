@@ -1,863 +1,122 @@
 /* ==========================================================================
-   Add REI styles here. Please include a heading for each section like this
+   Styles for contact-us
    ========================================================================== */
+#contact-wrapper {
 
-/* ==========================================================================
-   Styles Below are for Apps and challenges pages
-   ========================================================================== */
-.Apps-wrapper {
-    margin-bottom: 20px;
-    position:relative;
-}
-.Apps-post {
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 5px 1px #DADADA;
-
-    padding: 20px 20px ;
-}
-.Apps-post p {
-    padding-left:20px;
-    padding-right:20px;
-    padding-top:15px;
-}
-.Appstitle {
-    font-family: 'Abel', Helvetica, sans-serif;
-    font-size: 40px;
-    font-weight: lighter;
-    padding-bottom:15px;
-    padding-top:15px;
-    padding-left:20px;
-    padding-right:20px;
-}
-.Mobile-post {
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 5px 1px #DADADA;
-
-    padding: 10px 10px 0;
-}
-.Mobile-post p {
-    padding-left:10px;
-    padding-right:10px;
-    padding-top:15px;
-}
-.Mobile-post .appscontainer {
     margin-top: 20px;
     position:relative;
-
 }
-.Mobile-post .appscontainer .appsitem {
+.contact-post {
+    background-color: #F2F2F2;
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 20px;
     margin-top: 5px;
-    margin-bottom:5px;
-    margin-left:20px;
-
-    width:200px;
-    background-color:#F2F2F2;
-    float:left;
+    width: 290px;
+    min-height:600px;
 }
-#itemtitle {
-    text-align:center;
-    font-weight:bold;
+.contact-post .text{
+    padding:20px 10px;
+    font-size:22px;
+    line-height:30px;
+}
+.separator{
+    border-bottom: 2px solid #C0C0C0;
+
+
+    margin:5px;
+
+
+}
+.contact-question{
+    padding:20px 10px 20px 10px;
     font-size:20px;
-    color:#009900;
-    padding-top:20px;
-    padding-bottom:5px;
-}
-#itemtitle  a {
-    font-weight:bold;
-    font-size:20px;
-    color:#444444;
 }
 
-#itemimage {
-    margin-top:10px;
-    margin-bottom:10px;
+.contact-post2 {
+    background-color: #F2F2F2;
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 290px;
+    min-height:100px;
 }
-#itemcontent {
 
-    font-size:15px;
-    color:#333333;
-    padding-left:5px;
-    padding-right:5px;
+.contact-post3 {
+    background-color: #428BCA;
 
-}
-#bottomimages {
-    margin-bottom:10px;
-}
-#centerimages {
-    margin-bottom:20px;
-}
-.webcontainer {
-    margin-top:20px;
-    margin-bottom:20px;
-}
-#webimage {
-    height:auto;
-    width:80px;
-    float:left;
-    margin-left:20px;
-}
-#webcontent {
-    width:750px;
-    float:left;
-    margin-left:20px;
-}
-#webcontent h2 a{color:#333333;}
-#webcontent #webtext {
-    font-weight:bold;
-    font-size:12px;
-}
-#webtext p{padding-left:0;}
-/* ==========================================================================
-   Styles Below are for Web form
-   ========================================================================== */
-
-.customcontactform
-{
-    padding-top:5px;
-
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-top: 150px;
+    width: 910px;
+    min-height:350px;
 
 }
-.customcontactform input[type='text']
-{
-    width:50%;
-    margin:3px 10px 10px 0px;
+.contact-post4 {
+    background-color: #F2F2F2;
+    float: left;
+    margin-bottom: 5px;
+    margin: 10px;
 
+    width: 600px;
+    min-height:330px;
 }
-.customcontactform input[type='checkbox']
-{
-
-    margin:3px 10px 10px 0px;
-
-}
-.customcontactform label
-{
+.contact-post5 {
     display:block;
-    width:50%;
-    font-weight:bold;
-
-
-
-
-}
-.customcontactform textarea{
-
-    width:50%;
-    resize: none;
-    overflow-y: hidden;
-    margin:3px 10px 10px 0px;
-}
-.customcontactform label.select
-{
-    display: inline;
-    font-weight:inherit;
-    color:inherit;
-    margin:10px 10px 10px 0px;
-
-}
-.customcontactform select
-{
-    margin:3px 10px 10px 0px;
-
-
-}
-.customcontactform label.required
-{
-    color:#FF0000;
-
-}
-.customcontactform h4{
-    display:none;
-}
-
-
-.customcontactform input.submit {
-
-    background: none repeat scroll 0 0 #294B78;
-    border: medium none #033162;
-    border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    display: inline-block;
-    font-family: Myriad,Helvetica,Tahoma,Arial,sans-serif !important;
-    font-size: 11px !important;
-    font-weight: bold;
-    height: 25px;
-    line-height: 25px;
-    margin: 8px 2px;
-    margin-left:0px;
-    padding: 0 5px;
-    vertical-align: middle;
-    font-size: 60%;
-
-}
-.break-word {
-    word-wrap: break-word;
-}
-/* End Web form */
-
-/* ==========================================================================
-   Styles Below are for Category-Blogs and All category Blogs
-   ========================================================================== */
-.single-cat-post .title {
-    font-size: 30px;
-    line-height: 40px;
-    color: #428BCA;
-    font-weight:bold;
-}
-.All-cat-post .title {
-    font-size: 20px;
-    line-height: 40px;
-    color: #8DB4D3;
-    font-weight:bold;
-}
-
-.new-cat-post{
-
-    background-color: #FFFFFF;
-    /*  box-shadow: 0 2px 5px 1px #DADADA; */
-    height:200px;
-    margin-top:-75px;
-
-
-}
-.no-cat-post{
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 5px 1px #DADADA;
-    height:30px;
-    margin-top:-75px;
-}
-
-.category-wrapper{
-    margin-bottom: 20px;
-    width:85%;
-    margin-left:80px;
-    margin-top:70px;
-
-}
-.category-wrapper_all{
-    margin-bottom: 20px;
-    width:100%;
-
-    margin-top:70px;
-
-}
-
-#cat-posts {
-
-    margin-top: 45px;
-}
-#cat-posts:first-child {
-
-    margin-top: 40px;
-}
-
-
-.catimg span.energy{
-    background-image:url(../img/topic-energy.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.education{
-    background-image:url(../img/topic-education.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.consumer{
-    background-image:url(../img/topic-consumer.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.development{
-    background-image:url(../img/topic-development.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-
-.catimg span.finance{
-    background-image:url(../img/topic-finance.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.food{
-    background-image:url(../img/topic-food.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.health{
-    background-image:url(../img/topic-health.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-height:45px;
-
-    }
-.catimg span.manufacturing{
-    background-image:url(../img/topic-manufacturing.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.ocean{
-    background-image:url(../img/topic-ocean.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.manufacturing{
-    background-image:url(../img/topic-research.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.research{
-    background-image:url(../img/topic-research.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-.catimg span.safety{
-    background-image:url(../img/topic-safety.svg);
-    display: inline-block;
-    background-size: 100% 100%;
-    zoom: 1;
-    *display:inline;
-    width:45px;
-    height:45px;
-
-}
-
-.horizontal_dotted_line{
-    border-bottom: 2px solid #C0C0C0;
-    width: 85%;
-    margin-left:80px;
-
-}
-.horizontal_dotted_line_all{
-    border-bottom: 2px solid #C0C0C0;
-    width: 100%;
-
-
-}
-.more-link{
-    color: #83B03C;
-}
-/* ==========================================================================
-   Styles Below are  White background for pages
-   ========================================================================== */
-
-.single {
-    background: none repeat scroll 0 0 #FFFFFF;
-}
-/* ==========================================================================
-   Styles Below are for Metrics and Dataset Published
-   ========================================================================== */
-
-h1.title {
-    background: -moz-linear-gradient(center top , #5EA0D2 0%, #033162 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-}
-h1.title {
-    background:#3E6B85;
-    color: #FFFFFF;
-    display: block;
-    font-family: Georgia,"Times New Roman",Times,serif;
-    font-weight: normal;
-
-
-    margin: 0 10px 10px;
-    padding: 0 20px;
-    text-transform: uppercase;
-}
-.clearfix:after, .clearfix .inner:after {
-    clear: both;
-    content: ".";
-    display: block;
-    font-size: 0;
-    height: 0;
-    line-height: 0;
-    overflow: auto;
-    visibility: hidden;
-}
-.dataset-inner {
-
-
-}
-table {
-    border-spacing: 0;
-    width: 100%;
-    border-collapse: collapse;
-}
-table.datasets_published_per_month_table thead {
-    background: #8DB4D3;
-    color: #FFFFFF;
-}
-
-thead th, th {
-    background-color: #8DB4D3;
-    color: #FFFFFE;
-}
-
-thead th, thead td {
-    padding: 10px;
-    text-align:right;
-}
-tbody {
-    border-top: 1px solid #CCCCCC;
-}
-tr.odd, tr.odd td {
-    text-align:right;
-
-}
-tr.odd, tr.odd td a {
-
-    text-decoration:none;
-    color:#000000;
-}
-tr.even, tr.odd {
-
-
-    padding: 0.1em 0.6em;
-}
-tr.even, tr.even td {
-    background-color: #FFFFFF;
-
-
-}
-tr.even, tr.even td a {
-    background-color: #FFFFFF;
-    text-decoration:none;
-    color:#000000;
-}
-.datasets_published_per_month_table_row_fields {
-    border-bottom: 1px solid #444444;
-    padding: 5px;
-}
-.panecontent {
-    background: url("img/bottomgradient.png") repeat-x scroll center bottom rgba(0, 0, 0, 0);
-    display: block;
-    margin: 0;
-    padding: 10px;
-}
-#open-data-sites-boxes.agencies .open-data-sites-box {
-    height: 30px;
-    margin: 10px 0 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 500px;
-}
-div.open-data-sites-box {
-    background: -moz-linear-gradient(center top , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    background: linear-gradient(center top , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    background: linear-gradient(to bottom , #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 );
-    border: 1px solid #CCCCCC;
-    border-radius: 5px;
-    display: block;
-    float: left;
-    height: 120px;
-    margin: 5px;
-    padding: 5px;
-    text-align: center;
-    width: 120px;
-}
-#open-data-sites-boxes.agencies .open-data-sites-box .region {
-    float: left;
-    font-weight: bold;
-    height: 30px;
-    line-height: 30px;
-}
-div.open-data-sites-box div.region {
-    color: #666666;
-
-}
-#open-data-sites-boxes.agencies .open-data-sites-box .numbers {
-    float: right;
-    font-size: 25px;
-    font-weight: bold;
-    height: 30px;
-    line-height: 30px;
-    margin-top: 0;
-}
-div.open-data-sites-box div.numbers {
-    color: #3366AC;
-}
-.agencytitle{margin:12px;
-}
-.fieldcontentregion{
-    color: #284A78;
-}
-tr.odd td a.link_dataset{
-
-    color: #4295B0;
-}
-tr.even td a.link_dataset{
-
-    color: #4295B0;
-}
-/* ==========================================================================
-   Styles Below are for cean-technical guide
-   ========================================================================== */
-
-.technical-wrapper {
-    background:  #FFFFFF;
-
-
-}
-.greyblock {
-    background: url("img/greyblock-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
-    padding: 10px;
-    width:280px;
-    float:left;
-    margin-left:12px;
-    margin-top:15px;
-}
-.greyblock ul {
-    list-style:disc outside none;
-
-}
-.greyblock li {
-    margin-left:12px;
-}
-.greyblock ul li {
-    padding: 0;
-}
-.greyblock ul li a{
-    color: #4295B0;
-    font: bold 12px Arial,Helvetica,sans-serif;
-    text-decoration: none;
-}
-
-
-p.align-right{
-    text-align:right;
-
-}
-p a.btn-readmore {
-    margin-top:0px;
-    margin-bottom:5px;
-    color: #FFFFFF !important;
-    font-size: 14px;
-    padding: 7px 15px;
-}
-a.btn-readmore {
-    background-image: url("../img/search-bg.png");
-    background-repeat:no-repeat;
-
-}
-/* ==========================================================================
-   Styles Below are for Regional Planning
-   ========================================================================== */
-
-#regionsidebar ul li {
-    background: url("../img/list-arrow-blue.png") no-repeat scroll 0 11px rgba(0, 0, 0, 0);
-    border-bottom: 1px dotted #BBBBBB;
-    display: block;
-    font: 12px/18px Arial,Helvetica,sans-serif;
-    list-style: none outside none;
-    margin: 0;
-    padding: 5px 5px 5px 10px;
-
-}
-.item-list ul li a {
-    color: #4295B0;
-    font: 15px Georgia,"Times New Roman",Times,serif;
-
-}
-#regionsidebar .panecontent {
-    background: url("../img/bottomgradient.png") repeat-x scroll center bottom rgba(0, 0, 0, 0);
-    display: block;
-    margin: 0;
-    padding: 10px;
-}
-#regionsidebar .inner >h2.pane-title {
-    clear: both;
-    color: #666666;
-    display: block;
-    float: none;
-    font: 24px Georgia,"Times New Roman",Serif;
-    margin: 0;
-    padding: 10px 0;
-}
-#regionsidebar .inner > h2.block-title {
-    color: #4295B0;
-    border-bottom: 2px dotted #BBBBBB;
-    clear: both;
-
-    display: block;
-    float: none;
-    font: 18px Georgia,"Times New Roman",Times,serif;
-    margin: 0 0 0 10px;
-    padding: 0 0 10px;
-}
-#regionsidebar {
-    display: block;
-    padding: 15px 0 15px 9px;
-    float:right;
-    width:25%;
-    margin-right:10px;
-}
-#regionsidebar .panel-pane {
-    display: block;
-    margin: 0;
-    padding: 0 0 15px;
-
-}
-#regionsidebar .panels-flexible-region-inside {
-    display: block;
-    margin-top: 50px;
-    padding: 0;
-}
-
-
-.imagearea {
-    float: left;
-    width: 70%;
-    margin-left:10px;
-}
-
-.imagearea-mapgallery {
-    float: left;
-    width: 95%;
-    margin-left:10px;
-}
-
-#regionalcontent{
-    margin-top:20px;
-}
-
-.map-gallery-thumbnail {
-
-    border-radius: 5px 5px 5px 5px;
-
-    box-shadow: 2px 2px 3px #333333;
-
-    border:1px solid #ccc;
-
-}
-
-.map-gallery-caption { width:200px;min-height:70px;color: #666666;font: bold 12px Arial,Helvetica,sans-serif;}
-
-
-
-
-.map-align {
-
-    float: left;
-
-    margin: 0 10px;
-
-}
-/* ==========================================================================
-   Styles Below are for Maps pagination
-   ========================================================================== */
-
-.item-list .pager {
-    clear: both;
-    text-align: center;
-}
-.item-list .pager li {
-    padding: 0;
-}
-.item-list .pager li {
-    background-image: none;
-    display: inline;
-    list-style-type: none;
-    padding: 0.5em;
-}
-ul.pager li.pager-current {
-    background-color: #777777;
-    color: #FFFFFF !important;
-}
-
-ul.pager a, ul.pager li.pager-current {
-    border-color: #333333;
-    border-style: solid;
-    border-width: 1px;
-    padding: 3px 6px 2px;
-    text-decoration: none;
-}
-a.search-results{
-    font-size: 1.2em;
-    font-weight:bold;
-    color: #284A78 !important;
-}
-div.search-notice {
-    margin-bottom: 10px;
-    border: 1px solid #CCCCCC;
-    padding: 10px;
-}
-ul.pager a:link, ul.pager a:visited {
-    color: inherit;
-}
-/* ==========================================================================
-   Styles for Events agriculture page
-   ========================================================================== */
-.post-46152 .agriculture p a,.post-46152 .agriculture li a,.post-46152 .agriculture tr td a{color:#83B03C;
-
-}
-.ag_button {
-    background: linear-gradient(to bottom, #77B55A 5%, #72B352 100%) repeat scroll 0 0 #77B55A;
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
-border: 1px solid #4B8F29;
-border-radius: 4px;
-box-shadow: 0 10px 14px -7px #3E7327;
-color: #FFFFFF !important;
-display: inline-block;
-font-size: 16px !important;
-padding: 10px 15px;
-text-decoration: none;
-    }
-/* ==========================================================================
-   Styles for Ocean FAQ page 
-   ========================================================================== */
-
-.inner
-{
-    margin-top:30px;
-    margin-bottom:-10px;
-}
-.inner p{
-    margin-left: 10px;
-}
-h2.block-title {
-    clear: both;
-    color: #666666;
-    display: block;
-    float: none;
-    font: 24px Trajan,Georgia,"Times New Roman",Serif;
-    margin-left: 10px;
-    padding: 10px 0;
-}
-.view-display-id-ogpl_ocean_faq_block {
-    background: url("../img/ocean-faq-bg.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    margin-bottom: 20px;
-    padding: 10px;
-
-}
-.view {
-    margin: 0;
-}
-.viewheader{
-    padding:5px 5px 5px 5px;
-
-}
-.viewheader h2{
-
-    color:#284A78;
-    font-family: Georgia,"Times New Roman",Times,serif;
-    font-size: 142.85%;
-    margin: 0 0 0.5em;
-}
-li,  .item-list ol li {
-    line-height: 150%;
-    margin:0;
-}
-a.faq-top {
-    background: url("../img/btn-return-to-top.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    display: block;
-    height: 29px;
-    text-indent: -9999px;
-    width: 105px;
-}
-
-.separator-mini-700 {
-    background: url("../img/separator-600.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
-    height: 40px;
-
-    width: 700px;
-}
-.views-field-nothing-1 {
-    background: none repeat scroll 0 0 #EFEFEF;
-    padding: 3px 5px;
-}
-.views-field-nothing-1 span.field-content {
-    color: #1B548C;
-    font-size: 1.1em;
-    font-weight: bold;
-    line-height: 1.5em;
-    margin-bottom: 1em;
-}
-/* ==========================================================================
-   Styles for Education 
-   ========================================================================== */
-.panecontent {
-    background: url("../img/bottomgradient.png") repeat-x scroll center bottom rgba(0, 0, 0, 0);
-    display: block;
-    margin: 0;
-    padding: 10px;
-}
-/* ==========================================================================
-   Styles Opengov
-   ========================================================================== */
-#communities-left{
-    float:left;
-    width:70%;
-}
-#communities-right{
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 5px 1px #DADADA;
-    height: auto;
-
-}
-#regionsidebar .panecontent2 {
-    display: block;
-    margin:0;
-    padding: 10px;
-}
-.align-center{
-    text-align:center;
     padding:20px;
+    line-height:20px;
+    margin-right: 10px;
+    margin-top:10px;
+    font-size:20px;
+    color:#ffffff;
 }
 
-.post-42321 tbody{border:0;}
-#webimage img{width:80px;}
+.contact-post6 {
+
+    padding:20px;
+
+    margin-right: 10px;
+    margin-top:10px;
+
+}
+.contact-post6 select {
+
+    width:260px;
+    height:30px;
+
+}
+.contact-post7 {
+
+
+    padding:20px;
+
+    margin-right: 10px;
+    margin-top:10px;
+    background-color: #F2F2F2;
+    color:#000000;
+    width:275px;
+    float:right;
+    font-size:36px;font-weight:bold;text-align:center;
+
+}
+.contact-post8 {
+    background-color: #F2F2F2;
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 450px;
+    min-height:100px;
+
+
+
+}
+.contact-text{
+    text-align:center;padding:30px 10px;font-size:20px;
+
+}
+.contact-title{
+    padding:10px 10px;font-size:20px;
+
+}
