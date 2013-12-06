@@ -30,11 +30,15 @@ margin-bottom : 0;
     background: url("../img/logo.png") no-repeat scroll center center transparent;
     background-size : contain;
     background-position : 0 48px;
-    height: 80px;
+    height: 100px;
     margin-right: 15px;
     overflow: hidden;
     text-indent: -9999em;
-    width: 150px;    
+    width: 150px;  
+}
+
+.svg .navbar-brand {    
+    background: url("../img/logo.svg") no-repeat scroll 0px 50px / contain  transparent;    
 }
 
 .navbar-default {
@@ -347,6 +351,10 @@ div.frontpage-search {
         
 }
 
+.intro.banner .container {
+    padding : 2em 0;
+}
+
 
 /* ==========================================================================
    Content
@@ -366,8 +374,15 @@ div.frontpage-search {
 
 .wrap-lightblue {
     background-color: @blue-lightblue;
+    padding-bottom : 2em;
     a {
       color: #ffffff;
+    }
+    
+    .page-header h1 {
+        color : #fff;
+        border-bottom : 1px solid #98C7D8;
+        
     }
 }
 
@@ -380,16 +395,32 @@ div.frontpage-search {
       font-size: (@font-size-base * 2.4);
 }
 
-.home .page-header {
+.page-header {
     padding-bottom: 0;
     margin: (@line-height-computed * 2) 0 @line-height-computed;
     border-bottom: none;
 }
 
-.home .page-header h1 {
+.page-header h1 {
       font-size: (@font-size-base * 1.1);
       text-transform: uppercase;
+      border-bottom : 1px solid #E2E2E2;
+      padding-bottom : .2em;
      }
+     
+.header.banner .page-header h1 {
+    border : 0;
+}
+    
+
+.more-link {
+    text-align : center;
+    h5 {
+        text-transform: uppercase;    
+        text-align : center;
+        margin : 3em 0 1.5em 0;
+    }
+}
 
 /* ==========================================================================
    Primary Content

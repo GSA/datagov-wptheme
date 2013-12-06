@@ -23,6 +23,7 @@ if (is_category()) $args['cat'] = get_query_var('cat');
          
 $highlight_posts = new WP_Query($args);
 
+if (($highlight_posts->have_posts())):
 ?>
 
 <section id="highlights" class="wrap wrap-lightblue">
@@ -39,6 +40,7 @@ $highlight_posts = new WP_Query($args);
 <?php endwhile; ?>
 
 <?php
+endif;
 wp_reset_postdata();    
 ?>
 

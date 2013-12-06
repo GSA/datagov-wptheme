@@ -34,7 +34,9 @@ foreach ($categories as $category) {
 ?>
 </ul> 
 
-<h5>MORE TOPICS</h5>
+<div class="more-link">
+    <h5>More Topics</h5>
+</div>
 
 </div><!--/.container-->
 
