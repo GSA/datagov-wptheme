@@ -120,3 +120,7 @@
     padding:10px 10px;font-size:20px;
 
 }
+.iconApp {
+    display: inline-block !important;
+    margin: 0 5px;
+}
