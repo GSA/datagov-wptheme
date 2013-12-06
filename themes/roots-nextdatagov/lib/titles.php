@@ -9,8 +9,20 @@ function roots_title() {
     } else {
       return __('Latest Posts', 'roots');
     }
-  } elseif (is_archive()) {
-    $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+  } elseif (is_archive() OR is_single()) {
+    if(is_single()) {        
+        global $post;                
+        if ($post) {
+            $term = get_the_category($post->ID);
+        }
+    } else {
+        $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));        
+    }
+    
+    if(is_array($term)) {
+        $term = $term[0];
+    }
+    
     if ($term) {
       return apply_filters('single_term_title', $term->name);
     } elseif (is_post_type_archive()) {
