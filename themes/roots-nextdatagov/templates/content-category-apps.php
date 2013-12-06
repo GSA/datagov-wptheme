@@ -32,6 +32,9 @@ $cat_slug = $category[0]->slug;
    }
 });
 </script>
+<div class="container">
+<nav role="navigation" class="topic-subnav">
+               <ul class="nav navbar-nav"> 
 <?php
 	 // show Links associated to a community
       // we need to build $args based either term_name or term_slug
@@ -44,6 +47,8 @@ $cat_slug = $category[0]->slug;
           wp_list_bookmarks($args);
       }
 ?>
+</ul></nav></div>
+<div class="container">
    <?php
     while( have_posts() ) {
         the_post();
@@ -817,6 +822,6 @@ if ( have_posts() ){?>
 
 
 
-
+</div>
 
 

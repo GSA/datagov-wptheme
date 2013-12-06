@@ -246,7 +246,7 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         $url .= "api/action/package_search?q=($orgs)+AND+dataset_type:dataset&rows=1&sort=metadata_modified+desc";
 
         $response = wp_remote_get($url);
-        $body = json_decode(wp_remote_retrieve_body(&$response), true);
+        $body = json_decode(wp_remote_retrieve_body($response), true);
         $count = $body['result']['count'];
 
         $last_entry = $body['result']['results'][0]['metadata_modified'];
@@ -288,7 +288,7 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
             $url .= "api/action/package_search?q=($orgs)+AND+dataset_type:dataset+AND+metadata_created:$range&rows=1";
 
             $response = wp_remote_get($url);
-            $body = json_decode(wp_remote_retrieve_body(&$response), true);
+            $body = json_decode(wp_remote_retrieve_body($response), true);
 
             $dataset_count[$i] = $body['result']['count'];
             $dataset_range[$i] = $range;
@@ -472,8 +472,3 @@ register_deactivation_hook(__FILE__, 'my_deactivation');
 function my_deactivation() {
     wp_clear_scheduled_hook('metrics_daily_update');
 }
-
-//add_action('admin_init', 'get_ckan_metric_info');
-
-?>
-
