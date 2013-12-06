@@ -30,11 +30,15 @@ margin-bottom : 0;
     background: url("../img/logo.png") no-repeat scroll center center transparent;
     background-size : contain;
     background-position : 0 48px;
-    height: 80px;
+    height: 100px;
     margin-right: 15px;
     overflow: hidden;
     text-indent: -9999em;
-    width: 150px;    
+    width: 150px;  
+}
+
+.svg .navbar-brand {    
+    background: url("../img/logo.svg") no-repeat scroll 0px 50px / contain  transparent;    
 }
 
 .navbar-default {
@@ -70,7 +74,7 @@ ul#menu-primary-navigation li,
 
 ul.navbar-nav#menu-primary-navigation.nav > li > a {
     padding : 15px 10px;
-    color : #000; 
+    color : #333; 
 }
 
 .navbar-default ul.social-nav.navbar-nav > li > a {
@@ -347,6 +351,10 @@ div.frontpage-search {
         
 }
 
+.intro.banner .container {
+    padding : 2em 0;
+}
+
 
 /* ==========================================================================
    Content
@@ -356,30 +364,62 @@ div.frontpage-search {
 
 }
 
+
+/* ==========================================================================
+   Primary Content
+   ========================================================================== */
+
+.main { }
+
+
 .wrap-lightblue {
     background-color: @blue-lightblue;
+    padding-bottom : 2em;
     a {
       color: #ffffff;
+    }
+    
+    .page-header h1 {
+        color : #fff;
+        border-bottom : 1px solid #98C7D8;
+        
     }
 }
 
 .home .jumbotron {
     margin-bottom: 0;
-
-    h1 {
-      font-size: (@font-size-base * 2.5);
-    }
+    padding-bottom: (@line-height-computed * 1.2);
 }
 
-.home .page-header {
-    padding-bottom: ((@line-height-computed / 20) - 1);
+.home .jumbotron h1 {
+      font-size: (@font-size-base * 2.4);
+}
+
+.page-header {
+    padding-bottom: 0;
     margin: (@line-height-computed * 2) 0 @line-height-computed;
     border-bottom: none;
+}
 
-     h1 {
+.page-header h1 {
       font-size: (@font-size-base * 1.1);
       text-transform: uppercase;
+      border-bottom : 1px solid #E2E2E2;
+      padding-bottom : .2em;
      }
+     
+.header.banner .page-header h1 {
+    border : 0;
+}
+    
+
+.more-link {
+    text-align : center;
+    h5 {
+        text-transform: uppercase;    
+        text-align : center;
+        margin : 3em 0 1.5em 0;
+    }
 }
 
 /* ==========================================================================
@@ -387,22 +427,16 @@ div.frontpage-search {
    ========================================================================== */
 
 .main { 
-    
-
 padding-bottom : 2em;
-    
 }
-
-.jumbotron .fa-caret-down { font-size: (@font-size-base * 2.8) }
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
 
 /* This may need to be refactored */
-.getstarted p {
-line-height: (@line-height-computed * 0.8);
-margin-bottom: -(@line-height-computed * 0.8);
-margin-top: 14px;
+.getstarted {
+  .fa-caret-down { font-size: (@font-size-base * 2.1) }
+  h4 { margin-top: 0; }
 }
 
 /* ==========================================================================
