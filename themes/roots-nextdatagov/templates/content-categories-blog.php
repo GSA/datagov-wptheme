@@ -34,10 +34,21 @@ $cat_slug = $category[0]->slug;
             $cat_name=$category[0]->cat_name;
 
 
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array('posts_per_page' => 6, 'paged' => $paged, 'category_name'=> $cat_name ,'post_type'=>'post' );
-
-$apps = new WP_Query( $args );
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $terms_array = array('post-format-link','post-format-status','post-format-image','post-format-gallery');
+    $args = array(
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'post_format',
+                'field' => 'slug',
+                'terms' => $terms_array,
+                'operator' => 'NOT IN'
+            )
+        ),
+        'posts_per_page' => 6,
+        'paged' => $paged,
+        'category_name'=> $cat_name );
+        $apps = new WP_Query( $args );
 		$my_post_count = $apps->post_count;
 
 
