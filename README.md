@@ -66,9 +66,10 @@ This template requires the following plugins:
 * Widget Logic - http://wordpress.org/plugins/widget-logic/ 
 * bbPress - http://wordpress.org/plugins/bbpress/
 * Posts in Page - http://wordpress.org/plugins/posts-in-page/
-* WP-reCAPTCHA - http://wordpress.org/plugins/wp-recaptcha/
 * Subscribe2 - http://wordpress.org/plugins/subscribe2/
 * Upload Scanner - http://wordpress.org/plugins/upload-scanner/
+* WP Crontrol - http://wordpress.org/support/view/plugin-reviews/wp-crontrol
+* SI CAPTCHA Anti-Spam - http://wordpress.org/plugins/si-captcha-for-wordpress/
 * Sticky Posts In Category - http://wordpress.org/plugins/sticky-posts-in-category/
 * Twitter Widget Pro - http://wordpress.org/plugins/twitter-widget-pro/
 	
