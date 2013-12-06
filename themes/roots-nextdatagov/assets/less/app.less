@@ -22,29 +22,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
    Header
    ========================================================================== */
 
-.navbar-brand {
-    
-    height: 50px;   
-    background-position : 0 5px !important;
-    margin-left : 10px;  
-
+.navbar-brand {    
     background: url("../img/logo.png") no-repeat scroll center center transparent;
     background-size : contain;
-    margin-right: 15px;
-    overflow: hidden;
-    text-indent: -9999em;
     width: 200px;    
+    margin-left : 15px;
 
-    @media (min-width: @screen-sm) {         
-        height: 105px;
-        background-position : 0 48px !important;        
-    }  
+    overflow: hidden;
+    text-indent: -9999em; 
+ 
 }
 
 
 .svg .navbar-brand {    
     background: url("../img/logo.svg") no-repeat scroll;   
     background-size : contain;
+}
+
+body.home .navbar.nav ul#menu-primary-navigation {
+    margin-top : 5px;
 }
 
 .navbar {
@@ -80,6 +76,20 @@ footer.content-info {
    Navigation
    ========================================================================== */
 
+.searchbox-row {
+   height : 3em;
+}
+
+.home .searchbox-row.skip-navigation {
+    .sr-only();    
+}
+
+.skip-link {
+    .sr-only();  
+}
+
+
+
 
 ul#menu-primary-navigation li, 
 .navbar-header .navbar-brand {
@@ -104,15 +114,8 @@ padding : 15px 10px;
 color : #000;
 }
 
-.navbar-row {
-    padding-top : 10px;
-    clear : right;
-}
 
 
-body.home .navbar-row {
-    padding-top : 45px;
-}
 
 /* ==========================================================================
    Topic Browse
