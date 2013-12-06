@@ -45,7 +45,7 @@ $cat_slug = $category[0]->slug;
                 'operator' => 'NOT IN'
             )
         ),
-        'posts_per_page' => 6,
+        'posts_per_page' => 3,
         'paged' => $paged,
         'category_name'=> $cat_name );
         $apps = new WP_Query( $args );
