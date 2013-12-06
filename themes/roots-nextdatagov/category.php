@@ -1,27 +1,107 @@
-<div class="wrap container">
+<?php
 
-This is category.php 
+$term_name = get_term_by('id', get_query_var('cat'), 'category')->name;
+$term_slug = get_query_var('category_name');
+
+// show Links associated to a community
+// we need to build $args based either term_name or term_slug
+$args = array(
+                'category_name'=> $term_slug, 
+                'categorize'=>0, 
+                'title_li'=>0,
+                'echo' =>0,
+                'orderby'=>'rating'
+            );
+            
+$subnav = wp_list_bookmarks($args);
+
+if (strcasecmp($term_name,$term_slug)!=0) {
+  $args = array(
+                  'category_name'=> $term_name, 
+                  'categorize'=>0, 
+                  'title_li'=>0,
+                  'echo' =>0,
+                  'orderby'=>'rating',
+                  );
+                  
+  $subnav_extra = wp_list_bookmarks($args);                  
+}
+
+
+if($subnav OR $subnav_extra):
+?>
+
+    <div class="subnav banner">
+        <div class="container">
+
+        <?php if($subnav): ?>
+
+           <nav class="topic-subnav" role="navigation">
+               <ul class="nav navbar-nav">         
+                <?php echo $subnav ?>
+                </ul>
+            </nav>
+        
+        <?php endif; ?>
+
+        <?php if($subnav): ?>
+
+           <nav class="topic-subnav" role="navigation">
+               <ul class="nav navbar-nav">         
+                <?php echo $subnav_extra ?>
+                </ul>
+            </nav>
+        <?php endif; ?>
+
+        </div>
+    </div>
+
+<?php endif; ?>
+
+
 
 <?php if (get_query_var('paged') < 1): ?>
 
 <?php 
 
 // See if there is a frontpage for the category.
-$cat = get_query_var('cat');
-$this_category = get_category ($cat);
-$intro_page = $this_category->slug;
-$args = array('name' => $intro_page, 'post_type' => 'page');
-    
+
+$args = array( 
+                'post_type' => 'page',
+                'ignore_sticky_posts' => 1,  
+                'cat' => get_query_var('cat'),
+                'tax_query' => array(
+                	                array(
+                	                'taxonomy' => 'featured',
+                	                'field' => 'slug',
+                	                'terms' => array( 'browse'),
+                	                'operator' => 'IN'
+                	                )                	                
+                                ),                 
+                'posts_per_page' => 1 );
+                         
 $category_intro = new WP_Query($args);
+
 ?>
 
+
+
 <?php while ($category_intro->have_posts()) : $category_intro->the_post(); ?>
-    <h1>Intro Text</h1>
-    <?php the_content(); ?>      
+<div class="intro banner">
+    <div class="container">
+        <h1>Intro Text</h1>
+        <?php the_content(); ?>      
+    </div>
+</div>    
 <?php endwhile; ?>
 
 
+
 <?php get_template_part('templates/content','highlights'); ?>
+
+
+
+<div class="container">
 
 <h1>News</h1>
 <?php endif; ?>
@@ -35,7 +115,7 @@ $args = array(
                 'post_type' => 'post',
                 'cat' => get_query_var('cat'),
                 'meta_query' => array(
-                    		        'relation' => 'OR',
+                                     'relation' => 'OR',
                                     array(
                                     'key' => 'highlight',
                                     'value' => 'Yes',
@@ -45,8 +125,8 @@ $args = array(
                                     'key' => 'highlight',
                                     'value' => 'Yes',
                                     'compare' => 'NOT EXISTS'
-                                    )                                    
-                                ),
+                                    )
+                                ),                
                 'paged' => $paged,                 
                 'posts_per_page' => 5 );
 

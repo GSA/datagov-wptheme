@@ -44,7 +44,8 @@ margin-bottom : 0;
 .banner { }
 
 
-.header.banner {
+.header.banner, 
+.intro.banner {
 background-color : #F8F8F8;
 }
 
@@ -74,7 +75,7 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 
 .navbar-default ul.social-nav.navbar-nav > li > a {
 font-size : 18px;
-color : #F0F0F0;
+color : #6BACDA;
 padding : 15px 10px;
 }
 
@@ -382,7 +383,7 @@ div.frontpage-search {
 
 .home .page-header {
     padding-bottom: 0;
-    margin: (@line-height-computed * 2) 0 0;
+    margin: (@line-height-computed * 2) 0 @line-height-computed;
     border-bottom: none;
 }
 
@@ -392,6 +393,15 @@ div.frontpage-search {
       text-transform: uppercase;
      }
 
+/* ==========================================================================
+   Primary Content
+   ========================================================================== */
+
+.main { 
+padding-bottom : 2em;
+}
+
+.jumbotron .fa-caret-down { font-size: (@font-size-base * 2.8) }
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
@@ -429,9 +439,18 @@ div.frontpage-search {
 .content-info { 
 
 background-color : #efefef;
-    
+padding : 3em 0;
 }
 
+
+.social-nav .nav li a span {
+display : inline-block;
+padding-left : 1em;
+}
+
+.social-nav .nav li a i {
+font-size : 2em;
+}
 
 
 /* ==========================================================================
