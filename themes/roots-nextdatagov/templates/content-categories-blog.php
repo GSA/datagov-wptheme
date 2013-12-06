@@ -18,7 +18,7 @@ $cat_slug = $category[0]->slug;
 
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array('posts_per_page' => 6, 'paged' => $paged, 'category_name'=> $cat_name  );
+$args = array('posts_per_page' => 6, 'paged' => $paged, 'category_name'=> $cat_name ,'post_type'=>'post' );
 $apps = new WP_Query( $args );
 		$my_post_count = $apps->post_count;
 
@@ -33,7 +33,6 @@ $apps = new WP_Query( $args );
 			 if ($apps->have_posts()) : ?>
             <?php while ($apps->have_posts()) : $apps->the_post(); ?>
 
-                <?php if( false == get_post_format() ){ ?>
                     <div id="cat-posts" class="single-cat-post ">
 
 
@@ -66,7 +65,6 @@ $apps = new WP_Query( $args );
 						 </div> <!-- posts -->
 						      <div  class="horizontal_dotted_line"></div>
 							  <br>
-                    <?php } ?>
 
                 <?php endwhile; ?>
 
