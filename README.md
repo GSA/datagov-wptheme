@@ -70,6 +70,7 @@ This template requires the following plugins:
 * Subscribe2 - http://wordpress.org/plugins/subscribe2/
 * Upload Scanner - http://wordpress.org/plugins/upload-scanner/
 * Sticky Posts In Category - http://wordpress.org/plugins/sticky-posts-in-category/
+* Twitter Widget Pro - http://wordpress.org/plugins/twitter-widget-pro/
 	
 #### Locally hosted plugins
 * SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
