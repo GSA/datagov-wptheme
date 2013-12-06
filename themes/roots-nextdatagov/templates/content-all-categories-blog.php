@@ -1,3 +1,12 @@
+<?php
+$category = get_the_category();
+$term_name = $category[0]->cat_name;
+$term_slug = $category[0]->slug;
+?>
+<?php
+$cat_name = $category[0]->cat_name;
+$cat_slug = $category[0]->slug;
+?>
 <div class="container">
 <nav role="navigation" class="topic-subnav">
                <ul class="nav navbar-nav"> 
@@ -16,15 +25,7 @@
 </ul></nav></div>
 <div class="single">
 <div class="container">
-<?php
-$category = get_the_category();
-$term_name = $category[0]->cat_name;
-$term_slug = $category[0]->slug;
-?>
-<?php
-$cat_name = $category[0]->cat_name;
-$cat_slug = $category[0]->slug;
-?>
+
 
 
             <?php
