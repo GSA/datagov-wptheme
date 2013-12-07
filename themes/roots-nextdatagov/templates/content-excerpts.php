@@ -77,11 +77,13 @@ $new_query = new WP_Query($args);
 
 <?php while ($new_query->have_posts()) : $new_query->the_post(); ?>
 
-<article <?php post_class(); ?>>
+<article <?php post_class('col-md-4 col-lg-4'); ?>>
 
     <div class="author-details">
-        <?php the_field('persons_name'); ?> - <a href="<?php the_field('link_to_tweet'); ?>">@<?php the_field('twitter_handle'); ?></a>
-    </div>
+        <img alt="" src="<?php the_field('twitter_photo'); ?>" height="40" width="40">        
+        <a href="<?php the_field('link_to_tweet'); ?>"><?php the_field('persons_name'); ?> @<?php the_field('twitter_handle'); ?></a>
+    </div>    
+    
     <div class="body">
         <?php the_content('Read the rest of this entry »'); ?>
     </div>
