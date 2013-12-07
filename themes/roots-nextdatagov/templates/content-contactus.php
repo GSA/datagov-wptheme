@@ -72,7 +72,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
 <div class="half-box">" after_widget="</div>
 " before_title="
 <h1>" after_title="</h1>
-" errmsg="Uh oh!" hiderss="true" hidereplies="true" targetBlank="true" avatar="1" showXavisysLink="1" items="4" showts="60" title="Recent Tweets"]' ) ?>
+" hiderss="true" hidereplies="true" targetBlank="true" avatar="1" items="2" showXavisysLink="0" showts="60" title="Recent Tweets"]' ) ?>
 
 </div>
 </div>
