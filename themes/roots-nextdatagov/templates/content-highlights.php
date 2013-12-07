@@ -41,7 +41,18 @@ if (($highlight_posts->have_posts())):
             
             <h2 class="entry-title"><?php the_title(); ?></h2>
         </header>
-		<?php the_content(); ?>                  
+        
+        <article>
+		    <?php the_content(); ?>
+		</article>
+		
+		<?php if(get_post_format() == 'image'): ?>
+		
+            <a class="btn btn-default" href="<?php the_field('link_to_dataset'); ?>">
+              <span class="glyphicon glyphicon-download"></span> View this Dataset
+            </a>
+            
+        <?php endif;?>             
     </div><!--/.highlight-->
 <?php endwhile; ?>
 
