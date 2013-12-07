@@ -38,7 +38,7 @@ $args = array(
 		<a href="/food"><i></i><span>Agriculture</span></a>
 	</li>
 	<li class="topic-climate">
-		<a href="##"><i></i><span>Climate</span></a>
+		<a href="#"><i></i><span>Climate</span></a>
 	</li>	
 	<li class="topic-education">
 		<a href="/education"><i></i><span>Education</span></a>
@@ -83,6 +83,9 @@ $args = array(
 	<li class="topic-consumer">
 		<a href="/consumer"><i></i><span>Consumer</span></a>
 	</li>	
+	<li class="topic-ethics">
+		<a href="https://explore.data.gov/ethics"><i></i><span>Ethics</span></a>
+	</li>
 	<li class="topic-law">
 		<a href="/law"><i></i><span>Law</span></a>
 	</li>
