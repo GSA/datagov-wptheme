@@ -24,19 +24,89 @@ $args = array(
 
 <ul class="topics">
 <?php 
-$categories = get_categories($args); 
-foreach ($categories as $category) {
-	$option = '<li class="topic-' . $category->category_nicename . '"><a href="/'.$category->category_nicename.'">';
-	$option .= "<i></i><span>{$category->cat_name}</span>";
-	$option .= '</a></li>';
-	echo $option;
-}
+// 	$categories = get_categories($args); 
+// 	foreach ($categories as $category) {
+// 		$option = '<li class="topic-' . $category->category_nicename . '"><a href="/'.$category->category_nicename.'">';
+// 		$option .= "<i></i><span>{$category->cat_name}</span>";
+// 		$option .= '</a></li>';
+// 		echo $option;
+// 	}
 ?>
+
+
+	<li class="topic-food">
+		<a href="/food"><i></i><span>Agriculture</span></a>
+	</li>
+	<li class="topic-climate">
+		<a href="##"><i></i><span>Climate</span></a>
+	</li>	
+	<li class="topic-education">
+		<a href="/education"><i></i><span>Education</span></a>
+	</li>
+	<li class="topic-energy">
+		<a href="/energy"><i></i><span>Energy</span></a>
+	</li>
+	<li class="topic-finance">
+		<a href="/finance"><i></i><span>Finance</span></a>
+	</li>
+	<li class="topic-geospatial">
+		<a href="#"><i></i><span>Geospatial</span></a>
+	</li>	
+	<li class="topic-development">
+		<a href="#"><i></i><span>Global Development</span></a>
+	</li>
+	<li class="topic-jobs-skills">
+		<a href="#"><i></i><span>Jobs+Skills</span></a>
+	</li>
+	<li class="topic-health">
+		<a href="/health"><i></i><span>Health</span></a>
+	</li>
+	<li class="topic-research">
+		<a href="/research"><i></i><span>Science+Research</span></a>
+	</li>
+	<li class="topic-safety">
+		<a href="/safety"><i></i><span>Public Safety</span></a>
+	</li>
+	<li class="topic-weather">
+		<a href="#"><i></i><span>Weather</span></a>
+	</li>
+
 </ul> 
 
+<!--
 <div class="more-link">
     <h5>More Topics</h5>
 </div>
+-->
+
+<ul class="topics">
+	<li class="topic-consumer">
+		<a href="/consumer"><i></i><span>Consumer</span></a>
+	</li>	
+	<li class="topic-law">
+		<a href="/law"><i></i><span>Law</span></a>
+	</li>
+	<li class="topic-manufacturing">
+		<a href="/manufacturing"><i></i><span>Manufacturing</span></a>
+	</li>
+	<li class="topic-ocean">
+		<a href="/ocean"><i></i><span>Ocean</span></a>
+	</li>
+	<li class="topic-states">
+		<a href="/states"><i></i><span>States</span></a>
+	</li>
+	<li class="topic-counties">
+		<a href="/counties"><i></i><span>Counties</span></a>
+	</li>
+	<li class="topic-developers">
+		<a href="/developers"><i></i><span>Developers</span></a>
+	</li>
+	<li class="topic-business">
+		<a href="/business"><i></i><span>Business</span></a>
+	</li>
+
+</ul>
+
 
 </div><!--/.container-->
 
