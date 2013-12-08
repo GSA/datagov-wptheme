@@ -44,7 +44,7 @@ if($subnav OR $subnav_extra):
         
         <?php endif; ?>
 
-        <?php if($subnav): ?>
+        <?php if($subnav_extra): ?>
 
            <nav class="topic-subnav" role="navigation">
                <ul class="nav navbar-nav">         
@@ -87,7 +87,7 @@ $category_intro = new WP_Query($args);
 
 
 <?php while ($category_intro->have_posts()) : $category_intro->the_post(); ?>
-<div class="intro banner">
+<div class="intro">
     <div class="container">
         <?php the_content(); ?>      
     </div>

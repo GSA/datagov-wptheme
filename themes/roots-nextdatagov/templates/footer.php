@@ -28,6 +28,9 @@
           </div>
         </form>    
     
+        <div class="footer-logo">
+            <a class="navbar-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>        
+        </div>
         
     </div>
     
@@ -44,7 +47,7 @@
     <?php endif; ?>    
     
 
-    <div class="col-md-4 col-lg-4 social-nav">
+    <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 social-nav">
 
         <?php
 
@@ -56,7 +59,7 @@
 
 	            $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );                
 	            $menu_items = wp_get_nav_menu_items($menu->term_id);            
-	            $menu_list = '<ul id="menu-' . $menu_name . '" class="nav pull-right">';
+	            $menu_list = '<ul id="menu-' . $menu_name . '" class="nav">';
                 
 	            foreach ( (array) $menu_items as $key => $menu_item ) {
 	                $title = $menu_item->title;

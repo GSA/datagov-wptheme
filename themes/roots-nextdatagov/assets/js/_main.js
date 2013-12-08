@@ -17,9 +17,9 @@ var ExampleSite = {
         return strings[Math.floor(Math.random() * strings.length)];
       };
 
-      $demo.attr('placeholder',  'Search 89,234 datasets including: ' + randomString());
+      $demo.attr('placeholder',  randomString());
       setInterval(function () {
-          $demo.attr('placeholder', 'Search 89,234 datasets including: ' + randomString());
+          $demo.attr('placeholder', randomString());
       }, 5500);
 
     },
