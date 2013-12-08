@@ -74,6 +74,9 @@ $args = array(
 </ul> 
 
 
+<div id="topic-list">
+
+
 <ul class="topics collapse" id="more-topics">
 	<li class="topic-consumer">
 		<a href="/consumer"><i></i><span>Consumer</span></a>
@@ -106,9 +109,15 @@ $args = array(
 </ul>
 
 <div class="more-link">
-    <h5><a data-toggle="collapse" href="#more-topics">More Topics</a></h5>
+    <h5>
+    	<a data-toggle="collapse" data-parent="#topic-list" href="#more-topics" class="collapsed">
+    		<span>More Topics</span>
+    		<i></i>
+    	</a>
+   	</h5>
 </div>
 
+</div>
 
 </div><!--/.container-->
 
