@@ -24,12 +24,6 @@ $cat_slug = $category[0]->slug;
 ?>
 </ul></nav></div>
 <div class="container">
-<?php
-                    while( have_posts() ) {
-                        the_post();
-                        ?>
-    <?php the_content();   ?>
-    <?php }?>
 <div class="technical-wrapper">
   <div id="regionalimg" class="imagearea" >
     <h2 class="block-title">Regional Planning Efforts</h2>
@@ -41,10 +35,7 @@ $title=get_the_title();
                             global $cat_name;
                             $category = get_the_category(  );
                             $cat_name=$category[0]->slug;
-
-
-
-
+                            $fieldaliasvalue = $_GET['field_alias_value'];
 //WordPress loop for custom post type
                             $my_query = new WP_Query("post_type=regional_planning&posts_per_page=-1&meta_key=field_alias&meta_compare=>=&meta_value='.$fieldaliasvalue.'");
                             while ($my_query->have_posts()) : $my_query->the_post(); ?>
