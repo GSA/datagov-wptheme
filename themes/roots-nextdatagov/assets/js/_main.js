@@ -9,7 +9,7 @@ var ExampleSite = {
 
 
       var
-        $demo = jQuery('#search-header'),
+        $demo = jQuery('.frontpage-search #search-header'),
         strings = JSON.parse($demo.attr('data-strings')).targets,
          randomString;
 
