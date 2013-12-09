@@ -35,7 +35,8 @@ $new_query = new WP_Query($args);
 
 <article <?php post_class(); ?>>
   <header>
-    <h5 class="category"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></h5>
+    <?php $category = get_the_category() ?>
+    <h5 class="category topic-<?php echo $category[0]->slug;?>"><a href="/<?php echo $category[0]->slug;?>"><i></i><span><?php echo $category[0]->cat_name;?></span></a></h5>
     <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     <?php get_template_part('templates/entry-meta'); ?>
   </header>

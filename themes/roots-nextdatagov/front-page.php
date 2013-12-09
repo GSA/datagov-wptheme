@@ -99,6 +99,9 @@ $args = array(
 	<li class="topic-counties">
 		<a href="/counties"><i></i><span>Counties</span></a>
 	</li>
+	<li class="topic-cities">
+		<a href="/cities"><i></i><span>Cities</span></a>
+	</li>	
 	<li class="topic-developers">
 		<a href="/developers"><i></i><span>Developers</span></a>
 	</li>

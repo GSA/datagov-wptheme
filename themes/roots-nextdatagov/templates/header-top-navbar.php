@@ -49,7 +49,7 @@
 
 <div class="header banner frontpage-search">
     <div class="container">
-      <div class="text-center getstarted"><h4>Get Started<br><small>Search over 85,000 datasets</small><br /><i class="fa fa-caret-down"></i></h4></div>
+      <div class="text-center getstarted"><h4><label for="search-header">Get Started<br><small>Search over 85,000 datasets</small><br /><i class="fa fa-caret-down"></i></label></h4></div>
       <?php get_search_form(); ?>
     </div><!--/.container-->
 </div>
@@ -64,7 +64,7 @@
             <?php echo roots_title(); ?>
           </h1>
           
-          <?php if (is_category()): ?>          
+          <?php if (is_category() OR is_tax()): ?>          
           <div class="tagline">
               <?php echo category_description(); ?>
           </div>
