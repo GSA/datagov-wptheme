@@ -1,8 +1,10 @@
 <?php get_template_part('templates/head'); ?>
 <body <?php body_class(); ?>>
-<?php $post = get_post('128733');?>
-<?php echo $post->post_content;?>
-
+<?php //$post = get_post('128733');?>
+<?php //echo $post->post_content;?>
+<div class="banner disclaimer">
+    <p></p><center>This is a demonstration site exploring the future of Data.gov. <span id="stop-disclaimer"> Give us your feedback on <a href="https://twitter.com/usdatagov">Twitter</a>, <a href="http://quora.com">Quora</a></span>, <a href="https://github.com/GSA/datagov-design/">Github</a>, or <a href="/contact-engage">contact us</a></center><p></p>
+</div>
   <!--[if lt IE 8]>
     <div class="alert alert-warning">
       <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'roots'); ?>
