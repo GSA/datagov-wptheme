@@ -1023,3 +1023,53 @@ a.faq-top {
     margin: 0 5px;
 }
 #comments .alert.alert-warning{display:none;}
+
+/* Media Queries */
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+    #webcontent {
+        float: left;
+        margin-left: 20px;
+        width:auto !important;
+    }
+    .Mobile-post .appscontainer .appsitem{width:auto !important;}
+    #itemtitle a{font-size:13px;}
+    .Mobile-post p{font-size:11px;}
+    .meta .image {
+        float: left;
+        height: 25px;
+        margin-left: 150px !important;
+        width: 7% !important;
+    }
+    #Appsitem #itemimage img{height:50px !important;}
+    #itemtitle a{font-size:13px !important;}
+    .container .footer .twelve.columns {
+        width: 420px;
+    }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+    #webcontent {
+        float: left;
+        margin-left: 20px;
+        width:auto !important;
+    }
+    .Mobile-post .appscontainer .appsitem{width:auto !important;}
+    #itemtitle a{font-size:13px;}
+    .Mobile-post p{font-size:11px;}
+    .meta .image {
+        float: left;
+        height: 25px;
+        margin-left: 50px !important;
+        width: 9% !important;
+    }
+    .cat-post .core{height:auto !important;}
+    .cat-post{height:auto !important;}
+    #Appsitem #itemimage img{height:50px !important;}
+    #itemtitle a{font-size:13px !important;}
+    .container .footer .twelve.columns {
+        width: 300px;
+    }
+}
