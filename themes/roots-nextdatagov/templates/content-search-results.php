@@ -6,12 +6,14 @@
       // we need to build $args based either term_name or term_slug
       $args = array(
           'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
-      wp_list_bookmarks($args);
+        wp_list_bookmarks($args);
       if (strcasecmp($term_name,$term_slug)!=0) {
           $args = array(
               'category_name'=> $term_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
           wp_list_bookmarks($args);
       }
+   $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
+   $group = filter_var($_GET['group'], FILTER_SANITIZE_STRING);
 ?>
 </ul></nav></div>
 
@@ -212,7 +214,7 @@ function usasearch_fetch_results($query, $group = NULL,  $page = 0) {
     $query .= "&api_key=$api_key";
     $query .= "&page=$page" ;
     $query .= "&index=web";
-
+    //echo "the value of the query in usa search function is==> "."http://$action_domain/api/search.json?$query";
     $response = wp_remote_get("http://$action_domain/api/search.json?$query");
 
 

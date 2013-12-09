@@ -1,3 +1,10 @@
+<?php
+$category = get_the_category();
+if ($category[0]->cat_name != 'Uncategorized') {
+
+    $slug = $wp_query->query_vars['category_name'];
+}
+?>
 <footer class="content-info" role="contentinfo">
 
 <div class="container">
@@ -15,11 +22,12 @@
     
     <div class="col-md-4 col-lg-4">
     
-        <form role="search" method="get" class="search-form form-inline" action="<?php echo home_url('/'); ?>">
+        <form role="search" method="get" class="search-form form-inline" action="/search-results/1/">
           <div class="input-group">
             <label class="hide" for="search-footer"><?php _e('Search for:', 'roots'); ?></label>
-            <input type="search" id="search-footer" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
-            <span class="input-group-btn">            
+            <input type="search" id="search-footer" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="q" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
+              <input type="hidden"name="group" value="<?php echo (get_category_by_slug($slug)->name) ? (get_category_by_slug($slug)->name) : 'site'; ?>">
+              <span class="input-group-btn">
                 <button type="submit" class="search-submit btn btn-default">
                      <i class="fa fa-search"></i>
                      <span class="sr-only"><?php _e('Search', 'roots'); ?></span>
