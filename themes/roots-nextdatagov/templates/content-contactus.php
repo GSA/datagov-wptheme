@@ -31,16 +31,6 @@
 Have a question about working with open data? Tap the expertise of the<a href="">Open data stack exchange community.</a></span>
                 <div  class="separator"></div>
                 <?php
-                /**
-                 * Created by JetBrains PhpStorm.
-                 * User: pshirodkar
-                 * Date: 12/5/13
-                 * Time: 11:12 AM
-                 * To change this template use File | Settings | File Templates.
-                 *
-                 * Template Name: RSS Feed
-                 */
-
                 include_once(ABSPATH.WPINC.'/rss.php'); // path to include script
                 $feed = fetch_rss('http://opendata.stackexchange.com/feeds/tag/data.gov'); // specify feed url
                 $items = array_slice($feed->items, 0, 3); // specify first and last item
