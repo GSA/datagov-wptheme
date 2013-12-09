@@ -64,7 +64,7 @@
             <?php echo roots_title(); ?>
           </h1>
           
-          <?php if (is_category()): ?>          
+          <?php if (is_category() OR is_tax()): ?>          
           <div class="tagline">
               <?php echo category_description(); ?>
           </div>

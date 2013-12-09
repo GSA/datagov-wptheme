@@ -76,12 +76,14 @@ font-size : 1.25em;
     padding : 2em 0;
 }
 
-.frontpage-search, .subnav.banner, .header.banner.page-heading {
-     border-bottom: 1px solid #E7E7E7;
+.header.banner.page-heading {
+  border-bottom : 0;
 }
 
-body.category .header.banner.page-heading {
-  border-bottom : 0;
+.frontpage-search, 
+.subnav.banner, 
+body.home .header.banner.page-heading {
+     border-bottom: 1px solid #E7E7E7;
 }
 
 footer.content-info {
@@ -538,7 +540,7 @@ div.frontpage-search {
       font-size: (@font-size-base * 2.4);
 }
 
-body.category header .header.page-heading {
+header .header.banner.page-heading {
       background-color: @jumbotron-bg;
       color : #fff;
 }
