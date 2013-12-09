@@ -37,13 +37,10 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
-
-    echo "<h1 class='pane-title block-title' style='margin-top:40px;font-family: 'Lato','HelveticaNeue','Helvetica'>Search Results </h1><br />";
-
     if($group != 'site'){
-        echo "You are searching <strong>$query</strong> in <strong>$group</strong> community. Show search results in <a href=/search-results/1/?q=$query&group=site>next.data.gov</a>. <br /><br />";
+        echo "You are searching <strong>$query</strong> in <strong>$group</strong> community, show search results in <a href=/search-results/1/?q=$query&group=site> entire site</a>. <br /><br />";
     } else {
-        echo "You are searching <strong>$query</strong> in <strong>DATA.gov</strong>. Show search results in <a href=http://catalog.data.gov/dataset?q=$query>catalog.data.gov</a>. <br /><br />";
+        echo "You are searching <strong>$query</strong> in entire site, show results in <a href=http://catalog.data.gov/dataset?q=$query>catalog.data.gov</a>. <br /><br />";
     }
 
 
