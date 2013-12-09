@@ -15,7 +15,13 @@ font-family: 'Lato', Arial, sans-serif;
 }
 
 main.main {
-background-color : #fff;
+  padding : 2em 0;
+  background-color : #fff;
+}
+
+body.home main.main, 
+body.archive.category main.main {
+  padding-top : 0;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -571,10 +577,6 @@ header .header.banner.page-heading {
     }
 }
 
-.updates h5.category {
-  text-transform: uppercase;
-}
-
 .updates, #highlights {    
     h2 { 
         margin-top: 0;
@@ -603,7 +605,7 @@ color : #000;
 
 article header .category a {
 
-color : #8792A4;
+color : @blue-gray;
 
   &:hover {
     color : #000;
@@ -632,10 +634,6 @@ color : #8792A4;
 /* ==========================================================================
    Primary Content
    ========================================================================== */
-
-.main { 
-padding-bottom : 2em;
-}
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
@@ -669,20 +667,39 @@ padding-bottom : 2em;
 .updates .format-status {
     .author-details {
         border-bottom : 1px solid #efefef;
-        text-transform : uppercase;
         margin-bottom : 1em;
     }
 }
 
+article.hentry {
+  margin-bottom : 3.5em;
+}
+
+article header .entry-title {
+  font-size : 1.75em;
+  margin-bottom : .2em;
+}
+
+article .entry-meta {
+  font-size : .85em;
+}
+
+
+article .byline {
+display : inline-block;
+}
+
+article header time,
+article header .author a {
+  color : @blue-gray;
+}
 
 
 /* ==========================================================================
    Pages
    ========================================================================== */
 
-body.page main.main {
-  padding-top : 2em;
-}
+
 
 
 /* ==========================================================================
