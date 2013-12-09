@@ -1011,7 +1011,14 @@ a.faq-top {
 
 }
 .contact-text{
-    text-align:center;padding:30px 10px;font-size:16px;
+    text-align:center;padding:30px 10px;font-size:16px;color:#428BCA;
+
+}
+.bluetext{
+    color:#428BCA;font-size:20px;
+}
+.greytext{
+    color:#666666;
 
 }
 .contact-title{
