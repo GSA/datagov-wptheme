@@ -76,8 +76,12 @@ font-size : 1.25em;
     padding : 2em 0;
 }
 
-.header.banner, .frontpage-search, .subnav.banner {
+.frontpage-search, .subnav.banner, .header.banner.page-heading {
      border-bottom: 1px solid #E7E7E7;
+}
+
+body.category .header.banner.page-heading {
+  border-bottom : 0;
 }
 
 footer.content-info {
@@ -134,11 +138,25 @@ color : #000;
 }
 
 
-
-
 /* ==========================================================================
-   Topic Browse
+   Subnav
    ========================================================================== */
+
+
+.subnav.banner {
+background-color : #EEF7FF;
+border-top : 1px solid #fff;
+border-bottom : 1px solid #D1E2ED;
+  a {
+    color : @blue-darkblue;
+  }
+
+  nav li a:hover {
+    background-color : #fff;
+  }
+}
+
+
 
 /* ==========================================================================
    Topic Browse
@@ -200,93 +218,93 @@ color : #000;
    }
    
 
-   .svg .topics {
+   .svg {
        
-                    li.topic-health a i {
+                    .topic-health a i {
                         background : url(../img/topic-health.svg) no-repeat;
                     }       
 
-                    li.topic-energy a i {
+                    .topic-energy a i {
                         background : url(../img/topic-energy.svg) no-repeat;
                     }
 
-                    li.topic-ethics a i {
+                    .topic-ethics a i {
                         background : url(../img/topic-ethics.svg) no-repeat;
                     }
                     
-                    li.topic-education a i {
+                    .topic-education a i {
                         background : url(../img/topic-education.svg) no-repeat;
                     }
                     
-                    li.topic-finance a i {
+                    .topic-finance a i {
                         background : url(../img/topic-finance.svg) no-repeat;
                     }
                     
-                    li.topic-climate a i {
+                    .topic-climate a i {
                         background : url(../img/topic-climate.svg) no-repeat;
                     }
 
-                    li.topic-law a i {
+                    .topic-law a i {
                         background : url(../img/topic-law.svg) no-repeat;
                     }
                     
-                    li.topic-research a i {
+                    .topic-research a i {
                         background : url(../img/topic-research.svg) no-repeat;
                     }
                     
-                    li.topic-safety a i {
+                    .topic-safety a i {
                         background : url(../img/topic-safety.svg) no-repeat;
                     }
 
-                    li.topic-food a i {
+                    .topic-food a i {
                         background : url(../img/topic-food.svg) no-repeat;
                     }
                     
-                    li.topic-ocean a i {
+                    .topic-ocean a i {
                         background : url(../img/topic-ocean.svg) no-repeat;
                     }
                     
-                    li.topic-development a i {
+                    .topic-development a i {
                         background : url(../img/topic-development.svg) no-repeat;
                     }
                         
-                    li.topic-manufacturing a i {
+                    .topic-manufacturing a i {
                         background : url(../img/topic-manufacturing.svg) no-repeat;
                     }                   
 
-                    li.topic-consumer a i {
+                    .topic-consumer a i {
                         background : url(../img/topic-consumer.svg) no-repeat;
                     } 
                     
-                    li.topic-weather a i {
+                    .topic-weather a i {
                         background : url(../img/topic-weather.svg) no-repeat;
                     }
 
-                    li.topic-geospatial a i {
+                    .topic-geospatial a i {
                         background : url(../img/topic-geospatial.svg) no-repeat;
                     }
 
-                    li.topic-jobs-skills a i {
+                    .topic-jobs-skills a i {
                         background : url(../img/topic-jobs-skills.svg) no-repeat;
                     }
 
-                    li.topic-business a i {
+                    .topic-business a i {
                         background : url(../img/topic-business.svg) no-repeat;
                     }
 
-                    li.topic-counties a i {
+                    .topic-counties a i {
                         background : url(../img/topic-counties.svg) no-repeat;
                     }
 
-                    li.topic-states a i {
+                    .topic-states a i {
                         background : url(../img/topic-states.svg) no-repeat;
                     }
 
-                    li.topic-cities a i {
+                    .topic-cities a i {
                         background : url(../img/topic-cities.svg) no-repeat;
                     }
 
-                    li.topic-developers a i {
+                    .topic-developers a i {
                         background : url(../img/topic-developers.svg) no-repeat;
                     }
 
@@ -520,6 +538,11 @@ div.frontpage-search {
       font-size: (@font-size-base * 2.4);
 }
 
+body.category header .header.page-heading {
+      background-color: @jumbotron-bg;
+      color : #fff;
+}
+
 .page-header {
     padding-bottom: 0;
     margin: (@line-height-computed * 2) 0 @line-height-computed;
@@ -566,6 +589,44 @@ div.frontpage-search {
   margin-bottom: (@line-height-computed * 2)
 }
 
+#highlights article a {
+color : #fff;
+text-decoration : underline;
+}
+
+#highlights article a:hover {
+text-decoration : none;
+color : #000;
+}
+
+article header .category a {
+
+color : #8792A4;
+
+  &:hover {
+    color : #000;
+  }
+
+  i {
+    background-position: center center !important;
+    background-size: contain !important;
+    display: inline-block;
+    height : 20px;
+    width : 20px;
+    margin-bottom : -.2em;
+  }
+
+  span {
+    display : inline-block;
+    margin-left : .5em;
+  }
+
+
+}
+
+
+
+
 /* ==========================================================================
    Primary Content
    ========================================================================== */
@@ -609,6 +670,16 @@ padding-bottom : 2em;
         text-transform : uppercase;
         margin-bottom : 1em;
     }
+}
+
+
+
+/* ==========================================================================
+   Pages
+   ========================================================================== */
+
+body.page main.main {
+  padding-top : 2em;
 }
 
 
