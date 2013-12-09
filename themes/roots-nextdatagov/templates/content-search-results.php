@@ -143,7 +143,11 @@ function usasearch_display_results($query = '', $group = ''){
     foreach($results['results'] as $result){
         $title = $result['title'];
         $url = $result['unescapedUrl'];
-
+        $parse_url = parse_url($url);
+        $isCatalog = false;
+        if($parse_url["host"]=="catalog.data.gov"){
+            $isCatalog = true;
+        }
         echo '<a class="search-results"  href ="'.$url.'">'.$title.'</a><br />';
         echo  '<p style="text-indent:20px;">'.$result['content'] ."<br /><br /></p>";
     }
