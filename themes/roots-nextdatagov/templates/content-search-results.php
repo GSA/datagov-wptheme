@@ -39,6 +39,8 @@ function usasearch_display_results($query = '', $group = ''){
 
     if($group != 'site'){
         echo "You are searching <strong>$query</strong> in <strong>$group</strong> community. Show search results in <a href=/search-results/1/?q=$query&group=site>next.data.gov</a>. <br /><br />";
+    } else {
+        echo "You are searching <strong>$query</strong> in <strong>DATA.gov</strong>. Show search results in <a href=http://catalog.data.gov/dataset?q=$query>catalog.data.gov</a>. <br /><br />";
     }
 
 
@@ -131,7 +133,7 @@ function usasearch_display_results($query = '', $group = ''){
         foreach($results['boosted_results'] as $result){
             $title = $result['title'];
             $url = $result['url'];
-
+            echo '<p>Recommended Restults</p>';
             echo '<a class="search-results"  href ="'.$url.'">'.$title.'</a><br />';
             echo  '<p style="text-indent:20px;">'.$result['description'] ."<br /><br /></p>";
         }
