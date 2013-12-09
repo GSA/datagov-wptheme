@@ -878,12 +878,12 @@ a.faq-top {
     margin-left: 20px;
     margin-top: 5px;
     width: 290px;
-    min-height:600px;
+    min-height:490px;
 }
 .contact-post .text{
     padding:20px 10px;
-    font-size:22px;
-    line-height:30px;
+    font-size:16px;
+    line-height:27px;
 }
 .separator{
     border-bottom: 2px solid #C0C0C0;
@@ -895,9 +895,18 @@ a.faq-top {
 }
 .contact-question{
     padding:20px 10px 20px 10px;
-    font-size:20px;
-}
 
+}
+.contact-question span a.question{
+    font-size:16px;
+    color:#000000;
+
+}
+.contact-title a{
+    font-size:16px;
+    color:#000000;
+
+}
 .contact-post2 {
     background-color: #F2F2F2;
     float: left;
@@ -919,35 +928,59 @@ a.faq-top {
 
 }
 .contact-post4 {
-    background-color: #F2F2F2;
+
     float: left;
     margin-bottom: 5px;
     margin: 10px;
 
-    width: 600px;
-    min-height:330px;
+    width: 500px;
+
+}
+.contact-post4 .customcontactform input.submit{
+    float: left;
+    margin-left: 540px;
+    margin-top: -75px;
+    padding: 10px;
+    width: 320px;
+    color:#000000;
+    border:none;
+    border-radius:0px;
+    background:none repeat scroll 0 0 #EFEFEF;
+    font-size:16px !important;
+    font-weight:bold;
+    height:50px;
+}
+.contact-post4 .customcontactform input[type="text"] {
+    width:25em;
+}
+.contact-post4 .customcontactform div textarea{
+    width:25em;
 }
 .contact-post5 {
     display:block;
     padding:20px;
     line-height:20px;
     margin-right: 10px;
-    margin-top:10px;
-    font-size:20px;
+    margin-top:30px;
+    font-size:16px;
     color:#ffffff;
+    float:right;
+    width:350px;
 }
 
 .contact-post6 {
 
-    padding:20px;
+    padding:10px;
 
-    margin-right: 10px;
-    margin-top:10px;
+    margin-right:35px;
+    margin-top:30px;
+    float:right;
+    width:320px;
 
 }
 .contact-post6 select {
 
-    width:260px;
+    width:320px;
     height:30px;
 
 }
@@ -978,11 +1011,11 @@ a.faq-top {
 
 }
 .contact-text{
-    text-align:center;padding:30px 10px;font-size:20px;
+    text-align:center;padding:30px 10px;font-size:16px;
 
 }
 .contact-title{
-    padding:10px 10px;font-size:20px;
+    padding:10px 10px;font-size:16px;
 
 }
 .iconApp {
