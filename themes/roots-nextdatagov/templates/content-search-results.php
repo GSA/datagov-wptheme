@@ -1,9 +1,13 @@
 <div class="container">
 <nav role="navigation" class="topic-subnav">
-               <ul class="nav navbar-nav"> 
+               <ul class="nav navbar-nav">
 <?php
-	 // show Links associated to a community
+         // show Links associated to a community
       // we need to build $args based either term_name or term_slug
+       $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
+       $group = filter_var($_GET['group'], FILTER_SANITIZE_STRING);
+       $term_name = $group;
+       $term_slug = strtolower($term_name);
       $args = array(
           'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
         wp_list_bookmarks($args);
@@ -12,8 +16,7 @@
               'category_name'=> $term_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
           wp_list_bookmarks($args);
       }
-   $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
-   $group = filter_var($_GET['group'], FILTER_SANITIZE_STRING);
+
 ?>
 </ul></nav></div>
 
@@ -27,20 +30,17 @@ if(isset($query) && isset($group) && $group != 'site')
     usasearch_display_results($query, $group);
 }
 
-if(isset($query)  && isset($group) && $group == 'site')
+if(isset($query) && isset($group) && $group == 'site')
 {
     usasearch_display_results($query, $group);
 }
 
 
 function usasearch_display_results($query = '', $group = ''){
-
-    echo "<h1 class='pane-title block-title' style='margin-top:40px;font-family: 'Lato','HelveticaNeue','Helvetica'>Search Results </h1><br />";
-
     if($group != 'site'){
-        echo "You are searching <strong>$query</strong> in <strong>$group</strong> community. Show search results in <a href=/search-results/1/?q=$query&group=site>next.data.gov</a>. <br /><br />";
+        echo "You are searching <strong>$query</strong> in <strong>$group</strong> community, show search results in <a href=/search-results/1/?q=$query&group=site> entire site</a>. <br /><br />";
     } else {
-        echo "You are searching <strong>$query</strong> in <strong>DATA.gov</strong>. Show search results in <a href=http://catalog.data.gov/dataset?q=$query>catalog.data.gov</a>. <br /><br />";
+        echo "You are searching <strong>$query</strong> in entire site, show results in <a href=http://catalog.data.gov/dataset?q=$query>catalog.data.gov</a>. <br /><br />";
     }
 
 
@@ -93,7 +93,7 @@ function usasearch_display_results($query = '', $group = ''){
     elseif($paging_info['curr_page'] >= ($paging_info['pages'] - floor($max / 2)) )
         $sp = $paging_info['pages'] - $max + 1;
     elseif($paging_info['curr_page'] >= $max)
-        $sp = $paging_info['curr_page']  - floor($max/2);
+        $sp = $paging_info['curr_page'] - floor($max/2);
 
     if($paging_info['curr_page'] >= $max){
         $pager .= "<li class='pager-current first'><a href='/search-results/1/?q=$query&group=$group' title='Page 1'>1</a></li>";
@@ -133,9 +133,9 @@ function usasearch_display_results($query = '', $group = ''){
         foreach($results['boosted_results'] as $result){
             $title = $result['title'];
             $url = $result['url'];
-            echo '<p>Recommended Restults</p>';
-            echo '<a class="search-results"  href ="'.$url.'">'.$title.'</a><br />';
-            echo  '<p style="text-indent:20px;">'.$result['description'] ."<br /><br /></p>";
+            echo '<p style="color: #9E3030;">Recommended Results</p>';
+            echo '<a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
+            echo '<p style="text-indent:20px;">'.$result['description'] ."<br /><br /></p>";
         }
     }
 
@@ -143,9 +143,13 @@ function usasearch_display_results($query = '', $group = ''){
     foreach($results['results'] as $result){
         $title = $result['title'];
         $url = $result['unescapedUrl'];
-
-        echo '<a class="search-results"  href ="'.$url.'">'.$title.'</a><br />';
-        echo  '<p style="text-indent:20px;">'.$result['content'] ."<br /><br /></p>";
+        $parse_url = parse_url($url);
+        if($parse_url["host"]=="catalog.data.gov"){
+            echo '<img src="'.get_bloginfo('template_directory').'/assets/img/dataset_icon.png" ><a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
+        } else {
+            echo '<a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
+        }
+        echo '<p style="text-indent:20px;">'.$result['content'] ."<br /><br /></p>";
     }
 
     // Display related terms
@@ -156,14 +160,14 @@ function usasearch_display_results($query = '', $group = ''){
             $title = $result;
             $url = "/search-results/1/?q=$title&group=site";
 
-            echo '<a class="search-results"  href ="'.$url.'">'.$title.'</a><br />';
+            echo '<a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
 
         }
     }
 
     echo $pager;
 
-    $output  = '<br /><div style="text-align:center;"><img src ="/wp-content/plugins/usa-search/images/binglogo_en.gif">';
+    $output = '<br /><div style="text-align:center;"><img src ="/wp-content/plugins/usa-search/images/binglogo_en.gif">';
     $output .= "<div class='search-notice'>Search results were retrieved using the " . get_option('domain', 'search.usa.gov') . " API at " . date('M n Y - H:i a',time()) .
         "<br>* The USASearch Program and Federal Government cannot vouch for the data or analyses derived from these data after the data have been retrieved from USASearch.</div></div>";
     $output .='</body></html>';
@@ -176,9 +180,9 @@ function get_paging_info($tot_rows,$pp,$curr_page)
     $pages = ceil($tot_rows / $pp); // calc pages
 
     $data = array(); // start out array
-    $data['si']        = ($curr_page * $pp) - $pp; // what row to start at
-    $data['pages']     = $pages;                   // add the pages
-    $data['curr_page'] = $curr_page;               // Whats the current page
+    $data['si'] = ($curr_page * $pp) - $pp; // what row to start at
+    $data['pages'] = $pages; // add the pages
+    $data['curr_page'] = $curr_page; // Whats the current page
 
     return $data; //return the paging data
 
@@ -186,15 +190,15 @@ function get_paging_info($tot_rows,$pp,$curr_page)
 
 
 /**
- * Page callback function to redirect requests to catalog for data search.
- */
+* Page callback function to redirect requests to catalog for data search.
+*/
 function usasearch_redirect_to_usasearch($query = '') {
     header("Location: http://catalog.data.gov/dataset?q=$query");
     exit;
 
 }
 
-function usasearch_fetch_results($query, $group = NULL,  $page = 0) {
+function usasearch_fetch_results($query, $group = NULL, $page = 0) {
     // Set action_domain from variables table or default to search.usa.gov.
     $action_domain = get_site_option('domain', 'search.usa.gov');
     // Set affiliate_name from variables table, checking for a value using ternary operator.
@@ -226,5 +230,3 @@ function usasearch_fetch_results($query, $group = NULL,  $page = 0) {
 
 </div>
 </div>
-
-
