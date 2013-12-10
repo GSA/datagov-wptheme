@@ -603,12 +603,13 @@ text-decoration : none;
 color : #000;
 }
 
-article header .category a {
+.category-header a {
 
-color : @blue-gray;
+color : @blue-gray; 
 
   &:hover {
     color : #000;
+    text-decoration : none;
   }
 
   i {
@@ -626,6 +627,22 @@ color : @blue-gray;
   }
 
 
+}
+
+
+.highlights-listing .category-header {
+
+    padding-bottom : .2em;
+    border-bottom: 1px solid @blue-gray-light;
+
+    a i {
+      height : 50px;
+      width : 50px;
+    }
+
+    span {
+      margin-left : .25em;
+    }    
 }
 
 
