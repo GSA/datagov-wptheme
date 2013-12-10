@@ -379,7 +379,7 @@ height:45px;
 .horizontal_dotted_line{
     border-bottom: 2px solid #C0C0C0;
     width: 85%;
-    margin-left:80px;
+    /*margin-left:80px;*/
 
 }
 .horizontal_dotted_line_all{
@@ -391,6 +391,7 @@ height:45px;
 .more-link{
     color: #83B03C;
 }
+.page-template-template-all-challanges-php h1{font-size:25px;}
 /* ==========================================================================
    Styles Below are  White background for pages
    ========================================================================== */
