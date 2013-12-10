@@ -392,6 +392,13 @@ height:45px;
     color: #83B03C;
 }
 .page-template-template-all-challanges-php h1{font-size:25px;}
+.page-template-template-all-challanges-php .Apps-post{background-color: none;box-shadow: none;}
+.page-template-template-all-challanges-php .Apps-post .Appstitle{padding-left:0px;}
+
+
+
+
+
 /* ==========================================================================
    Styles Below are  White background for pages
    ========================================================================== */
