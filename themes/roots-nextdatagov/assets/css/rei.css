@@ -890,12 +890,12 @@ a.faq-top {
     margin-left: 20px;
     margin-top: 5px;
     width: 290px;
-    min-height:490px;
+    min-height:480px;
 }
 .contact-post .text{
     padding:20px 10px;
     font-size:16px;
-    line-height:27px;
+    line-height:25px;
 }
 .separator{
     border-bottom: 2px solid #C0C0C0;
@@ -932,9 +932,9 @@ a.faq-top {
 .contact-post3 {
     background-color: #428BCA;
 
-    margin-bottom: 5px;
+    margin-bottom: -65px;
     margin-left: 20px;
-    margin-top: 150px;
+
     width: 910px;
     min-height:370px;
 
@@ -984,7 +984,7 @@ a.faq-top {
 
     padding:10px;
 
-    margin-right:40px;
+    margin-right:50px;
     margin-top:30px;
     float:right;
     width:320px;

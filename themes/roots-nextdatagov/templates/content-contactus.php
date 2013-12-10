@@ -27,8 +27,8 @@
                 <span style="margin-left:0px;text-transform:uppercase;font-size:15px;font-weight:bold;margin-bottom:5px;"><i class="bluetext fa fa-stack-exchange"></i>&nbsp;Ask the open data community</span>
 
                 <div  class="separator"></div>
-<span style="text-transform:uppercase;font-size:15px;">
-Have a question about working with open data? Tap the expertise of the<a href="">Open data stack exchange community.</a></span>
+<span style="font-size:15px;line-height: 29px">
+Have a question about working with open data? Tap the expertise of the<br>Open data stack exchange community.</span>
                 <div  class="separator"></div>
                 <?php
                 /**
@@ -65,8 +65,8 @@ Have a question about working with open data? Tap the expertise of the<a href=""
 
                 <span style="margin-left:0px;text-transform:uppercase;font-size:15px;font-weight:bold;"><i class="bluetext fa fa-twitter"></i>&nbsp;Twitter</span>
                 <div  class="separator"></div>
-<span style="text-transform:uppercase;font-size:15px;">
-Engage the Data.gov on twitter or find the account for a specific<br/> <a href="">community or agency.</a></span>
+<span style="font-size:15px;line-height: 29px">
+Engage the Data.gov on twitter or find the account for a specific<br/>community or agency.</span>
                 <div  class="separator"></div>
                 <?php echo do_shortcode( '[twitter-widget username="usdatagov" before_widget="
 <div class="half-box">" after_widget="</div>
@@ -77,27 +77,22 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
             </div>
         </div>
 
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
         <div style="clear:both; "></div>
         <div class="contact-title"><i class="bluetext fa fa-comment"></i>&nbsp;<a name="question">ASK A QUESTION</a></div>
 
         <div class="horizontal_dotted_line_all"></div>
-        <div  class="contact-post2">
-            <div class="contact-text"><i class="fa fa-stack-exchange"></i>&nbsp;<a href="http://opendata.stackexchange.com/">Ask the community</a><br>
-                <span class="greytext">(Stack Exchange)</span></div>
+        <!--  <div  class="contact-post2">
+             <div class="contact-text"><i class="fa fa-stack-exchange"></i>&nbsp;<a href="http://opendata.stackexchange.com/">Ask the community</a><br>
+                 <span class="greytext">(Stack Exchange)</span></div>
+         </div>
+         <div  class="contact-post2">
+             <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;Contact a data Steward<br>
+                 <span class="greytext">(Private)</span></div>
+         </div> -->
+
+        <div style="padding:10px;" class="bluetext"><i class="fa fa-envelope"></i>&nbsp;Contact Data.gov<br>
         </div>
-        <div  class="contact-post2">
-            <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;Contact a data Steward<br>
-                <span class="greytext">(Private)</span></div>
-        </div>
-        <div  class="contact-post2">
-            <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;<a href="/contact-us/">Contact Data.gov</a><br>
-                <span class="greytext">(Private)</span></div>
-        </div>
+
         <br>
         <div class="contact-post3">
             <div class="contact-post4">
@@ -120,6 +115,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
                 <select>
                     <option value="Problem">What Kind of Inquiry is this?</option>
 
+
                 </select>
             </div>
 
@@ -139,7 +135,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
             <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;Request new Data</div></div>
 
         <div style="clear:both; "></div>
-        <div class="contact-title"><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" ><i class="bluetext fa fa-exclamation-triangle"></i>&nbsp;<a name="report">Report a Problem</a></div>
+        <div class="contact-title"><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" >&nbsp;<a name="report">Report a Problem</a></div>
 
         <div class="horizontal_dotted_line_all"></div>
         <div class="contact-post8">
