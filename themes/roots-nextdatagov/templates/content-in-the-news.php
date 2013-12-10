@@ -26,21 +26,6 @@ $cat_slug = $category[0]->slug;
             </ul></nav></div>
 </div>
 <div class="container">
-<?php
-              while( have_posts() ) {
-                  the_post();
-                  ?>
-
-<div class="Apps-wrapper">
-  <div class="Apps-post" id="post-<?php the_ID(); ?>">
-    <div id="appstitle" class="Appstitle" >
-      <?php the_title();?>
-    </div>
-    <?php the_content();   ?>
-    <?php }?>
-  </div>
-</div>
-
 <!--  News -->
 <?php $category = get_the_category();
 					$cat_slug = $category[0]->slug;
