@@ -113,7 +113,7 @@ if ( have_posts() ){
                                     <?php
                                     $imagefile=get_field_object('field_5240b9c982f41');
                                     ?>
-                                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                                 </center>
                             </div>
                             <div id="itemcontent">
@@ -124,17 +124,17 @@ if ( have_posts() ){
                                 <center>
                                     <?php if (strlen(get_post_meta($post->ID, 'field_ios_app_download_url', TRUE ))>10) :?>
                                     <a href="<?php echo get_post_meta($post->ID, 'field_ios_app_download_url', TRUE );?>">
-                                        <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/ios.png" class="iconApp">
+                                        <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/ios.png" class="iconApp" alt="ios">
                                     </a>
                                     <?php endif; ?>
                                     <?php if (strlen(get_post_meta($post->ID, 'field_android_app_download_url', TRUE ))>10) :?>
                                     <a href="<?php echo get_post_meta($post->ID, 'field_android_app_download_url', TRUE );?>">
-                                        <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/android.png" class="iconApp" >
+                                        <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/android.png" class="iconApp" alt="android">
                                     </a>
                                     <?php endif; ?>
                                     <?php if (strlen(get_post_meta($post->ID, 'field_windows_phone_app_download', TRUE ))>10) :?>
                                     <a href="<?php echo get_post_meta($post->ID, 'field_windows_phone_app_download', TRUE );?>">
-                                        <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/windows.png" class="iconApp">
+                                        <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/windows.png" class="iconApp" alt="windows">
                                     </a>
                                     <?php endif; ?>
                                 </center>
@@ -187,7 +187,7 @@ if ( have_posts() ){
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
+                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" >
                 </div>
                 <div id="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
