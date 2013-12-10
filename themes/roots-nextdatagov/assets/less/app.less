@@ -583,9 +583,9 @@ header .header.banner.page-heading {
     }  
 }
 
-#highlights .page-header,
-#highlights header,
-#highlights article, {
+#highlights.wrap-lightblue .page-header,
+#highlights.wrap-lightblue header,
+#highlights.wrap-lightblue article, {
     color : #fff;
 }
 
@@ -593,12 +593,12 @@ header .header.banner.page-heading {
   margin-bottom: (@line-height-computed * 2)
 }
 
-#highlights article a {
+#highlights.wrap-lightblue article a {
 color : #fff;
 text-decoration : underline;
 }
 
-#highlights article a:hover {
+#highlights.wrap-lightblue article a:hover {
 text-decoration : none;
 color : #000;
 }
@@ -628,23 +628,6 @@ color : @blue-gray;
 
 
 }
-
-
-.highlights-listing .category-header {
-
-    padding-bottom : .2em;
-    border-bottom: 1px solid @blue-gray-light;
-
-    a i {
-      height : 50px;
-      width : 50px;
-    }
-
-    span {
-      margin-left : .25em;
-    }    
-}
-
 
 
 
@@ -748,6 +731,41 @@ font-size : 2em;
 /* ==========================================================================
    Forms
    ========================================================================== */
+
+
+
+/* ==========================================================================
+   Highlights page
+   ========================================================================== */
+
+
+.highlights-listing {
+
+  .highlight {
+    
+    margin-bottom : 3em;
+
+    .entry-title {
+      font-size : 2em;
+    }
+
+  }
+
+  .category-header {
+
+      padding-bottom : .2em;
+      border-bottom: 1px solid @blue-gray-light;
+  
+      a i {
+        height : 50px;
+        width : 50px;
+      }
+  
+      span {
+        margin-left : .25em;
+    }    
+  }
+}
 
 
 

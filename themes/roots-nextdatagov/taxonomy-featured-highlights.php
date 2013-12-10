@@ -59,7 +59,7 @@ $args = array(
       <?php 
       while ($category_query->have_posts()) { 
           $category_query->the_post();
-          get_template_part('templates/content', get_post_format()); 
+          get_template_part('templates/content', 'highlights'); 
       }
 
   }
