@@ -125,20 +125,19 @@ Engage the Data.gov on twitter or find the account for a specific<br/>community 
         <br/>
         <br/>
         <br/>
-        <div class="contact-title"><i class="bluetext fa fa-lightbulb-o"></i>&nbsp;<a name="suggest">Suggest or Request</a></div>
+        <div class="contact-title" style="text-transform:uppercase; "><i class="bluetext fa fa-lightbulb-o"></i>&nbsp;<a name="suggest">Suggest or Request</a></div>
 
         <div class="horizontal_dotted_line_all"></div>
 
         <div class="contact-post8">
             <div class="contact-text"><i class="fa fa-github"></i>&nbsp;<a href="https://github.com/GSA/data.gov/">Suggest new Data.gov features</a></div></div>
         <div class="contact-post8">
-            <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;Request new Data</div></div>
+            <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;<a href="https://explore.data.gov/nominate">Request new Data</a></div></div>
 
         <div style="clear:both; "></div>
-        <div class="contact-title"><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" >&nbsp;<a name="report">Report a Problem</a></div>
+        <div class="contact-title" style="text-transform:uppercase; "><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" >&nbsp;<a name="report" >Report a Problem</a></div>
 
         <div class="horizontal_dotted_line_all"></div>
         <div class="contact-post8">
             <div class="contact-text"><i class="fa fa-github"></i>&nbsp;<a href="https://github.com/GSA/data.gov/">Report a problem with Data.gov website</a></div></div>
-        <div class="contact-post8">
-            <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;Report a problem with Specific Data</div></div>
+    
