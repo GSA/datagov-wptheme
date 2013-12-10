@@ -90,7 +90,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/>community 
                  <span class="greytext">(Private)</span></div>
          </div> -->
 
-        <div style="padding:10px;" class="bluetext"><i class="fa fa-envelope"></i>&nbsp;Contact Data.gov<br>
+        <div style="padding:10px;" class="bluetext"><i class="fa fa-envelope"></i>&nbsp;Contact Data.gov<br><span class="greytext" style="margin-left:25px;font-size:15px;">(Private)</span>
         </div>
 
         <br>
