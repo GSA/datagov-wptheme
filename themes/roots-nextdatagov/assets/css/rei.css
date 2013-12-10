@@ -392,13 +392,17 @@ height:45px;
     color: #83B03C;
 }
 .page-template-template-all-challanges-php h1{font-size:25px;}
-.page-template-template-all-challanges-php .Apps-post{background-color: none;box-shadow: none;}
+/*.page-template-template-all-challanges-php .Apps-post{background-color: none;box-shadow: none;}*/
 .page-template-template-all-challanges-php .Apps-post .Appstitle{padding-left:0px;}
-
-
-
-
-
+#recaptcha_widget .right{width:100px;float: right;display: inline;}
+#recaptcha_widget .left{width:400px;display:inline;margin-top:50px;}
+#recaptcha_widget{width:550px;clear:both;}
+#webcontent h2{margin-top:0px;}
+.page-template-template-category-apps-php .main{padding-top:0;}
+.page-template-template-all-challanges-php .main{padding-top:0;}
+.page .main{padding-top: 0;}
+.single-post .main{padding-top: 0;}
+.page-template-template-categories-blog-php .category-wrapper{margin-left: 0px;}
 /* ==========================================================================
    Styles Below are  White background for pages
    ========================================================================== */
@@ -496,7 +500,7 @@ tr.even, tr.even td a {
     padding: 10px;
 }
 #open-data-sites-boxes.agencies .open-data-sites-box {
-    height: 30px;
+    height: 40px;
     margin: 10px 0 0;
     padding-left: 10px;
     padding-right: 10px;
@@ -932,7 +936,7 @@ a.faq-top {
     margin-left: 20px;
     margin-top: 150px;
     width: 910px;
-    min-height:350px;
+    min-height:370px;
 
 }
 .contact-post4 {
@@ -980,7 +984,7 @@ a.faq-top {
 
     padding:10px;
 
-    margin-right:35px;
+    margin-right:40px;
     margin-top:30px;
     float:right;
     width:320px;

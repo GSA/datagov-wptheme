@@ -71,7 +71,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
                 <?php echo do_shortcode( '[twitter-widget username="usdatagov" before_widget="
 <div class="half-box">" after_widget="</div>
 " before_title="
-<h2>" after_title="</h2>
+<h3>" after_title="</h3>
 " hiderss="true" hidereplies="true" targetBlank="true" avatar="1" items="2" showXavisysLink="0" showts="60" title="Recent Tweets"]' ) ?>
 
             </div>
@@ -87,7 +87,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
 
         <div class="horizontal_dotted_line_all"></div>
         <div  class="contact-post2">
-            <div class="contact-text"><i class="fa fa-stack-exchange"></i>&nbsp;Ask the community<br>
+            <div class="contact-text"><i class="fa fa-stack-exchange"></i>&nbsp;<a href="http://opendata.stackexchange.com/">Ask the community</a><br>
                 <span class="greytext">(Stack Exchange)</span></div>
         </div>
         <div  class="contact-post2">
@@ -118,7 +118,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
             </div>
             <div class="contact-post6">
                 <select>
-                    <option value="volvo">What Kind of Inquiry is this?</option>
+                    <option value="Problem">What Kind of Inquiry is this?</option>
 
                 </select>
             </div>
@@ -134,7 +134,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
         <div class="horizontal_dotted_line_all"></div>
 
         <div class="contact-post8">
-            <div class="contact-text"><i class="fa fa-github"></i>&nbsp;Suggest new Data.gov features</div></div>
+            <div class="contact-text"><i class="fa fa-github"></i>&nbsp;<a href="https://github.com/GSA/data.gov/">Suggest new Data.gov features</a></div></div>
         <div class="contact-post8">
             <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;Request new Data</div></div>
 
@@ -143,6 +143,6 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
 
         <div class="horizontal_dotted_line_all"></div>
         <div class="contact-post8">
-            <div class="contact-text"><i class="fa fa-github"></i>&nbsp;Report a problem with Data.gov website</div></div>
+            <div class="contact-text"><i class="fa fa-github"></i>&nbsp;<a href="https://github.com/GSA/data.gov/">Report a problem with Data.gov website</a></div></div>
         <div class="contact-post8">
             <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;Report a problem with Specific Data</div></div>
