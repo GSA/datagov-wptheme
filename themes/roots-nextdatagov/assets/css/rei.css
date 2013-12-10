@@ -1092,6 +1092,8 @@ a.faq-top {
         width: 300px;
     }
 }
+
+/* search Recommended results fixing */
 .usasearch-boosted-results {
 
     background: linear-gradient(center top , #E6ECEE 0%, #FFFFFF 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -1104,4 +1106,15 @@ margin: 8px auto;
     border: 1px solid #CCCCCC;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+/* Glossary Terms */
+table.glossary tr.odd, tr.odd td {
+    text-align:left;
+
+}
+table.glossary tr.odd {
+
+    text-decoration:none;
+    background-color:#EEEEEE;
 }
