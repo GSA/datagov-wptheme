@@ -42,13 +42,7 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
-    if($group != 'site'){
-        echo "You are searching <strong>$query</strong> in <strong>$group</strong> community, show search results in <a href=/search-results/1/?q=$query&group=site> entire site</a>. <br /><br />";
-    } else {
-        echo "You are searching <strong>$query</strong> in entire site, show results in <a href=http://catalog.data.gov/dataset?q=$query>catalog.data.gov</a>. <br /><br />";
-    }
-
-
+    echo "You are searching <strong>$query</strong> in entire site, show results in <a href=http://catalog.data.gov/dataset?q=$query>catalog.data.gov</a>. <br /><br />";
     // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
