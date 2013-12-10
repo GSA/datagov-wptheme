@@ -66,7 +66,7 @@ add_action( 'wp', 'redirect_intro', 100);
  * De-register stylesheets based on certain conditions
  */
 function datagov_deregister_styles() {
-  // style handels to de-register
+  // style handles to de-register
   $styles = array('ccf-standards',
     'ccf-colorpicker', 
     'ccf-jquery-ui', 
@@ -76,10 +76,19 @@ function datagov_deregister_styles() {
     'ccf-admin',
   );
 
-  // de-register styles on all pages except admin pages
+  // script handles to de-register
+  $scripts = array('ccf-main',
+    'jquery-tools',
+    'ccf-datepicker',
+  );
+
+  // de-register styles/scripts on all pages except admin pages
   if (!is_admin()) {
     foreach($styles as $style) {
       wp_deregister_style($style);
+    }
+    foreach($scripts as $script) {
+      wp_deregister_script($script);
     }
   }
 }
