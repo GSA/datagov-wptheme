@@ -118,9 +118,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/> <a href="
             </div>
             <div class="contact-post6">
                 <select>
-                    <option value="Problem">Problem with web site</option>
-                    <option value="Problem">Media inquiry</option>
-                    <option value="Problem">General question</option>
+                    <option value="Problem">What Kind of Inquiry is this?</option>
 
                 </select>
             </div>
