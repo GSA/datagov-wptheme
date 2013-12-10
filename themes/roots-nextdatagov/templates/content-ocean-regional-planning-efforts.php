@@ -30,6 +30,9 @@ $cat_slug = $category[0]->slug;
                         ?>
     <?php the_content();   ?>
     <?php }?>
+    <div id="regionsidebar">
+        <div class="panels-flexible-region-inside">
+            <div class="panel-pane pane-views pane-ocean-regional-planning">
 <div class="inner">
   <?php
                                     $args = array(
@@ -58,3 +61,6 @@ $cat_slug = $category[0]->slug;
                                     }?>
 </div>
 </div>
+        </div>
+    </div>
+    </div>
