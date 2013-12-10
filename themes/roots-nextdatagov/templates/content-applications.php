@@ -13,7 +13,7 @@
                         $imagefile=get_field_object('field_5240b9c982f41');
                         ?>
 
-                        <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>">
+                        <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
 
                         <br />
                         <?php echo "<strong>Android App Download URL:</strong>&nbsp;".get_post_meta($post->ID, 'field_android_app_download_url', TRUE ); ?>

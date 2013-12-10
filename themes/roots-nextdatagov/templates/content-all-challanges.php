@@ -26,15 +26,15 @@ $cat_slug = $category[0]->slug;
             </ul></nav></div>
 </div>
 <div class="container">
-    <?php
-    while( have_posts() ) {
-        the_post();
-        ?>
+<?php
+while( have_posts() ) {
+    the_post();
+    ?>
           <div class="Apps-wrapper">
           <div class="Apps-post" id="post-<?php the_ID(); ?>">
            <div id="appstitle" class="Appstitle" ><?php the_title();?></div>
-        <?php the_content();   ?>
-        <?php }?>
+    <?php the_content();   ?>
+    <?php }?>
 </div>
 </div>
 <div class="upcomingC">
@@ -82,7 +82,7 @@ $cat_slug = $category[0]->slug;
                         <?php
                         $image=  strlen($imagefile['value']['url']);
                         if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;">
+                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;" alt="<?php echo $imagefile['value']['alt']; ?>">
                             <?php }else{?>
                             <img class="scale-with-grid" src="test">
                             <?php }?>
@@ -149,7 +149,7 @@ $cat_slug = $category[0]->slug;
                         <?php
                         $image=  strlen($imagefile['value']['url']);
                         if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;">
+                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;" alt="<?php echo $imagefile['value']['alt']; ?>">
                             <?php }else{?>
                             <img class="scale-with-grid" src="test">
                             <?php }?>
@@ -217,7 +217,7 @@ $cat_slug = $category[0]->slug;
                         <?php
                         $image=  strlen($imagefile['value']['url']);
                         if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;">
+                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;" alt="<?php echo $imagefile['value']['alt']; ?>">
                             <?php }else{?>
                             <img class="scale-with-grid" src="test">
                             <?php }  ?>
@@ -283,7 +283,7 @@ $cat_slug = $category[0]->slug;
                         <?php
                         $image=  strlen($imagefile['value']['url']);
                         if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;">
+                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;" alt="<?php echo $imagefile['value']['alt']; ?>">
                             <?php }else{?>
                             <img class="scale-with-grid" src="test">
                             <?php }  ?>
@@ -301,4 +301,4 @@ $cat_slug = $category[0]->slug;
         </div>
         <?php }
     ?>
-    </div>
+</div>
