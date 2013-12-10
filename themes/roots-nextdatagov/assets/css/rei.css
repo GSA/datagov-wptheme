@@ -394,10 +394,9 @@ height:45px;
 .page-template-template-all-challanges-php h1{font-size:25px;}
 .page-template-template-all-challanges-php .Apps-post{background-color: none;box-shadow: none;}
 .page-template-template-all-challanges-php .Apps-post .Appstitle{padding-left:0px;}
-
-
-
-
+#recaptcha_widget .right{width:100px;float: right;display: inline;}
+#recaptcha_widget .left{width:400px;display:inline;margin-top:50px;}
+#recaptcha_widget{width:550px;clear:both;}
 
 /* ==========================================================================
    Styles Below are  White background for pages
