@@ -1,24 +1,29 @@
-<div class="container">
-<nav role="navigation" class="topic-subnav">
-               <ul class="nav navbar-nav">
-<?php
-         // show Links associated to a community
-      // we need to build $args based either term_name or term_slug
-       $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
-       $group = filter_var($_GET['group'], FILTER_SANITIZE_STRING);
-       $term_name = $group;
-       $term_slug = strtolower($term_name);
-      $args = array(
-          'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
-        wp_list_bookmarks($args);
-      if (strcasecmp($term_name,$term_slug)!=0) {
-          $args = array(
-              'category_name'=> $term_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
-          wp_list_bookmarks($args);
-      }
+<div class="subnav banner">
+    <div class="container">
+        <nav role="navigation" class="topic-subnav">
+            <ul class="nav navbar-nav">
+                <?php
+                // show Links associated to a community
+                // we need to build $args based either term_name or term_slug
+                $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
 
-?>
-</ul></nav></div>
+                       $group = filter_var($_GET['group'], FILTER_SANITIZE_STRING);
+
+                       $term_name = $group;
+
+                    $term_slug = strtolower($term_name);
+
+                $args = array(
+                    'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
+                wp_list_bookmarks($args);
+                if (strcasecmp($term_name,$term_slug)!=0) {
+                    $args = array(
+                        'category_name'=> $term_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
+                    wp_list_bookmarks($args);
+                }
+                ?>
+            </ul></nav></div>
+</div>
 
 <div class="single">
 <div class="container">
@@ -127,7 +132,8 @@ function usasearch_display_results($query = '', $group = ''){
     $results = str_replace('\ue001','</strong>' , $results);
 
     $results = json_decode($results,true);
-
+    echo ' <div class="usasearch-results-wrap">';
+    echo '<div class="search-results usasearch-results usasearch-boosted-results ">';
     // Display recommended results
     if($results['boosted_results'] != ''){
         foreach($results['boosted_results'] as $result){
@@ -139,7 +145,8 @@ function usasearch_display_results($query = '', $group = ''){
         }
     }
 
-
+    echo '</div>';
+    echo '</div>';
     foreach($results['results'] as $result){
         $title = $result['title'];
         $url = $result['unescapedUrl'];

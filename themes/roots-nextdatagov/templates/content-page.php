@@ -7,6 +7,7 @@ $term_slug = $category[0]->slug;
 $cat_name = $category[0]->cat_name;
 $cat_slug = $category[0]->slug;
 ?>
+<div class="subnav banner">
 <div class="container">
 <nav role="navigation" class="topic-subnav">
                <ul class="nav navbar-nav"> 
@@ -22,10 +23,13 @@ $cat_slug = $category[0]->slug;
           wp_list_bookmarks($args);
       }
 ?>
-</ul></nav></div>
+</ul></nav></div></div>
+<div class="wrap container">
+
 <div class="container">
 <?php while (have_posts()) : the_post(); ?>
   <?php the_content(); ?>
   <?php wp_link_pages(array('before' => '<nav class="pagination">', 'after' => '</nav>')); ?>
 <?php endwhile; ?>
+</div>
 </div>

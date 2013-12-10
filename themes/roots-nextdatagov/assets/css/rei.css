@@ -379,7 +379,7 @@ height:45px;
 .horizontal_dotted_line{
     border-bottom: 2px solid #C0C0C0;
     width: 85%;
-    margin-left:80px;
+    /*margin-left:80px;*/
 
 }
 .horizontal_dotted_line_all{
@@ -391,6 +391,18 @@ height:45px;
 .more-link{
     color: #83B03C;
 }
+.page-template-template-all-challanges-php h1{font-size:25px;}
+/*.page-template-template-all-challanges-php .Apps-post{background-color: none;box-shadow: none;}*/
+.page-template-template-all-challanges-php .Apps-post .Appstitle{padding-left:0px;}
+#recaptcha_widget .right{width:100px;float: right;display: inline;}
+#recaptcha_widget .left{width:400px;display:inline;margin-top:50px;}
+#recaptcha_widget{width:550px;clear:both;}
+#webcontent h2{margin-top:0px;}
+.page-template-template-category-apps-php .main{padding-top:0;}
+.page-template-template-all-challanges-php .main{padding-top:0;}
+.page .main{padding-top: 0;}
+.single-post .main{padding-top: 0;}
+.page-template-template-categories-blog-php .category-wrapper{margin-left: 0px;}
 /* ==========================================================================
    Styles Below are  White background for pages
    ========================================================================== */
@@ -1079,4 +1091,17 @@ a.faq-top {
     .container .footer .twelve.columns {
         width: 300px;
     }
+}
+.usasearch-boosted-results {
+
+    background: linear-gradient(center top , #E6ECEE 0%, #FFFFFF 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#E6ECEE', endColorstr='#FFFFFF'); /* for IE */
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#E6ECEE', endColorstr='#FFFFFF'); /* for IE */
+border-radius: 5px;
+margin: 8px auto;
+    }
+.usasearch-results-wrap .usasearch-boosted-results {
+    border: 1px solid #CCCCCC;
+    padding-left: 10px;
+    padding-right: 10px;
 }
