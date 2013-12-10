@@ -26,14 +26,13 @@ $highlight_posts = new WP_Query($args);
 if (($highlight_posts->have_posts())):
 ?>
 
-<section id="highlights" class="wrap<?php if (!is_archive()) echo ' wrap-lightblue'; ?>">
+<section id="highlights" class="wrap wrap-lightblue">
 <div class="container">
 
-    <?php if(!is_archive()): ?>
-        <div class="page-header">
-          <h1>Highlights</h1>
-        </div>
-    <?php endif; ?>
+    <div class="page-header">
+      <h1>Highlights</h1>
+    </div>
+
 
 <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
     <div class="highlight <?php get_category_by_slug( $slug ) ?>">
