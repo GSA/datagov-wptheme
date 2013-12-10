@@ -76,8 +76,8 @@ function datagov_deregister_styles() {
     'ccf-admin',
   );
 
-  // de-register if current post is tagged with the corresponding term
-  if (!has_term('contact-form', 'featured')) {
+  // de-register styles on all pages except admin pages
+  if (!is_admin()) {
     foreach($styles as $style) {
       wp_deregister_style($style);
     }
