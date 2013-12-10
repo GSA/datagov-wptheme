@@ -397,7 +397,9 @@ height:45px;
 #recaptcha_widget .right{width:100px;float: right;display: inline;}
 #recaptcha_widget .left{width:400px;display:inline;margin-top:50px;}
 #recaptcha_widget{width:550px;clear:both;}
-
+#webcontent h2{margin-top:0px;}
+.page-template-template-category-apps-php .main{padding-top:0;}
+.page-template-template-all-challanges-php .main{padding-top:0;}
 /* ==========================================================================
    Styles Below are  White background for pages
    ========================================================================== */
