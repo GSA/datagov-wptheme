@@ -22,11 +22,10 @@ if ($category[0]->cat_name != 'Uncategorized') {
     
     <div class="col-md-4 col-lg-4">
     
-        <form role="search" method="get" class="search-form form-inline" action="/search-results/1/">
+        <form role="search" method="get" class="search-form form-inline" action="http://catalog.data.gov/dataset">
           <div class="input-group">
             <label class="hide" for="search-footer"><?php _e('Search for:', 'roots'); ?></label>
             <input type="search" id="search-footer" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="q" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
-              <input type="hidden"name="group" value="<?php echo (get_category_by_slug($slug)->name) ? (get_category_by_slug($slug)->name) : 'site'; ?>">
               <span class="input-group-btn">
                 <button type="submit" class="search-submit btn btn-default">
                      <i class="fa fa-search"></i>
@@ -48,9 +47,17 @@ if ($category[0]->cat_name != 'Uncategorized') {
         </nav>    
     <?php endif; ?>    
     
-    <?php if (has_nav_menu('footer_navigation')) : ?>
+    <?php if (has_nav_menu('footer_navigation')) :
+      $page = get_page_by_title('Login' );
+        var_dump($page);
+      ?>
         <nav class="col-md-2 col-lg-2" role="navigation">        
-            <?php wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav')); ?>
+            <?php
+             if ( is_user_logged_in() ) {
+                wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav'));
+             } else {
+                wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav', 'exclude' => $page->ID));
+             }?>
         </nav>    
     <?php endif; ?>    
     
