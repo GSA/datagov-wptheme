@@ -1080,3 +1080,16 @@ a.faq-top {
         width: 300px;
     }
 }
+.usasearch-boosted-results {
+
+    background: linear-gradient(center top , #E6ECEE 0%, #FFFFFF 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#E6ECEE', endColorstr='#FFFFFF'); /* for IE */
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#E6ECEE', endColorstr='#FFFFFF'); /* for IE */
+border-radius: 5px;
+margin: 8px auto;
+    }
+.usasearch-results-wrap .usasearch-boosted-results {
+    border: 1px solid #CCCCCC;
+    padding-left: 10px;
+    padding-right: 10px;
+}
