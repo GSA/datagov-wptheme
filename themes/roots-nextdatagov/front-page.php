@@ -38,7 +38,7 @@ $args = array(
 		<a href="/food"><i></i><span>Agriculture</span></a>
 	</li>
 	<li class="topic-climate">
-		<a href="#"><i></i><span>Climate</span></a>
+		<a href="/climate"><i></i><span>Climate</span></a>
 	</li>	
 	<li class="topic-education">
 		<a href="/education"><i></i><span>Education</span></a>
@@ -50,13 +50,13 @@ $args = array(
 		<a href="/finance"><i></i><span>Finance</span></a>
 	</li>
 	<li class="topic-geospatial">
-		<a href="#"><i></i><span>Geospatial</span></a>
+		<a href="/geospatial"><i></i><span>Geospatial</span></a>
 	</li>	
 	<li class="topic-development">
-		<a href="#"><i></i><span>Global Development</span></a>
+		<a href="/development"><i></i><span>Global Development</span></a>
 	</li>
 	<li class="topic-jobs-skills">
-		<a href="#"><i></i><span>Jobs+Skills</span></a>
+		<a href="/jobs-and-skills"><i></i><span>Jobs+Skills</span></a>
 	</li>
 	<li class="topic-health">
 		<a href="/health"><i></i><span>Health</span></a>
@@ -68,7 +68,7 @@ $args = array(
 		<a href="/safety"><i></i><span>Public Safety</span></a>
 	</li>
 	<li class="topic-weather">
-		<a href="#"><i></i><span>Weather</span></a>
+		<a href="/weather"><i></i><span>Weather</span></a>
 	</li>
 
 </ul> 
