@@ -874,7 +874,6 @@ a.faq-top {
 .post-42321 tbody{border:0;}
 #webimage img{width:80px;}
 
-
 /* ==========================================================================
    Styles for contact-us
    ========================================================================== */
@@ -941,26 +940,26 @@ a.faq-top {
 }
 .contact-post4 {
 
-    float: left;
-    margin-bottom: 5px;
+
+
     margin: 10px;
 
-    width: 500px;
+
 
 }
 .contact-post4 .customcontactform input.submit{
-    float: left;
-    margin-left: 540px;
-    margin-top: -75px;
+    background: none repeat scroll 0 0 #EFEFEF;
+    border: medium none;
+    border-radius: 0;
+    color: #000000;
+    float: right;
+    font-size: 16px !important;
+    font-weight: bold;
+    height: 50px;
+    margin-right: 30px;
+    margin-top: -65px;
     padding: 10px;
     width: 320px;
-    color:#000000;
-    border:none;
-    border-radius:0px;
-    background:none repeat scroll 0 0 #EFEFEF;
-    font-size:16px !important;
-    font-weight:bold;
-    height:50px;
 }
 .contact-post4 .customcontactform input[type="text"] {
     width:25em;
@@ -978,6 +977,7 @@ a.faq-top {
     color:#ffffff;
     float:right;
     width:350px;
+    *margin-left:500px;
 }
 
 .contact-post6 {
@@ -990,11 +990,17 @@ a.faq-top {
     width:320px;
 
 }
-.contact-post6 select {
+.contact-post4 .customcontactform select {
 
-    width:320px;
-    height:30px;
+    float: right;
+    height: 30px;
 
+    margin-right: 30px;
+    margin-top: -180px;
+    width: 320px;
+}
+.contact-post4 .customcontactform div label[for="contact_reason"] {
+    display:none;
 }
 .contact-post7 {
 

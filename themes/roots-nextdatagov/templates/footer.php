@@ -49,7 +49,6 @@ if ($category[0]->cat_name != 'Uncategorized') {
     
     <?php if (has_nav_menu('footer_navigation')) :
       $page = get_page_by_title('Login' );
-        var_dump($page);
       ?>
         <nav class="col-md-2 col-lg-2" role="navigation">        
             <?php
