@@ -1108,3 +1108,13 @@ margin: 8px auto;
     padding-right: 10px;
 }
 
+/* Glossary Terms */
+table.glossary tr.odd2, tr.odd2 td {
+    text-align:left;
+
+}
+table.glossary tr.odd2 {
+
+    text-decoration:none;
+    background-color:#EEEEEE;
+}
