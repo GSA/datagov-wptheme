@@ -5,6 +5,14 @@
                 <?php
                 // show Links associated to a community
                 // we need to build $args based either term_name or term_slug
+                $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
+
+                       $group = filter_var($_GET['group'], FILTER_SANITIZE_STRING);
+
+                       $term_name = $group;
+
+                    $term_slug = strtolower($term_name);
+
                 $args = array(
                     'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
                 wp_list_bookmarks($args);
