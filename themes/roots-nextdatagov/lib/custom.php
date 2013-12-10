@@ -61,4 +61,27 @@
  }
  
 add_action( 'wp', 'redirect_intro', 100);
- 
+
+/**
+ * De-register stylesheets based on certain conditions
+ */
+function datagov_deregister_styles() {
+  // style handels to de-register
+  $styles = array('ccf-standards',
+    'ccf-colorpicker', 
+    'ccf-jquery-ui', 
+    'CCFStandardsCSS', 
+    'CCFFormsCSS', 
+    'ccf-dashboard', 
+    'ccf-admin',
+  );
+
+  // de-register if current post is tagged with the corresponding term
+  if (!has_term('contact-form', 'featured')) {
+    foreach($styles as $style) {
+      wp_deregister_style($style);
+    }
+  }
+}
+
+add_action( 'wp_print_styles', 'datagov_deregister_styles', 100 );
