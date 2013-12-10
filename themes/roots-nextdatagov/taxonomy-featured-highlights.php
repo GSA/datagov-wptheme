@@ -59,7 +59,39 @@ $args = array(
       <?php 
       while ($category_query->have_posts()) { 
           $category_query->the_post();
-          get_template_part('templates/content', 'highlights'); 
+      ?>
+
+        <div class="container">
+
+            <div class="highlight <?php get_category_by_slug( $slug ) ?>">
+                <header>
+                    <?php if(!is_category() && !is_archive()): ?>
+                        <h5 class="category"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></h5>
+                    <?php endif; ?>
+                    
+                    <h2 class="entry-title"><?php the_title(); ?></h2>
+                </header>
+                
+                <article>
+                <?php the_content(); ?>
+            </article>
+            
+            <?php if(get_post_format() == 'image'): ?>
+            
+                    <a class="btn btn-default" href="<?php the_field('link_to_dataset'); ?>">
+                      <span class="glyphicon glyphicon-download"></span> View this Dataset
+                    </a>
+                    
+                <?php endif;?>             
+            </div><!--/.highlight-->
+
+        </div><!--/.container-->
+
+        <?php
+        wp_reset_postdata();    
+        ?>
+
+      <?php
       }
 
   }
