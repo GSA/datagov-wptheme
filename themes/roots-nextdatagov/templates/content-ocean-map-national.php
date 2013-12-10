@@ -30,12 +30,13 @@ $cat_slug = $category[0]->slug;
                     while( have_posts() ) {
                         the_post();
                         ?>
-
+                        <br/>
 
       <?php the_title();?>
 
     <?php the_content();   ?>
     <?php }?>
+    <br/><br/>
 <div class="map-gallery-wrap">
                             <?php
                             global $map_results;
