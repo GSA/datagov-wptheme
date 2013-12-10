@@ -139,7 +139,7 @@ function usasearch_display_results($query = '', $group = ''){
         }
     }
 
-
+echo '<div class="search-results usasearch-results usasearch-boosted-results ">';
     foreach($results['results'] as $result){
         $title = $result['title'];
         $url = $result['unescapedUrl'];
@@ -151,7 +151,7 @@ function usasearch_display_results($query = '', $group = ''){
         }
         echo '<p style="text-indent:20px;">'.$result['content'] ."<br /><br /></p>";
     }
-
+echo '</div>';
     // Display related terms
 
     if($results['related'] != NULL){
