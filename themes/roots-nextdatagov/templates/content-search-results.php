@@ -127,7 +127,8 @@ function usasearch_display_results($query = '', $group = ''){
     $results = str_replace('\ue001','</strong>' , $results);
 
     $results = json_decode($results,true);
-
+    echo ' <div class="usasearch-results-wrap">';
+    echo '<div class="search-results usasearch-results usasearch-boosted-results ">';
     // Display recommended results
     if($results['boosted_results'] != ''){
         foreach($results['boosted_results'] as $result){
@@ -139,7 +140,8 @@ function usasearch_display_results($query = '', $group = ''){
         }
     }
 
-echo '<div class="search-results usasearch-results usasearch-boosted-results ">';
+    echo '</div>';
+    echo '</div>';
     foreach($results['results'] as $result){
         $title = $result['title'];
         $url = $result['unescapedUrl'];
@@ -151,7 +153,7 @@ echo '<div class="search-results usasearch-results usasearch-boosted-results ">'
         }
         echo '<p style="text-indent:20px;">'.$result['content'] ."<br /><br /></p>";
     }
-echo '</div>';
+
     // Display related terms
 
     if($results['related'] != NULL){
