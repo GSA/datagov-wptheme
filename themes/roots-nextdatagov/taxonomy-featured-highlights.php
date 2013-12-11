@@ -71,18 +71,25 @@ $args = array(
                     
                     <h2 class="entry-title"><?php the_title(); ?></h2>
                 </header>
-                
-                <article>
+                           
+                <?php if ( has_post_thumbnail() ) : ?>
+                    <div class="featured-image col-md-4">
+                        <?php the_post_thumbnail('medium'); ?>
+                    </div>
+                <?php endif; ?>
+
+                <article<?php if ( has_post_thumbnail() ) : ?> class="col-md-8"<?php endif;?>>
                 <?php the_content(); ?>
-            </article>
-            
-            <?php if(get_post_format() == 'image'): ?>
-            
-                    <a class="btn btn-default" href="<?php the_field('link_to_dataset'); ?>">
-                      <span class="glyphicon glyphicon-download"></span> View this Dataset
-                    </a>
-                    
-                <?php endif;?>             
+                </article>
+
+                <?php if(get_post_format() == 'image'): ?>    
+                    <div class="dataset-link">
+                        <a class="btn btn-default pull-right" href="<?php the_field('link_to_dataset'); ?>">
+                          <span class="glyphicon glyphicon-download"></span> View this Dataset
+                        </a>
+                    </div>            
+                <?php endif;?>   
+
             </div><!--/.highlight-->
 
         </div><!--/.container-->

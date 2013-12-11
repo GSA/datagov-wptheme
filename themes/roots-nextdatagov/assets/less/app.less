@@ -599,7 +599,8 @@ header .header.banner.page-heading {
     }
 }
 
-.updates, #highlights {    
+.updates, 
+#highlights {    
     h2 { 
         margin-top: 0;
     }  
@@ -611,7 +612,8 @@ header .header.banner.page-heading {
     color : #fff;
 }
 
-.updates article, #highlights article {
+.updates article, 
+#highlights article {
   margin-bottom: (@line-height-computed * 2)
 }
 
@@ -764,6 +766,7 @@ color : @blue-gray;
 
 article.hentry {
   margin-bottom : 3.5em;
+  display : inline-block;
 }
 
 article header .entry-title {
@@ -783,6 +786,21 @@ display : inline-block;
 article header time,
 article header .author a {
   color : @blue-gray;
+}
+
+
+body.single .entry-content .inline-image {
+  margin : 0 1em 1em 0;
+  display : inline-block;
+}
+
+
+@media (min-width: @screen-sm-min) {
+
+  body.single .entry-content .inline-image {
+    float : left;
+  }
+
 }
 
 
@@ -809,10 +827,12 @@ background-color : #efefef;
 padding : 3em 0;
 }
 
+
 .social-nav .nav li a span {
 display : inline-block;
 padding-left : 1em;
 }
+
 
 .social-nav .nav li a i {
 font-size : 2em;
@@ -826,9 +846,25 @@ font-size : 2em;
 
 
 /* ==========================================================================
-   Highlights page
+   Highlights and Highlights page
    ========================================================================== */
 
+.highlight {
+
+  article, 
+  .featured-image {
+    padding : 0;
+  }
+
+  .featured-image {
+    margin-bottom : 1em;
+  }
+
+  .dataset-link {
+    margin : 1em 0;
+    clear : both;
+  }
+}
 
 .highlights-listing {
 
@@ -860,6 +896,13 @@ font-size : 2em;
 
 
 
+/* ==========================================================================
+   Comments
+   ========================================================================== */
+
+#respond {
+  clear : both;
+}
 
 
 /* ==========================================================================
