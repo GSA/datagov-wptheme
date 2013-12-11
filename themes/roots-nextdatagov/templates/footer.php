@@ -48,15 +48,11 @@ if ($category[0]->cat_name != 'Uncategorized') {
     <?php endif; ?>    
     
     <?php if (has_nav_menu('footer_navigation')) :
-      $page = get_page_by_title('Login' );
       ?>
         <nav class="col-md-2 col-lg-2" role="navigation">        
             <?php
-             if ( is_user_logged_in() ) {
                 wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav'));
-             } else {
-                wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav', 'exclude' => $page->ID));
-             }?>
+             ?>
         </nav>    
     <?php endif; ?>    
     
