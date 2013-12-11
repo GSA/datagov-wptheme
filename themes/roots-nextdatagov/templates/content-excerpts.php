@@ -80,10 +80,24 @@ $new_query = new WP_Query($args);
 
 <article <?php post_class('col-md-4 col-lg-4'); ?>>
 
-    <div class="author-details">
-        <img alt="" src="<?php the_field('twitter_photo'); ?>" height="40" width="40">        
-        <a href="<?php the_field('link_to_tweet'); ?>"><?php the_field('persons_name'); ?> @<?php the_field('twitter_handle'); ?></a>
-    </div>    
+  <header>
+    <div class="tweet-author">
+        <a class="author-link" href="https://twitter.com/<?php the_field('twitter_handle'); ?>">
+            <span class="author-image">
+                <img alt="" src="<?php the_field('twitter_photo'); ?>">
+            </span>
+            <div>
+            <span class="author-name">
+                <?php the_field('persons_name'); ?>            
+            </span>
+                <span class="author-handle">
+                    @<?php the_field('twitter_handle'); ?>            
+                </span>         
+            </div>
+        </a>
+         
+    </div>
+  </header>  
     
     <div class="body">
         <?php the_content('Read the rest of this entry »'); ?>

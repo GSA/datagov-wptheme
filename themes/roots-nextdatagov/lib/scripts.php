@@ -14,7 +14,7 @@ function roots_scripts() {
   wp_enqueue_style('datagov-googlefonts', '//fonts.googleapis.com/css?family=Abel|Lato:100,300,400,700');
   //wp_enqueue_style('fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');  
   
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '40ebeedf2d2e9fa5cc8c9f6bba3f4297');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '917c0d7dba4a5009e82fec99ad6cbe4a');
 
   wp_enqueue_style('rei_css', get_template_directory_uri() . '/assets/css/rei.css', false, '');
 

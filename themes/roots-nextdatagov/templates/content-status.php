@@ -9,13 +9,13 @@
 	            <img alt="" src="<?php the_field('twitter_photo'); ?>">
 	        </span>
 	        <div>
-		        <span class="author-name">
-		            <?php the_field('persons_name'); ?>            
-		        </span>
-				<span class="author-handle">
-		            @<?php the_field('twitter_handle'); ?>            
-		        </span>	        
-		    </div>
+	        <span class="author-name">
+	            <?php the_field('persons_name'); ?>            
+	        </span>
+  				<span class="author-handle">
+  		            @<?php the_field('twitter_handle'); ?>            
+  		        </span>	        
+  		    </div>
     	</a>
          
     </div>
