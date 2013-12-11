@@ -1125,3 +1125,7 @@ table.glossary tr.odd2 {
     text-decoration:none;
     background-color:#EEEEEE;
 }
+.table-left {
+
+    text-align:left;
+}
