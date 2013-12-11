@@ -22,7 +22,7 @@
 }
 .Appstitle {
     font-family: 'Abel', Helvetica, sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: lighter;
     padding-bottom:15px;
     padding-top:15px;
@@ -101,7 +101,8 @@
     float:left;
     margin-left:20px;
 }
-#webcontent h2 a{color:#333333;}
+
+    #webcontent h2 a{color:#333333;  font-size:25px;}
 #webcontent #webtext {
     font-weight:bold;
     font-size:12px;
