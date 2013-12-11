@@ -101,7 +101,7 @@ $category_intro = new WP_Query($args);
 <?php endif; ?>
 
 <div class="container">
-<h1>News</h1>
+<h1>Updates</h1>
 
 <?php
 
