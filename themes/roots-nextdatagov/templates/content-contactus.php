@@ -97,7 +97,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/>community 
         <div class="contact-post3">
             <div class="contact-post4">
                 <div class="contact-post5">
-                    You can use this form privately contact the data gov team or feel free to email us directly at <a style="color:#ffffff;text-decoration:underline;" href="">info@data.gov</a>
+                    You can use this form privately contact the data gov team or feel free to email us directly at <a style="color:#ffffff;text-decoration:underline;" href="">data.gov.contactus@reisys.com</a>
                 </div>
                 <?php
                 query_posts( array( 'page_id' => 126647 ) ); // ID of the page including the form
