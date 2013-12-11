@@ -24,7 +24,7 @@ $cat_slug = $category[0]->slug;
       }
 ?>
 </ul></nav></div></div>
-<div class="wrap container">
+<div class="wrap container content-page">
 
 <div class="container">
 <?php while (have_posts()) : the_post(); ?>

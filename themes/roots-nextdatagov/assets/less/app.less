@@ -622,7 +622,12 @@ header .header.banner.page-heading {
 
 .updates article, 
 #highlights article {
-  margin-bottom: (@line-height-computed * 2)
+  margin-bottom: (@line-height-computed * 2);
+
+  &.format-standard {
+    clear : both;
+    display : block;
+  }
 }
 
 #highlights.wrap-lightblue article a {
@@ -816,7 +821,9 @@ body.single .entry-content .inline-image {
    Pages
    ========================================================================== */
 
-
+.content-page {
+  margin-top : 2em;
+}
 
 
 /* ==========================================================================
