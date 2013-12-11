@@ -16,15 +16,17 @@ function roots_title() {
             $term = get_the_category($post->ID);
         }
     } else {
-        $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));        
+        $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));   
+        $link = '/' . get_query_var('term');
     }
     
     if(is_array($term)) {
         $term = $term[0];
     }
-    
+   
     if ($term) {
-      return apply_filters('single_term_title', $term->name);
+      $term = (isset($link)) ? '<a href="' . $link . '">' . $term->name . '</a>' : $term->name;
+      return apply_filters('single_term_title', $term);
     } elseif (is_post_type_archive()) {
       return apply_filters('the_title', get_queried_object()->labels->name);
     } elseif (is_day()) {
