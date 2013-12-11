@@ -185,7 +185,9 @@ Description: This plugin validates map using the the map id and group id
         $result['body'] = wp_remote_retrieve_body($response) ;
         $result['code'] = wp_remote_retrieve_response_code( $response );
         $result['message'] = wp_remote_retrieve_response_message( $response );
-        $result['total'] = json_decode($response["body"])->total;
+        if(!empty($group_id)){
+            $result['total'] = json_decode($response["body"])->total;
+        }
         return $result;
     }
 

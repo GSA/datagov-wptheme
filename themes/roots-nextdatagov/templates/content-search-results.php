@@ -42,7 +42,7 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
-    echo "You are searching <strong>$query</strong> in entire site, show results in <a href=http://catalog.data.gov/dataset?q=$query>catalog.data.gov</a>. <br /><br />";
+    echo "You are searching <strong>$query</strong> in entire site, show results in <a href=http://catalog.data.gov/dataset?q=".urlencode($query).">catalog.data.gov</a>. <br /><br />";
     // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
@@ -70,6 +70,23 @@ function usasearch_display_results($query = '', $group = ''){
     $rows = $res->total;
     if($rows == 0){
         echo "Sorry, no results found. Try entering fewer or broader query terms.";
+        ?>
+    <form role="search" method="get" class="search-form form-inline<?php if(is_front_page()): ?> col-md-12 col-lg-12<?php else:?> navbar-right navbar-nav  col-sm-6 col-md-6 col-lg-6<?php endif;?>" action="/search-results/1/">
+        <div class="input-group">
+            <?php if(!is_front_page()): ?>
+            <label for="search-header" class="hide"><?php _e('Search for:', 'roots'); ?></label>
+            <?php endif; ?>
+            <input type="search" id="search-header" data-strings='{ "targets" : ["Monthly House Price Indexes", "Health Care Provider Charge Data", "Credit Card Complaints", "Manufacturing &amp; Trade Inventories &amp; Sales","Federal Student Loan Program Data"]}' value="<?php if (is_search()) { echo get_search_query(); } ?>" name="q" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
+            <input type="hidden" name="group" value="site">
+                <span class="input-group-btn">
+                    <button type="submit" class="search-submit btn btn-default">
+                        <i class="fa fa-search"></i>
+                        <span class="sr-only"><?php _e('Search', 'roots'); ?></span>
+                    </button>
+                </span>
+        </div>
+    </form><br /><br />
+        <?php
     }
 
     $count = $rows > 1000 ? 1000 : $rows;
