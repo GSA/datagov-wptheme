@@ -42,6 +42,9 @@ $args = array(
 		<a href="/climate"><i></i><span>Climate</span></a>
 	</li>	
 	-->
+	<li class="topic-ocean">
+		<a href="/ocean"><i></i><span>Ocean</span></a>
+	</li>	
 	<li class="topic-education">
 		<a href="/education"><i></i><span>Education</span></a>
 	</li>
@@ -91,9 +94,6 @@ $args = array(
 	</li>
 	<li class="topic-manufacturing">
 		<a href="/manufacturing"><i></i><span>Manufacturing</span></a>
-	</li>
-	<li class="topic-ocean">
-		<a href="/ocean"><i></i><span>Ocean</span></a>
 	</li>
 	<li class="topic-states">
 		<a href="/states"><i></i><span>States</span></a>
