@@ -147,9 +147,10 @@ padding : 15px 10px;
 color : #000;
 }
 
-
-
-.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li > a {
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li > a, 
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li.dropdown.open > ul.dropdown-menu > li a, 
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li.dropdown > ul.dropdown-menu > li a:hover,
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li.dropdown > ul.dropdown-menu > li a:focus {
 border-bottom : 5px solid #fff;
 }
 
@@ -166,7 +167,6 @@ color : @blue-lightblue;
 transition: border-bottom 0.3s ease-in-out; 
 outline : 0;
 }
-
 
 /* ==========================================================================
    Subnav
