@@ -314,3 +314,19 @@ function my_post_types($types) {
     return $types;
 }
 add_filter('s2_post_types', 'my_post_types');
+
+/**
+ * Set "Edge-Control: no-store" header for post pages so that AKAMAI doesn't cache them 
+ */
+function add_edge_control_header() {
+  // get post id this way since none of the conditional tags are avaliable at this stage in the boostrap process
+  $url = explode('?', 'http://'.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+  $post_id = url_to_postid($url[0]);
+  $post_type = get_post_type($post_id);
+  $post_format = get_post_format($post_id);
+  
+  if ($post_type == 'post' && !$post_format){// post type is 'post' and post format is not set ==> blog post
+	  header('Edge-Control: no-store');
+  }
+}
+add_action('send_headers', 'add_edge_control_header');
