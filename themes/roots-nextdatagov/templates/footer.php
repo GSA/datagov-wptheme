@@ -36,7 +36,7 @@ if ($category[0]->cat_name != 'Uncategorized') {
         </form>    
     
         <div class="footer-logo">
-            <a class="navbar-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>        
+            <a class="logo-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>        
         </div>
         
     </div>

@@ -33,7 +33,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
    Header
    ========================================================================== */
 
-.navbar-brand {    
+.navbar-brand, 
+.logo-brand {    
     background: url("../img/logo.png") no-repeat scroll center center transparent;
     background-size : contain;
     width: 200px;    
@@ -45,7 +46,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 
-.svg .navbar-brand {    
+.svg .navbar-brand, 
+.svg .logo-brand {    
     background: url("../img/logo.svg") no-repeat scroll;   
     background-size : contain;
 }
@@ -815,10 +817,13 @@ body.single .entry-content .inline-image {
    Footer
    ========================================================================== */
 
-.footer-logo a {
+.footer-logo a.logo-brand {
+    height : 50px;
     width : 100%;
     clear : both;
-    margin : 2em 0 2em 0
+    margin : 2em 0 2em 0;
+    display : block;
+
 }
 
 
