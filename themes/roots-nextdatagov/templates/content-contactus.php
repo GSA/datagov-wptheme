@@ -18,7 +18,7 @@
 
             </div>
             <div class="contact-question">
-                <span style="margin-left:10px;font-size:25px;"><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" >&nbsp;<a class="question" href="#report">Report a Problem</a></span>
+                <span style="margin-left:10px;font-size:25px;"><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" alt="Report a problem" >&nbsp;<a class="question" href="#report">Report a Problem</a></span>
 
             </div>
         </div>
@@ -129,7 +129,7 @@ Engage the Data.gov on twitter or find the account for a specific<br/>community 
             <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;<a href="https://explore.data.gov/nominate">Request new Data</a></div></div>
 
         <div style="clear:both; "></div>
-        <div class="contact-title" style="text-transform:uppercase; "><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" >&nbsp;<a name="report" >Report a Problem</a></div>
+        <div class="contact-title" style="text-transform:uppercase; "><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" alt="Report a problem" >&nbsp;<a name="report" >Report a Problem</a></div>
 
         <div class="horizontal_dotted_line_all"></div>
         <div class="contact-post8">
