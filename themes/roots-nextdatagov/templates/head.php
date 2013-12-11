@@ -9,4 +9,6 @@
   <?php wp_head(); ?>
 
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
+  <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.ico" rel="shortcut icon" />
+  <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon-120.png" sizes="120x120" />
 </head>
