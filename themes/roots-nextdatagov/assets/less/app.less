@@ -632,7 +632,76 @@ color : @blue-gray;
 
 
 /* ==========================================================================
-   Primary Content
+   Special Post Formats
+   ========================================================================== */
+
+   .format-status {
+
+      .tweet-author, 
+      a.tweet-permalink {
+        color : @blue-gray;
+      }
+
+      .tweet-author {
+
+        .fa-twitter {
+          font-size : 2em;
+          margin-right : .5em;
+
+          &:hover {
+            text-decoration : none;
+          }
+        }
+
+        .author-image img {
+          width : 35px;
+          height : 35px;
+          display : inline-block;
+          margin-top : -1.25em;
+        }
+
+        a, 
+        .author-image {
+          display : inline-block;
+        }
+
+        .author-link {
+
+          &:hover {
+            text-decoration : none;
+          }
+
+          div {
+              display : inline-block;
+          }
+
+          .author-name, 
+          .author-handle {
+            display : block;
+            clear : right;
+          }
+
+          .author-handle {
+            color : @blue-gray;
+            font-size : .8em;
+          }
+
+        }
+
+      }
+
+
+      .tweet-body {
+        font-size : 1.25em;
+        font-weight : 300;
+        margin-top : .5em;
+      }
+    
+   }
+
+
+/* ==========================================================================
+   Gallery
    ========================================================================== */
 
 /* Gallery Shortcode */
