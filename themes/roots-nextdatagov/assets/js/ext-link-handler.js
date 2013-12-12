@@ -27,8 +27,8 @@ jQuery(document).bind('ready',function(){
 
         jQuery.colorbox({
             html: "<div id=\"extlink-popup\">" +
-                "<h3 class=\"align-center extlink-title\">You are exiting Data.gov</h3>" +
-                "<div class=\"align-center extlink-content\">" +
+                "<h3 class=\"extlink-title\">You are exiting Data.gov</h3>" +
+                "<div class=\"extlink-content\">" +
                 "<p>You will be taken to the following site in <span id=\"extlink-counter\">" +
                 tDelay + "</span> second(s).</p>" +
                 "<p><a id=\"click\" href=\"" + tURL + "\">" + targetURL + "</a></p></div></div>",
