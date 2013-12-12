@@ -73,6 +73,7 @@ This template requires the following plugins:
 * Sticky Posts In Category - http://wordpress.org/plugins/sticky-posts-in-category/
 * Twitter Widget Pro - http://wordpress.org/plugins/twitter-widget-pro/
 * External Links - http://wordpress.org/plugins/sem-external-links/
+* WP Popup Plugin - http://wordpress.org/plugins/m-wp-popup/
 #### Locally hosted plugins
 * SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
 * Custom Post View Generator - http://wordpress.org/plugins/custom-post-view-generator/
