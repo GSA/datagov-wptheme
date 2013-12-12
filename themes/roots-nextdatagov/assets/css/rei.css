@@ -1073,6 +1073,49 @@ a.faq-top {
     .container .footer .twelve.columns {
         width: 420px;
     }
+
+    .contact-post3 {
+
+
+        width:autopx;
+
+    }
+    .contact-post8 {
+
+
+        width:auto;
+
+    }
+    .contact-post4 {
+
+
+        width:auto;
+
+    }
+    .contact-post5  {
+
+        float:none;
+        width:280px;
+
+    }
+    .contact-post4 .customcontactform select {
+        float:none;
+        width:280px;
+
+    }
+    contact-post4 .customcontactform input.submit {
+
+        margin-top:0px;
+        width:280px;
+
+    }
+    .contact-post4 .customcontactform input[type="text"] {
+        width:280px;
+    }
+    .contact-post4 .customcontactform div textarea {
+        width:280px;
+    }
+
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -1097,6 +1140,48 @@ a.faq-top {
     #itemtitle a{font-size:13px !important;}
     .container .footer .twelve.columns {
         width: 300px;
+    }
+    .contact-post8 {
+
+        margin-left:5px;
+        width:300px;
+
+    }
+    .contact-post3 {
+
+
+        width:300px;
+
+    }
+    .contact-post4 {
+
+
+        width:300px;
+
+    }
+    .contact-post5  {
+
+        float:none;
+        width:280px;
+
+    }
+    .contact-post4 .customcontactform select {
+        margin-top:0px;
+        float:none;
+        width:280px;
+
+    }
+    .contact-post4 .customcontactform input.submit{
+        float:none;
+        margin-top:0px;
+        width:280px;
+
+    }
+    .contact-post4 .customcontactform input[type="text"] {
+        width:280px;
+    }
+    .contact-post4 .customcontactform div textarea {
+        width:280px;
     }
 }
 
