@@ -1,48 +1,37 @@
 <?php
 /**
- * Outputs the OPML XML format for getting the links defined in the link
- * administration. This can be used to export links from one blog over to
- * another. Links aren't exported by the WordPress export, so this file handles
- * that.
- *
- * This file is not added by default to WordPress theme pages when outputting
- * feed links. It will have to be added manually for browsers and users to pick
- * up that this file exists.
- *
- * @package WordPress
+ * Output the navigation footer and primary menu too a json file
  */
 require_once('../../../wp-load.php');
-header('Content-Type: text/xml; charset=' . get_option('blog_charset'), true);
-echo '<?xml version="1.0"?'.">\n";
-?>
-<opml version="1.0">
-    <head>
-        <title><?php printf( __('Links for %s'), esc_attr(get_bloginfo('name', 'display')) ); ?></title>
-        <dateCreated><?php echo gmdate("D, d M Y H:i:s"); ?> GMT</dateCreated>
-        <?php do_action('opml_head'); ?>
-    </head>
-    <body>
-    <?php
-    $cats = get_categories(array('taxonomy' => 'link_category', 'hierarchical' => 0));
-    foreach ( (array)$cats as $cat ) :
-        $catname = apply_filters('link_category', $cat->name);
-        if(in_array($catname,array('Primary','Footer'))){
+header('content-type application/json charset=utf-8');
+// For Footer
+$menu_name = 'footer_navigation';
+$json = '{';
+if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+    $menu_items = wp_get_nav_menu_items($menu->term_id);
+    $json .= '"Footer":[';
+    foreach ( (array) $menu_items as $key => $menu_item ) {
+        $title = $menu_item->title;
+        $url = $menu_item->url;
+        $json .= '{'.'"'.'name'.'":'.'"'.esc_attr($title).'",'.'"'.'link'.'":'.'"'.esc_attr($url).'"'.'}';
+    }
+    $json .= ']';
+}
 
-            ?>
-        <outline type="category" title="<?php echo esc_attr($catname); ?>">
-            <?php
-            $bookmarks = get_bookmarks(array("category" => $cat->term_id));
-            foreach ( (array)$bookmarks as $bookmark ) :
-                $title = apply_filters('link_title', $bookmark->link_name);
-                ?>
-                <outline text="<?php echo esc_attr($title); ?>" type="link" xmlUrl="<?php echo esc_attr($bookmark->link_rss); ?>"  rating="<?php echo $bookmark->link_rating; ?>"  htmlUrl="<?php echo esc_attr($bookmark->link_url); ?>" updated="<?php if ('0000-00-00 00:00:00' != $bookmark->link_updated) echo $bookmark->link_updated; ?>" />
-                <?php
-            endforeach; // $bookmarks
-            ?>
-        </outline>
-            <?php
-        }
-    endforeach; // $cats
-    ?>
-    </body>
-</opml>
+
+// primary links
+$menu_name = 'primary_navigation';
+if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+    $menu_items = wp_get_nav_menu_items($menu->term_id);
+    $json .= '"Primary":[';
+    foreach ( (array) $menu_items as $key => $menu_item ) {
+        $title = $menu_item->title;
+        $url = $menu_item->url;
+        $json .= '{'.'"'.'name'.'":'.'"'.esc_attr($title).'",'.'"'.'link'.'":'.'"'.esc_attr($url).'"'.'}';
+    }
+    $json .= ']';
+}
+$json .= '};';
+print($json);

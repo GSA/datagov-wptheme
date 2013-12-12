@@ -331,8 +331,6 @@ function add_edge_control_header() {
 }
 add_action('send_headers', 'add_edge_control_header');
 
-
-add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
 function add_login_logout_link($items, $args) {
     $loginoutlink = wp_loginout('index.php', false);
     $items .= '<li>'. $loginoutlink .'</li>';

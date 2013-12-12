@@ -48,6 +48,7 @@ if ($category[0]->cat_name != 'Uncategorized') {
     <?php endif; ?>    
     
     <?php if (has_nav_menu('footer_navigation')) :
+      add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
       ?>
         <nav class="col-md-2 col-lg-2" role="navigation">        
             <?php
