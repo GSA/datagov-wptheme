@@ -1077,7 +1077,7 @@ a.faq-top {
     .contact-post3 {
 
 
-        width:autopx;
+        width:auto;
 
     }
     .contact-post8 {
@@ -1114,6 +1114,21 @@ a.faq-top {
     }
     .contact-post4 .customcontactform div textarea {
         width:280px;
+    }
+    #open-data-sites-boxes.agencies .open-data-sites-box {
+        margin: 10px 0 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        width:100%;
+        height:auto;
+    }
+    #open-data-sites-boxes.agencies .open-data-sites-box .numbers{
+        float:none;
+        height:auto;
+    }
+    #open-data-sites-boxes.agencies .open-data-sites-box .region{
+        float:none;
+        height:auto;
     }
 
 }
@@ -1183,6 +1198,25 @@ a.faq-top {
     .contact-post4 .customcontactform div textarea {
         width:280px;
     }
+    #open-data-sites-boxes.agencies .open-data-sites-box {
+        margin: 10px 0 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        width:100%;
+        height:auto;
+    }
+    #open-data-sites-boxes.agencies .open-data-sites-box .numbers{
+        float:none;
+        height:auto;
+    }
+    #open-data-sites-boxes.agencies .open-data-sites-box .region{
+        float:none;
+        height:auto;
+    }
+    table.datasets_published_per_month_table{
+        font-size:13px;
+    }
+    .page-template-template-agency-participation-php h3{font-size:18px;}
 }
 
 /* search Recommended results fixing */
