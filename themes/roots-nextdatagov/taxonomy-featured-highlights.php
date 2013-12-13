@@ -78,7 +78,7 @@ $args = array(
                     </div>
                 <?php endif; ?>
 
-                <article<?php if ( has_post_thumbnail() ) : ?> class="col-md-8"<?php endif;?>>
+                <article class="<?php if ( has_post_thumbnail() ) : ?>col-md-8<?php else: ?>no-image<?php endif;?>">
                 <?php the_content(); ?>
                 </article>
 
