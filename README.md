@@ -75,7 +75,7 @@ This template requires the following plugins:
 * External Links - http://wordpress.org/plugins/sem-external-links/
 * WP Popup Plugin - http://wordpress.org/plugins/m-wp-popup/
 * jQuery Colorbox - http://wordpress.org/plugins/jquery-colorbox/
-
+* Better External links - http://wordpress.org/plugins/bwp-external-links/
 #### Locally hosted plugins
 * SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
 * Custom Post View Generator - http://wordpress.org/plugins/custom-post-view-generator/

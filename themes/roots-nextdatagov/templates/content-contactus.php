@@ -7,8 +7,8 @@
             <div class="contact-question"> <span style="margin-left:10px;font-size:25px;"><i class="bluetext fa fa-lightbulb-o"></i>&nbsp;<a class="question" href="#suggest">Suggest or Request</a></div>
             <div class="contact-question"> <span style="margin-left:10px;font-size:25px;"><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" alt="Report a problem" >&nbsp;<a class="question" href="#report">Report a Problem</a></span> </div>
         </div>
-        <div  class="contact-post">
-            <div class="contact-question" style="background-color: #ffffff; "> <span style="margin-left:0px;text-transform:uppercase;font-size:15px;font-weight:bold;margin-bottom:5px;"><i class="bluetext fa fa-stack-exchange"></i>&nbsp;Open Data Stack Exchange</span>
+        <div  class="contact-post" style="background-color: #ffffff; ">
+            <div class="contact-question" > <span style="margin-left:0px;text-transform:uppercase;font-size:15px;font-weight:bold;margin-bottom:5px;"><i class="bluetext fa fa-stack-exchange"></i>&nbsp;Open Data Stack Exchange</span>
                 <div  class="separator"></div>
                 <span style="font-size:15px;line-height: 29px">Ask the community.</span>
                 <div  class="separator"></div>
@@ -33,7 +33,7 @@
                 <div  class="separator"></div>
                 <span style="font-size:15px;line-height: 29px"> Follow us at @usdatagov</span>
                 <div  class="separator"></div>
-                <?php echo do_shortcode( '[twitter-widget username="usdatagov" before_widget="<div class="half-box">" after_widget="</div>" hiderss="true" hidereplies="true" targetBlank="true" avatar="1" items="1" showXavisysLink="0" showts="60"]' ) ?> </div>
+                <?php echo do_shortcode( '[twitter-widget username="usdatagov" before_widget="<div class="half-box">" after_widget="</div>" hiderss="true" hidereplies="true" targetBlank="true" avatar="1" items="1" showXavisysLink="0" showts="60" title=""]' ) ?> </div>
         </div>
         <div style="clear:both; "></div>
         <div class="contact-title"><i class="bluetext fa fa-comment"></i>&nbsp;<a name="question">ASK A QUESTION</a></div>
