@@ -147,7 +147,7 @@ $cat_slug = $category[0]->slug;
 <tbody class="datasets_published_per_month_tbody">
 <div style="float: right;margin-left:280px;"> <?php the_content(); ?></div>
 <?php
-$metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
+$metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
 echo '<div style="font-style:italic;">';
 echo "Data last updated on: ". date("m/d/Y H:i A",$metric_sync)."<br /><br />";
 ?>

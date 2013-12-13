@@ -110,7 +110,7 @@ $cat_slug = $category[0]->slug;
     This report is also available for download in the following formats: <a href="/wp-content/uploads/federal-agency-participation.csv"> CSV </a> | <a href="/wp-content/uploads/federal-agency-participation.xls"> EXCEL </a><br/><br/>
 </div><div style="float: right;margin-left:280px;"> <?php the_content(); ?>    </div>
 <?php
-$metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
+$metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
 echo '<div style="font-style:italic;clear:both;">';
 echo "Data last updated on: ". date("m/d/Y H:i A",$metric_sync)."<br />";
 echo "</div>";
@@ -120,8 +120,8 @@ echo "</div>";
     <div class="open-data-sites-box">
         <div class="region">Agencies and Subagencies:</div><div class="numbers">
         <?php
-        $total_agencycount = $wpdb->get_var("SELECT count(*) FROM next_datagov.wp_postmeta where meta_key = 'metric_count' and meta_value > 0;");
-        $department_level = $wpdb->get_var("SELECT count(*) FROM next_datagov.wp_postmeta pm where pm.meta_key = 'metric_count' and pm.meta_value > 0 and post_id in(
+        $total_agencycount = $wpdb->get_var("SELECT count(*) FROM wp_postmeta where meta_key = 'metric_count' and meta_value > 0;");
+        $department_level = $wpdb->get_var("SELECT count(*) FROM wp_postmeta pm where pm.meta_key = 'metric_count' and pm.meta_value > 0 and post_id in(
                                                              SELECT ID from wp_posts where  post_type = 'metric_organization' and post_title = 'Department/Agency Level')");
         $total_agencies = $total_agencycount - $department_level;
         echo number_format($total_agencies);
@@ -573,7 +573,7 @@ if( $query->have_posts() ) {
             <td  width="20%" align="center">
                 <?php
 
-                $last_entry = $wpdb->get_var( "SELECT MAX(meta_value) FROM next_datagov.wp_postmeta WHERE meta_key = 'metric_last_entry'");
+                $last_entry = $wpdb->get_var( "SELECT MAX(meta_value) FROM wp_postmeta WHERE meta_key = 'metric_last_entry'");
 
                 echo $last_entry;
 
