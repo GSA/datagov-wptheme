@@ -10,7 +10,6 @@ require_once 'Classes/PHPExcel/IOFactory.php';
 
 $results = array();
 
-
 add_action('admin_menu', 'metric_configuration');
 
 /**
@@ -394,10 +393,12 @@ function get_ckan_metric_info()
     }
 
     asort($results);
-    chdir('../media/');
+//    chdir(ABSPATH.'media/');
+
+    $upload_dir = wp_upload_dir();
 
 //    Write CSV result file
-    $fp_csv = fopen('federal-agency-participation.csv', 'w');
+    $fp_csv = fopen($upload_dir['basedir'].'federal-agency-participation.csv', 'w');
 
     if ($fp_csv == false) {
         die("unable to create file");
@@ -436,7 +437,7 @@ function get_ckan_metric_info()
     // Instantiate a Writer to create an OfficeOpenXML Excel .xlsx file
     $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
     // Write the Excel file to filename some_excel_file.xlsx in the current directory
-    $objWriter->save('federal-agency-participation.xls');
+    $objWriter->save($upload_dir['basedir'].'federal-agency-participation.xls');
 }
 
 /**
