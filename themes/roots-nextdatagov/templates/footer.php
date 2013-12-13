@@ -24,7 +24,7 @@ if ($category[0]->cat_name != 'Uncategorized') {
     
         <form role="search" method="get" style="display: block;" class="search-form form-inline" action="http://dev-ckan-fe-data.reisys.com/dataset">
           <div class="input-group">
-            <label class="hide" for="search-footer"><?php _e('Search for:', 'roots'); ?></label>
+            <label class="sr-only" for="search-footer"><?php _e('Search for:', 'roots'); ?></label>
             <input type="search" id="search-footer" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="q" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
               <span class="input-group-btn">
                 <button type="submit" class="search-submit btn btn-default">

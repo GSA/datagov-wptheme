@@ -62,9 +62,17 @@ $term_slug = $category[0]->slug;
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
     </footer>
   </article>
-      <?php comments_template('/templates/comments.php'); ?>
+    <?php $format = get_post_format();
+    if ( false === $format ){
+        $format = 'standard';
+    }
 
+    ?>
+    <?php if ($format=='standard'){?>
 
+        <?php comments_template('/templates/comments.php'); ?>
+
+    <?php } ?>
 
 
         
