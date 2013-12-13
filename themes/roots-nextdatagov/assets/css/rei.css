@@ -21,9 +21,9 @@
     padding-top:15px;
 }
 .Appstitle {
-    font-family: 'Abel', Helvetica, sans-serif;
+
     font-size: 30px;
-    font-weight: lighter;
+    font-weight: normal;
     padding-bottom:15px;
     padding-top:15px;
     padding-left:20px;
@@ -323,9 +323,9 @@
     height:45px;
 
 }
-height:45px;
 
-    }
+
+
 .catimg span.manufacturing{
     background-image:url(../img/topic-manufacturing.svg);
     display: inline-block;
@@ -393,7 +393,7 @@ height:45px;
     color: #83B03C;
 }
 .page-template-template-all-challanges-php h1{font-size:25px;}
-/*.page-template-template-all-challanges-php .Apps-post{background-color: none;box-shadow: none;}*/
+
 .page-template-template-all-challanges-php .Apps-post .Appstitle{padding-left:0px;}
 #recaptcha_widget .right{width:100px;float: right;display: inline;}
 #recaptcha_widget .left{width:400px;display:inline;margin-top:50px;}
@@ -422,7 +422,7 @@ h1.title {
     background:#3E6B85;
     color: #FFFFFF;
     display: block;
-    font-family: Georgia,"Times New Roman",Times,serif;
+
     font-weight: normal;
 
 
@@ -495,7 +495,7 @@ tr.even, tr.even td a {
     padding: 5px;
 }
 .panecontent {
-    background: url("img/bottomgradient.png") repeat-x scroll center bottom rgba(0, 0, 0, 0);
+    background: url("../img/bottomgradient.png") repeat-x scroll center bottom rgba(0, 0, 0, 0);
     display: block;
     margin: 0;
     padding: 10px;
@@ -566,7 +566,7 @@ tr.even td a.link_dataset{
 
 }
 .greyblock {
-    background: url("img/greyblock-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("../img/greyblock-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
     padding: 10px;
     width:280px;
     float:left;
@@ -757,19 +757,7 @@ ul.pager a:link, ul.pager a:visited {
 .post-46152 .agriculture p a,.post-46152 .agriculture li a,.post-46152 .agriculture tr td a{color:#83B03C;
 
 }
-.ag_button {
-    background: linear-gradient(to bottom, #77B55A 5%, #72B352 100%) repeat scroll 0 0 #77B55A;
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#77B55A', endColorstr='#72B352'); /* for IE */
-border: 1px solid #4B8F29;
-border-radius: 4px;
-box-shadow: 0 10px 14px -7px #3E7327;
-color: #FFFFFF !important;
-display: inline-block;
-font-size: 16px !important;
-padding: 10px 15px;
-text-decoration: none;
-    }
+
 /* ==========================================================================
    Styles for Ocean FAQ page
    ========================================================================== */
@@ -787,7 +775,7 @@ h2.block-title {
     color: #666666;
     display: block;
     float: none;
-    font: 24px Trajan,Georgia,"Times New Roman",Serif;
+
     margin-left: 10px;
     padding: 10px 0;
 }
