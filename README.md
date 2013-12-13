@@ -74,6 +74,7 @@ This template requires the following plugins:
 * Twitter Widget Pro - http://wordpress.org/plugins/twitter-widget-pro/
 * External Links - http://wordpress.org/plugins/sem-external-links/
 * WP Popup Plugin - http://wordpress.org/plugins/m-wp-popup/
+* jQuery Colorbox - http://wordpress.org/plugins/jquery-colorbox/
 
 #### Locally hosted plugins
 * SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
