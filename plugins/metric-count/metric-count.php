@@ -398,7 +398,7 @@ function get_ckan_metric_info()
     $upload_dir = wp_upload_dir();
 
 //    Write CSV result file
-    $fp_csv = fopen($upload_dir['basedir'].'federal-agency-participation.csv', 'w');
+    $fp_csv = @fopen($upload_dir['basedir'].'federal-agency-participation.csv', 'w');
 
     if ($fp_csv == false) {
         die("unable to create file");
@@ -464,6 +464,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
 
         $response = wp_remote_get($url);
         $body = json_decode(wp_remote_retrieve_body($response), true);
+
         $count = $body['result']['count'];
 
         if ($count) {
@@ -473,6 +474,8 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
             $last_entry = substr($last_entry, 0, 10);
 //        2013-12-12
 
+        } else {
+            $last_entry = '1970-01-01';
         }
     } else {
         $count = 0;
@@ -514,7 +517,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
             $range = "[" . $startDt . "T00:00:00Z%20TO%20" . $endDt . "T23:59:59Z]";
 
             $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
-            $url .= "api/3/action/package_search?q=($organizations)+AND+dataset_type:dataset+AND+metadata_created:$range&rows=1";
+            $url .= "api/3/action/package_search?fq=($organizations)+AND+dataset_type:dataset+AND+metadata_created:$range&rows=1";
 
             $response = wp_remote_get($url);
             $body = json_decode(wp_remote_retrieve_body($response), true);
@@ -546,6 +549,9 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
         $content_id = $myrows;
     }
 
+    list($Y, $m, $d) = explode('-', $last_entry);
+    $last_entry = "$m/$d/$Y";
+
     if (sizeof($content_id) == 0) {
 
         $my_post = array(
@@ -576,9 +582,6 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
         } else {
             add_post_meta($new_post_id, 'metric_sector', 'Other');
         }
-
-        list($Y, $m, $d) = explode('-', $last_entry);
-        $last_entry = "$m/$d/$Y";
 
         add_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
         add_post_meta($new_post_id, 'metric_last_entry', $last_entry);
@@ -626,7 +629,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
             for ($i = 1; $i < 13; $i++) {
                 update_post_meta($new_post_id, 'month_' . $i . '_dataset_url',
                     ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/')
-                    . 'dataset?q=(' . $organizations . ')+AND+dataset_type:dataset+AND+metadata_created:' . $dataset_range[$i]);
+                    . 'dataset?fq=(' . $organizations . ')+AND+dataset_type:dataset+AND+metadata_created:' . $dataset_range[$i]);
             }
         }
 
