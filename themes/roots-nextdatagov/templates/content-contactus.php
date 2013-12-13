@@ -33,7 +33,7 @@
                 <div  class="separator"></div>
                 <span style="font-size:15px;line-height: 29px"> Follow us at @usdatagov</span>
                 <div  class="separator"></div>
-                <?php echo do_shortcode( '[twitter-widget username="usdatagov" before_widget="<div class="half-box">" after_widget="</div>" hiderss="true" hidereplies="true" targetBlank="true" avatar="1" items="1" showXavisysLink="0" showts="60"]' ) ?> </div>
+                <?php echo do_shortcode( '[twitter-widget username="usdatagov" before_widget="<div class="half-box">" after_widget="</div>" hiderss="true" hidereplies="true" targetBlank="true" avatar="1" items="1" showXavisysLink="0" showts="60" title=""]' ) ?> </div>
         </div>
         <div style="clear:both; "></div>
         <div class="contact-title"><i class="bluetext fa fa-comment"></i>&nbsp;<a name="question">ASK A QUESTION</a></div>
