@@ -4,7 +4,7 @@
   
         <div class="searchbox-row skip-navigation">   
             <div class="skip-link">
-                <a href="#">Jump to Content</a>
+                <a href="?main">Jump to Content</a>
             </div> 
             <div>
                 <?php if(!is_front_page()): ?>
