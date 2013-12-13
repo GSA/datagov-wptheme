@@ -28,6 +28,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Lato', Arial, sans-serif;
 }
 
+.container.no-padding, 
+.search-form.no-padding {
+  padding-left : 0;
+  padding-right : 0;
+}
+
 
 /* ==========================================================================
    Header
@@ -67,11 +73,6 @@ margin-bottom : 0;
 .banner { }
 
      
-.header.banner, 
-body.category .intro {
-background-color : #F8F8F8;
-}
-
 
 .category .intro .container {
 padding-top : 1.5em;
@@ -80,9 +81,7 @@ line-height : 2em;
 font-size : 1.25em;
 }
 
-.frontpage-search {
-    padding : 2em 0;
-}
+
 
 .header.banner.page-heading {
   border-bottom : 0;
@@ -486,11 +485,30 @@ border-bottom : 1px solid #D1E2ED;
    ========================================================================== */
 
 
+
+
+
 div.frontpage-search {
     
+    padding : 2em 0;
+
+    .getstarted {
+      
+      text-transform: uppercase;        
+      
+      .fa-caret-down { 
+          font-size: (@font-size-base * 2.1) 
+      }
+
+      h4 { 
+        margin-top: 0; 
+      }
+
+    }
+
     input[type="search"]::-webkit-input-placeholder {
         -webkit-transition: opacity 0.3s linear; 
-      color: gray;
+      color: #000;
     }
 
     input[type="search"]:focus::-webkit-input-placeholder {
@@ -499,7 +517,7 @@ div.frontpage-search {
 
     input.search-field.form-control::-moz-placeholder {
       transition: opacity 0.3s linear; 
-      color: gray;
+      color: #000;
     }
 
     input.search-field.form-control:focus::-moz-placeholder {
@@ -858,12 +876,6 @@ body.home .format-status {
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
 
-/* This may need to be refactored */
-.getstarted {
-    text-transform: uppercase;        
-  .fa-caret-down { font-size: (@font-size-base * 2.1) }
-  h4 { margin-top: 0; }
-}
 
 /* ==========================================================================
    Sidebar
