@@ -42,7 +42,7 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
-    echo "You are searching <strong>$query</strong> in entire site, show results in <a href=http://catalog.data.gov/dataset?q=".urlencode($query).">catalog.data.gov</a>. <br /><br />";
+    echo "You are searching <strong>$query</strong> in entire site, show results in <a href='http://dev-ckan-fe-data.reisys.com/dataset?q=".stripslashes($query)."'> catalog.data.gov </a>. <br /><br />";
     // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
@@ -71,7 +71,7 @@ function usasearch_display_results($query = '', $group = ''){
     if($rows == 0){
         echo "Sorry, no results found. Try entering fewer or broader query terms.";
         ?>
-    <form role="search" method="get" class="search-form form-inline<?php if(is_front_page()): ?> col-md-12 col-lg-12<?php else:?> navbar-right navbar-nav  col-sm-6 col-md-6 col-lg-6<?php endif;?>" action="/search-results/1/">
+    <form role="search" method="get" style="display: block" class="search-form form-inline<?php if(is_front_page()): ?> col-md-12 col-lg-12<?php else:?> navbar-right navbar-nav  col-sm-6 col-md-6 col-lg-6<?php endif;?>" action="/search-results/1/">
         <div class="input-group">
             <?php if(!is_front_page()): ?>
             <label for="search-header" class="hide"><?php _e('Search for:', 'roots'); ?></label>
