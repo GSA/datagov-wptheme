@@ -1249,3 +1249,4 @@ table.glossary tr.odd2 {
     text-align:left;
 }
 #extlink-popup{padding:0 15px;}
+.search-form.form-inline.navbar-right{display:none;}
