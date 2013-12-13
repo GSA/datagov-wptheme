@@ -101,7 +101,7 @@ if (!empty($apps)) { ?>
                         <?php
                         $imagefile=get_field_object('field_5240b9c982f41');
                         ?>
-                        <img class="scale-with-grid" src="<?php echo $imagefile['value']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" style="height:85px;">
+                        <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" style="height:85px;">
                     </center>
                 </div>
                 <div id="itemcontent">
