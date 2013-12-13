@@ -394,7 +394,7 @@ function get_ckan_metric_info()
     }
 
     asort($results);
-    chdir('../wp-content/uploads/');
+    chdir('../media/');
 
 //    Write CSV result file
     $fp_csv = fopen('federal-agency-participation.csv', 'w');
@@ -459,7 +459,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
         $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
         $url .= "api/3/action/package_search?fq=($organizations)+AND+dataset_type:dataset&rows=1&sort=metadata_modified+desc";
 
-        echo $url.PHP_EOL;
+//        echo $url.PHP_EOL;
 
         $response = wp_remote_get($url);
         $body = json_decode(wp_remote_retrieve_body($response), true);
@@ -475,10 +475,6 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
         }
     } else {
         $count = 0;
-    }
-
-    if (!$count) {
-        $last_entry = '2013-12-12';
     }
 
     $metric_sync_timestamp = time();
@@ -580,6 +576,8 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
             add_post_meta($new_post_id, 'metric_sector', 'Other');
         }
 
+        list($Y, $m, $d) = explode('-', $last_entry);
+        $last_entry = "$m/$d/$Y";
 
         add_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
         add_post_meta($new_post_id, 'metric_last_entry', $last_entry);
