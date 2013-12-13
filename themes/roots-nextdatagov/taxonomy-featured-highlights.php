@@ -61,8 +61,6 @@ $args = array(
           $category_query->the_post();
       ?>
 
-        <div class="container">
-
             <div class="highlight <?php get_category_by_slug( $slug ) ?>">
                 <header>
                     <?php if(!is_category() && !is_archive()): ?>
@@ -91,8 +89,6 @@ $args = array(
                 <?php endif;?>   
 
             </div><!--/.highlight-->
-
-        </div><!--/.container-->
 
         <?php
         wp_reset_postdata();    
