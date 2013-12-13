@@ -7,8 +7,8 @@
             <div class="contact-question"> <span style="margin-left:10px;font-size:25px;"><i class="bluetext fa fa-lightbulb-o"></i>&nbsp;<a class="question" href="#suggest">Suggest or Request</a></div>
             <div class="contact-question"> <span style="margin-left:10px;font-size:25px;"><img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/hazard.png" alt="Report a problem" >&nbsp;<a class="question" href="#report">Report a Problem</a></span> </div>
         </div>
-        <div  class="contact-post">
-            <div class="contact-question" style="background-color: #ffffff; "> <span style="margin-left:0px;text-transform:uppercase;font-size:15px;font-weight:bold;margin-bottom:5px;"><i class="bluetext fa fa-stack-exchange"></i>&nbsp;Open Data Stack Exchange</span>
+        <div  class="contact-post" style="background-color: #ffffff; ">
+            <div class="contact-question" > <span style="margin-left:0px;text-transform:uppercase;font-size:15px;font-weight:bold;margin-bottom:5px;"><i class="bluetext fa fa-stack-exchange"></i>&nbsp;Open Data Stack Exchange</span>
                 <div  class="separator"></div>
                 <span style="font-size:15px;line-height: 29px">Ask the community.</span>
                 <div  class="separator"></div>
