@@ -22,7 +22,7 @@
 
   <div role="document">
     <div class="content">
-      <main class="main" role="main">
+      <main class="main" role="main" id="main">
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->
        

@@ -3,8 +3,8 @@
   <div class="container">
   
         <div class="searchbox-row skip-navigation">   
-            <div class="skip-link">
-                <a href="?main">Jump to Content</a>
+            <div class="sr-only skip-link">
+                <a href="main">Jump to Content</a>
             </div> 
             <div>
                 <?php if(!is_front_page()): ?>
