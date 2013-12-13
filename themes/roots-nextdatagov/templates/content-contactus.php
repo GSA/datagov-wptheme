@@ -51,7 +51,7 @@
         <br>
         <div class="contact-post3">
             <div class="contact-post4">
-                <div class="contact-post5"> You can use this form privately contact the data gov team or feel free to email us directly at <a style="color:#ffffff;text-decoration:underline;" href="data.gov.contactus@reisys.com">data.gov.contactus@reisys.com</a> </div>
+                <div class="contact-post5"> You can use this form to contact the data gov team or feel free to email us directly at <a style="color:#ffffff;text-decoration:underline;" href="mailto:data.gov.contactus@reisys.com">data.gov.contactus@reisys.com</a> </div>
                 <?php
                 query_posts( array( 'page_id' => 126647 ) ); // ID of the page including the form
 
