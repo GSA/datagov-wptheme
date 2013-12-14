@@ -172,9 +172,9 @@ while( have_posts() ) {
 </div>
 <div class="closedC">
     <h1>Just Closed – Stay Tuned for Winners</h1>
-    <?php $category = get_the_category();
-    $cat_name = $category[0]->cat_name;
-    $cat_slug = $category[0]->slug;
+    <?php //$category = get_the_category();
+    //$cat_name = $category[0]->cat_name;
+    //$cat_slug = $category[0]->slug;
     ?>
     <?php
     $args = array(
@@ -238,9 +238,9 @@ while( have_posts() ) {
 </div>
 <div class="winner">
     <h1>Winner Announced</h1>
-    <?php $category = get_the_category();
-    $cat_name = $category[0]->cat_name;
-    $cat_slug = $category[0]->slug;
+    <?php //$category = get_the_category();
+    //$cat_name = $category[0]->cat_name;
+    //$cat_slug = $category[0]->slug;
     ?>
     <?php
     $args = array(
