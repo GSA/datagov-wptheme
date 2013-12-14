@@ -42,7 +42,7 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
-    echo "You are searching <strong>$query</strong> in entire site, show results in <a href='http://dev-ckan-fe-data.reisys.com/dataset?q=".stripslashes($query)."'> catalog.data.gov </a>. <br /><br />";
+    echo "You are searching <strong>$query</strong> in entire site, show results in <a href='http://catalog.data.gov/dataset?q=".stripslashes($query)."'> catalog.data.gov </a>. <br /><br />";
     // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
