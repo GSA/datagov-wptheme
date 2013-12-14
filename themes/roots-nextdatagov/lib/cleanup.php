@@ -58,18 +58,18 @@ function roots_language_attributes() {
   $output = '';
 
   if (function_exists('is_rtl')) {
-    if (is_rtl() == 'rtl') {
+    if (is_rtl()) {
       $attributes[] = 'dir="rtl"';
+    } else {
+      $attributes[] = 'dir="ltr"';      
     }
   }
 
   $lang = get_bloginfo('language');
 
-  if ($lang && $lang !== 'en-US') {
+  if ($lang) {
     $attributes[] = "lang=\"$lang\"";
-  } else {
-    $attributes[] = 'lang="en"';
-  }
+  } 
 
   $output = implode(' ', $attributes);
   $output = apply_filters('roots_language_attributes', $output);
