@@ -42,7 +42,7 @@ $args = array(
                                     'operator' => 'IN'
                                     )                                 
                                   ),                 
-                  'posts_per_page' => 5 );
+                  'posts_per_page' => 10 );
 
 
       $category_query = new WP_Query($args);
