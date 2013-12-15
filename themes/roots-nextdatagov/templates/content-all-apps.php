@@ -108,6 +108,25 @@ if (!empty($apps)) { ?>
                     <?php the_content() ?>
                 </div>
                 <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
+                <div id="bottomimages">
+                    <center>
+                        <?php if (strlen(get_post_meta($post->ID, 'field_ios_app_download_url', TRUE ))>10) :?>
+                        <a href="<?php echo get_post_meta($post->ID, 'field_ios_app_download_url', TRUE );?>">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/ios.png" class="iconApp" alt="ios">
+                        </a>
+                        <?php endif; ?>
+                        <?php if (strlen(get_post_meta($post->ID, 'field_android_app_download_url', TRUE ))>10) :?>
+                        <a href="<?php echo get_post_meta($post->ID, 'field_android_app_download_url', TRUE );?>">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/android.png" class="iconApp" alt="android">
+                        </a>
+                        <?php endif; ?>
+                        <?php if (strlen(get_post_meta($post->ID, 'field_windows_phone_app_download', TRUE ))>10) :?>
+                        <a href="<?php echo get_post_meta($post->ID, 'field_windows_phone_app_download', TRUE );?>">
+                            <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/windows.png" class="iconApp" alt="windows">
+                        </a>
+                        <?php endif; ?>
+                    </center>
+                </div>
             </div>
         </li>
         <?php
