@@ -387,7 +387,7 @@ $args = array(
         'relation' => 'AND',
         array(
             'taxonomy' => 'application_categories',
-            'terms' => 'finance-40',
+            'terms' => 'finance',
             'field' => 'slug',
         ),
         array(
