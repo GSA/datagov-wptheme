@@ -44,7 +44,7 @@ while( have_posts() ) {
 
 <div style="float:left;">
     This report is also available for download in the following formats: <a href="/media/federal-agency-participation.csv"> CSV </a> | <a href="/media/federal-agency-participation.xls"> EXCEL </a><br/><br/>
-</div><div style="float: right;margin-left:280px;"> <?php the_content(); ?>    </div>
+</div><div style=""> <?php the_content(); ?>    </div>
 <?php
 $metric_sync = $wpdb->get_var( "SELECT MAX(meta_value) FROM wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
 echo '<div style="font-style:italic;clear:both;">';
@@ -70,7 +70,7 @@ echo "</div>";
 <div class="clear"> </div>
 <br/>
 <br/>
-<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;font-family: 'Abel',Helvetica,sans-serif;font-weight:bold;">Departments/Agencies/Organizations</h3>
+<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Departments/Agencies/Organizations</h3>
 
 
 
@@ -294,7 +294,7 @@ if( $query->have_posts() ) {
 </table>
 </div>
 
-<h3 class="fieldcontentregion agencytitle" style="font-family: 'Abel',Helvetica,sans-serif;margin-left:-1px;font-weight:bold; ">Other Agencies</h3>
+<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;font-weight:bold; ">Other Agencies</h3>
 
 <div class="view-content">
     <table class="views-table cols-4 datasets_published_per_month_table">
