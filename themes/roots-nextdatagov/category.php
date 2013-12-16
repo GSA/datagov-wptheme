@@ -1,5 +1,4 @@
 <?php
-
 $term_name = get_term_by('id', get_query_var('cat'), 'category')->name;
 $term_slug = get_query_var('category_name');
 
@@ -75,7 +74,7 @@ $args = array(
                 	                'field' => 'slug',
                 	                'terms' => array( 'browse'),
                 	                'operator' => 'IN'
-                	                )                	                
+                	                )  
                                 ),                 
                 'posts_per_page' => 1 );
                          
@@ -115,7 +114,13 @@ $args = array(
                 	                'field' => 'slug',
                 	                'terms' => array( 'highlights'),
                 	                'operator' => 'NOT IN'
-                	                )                	                
+                	                ),   
+                                  array(
+                                  'taxonomy' => 'featured',
+                                  'field' => 'slug',
+                                  'terms' => array( 'browse'),
+                                  'operator' => 'NOT IN'
+                                  )                 	                
                                 ),               
                 'paged' => $paged,                 
                 'posts_per_page' => 5 );
