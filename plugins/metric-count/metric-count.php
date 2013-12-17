@@ -471,6 +471,10 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
             $last_entry = $body['result']['results'][0]['metadata_modified'];
 //        2013-12-12T07:39:40.341322
 
+            echo '---'.PHP_EOL;
+            echo $url.PHP_EOL.PHP_EOL;
+            echo 'metadata_modified '.$last_entry.PHP_EOL;
+
             $last_entry = substr($last_entry, 0, 10);
 //        2013-12-12
 
@@ -629,7 +633,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
             for ($i = 1; $i < 13; $i++) {
                 update_post_meta($new_post_id, 'month_' . $i . '_dataset_url',
                     ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/')
-                    . 'dataset?fq=(' . $organizations . ')+AND+dataset_type:dataset+AND+metadata_created:' . $dataset_range[$i]);
+                    . 'dataset?q=(' . $organizations . ')+AND+dataset_type:dataset+AND+metadata_created:' . $dataset_range[$i]);
             }
         }
 
