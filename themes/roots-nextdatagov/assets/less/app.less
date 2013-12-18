@@ -1150,11 +1150,28 @@ color : #A3A3A3;
 }
 
 
-.customcontactform {
+#contact-us-form {
 
-  margin-top : 1em;
-  padding : 15px 15px 0 15px;
+  .row;
+
+  margin : 1em 0 0 0;
+  padding : 15px 0 0 0;
   background-color : @blue-lightblue;
+
+  .form-group input, 
+  .form-group textarea,
+  .form-group select {
+    .form-control;
+  }
+
+  fieldset legend {
+    display : none;
+  }
+
+  .form-group textarea {
+    height : auto;
+  }
+
 
   h4 {
     display : none;
@@ -1162,34 +1179,35 @@ color : #A3A3A3;
 
   label {
     color : #fff;
+    font-weight : normal;
   }
 
-  input, textarea, select {
+  input, textarea, select, 
+  .form-group input, 
+  .form-group textarea, 
+  .form-group select {
     margin-bottom : 2em;
     border : 1px solid @blue-midblue;
   }
 
-  .submit {
-    padding : .5em;
-
-  }
-
-  .submit {
+  .captcha {
     width : 100%;
   }
 
-
-  @media (min-width: @screen-sm-min) {
-    .reason-dropdown {
-      width : 50%;
-    }
-
-    .submit, 
-    .captcha {
-      width : 25%;
-    }
-
+  .submit {
+    width : 100%;   
+    .btn;
+    background-color : @blue-darkblue;
+    padding : .825em;
+    color : #fff;    
   }
+
+  .submit:hover, 
+  .submit:focus {
+    color : @blue-darkblue;
+    background-color : @gray-lighter;
+  }
+
 
 }
 

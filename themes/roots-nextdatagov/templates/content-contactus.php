@@ -87,7 +87,7 @@
                     </h1>               
                     <p class="section-intro">Follow us at @usdatagov</p>
                     <div class="twitter-feed">
-                        <?php echo do_shortcode( '[twitter-widget username="usdatagov" items="4" hidereplies="true" title=" " showintents="false" showretweets="false"]' ) ?>
+                        <?php echo do_shortcode( '[twitter-widget username="usdatagov" items="2" hidereplies="false" title=" " showintents="false" showretweets="true"]' ) ?>
                     </div>
                 </div>
             </section>
@@ -117,24 +117,26 @@
                 <div>
                     <div>
                         You can use this form to contact the data gov team or feel free to email us directly at 
-                        <a href="mailto:datagov@gsa.gov">datagov@gsa.gov</a>
+                        <a href='mail&#116;o&#58;d%61tag&#111;&#118;&#64;&#103;sa&#46;gov'>&#100;at&#97;g&#111;&#118;&#64;&#103;s&#97;&#46;gov</a>
                     </div>
 
-                    <?php
+                    <div id="contact-us-form">
+                        <?php
 
-                        
-                        if ($page_id = get_page_by_path('contact-us')) {
+                            
+                            if ($page_id = get_page_by_path('contact-us')) {
 
-                            query_posts( array( 'page_id' => $page_id->ID ) ); // ID of the page including the form
+                                query_posts( array( 'page_id' => $page_id->ID ) ); // ID of the page including the form
 
-                            if ( have_posts() ) : while ( have_posts() ) : the_post();
-                                the_content();
-                            endwhile; endif;
+                                if ( have_posts() ) : while ( have_posts() ) : the_post();
+                                    the_content();
+                                endwhile; endif;
 
-                            wp_reset_query();
+                                wp_reset_query();
 
-                        }
-                    ?>
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         </section>
