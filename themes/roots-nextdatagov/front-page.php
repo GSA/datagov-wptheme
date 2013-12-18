@@ -70,7 +70,7 @@ $args = array(
 		<a href="/safety"><i></i><span>Public Safety</span></a>
 	</li>
 	<li class="topic-research">
-		<a href="/research"><i></i><span>Science+Research</span></a>
+		<a href="/research"><i></i><span>Science and Research</span></a>
 	</li>
 	<li class="topic-weather">
 		<a href="/weather"><i></i><span>Weather</span></a>
