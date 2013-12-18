@@ -96,7 +96,7 @@
 
         <section class="row">
             <div class="col-md-12">
-                <a name="question">
+                <a name="question" class="contact-heading">
                     <h1 class="icon-heading">
                         <i class="fa fa-comments-o"></i>
                         <span>
@@ -141,7 +141,7 @@
 
         <section class="row">
             <div class="col-md-12">
-                <a name="request">                
+                <a name="request" class="contact-heading">                
                     <h1 class="icon-heading">
                         <i class="fa fa-lightbulb-o"></i>
                         <span>
@@ -154,7 +154,7 @@
             <ul class="nav contact-link">
 
                 <li class="col-md-6">
-                    <a href="https://github.com/GSA/data.gov/">
+                    <a href="https://github.com/GSA/data.gov/#submitting-an-issue">
                         <i class="fa fa-github"></i>
                         <span>
                             Suggest new Data.gov features
@@ -179,7 +179,7 @@
         <section class="row">
                 
                 <div class="col-md-12">
-                    <a name="report">               
+                    <a name="report" class="contact-heading">               
                        <h1 class="icon-heading">
                             <i class="fa fa-exclamation-circle"></i>
                             <span>
@@ -191,7 +191,7 @@
                 
                 <ul class="nav contact-link">
                     <li class="col-md-12">
-                        <a href="https://github.com/GSA/data.gov/">
+                        <a href="https://github.com/GSA/data.gov/#submitting-an-issue">
                             <i class="fa fa-github"></i>
                             <span>
                                 Report a problem with the website

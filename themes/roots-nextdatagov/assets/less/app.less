@@ -1102,6 +1102,10 @@ border-bottom : 1px solid #ccc;
 margin-bottom : 1em;
 }
 
+.contact-heading:hover {
+  text-decoration : none;
+}
+
 .icon-heading i, 
 .contact-nav li i, 
 .contact-link i {
@@ -1163,6 +1167,28 @@ color : #A3A3A3;
   input, textarea, select {
     margin-bottom : 2em;
     border : 1px solid @blue-midblue;
+  }
+
+  .submit {
+    padding : .5em;
+
+  }
+
+  .submit {
+    width : 100%;
+  }
+
+
+  @media (min-width: @screen-sm-min) {
+    .reason-dropdown {
+      width : 50%;
+    }
+
+    .submit, 
+    .captcha {
+      width : 25%;
+    }
+
   }
 
 }
