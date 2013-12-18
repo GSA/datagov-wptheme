@@ -63,7 +63,6 @@ This template requires the following plugins:
 * Date and Time Picker - http://wordpress.org/plugins/acf-field-date-time-picker/
 * Advanced Custom Fields Location Field - https://github.com/elliotcondon/acf-location-field/
 * Import Blogroll With Categories - http://wordpress.org/plugins/import-blogroll-with-categories/
-* Widget Logic - http://wordpress.org/plugins/widget-logic/ 
 * bbPress - http://wordpress.org/plugins/bbpress/
 * Posts in Page - http://wordpress.org/plugins/posts-in-page/
 * Subscribe2 - http://wordpress.org/plugins/subscribe2/
@@ -72,9 +71,7 @@ This template requires the following plugins:
 * SI CAPTCHA Anti-Spam - http://wordpress.org/plugins/si-captcha-for-wordpress/
 * Sticky Posts In Category - http://wordpress.org/plugins/sticky-posts-in-category/
 * Twitter Widget Pro - http://wordpress.org/plugins/twitter-widget-pro/
-* External Links - http://wordpress.org/plugins/sem-external-links/
 * WP Popup Plugin - http://wordpress.org/plugins/m-wp-popup/
-* jQuery Colorbox - http://wordpress.org/plugins/jquery-colorbox/
 * Better External links - http://wordpress.org/plugins/bwp-external-links/
 #### Locally hosted plugins
 * SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
