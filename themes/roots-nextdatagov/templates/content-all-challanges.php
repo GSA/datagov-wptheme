@@ -149,7 +149,7 @@ if(count($apps) > 0) {
                         <?php the_content() ?>
                     </div>
                     <?php  if (!empty ($winner['value'])  ) { ?>
-                    <div><p>Winner!</p></div>
+                    <div><p>Winner Announced!</p></div>
                     <?php  } ?>
                 </div>
             </div>
