@@ -471,9 +471,9 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
             $last_entry = $body['result']['results'][0]['metadata_modified'];
 //        2013-12-12T07:39:40.341322
 
-            echo '---'.PHP_EOL;
-            echo $url.PHP_EOL.PHP_EOL;
-            echo 'metadata_modified '.$last_entry.PHP_EOL;
+//            echo '---'.PHP_EOL;
+//            echo $url.PHP_EOL.PHP_EOL;
+//            echo 'metadata_modified '.$last_entry.PHP_EOL;
 
             $last_entry = substr($last_entry, 0, 10);
 //        2013-12-12
