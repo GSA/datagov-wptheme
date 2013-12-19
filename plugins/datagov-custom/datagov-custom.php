@@ -336,3 +336,15 @@ function add_login_logout_link($items, $args) {
     $items .= '<li>'. $loginoutlink .'</li>';
     return $items;
 }
+
+/**
+ * Include misc js
+ */
+function datagov_custom_js() {
+  // load js only on admin pages
+  if (is_admin()) {
+    wp_register_script('datagov_custom_misc_js', plugins_url('/datagov-custom-misc.js', __FILE__), array('jquery'));
+    wp_enqueue_script('datagov_custom_misc_js');
+  }
+}
+add_action( 'admin_init','datagov_custom_js');
