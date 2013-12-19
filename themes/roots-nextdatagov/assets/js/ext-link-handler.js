@@ -44,3 +44,15 @@ jQuery( document ).ready(function() {
     });
 });
 
+$(document).ready(function(){
+    $("ul a.dropdown-toggle").on('focus', function() {
+        $('ul.dropdown-menu').show();
+    });
+
+
+});
+$(document).ready(function(){
+    $("ul.dropdown-menu li:last-child a").on('blur', function() {
+        $('ul.dropdown-menu').hide();
+    });
+});
