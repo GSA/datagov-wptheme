@@ -1,3 +1,6 @@
 jQuery(document).ready(function() {
-  jQuery("#media-upload-error .error p:contains").replaceWith("The media file was rejected, possibly becasue it is infected with a virus");
+  /*modify error message on div change*/
+  jQuery("#media-upload-error").on("DOMSubtreeModified", function(e) {
+    jQuery("#media-upload-error p:contains('HTTP error.')").replaceWith("The media file was rejected, possibly becasue it is infected with a virus"); 
+  }); 
 })
