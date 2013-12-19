@@ -1,0 +1,17 @@
+.ccf-width25 { width:25px; } .ccf-width50 { width:50px; } .ccf-width75 { width:75px; } .ccf-width100 { width:100px; }
+.ccf-width125 { width:125px; } .ccf-width150 { width:150px; } .ccf-width175 { width:175px; } .ccf-width200 { width:200px; }
+.ccf-width225 { width:225px; } .ccf-width250 { width:250px; } .ccf-width275 { width:275px; } .ccf-width300 { width:300px; }
+.ccf-center { text-align:center; }
+.ccf-red { color:#F00; }
+.ccf-bold { font-weight:bold; }
+.ccf-italic { font-style:italic; }
+.ccf-hide { display:none; }
+.ccf-clear { clear:both; }
+.ccf-center { text-align:center; }
+.ccf-floatleft { float:left; }
+.ccf-floatright { float:right; }
+.form-extra-options-table { margin:0 auto 0 auto; }
+.ccf-evenrow { background-color:#f0f0f0; }
+.ccf-alignright { text-align:right; }
+.ccf-alignleft { text-align:right; }
+.ccf-loading-icon { margin-left: 5px; margin-right:7px; }

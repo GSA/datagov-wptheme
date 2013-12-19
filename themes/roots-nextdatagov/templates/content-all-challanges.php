@@ -38,69 +38,7 @@ while( have_posts() ) {
 </div>
 </div>
 
-    <?php
-
-    $args = array(
-        'post_type' => 'challenge',
-        'meta_key' => 'field_challenge_end_date',
-        'meta_query'  => array(
-            array(         // restrict posts based on meta values
-                'key'     => 'field_challenge_start_date',  // which meta to query
-                'value'   => date("Ymd"),  // value for comparison
-                'compare' => '>',          // method of comparison
-                'type'    => 'DATE'  )
-        ),
-        'tax_query'=>	array(
-            'relation' => 'AND',
-
-            array(
-                'taxonomy' => 'category',
-                'terms' => $cat_slug,
-                'field' => 'slug',
-            ),
-        )
-    );
-
-    $apps = query_posts($args);
-    if(count($apps) > 0){
-    ?>
-    <div class="upcomingC">
-    <h1>Upcoming Challenges</h1>
-    <?php
-    while( have_posts() ) {
-        the_post();
-        ?>
-            <div id="cat-posts" class="All-cat-post horizontal_dotted_line cat-post">
-                <div class="core">
-                    <div class="title"> <a href="<?php echo get_post_meta($post->ID, 'field_challenge_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> <br/>
-                    </div>
-                    <div class="body">
-                        <?php
-                        $imagefile=get_field_object('field_5241b4eb20cea');
-                        $image=  strlen($imagefile['value']['url']);
-                        if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;" alt="<?php echo $imagefile['value']['alt']; ?>">
-                            <?php }else{?>
-                            <img class="scale-with-grid" src="test">
-                            <?php }?>
-                        <?php the_content() ?>
-                    </div>
-                    <br clear="all" />
-                </div>
-            </div>
-        <?php
-
-    }
-        ?>
-    </div>
-        <?php
-    }
-    ?>
-
-
-    <?php
+<?php
 
     $args = array(
         'post_type' => 'challenge',
@@ -114,7 +52,6 @@ while( have_posts() ) {
         ),
         'tax_query'=>	array(
             'relation' => 'AND',
-
             array(
                 'taxonomy' => 'category',
                 'terms' => $cat_slug,
@@ -123,11 +60,11 @@ while( have_posts() ) {
         )
     );
 
-    $apps = query_posts($args);
-    if(count($apps) > 0){
+$apps = query_posts($args);
+if(count($apps) > 0){
     ?>
-    <div class="openC">
-        <h1>Open Challenges</h1>
+<div class="upcomingC">
+    <h1>Open Challenges</h1>
     <?php
     while( have_posts() ) {
         the_post();
@@ -141,9 +78,6 @@ while( have_posts() ) {
                 <div class="body">
                     <?php
                     $imagefile=get_field_object('field_5241b4eb20cea');
-                    //var_dump($imagefile);
-                    ?>
-                    <?php
                     $image=  strlen($imagefile['value']['url']);
                     if ($image>0){ ?>
                         <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;" alt="<?php echo $imagefile['value']['alt']; ?>">
@@ -152,48 +86,49 @@ while( have_posts() ) {
                         <?php }?>
                     <?php the_content() ?>
                 </div>
-                <br clear="all" />
             </div>
+        </div>
         <?php
+
     }
     ?>
-    </div>
+</div>
     <?php
-    }
-    ?>
-    <?php
-    $args = array(
-        'post_type' => 'challenge',
-        'meta_key' => 'field_challenge_end_date',
-        'meta_query'  => array(
-            array(         // restrict posts based on meta values
-                'key'     => 'field_challenge_end_date',  // which meta to query
-                'value'   => date("Ymd"),  // value for comparison
-                'compare' => '<',          // method of comparison
-                'type'    => 'DATE'  )
+}
+?>
+
+
+<?php
+$args = array(
+    'post_type' => 'challenge',
+    'meta_key' => 'field_challenge_end_date',
+    'meta_query'  => array(
+        array(         // restrict posts based on meta values
+            'key'     => 'field_challenge_end_date',  // which meta to query
+            'value'   => date("Ymd"),  // value for comparison
+            'compare' => '<',          // method of comparison
+            'type'    => 'DATE'  )
+    ),
+    'tax_query'=>	array(
+        'relation' => 'AND',
+        array(
+            'taxonomy' => 'category',
+            'terms' => $cat_slug,
+            'field' => 'slug',
         ),
-        'tax_query'=>	array(
-            'relation' => 'AND',
+    )
+);
 
-            array(
-                'taxonomy' => 'category',
-                'terms' => $cat_slug,
-                'field' => 'slug',
-            ),
-        )
-    );
-
-    $apps = query_posts($args);
-    if(count($apps) > 0) {
-        ?>
+$apps = query_posts($args);
+if(count($apps) > 0) {
+    ?>
     <div class="closedC">
-    <h1>Just Closed – Stay Tuned for Winners</h1>
+        <h1>Completed Challenges</h1>
         <?php
-    while( have_posts() ) {
-        the_post();
-        $winner = get_field_object('field_5241b50e67153');
-        ?>
-        <?php  if (empty ($winner['value'])  ) { ?>
+        while( have_posts() ) {
+            the_post();
+            $winner = get_field_object('field_5241b50e67153');
+            ?>
             <div id="cat-posts" class="All-cat-post horizontal_dotted_line cat-post">
                 <div class="core">
                     <div class="title"> <a href="<?php echo get_post_meta($post->ID, 'field_challenge_url', TRUE ); ?>">
@@ -203,7 +138,6 @@ while( have_posts() ) {
                     <div class="body">
                         <?php
                         $imagefile=get_field_object('field_5241b4eb20cea');
-                        //var_dump($imagefile);
                         ?>
                         <?php
                         $image=  strlen($imagefile['value']['url']);
@@ -214,81 +148,15 @@ while( have_posts() ) {
                             <?php }  ?>
                         <?php the_content() ?>
                     </div>
-                    <br clear="all" />
+                    <?php  if (!empty ($winner['value'])  ) { ?>
+                    <div><p>Winner Announced!</p></div>
+                    <?php  } ?>
                 </div>
             </div>
-            <?php } ?>
-        <?php
-    }
+            <?php
+        }
         ?>
     </div>
     <?php
-    }
-    ?>
-
-<div class="winner">
-    <h1>Winner Announced</h1>
-    <?php //$category = get_the_category();
-    //$cat_name = $category[0]->cat_name;
-    //$cat_slug = $category[0]->slug;
-    ?>
-    <?php
-    $args = array(
-        'post_type' => 'challenge',
-        'tax_query'=>	array(
-            'relation' => 'AND',
-
-            array(
-                'taxonomy' => 'category',
-                'terms' => $cat_slug,
-                'field' => 'slug',
-            ),
-        )
-    );
-
-    $apps = query_posts($args);
-    $count = 0;
-    while( have_posts() ) {
-        the_post();
-        ?>
-        <?php
-        $curr_date=strtotime(date('Ymd', time()));
-        $start_date=strtotime(get_post_meta($post->ID, 'field_challenge_start_date', TRUE ));
-        $end_date=strtotime(get_post_meta($post->ID, 'field_challenge_end_date', TRUE ));
-        //echo $end_date;
-        $winner= get_field_object('field_5241b50e67153');
-        ?>
-        <?php  if ( !empty ($winner['value'])  ) { ?>
-            <div id="cat-posts" class="All-cat-post horizontal_dotted_line cat-post">
-                <div class="core">
-                    <div class="title"> <a href="<?php echo get_post_meta($post->ID, 'field_challenge_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> <br/>
-                    </div>
-                    <div class="body">
-                        <?php
-                        $imagefile=get_field_object('field_5241b4eb20cea');
-                        //var_dump($imagefile);
-                        ?>
-                        <?php
-                        $image=  strlen($imagefile['value']['url']);
-                        if ($image>0){ ?>
-                            <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;" alt="<?php echo $imagefile['value']['alt']; ?>">
-                            <?php }else{?>
-                            <img class="scale-with-grid" src="test">
-                            <?php }  ?>
-                        <?php the_content() ?>
-                    </div>
-                    <br clear="all" />
-                </div>
-            </div>
-            <?php $count ++;} ?>
-        <?php
-    }
-    if ($count < 1){?>
-        <div id="cat-posts" class="no-cat-post">
-            There are no Winners announced in this category.
-        </div>
-        <?php }
-    ?>
-</div>
+}
+?>

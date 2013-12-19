@@ -60,7 +60,7 @@ $args = array(
 	<li class="topic-health">
 		<a href="/health"><i></i><span>Health</span></a>
 	</li>
-	<li class="topic-jobs-skills">
+	<li class="topic-jobs-and-skills">
 		<a href="/jobs-and-skills"><i></i><span>Jobs+Skills</span></a>
 	</li>
 	<li class="topic-ocean">
@@ -70,7 +70,7 @@ $args = array(
 		<a href="/safety"><i></i><span>Public Safety</span></a>
 	</li>
 	<li class="topic-research">
-		<a href="/research"><i></i><span>Science+Research</span></a>
+		<a href="/research"><i></i><span>Science and Research</span></a>
 	</li>
 	<li class="topic-weather">
 		<a href="/weather"><i></i><span>Weather</span></a>

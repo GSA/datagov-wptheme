@@ -103,97 +103,12 @@
 }
 
     #webcontent h2 a{color:#333333;  font-size:25px;}
-#webcontent #webtext {
+/* #webcontent #webtext {
     font-weight:bold;
     font-size:12px;
-}
+} */
 #webtext p{padding-left:0;}
-/* ==========================================================================
-   Styles Below are for Web form
-   ========================================================================== */
 
-.customcontactform
-{
-    padding-top:5px;
-
-
-}
-.customcontactform input[type='text']
-{
-    width:50%;
-    margin:3px 10px 10px 0px;
-
-}
-.customcontactform input[type='checkbox']
-{
-
-    margin:3px 10px 10px 0px;
-
-}
-.customcontactform label
-{
-    display:block;
-    width:50%;
-    font-weight:bold;
-
-
-
-
-}
-.customcontactform textarea{
-
-    width:50%;
-    resize: none;
-    overflow-y: hidden;
-    margin:3px 10px 10px 0px;
-}
-.customcontactform label.select
-{
-    display: inline;
-    font-weight:inherit;
-    color:inherit;
-    margin:10px 10px 10px 0px;
-
-}
-.customcontactform select
-{
-    margin:3px 10px 10px 0px;
-
-
-}
-.customcontactform label.required
-{
-    color:#FF0000;
-
-}
-.customcontactform h4{
-    display:none;
-}
-
-
-.customcontactform input.submit {
-
-    background: none repeat scroll 0 0 #294B78;
-    border: medium none #033162;
-    border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    display: inline-block;
-    font-family: Myriad,Helvetica,Tahoma,Arial,sans-serif !important;
-    font-size: 11px !important;
-    font-weight: bold;
-    height: 25px;
-    line-height: 25px;
-    margin: 8px 2px;
-    margin-left:0px;
-    padding: 0 5px;
-    vertical-align: middle;
-    font-size: 60%;
-
-}
-.break-word {
-    word-wrap: break-word;
-}
-/* End Web form */
 
 /* ==========================================================================
    Styles Below are for Category-Blogs and All category Blogs
