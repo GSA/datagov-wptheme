@@ -64,7 +64,7 @@ $apps = query_posts($args);
 if(count($apps) > 0){
     ?>
 <div class="upcomingC">
-    <h1>Open Challenges</h1>
+    <h1 style="margin-bottom:-20px;">Open Challenges</h1>
     <?php
     while( have_posts() ) {
         the_post();
@@ -149,7 +149,7 @@ if(count($apps) > 0) {
                         <?php the_content() ?>
                     </div>
                     <?php  if (!empty ($winner['value'])  ) { ?>
-                    <div><p>Winner Announced!</p></div>
+                    <div><p style="margin-top:5px;"><img width="30px" height="30px" src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/ribbon.png">&nbsp;Winner Announced!</p></div>
                     <?php  } ?>
                 </div>
             </div>
