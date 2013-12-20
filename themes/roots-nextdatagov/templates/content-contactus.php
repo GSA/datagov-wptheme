@@ -87,7 +87,7 @@
                     </h1>               
                     <p class="section-intro">Follow us at @usdatagov</p>
                     <div class="twitter-feed">
-                        <?php echo do_shortcode( '[twitter-widget username="usdatagov" items="3" hidereplies="false" title=" " showintents="false" showretweets="true"]' ) ?>
+                        <?php echo do_shortcode( '[twitter-widget username="usdatagov" items="2" hidereplies="false" title=" " showintents="false" showretweets="true"]' ) ?>
                     </div>
                 </div>
             </section>
