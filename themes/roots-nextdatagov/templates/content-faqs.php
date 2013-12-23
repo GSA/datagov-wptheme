@@ -30,6 +30,7 @@ $cat_slug = $category[0]->slug;
             <div class="inner">
                  <?php if($cat_slug=="ocean"){?>
                 <div>
+                    <h3>Community of Practice</h3>
                      <?php $post = get_post('40645')?>
                     <p><?php echo $post->post_content;?></p>
                 </div>
