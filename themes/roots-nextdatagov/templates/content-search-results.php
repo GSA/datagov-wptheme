@@ -13,9 +13,11 @@
 
                 $term_slug = strtolower($term_name);
 
-                $args = array(
-                    'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
-                wp_list_bookmarks($args);
+                if(!empty($term_slug)){
+                    $args = array(
+                        'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
+                    wp_list_bookmarks($args);
+                }
                 if (strcasecmp($term_name,$term_slug)!=0) {
                     $args = array(
                         'category_name'=> $term_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');

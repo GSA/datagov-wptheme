@@ -39,9 +39,11 @@ $cat_slug = $category[0]->slug;
                 <?php
                 // show Links associated to a community
                 // we need to build $args based either term_name or term_slug
-                $args = array(
-                    'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
-                wp_list_bookmarks($args);
+                if(!empty($term_slug)){
+                    $args = array(
+                        'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
+                    wp_list_bookmarks($args);
+                }
                 if (strcasecmp($term_name,$term_slug)!=0) {
                     $args = array(
                         'category_name'=> $term_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
