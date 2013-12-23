@@ -31,14 +31,20 @@ $cat_slug = $category[0]->slug;
     <div class="container">
 
         <?php if($cat_slug=="ocean"){?>
-        <div style="float: right; width: 300px;margin-top:40px; ">
-            <h3>Community of Practice</h3>
-            <?php $post = get_post('40645')?>
-            <p><?php echo $post->post_content;?></p>
+        <div id="regionsidebar">
+            <div class="inner">
+                <h2 class="block-title">Community of Practice</h2>
+                <div class="panecontent">
+                    <div class="item-list">
+                        <?php $post = get_post('40645')?>
+                        <p><?php echo $post->post_content;?></p>
+                    </div>
+                </div>
+            </div>
         </div>
         <?php }?>
 
-        <div style="float: left; margin-right: 10px; padding: 10px; width: 580px;">
+        <div style="float: left; margin-right: 10px; padding: 10px; width: 70%;">
             <div class="inner">
                 <h2 class="pane-title block-title">Frequently Asked Questions</h2>
                 <div class="pane-content content">
