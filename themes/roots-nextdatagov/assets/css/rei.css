@@ -1,7 +1,6 @@
 /* ==========================================================================
    Add REI styles here. Please include a heading for each section like this
    ========================================================================== */
-
 /* ==========================================================================
    Styles Below are for Apps and challenges pages
    ========================================================================== */
@@ -54,7 +53,7 @@
     background-color:#F2F2F2;
     float:left;
 }
-#itemtitle {
+.itemtitle {
     text-align:center;
     font-weight:bold;
     font-size:20px;
@@ -62,17 +61,17 @@
     padding-top:20px;
     padding-bottom:5px;
 }
-#itemtitle  a {
+.itemtitle  a {
     font-weight:bold;
     font-size:20px;
     color:#444444;
 }
 
-#itemimage {
+.itemimage {
     margin-top:10px;
     margin-bottom:10px;
 }
-#itemcontent {
+.itemcontent {
 
     font-size:15px;
     color:#333333;
@@ -80,34 +79,34 @@
     padding-right:5px;
 
 }
-#bottomimages {
+.bottomimages {
     margin-bottom:10px;
 }
-#centerimages {
+.centerimages {
     margin-bottom:20px;
 }
 .webcontainer {
     margin-top:20px;
     margin-bottom:20px;
 }
-#webimage {
+.webimage {
     height:auto;
     width:80px;
     float:left;
     margin-left:20px;
 }
-#webcontent {
+.webcontent {
     width:750px;
     float:left;
     margin-left:20px;
 }
 
-    #webcontent h2 a{color:#333333;  font-size:25px;}
-/* #webcontent #webtext {
+.webcontent h2 a{color:#333333;  font-size:25px;}
+/*#webcontent #webtext {
     font-weight:bold;
     font-size:12px;
 } */
-#webtext p{padding-left:0;}
+.webtext p{padding-left:0;}
 
 
 /* ==========================================================================

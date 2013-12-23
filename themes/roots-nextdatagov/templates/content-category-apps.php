@@ -60,7 +60,7 @@ while( have_posts() ) {
 <div class="Apps-wrapper">
     <div class="Apps-post" id="post-<?php the_ID(); ?>">
        
-      <div id="appstitle" class="Appstitle" ><?php the_title();?></div>
+      <div  class="Appstitle" ><?php the_title();?></div>
     <?php the_content();   ?>
     <?php }?>
 </div>
@@ -106,11 +106,11 @@ if ( have_posts() ){
                     ?>
                     <li>
                         <div id="Appsitem" class="appsitem <?php the_ID();?>">
-                            <div id="itemtitle"> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
+                            <div class="itemtitle"> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                                 <?php the_title() ?>
                             </a>
                             </div>
-                            <div id="itemimage">
+                            <div class="itemimage">
                                 <center>
                                     <?php
                                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -118,11 +118,11 @@ if ( have_posts() ){
                                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                                 </center>
                             </div>
-                            <div id="itemcontent">
+                            <div class="itemcontent">
                                 <?php the_content() ?>
                             </div>
                             <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-                            <div id="bottomimages">
+                            <div class="bottomimages">
                                 <center>
                                     <?php if (strlen(get_post_meta($post->ID, 'field_ios_app_download_url', TRUE ))>10) :?>
                                     <a href="<?php echo get_post_meta($post->ID, 'field_ios_app_download_url', TRUE );?>">
@@ -179,24 +179,24 @@ if ( have_posts() ){
     ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Web Applications</div>
+        <div  class="Appstitle" >Web Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>" >
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -236,24 +236,24 @@ $apps = query_posts($args);
 if ( have_posts() ){ ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Agriculture Applications</div>
+        <div  class="Appstitle" >Agriculture Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -290,24 +290,24 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Education Applications</div>
+        <div  class="Appstitle" >Education Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -347,24 +347,24 @@ if ( have_posts() ){
     ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Energy & Environment Applications</div>
+        <div  class="Appstitle" >Energy & Environment Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -404,24 +404,24 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Finance Applications</div>
+        <div class="Appstitle" >Finance Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -459,24 +459,24 @@ $apps = query_posts($args);
 if ( have_posts() ){ ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Food & Nutrition Applications</div>
+        <div class="Appstitle" >Food & Nutrition Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -515,24 +515,24 @@ $apps = query_posts($args);
 if ( have_posts() ){ ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Global Food Security Applications</div>
+        <div class="Appstitle" >Global Food Security Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -570,24 +570,24 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Health Applications</div>
+        <div class="Appstitle" >Health Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -625,24 +625,24 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Rural Applications</div>
+        <div class="Appstitle" >Rural Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -680,24 +680,24 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Safety Applications</div>
+        <div class="Appstitle" >Safety Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -736,24 +736,24 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Telecommunications Applications</div>
+        <div class="Appstitle" >Telecommunications Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
@@ -792,24 +792,24 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Transportation Applications</div>
+        <div class="Appstitle" >Transportation Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
-                <div id="webimage"><?php
+                <div class="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
                     ?>
                     <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
                 </div>
-                <div id="webcontent">
+                <div class="webcontent">
                     <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                         <?php the_title() ?>
                     </a> </h2>
                     <div class='content'>
-                        <div id="webtext">
+                        <div class="webtext">
                             <?php the_content() ?>
                         </div>
                     </div>
