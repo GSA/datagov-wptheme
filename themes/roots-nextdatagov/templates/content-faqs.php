@@ -28,6 +28,12 @@ $cat_slug = $category[0]->slug;
 <div class="single">
 <div class="container">
             <div class="inner">
+                 <?php if($cat_slug=="ocean"){?>
+                <div>
+                     <?php $post = get_post('40645')?>
+                    <p><?php echo $post->post_content;?></p>
+                </div>
+                 <?php }?>
                 <h2 class="pane-title block-title">Frequently Asked Questions</h2>
                 <div class="pane-content content">
 
@@ -37,9 +43,6 @@ $cat_slug = $category[0]->slug;
 
 
             <div class="sixteen columns">
-
-
-
                 <div class=" view-display-id-ogpl_ocean_faq_block ">
                     <div class="view-header">
                         <a id="faq_top"></a>
