@@ -6,7 +6,7 @@ require_once('../../../wp-load.php');
 header('content-type application/json charset=utf-8');
 // For Footer
 $menu_name = 'footer_navigation';
-$json = '{';
+$json = ' jsonCallback({';
 if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
     $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
     $menu_items = wp_get_nav_menu_items($menu->term_id);
@@ -47,7 +47,7 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name 
     }
     $json .= ']';
 }
-$json .= '}';
+$json .= '});';
 print(prettyPrint($json));
 
 
