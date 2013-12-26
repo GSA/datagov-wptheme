@@ -761,7 +761,10 @@ a.faq-top {
 #communities-right{
     background-color: #FFFFFF;
     box-shadow: 0 2px 5px 1px #DADADA;
+    float: left;
     height: auto;
+    margin-left: 15px;
+    width: 25%;
 
 }
 #regionsidebar .panecontent2 {
