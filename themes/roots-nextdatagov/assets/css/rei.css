@@ -1032,7 +1032,37 @@ a.faq-top {
         float:none;
         height:auto;
     }
+    #communities-left {
+        float: none;
+        width:100%;
 
+    }
+    #communities-right {
+        float: none;
+        width:100%;
+
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        width:auto;
+    }
+    .imagearea {
+        float: none;
+
+        width: 100%;
+    }
+    #regionsidebar {
+
+        float: none;
+
+        width: 100%;
+    }
+    .col1{
+        float:none !important;
+        margin:0 !important;
+
+    }
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -1119,6 +1149,37 @@ a.faq-top {
         font-size:13px;
     }
     .page-template-template-agency-participation-php h3{font-size:18px;}
+    #communities-left {
+        float: none;
+        width:100%;
+
+    }
+    #communities-right {
+        float: none;
+        width:100%;
+
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        width:auto;
+    }
+    .imagearea {
+        float: none;
+
+        width: 100%;
+    }
+    #regionsidebar {
+
+        float: none;
+
+        width: 100%;
+    }
+    .col1{
+        float:none !important;
+        margin:0 !important;
+
+    }
 }
 
 /* search Recommended results fixing */

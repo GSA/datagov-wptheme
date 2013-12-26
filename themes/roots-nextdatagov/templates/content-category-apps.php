@@ -60,7 +60,7 @@ while( have_posts() ) {
 <div class="Apps-wrapper">
     <div class="Apps-post" id="post-<?php the_ID(); ?>">
        
-      <div id="appstitle" class="Appstitle" ><?php the_title();?></div>
+      <div  class="Appstitle" ><?php the_title();?></div>
     <?php the_content();   ?>
     <?php }?>
 </div>
@@ -92,7 +92,7 @@ if ( have_posts() ){
     ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Mobile Applications</div>
+        <div  class="Appstitle" >Mobile Applications</div>
 
         <div id="Appscontainer" class="appscontainer">
 
@@ -179,12 +179,12 @@ if ( have_posts() ){
     ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Web Applications</div>
+        <div  class="Appstitle" >Web Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -236,12 +236,12 @@ $apps = query_posts($args);
 if ( have_posts() ){ ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Agriculture Applications</div>
+        <div  class="Appstitle" >Agriculture Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -290,12 +290,12 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Education Applications</div>
+        <div  class="Appstitle" >Education Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -347,12 +347,12 @@ if ( have_posts() ){
     ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Energy & Environment Applications</div>
+        <div  class="Appstitle" >Energy & Environment Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -404,12 +404,12 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Finance Applications</div>
+        <div  class="Appstitle" >Finance Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -459,12 +459,12 @@ $apps = query_posts($args);
 if ( have_posts() ){ ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Food & Nutrition Applications</div>
+        <div  class="Appstitle" >Food & Nutrition Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -515,12 +515,12 @@ $apps = query_posts($args);
 if ( have_posts() ){ ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Global Food Security Applications</div>
+        <div  class="Appstitle" >Global Food Security Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -570,12 +570,12 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Health Applications</div>
+        <div  class="Appstitle" >Health Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -625,12 +625,12 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Rural Applications</div>
+        <div  class="Appstitle" >Rural Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -680,12 +680,12 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Safety Applications</div>
+        <div  class="Appstitle" >Safety Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div  class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -736,12 +736,12 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Telecommunications Applications</div>
+        <div  class="Appstitle" >Telecommunications Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
@@ -792,12 +792,12 @@ $apps = query_posts($args);
 if ( have_posts() ){?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div id="Mobiletitle" class="Appstitle" >Transportation Applications</div>
+        <div class="Appstitle" >Transportation Applications</div>
         <?php
         while( have_posts() ) {
             the_post();
             ?>
-            <div id="Webcontainer" class="webcontainer <?php the_ID();?>">
+            <div class="webcontainer <?php the_ID();?>">
 
                 <div id="webimage"><?php
                     $imagefile=get_field_object('field_5240b9c982f41');
