@@ -212,620 +212,70 @@ if ( have_posts() ){
 <br clear="all" />
     <?php } ?>
 <!-- Application categories taxonomy-->
-<!-- Agriculture Apps -->
+
+<!-- Application categories taxonomy-->
 
 <?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'agriculture-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){ ?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Agriculture Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
+$terms = get_terms("application_categories");
+$count = count($terms);
+if ( $count > 0 ){
+    foreach ( $terms as $term ) {
+        if($term->count >0){
+            $args = array(
+                'post_type' => 'Applications',
+                'tax_query'=>	array(
+                    'relation' => 'AND',
+                    array(
+                        'taxonomy' => 'application_categories',
+                        'terms' => $term->slug,
+                        'field' => 'slug',
+                    ),
+                    array(
+                        'taxonomy' => 'category',
+                        'terms' => $cat_slug,
+                        'field' => 'slug',
+                    ),
+                )
+            );
+            $result = new WP_Query($args);
+            if($result->have_posts()){
             ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
+            <div class="Apps-wrapper">
+                <div class="Mobile-post" id="post-<?php $term->slug; ?>">
+                    <div class="Appstitle" ><?php echo $term->name; ?> Applications</div>
+                    <?php
+                    while( $result->have_posts() ) {
+                        $result->the_post();
+                        ?>
+                        <div class="webcontainer <?php the_ID();?>">
+                            <div id="webimage">
+                                <?php
+                                $imagefile=get_field_object('field_5240b9c982f41');
+                                ?>
+                                <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>"> </div>
+                            <div id="webcontent">
+                                <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
+                                    <?php the_title() ?>
+                                </a> </h2>
+                                <div class='content'>
+                                    <div id="webtext">
+                                        <?php the_content() ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <br clear="all" />
+                            <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
                         </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-<br clear="all" />
-    <?php } ?>
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'education-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Education Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
+                        <?php
+                    }
                     ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
+                    <br clear="all" />
                 </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
             </div>
-            <?php
+            <br clear="all" />
+                <?php }
         }
-
-        ?><br clear="all" />
-    </div>
-</div><br clear="all" />
-    <?php } ?>
-
-<!-- Energy & Enivornment-->
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'energy_&_environment-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){
-    ?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Energy & Environment Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
+    }
+}
+?>
 </div>
-    <?php }?>
-
-<!-- Finance -->
-
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'finance',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Finance Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-    <?php }?>
-<!-- Food & Nutrition -->
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'food_&_nutrition-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){ ?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Food & Nutrition Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-    <?php }?>
-<!-- Global Food Security -->
-
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'global_food_security-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){ ?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Global Food Security Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-    <?php }?>
-<!-- Health Apps -->
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'health-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Health Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-    <?php }?>
-<!-- Rural Apps -->
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'rural-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Rural Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-    <?php }?>
-<!-- Safety Apps -->
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'safety-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Safety Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div  class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-    <?php }?>
-
-<!-- Telecommunications -->
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'telecommunications-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div  class="Appstitle" >Telecommunications Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-    <?php }?>
-<!-- Transportation -->
-
-
-<?php
-$args = array(
-    'post_type' => 'Applications',
-    'tax_query'=>	array(
-        'relation' => 'AND',
-        array(
-            'taxonomy' => 'application_categories',
-            'terms' => 'transportation-40',
-            'field' => 'slug',
-        ),
-        array(
-            'taxonomy' => 'category',
-            'terms' => $cat_slug,
-            'field' => 'slug',
-        ),
-    )
-);
-
-$apps = query_posts($args);
-if ( have_posts() ){?>
-<div class="Apps-wrapper">
-    <div class="Mobile-post" id="post-<?php the_ID(); ?>">
-        <div class="Appstitle" >Transportation Applications</div>
-        <?php
-        while( have_posts() ) {
-            the_post();
-            ?>
-            <div class="webcontainer <?php the_ID();?>">
-
-                <div id="webimage"><?php
-                    $imagefile=get_field_object('field_5240b9c982f41');
-                    ?>
-                    <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>">
-                </div>
-                <div id="webcontent">
-                    <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
-                        <?php the_title() ?>
-                    </a> </h2>
-                    <div class='content'>
-                        <div id="webtext">
-                            <?php the_content() ?>
-                        </div>
-                    </div>
-                </div><br clear="all" />
-                <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
-            </div>
-            <?php
-        }
-
-        ?><br clear="all" />
-    </div>
-</div>
-    <?php }?>
-
-
-
-</div>
-
-
