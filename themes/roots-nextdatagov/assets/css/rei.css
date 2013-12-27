@@ -1043,6 +1043,7 @@ a.faq-top {
     #communities-right {
         float: none;
         width:100%;
+        margin-left:0px;
 
     }
     img {
@@ -1160,6 +1161,7 @@ a.faq-top {
     #communities-right {
         float: none;
         width:100%;
+        margin-left:0px;
 
     }
     img {
