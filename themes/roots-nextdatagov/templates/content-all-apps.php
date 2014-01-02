@@ -172,7 +172,7 @@ if (!empty($apps)) { ?>
                 <?php
                 $imagefile=get_field_object('field_5240b9c982f41');
                 ?>
-                <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>"> </div>
+                <img <?php if ($imagefile['value']['url'] ==''){ ?> class="scale-with-grid noImage"<?php }else{  ?> class="scale-with-grid" <?php }?> src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>"> </div>
             <div id="webcontent">
                 <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                     <?php the_title() ?>
@@ -240,7 +240,7 @@ if ( $count > 0 ){
                                 <?php
                                 $imagefile=get_field_object('field_5240b9c982f41');
                                 ?>
-                                <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>"> </div>
+                                <img <?php if ($imagefile['value']['url'] ==''){ ?> class="scale-with-grid noImage"<?php }else{  ?> class="scale-with-grid" <?php }?> src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>"> </div>
                             <div id="webcontent">
                                 <h2> <a href="<?php echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                                     <?php the_title() ?>
