@@ -1218,7 +1218,7 @@ table.glossary tr.odd2 {
 }
 #extlink-popup{padding:0 15px;}
 .main .search-form.form-inline.navbar-right{display:none;}
-* ie image display for apps */
+/* ie image display for apps */
 .noImage{
     display:none;
 }
