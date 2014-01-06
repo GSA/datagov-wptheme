@@ -1225,26 +1225,26 @@ table.glossary tr.odd2 {
 /*/
 
 
-/* Consumer feedback  Web form */
-.page-id-41582 .customcontactform
+/* feedback  Web form */
+ .customcontactform
 {
     padding-top:5px;
 
 
 }
-.page-id-41582 .customcontactform input[type='text']
+ .customcontactform input[type='text']
 {
     width:50%;
     margin:3px 10px 10px 0px;
 
 }
-.page-id-41582 .customcontactform input[type='checkbox']
+ .customcontactform input[type='checkbox']
 {
 
     margin:3px 10px 10px 0px;
 
 }
-.page-id-41582 .customcontactform label
+ .customcontactform label
 {
     display:block;
     width:50%;
@@ -1254,7 +1254,7 @@ table.glossary tr.odd2 {
 
 
 }
-.page-id-41582 .customcontactform textarea{
+ .customcontactform textarea{
 
     width:50%;
     resize: none;
@@ -1269,23 +1269,23 @@ table.glossary tr.odd2 {
     margin:10px 10px 10px 0px;
 
 }
-.page-id-41582 .customcontactform select
+.customcontactform select
 {
     margin:3px 10px 10px 0px;
 
 
 }
-.page-id-41582 .customcontactform label.required
+ .customcontactform label.required
 {
     color:#FF0000;
 
 }
-.page-id-41582 .customcontactform h4{
+ .customcontactform h4{
     display:none;
 }
 
 
-.page-id-41582 .customcontactform input.submit {
+.customcontactform input.submit {
 
     background: none repeat scroll 0 0 #294B78;
     border: medium none #033162;
