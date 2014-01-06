@@ -12,7 +12,7 @@
  function add_custom_taxonomies() {
      
  	// Add new "Featured" taxonomy to Posts, Pages
- 	register_taxonomy('featured', array('page','post'), array(
+ 	register_taxonomy('featured', array('page','post','applications'), array(
  		// Hierarchical taxonomy (like categories)
  		'hierarchical' => true,
  		// This array of options controls the labels displayed in the WordPress Admin UI
