@@ -246,25 +246,25 @@ register_taxonomy( 'application_types',array (
   0 => 'applications',
 ),
 array( 'hierarchical' => true,
-	'label' => 'Application Types',
-	'show_ui' => true,
-	'query_var' => true,
-	'show_admin_column' => false,
-	'labels' => array (
-    'search_items' => 'Application Type',
-    'popular_items' => '',
-    'all_items' => 'All Application Type',
-    'parent_item' =>  'Parent Application Type',
-    'parent_item_colon' => 'Parent Application Type:',
-    'edit_item' => 'Edit Application Type',
-    'update_item' =>  'Update Application Type',
-    'add_new_item' =>  'Add New Application Type',
-    'new_item_name' => 'New Application Type',
-    'separate_items_with_commas' => '',
-    'add_or_remove_items' => '',
-    'choose_from_most_used' => '',
-)
-) ); 
+    'label' => 'Application Types',
+    'show_ui' => true,
+    'query_var' => true,
+    'show_admin_column' => false,
+    'labels' => array (
+        'search_items' => 'Application Type',
+        'popular_items' => '',
+        'all_items' => 'All Application Type',
+        'parent_item' =>  'Parent Application Type',
+        'parent_item_colon' => 'Parent Application Type:',
+        'edit_item' => 'Edit Application Type',
+        'update_item' =>  'Update Application Type',
+        'add_new_item' =>  'Add New Application Type',
+        'new_item_name' => 'New Application Type',
+        'separate_items_with_commas' => '',
+        'add_or_remove_items' => '',
+        'choose_from_most_used' => '',
+    )
+) );
 }
 
 #Migrate legacy Tags
