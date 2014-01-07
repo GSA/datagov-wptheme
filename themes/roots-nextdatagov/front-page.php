@@ -42,6 +42,9 @@ $args = array(
 		<a href="/climate"><i></i><span>Climate</span></a>
 	</li>	
 	-->
+	<li class="topic-consumer">
+		<a href="/consumer"><i></i><span>Consumer</span></a>
+	</li>		
 	<li class="topic-education">
 		<a href="/education"><i></i><span>Education</span></a>
 	</li>
@@ -61,16 +64,14 @@ $args = array(
 		<a href="/health"><i></i><span>Health</span></a>
 	</li>
 	<li class="topic-jobs-and-skills">
-		<a href="/jobs-and-skills"><i></i><span>Jobs+Skills</span></a>
+		<a href="/jobs-and-skills"><i></i><span>Jobs &amp; Skills</span></a>
 	</li>
-	<li class="topic-ocean">
-		<a href="/ocean"><i></i><span>Ocean</span></a>
-	</li>	
+	
 	<li class="topic-safety">
 		<a href="/safety"><i></i><span>Public Safety</span></a>
 	</li>
 	<li class="topic-research">
-		<a href="/research"><i></i><span>Science and Research</span></a>
+		<a href="/research"><i></i><span>Science &amp; Research</span></a>
 	</li>
 	<li class="topic-weather">
 		<a href="/weather"><i></i><span>Weather</span></a>
@@ -88,9 +89,6 @@ $args = array(
 	<li class="topic-cities">
 		<a href="/cities"><i></i><span>Cities</span></a>
 	</li>	
-	<li class="topic-consumer">
-		<a href="/consumer"><i></i><span>Consumer</span></a>
-	</li>	
 	<li class="topic-counties">
 		<a href="/counties"><i></i><span>Counties</span></a>
 	</li>
@@ -103,6 +101,9 @@ $args = array(
 	<li class="topic-manufacturing">
 		<a href="/manufacturing"><i></i><span>Manufacturing</span></a>
 	</li>
+	<li class="topic-ocean">
+		<a href="/ocean"><i></i><span>Ocean</span></a>
+	</li>	
 	<li class="topic-states">
 		<a href="/states"><i></i><span>States</span></a>
 	</li>
