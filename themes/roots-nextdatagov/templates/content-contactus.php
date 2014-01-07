@@ -165,7 +165,7 @@
                 </li>
 
                 <li class="col-md-6">
-                   <a href="https://explore.data.gov/nominate">                
+                   <a href="/request">                
                         <i class="fa fa-check-circle-o"></i>
                         <span>
                             Request new data
