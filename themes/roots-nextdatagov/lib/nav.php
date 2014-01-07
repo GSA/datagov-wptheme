@@ -52,6 +52,10 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
 
 class Datagov_Nav_Walker extends Roots_Nav_Walker {
 
+  function start_lvl(&$output, $depth = 0, $args = array()) {
+    $output .= "\n<ul class=\"dropdown-menu topics\">\n";
+  }
+
   function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
     $item_html = '';
     parent::start_el($item_html, $item, $depth, $args);

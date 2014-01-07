@@ -204,13 +204,14 @@ border-bottom : 1px solid #D1E2ED;
 
              a {                 
                  display: inline-block;
-                 margin: 0px 20px 15px 0px;  
+                 margin: 0px 10px 15px 10px;  
                  outline : 0;               
              }
 
              a i {
 
                       background-position: center center !important;
+                      background-size : contain;
                       display: inline-block;
                       height: 130px;
                       width: 130px;                      
@@ -484,9 +485,46 @@ border-bottom : 1px solid #D1E2ED;
    Browse topics dropdown menu
    ========================================================================== */
 
+.yamm .dropdown-menu ul {
+  padding-top : 1em;
+}
+
+
 .yamm .dropdown-menu li {
   display : inline-block;
 }
+
+.yamm ul.topics li {
+
+  a {
+    margin-top : 1em;
+    margin-bottom : 0;
+    padding : 3px 10px;
+  }
+
+  a i {    
+    line-height: 10px;
+    padding-top: 20px;
+    width: 50px;
+    height: 50px;    
+    background-size : contain;
+  }
+
+  a span {
+      width: 95px;
+      text-transform: none;
+      font-size : 14px;
+      white-space: normal;
+  } 
+
+  a:hover i, a:focus i {
+      background-color: inherit !important;
+      border-radius: 0% !important;   
+      border : none !important;
+  }
+
+}
+
 
 
 
