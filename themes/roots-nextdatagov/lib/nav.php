@@ -49,6 +49,56 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
   }
 }
 
+
+class Datagov_Nav_Walker extends Roots_Nav_Walker {
+
+  function start_lvl(&$output, $depth = 0, $args = array()) {
+    $output .= "\n<ul class=\"dropdown-menu topics\">\n";
+  }
+
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+    $item_html = '';
+    parent::start_el($item_html, $item, $depth, $args);
+
+    if ($depth === 1) {
+      $item_html = preg_replace('/(<a[^>]*>)(.*)<\/a>/iU', '$1<i></i><span>$2</span></a>', $item_html);
+      
+      $s = explode('">',$item_html);
+      foreach($s as $k){
+         if (strpos($k,"href")!==FALSE){
+              $url = preg_replace('/.*href="|/ms',"",$k);
+              break;
+         }
+      }
+
+      $slug = parse_url($url, PHP_URL_PATH);
+      $slug = str_replace('/', '', $slug);
+
+      $menu_slug = sanitize_title($item->title);
+      $class = 'menu-' . $menu_slug;
+      $new_class = $class . ' topic-' . $slug;
+      $item_html = preg_replace('/'.$class.'/iU', $new_class, $item_html);      
+    }
+
+    $item_html = apply_filters('roots_wp_nav_menu_item', $item_html);
+    $output .= $item_html;
+  }
+
+  function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output) {
+    $element->is_dropdown = ((!empty($children_elements[$element->ID]) && (($depth + 1) < $max_depth || ($max_depth === 0))));
+
+    if ($element->is_dropdown) {
+      $element->classes[] = 'dropdown';
+      $element->classes[] = 'yamm-fw';      
+    }
+
+    parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+  }
+
+}
+
+
+
 /**
  * Remove the id="" on nav menu items
  * Return 'menu-slug' for nav menu classes

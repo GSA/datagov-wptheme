@@ -23,7 +23,13 @@ $args = array(
                 	                'field' => 'slug',
                 	                'terms' => array( 'highlights'),
                 	                'operator' => 'NOT IN'
-                	                )                	                
+                	                ),
+                                    array( // This filter is in case an intro Page is accidentally added as a Post
+                                    'taxonomy' => 'featured',
+                                    'field' => 'slug',
+                                    'terms' => array( 'browse'),
+                                    'operator' => 'NOT IN'
+                                    )                 	                
                                 ),                                                                             
                 'posts_per_page' => 3 );
 
