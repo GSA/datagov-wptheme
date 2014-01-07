@@ -1388,3 +1388,15 @@ table.glossary tr.odd2 {
     font-size: 60%;
 
 }
+
+/*sitemap*/
+.sitemap_menus{
+float:left;
+margin-left:20px;
+width:30%;
+
+}
+.sitemap_menus li > a{
+padding:5px 15px;
+
+}
