@@ -24,7 +24,7 @@ Template Name: Sitemap
             <?php wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav')); ?>
     <?php endif; ?>
                 </div>
-
+    <div style="clear:both;"></div>
     <p>
         Click <a href="/detailed-sitemap/" title="Detailed Sitemap">here</a> for a Detailed Sitemap
     </p>
