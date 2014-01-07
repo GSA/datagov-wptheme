@@ -4,6 +4,11 @@
     <?php get_template_part('templates/entry-meta'); ?>
   </header>
   <div class="entry-summary">
-    <?php the_excerpt(); ?>
+
+	<?php   
+	  	$more_tag = strpos($post->post_content, '<!--more-->');
+	  	($more_tag) ? the_content('Continued') : the_excerpt(); 
+	?>
+    
   </div>
 </article>
