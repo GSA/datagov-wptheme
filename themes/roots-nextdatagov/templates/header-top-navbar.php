@@ -1,5 +1,5 @@
 <header>
-<div class="banner navbar navbar-default navbar-static-top" role="banner">
+<div class="banner navbar navbar-default navbar-static-top yamm" role="banner">
   <div class="container">
   
         <div class="searchbox-row skip-navigation">   
@@ -26,7 +26,7 @@
         <nav class="collapse navbar-collapse" role="navigation">    
             <?php
             if (has_nav_menu('primary_navigation')) :
-                wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav navbar-right'));
+                wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav navbar-right', 'walker' => new Datagov_Nav_Walker));
             endif;
             ?>  
         </nav> 
