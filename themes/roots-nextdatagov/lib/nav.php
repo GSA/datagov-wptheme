@@ -63,8 +63,19 @@ class Datagov_Nav_Walker extends Roots_Nav_Walker {
     if ($depth === 1) {
       $item_html = preg_replace('/(<a[^>]*>)(.*)<\/a>/iU', '$1<i></i><span>$2</span></a>', $item_html);
       
-      $slug = sanitize_title($item->title);
-      $class = 'menu-' . $slug;
+      $s = explode('">',$item_html);
+      foreach($s as $k){
+         if (strpos($k,"href")!==FALSE){
+              $url = preg_replace('/.*href="|/ms',"",$k);
+              break;
+         }
+      }
+
+      $slug = parse_url($url, PHP_URL_PATH);
+      $slug = str_replace('/', '', $slug);
+
+      $menu_slug = sanitize_title($item->title);
+      $class = 'menu-' . $menu_slug;
       $new_class = $class . ' topic-' . $slug;
       $item_html = preg_replace('/'.$class.'/iU', $new_class, $item_html);      
     }
