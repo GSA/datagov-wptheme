@@ -214,29 +214,29 @@ array( 'hierarchical' => true,
 #Announcements and News
 add_action('init', 'cptui_register_my_taxes_announcements_and_news');
 function cptui_register_my_taxes_announcements_and_news() {
-register_taxonomy( 'announcements_and_news',array (
-  0 => 'post',
-),
-array( 'hierarchical' => true,
-	'label' => 'Announcements and News',
-	'show_ui' => true,
-	'query_var' => true,
-	'show_admin_column' => false,
-	'labels' => array (
-  'search_items' => 'Announcements and News',
-  'popular_items' => '',
-  'all_items' => '',
-  'parent_item' => '',
-  'parent_item_colon' => '',
-  'edit_item' => '',
-  'update_item' => '',
-  'add_new_item' => '',
-  'new_item_name' => '',
-  'separate_items_with_commas' => '',
-  'add_or_remove_items' => '',
-  'choose_from_most_used' => '',
-)
-) ); 
+    register_taxonomy( 'announcements_and_news',array (
+            0 => 'post',
+        ),
+        array( 'hierarchical' => true,
+            'label' => 'Announcements and News',
+            'show_ui' => true,
+            'query_var' => true,
+            'show_admin_column' => false,
+            'labels' => array (
+                'search_items' => 'Announcements and News',
+                'popular_items' => '',
+                'all_items' => 'All Announcements and News',
+                'parent_item' =>  'Parent Announcements and News',
+                'parent_item_colon' => 'Parent Announcements and News:',
+                'edit_item' => 'Edit Announcements and News',
+                'update_item' =>  'Update Announcements and News',
+                'add_new_item' =>  'Add New Announcements and News',
+                'new_item_name' => 'New Announcements and News',
+                'separate_items_with_commas' => '',
+                'add_or_remove_items' => '',
+                'choose_from_most_used' => '',
+            )
+        ) );
 }
 
 #Application Types
@@ -270,29 +270,29 @@ array( 'hierarchical' => true,
 #Migrate legacy Tags
 add_action('init', 'cptui_register_my_taxes_legacy_datacomm_tags');
 function cptui_register_my_taxes_legacy_datacomm_tags() {
-register_taxonomy( 'legacy_datacomm_tags',array (
-  0 => 'post',
-),
-array( 'hierarchical' => true,
-	'label' => 'Migrate legacy Tags',
-	'show_ui' => true,
-	'query_var' => true,
-	'show_admin_column' => false,
-	'labels' => array (
-  'search_items' => 'Migrate legacy Tag',
-  'popular_items' => '',
-  'all_items' => '',
-  'parent_item' => '',
-  'parent_item_colon' => '',
-  'edit_item' => '',
-  'update_item' => '',
-  'add_new_item' => '',
-  'new_item_name' => '',
-  'separate_items_with_commas' => '',
-  'add_or_remove_items' => '',
-  'choose_from_most_used' => '',
-)
-) ); 
+    register_taxonomy( 'legacy_datacomm_tags',array (
+            0 => 'post',
+        ),
+        array( 'hierarchical' => true,
+            'label' => 'Migrate legacy Tags',
+            'show_ui' => true,
+            'query_var' => true,
+            'show_admin_column' => false,
+            'labels' => array (
+                'search_items' => 'Migrate legacy Tag',
+                'popular_items' => '',
+                'all_items' => 'All Migrate legacy Tag',
+                'parent_item' =>  'Parent Migrate legacy Tag',
+                'parent_item_colon' => 'Parent Migrate legacy Tag:',
+                'edit_item' => 'Edit Migrate legacy Tag',
+                'update_item' =>  'Update Migrate legacy Tag',
+                'add_new_item' =>  'Add New Migrate legacy Tag',
+                'new_item_name' => 'New Migrate legacy Tag',
+                'separate_items_with_commas' => '',
+                'add_or_remove_items' => '',
+                'choose_from_most_used' => '',
+            )
+        ) );
 }
 
 function add_export_link(){
