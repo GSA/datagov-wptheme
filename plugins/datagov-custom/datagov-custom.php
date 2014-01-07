@@ -242,29 +242,40 @@ function cptui_register_my_taxes_announcements_and_news() {
 #Application Types
 add_action('init', 'cptui_register_my_taxes_application_types');
 function cptui_register_my_taxes_application_types() {
-register_taxonomy( 'application_types',array (
-  0 => 'applications',
-),
-array( 'hierarchical' => true,
-    'label' => 'Application Types',
-    'show_ui' => true,
-    'query_var' => true,
-    'show_admin_column' => false,
-    'labels' => array (
-        'search_items' => 'Application Type',
-        'popular_items' => '',
-        'all_items' => 'All Application Type',
-        'parent_item' =>  'Parent Application Type',
-        'parent_item_colon' => 'Parent Application Type:',
-        'edit_item' => 'Edit Application Type',
-        'update_item' =>  'Update Application Type',
-        'add_new_item' =>  'Add New Application Type',
-        'new_item_name' => 'New Application Type',
-        'separate_items_with_commas' => '',
-        'add_or_remove_items' => '',
-        'choose_from_most_used' => '',
-    )
-) );
+    if ( current_user_can('manage_options')){
+        $labelarray = array (
+            'search_items' => 'Application Type',
+            'popular_items' => '',
+            'all_items' => 'All Application Type',
+            'parent_item' =>  'Parent Application Type',
+            'parent_item_colon' => 'Parent Application Type:',
+            'edit_item' => 'Edit Application Type',
+            'update_item' =>  'Update Application Type',
+            'add_new_item' =>  'Add New Application Type',
+            'new_item_name' => 'New Application Type',
+            'separate_items_with_commas' => '',
+            'add_or_remove_items' => '',
+            'choose_from_most_used' => '',
+        );
+    } else {
+        $labelarray = array (
+            'search_items' => 'Application Type',
+            'popular_items' => '',
+            'all_items' => 'All Application Type',
+            'parent_item' =>  'Parent Application Type',
+            'parent_item_colon' => 'Parent Application Type:'
+        );
+    }
+    register_taxonomy( 'application_types',array (
+            0 => 'applications',
+        ),
+        array( 'hierarchical' => true,
+            'label' => 'Application Types',
+            'show_ui' => true,
+            'query_var' => true,
+            'show_admin_column' => false,
+            'labels' => $labelarray
+        ) );
 }
 
 #Migrate legacy Tags
