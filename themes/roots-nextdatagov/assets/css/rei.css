@@ -5,7 +5,7 @@
    Styles Below are for Apps and challenges pages
    ========================================================================== */
 .Apps-wrapper {
-    margin-bottom: 20px;
+    margin : 20px 0;
     position:relative;
 }
 .Apps-post {
