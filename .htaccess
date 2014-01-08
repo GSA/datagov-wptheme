@@ -16,6 +16,13 @@ AddOutputFilter DEFLATE js css htm html xml
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
+
+# WordPress SEO - XML Sitemap Rewrite Fix
+RewriteRule ^sitemap\.xml$ /index.php?sitemap=1 [L]
+RewriteRule ^sitemap_index\.xml$ /index.php?sitemap=1 [L]
+RewriteRule ^([^/]+?)-sitemap([0-9]+)?\.xml$ /index.php?sitemap=$1&sitemap_n=$2 [L]
+# END WordPress SEO - XML Sitemap Rewrite Fix
+
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
