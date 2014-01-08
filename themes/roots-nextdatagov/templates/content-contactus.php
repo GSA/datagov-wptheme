@@ -85,7 +85,7 @@
                         <i class="fa fa-twitter"></i>
                         <span>Twitter</span>
                     </h1>               
-                    <p class="section-intro">Follow us at <a href="https://twitter.com/usdatagov">@usdatagov</a></p>
+                    <p class="section-intro">Ask us at <a href="https://twitter.com/usdatagov">@usdatagov</a></p>
                     <div class="twitter-feed">
                         <?php echo do_shortcode( '[twitter-widget username="usdatagov" items="2" hidereplies="false" title=" " showintents="false" showretweets="true"]' ) ?>
                     </div>
