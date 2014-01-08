@@ -103,7 +103,7 @@ if($result->found_posts> 0) {  ?>
                             </div>
                             <?php
                             if(!empty($terms)) { ?>
-                                <div><p style="margin-top:5px;"><img width="20px" height="30px" src="/wp-content/themes/roots-nextdatagov/assets/img/featured.png">Featured!</p></div>
+                                <div><p style="margin-top:5px;"><img width="30px" height="30px" src="/wp-content/themes/roots-nextdatagov/assets/img/featured.png">Featured!</p></div>
                                 <?php
                             }
                             ?>
