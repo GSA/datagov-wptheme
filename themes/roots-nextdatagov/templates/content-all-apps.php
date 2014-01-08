@@ -92,7 +92,6 @@ if($result->found_posts> 0) {  ?>
                         <img class="scale-with-grid" src="<?php echo $imagefile['value']['url']; ?>" alt="<?php echo $imagefile['value']['alt']; ?>"> </div>
                     <div id="webcontent">
                         <h2> <a href="<?php
-                            $terms=wp_get_post_terms($post->ID, 'featured');
                             echo get_post_meta($post->ID, 'field_application_url', TRUE ); ?>">
                             <?php the_title()?>
                         </a> </h2>
@@ -101,13 +100,14 @@ if($result->found_posts> 0) {  ?>
                             <div id="webtext">
                                 <?php the_content() ?>
                             </div>
-                            <?php
-                            if(!empty($terms)) { ?>
-                                <div><p style="margin-top:5px;"><img width="30px" height="30px" src="/wp-content/themes/roots-nextdatagov/assets/img/featured.png">Featured!</p></div>
-                                <?php
-                            }
-                            ?>
                         </div>
+                        <?php
+                        $terms=wp_get_post_terms($post->ID, 'featured');
+                        if(!empty($terms)) { ?>
+                            <div><p style="margin-top:5px;"><img width="30px" height="30px" src="/wp-content/themes/roots-nextdatagov/assets/img/featured.png"> Featured!</p></div>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <br clear="all" />
                     <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
