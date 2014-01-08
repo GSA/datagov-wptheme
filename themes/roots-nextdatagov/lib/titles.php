@@ -9,15 +9,17 @@ function roots_title() {
     } else {
       return __('Latest Posts', 'roots');
     }
-  } elseif (is_archive() OR is_single()) {
-    if(is_single()) {        
+  } elseif (is_archive() OR is_single() OR is_page() ) {
+    if(is_single() OR is_page()) {        
         global $post;                
         if ($post) {
             $term = get_the_category($post->ID);
+
+            // if this is a page without a category
+            if(!$term) return get_the_title();
         }
     } else {
         $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));   
-        $link = '/' . get_query_var('term');
     }
     
     if(is_array($term)) {
@@ -25,7 +27,8 @@ function roots_title() {
     }
    
     if ($term) {
-      $term = (isset($link)) ? '<a href="' . $link . '">' . $term->name . '</a>' : $term->name;
+      $link = '/' . get_query_var('term');
+      $term = '<a href="' . $link . '">' . $term->name . '</a>';
       return apply_filters('single_term_title', $term);
     } elseif (is_post_type_archive()) {
       return apply_filters('the_title', get_queried_object()->labels->name);
