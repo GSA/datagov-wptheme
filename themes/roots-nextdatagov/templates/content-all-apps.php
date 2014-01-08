@@ -83,7 +83,7 @@ $result = new WP_Query($args);
 if($result->found_posts> 0) { ?>
 <div class="Apps-wrapper">
     <div class="Mobile-post" id="post-<?php $term->slug; ?>">
-        <div class="Appstitle" >Featured Applications</div>
+        <div class="Appstitle" >Featured</div>
         <?php
         while( $result->have_posts() ) {
             $result->the_post();
