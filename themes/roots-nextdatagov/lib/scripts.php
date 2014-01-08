@@ -41,6 +41,8 @@ function roots_scripts() {
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_scripts');
   wp_enqueue_script('ext_link_handler', get_template_directory_uri() . '/assets/js/ext-link-handler.js', false, '');
+  wp_enqueue_script('Federated-Analytics', get_template_directory_uri() . '/assets/js/Federated-Analytics.js', false, '');
+  wp_enqueue_script('webtrends', get_template_directory_uri() . '/assets/js/webtrends.js', false, '');
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 
