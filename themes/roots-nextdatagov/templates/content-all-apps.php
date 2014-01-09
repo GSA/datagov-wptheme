@@ -73,7 +73,7 @@ $args = array(
     'post_type' => 'Applications',
     'post_status' => 'publish',
     'posts_per_page' => 5,
-    'paged' => $paged,
+    'paged' => $paged
 );
 $result = new WP_Query($args);
 if($result->found_posts> 0) {  ?>
@@ -101,17 +101,17 @@ if($result->found_posts> 0) {  ?>
                                 <?php the_content() ?>
                             </div>
                         </div>
-                        <?php
-                        $terms=wp_get_post_terms($post->ID, 'featured');
-                        if(!empty($terms)) { ?>
-                            <div><p style="margin-top:5px;"><img width="30px" height="30px" src="/wp-content/themes/roots-nextdatagov/assets/img/featured.png"> Featured!</p></div>
-                            <?php
-                        }
-                        ?>
                     </div>
                     <br clear="all" />
                     <?php //echo "Application URL:".get_post_meta($post->ID, 'field_application_url', TRUE ); ?>
                 </div>
+                <?php
+                $terms=wp_get_post_terms($post->ID, 'featured');
+                if(!empty($terms)) { ?>
+                    <div><p style="margin-top:1px;"><img width="30px" height="30px" src="/wp-content/themes/roots-nextdatagov/assets/img/featured.png">Featured!</p></div>
+                    <?php
+                }
+                ?>
                 <?php
             } ?>
         </div>
