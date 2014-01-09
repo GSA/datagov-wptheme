@@ -709,6 +709,37 @@ div.frontpage-search {
 
 
 /* ==========================================================================
+   Topic Headers
+   ========================================================================== */
+
+.page-header .category-header a {
+
+  i {
+    background-color : #fff !important;
+    height : 50px;
+    width : 50px;
+    margin-top : 15px;
+  }
+
+  div {
+    background-color : #fff !important;
+    border-radius : 50%;
+    display : inline-block;
+    height : 80px;
+    width : 80px;
+    text-align : center;
+    vertical-align: middle;
+  }
+
+  span {
+    top : .25em; 
+    position : relative;
+  }
+}
+
+
+
+/* ==========================================================================
    Content
    ========================================================================== */
 
@@ -752,7 +783,7 @@ header .header.banner.page-heading {
 
 .page-header {
     padding-bottom: 0;
-    margin: (@line-height-computed * 2) 0 @line-height-computed;
+    margin: @line-height-computed 0 ;
     border-bottom: none;
 }
 
@@ -760,7 +791,6 @@ header .header.banner.page-heading {
       font-size: (@font-size-base * 1.1);
       text-transform: uppercase;
       border-bottom : 1px solid #E2E2E2;
-      padding-bottom : .2em;
      }
      
 .header.banner .page-header h1 {

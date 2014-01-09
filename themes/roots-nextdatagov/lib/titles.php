@@ -37,7 +37,7 @@ function roots_title() {
    
     if ($term) {
       $link = '/' . $term->slug;
-      $term = '<a href="' . $link . '">' . $term->name . '</a>';
+      $term = '<div class="category-header topic-' . $term->slug . '"><a href="' . $link . '"><div><i></i></div><span>' . $term->name . '</span></a></div>';
       return apply_filters('single_term_title', $term);
     } elseif (is_post_type_archive()) {
       return apply_filters('the_title', get_queried_object()->labels->name);
