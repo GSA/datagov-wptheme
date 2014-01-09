@@ -31,9 +31,13 @@ $cat_slug = $category[0]->slug;
 <?php while (have_posts()) : the_post(); ?>
   
   <?php if(has_category()): ?>
-    <h1 class="page-title">
-      <?php the_title(); ?> 
-    </h1>
+
+    <?php if($cat_slug !== 'uncategorized'): ?>
+      <h1 class="page-title">
+        <?php the_title(); ?> 
+      </h1>
+    <?php endif; ?>
+    
   <?php endif; ?>
 
   <?php the_content(); ?>
