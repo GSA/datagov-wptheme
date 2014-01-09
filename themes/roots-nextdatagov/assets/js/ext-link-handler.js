@@ -43,5 +43,5 @@ jQuery( document ).ready(function() {
         return false;
     });
 });
-
+jQuery(".colorbox-inline").colorbox({inline:true, width:"50%"});
 
