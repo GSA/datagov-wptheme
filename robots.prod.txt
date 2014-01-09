@@ -1,0 +1,48 @@
+# This is a demonstration staging server and should not be indexed by search engines.
+# The canonical site to crawl is http://data.gov
+
+User-agent: *
+Allow: /
+
+# Disallow these directories, url types & file-types
+Disallow: /cgi-bin
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/
+Disallow: /search/*/feed
+Disallow: /search/*/*
+Disallow: /readme.html
+Disallow: /license.txt
+Disallow: /*?*
+Disallow: /*?
+Disallow: /*.php$
+Disallow: /*.js$
+Disallow: /*.inc$
+Disallow: /*.css$
+Disallow: /*.gz$
+Disallow: /*.wmv$
+Disallow: /*.cgi$
+Disallow: /*.xhtml$
+Allow: /wp-content/uploads/
+Allow: /wp-content/media/
+Allow: /*?page=*
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Adsbot-Google
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: ia_archiver*
+Disallow: /
+
+User-agent: duggmirror
+Disallow: /
+
+Sitemap: http://data.gov/sitemap.xml

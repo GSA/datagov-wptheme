@@ -17,6 +17,15 @@ function roots_title() {
 
             // if this is a page without a category
             if(!$term) return get_the_title();
+
+            // if this is a page with a category called "uncategorized"
+            if(is_array($term)) {
+              foreach ($term as $uncategory_check) {
+                if ($uncategory_check->slug == 'uncategorized') {
+                  return get_the_title();
+                }
+              }
+            }
         }
     } else {
         $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));   
