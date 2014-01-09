@@ -116,7 +116,7 @@
                 
                 <div>
                     <div>
-                        You can use this form to contact the data gov team or feel free to email us directly at 
+                        You can use this form to contact the data.gov team or feel free to email us directly at 
                         <a href='mail&#116;o&#58;d%61tag&#111;&#118;&#64;&#103;sa&#46;gov'>&#100;at&#97;g&#111;&#118;&#64;&#103;s&#97;&#46;gov</a>
                     </div>
 
