@@ -173,7 +173,7 @@ $cat_slug = $category[0]->slug;
                                 if ($image>0){ ?>
                                     <img class="scale-with-grid" src="<?php echo  $imagefile['value']['url']; ?>" style="float:right; margin-left:10px; height:80px;" alt="<?php echo $imagefile['value']['alt']; ?>">
                                     <?php }else{?>
-                                    <img class="scale-with-grid noImage" src="test">
+                                    <img class="scale-with-grid noImage" src="">
                                     <?php }  ?>
                                 <?php the_content() ?>
                             </div>
