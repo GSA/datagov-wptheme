@@ -92,9 +92,6 @@ $args = array(
 	<li class="topic-counties">
 		<a href="/counties"><i></i><span>Counties</span></a>
 	</li>
-	<li class="topic-developers">
-		<a href="/developers"><i></i><span>Developers</span></a>
-	</li>
 	<li class="topic-ethics">
 		<a href="https://explore.data.gov/ethics"><i></i><span>Ethics</span></a>
 	</li>
