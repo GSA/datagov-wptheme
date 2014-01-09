@@ -27,7 +27,7 @@ function roots_title() {
     }
    
     if ($term) {
-      $link = '/' . get_query_var('term');
+      $link = '/' . $term->slug;
       $term = '<a href="' . $link . '">' . $term->name . '</a>';
       return apply_filters('single_term_title', $term);
     } elseif (is_post_type_archive()) {
