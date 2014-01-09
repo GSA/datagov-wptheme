@@ -12,23 +12,25 @@ AddOutputFilter DEFLATE js css htm html xml
 </IfModule>
 </IfModule>
 # END W3TC Browser Cache
+
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
-
-# WordPress SEO - XML Sitemap Rewrite Fix
-RewriteRule ^sitemap\.xml$ /index.php?sitemap=1 [L]
-RewriteRule ^sitemap_index\.xml$ /index.php?sitemap=1 [L]
-RewriteRule ^([^/]+?)-sitemap([0-9]+)?\.xml$ /index.php?sitemap=$1&sitemap_n=$2 [L]
-# END WordPress SEO - XML Sitemap Rewrite Fix
-
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-
 # END WordPress
+
+# WordPress SEO - XML Sitemap Rewrite Fix
+<IfModule mod_rewrite.c>
+RewriteRule ^sitemap\.xml$ /index.php?sitemap=1 [L]
+RewriteRule ^sitemap_index\.xml$ /index.php?sitemap=1 [L]
+RewriteRule ^([^/]+?)-sitemap([0-9]+)?\.xml$ /index.php?sitemap=$1&sitemap_n=$2 [L]
+</IfModule>
+# END WordPress SEO - XML Sitemap Rewrite Fix
+
 AddType image/svg+xml svg svgz
 AddEncoding gzip svgz
