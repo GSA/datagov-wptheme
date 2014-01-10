@@ -110,8 +110,9 @@ $cat_slug = $category[0]->slug;
         $featured[$i]['title']= get_the_title($post->ID);
         $featured[$i]['conent']= get_the_content($post->ID);
         $featured[$i]['field_application_url'] = get_post_meta($post->ID, 'field_application_url', TRUE );
-        $featured[$i]['image_url']=get_field_object('field_5240b9c982f41')['value']['url'];
-        $featured[$i]['image_alt']=get_field_object('field_5240b9c982f41')['value']['alt'];
+        $imagefile=get_field_object('field_5240b9c982f41');
+        $featured[$i]['image_url']=$imagefile['value']['url'];
+        $featured[$i]['image_alt']=$imagefile['value']['alt'];
         $featured[$i]['featured']=true;
         $i++;
     }
@@ -124,8 +125,9 @@ $cat_slug = $category[0]->slug;
         $not_featured[$i]['title']= get_the_title($post->ID);
         $not_featured[$i]['conent']= get_the_content($post->ID);
         $not_featured[$i]['field_application_url'] = get_post_meta($post->ID, 'field_application_url', TRUE );
-        $not_featured[$i]['image_url']=get_field_object('field_5240b9c982f41')['value']['url'];
-        $not_featured[$i]['image_alt']=get_field_object('field_5240b9c982f41')['value']['alt'];
+        $imagefile=get_field_object('field_5240b9c982f41');
+        $not_featured[$i]['image_url']=$imagefile['value']['url'];
+        $not_featured[$i]['image_alt']=$imagefile['value']['alt'];
         $not_featured[$i]['featured']=false;
         $i++;
     }
