@@ -1405,3 +1405,61 @@ padding:5px 15px;
     margin-top: -35px;
     margin-bottom: 30px;
 }
+
+/* Ocean Data publishing/quality documentation */
+.submenu-container {
+    border-bottom: 1px solid #666666;
+    margin-bottom: 20px;
+}
+ul#content-nav li.submenu-alpha {
+    margin-left: 15px;
+}
+ul#content-nav li {
+    border: 1px solid #666666;
+    display: block;
+    float: left;
+    list-style: none outside none;
+    margin-left: 7px;
+    border-bottom:none;
+}
+ul#content-nav li.activeSlide a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    color: #003366;
+    font: bold 12px Arial,Helvetica,sans-serif;
+    text-decoration:none;
+}
+ul#content-nav li a {
+    background: none repeat scroll 0 0 #DDDDDD;
+
+    margin-bottom: -2px;
+    padding: 2px 5px;
+
+    text-decoration: none;
+    font: bold 12px Arial,Helvetica,sans-serif;
+}
+.content-slider div.content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    width: 690px;
+}
+.node-bottom {
+    margin: 1.5em 0 0;
+}
+.nested {
+    float: left;
+    margin: 0;
+    width: 100%;
+}
+.datagov-2col-sidebar {
+    display: block;
+    padding: 15px 0 15px 9px;
+}
+.panels-flexible-region-datagov_2_column_panel_grid_9_grid_3_-center {
+    float: left;
+    width: 24.7322%;
+}
+.datagov-2col-sidebar .panel-pane {
+    display: block;
+    margin: 0;
+    padding: 0 0 15px;
+}
