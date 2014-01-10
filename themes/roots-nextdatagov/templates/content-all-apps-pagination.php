@@ -73,6 +73,7 @@ $cat_slug = $category[0]->slug;
         'post_type' => 'Applications',
         'posts_per_page' => -1,
         'post_status'=>'publish',
+        'orderby'=> 'modified',
         'tax_query'=>	array(
             'relation' => 'AND',
             array(
@@ -87,6 +88,7 @@ $cat_slug = $category[0]->slug;
         'post_type' => 'Applications',
         'posts_per_page' => -1,
         'post_status'=>'publish',
+        'orderby'=> 'modified',
         'tax_query'=>	array(
             'relation' => 'AND',
             array(
