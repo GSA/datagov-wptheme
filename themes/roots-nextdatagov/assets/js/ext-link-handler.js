@@ -43,5 +43,7 @@ jQuery( document ).ready(function() {
         return false;
     });
 });
+jQuery(document).ready(function () {
 jQuery(".colorbox-inline").colorbox({inline:true, width:"50%"});
+});
 
