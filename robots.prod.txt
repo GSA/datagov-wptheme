@@ -1,5 +1,5 @@
-# This is a demonstration staging server and should not be indexed by search engines.
-# The canonical site to crawl is http://data.gov
+# Hello robots! 
+# For information on crawling the data.gov data catalog, see http://data.gov/developers/harvesting
 
 User-agent: *
 Allow: /
@@ -38,11 +38,5 @@ Allow: /
 
 User-agent: Googlebot-Mobile
 Allow: /
-
-User-agent: ia_archiver*
-Disallow: /
-
-User-agent: duggmirror
-Disallow: /
 
 Sitemap: http://data.gov/sitemap.xml
