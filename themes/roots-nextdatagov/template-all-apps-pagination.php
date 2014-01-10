@@ -5,4 +5,4 @@ Template Name:All Applications Pagination
 ?>
 
 <?php get_template_part('templates/page', 'header'); ?>
-<?php get_template_part('templates/content', 'all-apps'); ?>
+<?php get_template_part('templates/content', 'all-apps-pagination'); ?>
