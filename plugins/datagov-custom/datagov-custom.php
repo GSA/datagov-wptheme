@@ -344,7 +344,7 @@ add_action('send_headers', 'add_edge_control_header');
 
 function add_login_logout_link($items, $args) {
     $loginoutlink = wp_loginout('index.php', false);
-    $items .= '<li>'. $loginoutlink .'</li>';
+    $items .= '<li id="login">'. $loginoutlink .'</li>';
     return $items;
 }
 
