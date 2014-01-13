@@ -49,7 +49,7 @@ This template requires the following plugins:
 * Link Manager - http://wordpress.org/plugins/link-manager/
 * Restrict Categories - http://wordpress.org/plugins/restrict-categories/
 * W3 Total Cache - http://wordpress.org/plugins/w3-total-cache/
-* Wordpress Importer - http://wordpress.org/plugins/wordpress-importer/
+* WordPress Importer - http://wordpress.org/plugins/wordpress-importer/
 * WP No Category Base - http://wordpress.org/plugins/no-category-base-wpml/
 * Custom Post Type UI - http://wordpress.org/plugins/custom-post-type-ui/
 * Custom Content Type Manager - http://wordpress.org/plugins/custom-content-type-manager/
