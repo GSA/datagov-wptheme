@@ -195,35 +195,44 @@ $cat_slug = $category[0]->slug;
         <p class="counter">
             <?php printf( __( 'Page %1$s of %2$s' ), $currentpage, $total_pages ); ?>
         </p>
-        <ul class='pagination'>
-            <?php
-            $output = "";
-            if($total_apps > $apps_per_page) {
-                $range = 10;
-                if ($currentpage > 1) {
-                    //$output .= "<br clear='both'/><li class='pager-first first'><a class='prev page-numbers pagenav local-link' href='?currentpage=1'> FIRST </a></li> ";
-                    $prevpage = $currentpage - 1;
-                    $output .= "<li class='pagination-prev'><a class='prev page-numbers pagenav local-link' href='?currentpage=$prevpage'>Previous</a> </li>";
-                }
-                for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
-                    if (($x > 0) && ($x <= $total_pages)) {
-                        if ($x == $currentpage) {
-                            if ($total_pages > 1) {
-                                $output .= "<li><span class='page-numbers pagenav current'> $x </span></li>";
-                            }
-                        }
-                        else {
-                            $output .= "<li><a class='page-numbers pagenav' href='?currentpage=$x'> $x </a></li>";
-                        }
-                    }
-                }
-                if ($currentpage != $total_pages) {
-                    $nextpage = $currentpage + 1;
-                    $output .= " <li class='pagination-next'> <a href='?currentpage=$nextpage'> Next</a></li> ";
-                    //$output .= " <li class='pagination-next'><a href='?currentpage=$total_pages'>  LAST </a> </li>";
-                }
-            }
-            print $output;
-            ?>
-        </ul>
+        <?php
+        customPagination('developer-apps-showcase',$currentpage, $total_pages, true);
+        ?>
     </div>
+
+<?php
+
+function customPagination($base_url, $cur_page, $number_of_pages, $prev_next=false) {
+    $ends_count = 1;  //how many items at the ends (before and after [...])
+    $middle_count = 2;  //how many items before and after current page
+    $dots = false;
+    $output="<ul class='pagination'>";
+    ?>
+
+    <?php
+    if ($prev_next && $cur_page && 1 < $cur_page) {  //print previous button?
+        $output .= "<li class='pagination-prev'><a class='prev page-numbers pagenav local-link' href='?currentpage=$cur_page-1'>Previous</a> </li>";
+    }
+    for ($i = 1; $i <= $number_of_pages; $i++) {
+        if ($i == $cur_page) {
+            $output .= "<li><span class='page-numbers pagenav current'> $i </span></li>";
+            $dots = true;
+        } else {
+            if ($i <= $ends_count || ($cur_page && $i >= $cur_page - $middle_count && $i <= $cur_page + $middle_count) || $i > $number_of_pages - $ends_count) {
+                $output .= "<li><a class='page-numbers pagenav' href='?currentpage=$i'> $i </a></li>";
+                $dots = true;
+            } elseif ($dots) {
+                $output .='<li><span class="page-numbers dots">' . __( '&hellip;' ) . '</span></li>';
+                $dots = false;
+            }
+        }
+    }
+    if ($prev_next && $cur_page && ($cur_page < $number_of_pages || -1 == $number_of_pages)) { //print next button?
+        $output .= " <li class='pagination-next'> <a href='?currentpage=$cur_page+1'> Next</a></li> ";
+    }
+    ?>
+<?php
+    $output.="</ul>";
+    print $output;
+}
+?>
