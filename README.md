@@ -26,15 +26,19 @@ This is a standard WordPress install, so please refer to the [Wordpress Docs](ht
 
 ## CKAN
 
-The code used for the catalog.data.gov instance of CKAN is available on [Github](https://github.com/okfn/ckan/tree/release-datagov) but we recommend the [latest version of CKAN](http://ckan.org/developers/docs-and-download/). 
+The code used for the catalog.data.gov instance of CKAN is available on [Github](https://github.com/okfn/ckan/tree/release-datagov), but we recommend the [latest version of CKAN](http://ckan.org/developers/docs-and-download/). 
 
 ### Extensions
 
-Data.gov has developed several CKAN extensions, but these are still in the process of being packaged for more widespread use. Most of these extentions are referenced in an [Ansible](http://www.ansibleworks.com/) [build script](https://github.com/okfn/ckanext-geodatagov/blob/dev/deployment/datagov-buildserver.yml), but additionally, there is an extension to support [data.json harvesting](https://github.com/FuhuXia/ckanext-datajson/tree/master). Please check back here or [contact us](https://www.data.gov/contact) for more details on the extensions used.
+Data.gov has developed several CKAN extensions, but these are still in the process of being packaged for more widespread use. Most of these extentions are referenced in an [Ansible](http://www.ansibleworks.com/) [build script](https://github.com/okfn/ckanext-geodatagov/blob/dev/deployment/datagov-buildserver.yml), but there is also an extension to support [data.json harvesting](https://github.com/FuhuXia/ckanext-datajson/tree/master). Please check back here or [contact us](https://www.data.gov/contact) for more details on the extensions used.
 
 ### Deployment
 
-Please check back here or [contact us](https://www.data.gov/contact) for more information about our CKAN stack. We are in the process of improving documentation and hope to provide build scripts and configurations for tools like [Vagrant](http://www.vagrantup.com/) to make setting up the Data.gov CKAN easier for others.
+We are in the process of improving documentation and hope to provide build scripts and configurations for tools like [Vagrant](http://www.vagrantup.com/) to make setting up the Data.gov CKAN easier for others. Please check back here or [contact us](https://www.data.gov/contact) for more information about our CKAN stack. 
+
+## Design Assets
+
+The source graphic files for the design assets (logo, icons, layout) are available in the [Data.gov Design Assets](https://github.com/GSA/datagov-design) repository. 
 
 
 ##Contributing
