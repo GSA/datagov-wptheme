@@ -22,7 +22,7 @@ Custom plugins are provided in the `/plugins` folder. See the [plugins](plugins.
 The `/exportables/` folder contains advanced custom fields definitions in xml format that can be imported manually via acf plugin.
 
 ### Deployment
-This is a standard WordPress install, so please refer to the [Wordpress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
+This is a standard WordPress install, so please refer to the [WordPress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
 
 ## CKAN
 
