@@ -219,7 +219,7 @@ Class Automattic_Readme {
 
 	function sanitize_text( $text ) { // not fancy
 		$text = strip_tags($text);
-		$text = wp_specialchars($text);
+		$text = esc_html($text);
 		$text = trim($text);
 		return $text;
 	}

@@ -1,0 +1,1358 @@
+/*!
+ * Roots 6.5.1
+ */
+@import "bootstrap/bootstrap.less";
+@import "yamm.less";
+@import "font-awesome/font-awesome.less"; 
+
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+body {
+background: #efefef;
+font-family: 'Lato', Arial, sans-serif;
+}
+
+main.main {
+  padding : 2em 0;
+  background-color : #fff;
+}
+
+body.home main.main, 
+body.archive.category main.main {
+  padding-top : 0;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.container.no-padding, 
+.search-form.no-padding {
+  padding-left : 0;
+  padding-right : 0;
+}
+
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+
+.navbar-brand, 
+.logo-brand {    
+    background: url("../img/logo.png") no-repeat scroll center center transparent;
+    background-size : contain;
+    width: 200px; 
+    margin : 0 0 0 15px;   
+
+    overflow: hidden;
+    text-indent: -9999em; 
+ 
+}
+
+
+.svg .navbar-brand, 
+.svg .logo-brand {    
+    background: url("../img/logo.svg") no-repeat scroll;   
+    background-size : contain;
+}
+
+body.home .navbar.nav ul#menu-primary-navigation {
+    margin-top : 5px;
+}
+
+.navbar {
+margin-bottom : 0;
+}
+
+.navbar-default {
+    background-color : #fff;
+}
+
+.banner { }
+
+     
+
+.category .intro .container, 
+#contact-wrapper .intro p {
+padding-top : 1.5em;
+padding-bottom : 1.5em;
+line-height : 2em;
+font-size : 1.25em;
+}
+
+
+
+.header.banner.page-heading {
+  border-bottom : 0;
+}
+
+.frontpage-search, 
+.subnav.banner, 
+body.home .header.banner.page-heading {
+     border-bottom: 1px solid #E7E7E7;
+}
+
+footer.content-info {
+     border-top: 1px solid #E7E7E7;
+}
+
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+body .searchbox-row.skip-navigation {
+   height : 3em;
+}
+
+body.home .searchbox-row.skip-navigation {
+    
+    height : 0;
+    
+    @media (min-width: @screen-sm) {
+        height : 3em;        
+    }  
+    
+}
+
+.navbar-static-top {
+  border-width : 0;
+}
+
+
+ul#menu-primary-navigation li, 
+.navbar-header .navbar-brand {
+  font-weight: normal; 
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+
+ul.navbar-nav#menu-primary-navigation.nav > li > a {
+    padding : 15px 10px;
+    color : #333; 
+}
+
+.navbar-default ul.social-nav.navbar-nav > li > a {
+font-size : 18px;
+color : #6BACDA;
+padding : 15px 10px;
+}
+
+.navbar-default ul.social-nav.navbar-nav > li > a:hover {
+color : #000;
+}
+
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li > a, 
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li.dropdown.open > ul.dropdown-menu > li a, 
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li.dropdown > ul.dropdown-menu > li a:hover,
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li.dropdown > ul.dropdown-menu > li a:focus {
+border-bottom : 5px solid #fff;
+}
+
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li.active a, 
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li a:hover,
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li a:focus,  {
+background-color : #fff !important;
+border-bottom : 5px solid @blue-gray-light;
+color : @blue-lightblue;
+-webkit-transition: border-bottom 0.3s ease-in-out;
+-moz-transition: border-bottom 0.3s ease-in-out;
+-ms-transition: border-bottom 0.3s ease-in-out;
+-o-transition: border-bottom 0.3s ease-in-out;
+transition: border-bottom 0.3s ease-in-out; 
+outline : 0;
+}
+
+/* ==========================================================================
+   Subnav
+   ========================================================================== */
+
+
+.subnav.banner {
+background-color : #EEF7FF;
+border-top : 1px solid #fff;
+border-bottom : 1px solid #D1E2ED;
+  a {
+    color : @blue-darkblue;
+  }
+
+  nav li a:hover {
+    background-color : #fff;
+  }
+}
+
+
+
+/* ==========================================================================
+   Topic Browse
+   ========================================================================== */
+
+   ul.topics {
+        margin: 0px;
+        padding: 0px;
+        text-align : center;
+        
+         li {
+             list-style-type: none;
+             display : inline-block;
+             vertical-align: top;
+
+             a {                 
+                 display: inline-block;
+                 margin: 0px 10px 15px 10px;  
+                 outline : 0;               
+             }
+
+             a i {
+
+                      background-position: center center !important;
+                      background-size : contain;
+                      display: inline-block;
+                      height: 130px;
+                      width: 130px;                      
+                      line-height: 15px;
+                      overflow: hidden;
+                      padding-top: 90px;
+                      text-align: center;
+                      clear : both;                           
+                }
+                
+            a span {
+                display: block;
+                width: 130px;
+                word-wrap:break-word;                
+            } 
+            
+            a:hover, a:hover span {
+                text-decoration : none !important;
+            }
+            
+            a:hover i, a:focus i {
+                background-color: #EFEFEF !important;
+                border-radius: 50%;            
+         	-webkit-transition: background-color 0.4s ease-in-out;
+         	-moz-transition: background-color 0.4s ease-in-out;
+         	-ms-transition: background-color 0.4s ease-in-out;
+         	-o-transition: background-color 0.4s ease-in-out;
+         	transition: background-color 0.4s ease-in-out;               
+             }  
+  
+            
+        }        
+         
+       
+        
+   }
+   
+
+
+
+
+/* ==========================================================================
+    Icons
+   ========================================================================== */
+
+
+     
+                    .topic-health a i {
+                        background : url(../img/topic-health.png) no-repeat;
+                    }       
+
+                    .topic-energy a i {
+                        background : url(../img/topic-energy.png) no-repeat;
+                    }
+
+                    .topic-ethics a i {
+                        background : url(../img/topic-ethics.png) no-repeat;
+                    }
+                    
+                    .topic-education a i {
+                        background : url(../img/topic-education.png) no-repeat;
+                    }
+                    
+                    .topic-finance a i {
+                        background : url(../img/topic-finance.png) no-repeat;
+                    }
+                    
+                    .topic-climate a i {
+                        background : url(../img/topic-climate.png) no-repeat;
+                    }
+
+                    .topic-law a i {
+                        background : url(../img/topic-law.png) no-repeat;
+                    }
+                    
+                    .topic-research a i {
+                        background : url(../img/topic-research.png) no-repeat;
+                    }
+                    
+                    .topic-safety a i {
+                        background : url(../img/topic-safety.png) no-repeat;
+                    }
+
+                    .topic-food a i {
+                        background : url(../img/topic-food.png) no-repeat;
+                    }
+                    
+                    .topic-ocean a i {
+                        background : url(../img/topic-ocean.png) no-repeat;
+                    }
+                    
+                    .topic-development a i {
+                        background : url(../img/topic-development.png) no-repeat;
+                    }
+                        
+                    .topic-manufacturing a i {
+                        background : url(../img/topic-manufacturing.png) no-repeat;
+                    }                   
+
+                    .topic-consumer a i {
+                        background : url(../img/topic-consumer.png) no-repeat;
+                    } 
+                    
+                    .topic-weather a i {
+                        background : url(../img/topic-weather.png) no-repeat;
+                    }
+
+                    .topic-geospatial a i {
+                        background : url(../img/topic-geospatial.png) no-repeat;
+                    }
+
+                    .topic-jobs-and-skills a i {
+                        background : url(../img/topic-jobs-and-skills.png) no-repeat;
+                    }
+
+                    .topic-business a i {
+                        background : url(../img/topic-business.png) no-repeat;
+                    }
+
+                    .topic-counties a i {
+                        background : url(../img/topic-counties.png) no-repeat;
+                    }
+
+                    .topic-states a i {
+                        background : url(../img/topic-states.png) no-repeat;
+                    }
+
+                    .topic-cities a i {
+                        background : url(../img/topic-cities.png) no-repeat;
+                    }
+
+                    .topic-developers a i {
+                        background : url(../img/topic-developers.png) no-repeat;
+                    }
+
+                    .topic-impact a i {
+                        background : url(../img/topic-impact.png) no-repeat;
+                    }                    
+
+
+
+
+   .svg {
+       
+                    .topic-health a i {
+                        background : url(../img/topic-health.svg) no-repeat;
+                    }       
+
+                    .topic-energy a i {
+                        background : url(../img/topic-energy.svg) no-repeat;
+                    }
+
+                    .topic-ethics a i {
+                        background : url(../img/topic-ethics.svg) no-repeat;
+                    }
+                    
+                    .topic-education a i {
+                        background : url(../img/topic-education.svg) no-repeat;
+                    }
+                    
+                    .topic-finance a i {
+                        background : url(../img/topic-finance.svg) no-repeat;
+                    }
+                    
+                    .topic-climate a i {
+                        background : url(../img/topic-climate.svg) no-repeat;
+                    }
+
+                    .topic-law a i {
+                        background : url(../img/topic-law.svg) no-repeat;
+                    }
+                    
+                    .topic-research a i {
+                        background : url(../img/topic-research.svg) no-repeat;
+                    }
+                    
+                    .topic-safety a i {
+                        background : url(../img/topic-safety.svg) no-repeat;
+                    }
+
+                    .topic-food a i {
+                        background : url(../img/topic-food.svg) no-repeat;
+                    }
+                    
+                    .topic-ocean a i {
+                        background : url(../img/topic-ocean.svg) no-repeat;
+                    }
+                    
+                    .topic-development a i {
+                        background : url(../img/topic-development.svg) no-repeat;
+                    }
+                        
+                    .topic-manufacturing a i {
+                        background : url(../img/topic-manufacturing.svg) no-repeat;
+                    }                   
+
+                    .topic-consumer a i {
+                        background : url(../img/topic-consumer.svg) no-repeat;
+                    } 
+                    
+                    .topic-weather a i {
+                        background : url(../img/topic-weather.svg) no-repeat;
+                    }
+
+                    .topic-geospatial a i {
+                        background : url(../img/topic-geospatial.svg) no-repeat;
+                    }
+
+                    .topic-jobs-and-skills a i {
+                        background : url(../img/topic-jobs-and-skills.svg) no-repeat;
+                    }
+
+                    .topic-business a i {
+                        background : url(../img/topic-business.svg) no-repeat;
+                    }
+
+                    .topic-counties a i {
+                        background : url(../img/topic-counties.svg) no-repeat;
+                    }
+
+                    .topic-states a i {
+                        background : url(../img/topic-states.svg) no-repeat;
+                    }
+
+                    .topic-cities a i {
+                        background : url(../img/topic-cities.svg) no-repeat;
+                    }
+
+                    .topic-developers a i {
+                        background : url(../img/topic-developers.svg) no-repeat;
+                    }
+
+                    .topic-impact a i {
+                        background : url(../img/topic-impact.svg) no-repeat;
+                    }                     
+
+   }   
+
+
+
+
+     
+
+.more-link a {
+  outline : 0;
+}
+
+.more-link a i {
+  display : block !important; 
+  padding-top : .5em; 
+  font-style : normal;
+}
+
+.more-link a:hover, 
+.more-link a:focus  {
+  text-decoration: none;
+  color : #000;
+}
+
+.more-link a:focus:hover  {
+  color : #428BCA;
+}
+ 
+
+.more-link a i {
+  .fa;
+  .fa-minus-circle;
+}
+
+
+.more-link a.collapsed i {
+  color : #000;
+  .fa;
+  .fa-plus-circle;
+}
+
+
+/* ==========================================================================
+   Browse topics dropdown menu
+   ========================================================================== */
+
+.yamm .dropdown-menu ul {
+  padding-top : 1em;
+}
+
+
+.yamm .dropdown-menu li {
+  display : inline-block;
+}
+
+.yamm ul.topics li {
+
+  a {
+    margin-top : 1em;
+    margin-bottom : 0;
+    padding : 3px 10px;
+  }
+
+  a i {    
+    line-height: 10px;
+    padding-top: 20px;
+    width: 50px;
+    height: 50px;    
+    background-size : contain;
+  }
+
+  a span {
+      width: 95px;
+      text-transform: none;
+      font-size : 14px;
+      white-space: normal;
+  } 
+
+  a:hover i, a:focus i {
+      background-color: inherit !important;
+      border-radius: 0% !important;   
+      border : none !important;
+  }
+
+}
+
+
+
+
+/* ==========================================================================
+   Search
+   ========================================================================== */
+
+
+
+
+
+div.frontpage-search {
+    
+    padding : 2em 0;
+
+    .getstarted {
+      
+      text-transform: uppercase;        
+      
+      .fa-caret-down { 
+          font-size: (@font-size-base * 2.1) 
+      }
+
+      h4 { 
+        margin-top: 0; 
+      }
+
+    }
+
+    input[type="search"]::-webkit-input-placeholder {
+        -webkit-transition: opacity 0.3s linear; 
+      color: #000;
+    }
+
+    input[type="search"]:focus::-webkit-input-placeholder {
+        opacity: 0;
+    }
+
+    input.search-field.form-control::-moz-placeholder {
+      transition: opacity 0.3s linear; 
+      color: #000;
+    }
+
+    input.search-field.form-control:focus::-moz-placeholder {
+      opacity: 0;
+    }
+
+    input.search-field.form-control, 
+    #search-prompt {
+        font-weight : 300;
+        font-style : italic;
+        font-size : 20px;
+    }
+
+    #search-prompt {
+       display: inline-block;
+       height : 44px;
+       padding-top : 8px;
+       padding-right : 0;
+       text-align : right;
+    }
+
+    .search-field.form-control {
+    height : 44px;
+    }
+
+    .search-form .btn {
+    font-size : 21px;
+    }
+
+    .search-form .btn-default {
+    color : #9E9E9E;
+    }    
+    
+}
+
+
+.navbar {
+    .search-form {
+        padding-top : 8px;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+
+    .navbar {
+        .search-form {
+            padding-right : 0;            
+        }
+    }
+        
+}
+
+     
+
+/* ==========================================================================
+   Search
+   ========================================================================== */
+
+.search-submit.btn {
+    font-size : @font-size-base - 1px;
+}
+
+
+div.frontpage-search {
+    
+    input[type="search"]::-webkit-input-placeholder {
+        -webkit-transition: opacity 0.3s linear; 
+      color: gray;
+    }
+
+    input[type="search"]:focus::-webkit-input-placeholder {
+        opacity: 0;
+    }
+
+    input.search-field.form-control::-moz-placeholder {
+      transition: opacity 0.3s linear; 
+      color: gray;
+    }
+
+    input.search-field.form-control:focus::-moz-placeholder {
+      opacity: 0;
+    }
+
+    input.search-field.form-control, 
+    #search-prompt {
+        font-weight : 300;
+        font-style : italic;
+        font-size : 20px;
+    }
+
+    #search-prompt {
+       display: inline-block;
+       height : 44px;
+       padding-top : 8px;
+       padding-right : 0;
+       text-align : right;
+    }
+
+    .search-field.form-control {
+    height : 44px;
+    }
+
+    .search-form .btn {
+    font-size : 21px;
+    }
+
+    .search-form .btn-default {
+    color : #9E9E9E;
+    }    
+    
+}
+
+
+.navbar {
+    .search-form {
+        padding-top : 8px;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+
+    .navbar {
+        .search-form {
+            padding-right : 0;            
+        }
+    }
+        
+}
+
+.intro.banner .container {
+    padding : 2em 0;
+}
+
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.content { 
+
+}
+
+
+/* ==========================================================================
+   Primary Content
+   ========================================================================== */
+
+.main { }
+
+
+.wrap-lightblue {
+    background-color: @blue-lightblue;
+    padding-bottom : 2em;
+    
+    .page-header h1 {
+        color : #fff;
+        border-bottom : 1px solid #98C7D8;
+        
+    }
+}
+
+.home .jumbotron {
+    margin-bottom: 0;
+    padding-bottom: (@line-height-computed * 1.2);
+    padding-top : 1em;
+}
+
+.home .jumbotron h1 {
+      font-size: (@font-size-base * 2.4);
+}
+
+header .header.banner.page-heading {
+      background-color: @jumbotron-bg;
+      color : #fff;
+}
+
+.page-header {
+    padding-bottom: 0;
+    margin: (@line-height-computed * 2) 0 @line-height-computed;
+    border-bottom: none;
+}
+
+.page-header h1 {
+      font-size: (@font-size-base * 1.1);
+      text-transform: uppercase;
+      border-bottom : 1px solid #E2E2E2;
+      padding-bottom : .2em;
+     }
+     
+.header.banner .page-header h1 {
+    border : 0;
+
+    a, 
+    a:hover {
+      color : #fff;
+    }
+}   
+
+
+.more-link {
+    text-align : center;
+    h5 {
+        text-transform: uppercase;    
+        text-align : center;
+        margin : 3em 0 1.5em 0;
+    }
+}
+
+.updates, 
+#highlights {    
+    h2 { 
+        margin-top: 0;
+    }  
+}
+
+#highlights.wrap-lightblue .page-header,
+#highlights.wrap-lightblue header,
+#highlights.wrap-lightblue article, {
+    color : #fff;
+}
+
+.updates article, 
+#highlights article {
+  margin-bottom: (@line-height-computed * 2);
+
+  &.format-standard {
+    clear : both;
+    display : block;
+  }
+}
+
+#highlights.wrap-lightblue article a {
+color : #fff;
+text-decoration : underline;
+}
+
+#highlights.wrap-lightblue article a:hover {
+text-decoration : none;
+color : #000;
+}
+
+.category-header a {
+
+color : @blue-gray; 
+
+  &:hover {
+    color : #000;
+    text-decoration : none;
+  }
+
+  i {
+    background-position: center center !important;
+    background-size: contain !important;
+    display: inline-block;
+    height : 20px;
+    width : 20px;
+    margin-bottom : -.2em;
+  }
+
+  span {
+    display : inline-block;
+    margin-left : .5em;
+  }
+
+
+}
+
+
+
+/* ==========================================================================
+   Special Post Formats
+   ========================================================================== */
+
+body.home .format-status {
+  .tweet-author {
+    border-bottom : 1px solid @gray-lighter;
+    padding-bottom : .5em;
+    margin-bottom : .5em;
+
+    .author-link div {
+      margin-left : .75em;
+    }
+
+  }  
+}
+
+   .format-status {
+
+      .tweet-author, 
+      a.tweet-permalink {
+        color : @blue-gray;
+      }
+
+      .tweet-author {
+
+        .fa-twitter {
+          font-size : 2em;
+          margin-right : .5em;
+
+          &:hover {
+            text-decoration : none;
+          }
+        }
+
+        .author-image img {
+          width : 35px;
+          height : 35px;
+          display : inline-block;
+          margin-top : -1.25em;
+        }
+
+        a, 
+        .author-image {
+          display : inline-block;
+        }
+
+        .author-link {
+
+          &:hover {
+            text-decoration : none;
+          }
+
+          div {
+              display : inline-block;
+          }
+
+          .author-name, 
+          .author-handle {
+            display : block;
+            clear : right;
+          }
+
+          .author-handle {
+            color : @blue-gray;
+            font-size : .8em;
+          }
+
+        }
+
+      }
+
+
+      .tweet-body {
+        font-size : 1.25em;
+        font-weight : 300;
+        margin-top : .5em;
+      }
+    
+   }
+
+
+/* ==========================================================================
+   Gallery
+   ========================================================================== */
+
+/* Gallery Shortcode */
+.gallery-row { padding: 15px 0; }
+
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.sidebar { }
+
+
+
+/* ==========================================================================
+   Posts
+   ========================================================================== */
+
+.hentry header { }
+.hentry time { }
+.hentry .byline { }
+.hentry .entry-content { }
+.hentry footer { }
+
+
+.updates .format-status {
+    .author-details {
+        border-bottom : 1px solid #efefef;
+        margin-bottom : 1em;
+    }
+}
+
+article.hentry {
+  margin-bottom : 3.5em;
+  display : inline-block;
+}
+
+article header .entry-title {
+  font-size : 1.75em;
+  margin-bottom : .2em;
+}
+
+article .entry-meta {
+  font-size : .85em;
+}
+
+
+article .byline {
+display : inline-block;
+}
+
+article header time,
+article header .author a {
+  color : @blue-gray;
+}
+
+article header time {
+  margin-bottom : 11px;
+  display: inline-block;
+}
+
+article a.more-link {
+  color : #428BCA;
+}
+
+
+body.single .entry-content .inline-image {
+  margin : 0 1em 1em 0;
+  display : inline-block;
+}
+
+
+@media (min-width: @screen-sm-min) {
+
+  body.single .entry-content .inline-image {
+    float : left;
+  }
+
+}
+
+
+article.hentry,  
+.content-page  {
+
+  h1, h2, h3 {
+    margin-top : 30px;
+  }
+
+  h2.entry-title {
+    margin-top : 0;
+  }  
+
+  h1 {
+    font-size : 1.75em;
+  }
+
+  h2 {
+    font-size : 1.5em; 
+  }
+
+  h3 {
+    font-size : 1.25em;
+  }
+
+  h4 {
+    font-size : 1em;
+  }
+
+  h5 {
+    font-size : .875em;
+  }
+
+  h6 {
+    font-size : .75em;
+  }
+
+}
+
+
+
+/* ==========================================================================
+   Pages
+   ========================================================================== */
+
+.content-page {
+  margin-top : 2em;
+
+  .page-title {
+    margin : 0 0 1em 0;
+    font-size : 1.75em;
+  }
+
+}
+
+
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer-logo a.logo-brand {
+    height : 50px;
+    width : 100%;
+    clear : both;
+    margin : 2em 0 2em 0;
+    display : block;
+
+}
+
+
+.content-info { 
+background-color : #efefef;
+padding : 3em 0;
+}
+
+
+.social-nav .nav li a span {
+display : inline-block;
+padding-left : 1em;
+}
+
+
+.social-nav .nav li a i {
+font-size : 2em;
+}
+
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   Highlights and Highlights page
+   ========================================================================== */
+
+@media (min-width: @screen-md-min) {
+
+  .highlight article {
+    padding-left : 1em !important;
+  }
+
+  .highlight article.no-image {
+    padding-left : 0 !important;
+  }  
+
+}
+
+.highlight {
+
+  article, 
+  .featured-image {
+    padding : 0;
+  }
+
+  .featured-image {
+    margin-bottom : 1em;
+  }
+
+  .dataset-link {
+    margin : 1em 0;
+    clear : both;
+  }
+}
+
+.highlights-listing {
+
+  .highlight {
+    
+    margin-bottom : 3em;
+
+    .entry-title {
+      font-size : 2em;
+    }
+
+  }
+
+  .category-header {
+
+      padding-bottom : .2em;
+      border-bottom: 1px solid @blue-gray-light;
+  
+      a i {
+        height : 50px;
+        width : 50px;
+      }
+  
+      span {
+        margin-left : .25em;
+    }    
+  }
+}
+
+
+
+/* ==========================================================================
+   Contact Page
+   ========================================================================== */
+
+
+
+
+#contact-wrapper section {
+margin-top : 3em;
+}
+
+section .section-intro {
+  margin-bottom : 2em;
+}
+
+
+.contact-nav li a, 
+.contact-link li a {
+border : 1px solid #E8E8E8;
+}
+
+.icon-heading, 
+.contact-nav li, 
+.contact-link li {
+font-size : 1em;
+padding-bottom : .25em;
+text-transform : uppercase;
+}
+
+.contact-nav li a, 
+.contact-link.nav li a {
+background-color : #efefef;
+}
+
+.contact-nav li a:hover, 
+.contact-link.nav li a:hover {
+color : #000;
+background-color : #FAFAFA;
+}
+
+
+.contact-link li {
+  text-transform: none;
+}
+
+.icon-heading {
+color : #666;
+border-bottom : 1px solid #ccc;
+margin-bottom : 1em;
+}
+
+.contact-heading:hover {
+  text-decoration : none;
+}
+
+.icon-heading i, 
+.contact-nav li i, 
+.contact-link i {
+font-size : 1.75em;
+margin-right : .25em;
+}
+
+.foreign-post .post-title {
+font-size : 1em;
+margin-bottom : 0;
+}
+
+.foreign-post .post-date {
+font-size : .8em;
+color : #A3A3A3;
+}
+
+
+.twitter-feed ul {
+list-style-type : none;
+margin : 0;
+padding : 0;
+}
+
+.twitter-feed ul li {
+margin-bottom : 2em;
+font-size : 1em;
+}
+
+
+.twitter-feed .entry-meta {
+font-size : .8em;
+display : block;
+}
+
+.twitter-feed .entry-meta .from-meta {
+display : none;
+}
+
+.twitter-feed .entry-meta a {
+color : #A3A3A3;
+}
+
+
+#contact-us-form {
+
+  .row;
+
+  margin : 1em 0 0 0;
+  padding : 15px 0 0 0;
+  background-color : @blue-lightblue;
+
+  .form-group input, 
+  .form-group textarea,
+  .form-group select {
+    .form-control;
+  }
+
+  fieldset legend {
+    display : none;
+  }
+
+  .form-group textarea {
+    height : auto;
+  }
+
+
+  h4 {
+    display : none;
+  }
+
+  label {
+    color : #fff;
+    font-weight : normal;
+  }
+
+  input, textarea, select, 
+  .form-group input, 
+  .form-group textarea, 
+  .form-group select {
+    margin-bottom : 2em;
+    border : 1px solid @blue-midblue;
+  }
+
+  .captcha {
+    width : 100%;
+  }
+
+  .submit {
+    width : 100%;   
+    .btn;
+    background-color : @blue-darkblue;
+    padding : .825em;
+    color : #fff;    
+  }
+
+  .submit:hover, 
+  .submit:focus {
+    color : @blue-darkblue;
+    background-color : @gray-lighter;
+  }
+
+
+}
+
+
+
+/* ==========================================================================
+   Comments
+   ========================================================================== */
+
+#respond {
+  clear : both;
+}
+
+
+/* ==========================================================================
+   WordPress Generated Classes
+   See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+   ========================================================================== */
+
+.aligncenter { display: block; margin: 0 auto; }
+.alignleft { float: left; }
+.alignright { float: right; }
+figure.alignnone { margin-left: 0; margin-right: 0; }
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (min-width: @screen-sm-min) {}
+
+@media (min-width: @screen-md-min) {}
+
+@media (min-width: @screen-lg-min) {}

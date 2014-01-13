@@ -1,20 +1,30 @@
 <?php
 /*
 Plugin Name: Metric Count
-Description: This plugin makes API call to Ckan and stores dataset count for each organization.
+Description: This plugin makes API call to Ckan AND stores dataset count for each organization.
 */
 
+/** Include PHPExcel */
+require_once 'Classes/PHPExcel.php';
+require_once 'Classes/PHPExcel/IOFactory.php';
+
+$results = array();
 
 add_action('admin_menu', 'metric_configuration');
 
-function metric_configuration() {
-
+/**
+ *
+ */
+function metric_configuration()
+{
     add_menu_page('Metric Count Settings', 'Metric Count Settings', 'administrator', 'metric_config', 'metric_count_settings');
-
 }
 
-function metric_count_settings(){
-
+/**
+ *
+ */
+function metric_count_settings()
+{
     $ckan_access_pt = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
     $org_server = (get_option('org_server') != '') ? get_option('org_server') : 'http://idm.data.gov/fed_agency.json';
 
@@ -47,83 +57,286 @@ function metric_count_settings(){
 }
 
 
-function ckan_metric_get_taxonomies() {
-
+/**
+ * @return mixed
+ */
+function ckan_metric_get_taxonomies()
+{
     $url = (get_option('org_server') != '') ? get_option('org_server') : 'http://idm.data.gov/fed_agency.json';
 
-    $response =  wp_remote_get($url);
-    $body = json_decode(wp_remote_retrieve_body(&$response), TRUE);
+    $response = wp_remote_get($url);
+    $body = json_decode(wp_remote_retrieve_body($response), TRUE);
     $taxonomies = $body['taxonomies'];
+
     return $taxonomies;
 }
 
-function ckan_metric_convert_structure($taxonomies) {
 
-    $ret = array();
+/**
+ * @param $taxonomies
+ * @return array
+ */
+function ckan_metric_convert_structure($taxonomies)
+{
 
-    // This should be the ONLY loop that go thru all taxonomies.
+//    var_dump($taxonomies);die();
+//      array(8) {
+//         [20] =>
+//              array(6) {
+//                'vocabulary' =>
+//                		string(20) "Federal Organization"
+//                'term' =>
+//                		string(12) "ocfo-gsa-gov"
+//                'Federal Agency' =>
+//                		string(31) "General Services Administration"
+//                'Sub Agency' =>
+//                		string(37) "Office of the Chief Financial Officer"
+//                'unique id' =>
+//                		string(12) "ocfo-gsa-gov"
+//                'is_cfo' =>
+//                		string(1) "Y"
+//              }
+//              [28] =>
+//              array(6) {
+//                'vocabulary' =>
+//                		string(20) "Federal Organization"
+//                'term' =>
+//                		string(11) "pbs-gsa-gov"
+//                'Federal Agency' =>
+//                		string(31) "General Services Administration"
+//                'Sub Agency' =>
+//                		string(24) "Public Buildings Service"
+//                'unique id' =>
+//                		string(11) "pbs-gsa-gov"
+//                'is_cfo' =>
+//                		string(1) "Y"
+//              }
+//              [35] =>
+//            array(6) {
+//                'vocabulary' =>
+//                		string(20) "Federal Organization"
+//                'term' =>
+//                		string(13) "ocsit-gsa-gov"
+//                'Federal Agency' =>
+//                		string(31) "General Services Administration"
+//                'Sub Agency' =>
+//                		string(54) "Office of Citizen Services and Innovative Technologies"
+//                'unique id' =>
+//                		string(13) "ocsit-gsa-gov"
+//                'is_cfo' =>
+//                		string(1) "Y"
+//              }
+//              [64] =>
+//              array(6) {
+//                'vocabulary' =>
+//                		string(20) "Federal Organization"
+//                'term' =>
+//                		string(11) "ogp-gsa-gov"
+//                'Federal Agency' =>
+//                		string(31) "General Services Administration"
+//                'Sub Agency' =>
+//                		string(31) "Office of Governmentwide Policy"
+//                'unique id' =>
+//                		string(11) "ogp-gsa-gov"
+//                'is_cfo' =>
+//                		string(1) "Y"
+//              }
+//            [132] =>
+//              array(6) {
+//                'vocabulary' =>
+//                		string(20) "Federal Organization"
+//                'term' =>
+//                		string(11) "fas-gsa-gov"
+//                'Federal Agency' =>
+//                		string(31) "General Services Administration"
+//                'Sub Agency' =>
+//                		string(27) "Federal Acquisition Service"
+//                'unique id' =>
+//                		string(11) "fas-gsa-gov"
+//                'is_cfo' =>
+//                		string(1) "Y"
+//              }
+//              [133] =>
+//              array(6) {
+//                'vocabulary' =>
+//                		string(20) "Federal Organization"
+//                'term' =>
+//                		string(7) "gsa-gov"
+//                'Federal Agency' =>
+//                		string(31) "General Services Administration"
+//                'Sub Agency' =>
+//                		string(0) ""
+//                'unique id' =>
+//                		string(7) "gsa-gov"
+//                'is_cfo' =>
+//                		string(1) "Y"
+//              }
+//              [138] =>
+//              array(6) {
+//                'vocabulary' =>
+//                		string(20) "Federal Organization"
+//                'term' =>
+//                		string(11) "cpo-gsa-gov"
+//                'Federal Agency' =>
+//                		string(31) "General Services Administration"
+//                'Sub Agency' =>
+//                		string(34) "Office of the Chief People Officer"
+//                'unique id' =>
+//                		string(11) "cpo-gsa-gov"
+//                'is_cfo' =>
+//                		string(1) "Y"
+//              }
+//              [157] =>
+//              array(6) {
+//                'vocabulary' =>
+//                		string(20) "Federal Organization"
+//                'term' =>
+//                		string(11) "opi-gsa-gov"
+//                'Federal Agency' =>
+//                		string(31) "General Services Administration"
+//                'Sub Agency' =>
+//                		string(33) "Office of Performance Improvement"
+//                'unique id' =>
+//                		string(11) "opi-gsa-gov"
+//                'is_cfo' =>
+//                		string(1) "Y"
+//              }
+//        }
+
+    $return = array();
+    // This should be the ONLY loop that go through all taxonomies.
     foreach ($taxonomies as $taxonomy) {
-
         $taxonomy = $taxonomy['taxonomy'];
 
-        if (strlen($taxonomy['unique id']) == 0) { // bad ones
+//        ignore bad ones
+        if (strlen($taxonomy['unique id']) == 0) {
             continue;
         }
-        if ($taxonomy['unique id'] != $taxonomy['term']) { // ignore 3rd level ones
+
+//        ignore 3rd level ones
+        if ($taxonomy['unique id'] != $taxonomy['term']) {
             continue;
         }
-        if (!isset($ret[$taxonomy['vocabulary']])) { // Make sure we got $ret[$sector]
-            $ret[$taxonomy['vocabulary']] = array();
+
+//        Make sure we got $return[$sector], ex. $return['Federal Organization']
+        if (!isset($return[$taxonomy['vocabulary']])) {
+            $return[$taxonomy['vocabulary']] = array();
         }
-        if (strlen($taxonomy['Sub Agency']) != 0) { // it is subagency
-            if (!isset($ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']])) {
-                // Make sure we got $ret[$sector][$unit]
-                $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']] = array(
+
+        if (strlen($taxonomy['Sub Agency']) != 0) {
+//        This is sub-agency
+//            $return['Federal Organization']['National Archives and Records Administration']
+            if (!isset($return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']])) {
+//                Make sure we got $return[$sector][$unit]
+                $return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']] = array(
                     // use [ ] to indicate this is agency with subs. e.g [,sub_id]
                     'id' => "[," . $taxonomy['unique id'] . "]",
                     'is_cfo' => $taxonomy['is_cfo'],
                     'subs' => array(),
                 );
+            } else {
+//                Add sub id to existing agency entry, e.g. [id,sub_id1,sub_id2] or [,sub_id1,sub_id2]
+                $return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id']
+                    = "[" . trim($return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'], "[]") . "," . $taxonomy['unique id'] . "]";
             }
-            else {
-                // Add sub id to existing agency entry, e.g. [id,sub_id1,sub_id2] or [,sub_id1,sub_id2]
-                $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'] = "[" . trim($ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'],"[]") . "," . $taxonomy['unique id'] ."]";
-            }
-            // Add term to parent's subs
-            $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['subs'][$taxonomy['Sub Agency']] = array(
+
+//            Add term to parent's subs
+            $return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['subs'][$taxonomy['Sub Agency']] = array(
                 'id' => $taxonomy['unique id'],
                 'is_cfo' => $taxonomy['is_cfo'],
             );
-        }
-        else { // This is agecny
-            if (!isset($ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']])) {
-                // Has not been set by its subunits before
-                $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']] = array(
+        } else {
+//        ELSE this is ROOT agency
+            if (!isset($return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']])) {
+//                Has not been set by its subunits before
+                $return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']] = array(
                     'id' => $taxonomy['unique id'], // leave it without [ ] if no subs.
+                    'is_cfo' => $taxonomy['is_cfo'],
                     'subs' => array(),
                 );
-            }
-            else {
-                // Has been added by subunits before. so let us change it from [,sub_id1,sub_id2] to [id,sub_id1,sub_id2]
-                $ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'] = "[" . $taxonomy['unique id'] . trim($ret[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'], "[]") . "]";
+            } else {
+//                Has been added by subunits before. so let us change it from [,sub_id1,sub_id2] to [id,sub_id1,sub_id2]
+                $return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'] = "[" . $taxonomy['unique id'] . trim($return[$taxonomy['vocabulary']][$taxonomy['Federal Agency']]['id'], "[]") . "]";
             }
         }
     }
 
-
-    return $ret;
-
+//    array(3) {
+//      'id' =>
+//      string(96) "[gsa-gov,ocfo-gsa-gov,pbs-gsa-gov,ocsit-gsa-gov,ogp-gsa-gov,fas-gsa-gov,cpo-gsa-gov,opi-gsa-gov]"
+//      'is_cfo' =>
+//      string(1) "Y"
+//      'subs' =>
+//      array(7) {
+//            'Office of the Chief Financial Officer' =>
+//        array(2) {
+//          'id' =>
+//          	string(12) "ocfo-gsa-gov"
+//          'is_cfo' =>
+//          	string(1) "Y"
+//        }
+//        'Public Buildings Service' =>
+//        array(2) {
+//          'id' =>
+//          	string(11) "pbs-gsa-gov"
+//          'is_cfo' =>
+//          	string(1) "Y"
+//        }
+//        'Office of Citizen Services and Innovative Technologies' =>
+//        array(2) {
+//          'id' =>
+//          	string(13) "ocsit-gsa-gov"
+//          'is_cfo' =>
+//          	string(1) "Y"
+//        }
+//        'Office of Governmentwide Policy' =>
+//        array(2) {
+//          'id' =>
+//          	string(11) "ogp-gsa-gov"
+//          'is_cfo' =>
+//          	string(1) "Y"
+//        }
+//        'Federal Acquisition Service' =>
+//        array(2) {
+//          'id' =>
+//          	string(11) "fas-gsa-gov"
+//          'is_cfo' =>
+//          	string(1) "Y"
+//        }
+//        'Office of the Chief People Officer' =>
+//        array(2) {
+//          'id' =>
+//          	string(11) "cpo-gsa-gov"
+//          'is_cfo' =>
+//          	string(1) "Y"
+//        }
+//        'Office of Performance Improvement' =>
+//        array(2) {
+//          'id' =>
+//          	string(11) "opi-gsa-gov"
+//          'is_cfo' =>
+//          	string(1) "Y"
+//        }
+//      }
+//    }
+    
+    return $return;
 }
 
-function get_ckan_metric_info() {
-
+/**
+ *
+ */
+function get_ckan_metric_info()
+{
     $taxonomies = ckan_metric_get_taxonomies();
+
     $structure = ckan_metric_convert_structure($taxonomies);
-    $count = 0;
 
-    if(!empty($structure['Federal Organization'])) {
+    global $results;
+
+    if (!empty($structure['Federal Organization'])) {
+
         foreach ($structure['Federal Organization'] as $unit => $unit_info) {
-
 
             $item = array(
                 'name' => $unit,
@@ -132,109 +345,218 @@ function get_ckan_metric_info() {
                 'subs' => $unit_info['subs'],
             );
 
-            $orgs = trim($item['id'], "[,]");
-            $orgs = explode(",", $orgs);
+            $organizations = trim($item['id'], "[]");
 
-            $parent_org = $orgs[0];
+            $organizations = explode(",", $organizations);
 
-            $a = array();
+//            !!!!!!
+//            That's wrong for
+//            [,ostp-eop-gov,ustr-eop-gov,wh-eop-gov,ceq-eop-gov,omb-eop-gov,ondcp-eop-gov]
+//            [,msha-dol-gov,bls-gov,brb-dol-gov,ecab-dol-gov,whd-dol-gov,esba-dol-gov,eta-dol-gov,ojc-dol-gov,osha-dol-gov,oalj-dol-gov,oasp-dol-gov]
+//            !!!!!!
+            $parent_org = $organizations[0];
 
-            foreach ($orgs as $org) {
+//            HACK  ostp-eop-gov  =>  eop-gov
+            if (!strlen($parent_org) && isset($organizations[1])) {
+                $parent_org = substr($organizations[1], strpos($organizations[1], '-')+1);
+            }
+
+            $organization_solr_filter = array();
+
+            foreach ($organizations as $org) {
                 if (strlen($org) == 0) {
                     continue;
                 }
-                $a[] = "organization:" . urlencode($org);
+//                $organization_solr_filter[] = 'organization:' . urlencode($org);
+                $organization_solr_filter[] = '(' . urlencode($org).')';
             }
 
-            $orgs = implode("+OR+", $a);
+//            $organizations = implode('+OR+', $organization_solr_filter);
+            $organizations = 'organization:('.join('+OR+', $organization_solr_filter).')';
 
-            $parent_nid = create_metric_content($item['is_cfo'], $item['name'], $item['id'], $orgs);
+            $parent_nid = create_metric_content($item['is_cfo'], $item['name'], $item['id'], $organizations);
 
-            //dataset published per month
-            if(sizeof($item['subs']) > 0 && strlen($parent_org) > 0){
-                create_metric_content($item['is_cfo'], $item['name'], $parent_org, $orgs, $parent_nid, 1);
+//            Mark parent agency
+            if (sizeof($item['subs']) > 0 && strlen($parent_org) > 0) {
+                create_metric_content($item['is_cfo'], $item['name'], $parent_org, $organizations, $parent_nid, 1, '', 0);
             }
 
-            if(sizeof($item['subs']) > 0 && strlen($parent_org) > 0){
-                create_metric_content($item['is_cfo'], "Department/Agency Level", $parent_org, "organization:" . urlencode($parent_org), $parent_nid);
+            if (sizeof($item['subs']) > 0 && strlen($parent_org) > 0) {
+                create_metric_content($item['is_cfo'], 'Department/Agency Level', $parent_org, 'organization:' . urlencode($parent_org), $parent_nid, 0, $item['name'], 0, 1);
             }
 
-
-            foreach($item['subs'] as $key=>$value) {
-                $orgs = 'organization:' . urlencode($value['id']);
-                create_metric_content($value['is_cfo'], $key, $value['id'], $orgs, $parent_nid);
+            foreach ($item['subs'] as $key => $value) {
+                $organizations = 'organization:' . urlencode($value['id']);
+                create_metric_content($value['is_cfo'], $key, $value['id'], $organizations, $parent_nid, 0, $item['name'], 1, 1);
             }
         }
     }
+
+    asort($results);
+//    chdir(ABSPATH.'media/');
+
+    $upload_dir = wp_upload_dir();
+
+//    Write CSV result file
+    $fp_csv = fopen($upload_dir['basedir'].'/federal-agency-participation.csv', 'w');
+
+    if ($fp_csv == false) {
+        die("unable to create file");
+    }
+
+    fputcsv($fp_csv, array('Agency Name', 'Sub-Agency Name', 'Datasets', 'Last Entry'));
+
+    foreach ($results as $record) {
+        fputcsv($fp_csv, $record);
+    }
+    fclose($fp_csv);
+
+    // Instantiate a new PHPExcel object
+    $objPHPExcel = new PHPExcel();
+    // Set the active Excel worksheet to sheet 0
+    $objPHPExcel->setActiveSheetIndex(0);
+    // Initialise the Excel row number
+    $row = 1;
+
+    $objPHPExcel->getActiveSheet()->SetCellValue('A' . $row, 'Agency Name');
+    $objPHPExcel->getActiveSheet()->SetCellValue('B' . $row, 'Sub-Agency Name');
+    $objPHPExcel->getActiveSheet()->SetCellValue('C' . $row, 'Datasets');
+    $objPHPExcel->getActiveSheet()->SetCellValue('D' . $row, 'Last Entry');
+    $row++;
+
+    foreach ($results as $record) {
+        if ($record) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A' . $row, $record[0]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B' . $row, $record[1]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C' . $row, $record[2]);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D' . $row, $record[3]);
+            $row++;
+        }
+    }
+
+    // Instantiate a Writer to create an OfficeOpenXML Excel .xlsx file
+    $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+    // Write the Excel file to filename some_excel_file.xlsx in the current directory
+    $objWriter->save($upload_dir['basedir'].'/federal-agency-participation.xls');
 }
 
-function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $agency_level=0) {
+/**
+ * @param $cfo
+ * @param $title
+ * @param $ckan_id
+ * @param $organizations
+ * @param int $parent_node
+ * @param int $agency_level
+ * @param string $parent_name
+ * @param int $sub_agency
+ * @param int $export
+ * @return mixed
+ */
+function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_node = 0, $agency_level = 0, $parent_name = '', $sub_agency = 0, $export = 0)
+{
+    global $results;
 
-    if(strlen($ckan_id) != 0) {
+    if (strlen($ckan_id) != 0) {
         $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
-        $url .= "api/action/package_search?q=($orgs)+AND+dataset_type:dataset&rows=1&sort=metadata_modified+desc";
+        $url .= "api/3/action/package_search?fq=($organizations)+AND+dataset_type:dataset&rows=1&sort=metadata_modified+desc";
+
+//        echo $url.PHP_EOL;
 
         $response = wp_remote_get($url);
-        $body = json_decode(wp_remote_retrieve_body(&$response), true);
+        $body = json_decode(wp_remote_retrieve_body($response), true);
+
         $count = $body['result']['count'];
-        $last_entry = $body['result']['results'][0]['metadata_modified'];
-        $last_entry = substr($last_entry, 0, 10);
-    }
-    else
-        $count = 0;
 
-    if($agency_level != 0) {
-        //get list of last 12 months
-        $month = date("m");
-        $startDate = date('Y-m-d', mktime(0,0,0,$month-11,1,date('Y')));
-        $endDate = date("Y-m-d", mktime(0,0,0,$month ,date("t", $month),date('Y')));
+        if ($count) {
+            $last_entry = $body['result']['results'][0]['metadata_modified'];
+//        2013-12-12T07:39:40.341322
 
-        $time1  = strtotime($startDate);
-        $time2  = strtotime($endDate);
-        $tmp = date('mY', $time2);
+//            echo '---'.PHP_EOL;
+//            echo $url.PHP_EOL.PHP_EOL;
+//            echo 'metadata_modified '.$last_entry.PHP_EOL;
 
-        $months[] = array("month" => date('m', $time1), "year" => date('Y', $time1));
+            $last_entry = substr($last_entry, 0, 10);
+//        2013-12-12
 
-        while($time1 < $time2) {
-            $time1 = strtotime(date('Y-m-d', $time1).' +1 month');
-            if(date('mY', $time1) != $tmp && ($time1 < $time2)) {
-                $months[] = array("month"    => date('m', $time1), "year"    => date('Y', $time1));
-            }
+        } else {
+            $last_entry = '1970-01-01';
         }
-        $months[] = array("month" => date('m', $time2), "year" => date('Y', $time2));
+    } else {
+        $count = 0;
+    }
+
+    $metric_sync_timestamp = time();
+
+    if ($cfo == 'Y' && $title != 'Department/Agency Level') {
+        //get list of last 12 months
+        $month = date('m');
+
+        $startDate = mktime(0, 0, 0, $month - 11, 1, date('Y'));
+        $endDate = mktime(0, 0, 0, $month, date('t'), date('Y'));
+
+        $tmp = date('mY', $endDate);
+
+        while (true) {
+            $months[] = array(
+                'month' => date('m', $startDate),
+                'year' => date('Y', $startDate)
+            );
+
+            if ($tmp == date('mY', $startDate)) {
+                break;
+            }
+
+            $startDate = mktime(0, 0, 0, date('m', $startDate)+1, 15, date('Y', $startDate));
+        }
 
         $dataset_count = array();
         $dataset_range = array();
-        $i = 0;
-        foreach($months as $key=>$date_arr) {
-            $startDt = date('Y-m-d', mktime(0,0,0,$date_arr['month'],1,$date_arr['year']));
-            $endDt = date('Y-m-t', mktime(0,0,0,$date_arr['month'], 1, $date_arr['year']));
+
+        $i = 1;
+
+        foreach ($months as $date_arr) {
+            $startDt = date('Y-m-d', mktime(0, 0, 0, $date_arr['month'], 1, $date_arr['year']));
+            $endDt = date('Y-m-t', mktime(0, 0, 0, $date_arr['month'], 1, $date_arr['year']));
+
             $range = "[" . $startDt . "T00:00:00Z%20TO%20" . $endDt . "T23:59:59Z]";
 
             $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
-            $url .= "api/action/package_search?q=($orgs)+AND+dataset_type:dataset+AND+metadata_created:$range&rows=1";
+            $url .= "api/3/action/package_search?fq=($organizations)+AND+dataset_type:dataset+AND+metadata_created:$range&rows=1";
 
             $response = wp_remote_get($url);
-            $body = json_decode(wp_remote_retrieve_body(&$response), true);
+            $body = json_decode(wp_remote_retrieve_body($response), true);
 
             $dataset_count[$i] = $body['result']['count'];
             $dataset_range[$i] = $range;
             $i++;
         }
     }
+
     $content_id = get_page_by_title($title, OBJECT, 'metric_organization')->ID;
 
-    if($title == "Department/Agency Level") {
+    if ($sub_agency) {
         global $wpdb;
-        $myrows = $wpdb->get_var( "SELECT id FROM `wp_posts` p
-								   inner join wp_postmeta pm on pm.post_id = p.id
-								   where post_title = 'Department/Agency Level' and post_type = 'metric_organization'
-								   and meta_key = 'parent_organization' and meta_value = " . $parent_node );
+        $myrows = $wpdb->get_var("SELECT id FROM `wp_posts` p
+                   INNER JOIN wp_postmeta pm ON pm.post_id = p.id
+                   WHERE post_title = '" . $title . "' AND post_type = 'metric_organization'
+                   AND meta_key = 'ckan_unique_id' AND meta_value = '" . $ckan_id . "'");
+        $content_id = $myrows;
+    }
+
+    if ($title == 'Department/Agency Level') {
+        global $wpdb;
+        $myrows = $wpdb->get_var("SELECT id FROM `wp_posts` p
+                   INNER JOIN wp_postmeta pm ON pm.post_id = p.id
+                   WHERE post_title = 'Department/Agency Level' AND post_type = 'metric_organization'
+                   AND meta_key = 'parent_organization' AND meta_value = " . $parent_node);
 
         $content_id = $myrows;
     }
 
-    if(sizeof($content_id) == 0) {
+    list($Y, $m, $d) = explode('-', $last_entry);
+    $last_entry = "$m/$d/$Y";
+
+    if (sizeof($content_id) == 0) {
 
         $my_post = array(
             'post_title' => $title,
@@ -246,33 +568,53 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
 
         add_post_meta($new_post_id, 'metric_count', $count);
 
-        if($cfo == 'Y')
+
+        if ($cfo == 'Y' && $title != 'Department/Agency Level') {
+            for ($i = 1; $i < 13; $i++) {
+                add_post_meta($new_post_id, 'month_' . $i . '_dataset_count', $dataset_count[$i]);
+            }
+
+            for ($i = 1; $i < 13; $i++) {
+                add_post_meta($new_post_id, 'month_' . $i . '_dataset_url',
+                    ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/')
+                    . 'dataset?q=(' . $organizations . ')+AND+dataset_type:dataset+AND+metadata_created:' . $dataset_range[$i]);
+            }
+
+        }
+        if ($cfo == 'Y') {
             add_post_meta($new_post_id, 'metric_sector', 'Federal');
-        else
+        } else {
             add_post_meta($new_post_id, 'metric_sector', 'Other');
-
-        add_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
-        add_post_meta($new_post_id, 'metric_sync_timestamp', $last_entry);
-        add_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $orgs);
-
-        if($parent_node != 0)
-            add_post_meta($new_post_id, 'parent_organization', $parent_node);
-
-        if($agency_level != 0){
-            for($i=0; $i<12; $i++){
-                $j = $i+1;
-                add_post_meta($new_post_id,'month_'.$j.'_dataset_count', $dataset_count[$i]);
-            }
-
-            for($i=0; $i<12; $i++){
-                $j = $i+1;
-                add_post_meta($new_post_id,'month_'.$j.'_dataset_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=('.$orgs.')+AND+dataset_type:dataset+AND+metadata_created:'.$dataset_range[$i]);
-            }
-            add_post_meta($new_post_id,'parent_agency', 1, true);
         }
 
-    }
-    else {
+        add_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
+        add_post_meta($new_post_id, 'metric_last_entry', $last_entry);
+        add_post_meta($new_post_id, 'metric_sync_timestamp', $metric_sync_timestamp);
+        add_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $organizations);
+
+
+        if ($parent_node != 0) {
+            add_post_meta($new_post_id, 'parent_organization', $parent_node);
+        }
+
+        if ($agency_level != 0) {
+            add_post_meta($new_post_id, 'parent_agency', 1, true);
+        }
+
+        $flag = false;
+        if ($count > 0) {
+            if ($export != 0) {
+                $results[] = array($parent_name, $title, $count, $last_entry);
+            }
+
+            if ($parent_node == 0 && $flag == false) {
+                $parent_name = $title;
+                $title = '';
+
+                $results[] = array($parent_name, $title, $count, $last_entry);
+            }
+        }
+    } else {
         $new_post_id = $content_id;
         $my_post = array(
             'ID' => $new_post_id,
@@ -280,28 +622,51 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
         );
 
         wp_update_post($my_post);
-        update_post_meta($new_post_id, 'metric_count',  $count);
+        update_post_meta($new_post_id, 'metric_count', $count);
         update_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
 
-        if($cfo == 'Y')
+        if ($cfo == 'Y' && $title != 'Department/Agency Level') {
+            for ($i = 1; $i < 13; $i++) {
+                update_post_meta($new_post_id, 'month_' . $i . '_dataset_count', $dataset_count[$i]);
+            }
+
+            for ($i = 1; $i < 13; $i++) {
+                update_post_meta($new_post_id, 'month_' . $i . '_dataset_url',
+                    ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/')
+                    . 'dataset?q=(' . $organizations . ')+AND+dataset_type:dataset+AND+metadata_created:' . $dataset_range[$i]);
+            }
+        }
+
+        if ($cfo == 'Y') {
             update_post_meta($new_post_id, 'metric_sector', 'Federal');
-        else
+        } else {
             update_post_meta($new_post_id, 'metric_sector', 'Other');
+        }
 
-        update_post_meta($new_post_id, 'metric_sync_timestamp', $last_entry);
-        update_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $orgs);
+        update_post_meta($new_post_id, 'metric_last_entry', $last_entry);
+        update_post_meta($new_post_id, 'metric_sync_timestamp', $metric_sync_timestamp);
+        update_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $organizations);
 
-        if($agency_level != 0){
-            for($i=0; $i<12; $i++){
-                $j = $i+1;
-                update_post_meta($new_post_id,'month_'.$j.'_dataset_count', $dataset_count[$i]);
+        if ($parent_node != 0) {
+            update_post_meta($new_post_id, 'parent_organization', $parent_node);
+        }
+
+        if ($agency_level != 0) {
+            update_post_meta($new_post_id, 'parent_agency', 1, true);
+        }
+
+        $flag = false;
+        if ($count > 0) {
+            if ($export != 0) {
+                $results[] = array($parent_name, $title, $count, $last_entry);
             }
 
-            for($i=0; $i<12; $i++){
-                $j = $i+1;
-                update_post_meta($new_post_id,'month_'.$j.'_dataset_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=(' . $orgs.')+AND+dataset_type:dataset+AND+metadata_created:'.$dataset_range[$i]);
+            if ($parent_node == 0 && $flag == false) {
+                $parent_name = $title;
+                $title = '';
+
+                $results[] = array($parent_name, $title, $count, $last_entry);
             }
-            update_post_meta($new_post_id,'parent_agency', 1, true);
         }
     }
 
@@ -311,16 +676,20 @@ function create_metric_content($cfo, $title, $ckan_id, $orgs, $parent_node=0, $a
 register_activation_hook(__FILE__, 'my_activation');
 add_action('metrics_daily_update', 'get_ckan_metric_info');
 
-function my_activation() {
+/**
+ *
+ */
+function my_activation()
+{
     wp_schedule_event(time(), 'daily', 'metrics_daily_update');
 }
 
 register_deactivation_hook(__FILE__, 'my_deactivation');
 
-function my_deactivation() {
+/**
+ *
+ */
+function my_deactivation()
+{
     wp_clear_scheduled_hook('metrics_daily_update');
 }
-
-//add_action('admin_init', 'get_ckan_metric_info');
-
-?>

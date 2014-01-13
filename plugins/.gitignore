@@ -14,7 +14,6 @@ link-manager
 restrict-categories
 wordpress-importer
 q-and-a
-custom-contact-forms
 php-code-for-posts
 broken-link-checker
 acf-field-date-time-picker
@@ -22,3 +21,13 @@ custom-permalinks
 redirection
 acf-location-field
 opml-importer
+bbpress
+import-blogroll-with-categories/
+interactive-world-maps
+posts-in-page
+si-captcha-for-wordpress
+subscribe2
+upload-scanner
+widget-logic
+wp-crontrol
+wp-no-taxonomy-base
