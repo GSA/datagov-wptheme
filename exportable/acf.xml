@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/3.7.1" created="2013-11-06 18:32" -->
+
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -26,24 +26,42 @@
 >
 
 <channel>
-	<title>Data.Gov 2.0</title>
-	<link>http://uat-wp-datagov.reisys.com</link>
-	<description>Just another WordPress site</description>
-	<pubDate>Wed, 06 Nov 2013 18:32:20 +0000</pubDate>
+	<title>Data.gov</title>
+	<link>http://next.data.gov</link>
+	<description></description>
+	<pubDate>Mon, 13 Jan 2014 16:07:55 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
-	<wp:base_site_url>http://uat-wp-datagov.reisys.com</wp:base_site_url>
-	<wp:base_blog_url>http://uat-wp-datagov.reisys.com</wp:base_blog_url>
+	<wp:base_site_url>http://next.data.gov</wp:base_site_url>
+	<wp:base_blog_url>http://next.data.gov</wp:base_blog_url>
 	<wp:author><wp:author_id>1</wp:author_id><wp:author_login>admin</wp:author_login><wp:author_email>dan.olaru@reisys.com</wp:author_email><wp:author_display_name><![CDATA[admin]]></wp:author_display_name><wp:author_first_name><![CDATA[Dan]]></wp:author_first_name><wp:author_last_name><![CDATA[olaru]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>21</wp:author_id><wp:author_login>jeanne</wp:author_login><wp:author_email>jeanne.m.holm@jpl.nasa.gov</wp:author_email><wp:author_display_name><![CDATA[Jeanne Holm]]></wp:author_display_name><wp:author_first_name><![CDATA[Jeanne]]></wp:author_first_name><wp:author_last_name><![CDATA[Holm]]></wp:author_last_name></wp:author>
 	<wp:author><wp:author_id>25</wp:author_id><wp:author_login>kvuppala</wp:author_login><wp:author_email>kvuppala@reisystems.com</wp:author_email><wp:author_display_name><![CDATA[Kishore Vuppala]]></wp:author_display_name><wp:author_first_name><![CDATA[Kishore]]></wp:author_first_name><wp:author_last_name><![CDATA[Vuppala]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>27</wp:author_id><wp:author_login>Erin</wp:author_login><wp:author_email>EMAKRED@ers.usda.gov</wp:author_email><wp:author_display_name><![CDATA[Erin Akred]]></wp:author_display_name><wp:author_first_name><![CDATA[Erin]]></wp:author_first_name><wp:author_last_name><![CDATA[Akred]]></wp:author_last_name></wp:author>
 	<wp:author><wp:author_id>28</wp:author_id><wp:author_login>anjelika</wp:author_login><wp:author_email>Anjelika_A_Deogirikar@ostp.eop.gov</wp:author_email><wp:author_display_name><![CDATA[Anjelika Deogirikar]]></wp:author_display_name><wp:author_first_name><![CDATA[Anjelika]]></wp:author_first_name><wp:author_last_name><![CDATA[Deogirikar]]></wp:author_last_name></wp:author>
 	<wp:author><wp:author_id>594064</wp:author_id><wp:author_login>ujoseph</wp:author_login><wp:author_email>ujoseph@reisystems.com</wp:author_email><wp:author_display_name><![CDATA[Ullas Joseph]]></wp:author_display_name><wp:author_first_name><![CDATA[Ullas]]></wp:author_first_name><wp:author_last_name><![CDATA[Joseph]]></wp:author_last_name></wp:author>
 	<wp:author><wp:author_id>594065</wp:author_id><wp:author_login>shweta.shrivastava</wp:author_login><wp:author_email>shweta.shrivastava@reisystems.com</wp:author_email><wp:author_display_name><![CDATA[shweta.shrivastava]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
 	<wp:author><wp:author_id>594066</wp:author_id><wp:author_login>REItestuser</wp:author_login><wp:author_email>pjain@reisystems.com</wp:author_email><wp:author_display_name><![CDATA[priya jain]]></wp:author_display_name><wp:author_first_name><![CDATA[priya]]></wp:author_first_name><wp:author_last_name><![CDATA[jain]]></wp:author_last_name></wp:author>
-	<wp:author><wp:author_id>594067</wp:author_id><wp:author_login>Data.gov Admin</wp:author_login><wp:author_email>ssharma@reisystems.com</wp:author_email><wp:author_display_name><![CDATA[Data.gov Admin]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594067</wp:author_id><wp:author_login>Data.gov Admin</wp:author_login><wp:author_email>ssharma@reisystems.com</wp:author_email><wp:author_display_name><![CDATA[Data.gov Admin]]></wp:author_display_name><wp:author_first_name><![CDATA[Sunny]]></wp:author_first_name><wp:author_last_name><![CDATA[Sharma]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594068</wp:author_id><wp:author_login>jholm@jpl.nasa.gov</wp:author_login><wp:author_email>jholm@jpl.nasa.gov</wp:author_email><wp:author_display_name><![CDATA[Jeanne Holm]]></wp:author_display_name><wp:author_first_name><![CDATA[Jeanne]]></wp:author_first_name><wp:author_last_name><![CDATA[Holm]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594070</wp:author_id><wp:author_login>danielmike270</wp:author_login><wp:author_email>danielmike270@gmail.com</wp:author_email><wp:author_display_name><![CDATA[danielmike270]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594071</wp:author_id><wp:author_login>adam.bode@noaa.gov</wp:author_login><wp:author_email>adam.bode@noaa.gov</wp:author_email><wp:author_display_name><![CDATA[Adam Bode Bode]]></wp:author_display_name><wp:author_first_name><![CDATA[Adam Bode]]></wp:author_first_name><wp:author_last_name><![CDATA[Bode]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594072</wp:author_id><wp:author_login>sophie.raseman@treasury.gov</wp:author_login><wp:author_email>sophie.raseman@treasury.gov</wp:author_email><wp:author_display_name><![CDATA[Sophie Raseman]]></wp:author_display_name><wp:author_first_name><![CDATA[Sophie]]></wp:author_first_name><wp:author_last_name><![CDATA[Raseman]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594074</wp:author_id><wp:author_login>philipashlock</wp:author_login><wp:author_email>philip.ashlock@gsa.gov</wp:author_email><wp:author_display_name><![CDATA[Philip Ashlock]]></wp:author_display_name><wp:author_first_name><![CDATA[Philip]]></wp:author_first_name><wp:author_last_name><![CDATA[Ashlock]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594077</wp:author_id><wp:author_login>jill.james@ed.gov</wp:author_login><wp:author_email>jill.james@ed.gov</wp:author_email><wp:author_display_name><![CDATA[Jill James]]></wp:author_display_name><wp:author_first_name><![CDATA[Jill]]></wp:author_first_name><wp:author_last_name><![CDATA[James]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594078</wp:author_id><wp:author_login>mary.boatman@boem.gov</wp:author_login><wp:author_email>mary.boatman@boem.gov</wp:author_email><wp:author_display_name><![CDATA[Mary Boatman]]></wp:author_display_name><wp:author_first_name><![CDATA[Mary]]></wp:author_first_name><wp:author_last_name><![CDATA[Boatman]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594079</wp:author_id><wp:author_login>datagov.user</wp:author_login><wp:author_email>datagov.user@gmail.com</wp:author_email><wp:author_display_name><![CDATA[priya jain]]></wp:author_display_name><wp:author_first_name><![CDATA[priya]]></wp:author_first_name><wp:author_last_name><![CDATA[jain]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594080</wp:author_id><wp:author_login>charles.worthington</wp:author_login><wp:author_email>charles.worthington@ee.doe.gov</wp:author_email><wp:author_display_name><![CDATA[Charles Worthington]]></wp:author_display_name><wp:author_first_name><![CDATA[Charles]]></wp:author_first_name><wp:author_last_name><![CDATA[Worthington]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594081</wp:author_id><wp:author_login>michelle.hertzfeld</wp:author_login><wp:author_email>michelle.hertzfeld@onrr.gov</wp:author_email><wp:author_display_name><![CDATA[Michelle Hertzfeld]]></wp:author_display_name><wp:author_first_name><![CDATA[Michelle]]></wp:author_first_name><wp:author_last_name><![CDATA[Hertzfeld]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594082</wp:author_id><wp:author_login>johong</wp:author_login><wp:author_email>johong@akamai.com</wp:author_email><wp:author_display_name><![CDATA[johong]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594083</wp:author_id><wp:author_login>dan.morgan.ctr@dot.gov</wp:author_login><wp:author_email>dan.morgan.ctr@dot.gov</wp:author_email><wp:author_display_name><![CDATA[Daniel Morgan]]></wp:author_display_name><wp:author_first_name><![CDATA[Daniel]]></wp:author_first_name><wp:author_last_name><![CDATA[Morgan]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594084</wp:author_id><wp:author_login>robaker</wp:author_login><wp:author_email>robaker@usaid.gov</wp:author_email><wp:author_display_name><![CDATA[Rob Baker]]></wp:author_display_name><wp:author_first_name><![CDATA[Rob]]></wp:author_first_name><wp:author_last_name><![CDATA[Baker]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594085</wp:author_id><wp:author_login>Marion.royal@GSA.gov</wp:author_login><wp:author_email>Marion.royal@GSA.gov</wp:author_email><wp:author_display_name><![CDATA[Marion Royal]]></wp:author_display_name><wp:author_first_name><![CDATA[Marion]]></wp:author_first_name><wp:author_last_name><![CDATA[Royal]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594086</wp:author_id><wp:author_login>lynn_d_overmann</wp:author_login><wp:author_email>lynn_d_overmann@ostp.eop.gov</wp:author_email><wp:author_display_name><![CDATA[Lynn Overmann]]></wp:author_display_name><wp:author_first_name><![CDATA[Lynn]]></wp:author_first_name><wp:author_last_name><![CDATA[Overmann]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>594087</wp:author_id><wp:author_login>garren.givens</wp:author_login><wp:author_email>garren.givens@gmail.com</wp:author_email><wp:author_display_name><![CDATA[Garren Givens]]></wp:author_display_name><wp:author_first_name><![CDATA[Garren]]></wp:author_first_name><wp:author_last_name><![CDATA[Givens]]></wp:author_last_name></wp:author>
 	<item>
 		<title>ArcGIS Map</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_arcgis-map</link>
+		<link>http://next.data.gov/?acf=acf_arcgis-map</link>
 		<pubDate>Thu, 26 Sep 2013 20:44:43 +0000</pubDate>
 		<dc:creator>admin</dc:creator>
 		<guid isPermaLink="false">http://dev-wp-datagov.reisys.com/?acf=acf_arcgis-map</guid>
@@ -72,11 +90,11 @@
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_52449c87d6267</wp:meta_key>
-			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_52449c87d6267";s:5:"label";s:6:"Map ID";s:4:"name";s:6:"map_id";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_52449c00d6266";s:8:"operator";s:2:"==";s:5:"value";s:8:"national";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_52449c87d6267";s:5:"label";s:6:"Map ID";s:4:"name";s:6:"map_id";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_528e3116949ad";s:8:"operator";s:2:"==";s:5:"value";s:6:"map_id";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_52449c99d6268</wp:meta_key>
-			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_52449c99d6268";s:5:"label";s:8:"Group ID";s:4:"name";s:8:"group_id";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_52449c00d6266";s:8:"operator";s:2:"==";s:5:"value";s:8:"national";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_52449c99d6268";s:5:"label";s:8:"Group ID";s:4:"name";s:8:"group_id";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_528e3116949ad";s:8:"operator";s:2:"==";s:5:"value";s:8:"group_id";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:5;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>position</wp:meta_key>
@@ -99,13 +117,17 @@
 			<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
+			<wp:meta_key>field_528e3116949ad</wp:meta_key>
+			<wp:meta_value><![CDATA[a:12:{s:3:"key";s:19:"field_528e3116949ad";s:5:"label";s:13:"Add Map(s) By";s:4:"name";s:8:"add_maps";s:4:"type";s:6:"select";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:7:"choices";a:2:{s:6:"map_id";s:6:"Map ID";s:8:"group_id";s:8:"Group ID";}s:13:"default_value";s:15:"map_id : Map ID";s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_52449c00d6266";s:8:"operator";s:2:"==";s:5:"value";s:8:"national";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
 			<wp:meta_key>rule</wp:meta_key>
 			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:11:"arcgis_maps";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
 		<title>Event</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_event</link>
+		<link>http://next.data.gov/?acf=acf_event</link>
 		<pubDate>Thu, 26 Sep 2013 20:56:07 +0000</pubDate>
 		<dc:creator>admin</dc:creator>
 		<guid isPermaLink="false">http://dev-wp-datagov.reisys.com/?acf=acf_event</guid>
@@ -175,7 +197,7 @@
 	</item>
 	<item>
 		<title>Regional planning</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_regional-planning</link>
+		<link>http://next.data.gov/?acf=acf_regional-planning</link>
 		<pubDate>Mon, 23 Sep 2013 21:15:23 +0000</pubDate>
 		<dc:creator>admin</dc:creator>
 		<guid isPermaLink="false">http://dev-wp-datagov.reisys.com/?acf=acf_regional-planning-3</guid>
@@ -257,7 +279,7 @@
 	</item>
 	<item>
 		<title>Link to Article or Blog</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_link-to-article-or-blog</link>
+		<link>http://next.data.gov/?acf=acf_link-to-article-or-blog</link>
 		<pubDate>Tue, 23 Apr 2013 03:33:02 +0000</pubDate>
 		<dc:creator></dc:creator>
 		<guid isPermaLink="false">http://54.225.112.145/?post_type=acf&#038;p=14</guid>
@@ -311,7 +333,7 @@
 	</item>
 	<item>
 		<title>Application</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_application</link>
+		<link>http://next.data.gov/?acf=acf_application</link>
 		<pubDate>Mon, 23 Sep 2013 22:00:11 +0000</pubDate>
 		<dc:creator></dc:creator>
 		<guid isPermaLink="false">http://nextdatagov:8888/?post_type=acf&#038;p=119802</guid>
@@ -377,7 +399,7 @@
 	</item>
 	<item>
 		<title>Challange</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_challange</link>
+		<link>http://next.data.gov/?acf=acf_challange</link>
 		<pubDate>Tue, 24 Sep 2013 15:49:51 +0000</pubDate>
 		<dc:creator>admin</dc:creator>
 		<guid isPermaLink="false">http://nextdatagov:8888/?post_type=acf&#038;p=119806</guid>
@@ -443,7 +465,7 @@
 	</item>
 	<item>
 		<title>Slide</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_slide</link>
+		<link>http://next.data.gov/?acf=acf_slide</link>
 		<pubDate>Wed, 25 Sep 2013 18:33:11 +0000</pubDate>
 		<dc:creator></dc:creator>
 		<guid isPermaLink="false">http://nextdatagov:8888/?post_type=acf&#038;p=119807</guid>
@@ -489,7 +511,7 @@
 	</item>
 	<item>
 		<title>Twitter Status</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_twitter-status</link>
+		<link>http://next.data.gov/?acf=acf_twitter-status</link>
 		<pubDate>Tue, 23 Apr 2013 03:31:07 +0000</pubDate>
 		<dc:creator></dc:creator>
 		<guid isPermaLink="false">http://54.225.112.145/?post_type=acf&#038;p=11</guid>
@@ -579,9 +601,9 @@
 	</item>
 	<item>
 		<title>Dataset</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_dataset</link>
+		<link>http://next.data.gov/?acf=acf_dataset</link>
 		<pubDate>Tue, 23 Apr 2013 03:35:14 +0000</pubDate>
-		<dc:creator></dc:creator>
+		<dc:creator>admin</dc:creator>
 		<guid isPermaLink="false">http://54.225.112.145/?post_type=acf&#038;p=15</guid>
 		<wp:post_id>126630</wp:post_id>
 		<wp:post_date>2013-04-23 03:35:14</wp:post_date>
@@ -595,20 +617,12 @@
 		<wp:post_type>acf</wp:post_type>
 		<wp:post_password></wp:post_password>
 		<wp:postmeta>
-			<wp:meta_key>field_5176014eb8099</wp:meta_key>
-			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_5176014eb8099";s:5:"label";s:13:"Dataset Image";s:4:"name";s:13:"dataset_image";s:4:"type";s:5:"image";s:12:"instructions";s:35:"Image best representing the dataset";s:8:"required";s:1:"1";s:11:"save_format";s:3:"url";s:12:"preview_size";s:9:"thumbnail";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
 			<wp:meta_key>field_5176012cb8098</wp:meta_key>
-			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_5176012cb8098";s:5:"label";s:15:"Link to Dataset";s:4:"name";s:15:"link_to_dataset";s:4:"type";s:4:"text";s:12:"instructions";s:45:"Paste URL to dataset's consumer friendly page";s:8:"required";s:1:"1";s:13:"default_value";s:7:"http://";s:10:"formatting";s:4:"none";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_5176012cb8098";s:5:"label";s:15:"Link to Dataset";s:4:"name";s:15:"link_to_dataset";s:4:"type";s:4:"text";s:12:"instructions";s:45:"Paste URL to dataset's consumer friendly page";s:8:"required";s:1:"1";s:13:"default_value";s:7:"http://";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>allorany</wp:meta_key>
 			<wp:meta_value><![CDATA[all]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>rule</wp:meta_key>
-			<wp:meta_value><![CDATA[a:4:{s:5:"param";s:11:"post_format";s:8:"operator";s:2:"==";s:5:"value";s:5:"image";s:8:"order_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>position</wp:meta_key>
@@ -623,20 +637,12 @@
 			<wp:meta_value><![CDATA[]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_5176014eb8099</wp:meta_key>
-			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_5176014eb8099";s:5:"label";s:13:"Dataset Image";s:4:"name";s:13:"dataset_image";s:4:"type";s:5:"image";s:12:"instructions";s:35:"Image best representing the dataset";s:8:"required";s:1:"1";s:11:"save_format";s:3:"url";s:12:"preview_size";s:9:"thumbnail";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
 			<wp:meta_key>field_5176012cb8098</wp:meta_key>
-			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_5176012cb8098";s:5:"label";s:15:"Link to Dataset";s:4:"name";s:15:"link_to_dataset";s:4:"type";s:4:"text";s:12:"instructions";s:45:"Paste URL to dataset's consumer friendly page";s:8:"required";s:1:"1";s:13:"default_value";s:7:"http://";s:10:"formatting";s:4:"none";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_5176012cb8098";s:5:"label";s:15:"Link to Dataset";s:4:"name";s:15:"link_to_dataset";s:4:"type";s:4:"text";s:12:"instructions";s:45:"Paste URL to dataset's consumer friendly page";s:8:"required";s:1:"1";s:13:"default_value";s:7:"http://";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>allorany</wp:meta_key>
 			<wp:meta_value><![CDATA[all]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>rule</wp:meta_key>
-			<wp:meta_value><![CDATA[a:4:{s:5:"param";s:11:"post_format";s:8:"operator";s:2:"==";s:5:"value";s:5:"image";s:8:"order_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>position</wp:meta_key>
@@ -650,71 +656,21 @@
 			<wp:meta_key>hide_on_screen</wp:meta_key>
 			<wp:meta_value><![CDATA[]]></wp:meta_value>
 		</wp:postmeta>
-	</item>
-	<item>
-		<title>Featured and Content</title>
-		<link>http://uat-wp-datagov.reisys.com/?acf=acf_featured-and-content</link>
-		<pubDate>Sat, 18 May 2013 13:46:59 +0000</pubDate>
-		<dc:creator></dc:creator>
-		<guid isPermaLink="false">http://54.225.112.145/?post_type=acf&#038;p=95</guid>
-		<wp:post_id>126631</wp:post_id>
-		<wp:post_date>2013-05-18 13:46:59</wp:post_date>
-		<wp:post_date_gmt>2013-05-18 13:46:59</wp:post_date_gmt>
-		<wp:comment_status>closed</wp:comment_status>
-		<wp:ping_status>closed</wp:ping_status>
-		<wp:post_name>acf_featured-and-content</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>acf</wp:post_type>
-		<wp:post_password></wp:post_password>
 		<wp:postmeta>
-			<wp:meta_key>field_519783f94bfe2</wp:meta_key>
-			<wp:meta_value><![CDATA[a:13:{s:8:"multiple";i:0;s:10:"allow_null";i:0;s:7:"choices";a:2:{s:3:"Yes";s:3:"Yes";s:2:"No";s:2:"No";}s:13:"default_value";s:2:"No";s:3:"key";s:19:"field_519783f94bfe2";s:5:"label";s:20:"Featured on Data.Gov";s:4:"name";s:16:"featured_datagov";s:4:"type";s:5:"radio";s:12:"instructions";s:50:"Should this post be featured on Data.Gov homepage?";s:8:"required";s:1:"1";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[594074]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_519785bd4bfe3</wp:meta_key>
-			<wp:meta_value><![CDATA[a:13:{s:8:"multiple";i:0;s:10:"allow_null";i:0;s:7:"choices";a:2:{s:3:"Yes";s:3:"Yes";s:2:"No";s:2:"No";}s:13:"default_value";s:2:"No";s:3:"key";s:19:"field_519785bd4bfe3";s:5:"label";s:22:"Community Page/Section";s:4:"name";s:17:"community_content";s:4:"type";s:5:"radio";s:12:"instructions";s:52:"Is this a dedicated page/section within a community?";s:8:"required";s:1:"1";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_519783f94bfe2";s:8:"operator";s:2:"==";s:5:"value";s:3:"Yes";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>position</wp:meta_key>
-			<wp:meta_value><![CDATA[side]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>layout</wp:meta_key>
-			<wp:meta_value><![CDATA[default]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>hide_on_screen</wp:meta_key>
+			<wp:meta_key>bwps_enable_ssl</wp:meta_key>
 			<wp:meta_value><![CDATA[]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>rule</wp:meta_key>
-			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:4:"post";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_519783f94bfe2</wp:meta_key>
-			<wp:meta_value><![CDATA[a:13:{s:8:"multiple";i:0;s:10:"allow_null";i:0;s:7:"choices";a:2:{s:3:"Yes";s:3:"Yes";s:2:"No";s:2:"No";}s:13:"default_value";s:2:"No";s:3:"key";s:19:"field_519783f94bfe2";s:5:"label";s:20:"Featured on Data.Gov";s:4:"name";s:16:"featured_datagov";s:4:"type";s:5:"radio";s:12:"instructions";s:50:"Should this post be featured on Data.Gov homepage?";s:8:"required";s:1:"1";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_519785bd4bfe3</wp:meta_key>
-			<wp:meta_value><![CDATA[a:13:{s:8:"multiple";i:0;s:10:"allow_null";i:0;s:7:"choices";a:2:{s:3:"Yes";s:3:"Yes";s:2:"No";s:2:"No";}s:13:"default_value";s:2:"No";s:3:"key";s:19:"field_519785bd4bfe3";s:5:"label";s:22:"Community Page/Section";s:4:"name";s:17:"community_content";s:4:"type";s:5:"radio";s:12:"instructions";s:52:"Is this a dedicated page/section within a community?";s:8:"required";s:1:"1";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_519783f94bfe2";s:8:"operator";s:2:"==";s:5:"value";s:3:"Yes";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>position</wp:meta_key>
-			<wp:meta_value><![CDATA[side]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>layout</wp:meta_key>
-			<wp:meta_value><![CDATA[default]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>hide_on_screen</wp:meta_key>
-			<wp:meta_value><![CDATA[]]></wp:meta_value>
+			<wp:meta_key>category_sticky_post</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>rule</wp:meta_key>
-			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:4:"post";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:11:"post_format";s:8:"operator";s:2:"==";s:5:"value";s:5:"image";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 </channel>
