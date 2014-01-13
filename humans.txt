@@ -1,0 +1,27 @@
+/* TEAM */
+General Services Administration
+Site: http://www.data.gov/contact
+Twitter: @usdatagov
+Location: United States of America
+
+
+/* THANKS */
+rypan: https://github.com/rypan
+philipashlock: https://github.com/philipashlock
+3ullasjos: https://github.com/ullasjos
+shwetashrivastava: https://github.com/shwetashrivastava
+dan-olaru-reisys: https://github.com/dan-olaru-reisys
+vz3: https://github.com/vz3
+pshirodkar: https://github.com/pshirodkar
+alex-perfilov-reisys: https://github.com/alex-perfilov-reisys
+kvuppala: https://github.com/kvuppala
+dwcaraway: https://github.com/dwcaraway
+kapil-bulchandani: https://github.com/kapil-bulchandani
+georgestephanis: https://github.com/georgestephanis
+pborreli: https://github.com/pborreli
+imjared: https://github.com/imjared
+aaronraimist: https://github.com/aaronraimist
+                 
+                        
+/* SITE */
+Languages: PHP, JavaScript, CSS
