@@ -1,41 +1,44 @@
-## Community hosted plugins
+## Community plugins
 
 * Advanced Custom Fields - http://wordpress.org/plugins/advanced-custom-fields/
+* Advanced Custom Fields: Date and Time Picker - https://github.com/soderlind/acf-field-date-time-picker
+* Akismet - http://akismet.com/?return=true
+* BAW Login/Logout menu - http://www.boiteaweb.fr/llm
+* Better WordPress External Links - http://betterwp.net/wordpress-plugins/bwp-external-links/
 * Better WP Security - http://wordpress.org/plugins/better-wp-security/
 * Category Sticky Post - http://wordpress.org/plugins/category-sticky-post/
-* Configure SMTP - http://wordpress.org/plugins/configure-smtp/
+* Custom Contact Forms - http://taylorlovett.com/wordpress-plugins
+* Custom Content Type Manager - http://code.google.com/p/wordpress-custom-content-type-manager/
+* Custom Permalinks - http://atastypixel.com/blog/wordpress/plugins/custom-permalinks/
+* Custom Post Type UI - http://webdevstudios.com/plugin/custom-post-type-ui/
+* Custom Post Type View Generator - http://wordpress.org/plugins/custom-post-view-generator/
 * Google Analyticator - http://wordpress.org/plugins/google-analyticator/
+* Interactive World Map (paid) - http://cmoreira.net/interactive-world-maps-demo/ 
 * Link Manager - http://wordpress.org/plugins/link-manager/
-* Restrict Categories - http://wordpress.org/plugins/restrict-categories/
-* W3 Total Cache - http://wordpress.org/plugins/w3-total-cache/
-* WordPress Importer - http://wordpress.org/plugins/wordpress-importer/
-* WP No Category Base - http://wordpress.org/plugins/no-category-base-wpml/
-* Custom Post Type UI - http://wordpress.org/plugins/custom-post-type-ui/
-* Custom Content Type Manager - http://wordpress.org/plugins/custom-content-type-manager/
-* Q and A FAQ + Knowledge Base - http://wordpress.org/plugins/q-and-a/
-* Custom Contact Form - http://wordpress.org/plugins/custom-contact-forms/
 * PHP Code for posts - http://wordpress.org/plugins/php-code-for-posts/
-* Broken Link Checker - http://wordpress.org/plugins/broken-link-checker/
-* Interactive World Map(paid plugin) - http://cmoreira.net/interactive-world-maps-demo/ 
-* Redirection - http://wordpress.org/plugins/redirection/
-* Custom Permalink - http://wordpress.org/plugins/custom-permalinks/
-* Date and Time Picker - http://wordpress.org/plugins/acf-field-date-time-picker/
-* Advanced Custom Fields Location Field - https://github.com/elliotcondon/acf-location-field/
-* Import Blogroll With Categories - http://wordpress.org/plugins/import-blogroll-with-categories/
-* bbPress - http://wordpress.org/plugins/bbpress/
 * Posts in Page - http://wordpress.org/plugins/posts-in-page/
-* Subscribe2 - http://wordpress.org/plugins/subscribe2/
-* Upload Scanner - http://wordpress.org/plugins/upload-scanner/
-* WP Crontrol - http://wordpress.org/support/view/plugin-reviews/wp-crontrol
+* Q and A FAQ + Knowledge Base - http://wordpress.org/plugins/q-and-a/
+* Redirection - http://wordpress.org/plugins/redirection/
+* Restrict Categories - http://wordpress.org/plugins/restrict-categories/
 * SI CAPTCHA Anti-Spam - http://wordpress.org/plugins/si-captcha-for-wordpress/
 * Sticky Posts In Category - http://wordpress.org/plugins/sticky-posts-in-category/
+* Subscribe2 - http://wordpress.org/plugins/subscribe2/
 * Twitter Widget Pro - http://wordpress.org/plugins/twitter-widget-pro/
-* WP Popup Plugin - http://wordpress.org/plugins/m-wp-popup/
-* Better External links - http://wordpress.org/plugins/bwp-external-links/
+* Upload Scanner - https://github.com/kurtpayne/wordpress-upload-scanner-plugin
+* WordPress Importer - http://wordpress.org/plugins/wordpress-importer/
+* WordPress SEO - http://yoast.com/wordpress/seo/#utm_source=wpadmin&utm_medium=plugin&utm_campaign=wpseoplugin
+* WP Content Filter - http://www.presscoders.com/plugins/wp-content-filter/
+* WP Crontrol - http://wordpress.org/support/view/plugin-reviews/wp-crontrol
+* WP No Category Base - WPML compatible - http://github.com/mines/no-category-base-wpml
+* WP No Category Base - http://wordpress.org/plugins/no-category-base-wpml/
+* WP Sitemap Page - http://tonyarchambeau.com/
+
 
 ## Locally hosted or modified plugins
-* SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
-* Custom Post View Generator - http://wordpress.org/plugins/custom-post-view-generator/
-* Metric Count	
-* Datagov Custom Post Types
+These plugins are available in the `/plugins/` directory
+
 * ArcGis Map Validation
+* Datagov Custom
+* Metric Count	
+* SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
+* USA search
