@@ -181,7 +181,9 @@ $cat_slug = $category[0]->slug;
                     <?php
                     $terms=$apparray[$i]['featured'];
                     if($terms) { ?>
-                        <div class="webfeatured"><p style="margin-top:1px;"><img width="30px" class="featuredImage" height="30px" src="/wp-content/themes/roots-nextdatagov/assets/img/featured.png">  Featured!</p></div>
+                        <div class="webfeatured"><p style="margin-top:1px;">
+                            <img width="30px" class="featuredImage" height="30px" src="/wp-content/themes/roots-nextdatagov/assets/img/featured.png">  Featured!</p>
+                        </div>
                         <?php
                     }
                 }
