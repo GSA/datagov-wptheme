@@ -25,7 +25,7 @@ function metric_configuration()
  */
 function metric_count_settings()
 {
-    $ckan_access_pt = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
+    $ckan_access_pt = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : '//catalog.data.gov/';
     $org_server = (get_option('org_server') != '') ? get_option('org_server') : 'http://idm.data.gov/fed_agency.json';
 
     $html = '<form action="options.php" method="post" name="options">
@@ -457,7 +457,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
     global $results;
 
     if (strlen($ckan_id) != 0) {
-        $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
+        $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : '//catalog.data.gov/';
         $url .= "api/3/action/package_search?fq=($organizations)+AND+dataset_type:dataset&rows=1&sort=metadata_modified+desc";
 
 //        echo $url.PHP_EOL;
@@ -520,7 +520,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
 
             $range = "[" . $startDt . "T00:00:00Z%20TO%20" . $endDt . "T23:59:59Z]";
 
-            $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/';
+            $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : '//catalog.data.gov/';
             $url .= "api/3/action/package_search?fq=($organizations)+AND+dataset_type:dataset+AND+metadata_created:$range&rows=1";
 
             $response = wp_remote_get($url);
@@ -576,7 +576,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
 
             for ($i = 1; $i < 13; $i++) {
                 add_post_meta($new_post_id, 'month_' . $i . '_dataset_url',
-                    ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/')
+                    ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : '//catalog.data.gov/')
                     . 'dataset?q=(' . $organizations . ')+AND+dataset_type:dataset+AND+metadata_created:' . $dataset_range[$i]);
             }
 
@@ -590,7 +590,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
         add_post_meta($new_post_id, 'ckan_unique_id', $ckan_id);
         add_post_meta($new_post_id, 'metric_last_entry', $last_entry);
         add_post_meta($new_post_id, 'metric_sync_timestamp', $metric_sync_timestamp);
-        add_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $organizations);
+        add_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : '//catalog.data.gov/') . 'dataset?q=' . $organizations);
 
 
         if ($parent_node != 0) {
@@ -632,7 +632,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
 
             for ($i = 1; $i < 13; $i++) {
                 update_post_meta($new_post_id, 'month_' . $i . '_dataset_url',
-                    ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/')
+                    ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : '//catalog.data.gov/')
                     . 'dataset?q=(' . $organizations . ')+AND+dataset_type:dataset+AND+metadata_created:' . $dataset_range[$i]);
             }
         }
@@ -645,7 +645,7 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
 
         update_post_meta($new_post_id, 'metric_last_entry', $last_entry);
         update_post_meta($new_post_id, 'metric_sync_timestamp', $metric_sync_timestamp);
-        update_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : 'http://catalog.data.gov/') . 'dataset?q=' . $organizations);
+        update_post_meta($new_post_id, 'metric_url', ((get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : '//catalog.data.gov/') . 'dataset?q=' . $organizations);
 
         if ($parent_node != 0) {
             update_post_meta($new_post_id, 'parent_organization', $parent_node);
