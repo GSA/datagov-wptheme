@@ -26,7 +26,7 @@
 * Twitter Widget Pro - http://wordpress.org/plugins/twitter-widget-pro/
 * Upload Scanner - https://github.com/kurtpayne/wordpress-upload-scanner-plugin
 * WordPress Importer - http://wordpress.org/plugins/wordpress-importer/
-* WordPress SEO - http://yoast.com/wordpress/seo/#utm_source=wpadmin&utm_medium=plugin&utm_campaign=wpseoplugin
+* WordPress SEO - http://wordpress.org/plugins/wordpress-seo/
 * WP Content Filter - http://www.presscoders.com/plugins/wp-content-filter/
 * WP Crontrol - http://wordpress.org/support/view/plugin-reviews/wp-crontrol
 * WP No Category Base - WPML compatible - http://github.com/mines/no-category-base-wpml
