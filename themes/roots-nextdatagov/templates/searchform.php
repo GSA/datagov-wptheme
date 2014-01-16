@@ -14,6 +14,7 @@
     ?>
 
     <input type="search" id="search-header" title="<?php echo $example_searches_text ?>" data-strings='<?php echo json_encode($example_searches); ?>' value="<?php if (is_search()) { echo get_search_query(); } ?>" name="q" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
+    <input type="hidden" name="sort" value="score desc, name asc">
       <span class="input-group-btn">
       <button type="submit" class="search-submit btn btn-default">
            <i class="fa fa-search"></i>
