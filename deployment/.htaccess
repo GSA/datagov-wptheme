@@ -19,6 +19,9 @@ RewriteRule ^([^/]+?)-sitemap([0-9]+)?\.xml$ /index.php?sitemap=$1&sitemap_n=$2 
 </IfModule>
 # END WordPress SEO - XML Sitemap Rewrite Fix
 
+# Rewrite old.data.gov urls to PDF files (that have been indexed by google)
+RewriteRule ^sites/default/files/(.*)\.pdf$ media/2013/10/$1\.pdf [L]
+# END Rewrite old.data.gov urls to PDF files (that have been indexed by google)
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>

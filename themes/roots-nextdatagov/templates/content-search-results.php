@@ -44,7 +44,7 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
-    echo "You are searching <strong>$query</strong> in entire site, show results in <a href='http://catalog.data.gov/dataset?q=".stripslashes($query)."'> catalog.data.gov </a>. <br /><br />";
+    echo "You are searching <strong>$query</strong> in entire site, show results in <a href='//catalog.data.gov/dataset?q=".stripslashes($query)."'> catalog.data.gov </a>. <br /><br />";
     // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
@@ -213,7 +213,7 @@ function get_paging_info($tot_rows,$pp,$curr_page)
 * Page callback function to redirect requests to catalog for data search.
 */
 function usasearch_redirect_to_usasearch($query = '') {
-    header("Location: http://catalog.data.gov/dataset?q=$query");
+    header("Location: //catalog.data.gov/dataset?q=$query");
     exit;
 
 }
