@@ -62,7 +62,7 @@
             <label for="email"><?php _e('Email (will not be published)', 'roots'); if ($req) _e(' (required)', 'roots'); ?></label>
             <input type="email" class="form-control" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" <?php if ($req) echo 'aria-required="true"'; ?>>
           </div>
-          /* commenting out url field no required on front end */
+          <!--commenting out url field no required on front end -->
           <!--<div class="form-group">
             <label for="url"><?php // _e('Website', 'roots'); ?></label>
             <input type="url" class="form-control" name="url" id="url" value="<?php //echo esc_attr($comment_author_url); ?>" size="22">
