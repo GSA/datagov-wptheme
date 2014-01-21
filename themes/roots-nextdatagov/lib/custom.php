@@ -100,3 +100,14 @@ function datagov_deregister_styles() {
 }
 
 add_action( 'wp_print_styles', 'datagov_deregister_styles', 100 );
+
+
+/* Adding Favicon to admin side */
+function favicon(){
+
+echo '<link rel="shortcut icon" href="',get_template_directory_uri(),'/assets/img/favicon.ico" />',"\n";
+
+echo'<link sizes="120x120" href="',get_template_directory_uri(),'/assets/img/favicon-120.png" type="image/png" rel="icon">',"\n";
+
+}
+add_action('admin_head','favicon');
