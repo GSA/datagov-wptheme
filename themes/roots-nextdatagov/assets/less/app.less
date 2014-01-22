@@ -6,6 +6,24 @@
 @import "font-awesome/font-awesome.less"; 
 
 
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@font-face {
+  font-family: "datagov-icons";
+  src:url("../fonts/datagov-icons.eot");
+  src:url("../fonts/datagov-icons.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/datagov-icons.woff") format("woff"),
+    url("../fonts/datagov-icons.ttf") format("truetype"),
+    url("../fonts/datagov-icons.svg#datagov-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 /* ==========================================================================
    Base
    ========================================================================== */
@@ -205,22 +223,26 @@ border-bottom : 1px solid #D1E2ED;
              a {                 
                  display: inline-block;
                  margin: 0px 10px 15px 10px;  
-                 outline : 0;               
+                 outline : 0;                                
              }
 
              a i {
 
-                      background-position: center center !important;
-                      background-size : contain;
                       display: inline-block;
-                      height: 130px;
-                      width: 130px;                      
-                      line-height: 15px;
-                      overflow: hidden;
-                      padding-top: 90px;
+                      height: 100px;
+                      width: 100px;                      
                       text-align: center;
-                      clear : both;                           
+                      clear : both;  
+                      padding-top : 18px;   
+                      font-size : 69px;     
+                      color : @blue-gray; /* @link-color; */
+
+                      &:hover {
+                        color : @blue-gray-dark; /* @link-hover-color; */
+                      }
                 }
+
+
                 
             a span {
                 display: block;
@@ -257,201 +279,91 @@ border-bottom : 1px solid #D1E2ED;
     Icons
    ========================================================================== */
 
-
-     
-                    .topic-health a i {
-                        background : url(../img/topic-health.png) no-repeat;
-                    }       
-
-                    .topic-energy a i {
-                        background : url(../img/topic-energy.png) no-repeat;
-                    }
-
-                    .topic-ethics a i {
-                        background : url(../img/topic-ethics.png) no-repeat;
-                    }
-                    
-                    .topic-education a i {
-                        background : url(../img/topic-education.png) no-repeat;
-                    }
-                    
-                    .topic-finance a i {
-                        background : url(../img/topic-finance.png) no-repeat;
-                    }
-                    
-                    .topic-climate a i {
-                        background : url(../img/topic-climate.png) no-repeat;
-                    }
-
-                    .topic-law a i {
-                        background : url(../img/topic-law.png) no-repeat;
-                    }
-                    
-                    .topic-research a i {
-                        background : url(../img/topic-research.png) no-repeat;
-                    }
-                    
-                    .topic-safety a i {
-                        background : url(../img/topic-safety.png) no-repeat;
-                    }
-
-                    .topic-food a i {
-                        background : url(../img/topic-food.png) no-repeat;
-                    }
-                    
-                    .topic-ocean a i {
-                        background : url(../img/topic-ocean.png) no-repeat;
-                    }
-                    
-                    .topic-development a i {
-                        background : url(../img/topic-development.png) no-repeat;
-                    }
-                        
-                    .topic-manufacturing a i {
-                        background : url(../img/topic-manufacturing.png) no-repeat;
-                    }                   
-
-                    .topic-consumer a i {
-                        background : url(../img/topic-consumer.png) no-repeat;
-                    } 
-                    
-                    .topic-weather a i {
-                        background : url(../img/topic-weather.png) no-repeat;
-                    }
-
-                    .topic-geospatial a i {
-                        background : url(../img/topic-geospatial.png) no-repeat;
-                    }
-
-                    .topic-jobs-and-skills a i {
-                        background : url(../img/topic-jobs-and-skills.png) no-repeat;
-                    }
-
-                    .topic-business a i {
-                        background : url(../img/topic-business.png) no-repeat;
-                    }
-
-                    .topic-counties a i {
-                        background : url(../img/topic-counties.png) no-repeat;
-                    }
-
-                    .topic-states a i {
-                        background : url(../img/topic-states.png) no-repeat;
-                    }
-
-                    .topic-cities a i {
-                        background : url(../img/topic-cities.png) no-repeat;
-                    }
-
-                    .topic-developers a i {
-                        background : url(../img/topic-developers.png) no-repeat;
-                    }
-
-                    .topic-impact a i {
-                        background : url(../img/topic-impact.png) no-repeat;
-                    }                    
+@charset "UTF-8";
 
 
+[class^="topic-"] a i:before,
+[class*=" topic-"] a i:before {
+font-family: "datagov-icons" !important;
+font-style: normal !important;
+font-weight: normal !important;
+font-variant: normal !important;
+text-transform: none !important;
+speak: none;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
 
-
-   .svg {
-       
-                    .topic-health a i {
-                        background : url(../img/topic-health.svg) no-repeat;
-                    }       
-
-                    .topic-energy a i {
-                        background : url(../img/topic-energy.svg) no-repeat;
-                    }
-
-                    .topic-ethics a i {
-                        background : url(../img/topic-ethics.svg) no-repeat;
-                    }
-                    
-                    .topic-education a i {
-                        background : url(../img/topic-education.svg) no-repeat;
-                    }
-                    
-                    .topic-finance a i {
-                        background : url(../img/topic-finance.svg) no-repeat;
-                    }
-                    
-                    .topic-climate a i {
-                        background : url(../img/topic-climate.svg) no-repeat;
-                    }
-
-                    .topic-law a i {
-                        background : url(../img/topic-law.svg) no-repeat;
-                    }
-                    
-                    .topic-research a i {
-                        background : url(../img/topic-research.svg) no-repeat;
-                    }
-                    
-                    .topic-safety a i {
-                        background : url(../img/topic-safety.svg) no-repeat;
-                    }
-
-                    .topic-food a i {
-                        background : url(../img/topic-food.svg) no-repeat;
-                    }
-                    
-                    .topic-ocean a i {
-                        background : url(../img/topic-ocean.svg) no-repeat;
-                    }
-                    
-                    .topic-development a i {
-                        background : url(../img/topic-development.svg) no-repeat;
-                    }
-                        
-                    .topic-manufacturing a i {
-                        background : url(../img/topic-manufacturing.svg) no-repeat;
-                    }                   
-
-                    .topic-consumer a i {
-                        background : url(../img/topic-consumer.svg) no-repeat;
-                    } 
-                    
-                    .topic-weather a i {
-                        background : url(../img/topic-weather.svg) no-repeat;
-                    }
-
-                    .topic-geospatial a i {
-                        background : url(../img/topic-geospatial.svg) no-repeat;
-                    }
-
-                    .topic-jobs-and-skills a i {
-                        background : url(../img/topic-jobs-and-skills.svg) no-repeat;
-                    }
-
-                    .topic-business a i {
-                        background : url(../img/topic-business.svg) no-repeat;
-                    }
-
-                    .topic-counties a i {
-                        background : url(../img/topic-counties.svg) no-repeat;
-                    }
-
-                    .topic-states a i {
-                        background : url(../img/topic-states.svg) no-repeat;
-                    }
-
-                    .topic-cities a i {
-                        background : url(../img/topic-cities.svg) no-repeat;
-                    }
-
-                    .topic-developers a i {
-                        background : url(../img/topic-developers.svg) no-repeat;
-                    }
-
-                    .topic-impact a i {
-                        background : url(../img/topic-impact.svg) no-repeat;
-                    }                     
-
-   }   
-
-
-
+.topic-business a i:before {
+  content: "\e000";
+}
+.topic-cities a i:before {
+  content: "\e001";
+}
+.topic-climate a i:before {
+  content: "\e002";
+}
+.topic-consumer a i:before {
+  content: "\e003";
+}
+.topic-counties a i:before {
+  content: "\e004";
+}
+.topic-developers a i:before {
+  content: "\e005";
+}
+.topic-development a i:before {
+  content: "\e006";
+}
+.topic-education a i:before {
+  content: "\e007";
+}
+.topic-energy a i:before {
+  content: "\e008";
+}
+.topic-ethics a i:before {
+  content: "\e009";
+}
+.topic-finance a i:before {
+  content: "\e00a";
+}
+.topic-food a i:before {
+  content: "\e00b";
+}
+.topic-geospatial a i:before {
+  content: "\e00c";
+}
+.topic-impact a i:before {
+  content: "\e00d";
+}
+.topic-jobs-and-skills a i:before {
+  content: "\e00e";
+}
+.topic-law a i:before {
+  content: "\e00f";
+}
+.topic-manufacturing a i:before {
+  content: "\e010";
+}
+.topic-ocean a i:before {
+  content: "\e011";
+}
+.topic-research a i:before {
+  content: "\e012";
+}
+.topic-safety a i:before {
+  content: "\e013";
+}
+.topic-states a i:before {
+  content: "\e014";
+}
+.topic-weather a i:before {
+  content: "\e015";
+}
+.topic-health a i:before {
+  content: "\e016";
+}
 
      
 
@@ -507,15 +419,14 @@ border-bottom : 1px solid #D1E2ED;
   a {
     margin-top : 1em;
     margin-bottom : 0;
-    padding : 3px 10px;
+    padding : 0 5px;
   }
 
   a i {    
     line-height: 10px;
     padding-top: 20px;
-    width: 50px;
-    height: 50px;    
-    background-size : contain;
+    font-size : 50px;
+    height : 75px;
   }
 
   a span {
@@ -825,11 +736,10 @@ color : @blue-gray;
   }
 
   i {
-    background-position: center center !important;
-    background-size: contain !important;
     display: inline-block;
     height : 20px;
     width : 20px;
+    font-size : 20px;
     margin-bottom : -.2em;
   }
 
