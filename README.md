@@ -22,7 +22,7 @@ Custom plugins are provided in the `/plugins` folder. See the [plugins](plugins.
 The `/exportables/` folder contains advanced custom fields definitions in xml format that can be imported manually via acf plugin.
 
 ### Deployment
-This is a standard WordPress install, so please refer to the [Wordpress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
+This is a standard WordPress install, so please refer to the [WordPress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
 
 ## CKAN
 
@@ -62,7 +62,7 @@ When you are ready, submit a [pull request](https://github.com/GSA/data.gov/pull
 
 ##Submitting an Issue
 
-We use the [GitHub issue tracker](https://github.com/GSA/data.gov/issues) to track bugs and features. Before submitting a bug report or feature request, check to make sure it hasn't already been submitted. You can indicate support for an existing issue by voting it up. When submitting a bug report, please try to provide a screenshot that demonstrates the problem. 
+We use the [GitHub issue tracker](https://github.com/GSA/data.gov/issues) to track bugs and features. Before submitting a bug report or feature request, check to make sure it hasn't already been submitted. When submitting a bug report, please try to provide a screenshot that demonstrates the problem. 
 
 If you've encountered a bug while working in your own developer environment or if you have more extensive technical details to provide, please consider linking to a [Gist](https://gist.github.com/) that includes the full error log and/or any details that may be necessary to reproduce the bug.
 
