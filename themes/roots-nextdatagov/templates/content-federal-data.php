@@ -162,7 +162,7 @@ $cat_slug = $category[0]->slug;
 					   'tax_query'=>	array(
 						'relation' => 'AND',
 					array(
-					'taxonomy' => 'application_categories',
+					'taxonomy' => 'application_types',
 					'terms' => 'general_reference-30',
 					'field' => 'slug',
 					),
