@@ -86,7 +86,7 @@ $cat_slug = $category[0]->slug;
                                         echo $content;
                                         ?>
 										<br>
-                                        <a href="<?php echo get_permalink(); ?>" style="font-weight:bold;float:right;text-transform:uppercase" class="<?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?> ">Read More</a>
+                                        <a href="<?php echo get_permalink(); ?>" style="font-weight:bold;float:right;text-transform:uppercase" class="<?php foreach( get_the_category() as $cat ) { echo $cat->slug . '  '; } ?> ">Continued</a>
                                     </div>
 
 
