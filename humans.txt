@@ -1,27 +1,32 @@
+  ____    _  _____  _      ____  _____     __
+ |  _ \  / \|_   _|/ \    / ___|/ _ \ \   / /
+ | | | |/ _ \ | | / _ \  | |  _| | | \ \ / / 
+ | |_| / ___ \| |/ ___ \ _ |_| | |_| |\ V /  
+ |____/_/   \_\_/_/   \_(_)____|\___/  \_/   
+
+
 /* TEAM */
-General Services Administration
+
+Department: Office of Citizen Services and Innovative Technologies, General Services Administration
 Site: http://www.data.gov/contact
 Twitter: @usdatagov
-Location: United States of America
+Location: Washington DC, USA
+
+Director: Marion Royal
+
+Deputy Program Director: Hyon Kim
+
+Evangelist: Jeanne Holm
+Twitter: @JeanneHolm
+
+Architect: Philip Ashlock
+Site: https://github.com/philipashlock/
 
 
 /* THANKS */
-rypan: https://github.com/rypan
-philipashlock: https://github.com/philipashlock
-3ullasjos: https://github.com/ullasjos
-shwetashrivastava: https://github.com/shwetashrivastava
-dan-olaru-reisys: https://github.com/dan-olaru-reisys
-vz3: https://github.com/vz3
-pshirodkar: https://github.com/pshirodkar
-alex-perfilov-reisys: https://github.com/alex-perfilov-reisys
-kvuppala: https://github.com/kvuppala
-dwcaraway: https://github.com/dwcaraway
-kapil-bulchandani: https://github.com/kapil-bulchandani
-georgestephanis: https://github.com/georgestephanis
-pborreli: https://github.com/pborreli
-imjared: https://github.com/imjared
-aaronraimist: https://github.com/aaronraimist
+Contributors: https://github.com/GSA/data.gov/graphs/contributors
                  
-                        
+                       
 /* SITE */
-Languages: PHP, JavaScript, CSS
+Software: CKAN, Wordpress
+Open Source: https://github.com/GSA/data.gov
