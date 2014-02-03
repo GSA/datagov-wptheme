@@ -242,7 +242,7 @@ function cptui_register_my_taxes_announcements_and_news() {
 #Application Types
 add_action('init', 'cptui_register_my_taxes_application_types');
 function cptui_register_my_taxes_application_types() {
-    if ( current_user_can('manage_options')){
+    if ( is_admin()){
         $labelarray = array (
             'search_items' => 'Application Type',
             'popular_items' => '',
