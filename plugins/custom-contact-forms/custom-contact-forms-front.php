@@ -454,19 +454,11 @@ if (!class_exists('CustomContactFormsFront')) {
                 $req_fields              = $this->requiredFieldsArrayFromList($_POST['required_fields']);
                 $req_fields              = array_map('trim', $req_fields);
                 $body                    = '';
-                $dataset_suggested = false;
+
                 foreach ($_POST as $key => $value) {
                     if (!in_array($key, $fixed_customhtml_fields)) {
                         if (in_array($key, $req_fields) && !empty($value)) {
                             unset($req_fields[array_search($key, $req_fields)]);
-                        }
-                        if ('dataset_name' == $key) {
-                            $body .= "<br /><strong>A new dataset has been suggessted:  </strong><br />\n";
-                            $dataset_suggested = true;
-                        }
-                        if ('your_name' == $key) {
-                            $body .= "<br /><strong>Submitted by: </strong><br />\n";
-                            $dataset_suggested = true;
                         }
                         $body .= ucwords(str_replace('_', ' ', htmlspecialchars($key))) . ': ' . htmlspecialchars($value) . "<br /><br />\n";
                         $data_array[$key] = $value;
@@ -483,11 +475,6 @@ if (!class_exists('CustomContactFormsFront')) {
                     ccf_utils::load_module('export/custom-contact-forms-user-data.php');
                     $data_object = new CustomContactFormsUserData(array('data_array' => $data_array, 'form_page' => $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], 'form_id' => 0, 'data_time' => time()));
                     parent::insertUserData($data_object);
-
-                    if ($dataset_suggested) {
-                        $body .= "<br />\nPlease login as administrator and use following link to review and act on this request
-                        https://" . $_SERVER['SERVER_NAME'] . "/wp-admin/admin.php?page=datasets-suggested <br /><br />\n";
-                    }
 
                     $body .= "<br />\n" . htmlspecialchars($lang['form_page']) . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . "<br />\n" . $lang['sender_ip'] . $_SERVER['REMOTE_ADDR'] . "<br />\n";
 
@@ -559,7 +546,7 @@ if (!class_exists('CustomContactFormsFront')) {
                                     $_POST['your_email'] = $current_user->user_email;
                                     break;
                                 case 'your_name' :
-                                    $_POST['your_name'] = $current_user->user_login . '( ' . $current_user->user_firstname . ' ' . $current_user->user_lastname . ' )';
+                                    $_POST['your_name'] = $current_user->user_login . ' ( ' . $current_user->user_firstname . ' ' . $current_user->user_lastname . ' )';
                                     break;
                             }
                         }
@@ -654,7 +641,19 @@ if (!class_exists('CustomContactFormsFront')) {
                 }
                 $body       = '';
                 $data_array = array();
+                $dataset_suggested = false;
+
                 foreach ($_POST as $key => $value) {
+
+                    if ('dataset_name' == $key) {
+                        $body .= "<br /><strong>A new dataset has been suggessted:  </strong><br />\n";
+                        $dataset_suggested = true;
+                    }
+                    if ('your_name' == $key) {
+                        $body .= "<br /><strong>Submitted by: </strong><br />\n";
+                        $dataset_suggested = true;
+                    }
+
                     $_SESSION['ccf_fields'][$key] = $value;
                     //if (is_array($value)) $value = implode(', ', $value);
                     $val2  = (is_array($value)) ? implode(', ', $value) : $value;
@@ -688,6 +687,12 @@ if (!class_exists('CustomContactFormsFront')) {
                     $data_object = new CustomContactFormsUserData(array('data_array' => $data_array, 'form_page' => $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], 'form_id' => $form->id, 'data_time' => $post_time));
                     parent::insertUserData($data_object);
                     if ($admin_options['email_form_submissions'] == '1') {
+
+                        if ($dataset_suggested) {
+                            $body .= "<br />\nPlease login as administrator and use following link to review and act on this request
+                        https://" . $_SERVER['SERVER_NAME'] . "/wp-admin/admin.php?page=datasets-suggested <br /><br />\n";
+                        }
+
                         $body .= "<br />\n" . htmlspecialchars($lang['form_page']) . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . "<br />\n" . $lang['sender_ip'] . $_SERVER['REMOTE_ADDR'] . "<br />\n";
                         if (!class_exists('PHPMailer'))
                             require_once(ABSPATH . "wp-includes/class-phpmailer.php");
