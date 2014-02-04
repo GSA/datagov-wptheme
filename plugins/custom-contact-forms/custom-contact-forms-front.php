@@ -131,26 +131,6 @@ if (!class_exists('CustomContactFormsFront')) {
             $this->form_errors = array();
         }
 
-        function contentFilter($content)
-        {
-            // THIS NEEDS TO REPLACE THE SHORTCODE ONLY ONCE
-            $errors = $this->getAllFormErrors();
-            if (!empty($errors)) {
-                $admin_options = parent::getAdminOptions();
-                $out           = '<div id="custom-contact-forms-errors"><p>' . esc_html($admin_options['default_form_error_header']) . '</p><ul>' . "\n";
-                //$errors = $this->getAllFormErrors();
-                foreach ($errors as $error) {
-                    $out .= '<li>' . esc_html($error) . '</li>' . "\n";
-                }
-                $err_link = (!empty($this->error_return)) ? '<p><a href="' . esc_attr($this->error_return) . '" title="' . __('Go Back', 'custom-contact-forms') . '">&lt; ' . __('Go Back to Form.', 'custom-contact-forms') . '</a></p>' : '';
-                $this->emptyFormErrors();
-
-                return $out . '</ul>' . "\n" . $err_link . '</div>';
-            }
-
-            return $content;
-        }
-
         function insertFormSuccessCode()
         {
             $admin_options = parent::getAdminOptions();
@@ -251,7 +231,21 @@ if (!class_exists('CustomContactFormsFront')) {
             $form_title       = ccf_utils::decodeOption($form->form_title, 1, 1);
             $action           = (!empty($form->form_action)) ? $form->form_action : $_SERVER['REQUEST_URI'];
             $file_upload_form = '';
-            //$out .= '<form id="'.$form_id.'" method="'.$form_method.'" action="'.$action.'" class="'.$style_class.'">' . "\n";
+
+
+            $errors = $this->getAllFormErrors();
+            if (!empty($errors)) {
+                $admin_options = parent::getAdminOptions();
+                $out    .= '<div class="alert alert-danger"> <h5>' .
+                    esc_html($admin_options['default_form_error_header']) . '</h5><ul>' . "\n";
+
+                foreach ($errors as $error) {
+                    $out .= "<li>" . esc_html($error) . "</li>\n";
+                }
+                $out .= "</ul>\n</div>";
+                $this->emptyFormErrors();
+            }
+
             $out .= ccf_utils::decodeOption($form->custom_code, 1, 1) . "\n";
             if (!empty($form_title) && !$is_widget_form) $out .= '<h4 id="h4-' . esc_attr($form->id) . '-' . $form_key . '">' . esc_html($form_title) . '</h4>' . "\n";
             $fields    = parent::getAttachedFieldsArray($form->id);
@@ -554,9 +548,7 @@ if (!class_exists('CustomContactFormsFront')) {
 //                    load field as obj
                     $field = parent::selectField($field_id, '');
 
-                    $hiddenUserField = false;
                     if (false !== strpos($field->field_class, 'hide-for-auth')) {
-                        $hiddenUserField = true;
                         if (is_user_logged_in()) {
                             /**
                              * @var WP_User $current_user
@@ -569,9 +561,7 @@ if (!class_exists('CustomContactFormsFront')) {
                                 case 'your_name' :
                                     $_POST['your_name'] = $current_user->user_login . '( ' . $current_user->user_firstname . ' ' . $current_user->user_lastname . ' )';
                                     break;
-                                default:
-                                    $hiddenUserField = false;
-                            }                            
+                            }
                         }
                     }
                     if ($field->field_slug == 'ishuman') {

@@ -96,11 +96,7 @@ if (!is_admin()) { /* is front */
     }
     add_action('init', array(&$custom_contact_front, 'frontInit'), 1);
     add_action('template_redirect', array(&$custom_contact_front, 'includeDependencies'), 1);
-    //add_action('wp_enqueue_scripts', array(&$custom_contact_front, 'insertFrontEndScripts'), 1);
-    //add_action('wp_print_styles', array(&$custom_contact_front, 'insertFrontEndStyles'), 1);
     add_shortcode('customcontact', array(&$custom_contact_front, 'shortCodeToForm'));
-
-    add_filter('the_content', array(&$custom_contact_front, 'contentFilter'));
 } else { /* is admin */
     $GLOBALS['ccf_current_page'] = (isset($_GET['page'])) ? $_GET['page'] : '';
     require_once('custom-contact-forms-admin.php');
