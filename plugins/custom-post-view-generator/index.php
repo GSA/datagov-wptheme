@@ -70,42 +70,53 @@ function cpvg_load_admin_scripts(){
 if (is_admin()){
 	//ADMIN LINKS
 	add_action('admin_menu', 'cpvg_menu_pages');
-		
-	//JS
-	wp_register_script('cpvg_functions', CPVG_PLUGIN_URL . 'cpvg_functions.min.js', false, null);
-	wp_register_script('cpvg_flowplayer', CPVG_PLUGIN_URL . 'libs/flowplayer/flowplayer-3.2.6.min.js', false, null);
-	wp_register_script('cpvg_jquery_tmpl', CPVG_PLUGIN_URL . 'libs/knockoutjs/jquery-tmpl.min.js', false, null);
-	wp_register_script('cpvg_knockout', CPVG_PLUGIN_URL . 'libs/knockoutjs/knockout.min.js', false, null);
-	
-	wp_enqueue_script(array('jquery-ui-draggable','jquery-ui-droppable','jquery-ui-sortable',
-							'jquery-ui-dialog',
-							'cpvg_flowplayer',
-							'cpvg_jquery_tmpl','cpvg_knockout','cpvg_pagination','cpvg_functions'));
 
-	//Necessary for Meta Boxes in List Views
-	wp_enqueue_script(array('common','wp-lists','postbox'));
 
-	//Action for ajax calls
-	add_action('wp_ajax_generate_preview', 'cpvg_generate_preview');
-	add_action('wp_ajax_save_layout', 'cpvg_save_layout');
+    function cpvg_admin_scripts()
+    {
+        //JS
+        wp_register_script('cpvg_functions', CPVG_PLUGIN_URL . 'cpvg_functions.min.js', false, null);
+        wp_register_script('cpvg_flowplayer', CPVG_PLUGIN_URL . 'libs/flowplayer/flowplayer-3.2.6.min.js', false, null);
+        wp_register_script('cpvg_jquery_tmpl', CPVG_PLUGIN_URL . 'libs/knockoutjs/jquery-tmpl.min.js', false, null);
+        wp_register_script('cpvg_knockout', CPVG_PLUGIN_URL . 'libs/knockoutjs/knockout.min.js', false, null);
+
+        wp_enqueue_script(array('jquery-ui-draggable', 'jquery-ui-droppable', 'jquery-ui-sortable',
+            'jquery-ui-dialog',
+            'cpvg_flowplayer',
+            'cpvg_jquery_tmpl', 'cpvg_knockout', 'cpvg_pagination', 'cpvg_functions'));
+
+        //Necessary for Meta Boxes in List Views
+        wp_enqueue_script(array('common', 'wp-lists', 'postbox'));
+    }
+
+    add_action('wp_enqueue_scripts', 'cpvg_admin_scripts');
+
+    //Action for ajax calls
+    add_action('wp_ajax_generate_preview', 'cpvg_generate_preview');
+    add_action('wp_ajax_save_layout', 'cpvg_save_layout');
 	add_action('wp_ajax_delete_layout', 'cpvg_delete_layout');
 	add_action('wp_ajax_get_post_view_data', 'cpvg_get_post_view_data');
 	add_action('wp_ajax_get_list_view_data', 'cpvg_get_list_view_data');
 	add_action('wp_ajax_create_postpage', 'cpvg_create_post_page');
 
 	//LOAD CSS
-	add_action('after_setup_theme','cpvg_load_css');	
+    add_action('admin_enqueue_scripts', 'cpvg_load_css');
 }else{
-	wp_register_script('cpvg_flowplayer', CPVG_PLUGIN_URL . '/libs/flowplayer/flowplayer-3.2.6.min.js', false, null);
-	wp_register_script('cpvg_pagination', CPVG_PLUGIN_URL . 'libs/smartpaginator/smartpaginator.min.js', false, null);
-	wp_register_script('cpvg_tablesorter', CPVG_PLUGIN_URL . 'libs/tablesorter/jquery-tablesorter-min.js', false, null);
-    		
-	wp_enqueue_script(array('cpvg_flowplayer','jquery','cpvg_pagination','cpvg_tablesorter'));
-		
-	//USED IN POST VIEWS
-	add_filter('the_content', 'cpvg_process_page',-999);
+    function cpvg_scripts()
+    {
+        wp_register_script('cpvg_flowplayer', CPVG_PLUGIN_URL . '/libs/flowplayer/flowplayer-3.2.6.min.js', false, null);
+        wp_register_script('cpvg_pagination', CPVG_PLUGIN_URL . 'libs/smartpaginator/smartpaginator.min.js', false, null);
+        wp_register_script('cpvg_tablesorter', CPVG_PLUGIN_URL . 'libs/tablesorter/jquery-tablesorter-min.js', array('jquery'), null);
 
-	//IF THE YOU ARE GETTING GARBAGE ON POST LISTING UNCOMMENT THE NEXT LINE
+        wp_enqueue_script(array('cpvg_flowplayer', 'cpvg_pagination', 'cpvg_tablesorter'));
+    }
+
+    add_action('wp_enqueue_scripts', 'cpvg_scripts');
+
+    //USED IN POST VIEWS
+    add_filter('the_content', 'cpvg_process_page', -999);
+
+    //IF THE YOU ARE GETTING GARBAGE ON POST LISTING UNCOMMENT THE NEXT LINE
 	//add_filter('the_excerpt', 'cpvg_process_excerpt',-999);
 
 	//USED IN LIST VIEWS
@@ -117,10 +128,13 @@ if (is_admin()){
  */ 
 function cpvg_activation(){
 	cpvg_deactivation();
-	global $wpdb,  $table_prefix;
+    /**
+     * @var wpdb $wpdb
+     */
+    global $wpdb, $table_prefix;
 
-	$wp_cpvg_table = $table_prefix."cpvg_post_views";
-	if($wpdb->get_var("show tables like '$wp_cpvg_table'") != $wp_cpvg_table) {
+    $wp_cpvg_table = $table_prefix . "cpvg_post_views";
+    if($wpdb->get_var("show tables like '$wp_cpvg_table'") != $wp_cpvg_table) {
 		$sql0  = "CREATE TABLE `". $wp_cpvg_table . "` ( ";
 		$sql0 .= "  `id`       					int(11)      NOT NULL auto_increment,";
 		$sql0 .= "  `name` 	varchar(255) NOT NULL default '', ";
@@ -170,9 +184,10 @@ function cpvg_load_css(){
 * this function will return an part of content field to prevent
 * from garbage being displayed because of the the_content filter
 */
-function cpvg_process_excerpt($content){
-	global $post,$wpdb;
-	$output = $post->post_excerpt;
+function cpvg_process_excerpt($content = '')
+{
+    global $post;
+    $output = $post->post_excerpt;
 	if($output != ""){
 		return $output;
 	}else{
@@ -195,9 +210,6 @@ function cpvg_list_views() {
     if (!current_user_can('manage_options')) {
         wp_die('You do not have sufficient permissions to access this page.');
     }
-
-	//global $table_prefix;
-	//check_database($table_prefix.'cpvg_list_views');
 
 	require_once CPVG_ADMIN_TEMPLATE_DIR . "/cpvg_list_views.html";
 
@@ -226,8 +238,8 @@ function cvpg_listview_metabox($data){
 	require_once CPVG_ADMIN_TEMPLATE_DIR . "/cpvg_fieldtypes_form.html";
 	require_once CPVG_ADMIN_TEMPLATE_DIR . "/cpvg_list_views.html";
 
-	global $table_prefix,$wpdb;
-	$db_data = cpvg_get_dbfields_names("list");
+    global $wpdb;
+    $db_data = cpvg_get_dbfields_names("list");
 
 	switch($data["metabox"]){
 		case 'list_views':
@@ -291,7 +303,6 @@ function cpvg_fieldtypes_form($post_types,$view_type='post'){
 
 		$object_types = array_diff_assoc(get_post_types(array('_builtin'=>false)),array('content-type'=>'content-type','rw_content_type'=>'rw_content_type','rw_taxonomy'=>'rw_taxonomy'));
 		$objects_data = array();
-		$filter_data = array();
 		//POST VIEWS
 		foreach ($object_types  as $post_type) {
 			$custom_fields_data = cpvg_get_customfields($post_type);
@@ -373,7 +384,6 @@ function cpvg_fieldtypes_form($post_types,$view_type='post'){
 
 //Load the plugincode files - files necessary to extract the fields created by a custom post type field
 function cpvg_get_pluginscode_files(){
-	$pluginfiles_data = array();
 	$find_strings = array();
 	$replace_strings = array();
 	$files = array();
@@ -522,11 +532,9 @@ function cpvg_process_list($params){
 		}
 	
 		if(isset($query_args['posts_per_page'])){
-			$pagination = $query_args['posts_per_page'];
 			$query_args = array_diff_assoc($query_args,array('posts_per_page'=>$query_args['posts_per_page']));
 		}
 		if(isset($query_args['usersorting_choice'])){
-			$usersorting = $query_args['usersorting_choice'];
 			$query_args = array_diff_assoc($query_args,array('usersorting_choice'=>$query_args['usersorting_choice']));
 		}		
 
@@ -548,10 +556,8 @@ function cpvg_process_list($params){
 		$query_args['posts_per_page'] = 9999;
 		$query_args['usersorting_choice'] = 0;
 
-		error_reporting(0);
 		//Performs query
 		$query_result = new WP_Query($query_args);
-		error_reporting(E_ALL ^ E_NOTICE);
 
 		//Removes a custom filter if the custom_date parameter was used
 		if(isset($custom_date_function)){
@@ -607,9 +613,9 @@ function cpvg_process_list($params){
 //Processes a post view. It is also called by the cpvg_process_list
 //to process each post of the list
 function cpvg_process_page(){
-	global $table_prefix,$wpdb, $post;
+    global $wpdb, $post;
 
-	$db_data = cpvg_get_dbfields_names("post");
+    $db_data = cpvg_get_dbfields_names("post");
 	$custom_post_type_options = $wpdb->get_var("SELECT ".$db_data['options_field']."
 											    FROM ".$db_data['table_name']."
 											    WHERE ".$db_data['name_field']." = '".$post->post_type."'");
@@ -682,7 +688,6 @@ function cpvg_process_data($data=null,$external_template_processing=false){
 		$fields = $_POST['fields']; 
 	}
 
-	$html = '';
 	$record_data = array();
 	if(!empty($fields)){
 		foreach($fields as $field_data){
@@ -759,9 +764,6 @@ function cpvg_process_data($data=null,$external_template_processing=false){
 			}
 		}
 	}
-/*echo "<br><br><br>";
-print_r($record_data[0]);
-echo "<br><br><br>";*/
 
 	if($external_template_processing){
 		//LIST VIEWS
@@ -936,9 +938,9 @@ function check_database($table_name="cpvg"){
 
 //Returns the requested post view data
 function cpvg_get_post_view_data(){
-	global $table_prefix,$wpdb;
+    global $wpdb;
 
-	if(isset($_POST['view_value'])){
+    if(isset($_POST['view_value'])){
 		$db_data = cpvg_get_dbfields_names($_POST['view_type']);
 		$custom_post_type_options = $wpdb->get_var("SELECT ".$db_data['options_field']." FROM ".$db_data['table_name']." WHERE ".$db_data['name_field']." = '".$_POST['view_value']."'");
 		print $custom_post_type_options;
@@ -947,8 +949,8 @@ function cpvg_get_post_view_data(){
 
 //Returns the requested list view data
 function cpvg_get_list_view_data(){
-	global $table_prefix,$wpdb;
-	if(isset($_POST['view_value'])){
+    global $wpdb;
+    if(isset($_POST['view_value'])){
 		$db_data = cpvg_get_dbfields_names($_POST['view_type']);
 		$custom_post_type_options = $wpdb->get_var("SELECT ".$db_data['options_field']." FROM ".$db_data['table_name']." WHERE ".$db_data['name_field']." = '".$_POST['view_value']."'");
 		print $custom_post_type_options;
@@ -958,8 +960,9 @@ function cpvg_get_list_view_data(){
 /****************************************** Util **************************************************/
 function cpvg_random_text_value(){
 	$codelenght = 8;
-	while($newcode_length < $codelenght) {
-		$x=1; $y=4;
+    $newcode = '';
+    while (strlen($newcode) < $codelenght) {
+        $x=1; $y=4;
 		$part = rand($x,$y);
 
 		if($part==1){$a=48;$b=57;}  // Numbers
@@ -968,9 +971,8 @@ function cpvg_random_text_value(){
 		//if($part==4){$a=32;$b=31;} // Space
 
 		$code_part=chr(rand($a,$b));
-		$newcode_length = $newcode_length + 1;
-		$newcode = $newcode.$code_part;
-	}
+        $newcode .= $code_part;
+    }
 	return $newcode;
 }
 
@@ -988,7 +990,5 @@ function cpvg_capitalize_array_values($array){
 	foreach($array as $key=>$value){
 		$array[$key] =  ucwords($value);
 	}
-	//array_walk($array, function(&$value, $key){ $value = ucwords($value); });
 	return $array;
 }
-?>
