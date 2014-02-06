@@ -4,9 +4,10 @@
 	By Taylor Lovett - http://www.taylorlovett.com
 	Plugin URL: http://www.taylorlovett.com/wordpress-plugins
 */
+error_reporting(0);
 //header("Content-type: image/png");
 require_once('custom-contact-forms-utils.php');
-(new ccf_utils)->load_module('images/custom-contact-forms-images.php');
+ccf_utils::load_module('images/custom-contact-forms-images.php');
 $image = new CustomContactFormsImages();
 $str   = rand(10000, 99999);
 if (!session_id())

@@ -12,7 +12,7 @@ if (!class_exists('ccf_utils')) {
             $this->defineConstants();
         }
 
-        function redirect($location)
+        static function redirect($location)
         {
             if (!empty($location)) {
                 wp_redirect($location);
@@ -20,7 +20,7 @@ if (!class_exists('ccf_utils')) {
             }
         }
 
-        function load_module($path, $required = true)
+        static function load_module($path, $required = true)
         {
             if (empty($path)) return false;
             if ($required) require_once('modules/' . $path);
