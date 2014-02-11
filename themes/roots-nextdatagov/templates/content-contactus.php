@@ -53,22 +53,18 @@
 
 
                 <?php
-                    include_once(ABSPATH.WPINC.'/rss.php'); // path to include script
-                    $feed = fetch_rss('http://opendata.stackexchange.com/feeds/tag/data.gov'); // specify feed url
-                    $items = array_slice($feed->items, 0, 7); // specify first and last item
-                ?>
+                $feed = fetch_feed('http://opendata.stackexchange.com/feeds/tag/data.gov'); // specify feed url
+                $items = $feed->get_items(0, 7); // specify first and last item
 
-                <?php if (!empty($items)) : ?>
-
-                    <?php foreach ($items as $item) : ?>
-
+                if (!empty($items)) :
+                    foreach ($items as $item) : ?>
                         <div class="foreign-post">
                             <h4 class="post-title">
-                                <a href="<?php echo $item['link']; ?>"><?php echo $item['title']; ?></a>
+                                <a href="<?php echo $item->get_link(); ?>"><?php echo $item->get_title(); ?></a>
                             </h4>
                             
                             <div class="post-date">
-                                <?php echo date('F d, Y h:i A',strtotime($item['updated'])); ?>
+                                <?php echo $item->get_date('F d, Y h:i A'); ?>
                             </div>
                         </div>
 
@@ -104,15 +100,6 @@
                         </span>
                     </h1>
                 </a>
-
-                <!--  <div  class="contact-post2">
-                     <div class="contact-text"><i class="fa fa-stack-exchange"></i>&nbsp;<a href="http://opendata.stackexchange.com/">Ask the community</a>
-                         <span class="greytext">(Stack Exchange)</span></div>
-                 </div>
-                 <div  class="contact-post2">
-                     <div class="contact-text"><i class="fa fa-envelope"></i>&nbsp;Contact a data Steward
-                         <span class="greytext">(Private)</span></div>
-                 </div> -->
                 
                 <div>
                     <div>
