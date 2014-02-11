@@ -96,11 +96,11 @@ $cat_slug = $category[0]->slug;
                             }
                                 $count ++;
                             }
-                        $output .= "</div><div class='pagination'>";
+                        $output .= "</div><div class='pagination' style='display:block;clear:both;'>";
                         $output .= "<p class='counter'>";
-                        $output .= "Page $currentpage of $total_maps";
+                        $output .= "Page $currentpage of $total_pages";
                         $output .= "</p>
-                                                <ul class='pagination'>";
+                        <ul class='pagination'>";
                         if($total_maps > $mapsperpage) {
                             $range = 10;
                             if ($currentpage > 1) {
