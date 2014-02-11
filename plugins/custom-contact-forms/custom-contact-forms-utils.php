@@ -98,4 +98,3 @@ if (!class_exists('ccf_utils')) {
         }
     }
 }
-?>
