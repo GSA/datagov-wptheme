@@ -201,12 +201,14 @@ function customPagination($base_url, $cur_page, $number_of_pages, $prev_next=fal
     $ends_count = 1;  //how many items at the ends (before and after [...])
     $middle_count = 2;  //how many items before and after current page
     $dots = false;
+    $nextpage= $cur_page + 1;
+    $prevpage = $cur_page - 1;
     $output="<ul class='pagination'>";
     ?>
 
     <?php
     if ($prev_next && $cur_page && 1 < $cur_page) {  //print previous button?
-        $output .= "<li class='pagination-prev'><a class='prev page-numbers pagenav local-link' href='?currentpage=$cur_page-1'>Previous</a> </li>";
+        $output .= "<li class='pagination-prev'><a class='prev page-numbers pagenav local-link' href='?currentpage=$prevpage'>Previous</a> </li>";
     }
     for ($i = 1; $i <= $number_of_pages; $i++) {
         if ($i == $cur_page) {
@@ -223,7 +225,7 @@ function customPagination($base_url, $cur_page, $number_of_pages, $prev_next=fal
         }
     }
     if ($prev_next && $cur_page && ($cur_page < $number_of_pages || -1 == $number_of_pages)) { //print next button?
-        $output .= " <li class='pagination-next'> <a href='?currentpage=$cur_page+1'> Next</a></li> ";
+        $output .= " <li class='pagination-next'> <a href='?currentpage=$nextpage'> Next</a></li> ";
     }
     ?>
 <?php
