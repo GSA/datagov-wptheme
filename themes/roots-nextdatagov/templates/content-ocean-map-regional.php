@@ -96,36 +96,41 @@ $cat_slug = $category[0]->slug;
                                 }
                                 $count ++;
                             }
-                            $output .= "</div><div class='item-list'><ul class='pager'>";
+                            $output .= "</div><div class='pagination' style='display:block;clear:both;'>";
+                            $output .= "<p class='counter'>";
+                            $output .= "Page $currentpage of $total_pages";
+                            $output .= "</p>
+                                                <ul class='pagination'>";
                             if($total_maps > $mapsperpage) {
                                 $range = 10;
                                 if ($currentpage > 1) {
-                                    $output .= "<br clear='both'/><li class='pager-first first'><a href='?currentpage=1'><<< FIRST </a></li> ";
+                                    $output .= "<li class='pagination-prev'><a class='prev page-numbers pagenav local-link' href='?currentpage=$prevpage'>Previous</a> </li>";
+                                    // $output .= "<br clear='both'/><li class='pager-first first'><a href='?currentpage=1'><<< FIRST </a></li> ";
                                     $prevpage = $currentpage - 1;
-                                    $output .= "<li class='pager-previous'><a href='?currentpage=$prevpage'>< PREVIOUS  </a> </li>";
+                                    //$output .= "<li class='pager-previous'><a href='?currentpage=$prevpage'>< PREVIOUS  </a> </li>";
                                 }
                                 for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
                                     if (($x > 0) && ($x <= $total_pages)) {
                                         if ($x == $currentpage) {
-                                            if ($currentpage == 1) {
-                                                $output .="<br clear='both'/><br/>";
-                                            }
+                                            /* if ($currentpage == 1) {
+                                                 $output .="<br clear='both'/><br/>";
+                                             }*/
                                             if ($total_pages > 1) {
-                                                $output .= "<li class='pager-current first'>$x</li>";
+                                                $output .= "<li><span class='page-numbers pagenav current'> $x </span></li>";
                                             }
                                         }
                                         else {
-                                            $output .= "<li class='pager-item'><a href='?currentpage=$x'> $x </a></li>";
+                                            $output .= "<li><a class='page-numbers pagenav' href='?currentpage=$x'> $x </a></li>";
                                         }
                                     }
                                 }
                                 if ($currentpage != $total_pages) {
                                     $nextpage = $currentpage + 1;
-                                    $output .= " <li class='pager-next'> <a href='?currentpage=$nextpage'>NEXT ></a></li> ";
-                                    $output .= " <li class='pager-last last'><a href='?currentpage=$total_pages'>  LAST >>></a> </li>";
+                                    $output .= " <li class='pagination-next'> <a href='?currentpage=$nextpage'> Next</a></li> ";
+                                    //$output .= " <li class='pager-last last'><a href='?currentpage=$total_pages'>  LAST >>></a> </li>";
                                 }
                             }
                             print $output;
                             ?>
-                            </div>
-                            </div>
+                        </div>
+                        </div>
