@@ -104,8 +104,8 @@ if (is_admin()){
 }else{
     function cpvg_scripts()
     {
-        wp_register_script('cpvg_flowplayer', CPVG_PLUGIN_URL . '/libs/flowplayer/flowplayer-3.2.6.min.js', false, null);
-        wp_register_script('cpvg_pagination', CPVG_PLUGIN_URL . 'libs/smartpaginator/smartpaginator.min.js', false, null);
+        wp_register_script('cpvg_flowplayer', CPVG_PLUGIN_URL . '/libs/flowplayer/flowplayer-3.2.6.min.js', array('jquery'), null);
+        wp_register_script('cpvg_pagination', CPVG_PLUGIN_URL . 'libs/smartpaginator/smartpaginator.min.js', array('jquery'), null);
         wp_register_script('cpvg_tablesorter', CPVG_PLUGIN_URL . 'libs/tablesorter/jquery-tablesorter-min.js', array('jquery'), null);
 
         wp_enqueue_script(array('cpvg_flowplayer', 'cpvg_pagination', 'cpvg_tablesorter'));
