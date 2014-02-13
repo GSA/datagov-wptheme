@@ -47,7 +47,11 @@ $new_query = new WP_Query($args);
     <?php get_template_part('templates/entry-meta'); ?>
   </header>
   <div class="entry-summary">
-    <?php the_excerpt(); ?>
+      <?php
+          remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+          add_filter('get_the_excerpt', 'datagov_custom_keep_my_links');
+          the_excerpt();
+      ?>
   </div>
 </article>
 
