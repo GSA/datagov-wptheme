@@ -1465,3 +1465,13 @@ ul#content-nav li a {
     padding: 0 0 15px;
 }
 .featuredImage{width:30px;}
+
+.highlights .carousel-inner .item {
+    height: 300px;
+    overflow: auto
+}
+
+.highlights .carousel-indicators {
+    bottom: 0;
+    margin-bottom: -25px
+}

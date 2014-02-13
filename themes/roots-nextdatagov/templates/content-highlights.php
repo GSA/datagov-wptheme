@@ -33,19 +33,7 @@ if (($highlight_posts->have_posts())):
                 <h1>Highlights</h1>
             </div>
 
-            <div id="highlightsCarousel" class="carousel slide">
-                <?php
-                /**
-                 * reset counter
-                 */
-                $checkFirst = 0;
-                ?>
-                <ol class="carousel-indicators">
-                    <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
-                        <li data-target="#highlightsCarousel" data-slide-to="<?php echo $checkFirst; ?>"
-                            class="<?php echo(!$checkFirst++ ? 'active' : ''); ?>"></li>
-                    <?php endwhile; ?>
-                </ol>
+            <div id="highlightsCarousel" class="carousel highlights slide">
                 <?php
                 /**
                  * reset counter
@@ -57,7 +45,7 @@ if (($highlight_posts->have_posts())):
                     <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
                         <div
                             class="highlight item <?php echo(!$checkFirst++ ? 'active' : ''); ?> <?php get_category_by_slug($slug) ?>">
-                            <header>
+                        <header>
                                 <?php if (!is_category() && !is_archive()): ?>
                                     <h5 class="category"><?php $category = get_the_category();
                                         echo $category[0]->cat_name; ?></h5>
@@ -87,11 +75,24 @@ if (($highlight_posts->have_posts())):
 
                         </div><!--/.highlight-->
                     <?php endwhile; ?>
-
                 </div>
                 <!-- Carousel nav -->
-                <a class="carousel-control left" href="#highlightsCarousel" data-slide="prev">&lsaquo;</a>
-                <a class="carousel-control right" href="#highlightsCarousel" data-slide="next">&rsaquo;</a>
+                <!--                <a class="carousel-control left" href="#highlightsCarousel" data-slide="prev">&lsaquo;</a>
+                -->
+                <!--                <a class="carousel-control right" href="#highlightsCarousel" data-slide="next">&rsaquo;</a>
+                -->
+                <?php
+                /**
+                 * reset counter
+                 */
+                $checkFirst = 0;
+                ?>
+                <ol class="carousel-indicators">
+                    <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
+                        <li data-target="#highlightsCarousel" data-slide-to="<?php echo $checkFirst; ?>"
+                            class="<?php echo(!$checkFirst++ ? 'active' : ''); ?>"></li>
+                    <?php endwhile; ?>
+                </ol>
             </div>
         </div>
         <!--/.container-->
