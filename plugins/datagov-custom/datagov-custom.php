@@ -409,3 +409,30 @@ function datagov_custom_keep_my_links($text)
 }
 
 include_once(dirname(dirname(__FILE__)) . '/suggested-datasets/suggested-datasets.php');
+
+add_filter('404_template', 'un_categorized_post_redirect');
+
+function un_categorized_post_redirect($template)
+{
+    if (!is_404())
+        return $template;
+
+    global $wp_rewrite, $wp_query;
+
+    if ('/%category%/%postname%/' !== $wp_rewrite->permalink_structure)
+        return $template;
+
+    if (!$post = get_page_by_path($wp_query->query['category_name'], OBJECT, 'post'))
+        return $template;
+
+    $categs = wp_get_post_categories($post->ID);
+
+    if (sizeof($categs)) {
+        return $template;
+    }
+
+    $permalink = str_replace($post->post_name, '/uncategorized/' . $post->post_name, get_permalink($post->ID));
+
+    wp_redirect($permalink, 301);
+    exit;
+}
