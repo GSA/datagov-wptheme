@@ -587,3 +587,4 @@ function custom_wp_terms_checklist($post_id = 0, $args = array()) {
 	}
 	// Then the rest of them
 	echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
+}
