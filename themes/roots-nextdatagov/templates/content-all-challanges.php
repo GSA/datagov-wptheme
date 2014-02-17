@@ -116,6 +116,9 @@ $cat_slug = $category[0]->slug;
     <?php
     $args2 = array(
         'post_type' => 'challenge',
+        'meta_key' => 'field_challenge_start_date',
+        'meta_value' => ' ',
+        'meta_compare' => '!=',
         'tax_query'=>	array(
             'relation' => 'AND',
             array(
