@@ -255,7 +255,9 @@ function cptui_register_my_taxes_announcements_and_news()
 add_action('init', 'cptui_register_my_taxes_application_types');
 function cptui_register_my_taxes_application_types()
 {
-    if (is_admin()) {
+    $role = get_role('editor');
+    $role->remove_cap( 'manage_categories' );
+    if ( current_user_can('level_10')){
         $labelarray = array(
             'search_items'  => 'Application Type',
             'popular_items' => '',
