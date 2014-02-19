@@ -590,3 +590,26 @@ function custom_wp_terms_checklist($post_id = 0, $args = array()) {
 	// Then the rest of them
 	echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
 }
+
+add_action('admin_menu', 'environment_conf_settings');
+function environment_conf_settings() {
+    add_menu_page('CKAN Environmemnt Settings', 'CKAN Environmemnt Settings', 'administrator', 'env_config', 'ckan_environment_conf');
+}
+
+function ckan_environment_conf(){
+    $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'http://catalog.data.gov/dataset';
+    ?>
+<form action="options.php" method="post" name="options">
+    <h2>Catalog Environment Configuration</h2> <?php wp_nonce_field('update-options');?>
+    <div>
+        <div class="form-item form-type-textfield form-item-server-info">
+            <label for="edit-server-info">CkAN Server <span title="This field is required." class="form-required">*</span></label>
+            <input type="text" class="form-text required" maxlength="128" size="60" value="<?=$ckan_default_server?>" name="ckan_default_server" id="ckan_default_server">
+            <div class="description">Please enter the server info. Example: http://catalog.data.gov</div>
+        </div>
+    </div><input type="hidden" name="action" value="update" />
+    <input type="hidden" name="page_options" value="ckan_default_server" />
+    <input type="submit" name="Submit" value="Update" />
+</form>
+<?php
+}

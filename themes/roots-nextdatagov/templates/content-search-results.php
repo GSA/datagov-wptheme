@@ -44,7 +44,8 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
-    echo "You are searching <strong>$query</strong> in entire site, show results in <a href='//catalog.data.gov/dataset?q=".stripslashes($query)."&sort=score+desc%2C+name+asc'> catalog.data.gov </a>. <br /><br />";
+    $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'http://catalog.data.gov/dataset';
+    echo "You are searching <strong>$query</strong> in entire site, show results in <a href='".$ckan_default_server."?q=".stripslashes($query)."&sort=score+desc%2C+name+asc'> catalog.data.gov </a>. <br /><br />";
     // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
