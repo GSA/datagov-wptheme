@@ -613,3 +613,23 @@ function ckan_environment_conf(){
 </form>
 <?php
 }
+
+//Rate this Blog Post:
+
+add_action('admin_init', 'filter_rss_voting', 100);
+
+function filter_rss_voting()
+{
+    /**
+     * @var wpdb $wpdb
+     */
+    global $wpdb;
+    $query = "UPDATE " . $wpdb->posts . "
+        SET `post_content` = REPLACE(`post_content`, '<div><div>Rate this Blog Post', '<div style=\"display:none\"><div>Rate this Blog Post')
+        WHERE
+            `post_type` = 'post'
+            AND ID IN (SELECT post_id FROM " . $wpdb->postmeta . " WHERE meta_key = 'rssmi_source_link')
+            LIMIT 50
+    ";
+    $wpdb->query($query);
+}
