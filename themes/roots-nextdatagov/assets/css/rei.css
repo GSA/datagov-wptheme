@@ -1475,7 +1475,7 @@ ul#content-nav li a {
     bottom: 0;
     margin-bottom: -25px
 }
-/*hiding icons using css*/
-.synved-social-container.synved-social-container-share{
+/*hiding icons on home page using css*/
+.home .synved-social-container.synved-social-container-share{
 display:none;
 }
