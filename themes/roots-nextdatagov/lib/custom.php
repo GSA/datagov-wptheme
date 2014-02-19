@@ -82,24 +82,35 @@ function datagov_deregister_styles() {
     'ccf-admin',
   );
 
-  // script handles to de-register
-  $scripts = array('ccf-main',
+    // de-register styles on all pages except admin pages
+    if (!is_admin()) {
+        foreach ($styles as $style) {
+            wp_deregister_style($style);
+        }
+    }
+}
+
+/**
+ * De-register scripts based on certain conditions
+ */
+function datagov_deregister_scripts()
+{
+    // script handles to de-register
+    $scripts = array('ccf-main',
     'jquery-tools',
     'ccf-datepicker',
   );
 
-  // de-register styles/scripts on all pages except admin pages
-  if (!is_admin()) {
-    foreach($styles as $style) {
-      wp_deregister_style($style);
-    }
-    foreach($scripts as $script) {
+    // de-register scripts on all pages except admin pages
+    if (!is_admin()) {
+        foreach($scripts as $script) {
       wp_deregister_script($script);
     }
   }
 }
 
 add_action( 'wp_print_styles', 'datagov_deregister_styles', 100 );
+add_action('wp_print_scripts', 'datagov_deregister_scripts', 100);
 
 
 /* Adding Favicon to admin side */

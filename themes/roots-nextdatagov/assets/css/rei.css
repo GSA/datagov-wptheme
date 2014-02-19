@@ -1467,13 +1467,21 @@ ul#content-nav li a {
 .featuredImage{width:30px;}
 
 .highlights .carousel-inner .item {
-    height: 300px;
     overflow: auto
 }
 
 .highlights .carousel-indicators {
     bottom: 0;
     margin-bottom: -25px
+}
+
+.highlights .carousel-expand a {
+    font-weight: bold;
+    color: #D1E2ED;
+}
+
+.carousel-expand {
+    position: absolute;
 }
 /*hiding icons on home page using css*/
 .home .synved-social-container.synved-social-container-share{

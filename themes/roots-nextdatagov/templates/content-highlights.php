@@ -41,11 +41,11 @@ if (($highlight_posts->have_posts())):
                 $checkFirst = 0;
                 ?>
                 <!-- Carousel items -->
-                <div class="carousel-inner">
+                <div id="highlightsCarouselInner" class="carousel-inner">
                     <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
                         <div
                             class="highlight item <?php echo(!$checkFirst++ ? 'active' : ''); ?> <?php get_category_by_slug($slug) ?>">
-                        <header>
+                            <header>
                                 <?php if (!is_category() && !is_archive()): ?>
                                     <h5 class="category"><?php $category = get_the_category();
                                         echo $category[0]->cat_name; ?></h5>
@@ -72,7 +72,6 @@ if (($highlight_posts->have_posts())):
                                     </a>
                                 </div>
                             <?php endif; ?>
-
                         </div><!--/.highlight-->
                     <?php endwhile; ?>
                 </div>
@@ -93,6 +92,9 @@ if (($highlight_posts->have_posts())):
                             class="<?php echo(!$checkFirst++ ? 'active' : ''); ?>"></li>
                     <?php endwhile; ?>
                 </ol>
+                <div class="carousel-expand">
+                    <a id="carouselExpand" href="javascript:void(0)">expand</a>
+                </div>
             </div>
         </div>
         <!--/.container-->
@@ -102,7 +104,25 @@ if (($highlight_posts->have_posts())):
         jQuery(function ($) {
             $('.carousel').carousel({
                 interval: 5000
-            });
+            }).on('slid', carouselHeight);
+
+            $('#carouselExpand').on('click', function () {
+                $('#highlightsCarouselInner > .item.active').height('auto');
+                $(this).hide();
+            })
+
+            function carouselHeight() {
+                $('#highlightsCarousel > .carousel-inner > .item').height(250);
+                $('#carouselExpand').hide();
+
+                var scrollHeight = $('#highlightsCarouselInner > .item.active')[0].scrollHeight;
+
+                if (scrollHeight > 250) {
+                    $('#carouselExpand').show();
+                }
+            }
+
+            carouselHeight();
         });
     </script>
 
