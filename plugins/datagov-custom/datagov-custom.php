@@ -481,7 +481,7 @@ function custom_post_categories_meta_box( $post, $box ) {
 
 		<div id="<?php echo $taxonomy; ?>-pop" class="tabs-panel" style="display: none;">
 			<ul id="<?php echo $taxonomy; ?>checklist-pop" class="categorychecklist form-no-clear" >
-				<?php $popular_ids = wp_popular_terms_checklist($taxonomy); ?>
+				<?php $popular_ids = custom_wp_popular_terms_checklist($taxonomy); ?>
 			</ul>
 		</div>
 
@@ -522,7 +522,8 @@ function custom_post_categories_meta_box( $post, $box ) {
 }
 
 /**
- * Custom wp_terms_checklist function
+ * Custom wp_terms_checklist function that excludes
+ * the 'Topic introduction' term from the checklist.
  */
 function custom_wp_terms_checklist($post_id = 0, $args = array()) {
  	$defaults = array(
@@ -589,6 +590,64 @@ function custom_wp_terms_checklist($post_id = 0, $args = array()) {
 	}
 	// Then the rest of them
 	echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
+}
+
+
+/**
+ * Retrieve a list of the most popular terms from the specified taxonomy.
+ * This is a customized wp_popular_terms_checklist to exclude
+ * the 'Topic introduction' term from the checklist. 
+ *
+ * If the $echo argument is true then the elements for a list of checkbox
+ * <input> elements labelled with the names of the selected terms is output.
+ * If the $post_ID global isn't empty then the terms associated with that
+ * post will be marked as checked.
+ *
+ * @since 2.5.0
+ *
+ * @param string $taxonomy Taxonomy to retrieve terms from.
+ * @param int $default Unused.
+ * @param int $number Number of terms to retrieve. Defaults to 10.
+ * @param bool $echo Optionally output the list as well. Defaults to true.
+ * @return array List of popular term IDs.
+ */
+function custom_wp_popular_terms_checklist( $taxonomy, $default = 0, $number = 10, $echo = true ) {
+	$post = get_post();
+
+	if ( $post && $post->ID )
+		$checked_terms = wp_get_object_terms($post->ID, $taxonomy, array('fields'=>'ids'));
+	else
+		$checked_terms = array();
+
+	$terms = get_terms($taxonomy, array(
+                                  'orderby' => 'count', 
+                                  'order' => 'DESC', 
+                                  'number' => $number, 
+                                  'hierarchical' => false,  
+                                  'exclude' => array(get_term_by('name', 'Topic Introduction', $taxonomy)->term_id),
+                                ));
+
+	$tax = get_taxonomy($taxonomy);
+	$popular_ids = array();
+	foreach ( (array) $terms as $term ) {
+
+		$popular_ids[] = $term->term_id;
+		if ( !$echo ) // hack for AJAX use
+			continue;
+		$id = "popular-$taxonomy-$term->term_id";
+		$checked = in_array( $term->term_id, $checked_terms ) ? 'checked="checked"' : '';
+		?>
+
+		<li id="<?php echo $id; ?>" class="popular-category">
+			<label class="selectit">
+			<input id="in-<?php echo $id; ?>" type="checkbox" <?php echo $checked; ?> value="<?php echo (int) $term->term_id; ?>" <?php disabled( ! current_user_can( $tax->cap->assign_terms ) ); ?> />
+				<?php echo esc_html( apply_filters( 'the_category', $term->name ) ); ?>
+			</label>
+		</li>
+
+		<?php
+	}
+	return $popular_ids;
 }
 
 add_action('admin_menu', 'environment_conf_settings');
