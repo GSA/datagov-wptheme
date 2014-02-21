@@ -93,7 +93,8 @@ if (($highlight_posts->have_posts())):
                     <?php endwhile; ?>
                 </ol>
                 <div class="carousel-expand">
-                    <a id="carouselExpand" href="javascript:void(0)">expand</a>
+                    <a id="carouselExpand" href="javascript:void(0)">Expand</a>
+                    <a href="javascript:void(0)" id="carouselHide" style="display: inline;">Hide</a>
                 </div>
             </div>
         </div>
@@ -109,6 +110,12 @@ if (($highlight_posts->have_posts())):
             $('#carouselExpand').on('click', function () {
                 $('#highlightsCarouselInner > .item.active').height('auto');
                 $(this).hide();
+                $('#carouselHide').show();
+            })
+            $('#carouselHide').on('click', function () {
+                $('#highlightsCarouselInner > .item.active').height('250px');
+                $(this).hide();
+                $('#carouselExpand').show();
             })
 
             function carouselHeight() {
@@ -119,6 +126,7 @@ if (($highlight_posts->have_posts())):
 
                 if (scrollHeight > 250) {
                     $('#carouselExpand').show();
+                    $('#carouselHide').hide();
                 }
             }
 
