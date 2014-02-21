@@ -113,27 +113,4 @@ $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('c
   </div>
 </div>
 </footer>
-<!-- ----------------------------------------------------------------------------------- -->
-<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
-<!-- JavaScript include file can cause serious problems with cross-domain tracking.      -->
-<!-- ----------------------------------------------------------------------------------- -->
-<script type="text/javascript">
-    //<![CDATA[
-    var _tag=new WebTrends();
-    _tag.dcsGetId();
-    //]]>
-</script>
-<script type="text/javascript">
-    //<![CDATA[
-    _tag.dcsCustom=function(){
-// Add custom parameters here.
-//_tag.DCSext.param_name=param_value;
-    }
-    _tag.dcsCollect();
-    //]]>
-</script>
-<noscript>
-    <div><img alt="" id="DCSIMG" width="1" height="1" src="//statse.webtrendslive.com/dcscde6kv7bv0hc1auudkkpvh_6c5h/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.catalog.data.gov"/></div>
-</noscript>
-<!-- END OF SmartSource Data Collector TAG -->
 <?php wp_footer(); ?>
