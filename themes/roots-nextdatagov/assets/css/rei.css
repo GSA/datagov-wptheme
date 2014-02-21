@@ -1476,13 +1476,24 @@ ul#content-nav li a {
 }
 
 .highlights .carousel-expand a {
-    font-weight: bold;
-    color: #D1E2ED;
+    font-weight:normal;
+    color: #000;
+    font-size:18px;
+}
+.highlights .carousel-expand a:hover {
+    font-weight: normal;
+    color: #fff;
+    text-decoration:none;
+}
+#highlightsCarousel > .carousel-inner > .item{
+    overflow:hidden;
 }
 
 .carousel-expand {
     position: absolute;
+    right:10px;
 }
+.carousel-expand.more-link a i{display: inline-block !important;margin-left: 5px;}
 /*hiding icons on home page using css*/
 .home .synved-social-container.synved-social-container-share{
 display:none;

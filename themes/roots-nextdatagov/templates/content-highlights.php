@@ -92,9 +92,9 @@ if (($highlight_posts->have_posts())):
                             class="<?php echo(!$checkFirst++ ? 'active' : ''); ?>"></li>
                     <?php endwhile; ?>
                 </ol>
-                <div class="carousel-expand">
-                    <a id="carouselExpand" href="javascript:void(0)">Expand</a>
-                    <a href="javascript:void(0)" id="carouselHide" style="display: inline;">Hide</a>
+                <div class="carousel-expand more-link">
+                    <a id="carouselExpand" href="javascript:void(0)" alt="Read more" class="collapsed">More<i></i></a>
+                    <a href="javascript:void(0)" id="carouselHide" style="display: inline;" alt="hide">Less<i></i></a>
                 </div>
             </div>
         </div>
