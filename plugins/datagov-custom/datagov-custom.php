@@ -529,7 +529,18 @@ function custom_post_categories_meta_box($post, $box)
                     <label class="screen-reader-text" for="new<?php echo $taxonomy; ?>_parent">
                         <?php echo $tax->labels->parent_item_colon; ?>
                     </label>
-                    <?php wp_dropdown_categories(array('taxonomy' => $taxonomy, 'hide_empty' => 0, 'name' => 'new' . $taxonomy . '_parent', 'orderby' => 'name', 'hierarchical' => 1, 'show_option_none' => '&mdash; ' . $tax->labels->parent_item . ' &mdash;')); ?>
+                    <?php 
+                      $args = array(
+                        'taxonomy' => $taxonomy, 
+                        'hide_empty' => 0, 
+                        'name' => 'new' . $taxonomy . '_parent', 
+                        'orderby' => 'name', 
+                        'hierarchical' => 1, 
+                        'show_option_none' => '&mdash; ' . $tax->labels->parent_item . ' &mdash;',
+                        'exclude' => array(get_term_by('name', 'Topic Introduction', $taxonomy)->term_id),
+                      ); 
+                      wp_dropdown_categories($args);
+                    ?>
                     <input type="button" id="<?php echo $taxonomy; ?>-add-submit"
                            data-wp-lists="add:<?php echo $taxonomy ?>checklist:<?php echo $taxonomy ?>-add"
                            class="button category-add-submit"
