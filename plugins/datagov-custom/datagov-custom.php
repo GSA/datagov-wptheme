@@ -256,28 +256,28 @@ add_action('init', 'cptui_register_my_taxes_application_types');
 function cptui_register_my_taxes_application_types()
 {
     $role = get_role('editor');
-    $role->remove_cap( 'manage_categories' );
-    if ( current_user_can('level_10')){
+    $role->remove_cap('manage_categories');
+    if (current_user_can('level_10')) {
+        $labelarray = array(
+            'search_items'          => 'Application Type',
+            'popular_items'         => '',
+            'all_items'             => 'All Application Type',
+            'parent_item'           => 'Parent Application Type',
+            'parent_item_colon'     => 'Parent Application Type:',
+            'edit_item'             => 'Edit Application Type',
+            'update_item'           => 'Update Application Type',
+            'add_new_item'          => 'Add New Application Type',
+            'new_item_name'         => 'New Application Type',
+            'separate_items_with_commas' => '',
+            'add_or_remove_items'   => '',
+            'choose_from_most_used' => '',
+        );
+    } else {
         $labelarray = array(
             'search_items'  => 'Application Type',
             'popular_items' => '',
             'all_items'     => 'All Application Type',
             'parent_item'   => 'Parent Application Type',
-            'parent_item_colon' => 'Parent Application Type:',
-            'edit_item'     => 'Edit Application Type',
-            'update_item'   => 'Update Application Type',
-            'add_new_item'  => 'Add New Application Type',
-            'new_item_name' => 'New Application Type',
-            'separate_items_with_commas' => '',
-            'add_or_remove_items' => '',
-            'choose_from_most_used' => '',
-        );
-    } else {
-        $labelarray = array(
-            'search_items' => 'Application Type',
-            'popular_items' => '',
-            'all_items'   => 'All Application Type',
-            'parent_item' => 'Parent Application Type',
             'parent_item_colon' => 'Parent Application Type:'
         );
     }
@@ -390,14 +390,14 @@ function datagov_custom_keep_my_links($text)
 {
     $raw_excerpt = $text;
     if ('' == $text) {
-        $text  = get_the_content('');
-        $text  = strip_shortcodes($text);
-        $text  = apply_filters('the_content', $text);
-        $text  = str_replace(']]>', ']]>', $text);
-        $text  = strip_tags($text, '<a>');
+        $text         = get_the_content('');
+        $text         = strip_shortcodes($text);
+        $text         = apply_filters('the_content', $text);
+        $text         = str_replace(']]>', ']]>', $text);
+        $text         = strip_tags($text, '<a>');
         $excerpt_length = apply_filters('excerpt_length', 55);
         $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
-        $words = preg_split('/(<a.*?a>)|\n|\r|\t|\s/', $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+        $words        = preg_split('/(<a.*?a>)|\n|\r|\t|\s/', $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
         if (count($words) > $excerpt_length) {
             array_pop($words);
             $text = implode(' ', $words);
@@ -412,13 +412,22 @@ function datagov_custom_keep_my_links($text)
 
 include_once(dirname(dirname(__FILE__)) . '/suggested-datasets/suggested-datasets.php');
 
-add_filter('404_template', 'un_categorized_post_redirect');
 
+add_filter('404_template', 'un_categorized_post_redirect');
+/**
+ * DG-1834
+ * On POST created if not category is selected the header goes into a redirect loop.
+ * @param $template
+ * @return mixed
+ */
 function un_categorized_post_redirect($template)
 {
     if (!is_404())
         return $template;
 
+    /**
+     * @var wpdb $wpdb
+     */
     global $wp_rewrite, $wp_query;
 
     if ('/%category%/%postname%/' !== $wp_rewrite->permalink_structure)
@@ -433,10 +442,11 @@ function un_categorized_post_redirect($template)
         return $template;
     }
 
-    $permalink = str_replace($post->post_name, '/uncategorized/' . $post->post_name, get_permalink($post->ID));
+    $uncategorized_taxonomy = get_category_by_slug('uncategorized');
+    wp_set_post_categories($post->ID, array($uncategorized_taxonomy->term_id));
 
-    wp_redirect($permalink, 301);
-    exit;
+    wp_redirect(get_permalink($post->ID));
+    exit();
 }
 
 
@@ -445,9 +455,10 @@ function un_categorized_post_redirect($template)
  */
 function remove_featured_custom_taxonomy()
 {
-	remove_meta_box('featureddiv', 'post', 'side' );
+    remove_meta_box('featureddiv', 'post', 'side');
 }
-add_action( 'admin_menu', 'remove_featured_custom_taxonomy' );
+
+add_action('admin_menu', 'remove_featured_custom_taxonomy');
 
 
 /**
@@ -455,228 +466,247 @@ add_action( 'admin_menu', 'remove_featured_custom_taxonomy' );
  */
 function add_featured_custom_taxonomy()
 {
-	add_meta_box('featureddiv', 'Featured Content','custom_post_categories_meta_box', 'post', 'side', 'low', array('taxonomy' => 'featured'));
+    add_meta_box('featureddiv', 'Featured Content', 'custom_post_categories_meta_box', 'post', 'side', 'low', array('taxonomy' => 'featured'));
 }
-add_action( 'admin_menu', 'add_featured_custom_taxonomy' );
+
+add_action('admin_menu', 'add_featured_custom_taxonomy');
 
 /**
  * Custom callback that generates category terms for featured taxonomy.
- * It excludes the "Topic Introduction" term from the list. 
+ * It excludes the "Topic Introduction" term from the list.
  */
-function custom_post_categories_meta_box( $post, $box ) {
-	$defaults = array('taxonomy' => 'category');
-	if ( !isset($box['args']) || !is_array($box['args']) )
-		$args = array();
-	else
-		$args = $box['args'];
-	extract( wp_parse_args($args, $defaults), EXTR_SKIP );
-	$tax = get_taxonomy($taxonomy);
+function custom_post_categories_meta_box($post, $box)
+{
+    $defaults = array('taxonomy' => 'category');
+    if (!isset($box['args']) || !is_array($box['args']))
+        $args = array();
+    else
+        $args = $box['args'];
+    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+    $tax = get_taxonomy($taxonomy);
 
-	?>
-	<div id="taxonomy-<?php echo $taxonomy; ?>" class="categorydiv">
-		<ul id="<?php echo $taxonomy; ?>-tabs" class="category-tabs">
-			<li class="tabs"><a href="#<?php echo $taxonomy; ?>-all"><?php echo $tax->labels->all_items; ?></a></li>
-			<li class="hide-if-no-js"><a href="#<?php echo $taxonomy; ?>-pop"><?php _e( 'Most Used' ); ?></a></li>
-		</ul>
+    ?>
+    <div id="taxonomy-<?php echo $taxonomy; ?>" class="categorydiv">
+        <ul id="<?php echo $taxonomy; ?>-tabs" class="category-tabs">
+            <li class="tabs"><a href="#<?php echo $taxonomy; ?>-all"><?php echo $tax->labels->all_items; ?></a></li>
+            <li class="hide-if-no-js"><a href="#<?php echo $taxonomy; ?>-pop"><?php _e('Most Used'); ?></a></li>
+        </ul>
 
-		<div id="<?php echo $taxonomy; ?>-pop" class="tabs-panel" style="display: none;">
-			<ul id="<?php echo $taxonomy; ?>checklist-pop" class="categorychecklist form-no-clear" >
-				<?php $popular_ids = custom_wp_popular_terms_checklist($taxonomy); ?>
-			</ul>
-		</div>
+        <div id="<?php echo $taxonomy; ?>-pop" class="tabs-panel" style="display: none;">
+            <ul id="<?php echo $taxonomy; ?>checklist-pop" class="categorychecklist form-no-clear">
+                <?php $popular_ids = custom_wp_popular_terms_checklist($taxonomy); ?>
+            </ul>
+        </div>
 
-		<div id="<?php echo $taxonomy; ?>-all" class="tabs-panel">
-			<?php
-            $name = ( $taxonomy == 'category' ) ? 'post_category' : 'tax_input[' . $taxonomy . ']';
+        <div id="<?php echo $taxonomy; ?>-all" class="tabs-panel">
+            <?php
+            $name = ($taxonomy == 'category') ? 'post_category' : 'tax_input[' . $taxonomy . ']';
             echo "<input type='hidden' name='{$name}[]' value='0' />"; // Allows for an empty term set to be sent. 0 is an invalid Term ID and will be ignored by empty() checks.
             ?>
-			<ul id="<?php echo $taxonomy; ?>checklist" data-wp-lists="list:<?php echo $taxonomy?>" class="categorychecklist form-no-clear">
-				<?php custom_wp_terms_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
-			</ul>
-		</div>
-	<?php if ( current_user_can($tax->cap->edit_terms) ) : ?>
-			<div id="<?php echo $taxonomy; ?>-adder" class="wp-hidden-children">
-				<h4>
-					<a id="<?php echo $taxonomy; ?>-add-toggle" href="#<?php echo $taxonomy; ?>-add" class="hide-if-no-js">
-						<?php
-							/* translators: %s: add new taxonomy label */
-							printf( __( '+ %s' ), $tax->labels->add_new_item );
-						?>
-					</a>
-				</h4>
-				<p id="<?php echo $taxonomy; ?>-add" class="category-add wp-hidden-child">
-					<label class="screen-reader-text" for="new<?php echo $taxonomy; ?>"><?php echo $tax->labels->add_new_item; ?></label>
-					<input type="text" name="new<?php echo $taxonomy; ?>" id="new<?php echo $taxonomy; ?>" class="form-required form-input-tip" value="<?php echo esc_attr( $tax->labels->new_item_name ); ?>" aria-required="true"/>
-					<label class="screen-reader-text" for="new<?php echo $taxonomy; ?>_parent">
-						<?php echo $tax->labels->parent_item_colon; ?>
-					</label>
-					<?php wp_dropdown_categories( array( 'taxonomy' => $taxonomy, 'hide_empty' => 0, 'name' => 'new'.$taxonomy.'_parent', 'orderby' => 'name', 'hierarchical' => 1, 'show_option_none' => '&mdash; ' . $tax->labels->parent_item . ' &mdash;' ) ); ?>
-					<input type="button" id="<?php echo $taxonomy; ?>-add-submit" data-wp-lists="add:<?php echo $taxonomy ?>checklist:<?php echo $taxonomy ?>-add" class="button category-add-submit" value="<?php echo esc_attr( $tax->labels->add_new_item ); ?>" />
-					<?php wp_nonce_field( 'add-'.$taxonomy, '_ajax_nonce-add-'.$taxonomy, false ); ?>
-					<span id="<?php echo $taxonomy; ?>-ajax-response"></span>
-				</p>
-			</div>
-		<?php endif; ?>
-	</div>
-	<?php
+            <ul id="<?php echo $taxonomy; ?>checklist" data-wp-lists="list:<?php echo $taxonomy ?>"
+                class="categorychecklist form-no-clear">
+                <?php custom_wp_terms_checklist($post->ID, array('taxonomy' => $taxonomy, 'popular_cats' => $popular_ids)) ?>
+            </ul>
+        </div>
+        <?php if (current_user_can($tax->cap->edit_terms)) : ?>
+            <div id="<?php echo $taxonomy; ?>-adder" class="wp-hidden-children">
+                <h4>
+                    <a id="<?php echo $taxonomy; ?>-add-toggle" href="#<?php echo $taxonomy; ?>-add"
+                       class="hide-if-no-js">
+                        <?php
+                        /* translators: %s: add new taxonomy label */
+                        printf(__('+ %s'), $tax->labels->add_new_item);
+                        ?>
+                    </a>
+                </h4>
+
+                <p id="<?php echo $taxonomy; ?>-add" class="category-add wp-hidden-child">
+                    <label class="screen-reader-text"
+                           for="new<?php echo $taxonomy; ?>"><?php echo $tax->labels->add_new_item; ?></label>
+                    <input type="text" name="new<?php echo $taxonomy; ?>" id="new<?php echo $taxonomy; ?>"
+                           class="form-required form-input-tip"
+                           value="<?php echo esc_attr($tax->labels->new_item_name); ?>" aria-required="true"/>
+                    <label class="screen-reader-text" for="new<?php echo $taxonomy; ?>_parent">
+                        <?php echo $tax->labels->parent_item_colon; ?>
+                    </label>
+                    <?php wp_dropdown_categories(array('taxonomy' => $taxonomy, 'hide_empty' => 0, 'name' => 'new' . $taxonomy . '_parent', 'orderby' => 'name', 'hierarchical' => 1, 'show_option_none' => '&mdash; ' . $tax->labels->parent_item . ' &mdash;')); ?>
+                    <input type="button" id="<?php echo $taxonomy; ?>-add-submit"
+                           data-wp-lists="add:<?php echo $taxonomy ?>checklist:<?php echo $taxonomy ?>-add"
+                           class="button category-add-submit"
+                           value="<?php echo esc_attr($tax->labels->add_new_item); ?>"/>
+                    <?php wp_nonce_field('add-' . $taxonomy, '_ajax_nonce-add-' . $taxonomy, false); ?>
+                    <span id="<?php echo $taxonomy; ?>-ajax-response"></span>
+                </p>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php
 }
 
 /**
  * Custom wp_terms_checklist function that excludes
  * the 'Topic introduction' term from the checklist.
  */
-function custom_wp_terms_checklist($post_id = 0, $args = array()) {
- 	$defaults = array(
-		'descendants_and_self' => 0,
-		'selected_cats' => false,
-		'popular_cats' => false,
-		'walker' => null,
-		'taxonomy' => 'category',
-		'checked_ontop' => true
-	);
-	$args = apply_filters( 'wp_terms_checklist_args', $args, $post_id );
+function custom_wp_terms_checklist($post_id = 0, $args = array())
+{
+    $defaults = array(
+        'descendants_and_self' => 0,
+        'selected_cats'        => false,
+        'popular_cats'         => false,
+        'walker'               => null,
+        'taxonomy'             => 'category',
+        'checked_ontop'        => true
+    );
+    $args     = apply_filters('wp_terms_checklist_args', $args, $post_id);
 
-	extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
 
-	if ( empty($walker) || !is_a($walker, 'Walker') )
-		$walker = new Walker_Category_Checklist;
+    if (empty($walker) || !is_a($walker, 'Walker'))
+        $walker = new Walker_Category_Checklist;
 
-	$descendants_and_self = (int) $descendants_and_self;
+    $descendants_and_self = (int)$descendants_and_self;
 
-	$args = array('taxonomy' => $taxonomy);
+    $args = array('taxonomy' => $taxonomy);
 
-	$tax = get_taxonomy($taxonomy);
-	$args['disabled'] = !current_user_can($tax->cap->assign_terms);
+    $tax              = get_taxonomy($taxonomy);
+    $args['disabled'] = !current_user_can($tax->cap->assign_terms);
 
-	if ( is_array( $selected_cats ) )
-		$args['selected_cats'] = $selected_cats;
-	elseif ( $post_id )
-		$args['selected_cats'] = wp_get_object_terms($post_id, $taxonomy, array_merge($args, array('fields' => 'ids')));
-	else
-		$args['selected_cats'] = array();
+    if (is_array($selected_cats))
+        $args['selected_cats'] = $selected_cats;
+    elseif ($post_id)
+        $args['selected_cats'] = wp_get_object_terms($post_id, $taxonomy, array_merge($args, array('fields' => 'ids')));
+    else
+        $args['selected_cats'] = array();
 
-	if ( is_array( $popular_cats ) )
-		$args['popular_cats'] = $popular_cats;
-	else
-		$args['popular_cats'] = get_terms( $taxonomy, array( 'fields' => 'ids', 'orderby' => 'count', 'order' => 'DESC', 'number' => 10, 'hierarchical' => false ) );
+    if (is_array($popular_cats))
+        $args['popular_cats'] = $popular_cats;
+    else
+        $args['popular_cats'] = get_terms($taxonomy, array('fields' => 'ids', 'orderby' => 'count', 'order' => 'DESC', 'number' => 10, 'hierarchical' => false));
 
-	if ( $descendants_and_self ) {
-		$categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'hierarchical' => 0, 'hide_empty' => 0 ) );
-		$self = get_term( $descendants_and_self, $taxonomy );
-		array_unshift( $categories, $self );
-	} else {
-		$categories = (array) get_terms($taxonomy, array('get' => 'all'));
-	}
-    // exclude 'Topic Introduction' term from the list
-    foreach ($categories as $key =>$term) {
-      if ($term->name == "Topic Introduction") {
-        unset($categories[$key]);
-      }
+    if ($descendants_and_self) {
+        $categories = (array)get_terms($taxonomy, array('child_of' => $descendants_and_self, 'hierarchical' => 0, 'hide_empty' => 0));
+        $self       = get_term($descendants_and_self, $taxonomy);
+        array_unshift($categories, $self);
+    } else {
+        $categories = (array)get_terms($taxonomy, array('get' => 'all'));
     }
-	if ( $checked_ontop ) {
-		// Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
-		$checked_categories = array();
-		$keys = array_keys( $categories );
+    // exclude 'Topic Introduction' term from the list
+    foreach ($categories as $key => $term) {
+        if ($term->name == "Topic Introduction") {
+            unset($categories[$key]);
+        }
+    }
+    if ($checked_ontop) {
+        // Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
+        $checked_categories = array();
+        $keys               = array_keys($categories);
 
-		foreach( $keys as $k ) {
-			if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
-				$checked_categories[] = $categories[$k];
-				unset( $categories[$k] );
-			}
-		}
+        foreach ($keys as $k) {
+            if (in_array($categories[$k]->term_id, $args['selected_cats'])) {
+                $checked_categories[] = $categories[$k];
+                unset($categories[$k]);
+            }
+        }
 
-		// Put checked cats on top
-		echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
-	}
-	// Then the rest of them
-	echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
+        // Put checked cats on top
+        echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
+    }
+    // Then the rest of them
+    echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
 }
 
 
 /**
  * Retrieve a list of the most popular terms from the specified taxonomy.
  * This is a customized wp_popular_terms_checklist to exclude
- * the 'Topic introduction' term from the checklist. 
- *
+ * the 'Topic introduction' term from the checklist.
  * If the $echo argument is true then the elements for a list of checkbox
  * <input> elements labelled with the names of the selected terms is output.
  * If the $post_ID global isn't empty then the terms associated with that
  * post will be marked as checked.
- *
  * @since 2.5.0
- *
  * @param string $taxonomy Taxonomy to retrieve terms from.
  * @param int $default Unused.
- * @param int $number Number of terms to retrieve. Defaults to 10.
- * @param bool $echo Optionally output the list as well. Defaults to true.
+ * @param int $number  Number of terms to retrieve. Defaults to 10.
+ * @param bool $echo   Optionally output the list as well. Defaults to true.
  * @return array List of popular term IDs.
  */
-function custom_wp_popular_terms_checklist( $taxonomy, $default = 0, $number = 10, $echo = true ) {
-	$post = get_post();
+function custom_wp_popular_terms_checklist($taxonomy, $default = 0, $number = 10, $echo = true)
+{
+    $post = get_post();
 
-	if ( $post && $post->ID )
-		$checked_terms = wp_get_object_terms($post->ID, $taxonomy, array('fields'=>'ids'));
-	else
-		$checked_terms = array();
+    if ($post && $post->ID)
+        $checked_terms = wp_get_object_terms($post->ID, $taxonomy, array('fields' => 'ids'));
+    else
+        $checked_terms = array();
 
-	$terms = get_terms($taxonomy, array(
-                                  'orderby' => 'count', 
-                                  'order' => 'DESC', 
-                                  'number' => $number, 
-                                  'hierarchical' => false,  
-                                  'exclude' => array(get_term_by('name', 'Topic Introduction', $taxonomy)->term_id),
-                                ));
+    $terms = get_terms($taxonomy, array(
+        'orderby'      => 'count',
+        'order'        => 'DESC',
+        'number'       => $number,
+        'hierarchical' => false,
+        'exclude'      => array(get_term_by('name', 'Topic Introduction', $taxonomy)->term_id),
+    ));
 
-	$tax = get_taxonomy($taxonomy);
-	$popular_ids = array();
-	foreach ( (array) $terms as $term ) {
+    $tax         = get_taxonomy($taxonomy);
+    $popular_ids = array();
+    foreach ((array)$terms as $term) {
 
-		$popular_ids[] = $term->term_id;
-		if ( !$echo ) // hack for AJAX use
-			continue;
-		$id = "popular-$taxonomy-$term->term_id";
-		$checked = in_array( $term->term_id, $checked_terms ) ? 'checked="checked"' : '';
-		?>
+        $popular_ids[] = $term->term_id;
+        if (!$echo) // hack for AJAX use
+            continue;
+        $id      = "popular-$taxonomy-$term->term_id";
+        $checked = in_array($term->term_id, $checked_terms) ? 'checked="checked"' : '';
+        ?>
 
-		<li id="<?php echo $id; ?>" class="popular-category">
-			<label class="selectit">
-			<input id="in-<?php echo $id; ?>" type="checkbox" <?php echo $checked; ?> value="<?php echo (int) $term->term_id; ?>" <?php disabled( ! current_user_can( $tax->cap->assign_terms ) ); ?> />
-				<?php echo esc_html( apply_filters( 'the_category', $term->name ) ); ?>
-			</label>
-		</li>
+        <li id="<?php echo $id; ?>" class="popular-category">
+            <label class="selectit">
+                <input id="in-<?php echo $id; ?>" type="checkbox" <?php echo $checked; ?>
+                       value="<?php echo (int)$term->term_id; ?>" <?php disabled(!current_user_can($tax->cap->assign_terms)); ?> />
+                <?php echo esc_html(apply_filters('the_category', $term->name)); ?>
+            </label>
+        </li>
 
-		<?php
-	}
-	return $popular_ids;
+    <?php
+    }
+
+    return $popular_ids;
 }
 
 add_action('admin_menu', 'environment_conf_settings');
-function environment_conf_settings() {
+function environment_conf_settings()
+{
     add_menu_page('CKAN Environmemnt Settings', 'CKAN Environmemnt Settings', 'administrator', 'env_config', 'ckan_environment_conf');
 }
 
-function ckan_environment_conf(){
+function ckan_environment_conf()
+{
     $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'http://catalog.data.gov/dataset';
     ?>
-<form action="options.php" method="post" name="options">
-    <h2>Catalog Environment Configuration</h2> <?php wp_nonce_field('update-options');?>
-    <div>
-        <div class="form-item form-type-textfield form-item-server-info">
-            <label for="edit-server-info">CkAN Server <span title="This field is required." class="form-required">*</span></label>
-            <input type="text" class="form-text required" maxlength="128" size="60" value="<?=$ckan_default_server?>" name="ckan_default_server" id="ckan_default_server">
-            <div class="description">Please enter the server info. Example: http://catalog.data.gov</div>
+    <form action="options.php" method="post" name="options">
+        <h2>Catalog Environment Configuration</h2> <?php wp_nonce_field('update-options'); ?>
+        <div>
+            <div class="form-item form-type-textfield form-item-server-info">
+                <label for="edit-server-info">CkAN Server <span title="This field is required."
+                                                                class="form-required">*</span></label>
+                <input type="text" class="form-text required" maxlength="128" size="60"
+                       value="<?= $ckan_default_server ?>" name="ckan_default_server" id="ckan_default_server">
+
+                <div class="description">Please enter the server info. Example: http://catalog.data.gov</div>
+            </div>
         </div>
-    </div><input type="hidden" name="action" value="update" />
-    <input type="hidden" name="page_options" value="ckan_default_server" />
-    <input type="submit" name="Submit" value="Update" />
-</form>
+        <input type="hidden" name="action" value="update"/>
+        <input type="hidden" name="page_options" value="ckan_default_server"/>
+        <input type="submit" name="Submit" value="Update"/>
+    </form>
 <?php
 }
 
-//Rate this Blog Post:
-
 add_action('admin_init', 'filter_rss_voting', 100);
-
+/**
+ * DG-1901
+ * Individual Rss feeds Posts have an option of voting, which is to be removed or hidden.
+ */
 function filter_rss_voting()
 {
     /**
@@ -693,5 +723,8 @@ function filter_rss_voting()
     $wpdb->query($query);
 }
 
+/**
+ * Avoid CURL ssl certificate errors while wp-cron.php calls
+ */
 add_filter('https_local_ssl_verify', '__return_false');
 add_filter('https_ssl_verify', '__return_false');
