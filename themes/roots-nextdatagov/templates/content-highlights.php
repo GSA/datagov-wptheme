@@ -51,7 +51,14 @@ if (($highlight_posts->have_posts())):
                                         echo $category[0]->cat_name; ?></h5>
                                 <?php endif; ?>
 
-                                <h2 class="entry-title"><?php the_title(); ?></h2>
+                                <h2 class="entry-title" style="width:750px;float:left;"><?php the_title(); ?></h2>
+                                <?php if (get_post_format() == 'image'): ?>
+                                <div class="dataset-link" style="clear:none;margin:0px; width:180px; float:right;">
+                                    <a class="btn btn-default pull-right" href="<?php the_field('link_to_dataset'); ?>">
+                                        <span class="glyphicon glyphicon-download"></span> View this Dataset
+                                    </a>
+                                </div>
+                                <?php endif; ?>
                             </header>
 
                             <?php if (has_post_thumbnail()) : ?>
@@ -61,17 +68,11 @@ if (($highlight_posts->have_posts())):
                             <?php endif; ?>
 
                             <article
-                                class="<?php if (has_post_thumbnail()) : ?>col-md-8<?php else: ?>no-image<?php endif; ?>">
+                                 style="clear:both;" class="<?php if (has_post_thumbnail()) : ?>col-md-8<?php else: ?>no-image<?php endif; ?>">
                                 <?php the_content(); ?>
                             </article>
 
-                            <?php if (get_post_format() == 'image'): ?>
-                                <div class="dataset-link">
-                                    <a class="btn btn-default pull-right" href="<?php the_field('link_to_dataset'); ?>">
-                                        <span class="glyphicon glyphicon-download"></span> View this Dataset
-                                    </a>
-                                </div>
-                            <?php endif; ?>
+
                         </div><!--/.highlight-->
                     <?php endwhile; ?>
                 </div>
