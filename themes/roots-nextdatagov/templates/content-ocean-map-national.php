@@ -88,7 +88,7 @@ $cat_slug = $category[0]->slug;
                             if(isset($merged_maps[$i])) {
                                 $output .= '<div class="map-align">';
                                 $output .= '<a target=_blank href="'. $merged_maps[$i]["img_href"] . '">';
-                                $output .= '<img class="map-gallery-thumbnail" src="'. $merged_maps[$i]["img_src"] . '" title="' . $merged_maps[$i]["title"] .'" height="135" width="200">';
+                                $output .= '<img class="map-gallery-thumbnail" src="'. $merged_maps[$i]["img_src"] . '" title="' . $merged_maps[$i]["title"] .'" height="133" width="200">';
 
                                 $output .= '<div class="map-gallery-caption">'. $merged_maps[$i]["title"] . '</div>';
                                 $output .= '</a>';
