@@ -95,7 +95,7 @@ if (($highlight_posts->have_posts())):
                 </ol>
                 <div class="carousel-expand more-link">
                     <a id="carouselExpand" href="javascript:void(0)" alt="Read more" class="collapsed">More<i></i></a>
-                    <a href="javascript:void(0)" id="carouselHide" style="display: inline;" alt="hide">Less<i></i></a>
+                    <a id="carouselHide" href="javascript:void(0)" style="display: inline;" alt="hide">Less<i></i></a>
                 </div>
             </div>
         </div>
@@ -114,18 +114,19 @@ if (($highlight_posts->have_posts())):
                 $('#carouselHide').show();
             })
             $('#carouselHide').on('click', function () {
-                $('#highlightsCarouselInner > .item.active').height('250px');
+                $('#highlightsCarouselInner > .item.active').height('300px');
                 $(this).hide();
                 $('#carouselExpand').show();
             })
 
             function carouselHeight() {
-                $('#highlightsCarousel > .carousel-inner > .item').height(250);
+                $('#highlightsCarousel > .carousel-inner > .item').height(300);
                 $('#carouselExpand').hide();
+                $('#carouselHide').hide();
 
                 var scrollHeight = $('#highlightsCarouselInner > .item.active')[0].scrollHeight;
 
-                if (scrollHeight > 250) {
+                if (scrollHeight > 300) {
                     $('#carouselExpand').show();
                     $('#carouselHide').hide();
                 }
