@@ -23,7 +23,7 @@ jQuery( document ).ready(function() {
     jQuery("a.external").click(function(){
         var targetURL = (this.href.length > 50) ? this.href.substring(0, 40) + "..." : this.href;
         tURL = this.href;
-        tDelay = 7;
+        tDelay = 5;
 
         jQuery.colorbox({
             html: "<div id=\"extlink-popup\">" +
