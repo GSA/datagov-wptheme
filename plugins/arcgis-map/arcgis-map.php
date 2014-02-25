@@ -238,22 +238,28 @@ function arcgis_map_process_info($server, $map_id, $group_id,$display) {
         }
     }
     else {
+        try {
+            $map                           = new SimpleXMLElement($request['body']);
+            $vars['info']['title']         = strip_tags($map->title->asXML());
+            $vars['info']['description']   = strip_tags($map->description->asXML());
+            $vars['info']['snippet']       = strip_tags($map->snippet->asXML());
+            $vars['info']['thumbnail_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
+            $vars['info']['type']          = 'Map';
+            // Pass info into theme.
+            $vars['map_info'][0]['title'] = strip_tags($map->title->asXML());
+            if ($map->type == "Web Map")
+                $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?webmap=' . $map_id;
+            elseif ($map->type == "Map Service" || $map->type == "WMS")
+                $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?services=' . $map_id;
+            else
+                $vars['map_info'][0]['img_href'] = $server . '/home/item.html?id=' . $map_id;
+            $vars['map_info'][0]['img_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
+        } catch (Exception $x) {
+            error_log($x->getMessage(), E_WARNING);
 
-        $map = new SimpleXMLElement($request['body']);
-        $vars['info']['title'] = strip_tags($map->title->asXML());
-        $vars['info']['description'] = strip_tags($map->description->asXML());
-        $vars['info']['snippet'] = strip_tags($map->snippet->asXML());
-        $vars['info']['thumbnail_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
-        $vars['info']['type'] = 'Map';
-        // Pass info into theme.
-        $vars['map_info'][0]['title'] = strip_tags($map->title->asXML());
-        if($map->type == "Web Map")
-            $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?webmap=' . $map_id;
-        elseif($map->type == "Map Service" || $map->type == "WMS")
-            $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?services=' . $map_id;
-        else
-            $vars['map_info'][0]['img_href'] = $server . '/home/item.html?id=' . $map_id;
-        $vars['map_info'][0]['img_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
+            return array();
+        }
+
     }
     return $vars;
 }
