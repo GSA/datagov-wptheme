@@ -256,8 +256,7 @@ function arcgis_map_process_info($server, $map_id, $group_id,$display) {
             $vars['map_info'][0]['img_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
         } catch (Exception $x) {
             error_log($x->getMessage(), E_WARNING);
-
-            return array();
+            //return array();
         }
 
     }
