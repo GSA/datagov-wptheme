@@ -328,6 +328,8 @@ function ckan_metric_convert_structure($taxonomies)
  */
 function get_ckan_metric_info()
 {
+    ignore_user_abort(true);
+
     $taxonomies = ckan_metric_get_taxonomies();
 
     $structure = ckan_metric_convert_structure($taxonomies);
