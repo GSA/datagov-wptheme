@@ -11,6 +11,7 @@ function roots_setup() {
         'primary_navigation' => __('Primary Navigation', 'roots'),
         'footer_navigation' => __('Footer Navigation', 'roots'),
         'social_navigation' => __('Social Links', 'roots'),
+        'climate_navigation' => __('Climate Navigation', 'roots'),
         'topics_navigation' => __('Topics Navigation', 'roots'),
     ));
 
