@@ -591,6 +591,8 @@ function dg_tw_publish_tweet($tweet,$query = false) {
                 case "energydatagov":
                     $category_id = get_cat_ID("energy");
                     break;
+                default:
+                    $category_id="";
             }
         }
         wp_set_post_categories( $dg_tw_this_post, array($category_id));
@@ -681,6 +683,8 @@ function dg_tw_publish_mega_tweet($tweets) {
             case "energydatagov":
                 $category_id = get_cat_ID("energy");
                 break;
+            default:
+                $category_id="";
         }
     }
     wp_set_post_categories( $dg_tw_this_post, array($category_id));
