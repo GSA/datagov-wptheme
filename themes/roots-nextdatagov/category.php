@@ -38,6 +38,10 @@ if($subnav OR $subnav_extra):
            <nav class="topic-subnav" role="navigation">
                <ul class="nav navbar-nav">         
                 <?php echo $subnav ?>
+                   <?php
+                   if($term_slug=="climate")
+                       wp_nav_menu(array('theme_location' => 'climate_navigation', 'menu_class' => 'nav','items_wrap' => '%3$s'));
+                   ?>
                 </ul>
             </nav>
         
