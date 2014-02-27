@@ -1499,3 +1499,5 @@ ul#content-nav li a {
 display:none;
 }
 .home .synved-social-resolution-single{display:none;}
+.subnav.banner nav li a:hover{background-color:#F5F5F5;color:#000;}
+
