@@ -25,8 +25,7 @@ if (strcasecmp($term_name,$term_slug)!=0) {
                   
   $subnav_extra = wp_list_bookmarks($args);                  
 }
-
-
+$allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysupply","foodsupply","humanhealth","transportation","water","climate");
 if($subnav OR $subnav_extra):
 ?>
 
@@ -39,7 +38,7 @@ if($subnav OR $subnav_extra):
                <ul class="nav navbar-nav">         
                 <?php echo $subnav ?>
                    <?php
-                   if($term_slug=="climate")
+                   if(in_array($term_slug,$allowed_slug_arrays))
                        wp_nav_menu(array('theme_location' => 'climate_navigation', 'menu_class' => 'nav','items_wrap' => '%3$s'));
                    ?>
                 </ul>
@@ -52,7 +51,7 @@ if($subnav OR $subnav_extra):
                 <ul class="nav navbar-nav">
                     <?php echo $subnav_extra ?>
                     <?php
-                    if($term_slug=="climate")
+                    if(in_array($term_slug,$allowed_slug_arrays))
                         wp_nav_menu(array('theme_location' => 'climate_navigation', 'menu_class' => 'nav','items_wrap' => '%3$s'));
                     ?>
                 </ul>
