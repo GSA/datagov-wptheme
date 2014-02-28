@@ -2,6 +2,8 @@
 $category = get_the_category();
 $term_name = $category[0]->cat_name;
 $term_slug = $category[0]->slug;
+$allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysupply","foodsupply","humanhealth","transportation","water","climate");
+
 ?>
 <div class="subnav banner">
     <div class="container">
@@ -24,6 +26,9 @@ $term_slug = $category[0]->slug;
                                   'orderby'=>'rating');
                     wp_list_bookmarks($args);
                 }
+                if(in_array($term_slug,$allowed_slug_arrays))
+                    wp_nav_menu(array('theme_location' => 'climate_navigation', 'menu_class' => 'nav','items_wrap' => '%3$s'));
+
                 ?>
             </ul>
         </nav>
