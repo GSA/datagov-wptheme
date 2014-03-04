@@ -60,15 +60,14 @@ if (($highlight_posts->have_posts())):
                                 </div>
                                 <?php endif; ?>
                             </header>
-
+                            <br clear="all" />
                             <?php if (has_post_thumbnail()) : ?>
                                 <div class="featured-image col-md-4">
                                     <?php the_post_thumbnail('medium'); ?>
                                 </div>
                             <?php endif; ?>
 
-                            <article
-                                 style="clear:both;" class="<?php if (has_post_thumbnail()) : ?>col-md-8<?php else: ?>no-image<?php endif; ?>">
+                            <article class="<?php if (has_post_thumbnail()) : ?>col-md-8<?php else: ?>no-image<?php endif; ?>">
                                 <?php the_content(); ?>
                             </article>
 
