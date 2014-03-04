@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp_sitemap_page\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-12 22:06+0100\n"
+"PO-Revision-Date: 2014-02-24 12:18+0100\n"
+"Last-Translator: Tor-Bjorn Fjellner <bounce@fjellner.com>\n"
+"Language-Team: Tobi Fjellner\n"
+"Language: Swedish\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Loco-Target-Locale: de_DE\n"
+"X-Poedit-SearchPath-0: /home/tony/websites/www-dev/public/wp_plugins/wp-"
+"sitemap-page/plugin_1_0_12_next\n"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:4
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:104
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:105
+msgid "WP Sitemap Page"
+msgstr "WP Sitemap-sida"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:12
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:140
+msgid "Settings"
+msgstr "Inställningar"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:15
+msgid "Please choose how you want to display the posts on the sitemap."
+msgstr "Var vänlig välj hur du vill visa posterna i din sitemap."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:17
+msgid "%1$s: title of the post."
+msgstr "%1$s: Inläggets rubrik."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:18
+msgid "%1$s: URL of the post."
+msgstr "%1$s: Inläggets URL."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:19
+msgid "%1$s: The year of the post, four digits, for example 2004."
+msgstr "%1$s: Inläggets årtal med fyra siffror, t.ex. 2004."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:20
+msgid "%1$s: Month of the year, for example 05."
+msgstr "%1$s: Månadsnumret, t.ex. 05."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:21
+msgid "%1$s: Day of the month, for example 28."
+msgstr "%1$s: Dagens nummer i månaden, t.ex. 28."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:22
+msgid "%1$s: Hour of the day, for example 15."
+msgstr "%1$s: Timme under dagen, t.ex. 15."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:23
+msgid "%1$s: Minute of the hour, for example 43."
+msgstr "%1$s: Minut, t.ex. 43."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:24
+msgid "%1$s: Second of the minute, for example 33."
+msgstr "%1$s: Sekund, T.ex. 33."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:25
+msgid "%1$s: The unique ID # of the post, for example 423."
+msgstr "%1$s: Inläggets unika ID, t.ex. 423."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:26
+msgid ""
+"%1$s: Category name. Nested sub-categories appear as nested directories in "
+"the URI."
+msgstr ""
+"%1$s: Kategorinamn. Nästlade underkategorier visas som nästlade kataloger i "
+"URI-adressen."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:36
+msgid "How to display the posts"
+msgstr "Hur posterna visas"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:64
+msgid "Exclude pages"
+msgstr "Uteslut sidor"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:75
+msgid ""
+"Just add the IDs, separated by a comma, of the pages you want to exclude."
+msgstr ""
+"Lägg helt enkelt till ID-numren för de sidor som du vill utesluta, "
+"separerade med kommatecken."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:80
+msgid "Exclude Custom Post Type"
+msgstr "Uteslut speciella typer av inlägg"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:95
+msgid "Page"
+msgstr "Sida"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:103
+msgid "Post"
+msgstr "Inlägg"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:111
+msgid "Archive"
+msgstr "Arkiv"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:119
+msgid "Author"
+msgstr "Författare"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:168
+msgid "About"
+msgstr "Om"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:176
+msgid "To display the sitemap, just use [wp_sitemap_page] on any page or post."
+msgstr ""
+"För att visa denna sitemap, skriv helt enkelt in koden [wp_sitemap_page] i "
+"ett inlägg eller på en sida."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:178
+msgid "Plugin developed by <a href=\"%1$s\">Tony Archambeau</a>."
+msgstr "Tillägget har utvecklats av <a href=\"%1$s\">Tony Archambeau</a>."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:179
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:141
+msgid "Donate"
+msgstr "Donera"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/settings.php:184
+msgid "Translated in Russian by <a href=\"%1$s\">skesov.ru</a>."
+msgstr "Översatt till ryska av <a href=\"%1$s\">skesov.ru</a>."
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:313
+msgid "Pages"
+msgstr "Sidor"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:330
+msgid "Posts by category"
+msgstr "Inlägg per kategori"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:406
+msgid "Archives"
+msgstr "Arkiv"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:424
+msgid "Authors"
+msgstr "Författare"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:483
+msgid "Category: %1$s"
+msgstr "Kategori: %1$s"
+
+#: home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_12_next/wp-sitemap-page.php:543
+msgid "<a href=\"{permalink}\">{title}</a> ({monthnum}/{day}/{year})"
+msgstr "<a href=\"{permalink}\">{title}</a> ({monthnum}/{day}/{year})"
