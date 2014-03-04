@@ -191,10 +191,10 @@ function wsp_save_settings()
     register_setting('wp-sitemap-page', 'wsp_exclude_cpt_author');
 
     // Get the CPT (Custom Post Type)
-    $args       = [
+    $args = array(
         'public'   => true,
         '_builtin' => false
-    ];
+    );
     $post_types = get_post_types($args, 'names');
 
     // list all the CPT
@@ -220,7 +220,7 @@ add_action('admin_init', 'wsp_save_settings');
  * @param array $matches
  * @return bool|string
  */
-function wsp_manage_option(array $matches = [])
+function wsp_manage_option(array $matches = array())
 {
 
     global $the_post_id;
@@ -335,7 +335,7 @@ function wsp_wp_sitemap_page_func($atts, $content = null)
     if (empty($wsp_exclude_cpt_page)) {
 
         // define the way the pages should be displayed
-        $args             = [];
+        $args = array();
         $args['title_li'] = '';
         $args['echo']     = '0';
 
@@ -377,10 +377,10 @@ function wsp_wp_sitemap_page_func($atts, $content = null)
     //===============================================
 
     // Get the CPT (Custom Post Type)
-    $args       = [
+    $args = array(
         'public'   => true,
         '_builtin' => false
-    ];
+    );
     $post_types = get_post_types($args, 'names');
 
     // list all the CPT
@@ -398,7 +398,7 @@ function wsp_wp_sitemap_page_func($atts, $content = null)
             $list_pages = '';
 
             // define the way the pages should be displayed
-            $args                     = [];
+            $args = array();
             $args['post_type']        = $post_type;
             $args['posts_per_page']   = 999999;
             $args['suppress_filters'] = 0;
@@ -434,7 +434,7 @@ function wsp_wp_sitemap_page_func($atts, $content = null)
     //===============================================
 
     if (empty($wsp_exclude_cpt_archive)) {
-        $args         = [];
+        $args = array();
         $args['echo'] = 0;
 
         $list_archives = wp_get_archives($args);
@@ -452,7 +452,7 @@ function wsp_wp_sitemap_page_func($atts, $content = null)
     //===============================================
 
     if (empty($wsp_exclude_cpt_author)) {
-        $args         = [];
+        $args = array();
         $args['echo'] = 0;
 
         $list_authors = wp_list_authors($args);
@@ -476,15 +476,15 @@ add_shortcode('wp_sitemap_page', 'wsp_wp_sitemap_page_func');
  * @param int $parent
  * @return array
  */
-function wsp_generateMultiArray(array $arr = [], $parent = 0)
+function wsp_generateMultiArray(array $arr = array(), $parent = 0)
 {
 
     // check if not empty
     if (empty($arr)) {
-        return [];
+        return array();
     }
 
-    $pages = [];
+    $pages = array();
     // go through the array
     foreach ($arr as $k => $page) {
         if ($page->parent == $parent) {
@@ -503,7 +503,7 @@ function wsp_generateMultiArray(array $arr = [], $parent = 0)
  * @param bool $useUL
  * @return string
  */
-function wsp_htmlFromMultiArray(array $nav = [], $useUL = true)
+function wsp_htmlFromMultiArray(array $nav = array(), $useUL = true)
 {
 
     // check if not empty
