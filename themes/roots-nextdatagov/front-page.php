@@ -88,7 +88,10 @@ $args = array(
 	</li>
 	<li class="topic-cities">
 		<a href="/cities"><i></i><span>Cities</span></a>
-	</li>	
+	</li>
+    <li class="topic-climate">
+        <a href="/climate"><i></i><span>Climate</span></a>
+    </li>
 	<li class="topic-counties">
 		<a href="/counties"><i></i><span>Counties</span></a>
 	</li>
