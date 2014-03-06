@@ -36,12 +36,12 @@ if($subnav OR $subnav_extra):
 
            <nav class="topic-subnav" role="navigation">
                <ul class="nav navbar-nav">         
-                <?php echo $subnav ?>
                    <?php
                    if(in_array($term_slug,$allowed_slug_arrays))
                        wp_nav_menu(array('theme_location' => 'climate_navigation', 'menu_class' => 'nav','items_wrap' => '%3$s'));
                    ?>
-                </ul>
+                   <?php echo $subnav ?>
+               </ul>
             </nav>
         
         <?php endif; ?>
@@ -49,11 +49,11 @@ if($subnav OR $subnav_extra):
         <?php if($subnav_extra): ?>
             <nav class="topic-subnav" role="navigation">
                 <ul class="nav navbar-nav">
-                    <?php echo $subnav_extra ?>
                     <?php
                     if(in_array($term_slug,$allowed_slug_arrays))
                         wp_nav_menu(array('theme_location' => 'climate_navigation', 'menu_class' => 'nav','items_wrap' => '%3$s'));
                     ?>
+                    <?php echo $subnav_extra ?>
                 </ul>
             </nav>
         <?php endif; ?>
