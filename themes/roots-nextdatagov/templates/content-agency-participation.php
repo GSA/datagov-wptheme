@@ -580,7 +580,7 @@ if ($query->have_posts()) {
 <script type="text/javascript">
     jQuery(function ($) {
         $('.parent-agency').on('click', function () {
-            $('.' + $(this).attr('rel')).toggle();
+            $('.' + $(this).attr('rel')).toggle('slow');
         });
     });
 </script>
