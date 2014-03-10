@@ -259,25 +259,25 @@ function cptui_register_my_taxes_application_types()
     $role->remove_cap('manage_categories');
     if (current_user_can('level_10')) {
         $labelarray = array(
-            'search_items'          => 'Application Type',
-            'popular_items'         => '',
-            'all_items'             => 'All Application Type',
-            'parent_item'           => 'Parent Application Type',
-            'parent_item_colon'     => 'Parent Application Type:',
-            'edit_item'             => 'Edit Application Type',
-            'update_item'           => 'Update Application Type',
-            'add_new_item'          => 'Add New Application Type',
-            'new_item_name'         => 'New Application Type',
+            'search_items'               => 'Application Type',
+            'popular_items'              => '',
+            'all_items'                  => 'All Application Type',
+            'parent_item'                => 'Parent Application Type',
+            'parent_item_colon'          => 'Parent Application Type:',
+            'edit_item'                  => 'Edit Application Type',
+            'update_item'                => 'Update Application Type',
+            'add_new_item'               => 'Add New Application Type',
+            'new_item_name'              => 'New Application Type',
             'separate_items_with_commas' => '',
-            'add_or_remove_items'   => '',
-            'choose_from_most_used' => '',
+            'add_or_remove_items'        => '',
+            'choose_from_most_used'      => '',
         );
     } else {
         $labelarray = array(
-            'search_items'  => 'Application Type',
-            'popular_items' => '',
-            'all_items'     => 'All Application Type',
-            'parent_item'   => 'Parent Application Type',
+            'search_items'      => 'Application Type',
+            'popular_items'     => '',
+            'all_items'         => 'All Application Type',
+            'parent_item'       => 'Parent Application Type',
             'parent_item_colon' => 'Parent Application Type:'
         );
     }
@@ -390,14 +390,14 @@ function datagov_custom_keep_my_links($text)
 {
     $raw_excerpt = $text;
     if ('' == $text) {
-        $text         = get_the_content('');
-        $text         = strip_shortcodes($text);
-        $text         = apply_filters('the_content', $text);
-        $text         = str_replace(']]>', ']]>', $text);
-        $text         = strip_tags($text, '<a>');
+        $text           = get_the_content('');
+        $text           = strip_shortcodes($text);
+        $text           = apply_filters('the_content', $text);
+        $text           = str_replace(']]>', ']]>', $text);
+        $text           = strip_tags($text, '<a>');
         $excerpt_length = apply_filters('excerpt_length', 55);
-        $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
-        $words        = preg_split('/(<a.*?a>)|\n|\r|\t|\s/', $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+        $excerpt_more   = apply_filters('excerpt_more', ' ' . '[...]');
+        $words          = preg_split('/(<a.*?a>)|\n|\r|\t|\s/', $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
         if (count($words) > $excerpt_length) {
             array_pop($words);
             $text = implode(' ', $words);
@@ -529,17 +529,17 @@ function custom_post_categories_meta_box($post, $box)
                     <label class="screen-reader-text" for="new<?php echo $taxonomy; ?>_parent">
                         <?php echo $tax->labels->parent_item_colon; ?>
                     </label>
-                    <?php 
-                      $args = array(
-                        'taxonomy' => $taxonomy, 
-                        'hide_empty' => 0, 
-                        'name' => 'new' . $taxonomy . '_parent', 
-                        'orderby' => 'name', 
-                        'hierarchical' => 1, 
+                    <?php
+                    $args = array(
+                        'taxonomy'         => $taxonomy,
+                        'hide_empty'       => 0,
+                        'name'             => 'new' . $taxonomy . '_parent',
+                        'orderby'          => 'name',
+                        'hierarchical'     => 1,
                         'show_option_none' => '&mdash; ' . $tax->labels->parent_item . ' &mdash;',
-                        'exclude' => array(get_term_by('name', 'Topic Introduction', $taxonomy)->term_id),
-                      ); 
-                      wp_dropdown_categories($args);
+                        'exclude'          => array(get_term_by('name', 'Topic Introduction', $taxonomy)->term_id),
+                    );
+                    wp_dropdown_categories($args);
                     ?>
                     <input type="button" id="<?php echo $taxonomy; ?>-add-submit"
                            data-wp-lists="add:<?php echo $taxonomy ?>checklist:<?php echo $taxonomy ?>-add"
@@ -637,9 +637,9 @@ function custom_wp_terms_checklist($post_id = 0, $args = array())
  * post will be marked as checked.
  * @since 2.5.0
  * @param string $taxonomy Taxonomy to retrieve terms from.
- * @param int $default Unused.
- * @param int $number  Number of terms to retrieve. Defaults to 10.
- * @param bool $echo   Optionally output the list as well. Defaults to true.
+ * @param int $default     Unused.
+ * @param int $number      Number of terms to retrieve. Defaults to 10.
+ * @param bool $echo       Optionally output the list as well. Defaults to true.
  * @return array List of popular term IDs.
  */
 function custom_wp_popular_terms_checklist($taxonomy, $default = 0, $number = 10, $echo = true)
