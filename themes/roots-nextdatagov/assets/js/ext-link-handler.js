@@ -84,3 +84,8 @@ $('ul#content-nav').each(function(){
   });
 });
 });
+//Assigining the active link based on current url
+$(document).ready(function () {
+    var windowLocationPathname = window.location.pathname;
+    $('.topic-subnav ul.nav').find('a[href^="' + windowLocationPathname + '"]').addClass('active');
+});
