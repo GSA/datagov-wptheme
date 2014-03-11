@@ -531,6 +531,8 @@ function dg_tw_publish_tweet($tweet,$query = false) {
 	$dg_tw_start_post = get_default_post_to_edit($post_type,true);
 	$username			= dg_tw_tweet_user($tweet);
 	$current_query		= ($query != false) ? $query : array('tag'=>'','value'=>'');
+    $tweet_time = strtotime($tweet->created_at);
+    $tweet_date = date($dg_tw_ft['date_format'],$tweet_time);
 			
 	$querystr = "SELECT *
 					FROM $wpdb->postmeta
@@ -571,7 +573,9 @@ function dg_tw_publish_tweet($tweet,$query = false) {
             'post_title'		=> $post_title,
             //'post_category'	=> $dg_tw_cats,
             'tags_input'		=> $post_tags,
-            'post_type'			=> $post_type
+            'post_type'			=> $post_type,
+            'post_date'         => $tweet_date
+
         );
 		
 		$post = apply_filters( 'dg_tw_before_post_tweet', $post );
