@@ -1502,9 +1502,13 @@ display:none;
 .subnav.banner nav li a:hover {background-color:#F5F5F5;color:#000;}
 ul.topics li.active a i {color:#606C7F;}
 /* highlighting active sub nav link */
-
 .subnav.banner nav li .active {
-    background-color: #172D3F;
+    color: #172D3F;
+    background-color:#428bca;
+}
+.dropdown-menu > li > a.inactive{
+    color:#808080;
+    font-style:italic;
 }
 
 
