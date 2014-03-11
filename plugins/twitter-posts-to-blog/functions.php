@@ -558,19 +558,21 @@ function dg_tw_publish_tweet($tweet,$query = false) {
 			
 			do_action( 'dg_tw_images_placed' );
 		}
-		
-		$post = array(
-				'ID'					=> $dg_tw_start_post->ID,
-				'post_author'		=> $dg_tw_ft['author'],
-				'post_content'		=> $post_content,
-				'post_name'			=> dg_tw_slug($post_title),
-				'post_status'		=> strval($dg_tw_publish),
-				'post_title'		=> $post_title,
-				//'post_category'	=> $dg_tw_cats,
-				'tags_input'		=> $post_tags,
-				'post_type'			=> $post_type,
-				'post_status'		=> strval($dg_tw_publish)
-		);
+        $post_status = strval($dg_tw_publish);
+        if($username=="usdatagov"){
+            $post_status = "publish";
+        }
+        $post = array(
+            'ID'					=> $dg_tw_start_post->ID,
+            'post_author'		=> $dg_tw_ft['author'],
+            'post_content'		=> $post_content,
+            'post_name'			=> dg_tw_slug($post_title),
+            'post_status'		=> $post_status,
+            'post_title'		=> $post_title,
+            //'post_category'	=> $dg_tw_cats,
+            'tags_input'		=> $post_tags,
+            'post_type'			=> $post_type
+        );
 		
 		$post = apply_filters( 'dg_tw_before_post_tweet', $post );
 		
