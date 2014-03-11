@@ -85,7 +85,15 @@ $('ul#content-nav').each(function(){
 });
 });
 //Assigining the active link based on current url
-$(document).ready(function () {
+/*$(document).ready(function () {
     var windowLocationPathname = window.location.pathname;
     $('.topic-subnav ul.nav').find('a[href^="' + windowLocationPathname + '"]').addClass('active');
+});
+*/
+jQuery(function() {
+    jQuery('.nav a').each(function() {
+        if (jQuery(this).attr('href')  ===  window.location.pathname) {
+            jQuery(this).addClass('active');
+        }
+    });
 });
