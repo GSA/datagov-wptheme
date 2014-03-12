@@ -96,7 +96,7 @@ jQuery(function() {
             jQuery(this).addClass('active');
         }
     });
-    jQuery('.menu-community ul li a').each(function() {
+    jQuery('.menu-communities ul li a').each(function() {
         if (!jQuery(this).attr('href')) {
             jQuery(this).addClass('inactive');
         }
