@@ -64,22 +64,29 @@ wp_reset_postdata();
 <?php
 //'terms' => array( 'post-format-link', 'post-format-status', 'post-format-gallery', 'post-format-image' ),
 
-$args = array( 
+            $args = array(
                 'post_type' => 'post',
-                'ignore_sticky_posts' => 1,                
+                'ignore_sticky_posts' => 1,
                 'tax_query' => array(
-                	                array(
-                	                'taxonomy' => 'post_format',
-                	                'field' => 'slug',
-                	                'terms' => array( 'post-format-status'),
-                	                ),
-                                    array(
-                	                'taxonomy' => 'featured',
-                	                'field' => 'slug',
-                	                'terms' => array( 'highlights'),
-                	                'operator' => 'NOT IN'
-                	                )
-                                ),                
+                    array(
+                        'taxonomy' => 'post_format',
+                        'field' => 'slug',
+                        'terms' => array( 'post-format-status'),
+                    ),
+                    array(
+                        'taxonomy' => 'featured',
+                        'field' => 'slug',
+                        'terms' => array( 'highlights'),
+                        'operator' => 'NOT IN'
+                    )
+                ),
+                'meta_query' => array(
+                    array(
+                        'key' => 'twitter_handle',
+                        'value' => 'usdatagov',
+                        'compare' => '='
+                    )
+                ),
                 'posts_per_page' => 3 );
 
 $new_query = new WP_Query($args);
