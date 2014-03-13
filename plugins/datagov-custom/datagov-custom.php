@@ -739,3 +739,37 @@ function filter_rss_voting()
  */
 add_filter('https_local_ssl_verify', '__return_false');
 add_filter('https_ssl_verify', '__return_false');
+
+
+/**
+ * DG-1955
+ * Daily update CKAN dataset total count, to display it over search box on main page
+ * @author Alex Perfilov
+ */
+if (!wp_next_scheduled('ckan_count_cron')) {
+    wp_schedule_event(time(), 'daily', 'ckan_count_cron_daily');
+}
+
+add_action('ckan_count_cron_daily', 'ckan_count_cron');
+
+function ckan_count_cron()
+{
+    try {
+        $json = file_get_contents('https://catalog.data.gov/api/3/action/package_search');
+        if (false === $json) {
+            throw new Exception('could not access page');
+        }
+//        decode result as array
+        $json_result = json_decode($json, true);
+        if (true != $json_result['success']) {
+            throw new Exception('json returned [success]=false');
+        }
+        $dataset_count = (int)$json_result['result']['count'];
+
+        if ($dataset_count && $dataset_count > 10000) {
+            update_option('ckan_total_count', $dataset_count);
+        }
+    } catch (Exception $ex) {
+        return false;
+    }
+}

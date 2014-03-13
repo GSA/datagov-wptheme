@@ -1,6 +1,6 @@
 <?php
 $category = get_the_category();
-if ($category[0]->cat_name != 'Uncategorized') {
+if ($category && $category[0]->cat_name != 'Uncategorized') {
 
     $slug = $wp_query->query_vars['category_name'];
 }
