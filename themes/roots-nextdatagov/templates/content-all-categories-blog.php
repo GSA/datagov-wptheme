@@ -50,8 +50,8 @@ $cat_slug = $category[0]->slug;
                 )
             ),
             'posts_per_page' => 3,
-            'paged' => $paged,
-            'category_name'=> 'Uncategorized' );
+            'paged' => $paged
+        );
         $apps = new WP_Query( $args );
         $my_post_count = $apps->post_count;
         $apps = new WP_Query( $args );
@@ -67,7 +67,10 @@ $cat_slug = $category[0]->slug;
         <?php
 
         if ($apps->have_posts()) : ?>
-            <?php while ($apps->have_posts()) : $apps->the_post(); ?>
+            <?php while ($apps->have_posts()) : $apps->the_post();
+                $cat = get_the_category( $postID );
+                $topic_image = get_template_directory().'/assets/img/topic-'.$cat[0]->slug.'.svg';
+                ?>
 
 
 
@@ -81,7 +84,7 @@ $cat_slug = $category[0]->slug;
                         <div class="new-cat-post" id="post-<?php the_ID(); ?>">
 
 
-                            <div class=" title  "><?php the_title(); ?></div>
+                            <img src="<?php echo $topic_image?>" alt=<?php echo $cat[0]->slug?>><div class=" title  "><?php the_title(); ?></div>
                             <div style="color:#808080; font-size:16px;margin-left:2px;  "><span style="text-transform:uppercase;"><?php $author = get_the_author(); echo $author;?></span>&nbsp;// <?php the_time('M jS Y ') ?> </div>
                             <br/>
                             <div class="body">
