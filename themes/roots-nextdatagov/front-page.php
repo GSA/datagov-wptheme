@@ -37,14 +37,14 @@ $args = array(
 	<li class="topic-food">
 		<a href="/food"><i></i><span>Agriculture</span></a>
 	</li>
-	<!--
+
 	<li class="topic-climate">
 		<a href="/climate"><i></i><span>Climate</span></a>
 	</li>	
-	-->
-	<li class="topic-consumer">
+
+	<!--<li class="topic-consumer">
 		<a href="/consumer"><i></i><span>Consumer</span></a>
-	</li>		
+	</li>-->
 	<li class="topic-education">
 		<a href="/education"><i></i><span>Education</span></a>
 	</li>
@@ -89,8 +89,11 @@ $args = array(
 	<li class="topic-cities">
 		<a href="/cities"><i></i><span>Cities</span></a>
 	</li>
-    <li class="topic-climate">
+   <!-- <li class="topic-climate">
         <a href="/climate"><i></i><span>Climate</span></a>
+    </li>-->
+    <li class="topic-consumer">
+        <a href="/consumer"><i></i><span>Consumer</span></a>
     </li>
 	<li class="topic-counties">
 		<a href="/counties"><i></i><span>Counties</span></a>
