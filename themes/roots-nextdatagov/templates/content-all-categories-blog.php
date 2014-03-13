@@ -69,7 +69,7 @@ $cat_slug = $category[0]->slug;
         if ($apps->have_posts()) : ?>
             <?php while ($apps->have_posts()) : $apps->the_post();
                 $cat = get_the_category( $postID );
-                $topic_image = get_template_directory().'/assets/img/topic-'.$cat[0]->slug.'.svg';
+                $topic_image = get_bloginfo('template_directory').'/assets/img/topic-'.$cat[0]->slug.'.svg';
                 ?>
 
 
@@ -84,7 +84,7 @@ $cat_slug = $category[0]->slug;
                         <div class="new-cat-post" id="post-<?php the_ID(); ?>">
 
 
-                            <img src="<?php echo $topic_image?>" alt=<?php echo $cat[0]->slug?>><div class=" title  "><?php the_title(); ?></div>
+                            <img src="<?php echo $topic_image?>" alt=""><div class=" title  "><?php the_title(); ?></div>
                             <div style="color:#808080; font-size:16px;margin-left:2px;  "><span style="text-transform:uppercase;"><?php $author = get_the_author(); echo $author;?></span>&nbsp;// <?php the_time('M jS Y ') ?> </div>
                             <br/>
                             <div class="body">
