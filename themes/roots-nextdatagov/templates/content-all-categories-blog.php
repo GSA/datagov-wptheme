@@ -76,7 +76,7 @@ $cat_slug = $category[0]->slug;
 
                         <div class="new-cat-post" id="post-<?php the_ID(); ?>">
                             <?php
-                            if($cat[0]->slug=="global"){ ?>
+                            if($cat[0]->slug=="datagov_custom"){ ?>
                                 <h5 class="category category-header datagov-team-logo"><a class="local-link" href="/<?php echo $cat[0]->slug?>"><i></i><span></span></a></h5>
                                 <?php   } else {
                                 ?>
