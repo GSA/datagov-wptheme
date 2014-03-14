@@ -1517,3 +1517,13 @@ ul.topics li.active a i {color:#606C7F;}
     margin-top: -4px;
 }
 .more-link a.agencyExpand i:before {content:"\F055"}
+
+.datagov-team-logo {
+    background: url("../img/Small_logo.png");
+    display: inline-block;
+    background-size: 100% 100%;
+    zoom: 1;
+    *display:inline;
+    width:70px;
+    height:35px;
+}
