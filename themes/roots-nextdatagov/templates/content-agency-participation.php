@@ -179,8 +179,8 @@ if ($query->have_posts()) {
                 echo '<a style="color: #4295B0;" href="' . get_post_meta($post->ID, 'metric_url', true) . '">' . $agency_title . '</a>';
                 echo <<<END
                     <div class="more-link metrics" rel="$parentName">
-                        <a href="javascript:void(0)" alt="Read more" class="agencyExpand"><i></i></a>
-                        <a href="javascript:void(0)" class="agencyHide" alt="hide"><i></i></a>
+                        <a href="javascript:void(0)" alt="Read more" class="agencyExpand" title="expand"><i></i></a>
+                        <a href="javascript:void(0)" class="agencyHide" alt="hide" title="collapse"><i></i></a>
                     </div>
 END;
                 echo '</td>';
@@ -417,8 +417,8 @@ END;
                         echo '<a style="color: #4295B0;" href="' . get_post_meta($post->ID, 'metric_url', true) . '">' . $agency_title . '</a>';
                         echo <<<END
                             <div class="more-link metrics" rel="$parentName">
-                                <a href="javascript:void(0)" alt="Read more" class="agencyExpand"><i></i></a>
-                                <a href="javascript:void(0)" class="agencyHide" alt="hide"><i></i></a>
+                                <a href="javascript:void(0)" alt="Read more" class="agencyExpand" title="Expand"><i></i></a>
+                                <a href="javascript:void(0)" class="agencyHide" alt="hide" title="collapse"><i></i></a>
                             </div>
 END;
                         echo '</td>';
