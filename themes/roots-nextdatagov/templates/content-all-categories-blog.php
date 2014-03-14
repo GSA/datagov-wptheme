@@ -76,7 +76,7 @@ $cat_slug = $category[0]->slug;
 
                         <div class="new-cat-post" id="post-<?php the_ID(); ?>">
                             <?php
-                            if($cat[0]->slug=="datagov_custom"){ ?>
+                            if($cat[0]->slug=="datagov_team"){ ?>
                                 <h5 class="category category-header datagov-team-logo"><a class="local-link" href="/<?php echo $cat[0]->slug?>"><i></i><span></span></a></h5>
                                 <?php   } else {
                                 ?>
@@ -84,7 +84,6 @@ $cat_slug = $category[0]->slug;
                                 <?php
                             }
                             ?>
-                            <h5 class="category category-header topic-<?php echo $cat[0]->slug?>"><a class="local-link" href="/<?php echo $cat[0]->slug?>"><i></i><span><?php echo $cat[0]->cat_name?></span></a></h5>
                             <div class=" title  "><?php the_title(); ?></div>
                             <div style="color:#808080; font-size:16px;margin-left:2px;  "><span style="text-transform:uppercase;"><?php $author = get_the_author(); echo $author;?></span>&nbsp;// <?php the_time('M jS Y ') ?> </div>
                             <br/>
