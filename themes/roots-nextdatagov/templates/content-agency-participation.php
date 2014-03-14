@@ -177,7 +177,12 @@ if ($query->have_posts()) {
                 echo '<tr class="datasets_published_per_month_row_tr_odd odd parent-agency" rel="' . $parentName . '">';
                 echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">';
                 echo '<a style="color: #4295B0;" href="' . get_post_meta($post->ID, 'metric_url', true) . '">' . $agency_title . '</a>';
-                echo '<em>(Click to expand/collapse)</em>';
+                echo <<<END
+                    <div class="more-link metrics" rel="$parentName">
+                        <a href="javascript:void(0)" alt="Read more" class="agencyExpand">More<i></i></a>
+                        <a href="javascript:void(0)" class="agencyHide" alt="hide">Less<i></i></a>
+                    </div>
+END;
                 echo '</td>';
 
                 echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
@@ -410,7 +415,12 @@ if ($query->have_posts()) {
                         echo '<tr class="datasets_published_per_month_row_tr_odd odd parent-agency" rel="' . $parentName . '">';
                         echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;" >';
                         echo '<a style="color: #4295B0;" href="' . get_post_meta($post->ID, 'metric_url', true) . '">' . $agency_title . '</a>';
-                        echo '<em> (Click to expand/collapse)</em>';
+                        echo <<<END
+                            <div class="more-link metrics" rel="$parentName">
+                                <a href="javascript:void(0)" alt="Read more" class="agencyExpand">More<i></i></a>
+                                <a href="javascript:void(0)" class="agencyHide" alt="hide">Less<i></i></a>
+                            </div>
+END;
                         echo '</td>';
 
                         echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
@@ -573,14 +583,22 @@ if ($query->have_posts()) {
 </div>
 
 <style type="text/css">
-    .metrics .sub-agency {
+    .agencyExpand {
         display: none;
     }
 </style>
+
 <script type="text/javascript">
     jQuery(function ($) {
-        $('.parent-agency').on('click', function () {
-            $('.' + $(this).attr('rel')).toggle('slow');
+        $('.agencyExpand').on('click', function () {
+            $('.' + $(this).parent().attr('rel')).show('slow');
+            $(this).parent().children('.agencyHide').show();
+            $(this).hide();
+        });
+        $('.agencyHide').on('click', function () {
+            $('.' + $(this).parent().attr('rel')).hide('slow');
+            $(this).parent().children('.agencyExpand').show();
+            $(this).hide();
         });
     });
 </script>
