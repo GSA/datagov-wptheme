@@ -1511,3 +1511,9 @@ ul.topics li.active a i {color:#606C7F;}
     font-style:italic;
 }
 .dropdown-menu > li > a.inactive:hover {background-color:#f5f5f5 !important;}
+.more-link.metrics {
+    float: left;
+    margin-right: 10px;
+    margin-top: -4px;
+}
+.more-link a.agencyExpand i:before {content:"\F055"}
