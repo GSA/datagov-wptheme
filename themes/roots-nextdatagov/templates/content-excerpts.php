@@ -127,6 +127,6 @@ $new_query = new WP_Query($args);
 <?php
 wp_reset_postdata();    
 ?>
-<div align="right" class="entry-title" ><a href="/blogs">All Blogs</a></div>
+<div class="btn btn-default pull-right" ><a href="/blogs">All Blogs</a></div>
 </section>
 
