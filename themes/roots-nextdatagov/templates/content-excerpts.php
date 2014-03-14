@@ -66,6 +66,7 @@ wp_reset_postdata();
 
             $args = array(
                 'post_type' => 'post',
+                'orderby' => 'date',
                 'ignore_sticky_posts' => 1,
                 'tax_query' => array(
                     array(
