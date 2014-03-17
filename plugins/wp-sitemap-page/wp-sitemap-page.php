@@ -371,7 +371,6 @@ function wsp_wp_sitemap_page_func($atts, $content = null)
         }
     }
 
-
     //===============================================
     // List the CPT
     //===============================================
@@ -402,6 +401,8 @@ function wsp_wp_sitemap_page_func($atts, $content = null)
             $args['post_type']        = $post_type;
             $args['posts_per_page']   = 999999;
             $args['suppress_filters'] = 0;
+            $args['orderby'] = 'title';
+            $args['order'] = 'ASC';
 
             // exclude some pages ?
             if (!empty($wsp_exclude_pages)) {
