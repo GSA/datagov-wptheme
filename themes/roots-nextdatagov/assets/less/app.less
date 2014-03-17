@@ -432,11 +432,18 @@ ul.topics {
 
 }
 
+
+
 /* ==========================================================================
    Search
    ========================================================================== */
 
+.search-submit.btn {
+  font-size: @font-size-base - 1px;
+}
+
 div.frontpage-search {
+
 
   padding: 2em 0;
 
@@ -456,7 +463,7 @@ div.frontpage-search {
 
   input[type="search"]::-webkit-input-placeholder {
     -webkit-transition: opacity 0.3s linear;
-    color: #000;
+    color: gray;
   }
 
   input[type="search"]:focus::-webkit-input-placeholder {
@@ -465,7 +472,7 @@ div.frontpage-search {
 
   input.search-field.form-control::-moz-placeholder {
     transition: opacity 0.3s linear;
-    color: #000;
+    color: gray;
   }
 
   input.search-field.form-control:focus::-moz-placeholder {
@@ -475,79 +482,6 @@ div.frontpage-search {
   input.search-field.form-control,
   #search-prompt {
     font-weight: 400;
-    font-style: italic;
-    font-size: 20px;
-  }
-
-  #search-prompt {
-    display: inline-block;
-    height: 44px;
-    padding-top: 8px;
-    padding-right: 0;
-    text-align: right;
-  }
-
-  .search-field.form-control {
-    height: 44px;
-  }
-
-  .search-form .btn {
-    font-size: 21px;
-  }
-
-  .search-form .btn-default {
-    color: #9E9E9E;
-  }
-
-}
-
-.navbar {
-  .search-form {
-    padding-top: 8px;
-  }
-}
-
-@media (min-width: @screen-sm-min) {
-
-  .navbar {
-    .search-form {
-      padding-right: 0;
-    }
-  }
-
-}
-
-/* ==========================================================================
-   Search
-   ========================================================================== */
-
-.search-submit.btn {
-  font-size: @font-size-base - 1px;
-}
-
-div.frontpage-search {
-
-  input[type="search"]::-webkit-input-placeholder {
-    -webkit-transition: opacity 0.3s linear;
-    color: gray;
-  }
-
-  input[type="search"]:focus::-webkit-input-placeholder {
-    opacity: 0;
-  }
-
-  input.search-field.form-control::-moz-placeholder {
-    transition: opacity 0.3s linear;
-    color: gray;
-  }
-
-  input.search-field.form-control:focus::-moz-placeholder {
-    opacity: 0;
-  }
-
-  input.search-field.form-control,
-  #search-prompt {
-    font-weight: 300;
     font-style: italic;
     font-size: 20px;
   }
