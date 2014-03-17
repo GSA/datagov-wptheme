@@ -1492,7 +1492,7 @@ ul.topics li.active a i {color:#606C7F;}
 .more-link a.agencyExpand i:before {content:"\F055"}
 
 .datagov-team-logo {
-    background: url("../img/Small_logo.png");
+    background: url("../img/datagov_team.png");
     display: inline-block;
     background-size: 100% 100%;
     zoom: 1;
