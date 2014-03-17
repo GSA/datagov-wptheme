@@ -8,49 +8,34 @@
     margin : 20px 0;
     position:relative;
 }
-.Apps-post {
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 5px 1px #DADADA;
 
-    padding: 20px 20px ;
-}
 .Apps-post p {
-    padding-left:20px;
-    padding-right:20px;
     padding-top:15px;
 }
 .Appstitle {
-
     font-size: 30px;
     font-weight: normal;
     padding-bottom:15px;
     padding-top:15px;
-    padding-left:20px;
     padding-right:20px;
 }
-.Mobile-post {
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 5px 1px #DADADA;
 
-    padding: 10px 10px 0;
-}
-.Mobile-post p {
-    padding-left:10px;
-    padding-right:10px;
-    padding-top:15px;
-}
 .Mobile-post .appscontainer {
     margin-top: 20px;
     position:relative;
-
+    box-shadow: 0 2px 5px 1px #DADADA;
 }
+
+
+.Mobile-post .appscontainer .bx-wrapper .bx-viewport {
+    left : -25px;
+}
+
 .Mobile-post .appscontainer .appsitem {
     margin-top: 5px;
     margin-bottom:5px;
-    margin-left:20px;
-
+    margin-right:20px;
     width:200px;
-    background-color:#F2F2F2;
     float:left;
 }
 #itemtitle {
@@ -72,11 +57,8 @@
     margin-bottom:10px;
 }
 #itemcontent {
-
     font-size:15px;
     color:#333333;
-    padding-left:5px;
-    padding-right:5px;
 
 }
 #bottomimages {
@@ -93,12 +75,11 @@
     height:auto;
     width:80px;
     float:left;
-    margin-left:20px;
+    margin-right : 20px;
 }
 #webcontent {
     width:750px;
     float:left;
-    margin-left:20px;
 }
 
 #webcontent h2 a{color:#333333;  font-size:25px;}
@@ -292,21 +273,20 @@
 }
 
 .horizontal_dotted_line{
-    border-bottom: 2px solid #C0C0C0;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom : 2em;
     width: 85%;
     /*margin-left:80px;*/
 
 }
 .horizontal_dotted_line_all{
-    border-bottom: 2px solid #C0C0C0;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom : 2em;
     width: 100%;
-
-
 }
 .more-link{
     color: #83B03C;
 }
-.page-template-template-all-challanges-php h1{font-size:25px;}
 
 .page-template-template-all-challanges-php .Apps-post .Appstitle{padding-left:0px;}
 #recaptcha_widget .right{width:100px;float: right;display: inline;}
