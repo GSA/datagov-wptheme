@@ -1499,13 +1499,10 @@ ul#content-nav li a {
 display:none;
 }
 .home .synved-social-resolution-single{display:none;}
-.subnav.banner nav li a:hover {background-color:#4679B2;color:#000;}
+
 ul.topics li.active a i {color:#606C7F;}
-/* highlighting active sub nav link */
-.subnav.banner nav li .active {
-    color: #172D3F;
-    background-color:#4679B2;
-}
+
+
 .dropdown-menu > li > a.inactive{
     color:#808080;
     font-style:italic;

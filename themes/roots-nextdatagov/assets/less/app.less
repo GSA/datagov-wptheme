@@ -96,13 +96,12 @@ body.home .navbar.nav ul#menu-primary-navigation {
 }
 
 .frontpage-search,
-.subnav.banner,
 body.home .header.banner.page-heading {
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid @gray-lightish;
 }
 
 footer.content-info {
-  border-top: 1px solid #E7E7E7;
+  border-top: 1px solid @gray-lightish;
 }
 
 /* ==========================================================================
@@ -175,17 +174,32 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
    ========================================================================== */
 
 .subnav.banner {
-  background-color: #EEF7FF;
+  background-color: @blue-lightestblue;
   border-top: 1px solid #fff;
-  border-bottom: 1px solid #D1E2ED;
+  border-bottom: 1px solid @blue-gray-lightish;
   a {
     color: @blue-darkblue;
+    border-bottom: 5px solid @blue-lightestblue;
+  
+    .active {
+      border-bottom: 5px solid @blue-gray-lightish;
+    }  
+
   }
 
-  nav li a:hover {
-    background-color: #fff;
+  nav li a:hover, 
+  nav li a.active {
+    background-color: @blue-lightestblue;
+    border-bottom: 5px solid @blue-gray-lightish;
+  }
+
+  .nav.navbar-nav li a {
+    padding-bottom : 9px;
   }
 }
+
+
+
 
 /* ==========================================================================
    Topic Browse
