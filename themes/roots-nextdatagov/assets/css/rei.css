@@ -1469,10 +1469,6 @@ ul#content-nav li a {
     overflow:hidden;
 }
 
-.carousel-expand {
-    position: absolute;
-    right:10px;
-}
 .carousel-expand.more-link a i{display: inline-block !important;margin-left: 5px;}
 /*hiding icons on home page using css*/
 .home .synved-social-container.synved-social-container-share{
