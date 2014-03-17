@@ -54,16 +54,21 @@ $cat_slug = $category[0]->slug;
 </div>
 <div class="container">
     <?php
-    while( have_posts() ) {
-        the_post();
+    
+        while( have_posts() ) {
+        
+            the_post();
+
         ?>
-<div class="Apps-wrapper">
-  <div class="Apps-post" id="post-<?php the_ID(); ?>">
-      <div  class="Appstitle" ><?php the_title();?></div>
-        <?php the_content();   ?>
+
+        <div class="Apps-wrapper">
+            <div class="Apps-post" id="post-<?php the_ID(); ?>">
+                <?php the_content();   ?>
+            </div>
+        </div>    
+
         <?php }?>
-</div>
-</div>
+
 
     <!-- Application featured taxonomy-->
     <?php
