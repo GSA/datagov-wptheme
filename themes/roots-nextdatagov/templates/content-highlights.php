@@ -46,9 +46,17 @@ if (($highlight_posts->have_posts())):
                         <div
                             class="highlight item <?php echo(!$checkFirst++ ? 'active' : ''); ?> <?php get_category_by_slug(isset($slug) ? $slug : '') ?>">
                             <header>
-                                <?php if (!is_category() && !is_archive()): ?>
-                                    <h5 class="category"><?php $category = get_the_category();
-                                        echo $category[0]->cat_name; ?></h5>
+                                <?php 
+                                    // TODO: Style this! Adding "FALSE" to hide until properly styled
+                                    if (FALSE && !is_category() && !is_archive()): ?>
+                                    
+                                    <h5 class="category">
+                                        <?php 
+                                            $category = get_the_category();
+                                            echo $category[0]->cat_name; 
+                                        ?>
+                                    </h5>
+
                                 <?php endif; ?>
 
                                 <h2 class="entry-title" style="width:750px;float:left;"><?php the_title(); ?></h2>
