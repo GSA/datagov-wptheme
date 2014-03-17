@@ -50,11 +50,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
    Header
    ========================================================================== */
 
+
 .navbar-brand,
 .logo-brand {
   background: url("../img/logo.png") no-repeat scroll center center transparent;
   background-size: contain;
-  width: 200px;
+  width: 170px;
   margin: 0 0 0 15px;
 
   overflow: hidden;
@@ -1241,9 +1242,19 @@ figure.alignnone {
    ========================================================================== */
 
 @media (min-width: @screen-sm-min) {
+
+  .navbar .container .navbar-brand {
+    margin-left : 0 !important;
+  }
+
 }
 
 @media (min-width: @screen-md-min) {
+
+  .navbar-brand {
+    width : 200px;
+  }
+
 }
 
 @media (min-width: @screen-lg-min) {
