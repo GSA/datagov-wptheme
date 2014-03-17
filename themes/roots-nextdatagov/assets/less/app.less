@@ -600,14 +600,19 @@ header .header.banner.page-heading {
   padding-bottom: 0;
   margin: @line-height-computed 0 ;
   border-bottom: none;
+
+  h1 {
+    font-size: (@font-size-base * 1.1);
+    text-transform: uppercase;
+    border-bottom: 1px solid #E2E2E2;
+  }
+
 }
 
-.page-header h1 {
-  font-size: (@font-size-base * 1.1);
-  text-transform: uppercase;
-  border-bottom: 1px solid #E2E2E2;
-  padding-bottom: .5em;
+body.category .page-header h1 {
+   padding-bottom: .5em;
 }
+
 
 .header.banner .page-header h1 {
   border: 0;
