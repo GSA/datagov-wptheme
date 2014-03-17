@@ -773,3 +773,16 @@ function ckan_count_cron()
         return false;
     }
 }
+
+/**
+ * Avoid
+ * http://wptavern.com/how-to-prevent-wordpress-from-participating-in-pingback-denial-of-service-attacks
+ */
+function stoppingbacks($methods)
+{
+    unset($methods['pingback.ping']);
+
+    return $methods;
+}
+
+add_filter('xmlrpc_methods', 'stoppingbacks');
