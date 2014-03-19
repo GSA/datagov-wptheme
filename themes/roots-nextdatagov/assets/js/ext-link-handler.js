@@ -84,3 +84,21 @@ $('ul#content-nav').each(function(){
   });
 });
 });
+//Assigining the active link based on current url
+/*$(document).ready(function () {
+    var windowLocationPathname = window.location.pathname;
+    $('.topic-subnav ul.nav').find('a[href^="' + windowLocationPathname + '"]').addClass('active');
+});
+*/
+jQuery(function() {
+    jQuery('.topic-subnav ul.nav a').each(function() {
+        if (jQuery(this).attr('href')  ===  window.location.pathname) {
+            jQuery(this).addClass('active');
+        }
+    });
+    jQuery('.menu-communities ul li a').each(function() {
+        if (!jQuery(this).attr('href')) {
+            jQuery(this).addClass('inactive');
+        }
+    });
+});

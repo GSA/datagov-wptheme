@@ -50,11 +50,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
    Header
    ========================================================================== */
 
+
 .navbar-brand,
 .logo-brand {
   background: url("../img/logo.png") no-repeat scroll center center transparent;
   background-size: contain;
-  width: 200px;
+  width: 170px;
   margin: 0 0 0 15px;
 
   overflow: hidden;
@@ -96,13 +97,12 @@ body.home .navbar.nav ul#menu-primary-navigation {
 }
 
 .frontpage-search,
-.subnav.banner,
 body.home .header.banner.page-heading {
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid @gray-lightish;
 }
 
 footer.content-info {
-  border-top: 1px solid #E7E7E7;
+  border-top: 1px solid @gray-lightish;
 }
 
 /* ==========================================================================
@@ -175,17 +175,32 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
    ========================================================================== */
 
 .subnav.banner {
-  background-color: #EEF7FF;
+  background-color: @blue-lightestblue;
   border-top: 1px solid #fff;
-  border-bottom: 1px solid #D1E2ED;
+  border-bottom: 1px solid @blue-gray-lightish;
   a {
     color: @blue-darkblue;
+    border-bottom: 5px solid @blue-lightestblue;
+  
+    .active {
+      border-bottom: 5px solid @blue-gray-lightish;
+    }  
+
   }
 
-  nav li a:hover {
-    background-color: #fff;
+  nav li a:hover, 
+  nav li a.active {
+    background-color: @blue-lightestblue;
+    border-bottom: 5px solid @blue-gray-lightish;
+  }
+
+  .nav.navbar-nav li a {
+    padding-bottom : 9px;
   }
 }
+
+
+
 
 /* ==========================================================================
    Topic Browse
@@ -269,94 +284,76 @@ ul.topics {
 .topic-business a i:before {
   content: "\e000";
 }
-
 .topic-cities a i:before {
   content: "\e001";
 }
-
 .topic-climate a i:before {
   content: "\e002";
 }
-
 .topic-consumer a i:before {
   content: "\e003";
 }
-
 .topic-counties a i:before {
   content: "\e004";
 }
-
 .topic-developers a i:before {
   content: "\e005";
 }
-
 .topic-development a i:before {
   content: "\e006";
 }
-
 .topic-education a i:before {
   content: "\e007";
 }
-
 .topic-energy a i:before {
   content: "\e008";
 }
-
 .topic-ethics a i:before {
   content: "\e009";
 }
-
 .topic-finance a i:before {
   content: "\e00a";
 }
-
 .topic-food a i:before {
   content: "\e00b";
 }
-
 .topic-geospatial a i:before {
   content: "\e00c";
 }
-
-.topic-impact a i:before {
+.topic-health a i:before {
   content: "\e00d";
 }
-
-.topic-jobs-and-skills a i:before {
+.topic-impact a i:before {
   content: "\e00e";
 }
-
-.topic-law a i:before {
+.topic-jobs-and-skills a i:before {
   content: "\e00f";
 }
-
-.topic-manufacturing a i:before {
+.topic-law a i:before {
   content: "\e010";
 }
-
-.topic-ocean a i:before {
+.topic-manufacturing a i:before {
   content: "\e011";
 }
-
-.topic-research a i:before {
+.topic-ocean a i:before {
   content: "\e012";
 }
-
-.topic-safety a i:before {
+.topic-research a i:before {
   content: "\e013";
 }
-
-.topic-states a i:before {
+.topic-safety a i:before {
   content: "\e014";
 }
-
-.topic-weather a i:before {
+.topic-states a i:before {
   content: "\e015";
 }
-
-.topic-health a i:before {
+.topic-weather a i:before {
   content: "\e016";
 }
+.topic-ecosystems a i:before {
+  content: "\e017";
+}
+
 
 .more-link a {
   outline: 0;
@@ -397,6 +394,10 @@ ul.topics {
   padding-top: 1em;
 }
 
+.yamm ul.dropdown-menu.topics {
+  padding-bottom : 1.5em;
+}
+
 .yamm .dropdown-menu li {
   display: inline-block;
 }
@@ -431,11 +432,18 @@ ul.topics {
 
 }
 
+
+
 /* ==========================================================================
    Search
    ========================================================================== */
 
+.search-submit.btn {
+  font-size: @font-size-base - 1px;
+}
+
 div.frontpage-search {
+
 
   padding: 2em 0;
 
@@ -455,79 +463,6 @@ div.frontpage-search {
 
   input[type="search"]::-webkit-input-placeholder {
     -webkit-transition: opacity 0.3s linear;
-    color: #000;
-  }
-
-  input[type="search"]:focus::-webkit-input-placeholder {
-    opacity: 0;
-  }
-
-  input.search-field.form-control::-moz-placeholder {
-    transition: opacity 0.3s linear;
-    color: #000;
-  }
-
-  input.search-field.form-control:focus::-moz-placeholder {
-    opacity: 0;
-  }
-
-  input.search-field.form-control,
-  #search-prompt {
-    font-weight: 300;
-    font-style: italic;
-    font-size: 20px;
-  }
-
-  #search-prompt {
-    display: inline-block;
-    height: 44px;
-    padding-top: 8px;
-    padding-right: 0;
-    text-align: right;
-  }
-
-  .search-field.form-control {
-    height: 44px;
-  }
-
-  .search-form .btn {
-    font-size: 21px;
-  }
-
-  .search-form .btn-default {
-    color: #9E9E9E;
-  }
-
-}
-
-.navbar {
-  .search-form {
-    padding-top: 8px;
-  }
-}
-
-@media (min-width: @screen-sm-min) {
-
-  .navbar {
-    .search-form {
-      padding-right: 0;
-    }
-  }
-
-}
-
-/* ==========================================================================
-   Search
-   ========================================================================== */
-
-.search-submit.btn {
-  font-size: @font-size-base - 1px;
-}
-
-div.frontpage-search {
-
-  input[type="search"]::-webkit-input-placeholder {
-    -webkit-transition: opacity 0.3s linear;
     color: gray;
   }
 
@@ -546,7 +481,7 @@ div.frontpage-search {
 
   input.search-field.form-control,
   #search-prompt {
-    font-weight: 300;
+    font-weight: 400;
     font-style: italic;
     font-size: 20px;
   }
@@ -593,6 +528,33 @@ div.frontpage-search {
   padding: 2em 0;
 }
 
+
+/*  ==========================================================================
+    Topic Headers
+    ========================================================================== */
+
+.page-header .category-header a {
+
+
+  i {
+    font-size : 35px;
+  }
+
+  div {
+    float : left;
+    text-align : left;
+    vertical-align: middle;
+    margin-right : 1em;
+  }
+
+  span {
+    padding-top : 8px;
+  }
+
+}
+
+
+
 /* ==========================================================================
    Content
    ========================================================================== */
@@ -636,16 +598,21 @@ header .header.banner.page-heading {
 
 .page-header {
   padding-bottom: 0;
-  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  margin: @line-height-computed 0 ;
   border-bottom: none;
+
+  h1 {
+    font-size: (@font-size-base * 1.1);
+    text-transform: uppercase;
+    border-bottom: 1px solid #E2E2E2;
+  }
+
 }
 
-.page-header h1 {
-  font-size: (@font-size-base * 1.1);
-  text-transform: uppercase;
-  border-bottom: 1px solid #E2E2E2;
-  padding-bottom: .2em;
+body.category .page-header h1 {
+   padding-bottom: .5em;
 }
+
 
 .header.banner .page-header h1 {
   border: 0;
@@ -1218,9 +1185,19 @@ figure.alignnone {
    ========================================================================== */
 
 @media (min-width: @screen-sm-min) {
+
+  .navbar .container .navbar-brand {
+    margin-left : 0 !important;
+  }
+
 }
 
 @media (min-width: @screen-md-min) {
+
+  .navbar-brand {
+    width : 200px;
+  }
+
 }
 
 @media (min-width: @screen-lg-min) {

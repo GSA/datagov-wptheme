@@ -49,8 +49,13 @@
 
 <div class="header banner frontpage-search">
     <div class="container">
-      <div class="text-center getstarted"><h4><label for="search-header">Get Started<br><small>Search over 85,000 datasets</small><br /><i class="fa fa-caret-down"></i></label></h4></div>
-      <?php get_search_form(); ?>
+        <div class="text-center getstarted">
+            <h4><label for="search-header">Get Started<br>
+                    <small>Search over <?php echo number_format(get_option('ckan_total_count', 107111)); ?> datasets
+                    </small>
+                    <br/><i class="fa fa-caret-down"></i></label></h4>
+        </div>
+        <?php get_search_form(); ?>
     </div><!--/.container-->
 </div>
 <?php endif; ?>

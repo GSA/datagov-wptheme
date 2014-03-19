@@ -50,8 +50,8 @@ $cat_slug = $category[0]->slug;
                 )
             ),
             'posts_per_page' => 3,
-            'paged' => $paged,
-            'category_name'=> 'Uncategorized' );
+            'paged' => $paged
+        );
         $apps = new WP_Query( $args );
         $my_post_count = $apps->post_count;
         $apps = new WP_Query( $args );
@@ -67,20 +67,23 @@ $cat_slug = $category[0]->slug;
         <?php
 
         if ($apps->have_posts()) : ?>
-            <?php while ($apps->have_posts()) : $apps->the_post(); ?>
-
-
-
+            <?php while ($apps->have_posts()) : $apps->the_post();
+                $cat = get_the_category( $postID );
+                ?>
                 <div id="cat-posts" class="single-cat-post ">
-
-
-
                     <!-- Content - Blog Post -->
                     <div class="category-wrapper_all">
 
                         <div class="new-cat-post" id="post-<?php the_ID(); ?>">
-
-
+                            <?php
+                            if($cat[0]->slug=="datagov_team"){ ?>
+                                <h5 class="category category-header datagov-team-logo"><a class="local-link" href="/<?php echo $cat[0]->slug?>"><i></i><span></span></a></h5>
+                                <?php   } else {
+                                ?>
+                                <h5 class="category category-header topic-<?php echo $cat[0]->slug?>"><a class="local-link" href="/<?php echo $cat[0]->slug?>"><i></i><span><?php echo $cat[0]->cat_name?></span></a></h5>
+                                <?php
+                            }
+                            ?>
                             <div class=" title  "><?php the_title(); ?></div>
                             <div style="color:#808080; font-size:16px;margin-left:2px;  "><span style="text-transform:uppercase;"><?php $author = get_the_author(); echo $author;?></span>&nbsp;// <?php the_time('M jS Y ') ?> </div>
                             <br/>

@@ -32,38 +32,62 @@ $cat_slug = $category[0]->slug;
         }
     });
 </script>
-<div class="subnav banner">
-    <div class="container">
-        <nav role="navigation" class="topic-subnav">
-            <ul class="nav navbar-nav">
-                <?php
-                // show Links associated to a community
-                // we need to build $args based either term_name or term_slug
-                if(!empty($term_slug)){
-                    $args = array(
-                        'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
-                    wp_list_bookmarks($args);
-                }
-                if (strcasecmp($term_name,$term_slug)!=0) {
-                    $args = array(
-                        'category_name'=> $term_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating');
-                    wp_list_bookmarks($args);
-                }
-                ?>
-            </ul></nav></div>
-</div>
+
+
+<?php
+// show Links associated to a community
+// we need to build $args based either term_name or term_slug
+if(!empty($term_slug)){
+    $args = array(
+        'category_name'=> $term_slug, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating','echo'=>0);
+    $bookmarks = wp_list_bookmarks($args);
+}
+if (strcasecmp($term_name,$term_slug)!=0) {
+    $args = array(
+        'category_name'=> $term_name, 'categorize'=>0, 'title_li'=>0,'orderby'=>'rating','echo'=>0);
+    $bookmarks = wp_list_bookmarks($args);
+}
+?>
+
+
+<?php if($bookmarks): ?>
+
+    <div class="subnav banner">
+        <div class="container">
+            <nav role="navigation" class="topic-subnav">
+                <ul class="nav navbar-nav">
+                    <?php
+                    
+                        echo $bookmarks;
+
+                    ?>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+<?php endif; ?>
+
+
+
+
 <div class="container">
     <?php
-    while( have_posts() ) {
-        the_post();
+
+        while( have_posts() ) {
+        
+            the_post();
+
         ?>
-<div class="Apps-wrapper">
-  <div class="Apps-post" id="post-<?php the_ID(); ?>">
-      <div  class="Appstitle" ><?php the_title();?></div>
-        <?php the_content();   ?>
+
+        <div class="Apps-wrapper">
+            <div class="Apps-post" id="post-<?php the_ID(); ?>">
+                <?php the_content();   ?>
+            </div>
+        </div>    
+
         <?php }?>
-</div>
-</div>
+
 
     <!-- Application featured taxonomy-->
     <?php

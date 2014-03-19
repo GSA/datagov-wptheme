@@ -30,14 +30,19 @@ function roots_title() {
     } else {
         $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));   
     }
-    
+
+
+    if (is_category()) {
+      $term = get_category(get_query_var('cat'),false);
+    }
+  
     if(is_array($term)) {
         $term = $term[0];
     }
-   
+
     if ($term) {
-      $link = '/' . $term->slug;
-      $term = '<a href="' . $link . '">' . $term->name . '</a>';
+      $link = '/' . $term->slug;      
+      $term = '<div class="category-header topic-' . $term->slug . '"><a href="' . $link . '"><div><i></i></div><span>' . $term->name . '</span></a></div>';
       return apply_filters('single_term_title', $term);
     } elseif (is_post_type_archive()) {
       return apply_filters('the_title', get_queried_object()->labels->name);

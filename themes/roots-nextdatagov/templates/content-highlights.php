@@ -44,23 +44,32 @@ if (($highlight_posts->have_posts())):
                 <div id="highlightsCarouselInner" class="carousel-inner">
                     <?php while ($highlight_posts->have_posts()) : $highlight_posts->the_post(); ?>
                         <div
-                            class="highlight item <?php echo(!$checkFirst++ ? 'active' : ''); ?> <?php get_category_by_slug($slug) ?>">
+                            class="highlight item <?php echo(!$checkFirst++ ? 'active' : ''); ?> <?php get_category_by_slug(isset($slug) ? $slug : '') ?>">
                             <header>
-                                <?php if (!is_category() && !is_archive()): ?>
-                                    <h5 class="category"><?php $category = get_the_category();
-                                        echo $category[0]->cat_name; ?></h5>
+                                <?php 
+                                    // TODO: Style this! Adding "FALSE" to hide until properly styled
+                                    if (FALSE && !is_category() && !is_archive()): ?>
+                                    
+                                    <h5 class="category">
+                                        <?php 
+                                            $category = get_the_category();
+                                            echo $category[0]->cat_name; 
+                                        ?>
+                                    </h5>
+
                                 <?php endif; ?>
 
                                 <h2 class="entry-title" style="width:750px;float:left;"><?php the_title(); ?></h2>
                                 <?php if (get_post_format() == 'image'): ?>
-                                <div class="dataset-link" style="clear:none;margin:0px; width:180px; float:right;">
-                                    <a class="btn btn-default pull-right" href="<?php the_field('link_to_dataset'); ?>">
-                                        <span class="glyphicon glyphicon-download"></span> View this Dataset
-                                    </a>
-                                </div>
+                                    <div class="dataset-link" style="clear:none;margin:0px; width:180px; float:right;">
+                                        <a class="btn btn-default pull-right"
+                                           href="<?php the_field('link_to_dataset'); ?>">
+                                            <span class="glyphicon glyphicon-download"></span> View this Dataset
+                                        </a>
+                                    </div>
                                 <?php endif; ?>
                             </header>
-
+                            <br clear="all"/>
                             <?php if (has_post_thumbnail()) : ?>
                                 <div class="featured-image col-md-4">
                                     <?php the_post_thumbnail('medium'); ?>
@@ -68,11 +77,9 @@ if (($highlight_posts->have_posts())):
                             <?php endif; ?>
 
                             <article
-                                 style="clear:both;" class="<?php if (has_post_thumbnail()) : ?>col-md-8<?php else: ?>no-image<?php endif; ?>">
+                                class="<?php if (has_post_thumbnail()) : ?>col-md-8<?php else: ?>no-image<?php endif; ?>">
                                 <?php the_content(); ?>
                             </article>
-
-
                         </div><!--/.highlight-->
                     <?php endwhile; ?>
                 </div>

@@ -1,0 +1,155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp_sitemap_page\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-01 15:19+0100\n"
+"PO-Revision-Date: 2013-12-10 15:10+0100\n"
+"Last-Translator: Raul Vallez <endormoon@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.6.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es_ES\n"
+"X-Poedit-SearchPath-0: /home/tony/websites/www-dev/public/wp_plugins/wp-"
+"sitemap-page/plugin_1_0_8\n"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:4
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/wp-sitemap-page.php:86
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/wp-sitemap-page.php:87
+msgid "WP Sitemap Page"
+msgstr "WP Sitemap Page"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:12
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/wp-sitemap-page.php:121
+msgid "Settings"
+msgstr "Ajustes"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:15
+msgid "Please choose how you want to display the posts on the sitemap."
+msgstr "Por favor, indica cómo quieres mostrar los posts en el sitemap"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:17
+#, php-format
+msgid "%1$s: title of the post."
+msgstr "%1$s: título del post"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:18
+#, php-format
+msgid "%1$s: URL of the post."
+msgstr "%1$s: URL del post"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:19
+#, php-format
+msgid "%1$s: The year of the post, four digits, for example 2004."
+msgstr "%1$s: El año del post, cuatro dígitos, por ejemplo 2004."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:20
+#, php-format
+msgid "%1$s: Month of the year, for example 05."
+msgstr "%1$s: Mes del año, por ejemplo 05."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:21
+#, php-format
+msgid "%1$s: Day of the month, for example 28."
+msgstr "%1$s: Día del mes, por ejemplo 28."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:22
+#, php-format
+msgid "%1$s: Hour of the day, for example 15."
+msgstr "%1$s: Hora del día, por ejemplo 15.."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:23
+#, php-format
+msgid "%1$s: Minute of the hour, for example 43."
+msgstr "%1$s: Minutos de la hora, por ejemplo 43."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:24
+#, php-format
+msgid "%1$s: Second of the minute, for example 33."
+msgstr "%1$s: Segundos del minuto, por ejemplo 33."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:25
+#, php-format
+msgid "%1$s: The unique ID # of the post, for example 423."
+msgstr "%1$s: El # de ID único del post, por ejemplo 423."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:26
+#, php-format
+msgid ""
+"%1$s: Category name. Nested sub-categories appear as nested directories in "
+"the URI."
+msgstr ""
+"%1$s: Categoría. Las subcategorías anidadas aparecerán como directorios "
+"anidados en el URI."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:36
+msgid "How to display the posts"
+msgstr "Cómo mostrar los posts"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:64
+msgid "Exclude pages"
+msgstr "Páginas excluidas"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:75
+msgid ""
+"Just add the IDs, separated by a comma, of the pages you want to exclude."
+msgstr ""
+"Añade las IDs, separadas por comas, de las páginas que quieres excluir."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:80
+msgid "Exclude Custom Post Type"
+msgstr "Excluye el Custom Post Type"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:93
+msgid "Page"
+msgstr "Página"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:101
+msgid "Post"
+msgstr "Post"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:150
+msgid "About"
+msgstr "Acerca de"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:158
+msgid "To display the sitemap, just use [wp_sitemap_page] on any page or post."
+msgstr ""
+"Para mostrar el sitemap, sólo usa [wp_sitemap_page] en cualquier página o "
+"post."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:160
+#, php-format
+msgid "Plugin developed by <a href=\"%1$s\">Tony Archambeau</a>."
+msgstr "Plugin desarrollado por <a href=\"%1$s\">Tony Archambeau</a>."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:161
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/wp-sitemap-page.php:122
+msgid "Donate"
+msgstr "Donar"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/settings.php:166
+#, php-format
+msgid "Translated in Russian by <a href=\"%1$s\">skesov.ru</a>."
+msgstr "Traducido en Ruso por <a href=\"%1$s\">skesov.ru</a>."
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/wp-sitemap-page.php:290
+msgid "Pages"
+msgstr "Páginas"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/wp-sitemap-page.php:307
+msgid "Posts by category"
+msgstr "Posts por categoría"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/wp-sitemap-page.php:423
+#, php-format
+msgid "Category: %1$s"
+msgstr "Categoría: %1$s"
+
+#: /home/tony/websites/www-dev/public/wp_plugins/wp-sitemap-page/plugin_1_0_8/wp-sitemap-page.php:483
+msgid "<a href=\"{permalink}\">{title}</a> ({monthnum}/{day}/{year})"
+msgstr "<a href=\"{permalink}\">{title}</a> ({monthnum}/{day}/{year})"
