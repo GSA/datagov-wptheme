@@ -755,7 +755,7 @@ add_action('ckan_count_cron_daily', 'ckan_count_cron');
 function ckan_count_cron()
 {
     try {
-        $json = file_get_contents('https://catalog.data.gov/api/3/action/package_search');
+        $json = file_get_contents('https://catalog.data.gov/api/3/action/package_search?rows=0');
         if (false === $json) {
             throw new Exception('could not access page');
         }
