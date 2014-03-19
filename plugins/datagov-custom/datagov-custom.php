@@ -746,9 +746,9 @@ add_filter('https_ssl_verify', '__return_false');
  * Daily update CKAN dataset total count, to display it over search box on main page
  * @author Alex Perfilov
  */
-if (!wp_next_scheduled('ckan_count_cron_daily')) {
-    wp_schedule_event(time(), 'daily', 'ckan_count_cron_daily');
-}
+//if (!wp_next_scheduled('ckan_count_cron_daily')) {
+//    wp_schedule_event(time(), 'daily', 'ckan_count_cron_daily');
+//}
 
 add_action('ckan_count_cron_daily', 'ckan_count_cron');
 
