@@ -11,8 +11,6 @@ if (!session_id())
 add_action('save_post', 'validate_map_id');
 add_action('admin_notices', 'my_admin_notices');
 add_filter('redirect_post_location', 'arcgismap_redirect_location', 10, 2);
-add_action('init', 'arcgis_national_map_process_details');
-add_action('init', 'arcgis_regional_map_process_details');
 
 function arcgis_national_map_process_details()
 {

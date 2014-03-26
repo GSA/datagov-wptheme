@@ -2,6 +2,7 @@
 $category = get_the_category();
 $cat_name = $term_name = $category[0]->cat_name;
 $cat_slug = $term_slug = $category[0]->slug;
+arcgis_regional_map_process_details();
 ?>
 <div class="subnav banner">
     <div class="container">
