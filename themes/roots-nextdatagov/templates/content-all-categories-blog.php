@@ -54,9 +54,6 @@ $cat_slug = $category[0]->slug;
         );
         $apps = new WP_Query( $args );
         $my_post_count = $apps->post_count;
-        $apps = new WP_Query( $args );
-        $my_post_count = $apps->post_count;
-
 
         ?>
         <div class="catimg"  style="padding-top:30px;padding-bottom:10px; ">
