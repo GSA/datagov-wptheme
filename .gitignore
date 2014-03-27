@@ -1,11 +1,5 @@
 .idea
 .DS_Store
-plugins/baw-login-logout-menu/*
-plugins/bulk-move/*
-plugins/bwp-external-links/*
-plugins/jquery-colorbox/*
-plugins/m-wp-popup/*
-plugins/sem-external-links/*
-plugins/wp-content-filter/*
-plugins/wp-rss-multi-importer/*
 themes/twentyfourteen/*
+index.php
+debug.log

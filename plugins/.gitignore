@@ -4,7 +4,7 @@ custom-post-type-ui
 hello.php
 akismet
 configure-smtp
-/index.php
+index.php
 no-category-base-wpml
 w3-total-cache
 better-wp-security
@@ -22,7 +22,7 @@ redirection
 acf-location-field
 opml-importer
 bbpress
-import-blogroll-with-categories/
+import-blogroll-with-categories
 interactive-world-maps
 posts-in-page
 si-captcha-for-wordpress
@@ -31,3 +31,11 @@ upload-scanner
 widget-logic
 wp-crontrol
 wp-no-taxonomy-base
+baw-login-logout-menu
+bulk-move
+bwp-external-links
+jquery-colorbox
+m-wp-popup
+sem-external-links
+wp-content-filter
+wp-rss-multi-importer
