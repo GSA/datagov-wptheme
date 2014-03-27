@@ -2,6 +2,13 @@
 /**
  * @package XML_Sitemaps
  */
+
+// This is to prevent issues with New Relics stupid auto injection of code. It's ugly but I don't want
+// to deal with support requests for other people's wrong code...
+if ( extension_loaded( 'newrelic' ) && function_exists( 'newrelic_disable_autorum' ) ) {
+	newrelic_disable_autorum();
+}
+
 $xsl = '<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0"
                 xmlns:html="http://www.w3.org/TR/REC-html40"
@@ -75,6 +82,8 @@ $xsl = '<?xml version="1.0" encoding="UTF-8"?>
 			<body>
 				<div id="content">
 					<h1>XML Sitemap</h1>
+					<p class="expl">
+					</p>
 					<xsl:if test="count(sitemap:sitemapindex/sitemap:sitemap) &gt; 0">
 						<p class="expl">
 							This XML Sitemap Index file contains <xsl:value-of select="count(sitemap:sitemapindex/sitemap:sitemap)"/> sitemaps.
@@ -107,7 +116,7 @@ $xsl = '<?xml version="1.0" encoding="UTF-8"?>
 						<p class="expl">
 							This XML Sitemap contains <xsl:value-of select="count(sitemap:urlset/sitemap:url)"/> URLs.
 						</p>
-						<p class="expl"><a href="'.home_url('sitemap_index.xml').'">&#8593; Sitemap Index</a></p>
+						<p class="expl"><a href="' . esc_url( home_url( 'sitemap_index.xml' ) ) . '">&#8593; Sitemap Index</a></p>
 						<table id="sitemap" cellpadding="3">
 							<thead>
 								<tr>
@@ -149,13 +158,13 @@ $xsl = '<?xml version="1.0" encoding="UTF-8"?>
 						</table>
 					</xsl:if>
 				</div>
-				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-				<script type="text/javascript" src="'.plugins_url( 'jquery.tablesorter.min.js', __FILE__ ).'"></script>
+				<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+				<script type="text/javascript" src="' . plugins_url( 'js/jquery.tablesorter.min.js', WPSEO_FILE ) . '"></script>
 				<script	type="text/javascript"><![CDATA[
-					$(document).ready(function() { 
+					$(document).ready(function() {
 				        $("#sitemap").tablesorter( { widgets: [\'zebra\'] } );
 					});
-				]]></script>						
+				]]></script>
 			</body>
 		</html>
 	</xsl:template>

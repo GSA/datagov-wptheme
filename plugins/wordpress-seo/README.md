@@ -6,18 +6,18 @@ WordPress SEO by Yoast
 Welcome to the WordPress SEO Github repository
 ----------------------------------------------
 
-While the documenation for the [WordPress SEO plugin](http://yoast.com/wordpress/seo/) can be found on yoast.com, here
+While the documenation for the [WordPress SEO plugin](https://yoast.com/wordpress/seo/) can be found on yoast.com, here
 you can browse the source of the project, find and discuss open issues and even
 [contribute yourself](https://github.com/yoast/wordpress-seo/blob/master/CONTRIBUTING.md).
 
 Installation
 ------------
 
-Here's a [guide on how to install WordPress SEO in your WordPress site](http://yoast.com/wordpress/seo/installation/).
+Here's a [guide on how to install WordPress SEO in your WordPress site](https://yoast.com/wordpress/seo/installation/).
 If you want to run the Git version though, you have two options:
 
 * You can clone the GitHub repository: https://github.com/yoast/wordpress-seo.git
-* Download it directly as a ZIP file: https://github.com/yoast/wordpress-seo/archive/master.zip
+* Downloading it directly unfortunately won't work as the .zip file doesn't contain the submodules.
 
 This will download the latest development version of WordPress SEO by Yoast. While this version is usually stable,
 it is not recommended for use in a production environment.
