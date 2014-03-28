@@ -35,7 +35,7 @@ $allowed_slug_arrays = array(
 	"water",
 	"climate"
 );
-if ( $subnav OR $subnav_extra ):
+if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 	?>
 
 	<div class="subnav banner">

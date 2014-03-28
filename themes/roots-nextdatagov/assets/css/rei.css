@@ -1501,3 +1501,9 @@ ul.topics li.active a i {color:#606C7F;}
     height:35px;
 }
 .highlights-listing .synved-social-container {display:none;}
+
+.search-results-alert {
+    font-size: larger;
+    line-height: 70px;
+    text-align: center;
+}

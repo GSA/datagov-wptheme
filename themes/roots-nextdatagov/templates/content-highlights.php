@@ -1,6 +1,8 @@
 <?php
 $category = get_the_category();
-$term_slug = $category[0]->slug;
+if ( $category ) {
+	$term_slug = $category[0]->slug;
+}
 
 $args = array(
     'post_type'           => 'post',
@@ -103,9 +105,11 @@ if (($highlight_posts->have_posts())):
                             class="<?php echo(!$checkFirst++ ? 'active' : ''); ?>"></li>
                     <?php endwhile; ?>
                 </ol>
-                <div class="pull-right" ><a href="/<?php echo $term_slug?>/highlights" class="more-link" style="color:#fff;">More Highlights</a></div>                <div class="carousel-expand more-link">
-                    <a id="carouselExpand" href="javascript:void(0)" alt="Read more" class="collapsed">More<i></i></a>
-                    <a id="carouselHide" href="javascript:void(0)" style="display: inline;" alt="hide">Less<i></i></a>
+	            <div class="pull-right"><a href="<?php echo( isset( $term_slug ) ? $term_slug : '' ) ?>/highlights"
+	                                       class="more-link" style="color:#fff;">More Highlights</a></div>
+	            <div class="carousel-expand more-link">
+		            <a id="carouselExpand" href="javascript:void(0)" alt="Read more" class="collapsed">More<i></i></a>
+		            <a id="carouselHide" href="javascript:void(0)" style="display: inline;" alt="hide">Less<i></i></a>
                 </div>
             </div>
         </div>
