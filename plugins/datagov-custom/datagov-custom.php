@@ -822,3 +822,19 @@ function stoppingbacks( $methods ) {
 }
 
 add_filter( 'xmlrpc_methods', 'stoppingbacks' );
+
+/**
+ * Defer parsing of JavaScript
+ * Performance optimization
+ */
+// Adapted from https://gist.github.com/toscho/1584783
+add_filter( 'clean_url', function ( $url ) {
+	if ( false === strpos( $url, '.js' )
+	     AND false === strpos( $url, '/jsapi' )
+	) { // not our file
+		return $url;
+	}
+
+	// Must be a ', not "!
+	return "$url' defer='defer' async='async";
+}, 11, 1 );
