@@ -6,14 +6,41 @@ $term = get_post_custom_values('industry');
 $term = get_category($term[0]);
 // $industry->slug, $industry->cat_ID
 
-$heading = '<div class="category-header topic-' . $term->slug . '"><a href="#"><div><i></i></div><span>' . $term->name . '</span></a></div>';
+$heading = '<div class="category-header topic-' . $term->slug . '"><a href="#"><i></i><span>' . $term->name . '</span></a></div>';
 ?>
-
-<div class="impact-post clearfix">
 
 <?php echo $heading; ?>
 
-<div class="impact-meta-list col-md-4 col-md-push-8">
+<div class="impact-post clearfix">
+
+<div class="col-md-9">
+
+	<div class="impact-body">
+		<?php the_content(); ?>
+	</div>
+
+	<?php if ($meta = get_post_custom_values('data_sources')): ?>
+
+		<div class="impact-meta impact-data-sources">
+			
+			<h4 class="meta-heading">
+				<i class="glyphicon glyphicon-folder-open"></i>
+				<span>Data Sources</span>
+			</h4>
+			 
+			<div class="meta-content"> 
+			 <?php echo $meta[0]; ?> 
+			</div>
+
+		</div>
+
+	<?php endif; ?>
+
+</div>
+
+
+
+<div class="impact-meta-list col-md-3">
 
 	<div class="impact-meta impact-title">
 		<h3 class="meta-heading">
@@ -76,28 +103,10 @@ $heading = '<div class="category-header topic-' . $term->slug . '"><a href="#"><
 	<?php endif; ?>
 
 
-	<?php if ($meta = get_post_custom_values('data_sources')): ?>
-
-		<div class="impact-meta">
-			
-			<h4 class="meta-heading">
-				<i class="glyphicon glyphicon-folder-open"></i>
-				<span>Data Sources</span>
-			</h4>
-			 
-			<div class="meta-content"> 
-			 <?php echo $meta[0]; ?> 
-			</div>
-
-		</div>
-
-	<?php endif; ?>
-
 </div>
 
 
-<div class="impact-body col-md-8 col-md-pull-4">
-	<?php the_content(); ?>
-</div>
+
+
 
 </div>
