@@ -70,8 +70,9 @@ function usasearch_display_results($query = '', $group = ''){
     $res = json_decode($result_response['body']);
 
     $rows = $res->total;
-    echo '<h3><strong>'.$rows.' datasets found for "'.$query.'"</strong></h3><br/>';
-    echo "<div class='search-results-alert'>You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
+	echo "<div class='search-results-alert'>
+        <div class='results-count'>$rows results found for &#34;$query&#34;</div>
+        You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
 
     if($rows == 0){
         echo "Sorry, no results found. Try entering fewer or broader query terms.";
@@ -190,7 +191,9 @@ function usasearch_display_results($query = '', $group = ''){
 
     echo $pager;
 
-	echo "<div class='search-results-alert'>You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
+	echo "<div class='search-results-alert'>
+        <div class='results-count'>$rows results found for &#34;$query&#34;</div>
+        You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
 
     $output = '<br /><div style="text-align:center;"><img src ="/wp-content/plugins/usa-search/images/binglogo_en.gif">';
     $output .= "<div class='search-notice'>Search results were retrieved using the " . get_option('domain', 'search.usa.gov') . " API at " . date('M n Y - H:i a',time()) .
