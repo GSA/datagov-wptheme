@@ -10,6 +10,7 @@
 	$args = array(
 		'post_type'           => 'post',
 		'ignore_sticky_posts' => 1,
+		'cat'				  => '-33884',
 		'tax_query'           => array(
 			array(
 				'taxonomy' => 'post_format',
