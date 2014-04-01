@@ -45,8 +45,7 @@ if(isset($query) && isset($group) && $group == 'site')
 
 function usasearch_display_results($query = '', $group = ''){
     $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'http://catalog.data.gov/dataset';
-	echo "<div class='search-results-alert'>You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
-    // current page number
+       // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
 
@@ -71,6 +70,9 @@ function usasearch_display_results($query = '', $group = ''){
     $res = json_decode($result_response['body']);
 
     $rows = $res->total;
+    echo '<h3><strong>'.$rows.' datasets found for "'.$query.'"</strong></h3><br/>';
+    echo "<div class='search-results-alert'>You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
+
     if($rows == 0){
         echo "Sorry, no results found. Try entering fewer or broader query terms.";
         ?>
