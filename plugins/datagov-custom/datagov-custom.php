@@ -827,6 +827,7 @@ add_filter( 'xmlrpc_methods', 'stoppingbacks' );
  * Defer parsing of JavaScript
  * Performance optimization
  */
+// http://stackoverflow.com/questions/18944027
 // Adapted from https://gist.github.com/toscho/1584783
 add_filter( 'clean_url', function ( $url ) {
 	if ( false === strpos( $url, '.js' )

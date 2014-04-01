@@ -136,8 +136,7 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 			<ul>
 				<?php if ( $maxitems == 0 ) {
 					echo '<li>' . __( 'Nothing to show.', 'custom-contact-forms' ) . '</li>';
-				}
-				else {
+				} else {
 					foreach ( $rss_items as $item ) : ?>
 						<li>
 							<div class="news-header">
@@ -168,8 +167,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 		}
 
 		function handleAJAX() {
-			if ( ! wp_verify_nonce( $_POST['nonce'], 'ccf_nonce' ) )
+			if ( ! wp_verify_nonce( $_POST['nonce'], 'ccf_nonce' ) ) {
 				exit( __( 'Invalid request.', 'custom-contact-forms' ) );
+			}
 			$output   = $this->handleAdminPostRequests();
 			$response = json_encode( $output );
 			header( "Content-Type: application/json" );
@@ -258,17 +258,21 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 			$out = array( 'success' => true );
 			if ( isset( $_POST['object_create'] ) ) {
 				if ( $_POST['object_type'] == 'form' ) {
-					if ( parent::insertForm( $_POST['object'] ) != false )
+					if ( parent::insertForm( $_POST['object'] ) != false ) {
 						$this->action_complete = __( 'A new form was successfully created!', 'custom-contact-forms' );
+					}
 				} elseif ( $_POST['object_type'] == 'field' ) {
-					if ( parent::insertField( $_POST['object'] ) != false )
+					if ( parent::insertField( $_POST['object'] ) != false ) {
 						$this->action_complete = __( 'A new field was successful created!', 'custom-contact-forms' );
+					}
 				} elseif ( $_POST['object_type'] == 'field_option' ) {
-					if ( parent::insertFieldOption( $_POST['object'] ) != false )
+					if ( parent::insertFieldOption( $_POST['object'] ) != false ) {
 						$this->action_complete = __( 'A new field option was successful created!', 'custom-contact-forms' );
+					}
 				} elseif ( $_POST['object_type'] == 'style' ) {
-					if ( parent::insertStyle( $_POST['object'] ) != false )
+					if ( parent::insertStyle( $_POST['object'] ) != false ) {
 						$this->action_complete = __( 'A new style was successful created!', 'custom-contact-forms' );
+					}
 				}
 
 				return $out;
@@ -293,25 +297,26 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 								parent::updateForm( $obj['values'], $obj['object_id'] );
 							} elseif ( $obj['object_type'] == 'field' ) {
 								parent::updateField( $obj['values'], $obj['object_id'] );
-							} elseif ( $obj['object_type'] == 'field_option' )
+							} elseif ( $obj['object_type'] == 'field_option' ) {
 								parent::updateFieldOption( $obj['values'], $obj['object_id'] );
-							elseif ( $obj['object_type'] == 'style' )
+							} elseif ( $obj['object_type'] == 'style' ) {
 								parent::updateStyle( $obj['values'], $obj['object_id'] );
+							}
 							$out['objects'][] = $obj;
 						}
 					}
 				} elseif ( $_POST['object_bulk_action'] == 'delete' ) {
 					foreach ( $_POST['objects'] as $obj ) {
 						if ( isset( $obj['object_do'] ) && $obj['object_do'] == 1 ) {
-							if ( $obj['object_type'] == 'form' )
+							if ( $obj['object_type'] == 'form' ) {
 								parent::deleteForm( $obj['object_id'] );
-							elseif ( $obj['object_type'] == 'field' )
+							} elseif ( $obj['object_type'] == 'field' ) {
 								parent::deleteField( $obj['object_id'] );
-							elseif ( $obj['object_type'] == 'field_option' )
+							} elseif ( $obj['object_type'] == 'field_option' ) {
 								parent::deleteFieldOption( $obj['object_id'] );
-							elseif ( $obj['object_type'] == 'style' )
+							} elseif ( $obj['object_type'] == 'style' ) {
 								parent::deleteStyle( $obj['object_id'] );
-							elseif ( $obj['object_type'] == 'form_submission' ) {
+							} elseif ( $obj['object_type'] == 'form_submission' ) {
 								parent::deleteUserData( $obj['object_id'] );
 							}
 							$out['objects'][] = $obj;
@@ -345,6 +350,7 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 				$admin_options['show_install_popover'] = 0;
 				?>
 				<script type="text/javascript" language="javascript">
+					var $j = jQuery.noConflict();
 					$j(document).ready(function () {
 						$j("#ccf-usage-popover").dialog('open');
 					});
@@ -366,8 +372,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 			}
 			$styles        = parent::selectAllStyles();
 			$style_options = '<option value="0">Default</option>';
-			foreach ( $styles as $style )
+			foreach ( $styles as $style ) {
 				$style_options .= '<option value="' . $style->id . '">' . $style->style_slug . '</option>';
+			}
 			?>
 			<div id="customcontactforms-admin">
 			<div class="plugin-header">
@@ -517,8 +524,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 								$roles = parent::getRolesArray();
 								$i     = 0;
 								foreach ( $roles as $role ) {
-									if ( $i == 3 )
+									if ( $i == 3 ) {
 										echo '<br />';
+									}
 									?>
 									<div class="role">
 										<input type="checkbox" checked="checked" name="object[form_access][]"
@@ -578,13 +586,15 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 				$form_methods = str_replace( '<option>' . $forms[ $i ]->form_method . '</option>', '<option selected="selected">' . $forms[ $i ]->form_method . '</option>', $form_methods );
 				$add_fields   = $this->getFieldsForm( true );
 				$this_style   = parent::selectStyle( $forms[ $i ]->form_style, '' );
-				if ( $this_style != null )
+				if ( $this_style != null ) {
 					$sty_opt = str_replace( '<option value="' . $forms[ $i ]->form_style . '">' . $this_style->style_slug . '</option>', '<option value="' . $forms[ $i ]->form_style . '" selected="selected">' . $this_style->style_slug . '</option>', $style_options );
-				else
+				} else {
 					$sty_opt = $style_options;
+				}
 				?>
-				<tr class="row-form-<?php echo esc_attr( $forms[ $i ]->id ); ?> <?php if ( $i % 2 == 0 )
-					echo 'ccf-evenrow'; ?>">
+				<tr class="row-form-<?php echo esc_attr( $forms[ $i ]->id ); ?> <?php if ( $i % 2 == 0 ) {
+					echo 'ccf-evenrow';
+				} ?>">
 					<td><input type="checkbox" class="object-check" value="1"
 					           name="objects[<?php echo esc_attr( $forms[ $i ]->id ); ?>][object_do]"/></td>
 					<td><input type="text" class="ccf-width175"
@@ -623,8 +633,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 						</div>
 					</td>
 				</tr>
-				<tr class="row-form-<?php echo esc_attr( $forms[ $i ]->id ); ?> <?php if ( $i % 2 == 0 )
-					echo 'ccf-evenrow'; ?>">
+				<tr class="row-form-<?php echo esc_attr( $forms[ $i ]->id ); ?> <?php if ( $i % 2 == 0 ) {
+					echo 'ccf-evenrow';
+				} ?>">
 					<td class="form-extra-options ccf-center ccf-hide" colspan="8">
 
 						<div class="left">
@@ -1005,8 +1016,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 				$field_types      = str_replace( '<option>' . $fields[ $i ]->field_type . '</option>', '<option selected="selected">' . $fields[ $i ]->field_type . '</option>', $field_types );
 
 				?>
-				<tr class="row-field-<?php echo esc_attr( $fields[ $i ]->id ); ?> <?php if ( $z % 2 == 1 )
-					echo ' ccf-evenrow'; ?>">
+				<tr class="row-field-<?php echo esc_attr( $fields[ $i ]->id ); ?> <?php if ( $z % 2 == 1 ) {
+					echo ' ccf-evenrow';
+				} ?>">
 					<td><input class="object-check" type="checkbox" value="1"
 					           name="objects[<?php echo esc_attr( $fields[ $i ]->id ); ?>][object_do]"/></td>
 					<td><input type="text"
@@ -1030,8 +1042,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 								<?php _e( "Yes", 'custom-contact-forms' ); ?>
 							</option>
 							<option
-								value="0" <?php if ( $fields[ $i ]->field_required != 1 )
-								echo 'selected="selected"'; ?>>
+								value="0" <?php if ( $fields[ $i ]->field_required != 1 ) {
+								echo 'selected="selected"';
+							} ?>>
 								<?php _e( "No", 'custom-contact-forms' ); ?>
 							</option>
 						</select></td>
@@ -1056,8 +1069,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 					</td>
 				</tr>
 				<?php $show_field_options = ( $fields[ $i ]->field_type == 'Radio' || $fields[ $i ]->field_type == 'Dropdown' || $fields[ $i ]->field_type == 'Checkbox' ) ? true : false; ?>
-				<tr class="row-field-<?php echo esc_attr( $fields[ $i ]->id ); ?> <?php if ( $z % 2 == 1 )
-					echo 'ccf-evenrow'; ?>">
+				<tr class="row-field-<?php echo esc_attr( $fields[ $i ]->id ); ?> <?php if ( $z % 2 == 1 ) {
+					echo 'ccf-evenrow';
+				} ?>">
 					<td class="fields-extra-options ccf-hide" colspan="8">
 						<div class="one">
 							<label for="field_instructions">
@@ -1245,8 +1259,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 //			$field_types = str_replace('<option>'.$fields[$i]->field_type.'</option>',  '<option selected="selected">'.$fields[$i]->field_type.'</option>', $field_types);
 
 						?>
-						<tr class="row-field-<?php echo esc_attr( $fields[ $i ]->id ); ?> <?php if ( $z % 2 == 0 )
-							echo 'ccf-evenrow'; ?>">
+						<tr class="row-field-<?php echo esc_attr( $fields[ $i ]->id ); ?> <?php if ( $z % 2 == 0 ) {
+							echo 'ccf-evenrow';
+						} ?>">
 							<td><input class="object-check" type="checkbox" value="1"
 							           name="objects[<?php echo esc_attr( $fields[ $i ]->id ); ?>][object_do]"/></td>
 							<td><?php echo esc_attr( $fields[ $i ]->field_slug ); ?></td>
@@ -1277,8 +1292,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 										<option value="1">
 											<?php _e( "Yes", 'custom-contact-forms' ); ?>
 										</option>
-										<option <?php if ( $fields[ $i ]->field_required != 1 )
-											echo 'selected="selected"'; ?>
+										<option <?php if ( $fields[ $i ]->field_required != 1 ) {
+											echo 'selected="selected"';
+										} ?>
 											value="0">
 											<?php _e( "No", 'custom-contact-forms' ); ?>
 										</option>
@@ -1312,8 +1328,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 								</div>
 							</td>
 						</tr>
-						<tr class="row-field-<?php echo esc_attr( $fields[ $i ]->id ); ?> <?php if ( $z % 2 == 0 )
-							echo 'ccf-evenrow'; ?>">
+						<tr class="row-field-<?php echo esc_attr( $fields[ $i ]->id ); ?> <?php if ( $z % 2 == 0 ) {
+							echo 'ccf-evenrow';
+						} ?>">
 							<td class="fixed-fields-extra-options ccf-hide" colspan="8">
 								<?php if ( $fields[ $i ]->field_slug == 'resetButton' ) { ?>
 									<label for="field_class">
@@ -1442,8 +1459,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 								$i = 0;
 								foreach ( $options as $option ) {
 									?>
-									<tr class="row-field_option-<?php echo esc_attr( $option->id ); ?> <?php if ( $i % 2 == 1 )
-										echo 'evenrow-field-options'; ?>">
+									<tr class="row-field_option-<?php echo esc_attr( $option->id ); ?> <?php if ( $i % 2 == 1 ) {
+										echo 'evenrow-field-options';
+									} ?>">
 										<td><input type="checkbox" class="object-check"
 										           name="objects[<?php echo esc_attr( $option->id ); ?>][object_do]"
 										           value="1"/></td>
@@ -1462,8 +1480,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 										<td><select
 												name="objects[<?php echo esc_attr( $option->id ); ?>][values][option_dead]">
 												<option value="0"><?php _e( 'No', 'custom-contact-forms' ); ?></option>
-												<option <?php if ( $option->option_dead == 1 )
-													echo 'selected="selected"'; ?>
+												<option <?php if ( $option->option_dead == 1 ) {
+													echo 'selected="selected"';
+												} ?>
 													value="1"><?php _e( 'Yes', 'custom-contact-forms' ); ?></option>
 											</select></td>
 										<td>
@@ -1935,8 +1954,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 			$i      = 0;
 			foreach ( $styles as $style ) {
 				?>
-				<tr class="row-style-<?php echo esc_attr( $style->id ); ?> <?php if ( $i % 2 == 0 )
-					echo 'ccf-evenrow'; ?>">
+				<tr class="row-style-<?php echo esc_attr( $style->id ); ?> <?php if ( $i % 2 == 0 ) {
+					echo 'ccf-evenrow';
+				} ?>">
 				<td><label><input type="checkbox" class="object-check" value="1"
 				                  name="objects[<?php echo esc_attr( $style->id ); ?>][object_do]"/>
 						* <?php _e( "Slug:", 'custom-contact-forms' ); ?>
@@ -2507,8 +2527,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 								'encoded_data' => $data_object->data_value
 							) );
 							?>
-							<tr class="row-form_submission-<?php echo esc_attr( $data_object->id ); ?> submission-top <?php if ( $i % 2 == 0 )
-								echo 'ccf-evenrow'; ?>">
+							<tr class="row-form_submission-<?php echo esc_attr( $data_object->id ); ?> submission-top <?php if ( $i % 2 == 0 ) {
+								echo 'ccf-evenrow';
+							} ?>">
 								<td><input type="checkbox" class="object-check" value="1"
 								           name="objects[<?php echo esc_attr( $data_object->id ); ?>][object_do]"/></td>
 								<td><?php echo esc_html( date( 'F d, Y h:i:s A', $data->getDataTime() ) ); ?></td>
@@ -2517,8 +2538,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 										$data_form = parent::selectForm( $data->getFormID() );
 										$this_form = ( ! empty( $data_form->form_slug ) ) ? $data_form->form_slug : '-';
 										echo esc_html( $this_form );
-									} else
+									} else {
 										_e( 'Custom HTML Form', 'custom-contact-forms' );
+									}
 									?>
 								</td>
 								<td><?php echo esc_html( $data->getFormPage() ); ?> </td>
@@ -2542,8 +2564,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 									</div>
 								</td>
 							</tr>
-							<tr class="ccf-hide row-form_submission-<?php echo esc_attr( $data_object->id ); ?> submission-content <?php if ( $i % 2 == 0 )
-								echo 'ccf-evenrow'; ?>">
+							<tr class="ccf-hide row-form_submission-<?php echo esc_attr( $data_object->id ); ?> submission-content <?php if ( $i % 2 == 0 ) {
+								echo 'ccf-evenrow';
+							} ?>">
 								<td colspan="6">
 									<ul>
 										<?php
@@ -2688,8 +2711,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 							<?php _e( "Yes", 'custom-contact-forms' ); ?>
 						</option>
 						<option
-							value="0" <?php if ( $admin_options['email_form_submissions'] == 0 )
-							echo 'selected="selected"'; ?>>
+							value="0" <?php if ( $admin_options['email_form_submissions'] == 0 ) {
+							echo 'selected="selected"';
+						} ?>>
 							<?php _e( "No", 'custom-contact-forms' ); ?>
 						</option>
 					</select>
@@ -2716,8 +2740,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 						<option value="1">
 							<?php _e( "Enabled", 'custom-contact-forms' ); ?>
 						</option>
-						<option <?php if ( $admin_options['enable_jquery'] != 1 )
-							echo 'selected="selected"'; ?>value="0">
+						<option <?php if ( $admin_options['enable_jquery'] != 1 ) {
+							echo 'selected="selected"';
+						} ?>value="0">
 							<?php _e( "Disabled", 'custom-contact-forms' ); ?>
 						</option>
 					</select>
@@ -2766,8 +2791,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 							<?php _e( "Enabled", 'custom-contact-forms' ); ?>
 						</option>
 						<option
-							value="0" <?php if ( $admin_options['enable_dashboard_widget'] == 0 )
-							echo 'selected="selected"'; ?>>
+							value="0" <?php if ( $admin_options['enable_dashboard_widget'] == 0 ) {
+							echo 'selected="selected"';
+						} ?>>
 							<?php _e( "Disabled", 'custom-contact-forms' ); ?>
 						</option>
 					</select>
@@ -2784,13 +2810,15 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 							<?php _e( "Only admins can view", 'custom-contact-forms' ); ?>
 						</option>
 						<option
-							value="1" <?php if ( $admin_options['dashboard_access'] == 1 )
-							echo 'selected="selected"'; ?>>
+							value="1" <?php if ( $admin_options['dashboard_access'] == 1 ) {
+							echo 'selected="selected"';
+						} ?>>
 							<?php _e( "All roles except subscribers can view", 'custom-contact-forms' ); ?>
 						</option>
 						<option
-							value="0" <?php if ( $admin_options['dashboard_access'] == 0 )
-							echo 'selected="selected"'; ?>>
+							value="0" <?php if ( $admin_options['dashboard_access'] == 0 ) {
+							echo 'selected="selected"';
+						} ?>>
 							<?php _e( "All roles can view", 'custom-contact-forms' ); ?>
 						</option>
 					</select>
@@ -2804,8 +2832,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 					</label>
 					<select name="settings[code_type]">
 						<option>XHTML</option>
-						<option <?php if ( $admin_options['code_type'] == 'HTML' )
-							echo 'selected="selected"'; ?>>HTML
+						<option <?php if ( $admin_options['code_type'] == 'HTML' ) {
+							echo 'selected="selected"';
+						} ?>>HTML
 						</option>
 					</select>
 				</li>
@@ -2876,8 +2905,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 						<option value="1">
 							<?php _e( "Yes", 'custom-contact-forms' ); ?>
 						</option>
-						<option <?php if ( $admin_options['remember_field_values'] == 0 )
-							echo 'selected="selected"'; ?>
+						<option <?php if ( $admin_options['remember_field_values'] == 0 ) {
+							echo 'selected="selected"';
+						} ?>
 							value="0">
 							<?php _e( "No", 'custom-contact-forms' ); ?>
 						</option>
@@ -2894,8 +2924,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 						<option value="1">
 							<?php _e( "Enabled", 'custom-contact-forms' ); ?>
 						</option>
-						<option <?php if ( $admin_options['enable_widget_tooltips'] == 0 )
-							echo 'selected="selected"'; ?>
+						<option <?php if ( $admin_options['enable_widget_tooltips'] == 0 ) {
+							echo 'selected="selected"';
+						} ?>
 							value="0">
 							<?php _e( "Disabled", 'custom-contact-forms' ); ?>
 						</option>
@@ -2913,8 +2944,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 							<?php _e( "Yes", 'custom-contact-forms' ); ?>
 						</option>
 						<option
-							value="0" <?php if ( $admin_options['form_page_inclusion_only'] == 0 )
-							echo 'selected="selected"'; ?>>
+							value="0" <?php if ( $admin_options['form_page_inclusion_only'] == 0 ) {
+							echo 'selected="selected"';
+						} ?>>
 							<?php _e( "No", 'custom-contact-forms' ); ?>
 						</option>
 					</select>
@@ -2942,8 +2974,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 							<?php _e( "Disabled", 'custom-contact-forms' ); ?>
 						</option>
 						<option
-							value="1" <?php if ( $admin_options['enable_form_access_manager'] == 1 )
-							echo 'selected="selected"'; ?>>
+							value="1" <?php if ( $admin_options['enable_form_access_manager'] == 1 ) {
+							echo 'selected="selected"';
+						} ?>>
 							<?php _e( "Enabled", 'custom-contact-forms' ); ?>
 						</option>
 					</select>
@@ -2968,33 +3001,38 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 				<li>
 					<label>
 						<input value="1" type="checkbox"
-						       name="settings[show_widget_home]" <?php if ( $admin_options['show_widget_home'] == 1 )
-							echo 'checked="checked"'; ?> />
+						       name="settings[show_widget_home]" <?php if ( $admin_options['show_widget_home'] == 1 ) {
+							echo 'checked="checked"';
+						} ?> />
 						<?php _e( "On Homepage", 'custom-contact-forms' ); ?>
 					</label>
 					<label>
 						<input value="1" type="checkbox"
-						       name="settings[show_widget_pages]" <?php if ( $admin_options['show_widget_pages'] == 1 )
-							echo 'checked="checked"'; ?> />
+						       name="settings[show_widget_pages]" <?php if ( $admin_options['show_widget_pages'] == 1 ) {
+							echo 'checked="checked"';
+						} ?> />
 						<?php _e( "On Pages", 'custom-contact-forms' ); ?>
 					</label>
 					<label>
 						<input value="1" type="checkbox"
-						       name="settings[show_widget_singles]" <?php if ( $admin_options['show_widget_singles'] == 1 )
-							echo 'checked="checked"'; ?> />
+						       name="settings[show_widget_singles]" <?php if ( $admin_options['show_widget_singles'] == 1 ) {
+							echo 'checked="checked"';
+						} ?> />
 						<?php _e( "On Single Posts", 'custom-contact-forms' ); ?>
 					</label>
 					<br/>
 					<label>
 						<input value="1" type="checkbox"
-						       name="settings[show_widget_categories]" <?php if ( $admin_options['show_widget_categories'] == 1 )
-							echo 'checked="checked"'; ?> />
+						       name="settings[show_widget_categories]" <?php if ( $admin_options['show_widget_categories'] == 1 ) {
+							echo 'checked="checked"';
+						} ?> />
 						<?php _e( "On Categories", 'custom-contact-forms' ); ?>
 					</label>
 					<label>
 						<input value="1" type="checkbox"
-						       name="settings[show_widget_archives]" <?php if ( $admin_options['show_widget_archives'] == 1 )
-							echo 'checked="checked"'; ?> />
+						       name="settings[show_widget_archives]" <?php if ( $admin_options['show_widget_archives'] == 1 ) {
+							echo 'checked="checked"';
+						} ?> />
 						<?php _e( "On Archives", 'custom-contact-forms' ); ?>
 					</label>
 				</li>
@@ -3019,8 +3057,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 							for="mail_function"><?php _e( "* Send My Emails Using the Following:", 'custom-contact-forms' ); ?></label>
 						<select name="mail_config[mail_function]">
 							<option value="default"><?php _e( "Wordpress Default", 'custom-contact-forms' ); ?></option>
-							<option <?php if ( $admin_options['mail_function'] == 'smtp' )
-								echo 'selected="selected"'; ?>
+							<option <?php if ( $admin_options['mail_function'] == 'smtp' ) {
+								echo 'selected="selected"';
+							} ?>
 								value="smtp"><?php _e( "SMTP", 'custom-contact-forms' ); ?></option>
 						</select> <?php _e( "(If mail isn't sending, try toggling this option.)", 'custom-contact-forms' ); ?>
 						<div>
@@ -3035,11 +3074,13 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 										for="smtp_encryption"><?php _e( "Encryption:", 'custom-contact-forms' ); ?></label>
 									<select name="mail_config[smtp_encryption]">
 										<option value="none"><?php _e( "None", 'custom-contact-forms' ); ?></option>
-										<option <?php if ( $admin_options['smtp_encryption'] == 'ssl' )
-											echo 'selected="selected"'; ?>
+										<option <?php if ( $admin_options['smtp_encryption'] == 'ssl' ) {
+											echo 'selected="selected"';
+										} ?>
 											value="ssl"><?php _e( "SSL", 'custom-contact-forms' ); ?></option>
-										<option <?php if ( $admin_options['smtp_encryption'] == 'tls' )
-											echo 'selected="selected"'; ?>
+										<option <?php if ( $admin_options['smtp_encryption'] == 'tls' ) {
+											echo 'selected="selected"';
+										} ?>
 											value="tls"><?php _e( "TLS", 'custom-contact-forms' ); ?></option>
 									</select></li>
 							</ul>
@@ -3048,8 +3089,9 @@ if ( ! class_exists( 'CustomContactFormsAdmin' ) ) {
 										for="smtp_authentication"><?php _e( "SMTP Authentication:", 'custom-contact-forms' ); ?></label>
 									<select name="mail_config[smtp_authentication]">
 										<option value="0"><?php _e( "None Needed", 'custom-contact-forms' ); ?></option>
-										<option <?php if ( $admin_options['smtp_authentication'] == 1 )
-											echo 'selected="selected"'; ?>
+										<option <?php if ( $admin_options['smtp_authentication'] == 1 ) {
+											echo 'selected="selected"';
+										} ?>
 											value="1"><?php _e( "Use SMTP Username/Password", 'custom-contact-forms' ); ?></option>
 									</select></li>
 								<li><label
