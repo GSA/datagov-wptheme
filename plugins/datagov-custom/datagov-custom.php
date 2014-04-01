@@ -830,7 +830,8 @@ add_filter( 'xmlrpc_methods', 'stoppingbacks' );
 // Adapted from https://gist.github.com/toscho/1584783
 add_filter( 'clean_url', function ( $url ) {
 	if ( false === strpos( $url, '.js' )
-	     OR false !== strpos( $url, '/jquery.min.js' )
+	     OR false !== strpos( $url, '/jquery.min.js' ) 
+	     OR false !== strpos( $url, 'advanced-custom-fields')
 	) { // not our file
 		return $url;
 	}
