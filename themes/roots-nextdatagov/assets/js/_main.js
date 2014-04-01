@@ -16,8 +16,7 @@ var ExampleSite = {
             if (target.length) {
               $('html,body').animate({
                 scrollTop: target.offset().top
-              }, 1000);
-              return false;
+              }, 1000);              
             }
           }
         });
@@ -48,7 +47,13 @@ var ExampleSite = {
       }, 5500);
 
 
-      
+
+    }
+  },
+  // Impact page
+  impact: {
+    init: function() {
+      // JS here
     }
   },
   // About page
