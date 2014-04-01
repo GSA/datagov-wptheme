@@ -8,6 +8,31 @@ var ExampleSite = {
       // JS here
 
 
+      $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
+          }
+        });
+      });
+
+
+    },
+    finalize: function() {}
+  },
+  // Home page
+  home: {
+    init: function() {
+      // JS here
+
+
       var
         $demo = jQuery('.frontpage-search #search-header'),
         strings = JSON.parse($demo.attr('data-strings')).targets,
@@ -22,13 +47,8 @@ var ExampleSite = {
           $demo.attr('placeholder', randomString());
       }, 5500);
 
-    },
-    finalize: function() {}
-  },
-  // Home page
-  home: {
-    init: function() {
-      // JS here
+
+      
     }
   },
   // About page

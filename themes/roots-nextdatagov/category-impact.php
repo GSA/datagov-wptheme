@@ -1,3 +1,6 @@
+<?php get_template_part( 'templates/category', 'intro' ); ?>
+
+
 <div class="container">
 
 
@@ -42,7 +45,7 @@
 	$industries = array();
 	$headings = array();
 
-	while ( $category_query->have_posts() ) : 
+	while ( $category_query->have_posts() ) {
 		
 		$category_query->the_post();
 
@@ -53,13 +56,17 @@
 			$industries[$term] = get_category($term);	
 		}
 		
-	endwhile; 
+	}
 
-	//var_dump($industries);
-	
+	rewind_posts();
+
 	?>
 
-	<?php rewind_posts(); ?>
+	<ul class="topics">
+	<?php  foreach ($industries as $industry): ?>
+		<li class="topic-<?php echo $industry->slug ?>"><a href="#<?php echo $industry->slug ?>"><i></i><span><?php echo $industry->name ?></span></a></li>
+	<?php endforeach; ?>
+	</ul>
 
 	<div class="wrap content-page">
 
