@@ -21,8 +21,8 @@
 				'operator' => 'NOT IN'
 			)
 		),
-		'paged'          => $paged,
-		'posts_per_page' => 5
+		'orderby' => 'meta_value_num', 
+		'meta_key' => 'industry'
 	);
 
 	$category_query = new WP_Query( $args );
@@ -37,11 +37,34 @@
 	<?php endif; ?>
 
 
+	<?php 
+
+	$industries = array();
+	$headings = array();
+
+	while ( $category_query->have_posts() ) : 
+		
+		$category_query->the_post();
+
+		$term = get_post_custom_values('industry');
+		$term = $term[0];
+
+		if(empty($industries[$term])) {
+			$industries[$term] = get_category($term);	
+		}
+		
+	endwhile; 
+
+	//var_dump($industries);
+	
+	?>
+
+	<?php rewind_posts(); ?>
 
 	<div class="wrap content-page">
 
 		<?php while ( $category_query->have_posts() ) : $category_query->the_post(); ?>
-			<?php get_template_part( 'templates/content', 'impact' ); ?>
+			<?php include(locate_template('templates/content-impact.php')); ?>			
 		<?php endwhile; ?>
 		
 	</div>

@@ -1,12 +1,17 @@
-
-
-
 <?php 
-$term = get_post_custom_values('industry');
-$term = get_category($term[0]);
-// $industry->slug, $industry->cat_ID
 
-$heading = '<div class="category-header topic-' . $term->slug . '"><a href="#"><i></i><span>' . $term->name . '</span></a></div>';
+
+$term = get_post_custom_values('industry');
+$term = $term[0];
+
+if(empty($headings[$term])) {
+	$headings[$term] = true;
+	$term = $industries[$term];
+	$heading = '<div class="category-header topic-' . $term->slug . '"><a name="' . $term->slug . '" href="#' . $term->slug . '"><i></i><span>' . $term->name . '</span></a></div>';
+} else {
+	$heading = '';
+}
+
 ?>
 
 <?php echo $heading; ?>
