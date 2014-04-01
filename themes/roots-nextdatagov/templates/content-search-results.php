@@ -45,7 +45,7 @@ if(isset($query) && isset($group) && $group == 'site')
 
 function usasearch_display_results($query = '', $group = ''){
     $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'http://catalog.data.gov/dataset';
-	echo "<div class='search-results-alert'>You are searching <strong>$query</strong> in entire Data.gov site, show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
+	echo "<div class='search-results-alert'>You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
     // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
@@ -188,7 +188,7 @@ function usasearch_display_results($query = '', $group = ''){
 
     echo $pager;
 
-	echo "<div class='search-results-alert'>You are searching <strong>$query</strong> in entire Data.gov site, show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
+	echo "<div class='search-results-alert'>You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
 
     $output = '<br /><div style="text-align:center;"><img src ="/wp-content/plugins/usa-search/images/binglogo_en.gif">';
     $output .= "<div class='search-notice'>Search results were retrieved using the " . get_option('domain', 'search.usa.gov') . " API at " . date('M n Y - H:i a',time()) .
