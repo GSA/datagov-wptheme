@@ -12,6 +12,14 @@ if(empty($headings[$term])) {
 	$heading = '';
 }
 
+$meta = array();
+
+$meta['location'] 		= (get_post_custom_values('location')) ? current(get_post_custom_values('location')) : null;
+$meta['financing'] 		= (get_post_custom_values('financing')) ? current(get_post_custom_values('financing')) : null;
+$meta['jobs'] 			= (get_post_custom_values('jobs')) ? current(get_post_custom_values('jobs')) : null;
+$meta['data_sources'] 	= (get_post_custom_values('data_sources')) ? current(get_post_custom_values('data_sources')) : null;
+
+
 ?>
 
 <?php echo $heading; ?>
@@ -28,7 +36,7 @@ if(empty($headings[$term])) {
 		</h3>
 	</div>
 
-	<?php if ($meta = get_post_custom_values('location')): ?>
+	<?php if (!empty($meta['location'])): ?>
 
 		<div class="impact-meta">
 			
@@ -38,7 +46,7 @@ if(empty($headings[$term])) {
 			</h4>
 			 
 			<div class="meta-content"> 
-			 <?php echo $meta[0]; ?> 
+			 <?php echo $meta['location']; ?> 
 			</div>
 
 		</div>
@@ -46,7 +54,7 @@ if(empty($headings[$term])) {
 	<?php endif; ?>
 
 
-	<?php if ($meta = get_post_custom_values('financing')): ?>
+	<?php if (!empty($meta['financing'])): ?>
 
 		<div class="impact-meta">
 			
@@ -56,7 +64,7 @@ if(empty($headings[$term])) {
 			</h4>
 			 
 			<div class="meta-content"> 
-			 <?php echo $meta[0]; ?> 
+			 <?php echo $meta['financing']; ?> 
 			</div>
 
 		</div>
@@ -65,7 +73,7 @@ if(empty($headings[$term])) {
 
 
 
-	<?php if ($meta = get_post_custom_values('jobs')): ?>
+	<?php if (!empty($meta['jobs'])): ?>
 
 		<div class="impact-meta">
 			
@@ -75,7 +83,7 @@ if(empty($headings[$term])) {
 			</h4>
 			 
 			<div class="meta-content"> 
-			 <?php echo $meta[0]; ?> 
+			 <?php echo $meta['jobs']; ?> 
 			</div>
 
 		</div>
@@ -92,7 +100,7 @@ if(empty($headings[$term])) {
 		<?php the_content(); ?>
 	</div>
 
-	<?php if ($meta = get_post_custom_values('data_sources')): ?>
+	<?php if (!empty($meta['data_sources'])): ?>
 
 		<div class="impact-meta impact-data-sources">
 			
@@ -102,7 +110,7 @@ if(empty($headings[$term])) {
 			</h4>
 			 
 			<div class="meta-content"> 
-			 <?php echo $meta[0]; ?> 
+			 <?php echo $meta['data_sources']; ?> 
 			</div>
 
 		</div>
