@@ -830,11 +830,11 @@ add_filter( 'xmlrpc_methods', 'stoppingbacks' );
 // Adapted from https://gist.github.com/toscho/1584783
 add_filter( 'clean_url', function ( $url ) {
 	if ( false === strpos( $url, '.js' )
-	     AND false === strpos( $url, '/jsapi' )
+	     OR false !== strpos( $url, '/jquery.min.js' )
 	) { // not our file
 		return $url;
 	}
 
 	// Must be a ', not "!
-	return "$url' defer='defer' async='async";
+	return "$url' defer='defer";
 }, 11, 1 );
