@@ -1006,9 +1006,43 @@ article.hentry,
 
 
 
+
+.category-impact ul.topics {
+text-align : left;
+margin-bottom: 5em;
+}
+
+.category-impact ul.topics li {
+  text-align: center;
+}
+
+.category-impact ul.topics li a {
+margin : 0;
+}
+
+.category-impact ul.topics li a i {
+font-size : 45px;
+height : 70px;
+width : 70px;
+}
+
+.category-impact ul.topics li a span {
+width : 110px;
+font-size : .85em;
+}
+
+
+
+
+
+
 .category-impact .main .category-header {
 border-bottom : 1px solid #eee;
 margin-bottom : 2em;
+}
+
+.category-impact .main .category-header a {
+padding-top : 2em;
 }
 
 .category-impact .main .category-header a span {
@@ -1025,10 +1059,17 @@ float : left;
 
 
 
-
-
 .impact-body {
-  font-size : 2em;
+  font-size : 1.25em;
+}
+
+
+@media (min-width: @screen-md-min) {
+
+  .impact-body {
+    font-size : 2em;
+  }
+
 }
 
 
@@ -1051,6 +1092,11 @@ padding-bottom : .25em;
 
 .impact-post {
 margin-bottom : 5em;
+}
+
+.impact-meta-list {
+margin-bottom : 1em;
+
 }
 
 .impact-post .impact-meta .meta-heading {
