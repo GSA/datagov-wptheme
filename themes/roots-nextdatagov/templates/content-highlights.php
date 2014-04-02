@@ -98,7 +98,7 @@ if ( ( $highlight_posts->have_posts() ) ):
 				$checkFirst = 0;
 				?>
 				<div class="pull-right">
-                    <a href="/<?php echo( isset( $term_slug ) ? $term_slug.'/highlights' : 'highlights' ) ?>" class="more-link" style="color:#fff;">More Highlights</a></div>
+                    <a href="/<?php echo( isset( $term_slug ) ? $term_slug.'/highlights' : 'highlights' ) ?>" class="more-link" style="color:#fff;">More Highlights</a>
                 </div>
 			</div>
 		</div>
