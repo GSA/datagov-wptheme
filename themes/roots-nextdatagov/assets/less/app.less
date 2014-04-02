@@ -12,7 +12,10 @@
 @font-face {
   font-family: "datagov-icons";
   src: url("../fonts/datagov-icons.eot");
-  src: url("../fonts/datagov-icons.eot?#iefix") format("embedded-opentype"), url("../fonts/datagov-icons.woff") format("woff"), url("../fonts/datagov-icons.ttf") format("truetype"), url("../fonts/datagov-icons.svg#datagov-icons") format("svg");
+  src: url("../fonts/datagov-icons.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/datagov-icons.woff") format("woff"), 
+       url("../fonts/datagov-icons.ttf") format("truetype"), 
+       url("../fonts/datagov-icons.svg#datagov-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -201,67 +204,6 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 
 
 
-
-/* ==========================================================================
-   Topic Browse
-   ========================================================================== */
-
-ul.topics {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-
-  li {
-    list-style-type: none;
-    display: inline-block;
-    vertical-align: top;
-
-    a {
-      display: inline-block;
-      margin: 0px 10px 15px 10px;
-      outline: 0;
-    }
-
-    a i {
-
-      display: inline-block;
-      height: 100px;
-      width: 100px;
-      text-align: center;
-      clear: both;
-      padding-top: 18px;
-      font-size: 69px;
-      color: @blue-gray; /* @link-color; */
-
-      &:hover {
-        color: @blue-gray-dark; /* @link-hover-color; */
-      }
-    }
-
-    a span {
-      display: block;
-      width: 130px;
-      word-wrap: break-word;
-    }
-
-    a:hover, a:hover span {
-      text-decoration: none !important;
-    }
-
-    a:hover i, a:focus i {
-      background-color: #EFEFEF !important;
-      border-radius: 50%;
-      -webkit-transition: background-color 0.4s ease-in-out;
-      -moz-transition: background-color 0.4s ease-in-out;
-      -ms-transition: background-color 0.4s ease-in-out;
-      -o-transition: background-color 0.4s ease-in-out;
-      transition: background-color 0.4s ease-in-out;
-    }
-
-  }
-
-}
-
 /* ==========================================================================
     Icons
    ========================================================================== */
@@ -386,6 +328,70 @@ ul.topics {
   .fa;
   .fa-plus-circle;
 }
+
+
+
+
+/* ==========================================================================
+   Topic Browse
+   ========================================================================== */
+
+ul.topics {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    vertical-align: top;
+
+    a {
+      display: inline-block;
+      margin: 0px 10px 15px 10px;
+      outline: 0;
+    }
+
+    a i {
+
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+      text-align: center;
+      clear: both;
+      padding-top: 18px;
+      font-size: 69px;
+      color: @blue-gray; /* @link-color; */
+
+      &:hover {
+        color: @blue-gray-dark; /* @link-hover-color; */
+      }
+    }
+
+    a span {
+      display: block;
+      width: 130px;
+      word-wrap: break-word;
+    }
+
+    a:hover, a:hover span {
+      text-decoration: none !important;
+    }
+
+    a:hover i, a:focus i {
+      background-color: #EFEFEF !important;
+      border-radius: 50%;
+      -webkit-transition: background-color 0.4s ease-in-out;
+      -moz-transition: background-color 0.4s ease-in-out;
+      -ms-transition: background-color 0.4s ease-in-out;
+      -o-transition: background-color 0.4s ease-in-out;
+      transition: background-color 0.4s ease-in-out;
+    }
+
+  }
+
+}
+
 
 /* ==========================================================================
    Browse topics dropdown menu
