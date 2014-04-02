@@ -829,14 +829,14 @@ add_filter( 'xmlrpc_methods', 'stoppingbacks' );
  */
 // http://stackoverflow.com/questions/18944027
 // Adapted from https://gist.github.com/toscho/1584783
-add_filter( 'clean_url', function ( $url ) {
-	if ( false === strpos( $url, '.js' )
-	     OR false !== strpos( $url, '/jquery.min.js' ) 
-	     OR false !== strpos( $url, 'advanced-custom-fields')
-	) { // not our file
-		return $url;
-	}
-
-	// Must be a ', not "!
-	return "$url' defer='defer";
-}, 11, 1 );
+//add_filter( 'clean_url', function ( $url ) {
+//	if ( false === strpos( $url, '.js' )
+//	     OR false !== strpos( $url, '/jquery.min.js' )
+//	     OR false !== strpos( $url, 'advanced-custom-fields')
+//	) { // not our file
+//		return $url;
+//	}
+//
+//	// Must be a ', not "!
+//	return "$url' defer='defer";
+//}, 11, 1 );
