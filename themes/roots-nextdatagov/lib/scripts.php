@@ -40,7 +40,7 @@ function roots_scripts() {
 	wp_enqueue_script( 'respond' );
 	wp_enqueue_script( 'modernizr' );
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'sticky' );
+	// wp_enqueue_script( 'sticky' );
 	wp_enqueue_script( 'roots_scripts' );
 	wp_enqueue_script( 'ext_link_handler', get_template_directory_uri() . '/assets/js/ext-link-handler.js', array(
 			'jquery',
