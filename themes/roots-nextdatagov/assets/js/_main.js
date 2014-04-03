@@ -23,6 +23,10 @@ var ExampleSite = {
       });
 
 
+    $(function(){
+      $("#impact-topics").sticky({topSpacing:0});
+    });
+
 
     },
     finalize: function() {}
