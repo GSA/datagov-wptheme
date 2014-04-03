@@ -54,22 +54,25 @@ if ( $category ) {
 
 
 
-<div class="container">
-<?php
+<div class="intro">
 
-while ( have_posts() ) {
+    <div class="container">
+    
+	    <?php while( have_posts() ) : the_post(); ?>
 
-	the_post();
+	      <div class="Apps-post" id="post-<?php the_ID(); ?>">
+	        <?php the_content();   ?>
+	      </div>
+	        
+	    <?php endwhile; ?>
 
-	?>
+    </div>
 
-	<div class="Apps-wrapper">
-		<div class="Apps-post" id="post-<?php the_ID(); ?>">
-			<?php the_content(); ?>
-		</div>
-	</div>
+</div>
 
-<?php } ?>
+
+
+
 
 
 	<!-- Application featured taxonomy-->
@@ -161,9 +164,10 @@ if ( $currentpage < 1 ) {
 }
 $start = ( $currentpage - 1 ) * $apps_per_page + 1;
 ?>
+
+<div class="container">
 	<div class="Apps-wrapper">
-		<div class="Mobile-post" id="post-<?php //$term->slug; ?>">
-			<div class="Appstitle"></div>
+		<div class="Mobile-post" id="post-<?php //$term->slug; ?>">			
 			<?php
 			for ( $i = $start - 1; $i < $start - 1 + $apps_per_page; $i ++ ) {
 				if ( isset( $apparray[ $i ] ) ) {
@@ -203,6 +207,7 @@ $start = ( $currentpage - 1 ) * $apps_per_page + 1;
 		customPagination( 'developer-apps-showcase', $currentpage, $total_pages, true );
 		?>
 	</div>
+</div>
 
 <?php
 
