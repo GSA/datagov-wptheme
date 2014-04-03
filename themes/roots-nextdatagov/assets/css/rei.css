@@ -1765,5 +1765,7 @@ ul.topics li.active a i {
     color: #000000;
     margin-bottom: 10px;
 }
-.highlights-listing .highlight{clear:both;}
+div.frontpage-search input.search-field.form-control::-moz-placeholder {
+    color: #000000;
+}
 .form-control::-moz-placeholder{color: #000;}
