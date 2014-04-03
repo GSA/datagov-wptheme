@@ -62,7 +62,7 @@
 
 	?>
 
-	<ul class="topics">
+	<ul id="impact-topics" class="topics">
 	<?php  foreach ($industries as $industry): ?>
 		<li class="topic-<?php echo $industry->slug ?>"><a href="#<?php echo $industry->slug ?>"><i></i><span><?php echo $industry->name ?></span></a></li>
 	<?php endforeach; ?>
