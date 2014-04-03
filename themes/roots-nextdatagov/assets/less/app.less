@@ -230,7 +230,14 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 .topic-cities a i:before {
   content: "\e001";
 }
-.topic-climate a i:before {
+.topic-climate a i:before, 
+.topic-climate-ecosystems i:before, 
+.topic-coastalflooding a i:before, 
+.topic-energysupply a i:before, 
+.topic-foodsupply a i:before, 
+.topic-humanhealth a i:before, 
+.topic-transportation a i:before, 
+.topic-water a i:before {
   content: "\e002";
 }
 .topic-consumer a i:before {
@@ -266,6 +273,7 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 .topic-health a i:before {
   content: "\e00d";
 }
+.topic-highlights a i:before,
 .topic-impact a i:before {
   content: "\e00e";
 }
@@ -978,7 +986,7 @@ article.hentry,
   }
 }
 
-.highlights-listing {
+.content .main .highlights-listing {
 
   .highlight {
 
@@ -990,20 +998,11 @@ article.hentry,
 
   }
 
-  .category-header {
+}
 
-    padding-bottom: .2em;
-    border-bottom: 1px solid @blue-gray-light;
-
-    a i {
-      height: 50px;
-      width: 50px;
-    }
-
-    span {
-      margin-left: .25em;
-    }
-  }
+.content .main .highlights-listing .category-header {
+  font-size : 1.25em !important;
+  margin : 0 !important;
 }
 
 
@@ -1041,6 +1040,10 @@ article.hentry,
       }      
     }
   }
+}
+
+.term-highlights .content, 
+.category-impact .content {
 
   .main .category-header {
     border-bottom : 1px solid #eee;

@@ -61,7 +61,7 @@ $args = array(
           $category_query->the_post();
       ?>
 
-	      <div class="highlight <?php isset( $slug ) ? get_category_by_slug( $slug ) : false; ?>">
+	      <div class="highlight <?php isset( $slug ) ? get_category_by_slug( $slug ) : false; ?> clearfix">
 		      <header>
 		      <?php if(!is_category() && !is_archive()): ?>
                         <h5 class="category"><?php $category = get_the_category(); echo $category[0]->cat_name; ?></h5>

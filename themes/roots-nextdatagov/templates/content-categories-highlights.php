@@ -30,7 +30,7 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
                 ?>
             </ul></nav></div>
 </div>
-<div class="wrap container">
+<div class="wrap container content-page">
   <div class="highlights-listing">
 <?php
       $args = array(
@@ -61,7 +61,7 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
       while ($category_query->have_posts()):
           $category_query->the_post();
             ?>
-            <div class="highlight <?php $cat_name ?>">
+            <div class="highlight <?php $cat_name ?> clearfix">
             <header>
                 <h2 class="entry-title"><?php the_title(); ?></h2>
             </header>
