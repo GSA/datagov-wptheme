@@ -14,10 +14,13 @@ if(empty($headings[$term])) {
 
 $meta = array();
 
+$meta['anchor_id']			= basename(get_permalink());
+
 $meta['location'] 		= (get_post_custom_values('location')) ? current(get_post_custom_values('location')) : null;
 $meta['financing'] 		= (get_post_custom_values('financing')) ? current(get_post_custom_values('financing')) : null;
 $meta['jobs'] 			= (get_post_custom_values('jobs')) ? current(get_post_custom_values('jobs')) : null;
 $meta['data_sources'] 	= (get_post_custom_values('data_sources')) ? current(get_post_custom_values('data_sources')) : null;
+$meta['link'] 			= (get_post_custom_values('link')) ? current(get_post_custom_values('link')) : '#' . $meta['anchor_id'];
 
 
 ?>
@@ -32,7 +35,10 @@ $meta['data_sources'] 	= (get_post_custom_values('data_sources')) ? current(get_
 
 	<div class="impact-meta impact-title">
 		<h3 class="meta-heading">
-			<?php the_title(); ?>
+			<a name="<?php echo $meta['anchor_id']?>" href="<?php echo $meta['link'] ?>">
+				<i class="glyphicon glyphicon glyphicon-link"></i>
+				<span><?php the_title(); ?></span>
+			</a>
 		</h3>
 	</div>
 

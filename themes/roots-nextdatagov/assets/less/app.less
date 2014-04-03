@@ -1114,9 +1114,36 @@ margin-bottom : 1em;
   .impact-title .meta-heading {
     margin-top : .5em;
     border-bottom : 2px solid @blue-gray-lightish;
-    color : @blue-darkblue;
-    font-weight : bold;
+
+    a {
+
+      i {
+        color : @gray-lightish;
+        font-size : .75em;
+      }
+
+      span {
+        color : @blue-darkblue;
+        font-weight : bold;
+      }
+
+    }
+
+    a:hover {
+      text-decoration : none;
+
+      span {
+        color : @blue-midblue;
+      }
+
+      i {
+        color : @blue-darkblue;;
+      }
+
+    }
+
   }
+
 
 
 }
