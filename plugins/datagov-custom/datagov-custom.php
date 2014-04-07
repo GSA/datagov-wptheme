@@ -740,7 +740,7 @@ function ckan_environment_conf() {
 				<label for="edit-server-info">CkAN Server <span title="This field is required."
 				                                                class="form-required">*</span></label>
 				<input type="text" class="form-text required" maxlength="128" size="60"
-				       value="<?= $ckan_default_server ?>" name="ckan_default_server" id="ckan_default_server">
+				       value="<?php echo $ckan_default_server ?>" name="ckan_default_server" id="ckan_default_server">
 
 				<div class="description">Please enter the server info. Example: http://catalog.data.gov</div>
 			</div>
