@@ -3,3 +3,10 @@
 themes/twentyfourteen/*
 index.php
 debug.log
+advanced-cache.php
+cache/
+db.php
+object-cache.php
+themes/twentyeleven/
+themes/twentyten/
+w3tc-config/
