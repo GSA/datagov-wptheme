@@ -44,7 +44,8 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
-    $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'http://catalog.data.gov/dataset';
+    $protocol = isset($_SERVER["https"]) ? 'https' : 'http';
+    $ckan_default_server = $protocol."://".(get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
        // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];

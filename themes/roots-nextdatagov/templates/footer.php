@@ -4,7 +4,8 @@ if ($category && $category[0]->cat_name != 'Uncategorized') {
 
     $slug = $wp_query->query_vars['category_name'];
 }
-$ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'http://catalog.data.gov/dataset';
+$protocol = isset($_SERVER["https"]) ? 'https' : 'http';
+$ckan_default_server = $protocol."://".(get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
 
 ?>
 <footer class="content-info" role="contentinfo">
