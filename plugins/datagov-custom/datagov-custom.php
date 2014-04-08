@@ -731,8 +731,8 @@ function environment_conf_settings() {
 }
 
 function ckan_environment_conf() {
-    $protocol = isset($_SERVER["https"]) ? 'https' : 'http';
-    $ckan_default_server = $protocol."://".(get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $ckan_default_server = $protocol.(get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
 	?>
 	<form action="options.php" method="post" name="options">
 		<h2>Catalog Environment Configuration</h2> <?php wp_nonce_field( 'update-options' ); ?>
@@ -741,7 +741,7 @@ function ckan_environment_conf() {
 				<label for="edit-server-info">CkAN Server <span title="This field is required."
 				                                                class="form-required">*</span></label>
 				<input type="text" class="form-text required" maxlength="128" size="60"
-				       value="<?php echo $protocol."://".$ckan_default_server ?>" name="ckan_default_server" id="ckan_default_server">
+				       value="<?php echo $ckan_default_server ?>" name="ckan_default_server" id="ckan_default_server">
 
 				<div class="description">Please enter the server info. Example: catalog.data.gov (Avoid the http/https)</div>
 			</div>
