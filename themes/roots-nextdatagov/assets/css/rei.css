@@ -1769,3 +1769,4 @@ div.frontpage-search input.search-field.form-control::-moz-placeholder {
     color: #000000;
 }
 .form-control::-moz-placeholder{color: #000;}
+.pull-right .more-link{color:#428BCA;}
