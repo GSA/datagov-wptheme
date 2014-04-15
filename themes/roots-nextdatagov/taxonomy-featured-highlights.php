@@ -42,7 +42,7 @@ $args = array(
                                     'operator' => 'IN'
                                     )                                 
                                   ),                 
-                  'posts_per_page' => 10 );
+                  'posts_per_page' => 2 );
 
 
       $category_query = new WP_Query($args);
@@ -96,8 +96,14 @@ $args = array(
 
       <?php
       }
-
-  }
+      ?>
+      <?php if ($category_query->have_posts()): ?>
+          <div class="pull-right">
+              <a href="/<?php echo( isset( $category->slug ) ? $category->slug.'/highlights' : 'highlights' ) ?>" class="more-link">More Highlights</a>
+          </div>
+          <?php endif; ?>
+      <?php
+      }
 ?>
 
 </div>
