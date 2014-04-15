@@ -81,7 +81,7 @@ $args = array(
                 </article>
 
                 <?php if(get_post_format() == 'image'): ?>    
-                    <div class="dataset-link">
+                    <div class="dataset-link clearfix">
                         <a class="btn btn-default pull-right" href="<?php the_field('link_to_dataset'); ?>">
                           <span class="glyphicon glyphicon-download"></span> View this Dataset
                         </a>
@@ -95,7 +95,7 @@ $args = array(
       }
       ?>
       <?php if ($category_query->have_posts()): ?>
-          <div class="pull-right">
+          <div class="pull-right clearfix">
               <a href="/<?php echo( isset( $category->slug ) ? $category->slug.'/highlights' : 'highlights' ) ?>" class="more-link">More Highlights</a>
           </div>
           <?php endif; ?>
