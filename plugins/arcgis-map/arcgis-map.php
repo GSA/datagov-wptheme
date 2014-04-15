@@ -156,7 +156,7 @@ function validate_map_id($post_id)
     $prevent_publish = false;
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
         return;
-    if ($slug != $_POST['post_type']) {
+    if (!isset($_POST['post_type']) || ($slug != $_POST['post_type'])) {
         return true;
     } else {
         $server = get_post_meta(get_the_ID(), 'arcgis_server_address', true);
