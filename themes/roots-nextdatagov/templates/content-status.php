@@ -17,7 +17,9 @@
   		        </span>	        
   		    </div>
     	</a>
-         
+    </div>
+    <div class="tweet-date">
+      <?php the_time('F j, Y') ?>
     </div>
   </header>
 

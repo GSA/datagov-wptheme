@@ -124,10 +124,11 @@
                 </span>
 						</div>
 					</a>
-
 				</div>
+                <div class="tweet-date">
+                    <?php the_time('F j, Y') ?>
+                </div>
 			</header>
-
 			<div class="body">
 				<?php the_content( 'Read the rest of this entry »' ); ?>
 			</div>
