@@ -36,8 +36,8 @@ class RestrictCategories{
 			$post_type = ( isset( $_GET['post_type'] ) ) ? $_GET['post_type'] : false;
 
   			// If the page is the Posts screen, do our thing, otherwise chill
-			if ( $post_type == false || $post_type == 'post' )
-				add_action( 'admin_init', array( &$this, 'posts' ) );
+			//if ( $post_type == false || $post_type == 'post' )
+			add_action( 'admin_init', array( &$this, 'posts' ) );
 
 			// Build options and settings pages.
 			add_action( 'admin_init', array( &$this, 'init' ) );
