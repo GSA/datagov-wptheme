@@ -686,17 +686,16 @@ a.btn-readmore {
 
 .map-gallery-caption {
     width: 200px;
-    min-height: 70px;
+    min-height: 46px;
+    margin: 10px 0;
     color: #666666;
     font: bold 12px Arial, Helvetica, sans-serif;
 }
 
 .map-align {
-
     float: left;
-
-    margin: 0 10px;
-
+    margin: 10px;
+    min-height: 112px;
 }
 
 /* ==========================================================================
