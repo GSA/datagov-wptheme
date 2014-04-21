@@ -699,11 +699,13 @@ a.btn-readmore {
 }
 
 .map-gallery-mapviewer {
+    font-size:14px;
     width: 90px;
     float: left;
 }
 
 .map-gallery-mapdetails {
+    font-size:14px;
     width: 80px;
     float: right;
     text-align:right;
