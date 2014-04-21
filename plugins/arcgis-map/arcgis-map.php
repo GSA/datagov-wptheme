@@ -280,8 +280,7 @@ function arcgis_map_process_info($server, $map_id, $group_id, $display)
                 $vars['map_info'][$i]['img_href'] = $server . '/home/webmap/viewer.html?webmap=' . $info['results'][$i]->id;
             elseif ($info['results'][$i]->type == "Map Service" || $info['results'][$i]->type == "WMS")
                 $vars['map_info'][$i]['img_href'] = $server . '/home/webmap/viewer.html?services=' . $info['results'][$i]->id;
-            else
-                $vars['map_info'][$i]['img_href'] = $server . '/home/item.html?id=' . $info['results'][$i]->id;
+            $vars['map_info'][$i]['map_details'] = $server . '/home/item.html?id=' . $info['results'][$i]->id;
             $vars['map_info'][$i]['img_src'] = $server . '/sharing/content/items/' . $info['results'][$i]->id . '/info/' . $info['results'][$i]->thumbnail;
         }
     } else {
@@ -298,8 +297,7 @@ function arcgis_map_process_info($server, $map_id, $group_id, $display)
                 $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?webmap=' . $map_id;
             elseif ($map->type == "Map Service" || $map->type == "WMS")
                 $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?services=' . $map_id;
-            else
-                $vars['map_info'][0]['img_href'] = $server . '/home/item.html?id=' . $map_id;
+            $vars['map_info'][0]['map_details'] = $server . '/home/item.html?id=' . $map_id;
             $vars['map_info'][0]['img_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
         } catch (Exception $x) {
             error_log($x->getMessage(), E_WARNING);

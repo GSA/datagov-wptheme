@@ -87,11 +87,12 @@ arcgis_national_map_process_details();
         for ($i = $start - 1; $i < $start - 1 + $mapsperpage; $i++) {
             if (isset($merged_maps[$i])) {
                 $output .= '<div class="map-align">';
+                $output .= '<div class="map-gallery-caption">' . $merged_maps[$i]["title"] . '</div>';
                 $output .= '<a target=_blank href="' . $merged_maps[$i]["img_href"] . '">';
                 $output .= '<img class="map-gallery-thumbnail" src="' . $merged_maps[$i]["img_src"] . '" title="' . $merged_maps[$i]["title"] . '" height="133" width="200">';
-
-                $output .= '<div class="map-gallery-caption">' . $merged_maps[$i]["title"] . '</div>';
-                $output .= '</a>';
+                $output .= '</a><br clear="both" />';
+                $output .= '<div class="map-gallery-mapviewer"><a target=_blank href="' . $merged_maps[$i]["img_href"] . '">Map Viewer</a></div>';
+                $output .= '<div class="map-gallery-mapdetails"><a target=_blank href="' . $merged_maps[$i]["map_details"] . '">Details</a></div>';
                 $output .= '</div>';
             }
             $count++;
