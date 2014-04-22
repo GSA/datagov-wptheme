@@ -1807,3 +1807,7 @@ div.tweet-date {
     padding: 5px;
     margin: 5px;
 }
+a:focus {
+    outline: 2px solid #2A6496 !important;
+    outline-offset: 2px;
+}
