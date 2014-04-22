@@ -992,6 +992,10 @@ add_filter(
      * @param $url
      * @return string
      */
+    /**
+     * @param $url
+     * @return string
+     */
     function ($url) {
         if (false === strpos($url, '.js')
             OR false !== strpos($url, '/jquery.min.js')
@@ -1022,7 +1026,8 @@ add_action('ckan_harvest_statistics_daily', 'get_ckan_harvest_statistics');
 include_once('ckan-harvest-stats.class.php');
 
 /**
- *
+ * Get latest harvest statistics from catalog.data.gov
+ * Daily
  */
 function get_ckan_harvest_statistics()
 {

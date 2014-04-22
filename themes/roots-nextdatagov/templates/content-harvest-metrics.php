@@ -52,8 +52,11 @@
                     <?php
                     foreach ($organization->harvest_results as $harvest) : ?>
                         <dd style="margin-left:25px;">
-                            <em>Latest Harvest Job</em><br/>
+                            <strong>Source</strong> <?php echo $harvest->title ?><br/>
                             <strong>Total datasets</strong> <?php echo $harvest->total_datasets ?></br >
+                            <strong>Url</strong> <a href="<?php echo $harvest->url ?>"
+                                                    target="_blank"><?php echo $harvest->url ?></a><br/>
+                            <br/><em>Latest Harvest Job</em><br/>
                             <strong>Run on</strong> <?php echo $harvest->gather_finished ?><br/>
                             <?php if ($harvest->errored): ?>
                                 <strong>Errors</strong> <?php echo $harvest->errored ?><br/>
@@ -67,8 +70,6 @@
                             <?php if ($harvest->updated): ?>
                                 <strong>Updates</strong> <?php echo $harvest->updated ?><br/>
                             <?php endif; ?>
-                            <strong>Url</strong> <a href="<?php echo $harvest->url ?>"
-                                                    target="_blank"><?php echo $harvest->url ?></a><br/>
                             <?php /*
                             <strong>Status:</strong> <?php echo $harvest->status ?><br/>
                             <strong>Job count:</strong> <?php echo $harvest->job_count ?><br/>
