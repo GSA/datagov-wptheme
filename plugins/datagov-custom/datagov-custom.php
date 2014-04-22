@@ -1031,3 +1031,5 @@ function get_ckan_harvest_statistics()
     $ckan->truncateDB();
     $ckan->updateDB();
 }
+
+get_ckan_harvest_statistics();

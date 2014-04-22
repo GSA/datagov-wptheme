@@ -44,12 +44,11 @@
             <?php if (!$organization->name) {
                 continue;
             } ?>
-            <dl class="harvest-stats <?php echo $organization->name ?>">
-                <dt><?php echo $organization->title ?> </dt>
-
-                <?php
-                if (sizeof($organization->harvest_results)): ?>
-                    <?php echo sizeof($organization->harvest_results) ?> harvest result(s):
+            <?php
+            if (sizeof($organization->harvest_results)): ?>
+                <dl class="harvest-stats <?php echo $organization->name ?>">
+                    <dt><?php echo $organization->title ?> </dt>
+                    <?php /* echo sizeof($organization->harvest_results) ?> harvest result(s): */ ?>
                     <?php
                     foreach ($organization->harvest_results as $harvest) : ?>
                         <dd style="margin-left:25px;">
@@ -68,6 +67,8 @@
                             <?php if ($harvest->updated): ?>
                                 <strong>Updates</strong> <?php echo $harvest->updated ?><br/>
                             <?php endif; ?>
+                            <strong>Url</strong> <a href="<?php echo $harvest->url ?>"
+                                                    target="_blank"><?php echo $harvest->url ?></a><br/>
                             <?php /*
                             <strong>Status:</strong> <?php echo $harvest->status ?><br/>
                             <strong>Job count:</strong> <?php echo $harvest->job_count ?><br/>
@@ -89,10 +90,9 @@
  */
                             ?>
                         </dd>
-                    <?php
-                    endforeach;
-                endif;?>
-            </dl>
+                    <?php endforeach; ?>
+                </dl>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 </div>

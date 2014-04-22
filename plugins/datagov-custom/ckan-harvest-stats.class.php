@@ -294,6 +294,21 @@ if (!class_exists('CKAN_Harvest_Stats')) {
              */
             global $wpdb;
 
+            if (!isset($jsonHarvestInfo['extras'])) {
+                return false;
+            }
+
+            $extras     = $jsonHarvestInfo['extras'];
+            $isDataJson = false;
+            foreach ($extras as $extra) {
+                if ('source_type' == $extra['key'] && 'datajson' == $extra['value']) {
+                    $isDataJson = true;
+                }
+            }
+            if (!$isDataJson) {
+                return false;
+            }
+
             $localLastJob = array(
                 'status'          => 'Unknown',
                 'gather_started'  => 'Unknown',
@@ -354,6 +369,7 @@ if (!class_exists('CKAN_Harvest_Stats')) {
                     'updated'           => $lastJobStats['updated'],
                     'errored'           => $lastJobStats['errored'],
                     'deleted'           => $lastJobStats['deleted'],
+                    'url' => $jsonHarvestInfo['url'],
                 ),
                 array(
                     '%s', //  1fc919e5-e870-4d57-91b8-78e14081ce52
@@ -370,6 +386,7 @@ if (!class_exists('CKAN_Harvest_Stats')) {
                     '%d', //  1
                     '%d', //  2
                     '%d', //  3
+                    '%s', //  http://www.treasury.gov/data.json
                 )
             );
 
@@ -377,7 +394,7 @@ if (!class_exists('CKAN_Harvest_Stats')) {
              * Filling meta data
              */
             if ($added) {
-                foreach ($jsonHarvestInfo['extras'] as $extra) {
+                foreach ($extras as $extra) {
                     $wpdb->replace(
                         self::CKAN_HARVEST_META_TABLE,
                         array(
@@ -425,6 +442,8 @@ if (!class_exists('CKAN_Harvest_Stats')) {
                     $this->migration1();
                 case 1:
                     $this->migration2();
+                case 2:
+                    $this->migration3();
             }
         }
 
@@ -509,6 +528,27 @@ if (!class_exists('CKAN_Harvest_Stats')) {
             );
 
             update_option('datagov_ckan_metrics_db_version', 2);
+
+        }
+
+        /**
+         * Migration 3: update tables
+         */
+        private function migration3()
+        {
+            /**
+             * @var wpdb $wpdb
+             */
+            global $wpdb;
+
+            $wpdb->query(
+                "
+                ALTER TABLE  `" . self::CKAN_HARVEST_RESULTS_TABLE . "`
+                    ADD  `url` VARCHAR( 255 ) NOT NULL ;
+            "
+            );
+
+            update_option('datagov_ckan_metrics_db_version', 3);
 
         }
     }
