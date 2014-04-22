@@ -107,28 +107,26 @@
 	<?php while ( $new_query->have_posts() ) : $new_query->the_post(); ?>
 
 		<article <?php post_class( 'col-md-4 col-lg-4' ); ?>>
-
-			<header>
-				<div class="tweet-author">
-					<a class="author-link" href="https://twitter.com/<?php the_field( 'twitter_handle' ); ?>">
-            <span class="author-image">
-                <img alt="" src="<?php the_field( 'twitter_photo' ); ?>">
-            </span>
-
-						<div>
-            <span class="author-name">
-                <?php the_field( 'persons_name' ); ?>
-            </span>
-                <span class="author-handle">
-                    @<?php the_field( 'twitter_handle' ); ?>
+            <header>
+                <div class="tweet-author">
+                <span class="author-image">
+                    <img alt="" src="<?php the_field( 'twitter_photo' ); ?>">
                 </span>
-						</div>
-					</a>
-				</div>
+                    <a class="author-link" href="https://twitter.com/<?php the_field( 'twitter_handle' ); ?>">
+                        <div>
+                    <span class="author-name">
+                        <?php the_field( 'persons_name' ); ?>
+                    </span>
+                        <span class="author-handle">
+                            @<?php the_field( 'twitter_handle' ); ?>
+                        </span>
+                        </div>
+                    </a>
+                </div>
                 <div class="tweet-date">
                     <?php the_time('F j, Y') ?>
                 </div>
-			</header>
+            </header>
 			<div class="body">
 				<?php the_content( 'Read the rest of this entry »' ); ?>
 			</div>
