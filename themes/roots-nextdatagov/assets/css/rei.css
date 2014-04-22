@@ -28,7 +28,7 @@
 }
 
 .Mobile-post .appscontainer .bx-wrapper .bx-viewport {
-    left:0px;
+    left: 0px;
 }
 
 .Mobile-post .appscontainer .appsitem {
@@ -1778,13 +1778,32 @@ ul.topics li.active a i {
     color: #000000;
     margin-bottom: 10px;
 }
+
 div.frontpage-search input.search-field.form-control::-moz-placeholder {
     color: #000000;
 }
-.form-control::-moz-placeholder{color: #000;}
-.pull-right .more-link{color:#428BCA;}
 
-div.tweet-date{
+.form-control::-moz-placeholder {
+    color: #000;
+}
+
+.pull-right .more-link {
+    color: #428BCA;
+}
+
+div.tweet-date {
     font-size: 0.85em;
     color: #8792A4;
+}
+
+.harvest-stats dt {
+    background-color: #4679b2;
+    color: white;
+    padding: 5px;
+}
+
+.harvest-stats dd {
+    background-color: #efefef;
+    padding: 5px;
+    margin: 5px;
 }
