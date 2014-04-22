@@ -1028,5 +1028,6 @@ function get_ckan_harvest_statistics()
 {
     $ckan = new CKAN_Harvest_Stats;
     $ckan->initDB();
+    $ckan->truncateDB();
     $ckan->updateDB();
 }

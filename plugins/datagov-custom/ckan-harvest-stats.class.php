@@ -24,6 +24,11 @@ if (!class_exists('CKAN_Harvest_Stats')) {
         /**
          *
          */
+        const FED_JSON_URL = 'https://idm.data.gov/fed_agency.json';
+
+        /**
+         *
+         */
         const CKAN_HARVEST_RESULTS_TABLE = 'wp_ckan_harvest_results';
 
         /**
@@ -35,6 +40,39 @@ if (!class_exists('CKAN_Harvest_Stats')) {
          *
          */
         const CKAN_HARVEST_META_TABLE = 'wp_ckan_harvest_meta';
+
+        /**
+         * Get ids of federal agencies only
+         * @return array|bool
+         */
+        private function getFedJsonAgencies()
+        {
+            $return_agencies = array();
+
+            try {
+                $fed_json = file_get_contents(self::FED_JSON_URL);
+                if (false === $fed_json) {
+                    throw new Exception('could not access page');
+                }
+//                decode result as array
+                $json_result = json_decode($fed_json, true);
+                if (!isset($json_result['taxonomies'])) {
+                    throw new Exception('taxonomies not found');
+                }
+                $results = $json_result['taxonomies'];
+
+                foreach ($results as $taxonomy) {
+                    if (!isset($taxonomy['taxonomy'])) {
+                        continue;
+                    }
+                    $return_agencies[] = $taxonomy['taxonomy']['unique id'];
+                }
+            } catch (Exception $ex) {
+                return false;
+            }
+
+            return $return_agencies;
+        }
 
         /**
          * Get latest harvest statistics from CKAN
@@ -54,10 +92,16 @@ if (!class_exists('CKAN_Harvest_Stats')) {
                 $results = $json_result['result']['results'];
 
                 $organizations = $this->getOrganizationsAsArray();
+                $fed_agencies = $this->getFedJsonAgencies();
 
                 foreach ($results as $harvest_result) {
 
                     $organization = $harvest_result['organization'];
+
+                    if (!in_array($organization['name'], $fed_agencies)) {
+                        continue;
+                    }
+
                     if (!isset($organizations[$organization['name']])) {
                         $organizations[$organization['name']] = $organization['title'];
                         if (!$this->saveOrganization($organization)) {
@@ -119,13 +163,23 @@ if (!class_exists('CKAN_Harvest_Stats')) {
         }
 
 
+        /**
+         * @return mixed
+         */
         public function getContent()
         {
             return $this->getOrganizationsForContent();
         }
 
+        /**
+         * @param bool $asArray
+         * @return array
+         */
         public function getHarvestResutls($asArray = true)
         {
+            /**
+             * @var wpdb $wpdb
+             */
             global $wpdb;
             $results = $wpdb->get_results(
                 "
@@ -154,6 +208,9 @@ if (!class_exists('CKAN_Harvest_Stats')) {
             return $results;
         }
 
+        /**
+         * @return array
+         */
         private function getHarvestMetaDataAsArray()
         {
             global $wpdb;
@@ -227,42 +284,55 @@ if (!class_exists('CKAN_Harvest_Stats')) {
         }
 
         /**
-         * @param $harvestInfo
+         * @param $jsonHarvestInfo
          * @return bool
          */
-        private function saveHarvestResult($harvestInfo)
+        private function saveHarvestResult($jsonHarvestInfo)
         {
             /**
              * @var wpdb $wpdb
              */
             global $wpdb;
 
-            $lastJob = array(
+            $localLastJob = array(
                 'status'          => 'Unknown',
                 'gather_started'  => 'Unknown',
                 'gather_finished' => 'Unknown',
             );
 
-            $harvest_status = array(
+            $localHarvestStatus = array(
                 'job_count'      => 0,
                 'total_datasets' => 0,
             );
 
-            if (isset($harvestInfo['status'])) {
-                $status                           = $harvestInfo['status'];
-                $harvest_status['job_count']      = isset($status['job_count']) ? $status['job_count'] : 0;
-                $harvest_status['total_datasets'] = isset($status['total_datasets']) ? $status['total_datasets'] : 0;
+            $lastJobStats = array(
+                'added'   => 0,
+                'updated' => 0,
+                'errored' => 0,
+                'deleted' => 0,
+            );
 
-                if (isset($status['last_job'])) {
-                    $last_job                   = $status['last_job'];
-                    $lastJob['status']          = isset($last_job['status']) ? $last_job['status'] : 'Unknown';
-                    $lastJob['gather_started']  = isset($last_job['gather_started']) ? date(
+            if (isset($jsonHarvestInfo['status'])) {
+                $jsonHarvestStatus                    = $jsonHarvestInfo['status'];
+                $localHarvestStatus['job_count']      = isset($jsonHarvestStatus['job_count']) ? $jsonHarvestStatus['job_count'] : 0;
+                $localHarvestStatus['total_datasets'] = isset($jsonHarvestStatus['total_datasets']) ? $jsonHarvestStatus['total_datasets'] : 0;
+
+                if (isset($jsonHarvestStatus['last_job'])) {
+                    $jsonLastJob            = $jsonHarvestStatus['last_job'];
+                    $localLastJob['status'] = isset($jsonLastJob['status']) ? $jsonLastJob['status'] : 'Unknown';
+
+                    if (isset($jsonLastJob['stats'])) {
+                        $lastJobStats = array_merge($lastJobStats, $jsonLastJob['stats']);
+                    }
+
+                    $localLastJob['gather_started'] = isset($jsonLastJob['gather_started']) ? date(
                         'Y-m-d H:i:s',
-                        strtotime($last_job['gather_started'])
+                        strtotime($jsonLastJob['gather_started'])
                     ) : 'Unknown';
-                    $lastJob['gather_finished'] = isset($last_job['gather_finished']) ? date(
+
+                    $localLastJob['gather_finished'] = isset($jsonLastJob['gather_finished']) ? date(
                         'Y-m-d H:i:s',
-                        strtotime($last_job['gather_finished'])
+                        strtotime($jsonLastJob['gather_finished'])
                     ) : 'Unknown';
                 }
             }
@@ -270,16 +340,20 @@ if (!class_exists('CKAN_Harvest_Stats')) {
             $added = $wpdb->replace(
                 self::CKAN_HARVEST_RESULTS_TABLE,
                 array(
-                    'harvest_id'        => $harvestInfo['id'],
-                    'meta_created_at'   => $harvestInfo['metadata_created'],
-                    'meta_updated_at'   => $harvestInfo['metadata_created'],
-                    'status'            => $lastJob['status'],
-                    'gather_started'    => $lastJob['gather_started'],
-                    'gather_finished'   => $lastJob['gather_finished'],
-                    'organization_name' => $harvestInfo['organization']['name'],
-                    'title'             => $harvestInfo['title'],
-                    'job_count'         => $harvest_status['job_count'],
-                    'total_datasets'    => $harvest_status['total_datasets'],
+                    'harvest_id'        => $jsonHarvestInfo['id'],
+                    'meta_created_at'   => $jsonHarvestInfo['metadata_created'],
+                    'meta_updated_at'   => $jsonHarvestInfo['metadata_created'],
+                    'status'            => $localLastJob['status'],
+                    'gather_started'    => $localLastJob['gather_started'],
+                    'gather_finished'   => $localLastJob['gather_finished'],
+                    'organization_name' => $jsonHarvestInfo['organization']['name'],
+                    'title'             => $jsonHarvestInfo['title'],
+                    'job_count'         => $localHarvestStatus['job_count'],
+                    'total_datasets'    => $localHarvestStatus['total_datasets'],
+                    'added'             => $lastJobStats['added'],
+                    'updated'           => $lastJobStats['updated'],
+                    'errored'           => $lastJobStats['errored'],
+                    'deleted'           => $lastJobStats['deleted'],
                 ),
                 array(
                     '%s', //  1fc919e5-e870-4d57-91b8-78e14081ce52
@@ -292,6 +366,10 @@ if (!class_exists('CKAN_Harvest_Stats')) {
                     '%s', //  USGS High Resolution Orthoimagery Collection - Current
                     '%d', //  3
                     '%d', //  834
+                    '%d', //  0
+                    '%d', //  1
+                    '%d', //  2
+                    '%d', //  3
                 )
             );
 
@@ -299,11 +377,11 @@ if (!class_exists('CKAN_Harvest_Stats')) {
              * Filling meta data
              */
             if ($added) {
-                foreach ($harvestInfo['extras'] as $extra) {
+                foreach ($jsonHarvestInfo['extras'] as $extra) {
                     $wpdb->replace(
                         self::CKAN_HARVEST_META_TABLE,
                         array(
-                            'harvest_id' => $harvestInfo['id'],
+                            'harvest_id' => $jsonHarvestInfo['id'],
                             'key'        => $extra['key'],
                             'value'      => $extra['value'],
                         ),
@@ -322,9 +400,38 @@ if (!class_exists('CKAN_Harvest_Stats')) {
         }
 
         /**
+         *
+         */
+        public function truncateDB()
+        {
+            /**
+             * @var wpdb $wpdb
+             */
+            global $wpdb;
+
+            $wpdb->query("TRUNCATE " . self::CKAN_HARVEST_RESULTS_TABLE);
+            $wpdb->query("TRUNCATE " . self::CKAN_HARVEST_ORGANIZATIONS_TABLE);
+            $wpdb->query("TRUNCATE " . self::CKAN_HARVEST_META_TABLE);
+        }
+
+        /**
          * Create tables if not exist
          */
         public function initDB()
+        {
+            $version = get_option('datagov_ckan_metrics_db_version', 0);
+            switch ($version) {
+                case 0:
+                    $this->migration1();
+                case 1:
+                    $this->migration2();
+            }
+        }
+
+        /**
+         * Migration 1: create tables
+         */
+        private function migration1()
         {
             /**
              * @var wpdb $wpdb
@@ -377,7 +484,32 @@ if (!class_exists('CKAN_Harvest_Stats')) {
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
             "
             );
+
+            update_option('datagov_ckan_metrics_db_version', 1);
         }
 
+        /**
+         * Migration 2: update tables
+         */
+        private function migration2()
+        {
+            /**
+             * @var wpdb $wpdb
+             */
+            global $wpdb;
+
+            $wpdb->query(
+                "
+                ALTER TABLE  `" . self::CKAN_HARVEST_RESULTS_TABLE . "`
+                    ADD  `added` INT UNSIGNED NOT NULL ,
+                    ADD  `updated` INT UNSIGNED NOT NULL ,
+                    ADD  `errored` INT UNSIGNED NOT NULL ,
+                    ADD  `deleted` INT UNSIGNED NOT NULL ;
+            "
+            );
+
+            update_option('datagov_ckan_metrics_db_version', 2);
+
+        }
     }
 }

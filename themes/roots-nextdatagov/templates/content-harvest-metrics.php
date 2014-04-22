@@ -31,16 +31,10 @@
 
 <div class="single">
     <div class="container">
-        <?php
-        while (have_posts()) {
-            the_post();
-            ?>
 
-            <div id="appstitle" class="Appstitle" style="margin-left:-20px;"><?php the_title(); ?></div>
-
-        <?php } ?>
-
-        <div style=""> <?php the_content(); ?>    </div>
+        <div style="">
+            <?php the_content(); ?>
+        </div>
         <?php
         $ckan          = new CKAN_Harvest_Stats;
         $organizations = $ckan->getContent();
@@ -51,7 +45,7 @@
                 continue;
             } ?>
             <dl class="harvest-stats <?php echo $organization->name ?>">
-                <dt><?php echo $organization->title ?></dt>
+                <dt><?php echo $organization->title ?> </dt>
 
                 <?php
                 if (sizeof($organization->harvest_results)): ?>
@@ -59,23 +53,41 @@
                     <?php
                     foreach ($organization->harvest_results as $harvest) : ?>
                         <dd style="margin-left:25px;">
-                            <em>Status:</em> <?php echo $harvest->status ?><br/>
-                            <em>Job count:</em> <?php echo $harvest->job_count ?><br/>
-                            <em>Total Datasets:</em> <?php echo $harvest->total_datasets ?><br/>
-                            <em>Gather started:</em> <?php echo $harvest->gather_started ?><br/>
-                            <em>Gather finished:</em> <?php echo $harvest->gather_finished ?><br/>
+                            <em>Latest Harvest Job</em><br/>
+                            <strong>Total datasets</strong> <?php echo $harvest->total_datasets ?></br >
+                            <strong>Run on</strong> <?php echo $harvest->gather_finished ?><br/>
+                            <?php if ($harvest->errored): ?>
+                                <strong>Errors</strong> <?php echo $harvest->errored ?><br/>
+                            <?php endif; ?>
+                            <?php if ($harvest->added): ?>
+                                <strong>Additions</strong> <?php echo $harvest->added ?><br/>
+                            <?php endif; ?>
+                            <?php if ($harvest->deleted): ?>
+                                <strong>Deletions</strong> <?php echo $harvest->deleted ?><br/>
+                            <?php endif; ?>
+                            <?php if ($harvest->updated): ?>
+                                <strong>Updates</strong> <?php echo $harvest->updated ?><br/>
+                            <?php endif; ?>
+                            <?php /*
+                            <strong>Status:</strong> <?php echo $harvest->status ?><br/>
+                            <strong>Job count:</strong> <?php echo $harvest->job_count ?><br/>
+                            <strong>Total Datasets:</strong> <?php echo $harvest->total_datasets ?><br/>
+                            <strong>Gather started:</strong> <?php echo $harvest->gather_started ?><br/>
+                            <strong>Gather finished:</strong> <?php echo $harvest->gather_finished ?><br/>
                             <?php if (sizeof($harvest->metas)): ?>
-                                <em>Metas:</em>
+                                <strong>Metas:</strong>
                                 <ul>
                                     <?php foreach ($harvest->metas as $meta): ?>
                                         <li>
-                                            <em><?php echo $meta->key ?>:</em>&nbsp;
+                                            <strong><?php echo $meta->key ?>:</strong>&nbsp;
                                             <?php echo $meta->value ?>
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
                                 <br/>
                             <?php endif; ?>
+ */
+                            ?>
                         </dd>
                     <?php
                     endforeach;

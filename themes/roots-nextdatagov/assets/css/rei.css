@@ -1163,7 +1163,7 @@ a.faq-top {
 
     }
 
-    contact-post4 .customcontactform input.submit {
+    .contact-post4 .customcontactform input.submit {
 
         margin-top: 0px;
         width: 280px;
@@ -1807,6 +1807,15 @@ div.tweet-date {
     padding: 5px;
     margin: 5px;
 }
+
+.harvest-stats strong {
+    width: 150px;
+    display: block;
+    text-align: right;
+    float: left;
+    margin-right: 15px;
+}
+
 a:focus {
     outline: 2px solid #2A6496 !important;
     outline-offset: 2px;
