@@ -1816,7 +1816,7 @@ div.tweet-date {
     margin-right: 15px;
 }
 
-a:focus {
+.wrap.container a:focus {
     outline: 2px solid #2A6496 !important;
     outline-offset: 2px;
 }
