@@ -301,7 +301,7 @@ function arcgis_map_process_info($server, $map_id, $group_id, $display)
                 $vars['map_info'][0]['img_href'] = $server . '/home/webmap/viewer.html?services=' . $map_id;
             else
                 $vars['map_info'][0]['img_href'] = $server . '/home/item.html?id=' . $map_id;
-            $vars['map_info'][$i]['map_details'] = $server . '/home/item.html?id=' . $map_id;
+            $vars['map_info'][0]['map_details'] = $server . '/home/item.html?id=' . $map_id;
             $vars['map_info'][0]['img_src'] = $server . '/sharing/content/items/' . $map_id . '/info/' . strip_tags($map->thumbnail->asXML());
         } catch (Exception $x) {
             error_log($x->getMessage(), E_WARNING);
