@@ -34,52 +34,61 @@ arcgis_national_map_process_details();
         <?php the_title(); ?>
 
         <?php the_content(); ?>
-    <?php } ?>
+        <?php } ?>
     <br/><br/>
 
     <div class="map-gallery-wrap">
         <?php
-        global $map_results;
-        $mapinfo = array();
-        $groupinfo = array();
-        $groupmapinfo = array();
-        for ($i = 0; $i < count($map_results); $i++) {
-            if ($map_results[$i]["info"]["type"] == "Map") {
-                $mapinfo[$i] = array_merge($map_results[$i]["map_info"][0]);
+        try {
+            global $map_results;
+            $mapinfo = array();
+            $groupinfo = array();
+            $groupmapinfo = array();
+            for ($i = 0; $i < count($map_results); $i++) {
+                if ($map_results[$i]["info"]["type"] == "Map") {
+                    $mapinfo[$i] = array_merge($map_results[$i]["map_info"][0]);
+                }
+                if ($map_results[$i]["info"]["type"] == "Group") {
+                    $groupinfo[$i] = array_merge($map_results[$i]["map_info"]);
+                }
             }
-            if ($map_results[$i]["info"]["type"] == "Group") {
-                $groupinfo[$i] = array_merge($map_results[$i]["map_info"]);
+            for ($j = 0; $j < count($groupinfo); $j++) {
+                unset($groupinfo[$j]["total_maps"]);
+                if(!empty($groupinfo)){
+                    $groupmapinfo[] = array_merge($groupinfo[$j]);
+                }
             }
-        }
-        for ($j = 0; $j < count($groupinfo); $j++) {
-            unset($groupinfo[$j]["total_maps"]);
-            $groupmapinfo[] = array_merge($groupinfo[$j]);
-        }
-        $group = array();
-        foreach ($groupmapinfo as $array) {
-            $group = array_merge($group, $array);
-        }
-        $merged_maps_tosort = array_merge($mapinfo, $group);
-        $merged_maps = subval_sort($merged_maps_tosort, "title");
-        $total_maps = count($merged_maps);
-        //code for pagination
-        $mapsperpage = (get_option('arcgis_maps_per_page') != '') ? get_option('arcgis_maps_per_page') : '8';
-        if (isset($map_results)) {
-            $total_pages = ceil($total_maps / $mapsperpage);
-        } else {
-            $total_pages = 1;
-            $total_maps = 0;
-        }
-        if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
-            $currentpage = (int)$_GET['currentpage'];
-        } else {
-            $currentpage = 1;
-        }
-        if ($currentpage > $total_pages) {
-            $currentpage = $total_pages;
-        }
-        if ($currentpage < 1) {
-            $currentpage = 1;
+            $group = array();
+            foreach ($groupmapinfo as $array) {
+                if(!empty($groupinfo)){
+                    $group = array_merge($group, $array);
+                }
+            }
+            $merged_maps_tosort = array_merge($mapinfo, $group);
+            $merged_maps = subval_sort($merged_maps_tosort, "title");
+            $total_maps = count($merged_maps);
+            //code for pagination
+            $mapsperpage = (get_option('arcgis_maps_per_page') != '') ? get_option('arcgis_maps_per_page') : '8';
+            if (isset($map_results)) {
+                $total_pages = ceil($total_maps / $mapsperpage);
+            } else {
+                $total_pages = 1;
+                $total_maps = 0;
+            }
+            if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
+                $currentpage = (int)$_GET['currentpage'];
+            } else {
+                $currentpage = 1;
+            }
+            if ($currentpage > $total_pages) {
+                $currentpage = $total_pages;
+            }
+            if ($currentpage < 1) {
+                $currentpage = 1;
+            }
+        } catch (Exception $x) {
+            error_log($x->getMessage(), E_WARNING);
+            //return array();
         }
         $start = ($currentpage - 1) * $mapsperpage + 1;
         $count = 0;
