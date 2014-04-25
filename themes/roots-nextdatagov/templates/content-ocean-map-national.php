@@ -44,6 +44,7 @@ arcgis_national_map_process_details();
             $mapinfo = array();
             $groupinfo = array();
             $groupmapinfo = array();
+            $group = array();
             for ($i = 0; $i < count($map_results); $i++) {
                 if ($map_results[$i]["info"]["type"] == "Map") {
                     $mapinfo[$i] = array_merge($map_results[$i]["map_info"][0]);
@@ -52,13 +53,10 @@ arcgis_national_map_process_details();
                     $groupinfo[$i] = array_merge($map_results[$i]["map_info"]);
                 }
             }
-            for ($j = 0; $j < count($groupinfo); $j++) {
-                unset($groupinfo[$j]["total_maps"]);
-                if(!empty($groupinfo)){
-                    $groupmapinfo[] = array_merge($groupinfo[$j]);
-                }
+            foreach ($groupinfo as $key=>$groupvalue){
+                echo "the value of key is ".$key."<br>";
+                $groupmapinfo[] = array_merge($groupinfo[$key]);
             }
-            $group = array();
             foreach ($groupmapinfo as $array) {
                 if(!empty($groupinfo)){
                     $group = array_merge($group, $array);
@@ -114,9 +112,9 @@ arcgis_national_map_process_details();
         if ($total_maps > $mapsperpage) {
             $range = 10;
             if ($currentpage > 1) {
+                $prevpage = $currentpage - 1;
                 $output .= "<li class='pagination-prev'><a class='prev page-numbers pagenav local-link' href='?currentpage=$prevpage'>Previous</a> </li>";
                 // $output .= "<br clear='both'/><li class='pager-first first'><a href='?currentpage=1'><<< FIRST </a></li> ";
-                $prevpage = $currentpage - 1;
                 //$output .= "<li class='pager-previous'><a href='?currentpage=$prevpage'>< PREVIOUS  </a> </li>";
             }
             for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
