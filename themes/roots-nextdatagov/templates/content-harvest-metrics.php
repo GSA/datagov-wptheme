@@ -52,23 +52,22 @@
                     <?php
                     foreach ($organization->harvest_results as $harvest) : ?>
                         <dd style="margin-left:25px;">
-                            <strong>Source</strong> <?php echo $harvest->title ?><br/>
-                            <strong>Total datasets</strong> <?php echo $harvest->total_datasets ?></br >
-                            <strong>Url</strong> <a href="<?php echo $harvest->url ?>"
-                                                    target="_blank"><?php echo $harvest->url ?></a><br/>
-                            <br/><em>Latest Harvest Job</em><br/>
-                            <strong>Run on</strong> <?php echo $harvest->gather_finished ?><br/>
+                            <strong>Source</strong> <span><?php echo $harvest->title ?></span><br/>
+                            <strong>Total datasets</strong> <span><?php echo $harvest->total_datasets ?></span></br >
+                            <strong>Url</strong><span> <a href="<?php echo $harvest->url ?>" target="_blank"><?php echo $harvest->url ?></a></span><br/>
+                            <br/><em style="font-weight: bold;">Latest Harvest Job</em><br/>
+                            <strong>Run on</strong><span><?php echo $harvest->gather_finished ?></span><br/>
                             <?php if ($harvest->errored): ?>
                                 <strong>Errors</strong> <?php echo $harvest->errored ?><br/>
                             <?php endif; ?>
                             <?php if ($harvest->added): ?>
-                                <strong>Additions</strong> <?php echo $harvest->added ?><br/>
+                                <strong>Additions</strong><span><?php echo $harvest->added ?></span><br/>
                             <?php endif; ?>
                             <?php if ($harvest->deleted): ?>
-                                <strong>Deletions</strong> <?php echo $harvest->deleted ?><br/>
+                                <strong>Deletions</strong><span><?php echo $harvest->deleted ?></span><br/>
                             <?php endif; ?>
                             <?php if ($harvest->updated): ?>
-                                <strong>Updates</strong> <?php echo $harvest->updated ?><br/>
+                                <strong>Updates</strong><span><?php echo $harvest->updated ?></span><br/>
                             <?php endif; ?>
                             <?php /*
                             <strong>Status:</strong> <?php echo $harvest->status ?><br/>

@@ -1795,15 +1795,14 @@ div.tweet-date {
     font-size: 0.85em;
     color: #8792A4;
 }
-
 .harvest-stats dt {
-    background-color: #4679b2;
+    background-color: #8DB4D3;
     color: white;
     padding: 5px;
 }
 
 .harvest-stats dd {
-    background-color: #efefef;
+   /* background-color: #efefef;*/
     padding: 5px;
     margin: 5px;
 }
@@ -1814,8 +1813,11 @@ div.tweet-date {
     text-align: right;
     float: left;
     margin-right: 15px;
+    color:#4295B0;
 }
-
+.harvest-stats dd span {
+    font-size: 14px;
+}
 .wrap.container a:focus {
     outline: 2px solid #2A6496 !important;
     outline-offset: 2px;
