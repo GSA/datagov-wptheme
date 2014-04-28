@@ -178,12 +178,17 @@ function validate_map_id($post_id)
             //return;
         }
         $request = get_arcgis_map_info($server, $map_id, $group_id, 0);
-        if ($request['message'] != "OK") {
-            $prevent_publish = true;
-            $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
-        } else if (!empty($group_id) && $request['total'] == 0) {
-            $prevent_publish = true;
-            $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
+        if($add_maps == "group_id"){
+            if($request['total'] == 0){
+                $prevent_publish = true;
+                $_SESSION['my_admin_notices'] .= "<div class='error'><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>";
+            }
+        } else if ($add_maps == "map_id") {
+            if($request['message'] != "OK"){
+                $prevent_publish = true;
+                $_SESSION['my_admin_notices'] .= '<div class="error"><p>Error fetching map. Please check accuracy of the server address and map ID/group ID.</p></div>';
+            }
+
         }
     }
     if ($prevent_publish) {
