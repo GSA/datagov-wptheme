@@ -1822,10 +1822,10 @@ div.tweet-date {
     outline-offset: 2px;
 }
 .main #content-nav a:focus {
-    outline: none !important;
+    outline: none;
     outline-offset: 2px;
 }
-.main .topics a:focus {
-    outline: none !important;
+.main #topic-list  a:focus {
+    outline: none;
     outline-offset: 2px;
 }
