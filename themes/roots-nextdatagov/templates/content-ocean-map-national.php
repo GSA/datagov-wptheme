@@ -54,7 +54,6 @@ arcgis_national_map_process_details();
                 }
             }
             foreach ($groupinfo as $key=>$groupvalue){
-                echo "the value of key is ".$key."<br>";
                 $groupmapinfo[] = array_merge($groupinfo[$key]);
             }
             foreach ($groupmapinfo as $array) {
