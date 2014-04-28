@@ -1018,7 +1018,7 @@ add_filter(
  */
 
 if (!wp_next_scheduled('ckan_harvest_statistics_daily')) {
-    wp_schedule_event(time(), 'daily', 'ckan_harvest_statistics_daily');
+    wp_schedule_event(time(), 'hourly', 'ckan_harvest_statistics_daily');
 }
 
 add_action('ckan_harvest_statistics_daily', 'get_ckan_harvest_statistics');

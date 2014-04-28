@@ -92,7 +92,7 @@ if (!class_exists('CKAN_Harvest_Stats')) {
                 $results = $json_result['result']['results'];
 
                 $organizations = $this->getOrganizationsAsArray();
-                $fed_agencies = $this->getFedJsonAgencies();
+                $fed_agencies  = $this->getFedJsonAgencies();
 
                 foreach ($results as $harvest_result) {
 
@@ -117,8 +117,6 @@ if (!class_exists('CKAN_Harvest_Stats')) {
             } catch (Exception $ex) {
                 return false;
             }
-
-            echo 'done';
 
             return true;
         }
@@ -369,7 +367,7 @@ if (!class_exists('CKAN_Harvest_Stats')) {
                     'updated'           => $lastJobStats['updated'],
                     'errored'           => $lastJobStats['errored'],
                     'deleted'           => $lastJobStats['deleted'],
-                    'url' => $jsonHarvestInfo['url'],
+                    'url'               => $jsonHarvestInfo['url'],
                 ),
                 array(
                     '%s', //  1fc919e5-e870-4d57-91b8-78e14081ce52
