@@ -17,21 +17,21 @@
 		<ul class="nav">
 			<li class="col-md-4">
 				<a href="#question">
-					<i class="fa fa-comments-o"></i>
+					<i class="fa fa-comments-o" alt="Ask a question" title="Ask a question"></i>
 					<span>Ask a question</span>
 				</a>
 			</li>
 
 			<li class="col-md-4">
 				<a href="#request">
-					<i class="fa fa-lightbulb-o"></i>
+					<i class="fa fa-lightbulb-o" alt="Make a Request" title="Make a Request"></i>
 					<span>Make a Request</span>
 				</a>
 			</li>
 
 			<li class="col-md-4">
 				<a href="#report">
-					<i class="fa fa-exclamation-circle"></i>
+					<i class="fa fa-exclamation-circle" alt="Report a Problem" title="Report a Problem"></i>
 					<span>Report a Problem</span>
 				</a>
 			</li>
@@ -44,7 +44,7 @@
 
 		<section class="col-md-8">
 			<h1 class="icon-heading">
-				<i class="fa fa-stack-exchange"></i>
+				<i class="fa fa-stack-exchange" title="Open Data Stack Exchange" alt="Open Data Stack Exchange"></i>
                     <span>
                         Open Data Stack Exchange
                     </span>
@@ -79,7 +79,7 @@
 		<section class="col-md-4">
 			<div>
 				<h1 class="icon-heading">
-					<i class="fa fa-twitter"></i>
+					<i class="fa fa-twitter" title="Twitter" alt="Twitter"></i>
 					<span>Twitter</span>
 				</h1>
 
@@ -97,7 +97,7 @@
 		<div class="col-md-12">
 			<a name="question" class="contact-heading">
 				<h1 class="icon-heading">
-					<i class="fa fa-comments-o"></i>
+					<i class="fa fa-comments-o" title="Ask a Question" alt="Ask a Question"></i>
                         <span>
                             Ask a Question
                         </span>
@@ -107,7 +107,7 @@
 			<div>
 				<div>
 					You can use this form to contact the data.gov team or feel free to email us directly at
-					<a href='mail&#116;o&#58;d%61tag&#111;&#118;&#64;&#103;sa&#46;gov'>&#100;at&#97;g&#111;&#118;&#64;&#103;s&#97;&#46;gov</a>
+					<a href='mailto:datagov@gsa.gov'>datagov@gsa.gov</a>
 				</div>
 
 				<div id="contact-us-form">
@@ -140,7 +140,7 @@
 		<div class="col-md-12">
 			<a name="request" class="contact-heading">
 				<h1 class="icon-heading">
-					<i class="fa fa-lightbulb-o"></i>
+					<i class="fa fa-lightbulb-o" alt="Make a Request" title="Make a Request"></i>
                         <span>
                             Make a Request
                         </span>
@@ -152,7 +152,7 @@
 
 			<li class="col-md-6">
 				<a href="https://github.com/GSA/data.gov/#submitting-an-issue">
-					<i class="fa fa-github"></i>
+					<i class="fa fa-github" alt="Suggest new Data.gov features" title="Suggest new Data.gov features"></i>
                         <span>
                             Suggest new Data.gov features
                         </span>
@@ -161,7 +161,7 @@
 
 			<li class="col-md-6">
 				<a href="/request">
-					<i class="fa fa-check-circle-o"></i>
+					<i class="fa fa-check-circle-o" alt="Request new data" title="Request new data"></i>
                         <span>
                             Request new data
                         </span>
@@ -178,7 +178,7 @@
 		<div class="col-md-12">
 			<a name="report" class="contact-heading">
 				<h1 class="icon-heading">
-					<i class="fa fa-exclamation-circle"></i>
+					<i class="fa fa-exclamation-circle" alt="Report a Problem" title="Report a Problem"></i>
                             <span>
                                 Report a Problem
                             </span>
@@ -189,7 +189,7 @@
 		<ul class="nav contact-link">
 			<li class="col-md-12">
 				<a href="https://github.com/GSA/data.gov/#submitting-an-issue">
-					<i class="fa fa-github"></i>
+					<i class="fa fa-github" alt="Report a problem with the website" title="Report a problem with the website"></i>
                             <span>
                                 Report a problem with the website
                             </span>
