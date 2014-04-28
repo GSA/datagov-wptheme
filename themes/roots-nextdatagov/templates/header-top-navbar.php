@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="<?php echo home_url(); ?>/"><h1 class="navbar-brand"><?php bloginfo('name'); ?></h1></a>
+            <a href="<?php echo home_url(); ?>/" alt="Data.gov"><h1 class="navbar-brand"><?php bloginfo('name'); ?></h1></a>
         </div>
 
         <nav class="collapse navbar-collapse" role="navigation">    

@@ -44,7 +44,7 @@ $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('c
                 </form>
 
                 <div class="footer-logo">
-                    <a class="logo-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
+                    <a class="logo-brand" href="<?php echo home_url(); ?>/" alt="Data.gov"><?php bloginfo('name'); ?></a>
                 </div>
 
             </div>

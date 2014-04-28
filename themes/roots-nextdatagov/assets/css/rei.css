@@ -1817,11 +1817,15 @@ div.tweet-date {
 .harvest-stats dd span {
     font-size: 14px;
 }
-.wrap.container a:focus{
-    outline: 2px solid #2A6496 !important;
+.main a:focus{
+    outline: 2px solid #2A6496;
     outline-offset: 2px;
 }
-#content-nav a:focus {
+.main #content-nav a:focus {
+    outline: none !important;
+    outline-offset: 2px;
+}
+.main .topics a:focus {
     outline: none !important;
     outline-offset: 2px;
 }
