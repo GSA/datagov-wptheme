@@ -29,16 +29,28 @@
     </div>
 </div>
 
+<?php
+$ckan          = new CKAN_Harvest_Stats;
+$organizations = $ckan->getContent();
+
+$totalNumber = 0;
+
+foreach ($organizations as $organization) {
+    if ($organization->name && sizeof($organization->harvest_results)) {
+        $totalNumber++;
+    }
+}
+?>
+
 <div class="single">
     <div class="container">
 
-        <div style="">
+        <div>
             <?php the_content(); ?>
         </div>
-        <?php
-        $ckan          = new CKAN_Harvest_Stats;
-        $organizations = $ckan->getContent();
-        ?>
+        <div>
+            Total Agencies set-up in Data.gov to harvest from their agency Jsons: <?php echo $totalNumber; ?>
+        </div>
 
         <?php foreach ($organizations as $organization): ?>
             <?php if (!$organization->name) {

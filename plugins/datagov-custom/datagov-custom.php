@@ -1016,9 +1016,8 @@ add_filter(
  * Get latest statistics of harvesting processes from CKAN engine
  * http://catalog.data.gov//api/3/action/package_search?q=type:harvest
  */
-
 if (!wp_next_scheduled('ckan_harvest_statistics_daily')) {
-    wp_schedule_event(time(), 'hourly', 'ckan_harvest_statistics_daily');
+    wp_schedule_event(strtotime('5am'), 'daily', 'ckan_harvest_statistics_daily');
 }
 
 add_action('ckan_harvest_statistics_daily', 'get_ckan_harvest_statistics');
