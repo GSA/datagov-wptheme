@@ -1,44 +1,50 @@
 ## Community plugins
 
-* Advanced Custom Fields - http://wordpress.org/plugins/advanced-custom-fields/
-* Advanced Custom Fields: Date and Time Picker - https://github.com/soderlind/acf-field-date-time-picker
-* Akismet - http://akismet.com/?return=true
-* BAW Login/Logout menu - http://www.boiteaweb.fr/llm
-* Better WordPress External Links - http://betterwp.net/wordpress-plugins/bwp-external-links/
-* Better WP Security - http://wordpress.org/plugins/better-wp-security/
-* Category Sticky Post - http://wordpress.org/plugins/category-sticky-post/
-* Custom Contact Forms - http://taylorlovett.com/wordpress-plugins
-* Custom Content Type Manager - http://code.google.com/p/wordpress-custom-content-type-manager/
-* Custom Permalinks - http://atastypixel.com/blog/wordpress/plugins/custom-permalinks/
-* Custom Post Type UI - http://webdevstudios.com/plugin/custom-post-type-ui/
-* Custom Post Type View Generator - http://wordpress.org/plugins/custom-post-view-generator/
-* Google Analyticator - http://wordpress.org/plugins/google-analyticator/
-* Interactive World Map (paid) - http://cmoreira.net/interactive-world-maps-demo/ 
-* Link Manager - http://wordpress.org/plugins/link-manager/
-* PHP Code for posts - http://wordpress.org/plugins/php-code-for-posts/
-* Posts in Page - http://wordpress.org/plugins/posts-in-page/
-* Q and A FAQ + Knowledge Base - http://wordpress.org/plugins/q-and-a/
-* Redirection - http://wordpress.org/plugins/redirection/
-* Restrict Categories - http://wordpress.org/plugins/restrict-categories/
-* SI CAPTCHA Anti-Spam - http://wordpress.org/plugins/si-captcha-for-wordpress/
-* Sticky Posts In Category - http://wordpress.org/plugins/sticky-posts-in-category/
-* Subscribe2 - http://wordpress.org/plugins/subscribe2/
-* Twitter Widget Pro - http://wordpress.org/plugins/twitter-widget-pro/
-* Upload Scanner - https://github.com/kurtpayne/wordpress-upload-scanner-plugin
-* WordPress Importer - http://wordpress.org/plugins/wordpress-importer/
-* WordPress SEO - http://wordpress.org/plugins/wordpress-seo/
-* WP Content Filter - http://www.presscoders.com/plugins/wp-content-filter/
-* WP Crontrol - http://wordpress.org/support/view/plugin-reviews/wp-crontrol
-* WP No Category Base - WPML compatible - http://github.com/mines/no-category-base-wpml
-* WP No Category Base - http://wordpress.org/plugins/no-category-base-wpml/
-* WP Sitemap Page - http://tonyarchambeau.com/
+* advanced-custom-fields       4.3.7    http://www.advancedcustomfields.com/
+* acf-field-date-time-picker   2.0.13   https://github.com/soderlind/acf-field-date-time-picker
+* akismet                      3.0.0    http://akismet.com/
+* baw-login-logout-menu        1.3.2    http://www.boiteaweb.fr/llm
+* bwp-external-links           1.1.2    http://betterwp.net/wordpress-plugins/bwp-external-links/
+* broken-link-checker          1.9.3    http://w-shadow.com/blog/2007/08/05/broken-link-checker-for-wordpress/
+* bulk-move                    1.2.0    http://sudarmuthu.com/wordpress/bulk-move
+* category-sticky-post         2.4.0    http://tommcfarlin.com/category-sticky-post/
+* custom-content-type-manager  0.9.7.13 http://code.google.com/p/wordpress-custom-content-type-manager/
+* custom-post-type-ui          0.8.2    http://webdevstudios.com/plugin/custom-post-type-ui/
+* interactive-world-maps       1.4      http://www.cmoreira.net/interactive-world-maps-demo
+* better-wp-security           4.1.5    http://ithemes.com/security
+* link-manager                 0.1-beta http://wordpress.org/plugins/link-manager/
+* php-code-for-posts           1.2.0    http://wordpress.org/plugins/php-code-for-posts/
+* posts-in-page                1.2.4    http://www.ivycat.com/wordpress/wordpress-plugins/posts-in-page/
+* q-and-a                      1.0.6.2  http://wordpress.org/extend/plugins/q-and-a/
+* redirection                  2.3.4    http://urbangiraffe.com/plugins/redirection/
+* wp-rss-multi-importer        2.67.4   http://www.allenweiss.com/wp_plugin
+* si-captcha-for-wordpress     2.7.7.3  http://www.642weather.com/weather/scripts-wordpress-captcha.php
+* social-media-feather         1.5.10   http://synved.com/wordpress-social-media-feather/
+* subscribe2                   9.4      http://subscribe2.wordpress.com/
+* upload-scanner               1.2      https://github.com/kurtpayne/wordpress-upload-scanner-plugin
+* w3-total-cache               0.9.4    http://www.w3-edge.com/wordpress-plugins/w3-total-cache/
+* wordpress-importer           0.6.1    http://wordpress.org/extend/plugins/wordpress-importer/
+* wp-content-filter            2.42     http://www.presscoders.com/plugins/wp-content-filter/
+* wp-crontrol                  1.2.3    https://wordpress.org/plugins/wp-crontrol/
+* no-category-base-wpml        1.1.0    http://github.com/mines/no-category-base-wpml
+* wp-no-taxonomy-base          1.1      http://markoheijnen.com/
+* m-wp-popup                   0.5      http://rocketplugins.com/wordpress-popup-plugin/
 
 
 ## Locally hosted or modified plugins
 These plugins are available in the `/plugins/` directory
 
-* ArcGis Map Validation
-* Datagov Custom
-* Metric Count	
-* SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
-* USA search
+* arcgis-map    -   ArcGis Map Validation
+* custom-contact-forms      http://taylorlovett.com/wordpress-plugins
+* custom-post-view-generator    http://wordpress.org/plugins/custom-post-view-generator/
+* datagov-custom
+* metric-count
+* restrict-categories   https://wordpress.org/plugins/restrict-categories/
+* saml-20-single-sign-on    -   SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
+* sticky-posts-in-category      https://wordpress.org/plugins/sticky-posts-in-category/
+* suggested-datasets
+* twitter-posts-to-blog     http://wordpress.org/plugins/twitter-posts-to-blog/
+* twitter-widget-pro        http://bluedogwebservices.com/wordpress-plugin/twitter-widget-pro/
+* usa-search    -   USA search
+* wordpress-seo     https://yoast.com/wordpress/plugins/seo/
+* wp-sitemap-page   http://tonyarchambeau.com/
