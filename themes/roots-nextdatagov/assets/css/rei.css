@@ -1825,7 +1825,7 @@ div.tweet-date {
     outline: none;
     outline-offset: 2px;
 }
-ul.topics li a {
+.wrap ul.topics li a {
     color: #275379;
 }
 .more-link a {
