@@ -1825,3 +1825,6 @@ div.tweet-date {
     outline: none;
     outline-offset: 2px;
 }
+ul.topics li a {
+    color: #346FA1;
+}
