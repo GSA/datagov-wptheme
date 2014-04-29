@@ -392,6 +392,8 @@ function get_ckan_metric_info()
                 create_metric_content($value['is_cfo'], $key, $value['id'], $organizations, $parent_nid, 0, $item['name'], 1, 1);
             }
         }
+    } else {
+        die('$structure[Federal Organization] is empty');
     }
 
     asort($results);
@@ -462,9 +464,14 @@ function create_metric_content($cfo, $title, $ckan_id, $organizations, $parent_n
         $url = (get_option('ckan_access_pt') != '') ? get_option('ckan_access_pt') : '//catalog.data.gov/';
         $url .= "api/3/action/package_search?fq=($organizations)+AND+dataset_type:dataset&rows=1&sort=metadata_modified+desc";
 
-//        echo $url.PHP_EOL;
+        if (false === stripos($url, 'http')) {
+            $url = 'http:' . $url;
+        }
 
         $response = wp_remote_get($url);
+        if (is_wp_error($response)) {
+            die('Error getting ' . $url);
+        }
         $body = json_decode(wp_remote_retrieve_body($response), true);
 
         $count = $body['result']['count'];
