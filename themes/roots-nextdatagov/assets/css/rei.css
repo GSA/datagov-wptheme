@@ -1828,3 +1828,7 @@ div.tweet-date {
 ul.topics li a {
     color: #275379;
 }
+.more-link a {
+    color: #275379;
+    outline: 0 none;
+}
