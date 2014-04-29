@@ -2,201 +2,201 @@
 
 <div id="contact-wrapper">
 
-	<div class="row intro">
+    <div class="row intro">
 
-		<div class="container">
-			<p>
-				Do you have questions or feedback for Data.gov? Please let us know how to serve you best.
-			</p>
-		</div>
+        <div class="container">
+            <p>
+                Do you have questions or feedback for Data.gov? Please let us know how to serve you best.
+            </p>
+        </div>
 
-	</div>
+    </div>
 
-	<div class="row contact-nav">
+    <div class="row contact-nav">
 
-		<ul class="nav">
-			<li class="col-md-4">
-				<a href="#question">
-					<i class="fa fa-comments-o" alt=""></i>
-					<span>Ask a question</span>
-				</a>
-			</li>
+        <ul class="nav">
+            <li class="col-md-4">
+                <a href="#question">
+                    <i class="fa fa-comments-o"></i>
+                    <span>Ask a question</span>
+                </a>
+            </li>
 
-			<li class="col-md-4">
-				<a href="#request">
-					<i class="fa fa-lightbulb-o" alt=""></i>
-					<span>Make a Request</span>
-				</a>
-			</li>
+            <li class="col-md-4">
+                <a href="#request">
+                    <i class="fa fa-lightbulb-o"></i>
+                    <span>Make a Request</span>
+                </a>
+            </li>
 
-			<li class="col-md-4">
-				<a href="#report">
-					<i class="fa fa-exclamation-circle" alt=""></i>
-					<span>Report a Problem</span>
-				</a>
-			</li>
-		</ul>
+            <li class="col-md-4">
+                <a href="#report">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <span>Report a Problem</span>
+                </a>
+            </li>
+        </ul>
 
-	</div>
+    </div>
 
 
-	<div class="row">
+    <div class="row">
 
-		<section class="col-md-8">
-			<h1 class="icon-heading">
-				<i class="fa fa-stack-exchange" alt=""></i>
+        <section class="col-md-8">
+            <h1 class="icon-heading">
+                <i class="fa fa-stack-exchange"></i>
                     <span>
                         Open Data Stack Exchange
                     </span>
-			</h1>
+            </h1>
 
-			<p class="section-intro">Ask the community</p>
-
-
-			<?php
-			$feed  = fetch_feed( 'http://opendata.stackexchange.com/feeds/tag/data.gov' ); // specify feed url
-			$items = $feed->get_items( 0, 7 ); // specify first and last item
-
-			if ( ! empty( $items ) ) :
-				foreach ( $items as $item ) : ?>
-					<div class="foreign-post">
-						<h4 class="post-title">
-							<a href="<?php echo $item->get_link(); ?>"><?php echo $item->get_title(); ?></a>
-						</h4>
-
-						<div class="post-date">
-							<?php echo $item->get_date( 'F d, Y h:i A' ); ?>
-						</div>
-					</div>
-
-				<?php endforeach; ?>
-
-			<?php endif; ?>
-
-		</section>
+            <p class="section-intro">Ask the community</p>
 
 
-		<section class="col-md-4">
-			<div>
-				<h1 class="icon-heading">
-					<i class="fa fa-twitter" alt=""></i>
-					<span>Twitter</span>
-				</h1>
+            <?php
+            $feed  = fetch_feed( 'http://opendata.stackexchange.com/feeds/tag/data.gov' ); // specify feed url
+            $items = $feed->get_items( 0, 7 ); // specify first and last item
 
-				<p class="section-intro">Ask us at <a href="https://twitter.com/usdatagov">@usdatagov</a></p>
+            if ( ! empty( $items ) ) :
+                foreach ( $items as $item ) : ?>
+                    <div class="foreign-post">
+                        <h4 class="post-title">
+                            <a href="<?php echo $item->get_link(); ?>"><?php echo $item->get_title(); ?></a>
+                        </h4>
 
-				<div class="twitter-feed">
-					<?php echo do_shortcode( '[twitter-widget username="usdatagov" items="2" hidereplies="false" title=" " showintents="false" showretweets="true"]' ) ?>
-				</div>
-			</div>
-		</section>
-	</div>
+                        <div class="post-date">
+                            <?php echo $item->get_date( 'F d, Y h:i A' ); ?>
+                        </div>
+                    </div>
+
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+
+        </section>
 
 
-	<section class="row">
-		<div class="col-md-12">
-			<a name="question" class="contact-heading">
-				<h1 class="icon-heading">
-					<i class="fa fa-comments-o" alt=""></i>
+        <section class="col-md-4">
+            <div>
+                <h1 class="icon-heading">
+                    <i class="fa fa-twitter"></i>
+                    <span>Twitter</span>
+                </h1>
+
+                <p class="section-intro">Ask us at <a href="https://twitter.com/usdatagov">@usdatagov</a></p>
+
+                <div class="twitter-feed">
+                    <?php echo do_shortcode( '[twitter-widget username="usdatagov" items="2" hidereplies="false" title=" " showintents="false" showretweets="true"]' ) ?>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <section class="row">
+        <div class="col-md-12">
+            <a name="question" class="contact-heading">
+                <h1 class="icon-heading">
+                    <i class="fa fa-comments-o"></i>
                         <span>
                             Ask a Question
                         </span>
-				</h1>
-			</a>
+                </h1>
+            </a>
 
-			<div>
-				<div>
-					You can use this form to contact the data.gov team or feel free to email us directly at
-					<a href='mailto:datagov@gsa.gov'>datagov@gsa.gov</a>
-				</div>
+            <div>
+                <div>
+                    You can use this form to contact the data.gov team or feel free to email us directly at
+                    <a href='mailto:datagov@gsa.gov'>datagov@gsa.gov</a>
+                </div>
 
-				<div id="contact-us-form">
-					<?php
+                <div id="contact-us-form">
+                    <?php
 
-					$the_slug = 'contact-us';
-					$args     = array(
-						'name'           => $the_slug,
-						'post_type'      => 'page',
-						'post_status'    => 'publish',
-						'posts_per_page' => 1
-					);
-					$my_posts = get_posts( $args );
+                    $the_slug = 'contact-us';
+                    $args     = array(
+                        'name'           => $the_slug,
+                        'post_type'      => 'page',
+                        'post_status'    => 'publish',
+                        'posts_per_page' => 1
+                    );
+                    $my_posts = get_posts( $args );
 
-					if ( $my_posts ) {
-						foreach ( $my_posts as $post ) {
-							setup_postdata( $post );
-							the_content();
-						}
-					}
-					wp_reset_postdata();
+                    if ( $my_posts ) {
+                        foreach ( $my_posts as $post ) {
+                            setup_postdata( $post );
+                            the_content();
+                        }
+                    }
+                    wp_reset_postdata();
 
-					?>
-				</div>
-			</div>
-		</div>
-	</section>
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<section class="row">
-		<div class="col-md-12">
-			<a name="request" class="contact-heading">
-				<h1 class="icon-heading">
-					<i class="fa fa-lightbulb-o" alt=""></i>
+    <section class="row">
+        <div class="col-md-12">
+            <a name="request" class="contact-heading">
+                <h1 class="icon-heading">
+                    <i class="fa fa-lightbulb-o"></i>
                         <span>
                             Make a Request
                         </span>
-				</h1>
-			</a>
-		</div>
+                </h1>
+            </a>
+        </div>
 
-		<ul class="nav contact-link">
+        <ul class="nav contact-link">
 
-			<li class="col-md-6">
-				<a href="https://github.com/GSA/data.gov/#submitting-an-issue">
-					<i class="fa fa-github" alt=""></i>
+            <li class="col-md-6">
+                <a href="https://github.com/GSA/data.gov/#submitting-an-issue">
+                    <i class="fa fa-github"></i>
                         <span>
                             Suggest new Data.gov features
                         </span>
-				</a>
-			</li>
+                </a>
+            </li>
 
-			<li class="col-md-6">
-				<a href="/request">
-					<i class="fa fa-check-circle-o" alt="" ></i>
+            <li class="col-md-6">
+                <a href="/request">
+                    <i class="fa fa-check-circle-o" ></i>
                         <span>
                             Request new data
                         </span>
-				</a>
-			</li>
+                </a>
+            </li>
 
-		</ul>
+        </ul>
 
 
-	</section>
+    </section>
 
-	<section class="row">
+    <section class="row">
 
-		<div class="col-md-12">
-			<a name="report" class="contact-heading">
-				<h1 class="icon-heading">
-					<i class="fa fa-exclamation-circle" alt=""></i>
+        <div class="col-md-12">
+            <a name="report" class="contact-heading">
+                <h1 class="icon-heading">
+                    <i class="fa fa-exclamation-circle"></i>
                             <span>
                                 Report a Problem
                             </span>
-				</h1>
-			</a>
-		</div>
+                </h1>
+            </a>
+        </div>
 
-		<ul class="nav contact-link">
-			<li class="col-md-12">
-				<a href="https://github.com/GSA/data.gov/#submitting-an-issue">
-					<i class="fa fa-github" alt=""></i>
+        <ul class="nav contact-link">
+            <li class="col-md-12">
+                <a href="https://github.com/GSA/data.gov/#submitting-an-issue">
+                    <i class="fa fa-github"></i>
                             <span>
                                 Report a problem with the website
                             </span>
-				</a>
-			</li>
-		</ul>
+                </a>
+            </li>
+        </ul>
 
-	</section>
+    </section>
 </div>
 </div>
