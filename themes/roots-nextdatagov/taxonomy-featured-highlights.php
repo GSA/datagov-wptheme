@@ -90,7 +90,7 @@ $args = array(
         <?php
         wp_reset_postdata();    
         ?>
-
+          </div><!--/.highlight-->
       <?php
       }
       ?>
@@ -99,7 +99,6 @@ $args = array(
               <a href="/<?php echo( isset( $category->slug ) ? $category->slug.'/highlights' : 'highlights' ) ?>" class="more-link">More Highlights</a>
           </div>
           <?php endif; ?>
-      </div><!--/.highlight-->
       <?php
       }
 ?>
