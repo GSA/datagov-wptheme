@@ -1821,7 +1821,7 @@ div.tweet-date {
     outline: 2px solid #2A6496;
     outline-offset: 2px;
 }
-.main #content-nav a:focus,.main #topic-list a:focus, .main .topics a:focus {
+.main #content-nav a:focus,.main #topic-list a:focus, .main .topics a:focus, .nav.navbar-nav a:focus{
     outline: none;
     outline-offset: 2px;
 }
