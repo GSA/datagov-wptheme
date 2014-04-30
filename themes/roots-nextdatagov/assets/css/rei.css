@@ -1832,3 +1832,6 @@ div.tweet-date {
     color: #275379;
     outline: 0 none;
 }
+.nav > li > a:hover, .nav > li > a:focus {
+backgroun:none;
+}
