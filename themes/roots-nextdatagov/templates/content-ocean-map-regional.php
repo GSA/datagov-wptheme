@@ -38,6 +38,7 @@ arcgis_regional_map_process_details();
     <div class="map-gallery-wrap">
         <?php
         global $regional_map_results;
+        $group = array();
         $mapinfo = array();
         $groupinfo = array();
         $groupmapinfo = array();
@@ -49,11 +50,10 @@ arcgis_regional_map_process_details();
                 $groupinfo[$i] = array_merge($regional_map_results[$i]["map_info"]);
             }
         }
-        for ($j = 0; $j < count($groupinfo); $j++) {
-            unset($groupinfo[$j]["total_maps"]);
-            $groupmapinfo[] = array_merge($groupinfo[$j]);
+        foreach ($groupinfo as $key=>$groupvalue){
+            $groupmapinfo[] = array_merge($groupinfo[$key]);
         }
-        $group = array();
+
         foreach ($groupmapinfo as $array) {
             $group = array_merge($group, $array);
         }
