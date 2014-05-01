@@ -50,7 +50,7 @@ $args = array(
 
 
       <?php if ($category_query->have_posts()): ?>
-            <h1 class="category category-header topic-<?php echo $category->slug;?>">
+            <h1 style="clear:both;" class="category category-header topic-<?php echo $category->slug;?>">
               <a href="/<?php echo $category->slug;?>"><i></i>
               <span><?php echo $category->cat_name;?></span></a>
             </h1>
@@ -95,7 +95,7 @@ $args = array(
       }
       ?>
       <?php if ($category_query->have_posts()): ?>
-          <div class="pull-right clearfix">
+          <div class="pull-right clearfix" style="margin-top:-45px;">
               <a href="/<?php echo( isset( $category->slug ) ? $category->slug.'/highlights' : 'highlights' ) ?>" class="more-link">More Highlights</a>
           </div>
           <?php endif; ?>
