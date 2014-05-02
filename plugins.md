@@ -32,7 +32,6 @@
 
 
 ## Locally hosted or modified plugins
-These plugins are available in the `/plugins/` directory
 
 * arcgis-map                    https://github.com/GSA/arcgis-map
 * custom-contact-forms          https://github.com/GSA/custom-contact-forms (http://taylorlovett.com/wordpress-plugins)
