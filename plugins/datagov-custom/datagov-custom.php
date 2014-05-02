@@ -946,7 +946,7 @@ add_action('ckan_count_cron_daily', 'ckan_count_cron');
 function ckan_count_cron()
 {
     try {
-        $json = file_get_contents('https://catalog.data.gov/api/3/action/package_search?rows=0');
+        $json = file_get_contents('http://catalog.data.gov/api/action/package_search?q=dataset_type:dataset&rows=0');
         if (false === $json) {
             throw new Exception('could not access page');
         }
@@ -1035,3 +1035,60 @@ function get_ckan_harvest_statistics()
     $ckan->truncateDB();
     $ckan->updateDB();
 }
+
+
+function add_category_to_page_url()
+{
+    global $wp_rewrite;
+    if (!strpos($wp_rewrite->get_page_permastruct(), '%category%')) {
+        $wp_rewrite->page_structure = '%category%/' . $wp_rewrite->page_structure;
+    }
+    $wp_rewrite->flush_rules();
+}
+
+function page_url_add_category_filter($permalink, $post_id, $sample)
+{
+    if (strpos($permalink, '%category%') !== false) {
+        $cats = get_the_category($post_id);
+        if ($cats) {
+            usort($cats, '_usort_terms_by_ID'); // order by ID
+
+            /**
+             * Filter the category that gets used in the %category% permalink token.
+             *
+             * @since 3.5.0
+             *
+             * @param stdClass $cat The category to use in the permalink.
+             * @param array $cats Array of all categories associated with the post.
+             * @param WP_Post $post The post in question.
+             */
+//            $category_object = apply_filters( 'post_link_category', $cats[0], $cats, $post );
+
+            $category_object = get_term($cats[0], 'category');
+            $category        = $category_object->slug;
+            if ($parent = $category_object->parent) {
+                $category = get_category_parents($parent, false, '/', true) . $category;
+            }
+        }
+        // show default category in permalinks, without
+        // having to assign it explicitly
+        if (empty($category)) {
+            $category = '';
+//            $default_category = get_term( get_option( 'default_category' ), 'category' );
+//            $category = is_wp_error( $default_category ) ? '' : $default_category->slug;
+        }
+
+        $permalink = str_replace('%category%', $category, $permalink);
+        $permalink = user_trailingslashit($permalink, 'single');
+    }
+
+    return $permalink;
+}
+
+/**
+ * DG-1931
+ * github #339
+ * Sub Topics - default url doesn't prefix parent topic name
+ */
+//add_action('init', 'add_category_to_page_url', -1);
+//add_filter('page_link', 'page_url_add_category_filter', 10, 3);
