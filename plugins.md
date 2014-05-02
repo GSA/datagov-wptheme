@@ -34,17 +34,17 @@
 ## Locally hosted or modified plugins
 These plugins are available in the `/plugins/` directory
 
-* arcgis-map    -   ArcGis Map Validation
-* custom-contact-forms      http://taylorlovett.com/wordpress-plugins
-* custom-post-view-generator    http://wordpress.org/plugins/custom-post-view-generator/
-* datagov-custom
-* metric-count
-* restrict-categories   https://wordpress.org/plugins/restrict-categories/
-* saml-20-single-sign-on    -   SAML 2.0 Single Sign-On - http://wordpress.org/plugins/saml-20-single-sign-on/
-* sticky-posts-in-category      https://wordpress.org/plugins/sticky-posts-in-category/
-* suggested-datasets
-* twitter-posts-to-blog     http://wordpress.org/plugins/twitter-posts-to-blog/
-* twitter-widget-pro        http://bluedogwebservices.com/wordpress-plugin/twitter-widget-pro/
-* usa-search    -   USA search
-* wordpress-seo     https://yoast.com/wordpress/plugins/seo/
-* wp-sitemap-page   http://tonyarchambeau.com/
+* arcgis-map                    https://github.com/GSA/arcgis-map
+* custom-contact-forms          https://github.com/GSA/custom-contact-forms (http://taylorlovett.com/wordpress-plugins)
+* custom-post-view-generator    https://github.com/GSA/custom-post-view-generator (http://wordpress.org/plugins/custom-post-view-generator/)
+* datagov-custom                https://github.com/GSA/datagov-custom
+* metric-count                  https://github.com/GSA/metric-count
+* restrict-categories           https://github.com/GSA/restrict-categories (https://wordpress.org/plugins/restrict-categories/)
+* saml-20-single-sign-on        https://github.com/GSA/saml-20-single-sign-on (http://wordpress.org/plugins/saml-20-single-sign-on/)
+* sticky-posts-in-category      https://github.com/GSA/sticky-posts-in-category (https://wordpress.org/plugins/sticky-posts-in-category/)
+* suggested-datasets            https://github.com/GSA/suggested-datasets
+* twitter-posts-to-blog         twitter-posts-to-blog (http://wordpress.org/plugins/twitter-posts-to-blog/)
+* twitter-widget-pro            https://github.com/GSA/twitter-widget-pro (http://bluedogwebservices.com/wordpress-plugin/twitter-widget-pro/)
+* usa-search                    https://github.com/GSA/usa-search
+* wordpress-seo                 https://github.com/GSA/wordpress-seo (https://yoast.com/wordpress/plugins/seo/)
+* wp-sitemap-page               https://github.com/GSA/wp-sitemap-page (http://tonyarchambeau.com/)
