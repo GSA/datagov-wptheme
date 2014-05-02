@@ -16,7 +16,7 @@ The theme is provided in the `/themes/` folder. The theme is based on [roots.io]
 
 ###Plugins
 
-Custom plugins are provided in the `/plugins` folder. See the [plugins](plugins.md) page for a list of all the plugins used.
+See the [plugins](plugins.md) page for a list of all the plugins used.
 
 ###Exportables
 The `/exportables/` folder contains advanced custom fields definitions in xml format that can be imported manually via acf plugin.
