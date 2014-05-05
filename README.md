@@ -18,9 +18,6 @@ The theme is provided in the `/themes/` folder. The theme is based on [roots.io]
 
 See the [plugins](plugins.md) page for a list of all the plugins used.
 
-###Exportables
-The `/exportables/` folder contains advanced custom fields definitions in xml format that can be imported manually via acf plugin.
-
 ### Deployment
 This is a standard WordPress install, so please refer to the [WordPress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
 
