@@ -1,4 +1,23 @@
-
+<?php
+$category = get_the_category();
+$term_name = $category[0]->cat_name;
+$term_slug = $category[0]->slug;
+$urlslice = explode("/", $_SERVER[REQUEST_URI]);
+if($urlslice[1]==$term_slug && $urlslice[2]=="page" ){
+    ?>
+<script>
+    jQuery(document).ready(function($){
+        var slug = "/<?php echo $term_slug?>/";
+        jQuery('.topic-subnav ul.nav a').each(function() {
+            if (jQuery(this).attr('href')  ===  slug) {
+                jQuery(this).addClass('active');
+            }
+        });
+    });
+</script>
+<?php
+}
+?>
 <div class="container">
 	<div class="page-header">
 		<h1>Updates</h1>
