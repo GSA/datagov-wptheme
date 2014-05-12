@@ -1,6 +1,9 @@
 <?php
-$term_name = get_term_by( 'id', get_query_var( 'cat' ), 'category' )->name;
-$term_slug = get_query_var( 'category_name' );
+
+$category = get_the_category();
+$term_name = $category[0]->cat_name;
+$term_slug = $category[0]->slug;
+
 
 // show Links associated to a community
 // we need to build $args based either term_name or term_slug
