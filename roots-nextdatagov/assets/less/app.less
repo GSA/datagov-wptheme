@@ -201,7 +201,36 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
   .nav.navbar-nav li a {
     padding-bottom : 9px;
   }
+
+
+  .dropdown-menu {
+
+    a, li.active a {
+
+      border-bottom : 0;
+
+      .active, &:hover {
+        border-bottom : 0;    
+      }
+    }
+
+    li a {
+      padding : .75em 1em;
+    }    
+
+    li.active a {
+      background-color: @gray-lighter;
+      color : #000;   
+
+      &:hover {
+        background-color: @blue-lightestblue;
+      }   
+    }
+
+  }
+
 }
+
 
 
 
