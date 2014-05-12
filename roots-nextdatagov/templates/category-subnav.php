@@ -80,4 +80,41 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 		</div>
 	</div>
 
+<?php else: ?>
+
+
+	<?php 
+		$sub_menu = wp_nav_menu( array('menu' => $term_slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') ); 
+
+		$valid_sub_menu = false;		
+
+		if (!empty($sub_menu)) {
+
+			$expected_html = 'ul id="menu-' . $term_slug . '"';
+
+			if(strpos($sub_menu, $expected_html) == 1) {
+				$valid_sub_menu = true;		
+			}
+			
+		}
+
+		
+	?> 
+
+
+	<?php if($valid_sub_menu): ?> 
+
+
+		<div class="subnav banner">
+			<div class="container">
+				<nav class="topic-subnav" role="navigation">
+					<?php echo $sub_menu; ?>
+				</nav>
+			</div>			
+		</div>
+
+	<?php endif; ?>
+
+
 <?php endif; ?>
+
