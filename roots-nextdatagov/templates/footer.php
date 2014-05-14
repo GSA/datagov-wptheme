@@ -4,8 +4,9 @@ if ($category && $category[0]->cat_name != 'Uncategorized') {
 
     $slug = $wp_query->query_vars['category_name'];
 }
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
+$ckan_default_server = '//' . $ckan_default_server;
+
 
 ?>
 <footer class="content-info" role="contentinfo">
@@ -27,7 +28,7 @@ $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('c
             <div class="col-md-4 col-lg-4">
 
                 <form role="search" method="get" style="display: block;" class="search-form form-inline"
-                      action="<?php echo $protocol.$ckan_default_server ?>">
+                      action="<?php echo $ckan_default_server ?>">
                     <div class="input-group">
                         <label class="sr-only" for="search-footer"><?php _e('Search for:', 'roots'); ?></label>
                         <input type="search" id="search-footer" value="<?php if (is_search()) {
