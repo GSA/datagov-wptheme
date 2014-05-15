@@ -9,10 +9,13 @@
         add_filter('get_the_excerpt', 'datagov_custom_keep_my_links');
         $more_tag = strpos($post->post_content, '<!--more-->');
         ($more_tag) ? the_content('Continued') : the_excerpt();
-        $author_name = get_field('author_name');
-        if(empty($author_name))
-            $author_name = get_the_author();
+        $additional_author_name = get_field('author_name');
+        $author_name = get_the_author();
+        if(!empty($additional_author_name)){
+            echo "<p><em>By ".$additional_author_name."</em></p>";
+        } else if(!empty($author_name)) {
+            echo "<p><em>By ".$author_name."</em></p>";
+        }
         ?>
-        <em>By <?php echo $author_name;?></em>
     </div>
 </article>

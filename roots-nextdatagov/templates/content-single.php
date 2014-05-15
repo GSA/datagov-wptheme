@@ -10,11 +10,14 @@
 
     <div class="entry-content">
         <?php
-        $author_name = get_field('author_name');
-        if(empty($author_name))
-            $author_name = get_the_author();
+        $additional_author_name = get_field('author_name');
+        $author_name = get_the_author();
+        if(!empty($additional_author_name)){
+            echo "<p><em>By ".$additional_author_name."</em></p>";
+        } else if(!empty($author_name)) {
+            echo "<p><em>By ".$author_name."</em></p>";
+        }
         ?>
-        <em>By <?php echo $author_name;?></em>
       <?php if ( has_post_thumbnail() ) : ?>
         <span class="inline-image">
             <?php the_post_thumbnail('medium'); ?>
