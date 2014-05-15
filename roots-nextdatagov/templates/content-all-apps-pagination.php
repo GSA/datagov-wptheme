@@ -27,6 +27,7 @@ if ( $category ) {
         $bookmarks = wp_list_bookmarks( $args );
     }
 
+
     if ( $bookmarks ): ?>
 
     <div class="subnav banner">
@@ -50,33 +51,33 @@ if ( $category ) {
 $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
 ?>
 
+
+
+
+
+
 <div class="intro">
+
     <div class="container">
+
         <?php while( have_posts() ) : the_post(); ?>
+
         <div class="Apps-post" id="post-<?php the_ID(); ?>">
             <?php the_content();   ?>
         </div>
-        <?php endwhile; ?>
-    </div>
-</div>
 
-<form action="" class="search-form navbar-left" method="get" role="search">
-    <div class="input-group">
-        <label class="sr-only" for="search-header">Search for:</label>
-        <input type="search" placeholder="Search App" class="search-field form-control" name="q" value=""  id="search-header">
-        <input type="hidden" value="score desc, name asc" name="sort">
-      <span class="input-group-btn">
-      <button class="search-submit btn btn-default" type="submit">
-          <i class="fa fa-search"></i>
-          <span class="sr-only">Search</span>
-      </button>
-    </span>
+        <?php endwhile; ?>
+
     </div>
-</form>
+
+</div>
 
 <!-- Application featured taxonomy-->
 <?php
+
+
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
 $args_featured = array(
     's'              => $query,
     'post_type'      => 'Applications',
@@ -165,16 +166,34 @@ if ( $currentpage < 1 ) {
 $start = ( $currentpage - 1 ) * $apps_per_page + 1;
 
 if($total_apps > 0){
-    if(!empty($query)){
-        echo"<a href='/applications'> Reset</a> ";
-        echo "<div class='search-results-alert'>
-        <div class='results-count'> Showing results for &#34;$query&#34;</div>
-        </div>";
-    }
+
 
     ?>
 
 <div class="container">
+    <form style="width:100%;" action="" class="search-form navbar-left" method="get" role="search">
+        <div class="input-group">
+            <label class="sr-only" for="search-header">Search for:</label>
+            <input type="search" placeholder="Search App" class="search-field form-control" name="q" value=""  id="search-header">
+            <input type="hidden" value="score desc, name asc" name="sort">
+      <span class="input-group-btn">
+      <button class="search-submit btn btn-default" type="submit">
+          <i class="fa fa-search"></i>
+          <span class="sr-only">Search</span>
+      </button>
+    </span>
+        </div>
+    </form>
+    <?php
+    if(!empty($query)){?>
+
+        <a class="btn btn-default" href='/applications' style="margin-top: 15px"> Reset</a>
+        <div class='search-results-alert'>
+            <div class='results-count'> Showing results for &#34;<?php echo $query;?>&#34;</div>
+        </div>
+        <?php }
+    ?>
+    <br clear="all"/>
     <div class="Apps-wrapper">
         <div class="Mobile-post" id="post-<?php //$term->slug; ?>">
             <?php
@@ -183,8 +202,15 @@ if($total_apps > 0){
                     ?>
                     <div class="webcontainer <?php the_ID(); ?>">
                         <div id="webimage">
-                            <img class="scale-with-grid" src="<?php echo $apparray[ $i ]['image_url']; ?>"
-                                 alt="<?php echo $apparray[ $i ]['image_alt']; ?>">
+                            <img <?php if ($apparray[ $i ]['image_url'] ==''){ ?> class="scale-with-grid noImage"
+                                <?php }else{  ?>
+                                                                                  class="scale-with-grid" <?php }?>
+                                                                                  src="<?php echo $apparray[ $i ]['image_url'] ?>"
+                                <?php if ($apparray[ $i ]['image_alt'] ==''){ ?>
+                                                                                  alt="<?php $apparray[ $i ]['image_title'] ?>"
+                                <?php }else{  ?>
+                                                                                  alt="<?php echo $apparray[ $i ]['image_alt'] ?>"
+                                <?php  } ?> >
                         </div>
                         <div id="webcontent">
                             <h2><a href="<?php
