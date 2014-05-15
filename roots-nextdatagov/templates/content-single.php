@@ -9,7 +9,12 @@
     </header>
 
     <div class="entry-content">
-
+        <?php
+        $author_name = get_field('author_name');
+        if(empty($author_name))
+            $author_name = get_the_author();
+        ?>
+        <em>By <?php echo $author_name;?></em>
       <?php if ( has_post_thumbnail() ) : ?>
         <span class="inline-image">
             <?php the_post_thumbnail('medium'); ?>
@@ -25,8 +30,11 @@
                   <span class="glyphicon glyphicon-download"></span> View this Dataset
                 </a>
             </div>            
-    <?php endif;?>  
-
+    <?php endif;?>
+    <?php
+      $author_byline = get_field('author_byline');
+      if(!empty($author_byline))?>
+          <em><?php echo $author_byline;?></em>
     <footer>
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
     </footer>
