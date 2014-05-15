@@ -146,6 +146,7 @@ while ( $result_nonfeatured->have_posts() ) {
 }
 wp_reset_query();
 $apparray      = array_merge( $featured, $not_featured );
+$apparray= merged_array_sort($apparray,'title');
 $total_apps    = count( $apparray );
 $apps_per_page = 10;
 if ( isset( $apparray ) ) {
@@ -287,4 +288,15 @@ function customPagination( $query,$base_url, $cur_page, $number_of_pages, $prev_
     print $output;
 }
 
+function merged_array_sort($a, $subkey)
+{
+    foreach ($a as $k => $v) {
+        $b[$k] = strtolower($v[$subkey]);
+    }
+    asort($b);
+    foreach ($b as $key => $val) {
+        $c[] = $a[$key];
+    }
+    return $c;
+}
 ?>
