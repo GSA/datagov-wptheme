@@ -202,14 +202,15 @@ if($total_apps > 0){
                     ?>
                     <div class="webcontainer <?php the_ID(); ?>">
                         <div id="webimage">
-                            <img <?php if ($apparray[ $i ]['image_url'] ==''){ ?> class="scale-with-grid noImage"
+                            <img <?php if ($apparray[$i]['image_url'] ==''){ ?>
+                                    class="scale-with-grid noImage"
                                 <?php }else{  ?>
-                                                                                  class="scale-with-grid" <?php }?>
-                                                                                  src="<?php echo $apparray[ $i ]['image_url'] ?>"
-                                <?php if ($apparray[ $i ]['image_alt'] ==''){ ?>
-                                                                                  alt="<?php $apparray[ $i ]['image_title'] ?>"
+                                    class="scale-with-grid" <?php }?>
+                                    src="<?php echo $apparray[$i]['image_url'] ?>"
+                                <?php if ($apparray[$i]['image_alt'] ==''){ ?>
+                                    alt="<?php echo $apparray[$i]['image_title'] ?>"
                                 <?php }else{  ?>
-                                                                                  alt="<?php echo $apparray[ $i ]['image_alt'] ?>"
+                                    alt="<?php echo $apparray[$i]['image_alt'] ?>"
                                 <?php  } ?> >
                         </div>
                         <div id="webcontent">
