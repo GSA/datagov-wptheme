@@ -51,33 +51,19 @@ if ( $category ) {
 $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
 ?>
 
-
-
-
-
-
 <div class="intro">
-
     <div class="container">
-
         <?php while( have_posts() ) : the_post(); ?>
-
         <div class="Apps-post" id="post-<?php the_ID(); ?>">
             <?php the_content();   ?>
         </div>
-
         <?php endwhile; ?>
-
     </div>
-
 </div>
-
 <!-- Application featured taxonomy-->
 <?php
 
-
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-
 $args_featured = array(
     's'              => $query,
     'post_type'      => 'Applications',
@@ -110,7 +96,6 @@ $args_nonfeatured = array(
         )
     ),
 );
-
 
 $result_featured = new WP_Query( $args_featured );
 wp_reset_query();
@@ -146,8 +131,10 @@ while ( $result_nonfeatured->have_posts() ) {
 }
 wp_reset_query();
 $apparray      = array_merge( $featured, $not_featured );
-$apparray= merged_array_sort($apparray,'title');
 $total_apps    = count( $apparray );
+if($total_apps > 0)
+    $apparray= merged_array_sort($apparray,'title');
+
 $apps_per_page = 10;
 if ( isset( $apparray ) ) {
     $total_pages = ceil( $total_apps / $apps_per_page );
@@ -168,16 +155,13 @@ if ( $currentpage < 1 ) {
 }
 $start = ( $currentpage - 1 ) * $apps_per_page + 1;
 
-if($total_apps > 0){
-
-
-    ?>
-
+if($total_apps > 0) {
+?>
 <div class="container">
     <form style="width:100%;" action="" class="search-form navbar-left" method="get" role="search">
         <div class="input-group">
             <label class="sr-only" for="search-header">Search for:</label>
-            <input type="search" placeholder="Search App" class="search-field form-control" name="q" value=""  id="search-header">
+            <input type="search" placeholder="Search Applications" class="search-field form-control" name="q" value=""  id="search-header">
             <input type="hidden" value="score desc, name asc" name="sort">
       <span class="input-group-btn">
       <button class="search-submit btn btn-default" type="submit">
@@ -189,10 +173,8 @@ if($total_apps > 0){
     </form>
     <?php
     if(!empty($query)){?>
-
-        <a class="btn btn-default" href='/applications' style="margin-top: 15px"> Reset</a>
-        <div class='search-results-alert'>
-            <div class='results-count'> Showing results for &#34;<?php echo $query;?>&#34;</div>
+        <div class="search-results-alert">
+            <div class="results-count"> <?php echo $total_apps;?> results found for "<?php echo $query?>"</div><a class="local-link" href="/applications"> Clear Search </a>
         </div>
         <?php }
     ?>
@@ -249,8 +231,12 @@ if($total_apps > 0){
 </div>
 
 <?php
-} else {
-    echo "Sorry, no results found. Try entering fewer or broader query terms.";
+} else { ?>
+<div class="search-results-alert">
+    <div class="results-count">0 results found for "<?php echo $query?>"</div>
+    Sorry, no results found. Try entering fewer or broader query terms. <a class="local-link" href="/applications"> Search Again </a>
+</div>
+<?php
 }
 function customPagination( $query,$base_url, $cur_page, $number_of_pages, $prev_next = false ) {
     $ends_count   = 1; //how many items at the ends (before and after [...])
@@ -299,4 +285,5 @@ function merged_array_sort($a, $subkey)
     }
     return $c;
 }
+
 ?>
