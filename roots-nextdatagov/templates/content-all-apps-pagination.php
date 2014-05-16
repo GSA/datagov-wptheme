@@ -140,7 +140,7 @@ while ( $result_nonfeatured->have_posts() ) {
     $imagefile                                   = get_field_object( 'field_5240b9c982f41' );
     $not_featured[ $i ]['image_url']             = $imagefile['value']['url'];
     $not_featured[ $i ]['image_alt']             = $imagefile['value']['alt'];
-    $featured[ $i ]['image_title']             = $imagefile['value']['title'];
+    $not_featured[ $i ]['image_title']             = $imagefile['value']['title'];
     $not_featured[ $i ]['featured']              = false;
     $i ++;
 }
