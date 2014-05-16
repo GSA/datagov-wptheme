@@ -109,7 +109,6 @@ while ( $result_featured->have_posts() ) {
     $imagefile                               = get_field_object( 'field_5240b9c982f41' );
     $featured[ $i ]['image_url']             = $imagefile['value']['url'];
     $featured[ $i ]['image_alt']             = $imagefile['value']['alt'];
-    $featured[ $i ]['image_title']             = $imagefile['value']['title'];
     $featured[ $i ]['featured']              = true;
     $i ++;
 }
@@ -125,7 +124,6 @@ while ( $result_nonfeatured->have_posts() ) {
     $imagefile                                   = get_field_object( 'field_5240b9c982f41' );
     $not_featured[ $i ]['image_url']             = $imagefile['value']['url'];
     $not_featured[ $i ]['image_alt']             = $imagefile['value']['alt'];
-    $not_featured[ $i ]['image_title']             = $imagefile['value']['title'];
     $not_featured[ $i ]['featured']              = false;
     $i ++;
 }
@@ -193,7 +191,7 @@ if($total_apps > 0) {
                                     class="scale-with-grid" <?php }?>
                                     src="<?php echo $apparray[$i]['image_url'] ?>"
                                 <?php if ($apparray[$i]['image_alt'] ==''){ ?>
-                                    alt="<?php echo $apparray[$i]['image_title'] ?>"
+                                    alt="<?php echo $apparray[$i]['title'] ?>"
                                 <?php }else{  ?>
                                     alt="<?php echo $apparray[$i]['image_alt'] ?>"
                                 <?php  } ?> >
