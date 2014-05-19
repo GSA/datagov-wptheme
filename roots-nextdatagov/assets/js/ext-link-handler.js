@@ -103,3 +103,4 @@ jQuery(function() {
     });
 });
 jQuery('.ext-link').attr('title', 'This link will direct you to an external website that may have different content and privacy policies from Data.gov.');
+jQuery('.ext-link').attr('aria-describedby', 'external_disclaimer');
