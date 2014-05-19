@@ -102,5 +102,18 @@ jQuery(function() {
         }
     });
 });
+//custom function
+jQuery(function() {
+$('a').each(function(){
+    var link=this.protocol + "//" + (this.hostname || this.pathname);
+
+    if(link.indexOf(".gov") > -1){
+     $(this).removeClass("ext-link tooltips");
+    }
+    if(link.indexOf(".mil") > -1){
+        $(this).removeClass("ext-link tooltips");
+    }
+});
+});
 jQuery('.ext-link').attr('title', 'This link will direct you to an external website that may have different content and privacy policies from Data.gov.');
 jQuery('.ext-link').attr('aria-describedby', 'external_disclaimer');
