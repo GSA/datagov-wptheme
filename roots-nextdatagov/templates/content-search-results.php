@@ -196,7 +196,7 @@ function usasearch_display_results($query = '', $group = ''){
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
         You are searching in entire Data.gov site. Show results in <a href='" . $protocol.$ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
 
-    $output = '<br /><div style="text-align:center;"><img src ="/wp-content/plugins/usa-search/images/binglogo_en.gif">';
+    $output = '<br /><div style="text-align:center;"><img src ="../../../app/plugins/usa-search/images/binglogo_en.gif">';
     $output .= "<div class='search-notice'>Search results were retrieved using the " . get_option('domain', 'search.usa.gov') . " API at " . date('M n Y - H:i a',time()) .
         "<br>* The USASearch Program and Federal Government cannot vouch for the data or analyses derived from these data after the data have been retrieved from USASearch.</div></div>";
     $output .='</body></html>';
