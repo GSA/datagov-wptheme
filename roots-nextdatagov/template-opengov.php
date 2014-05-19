@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Template-OpenGov
+Template Name: OpenGov
 */
 ?>
 
