@@ -1835,3 +1835,15 @@ div.tweet-date {
 .nav > li > a:hover, .nav > li > a:focus {
 background:none;
 }
+
+.data_table_opengov td {
+    border: 1px solid #000000;
+    padding: 0 10px;
+    word-wrap: break-word;
+}
+.data_table_opengov table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+}

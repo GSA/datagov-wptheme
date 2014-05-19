@@ -16,7 +16,7 @@
     ?>
 </div>
 <div style="display: none;">
-    <div id="data_table_1" style="padding: 0 10px;">
+    <div id="data_table_1" class="data_table_opengov">
         <?php
         displayTable("http://www.data.gov/media/2013/11/opendatasites1.csv",true);
         ?>
@@ -24,7 +24,7 @@
 </div>
 
 <div style="display: none;">
-    <div id="data_table_2" style="padding: 0 10px;" class="table">
+    <div id="data_table_2" class="data_table_opengov">
         <?php
         displayTable("http://www.data.gov/media/2013/11/opendatasites1.csv",true);
         ?>
@@ -32,25 +32,25 @@
 </div>
 
 <div style="display: none;">
-    <div id="data_table_3" style="padding: 0 10px;" class="table">
+    <div id="data_table_3" class="data_table_opengov">
         <?php
-        // call the third table
+        displayTable("http://www.data.gov/media/2013/11/opendatasites1.csv",true);
         ?>
     </div>
 </div>
 
 <div style="display: none;">
-    <div id="data_table_4" style="padding: 0 10px;" class="table">
+    <div id="data_table_4" class="data_table_opengov">
         <?php
-        // call the fourth table
+        displayTable("http://www.data.gov/media/2013/11/opendatasites1.csv",true);
         ?>
     </div>
 </div>
 
 <div style="display: none;">
-    <div id="data_table_5" style="padding: 0 10px;" class="table">
+    <div id="data_table_5" class="data_table_opengov">
         <?php
-        // call the fifth table
+        displayTable("http://www.data.gov/media/2013/11/opendatasites1.csv",true);
         ?>
     </div>
 </div>
