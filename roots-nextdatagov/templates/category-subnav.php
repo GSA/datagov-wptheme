@@ -23,8 +23,9 @@ $args = array(
 	'echo'          => 0,
 	'orderby'       => 'rating'
 );
-
-$subnav = wp_list_bookmarks( $args );
+if(!empty($term_slug)) {
+    $subnav = wp_list_bookmarks( $args );
+}
 
 if ( strcasecmp( $term_name, $term_slug ) != 0 ) {
 	$args = array(
