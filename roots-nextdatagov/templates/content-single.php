@@ -5,19 +5,10 @@
   <article <?php post_class(); ?>>
     <header>
       <h1 class="entry-title"><?php the_title(); ?></h1>
-      <?php get_template_part('templates/entry-meta'); ?>
+      <?php get_template_part('templates/entry-meta-author'); ?>
     </header>
 
     <div class="entry-content">
-        <?php
-        $additional_author_name = get_field('author_name');
-        $author_name = get_the_author();
-        if(!empty($additional_author_name)){
-            echo "<p><em>By ".$additional_author_name."</em></p>";
-        } else if(!empty($author_name)) {
-            echo "<p><em>By ".$author_name."</em></p>";
-        }
-        ?>
       <?php if ( has_post_thumbnail() ) : ?>
         <span class="inline-image">
             <?php the_post_thumbnail('medium'); ?>
