@@ -1847,5 +1847,5 @@ background:none;
     table-layout: fixed;
     width: 100%;
 }
-/*overriding background highlight of topics dropdown*/
+/*overriding background highlight of topics dropdown */
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus{background: none;color: inherit}
