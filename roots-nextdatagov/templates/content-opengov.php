@@ -34,7 +34,7 @@ $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_optio
 </div>
 
 <div style="display: none;">
-    <div id="data_table_3" style="padding: 0 10px;" class="table">
+    <div id="data_table_3" class="data_table_opengov">
         <?php
         displayTable($international_open_data,true);
         ?>
