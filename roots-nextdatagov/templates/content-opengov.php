@@ -73,7 +73,7 @@ function displayTable($filename, $header=false) {
     while ($csvcontents = fgetcsv($handle)) {
         echo '<tr>';
         foreach ($csvcontents as $column) {
-            echo "<td>$column</td>";
+            echo "<td>".htmlspecialchars($column)."</td>";
         }
         echo '</tr>';
     }
