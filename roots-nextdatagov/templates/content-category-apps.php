@@ -26,7 +26,7 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
         }
         else{
             jQuery('.bxslider').bxSlider({
-                minSlides: 3,
+                minSlides: 1,
                 maxSlides: 4,
                 slideWidth: 220,
                 slideMargin: 10
