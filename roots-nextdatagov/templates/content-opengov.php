@@ -75,11 +75,15 @@ function displayTable($filename, $header=false) {
     while ($csvcontents = fgetcsv($handle)) {
         echo '<tr>';
         foreach ($csvcontents as $column) {
-            echo "<td>".htmlspecialchars($column)."</td>";
+            echo "<td>".clean_string($column)."</td>";
         }
         echo '</tr>';
     }
     echo '</table>';
     fclose($handle);
+}
+function clean_string($string) {
+    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+    return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 }
 ?>
