@@ -18,7 +18,7 @@
 <div style="display: none;">
     <div id="data_table_1" class="data_table_opengov">
         <?php
-        displayTable("http://www.data.gov/media/2013/11/us_states.csv",true);
+        displayTable("http://www.data.gov/media/2014/05/us_states.csv",true);
         ?>
     </div>
 </div>
@@ -26,7 +26,7 @@
 <div style="display: none;">
     <div id="data_table_2" class="data_table_opengov">
         <?php
-        displayTable("http://www.data.gov/media/2013/11/us_cities_counties.csv",true);
+        displayTable("https://www.data.gov/media/2014/05/us_cities_counties.csv",true);
         ?>
     </div>
 </div>
@@ -34,7 +34,7 @@
 <div style="display: none;">
     <div id="data_table_3" class="data_table_opengov">
         <?php
-        displayTable("http://www.data.gov/media/2013/11/international.csv",true);
+        displayTable("https://www.data.gov/media/2014/05/international.csv",true);
         ?>
     </div>
 </div>
