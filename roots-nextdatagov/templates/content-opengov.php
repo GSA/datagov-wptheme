@@ -75,12 +75,16 @@ function displayTable($filename, $header=false) {
     while ($csvcontents = fgetcsv($handle)) {
         echo '<tr>';
         foreach ($csvcontents as $column) {
-            echo "<td>".htmlspecialchars($column)."</td>";
+            $url=$column;
+            if(strpos($column, "http") == true)
+                echo "<td>".($url)."</td>";
+            else
+                echo "<td>".preg_replace('/[^a-zA-Z0-9_ %\[\]\.\(\)%&-]/s', '', $column)."</td>";
+
         }
         echo '</tr>';
     }
     echo '</table>';
     fclose($handle);
 }
-
 ?>
