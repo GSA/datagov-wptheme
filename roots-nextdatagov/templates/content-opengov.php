@@ -75,12 +75,15 @@ function displayTable($filename, $header=false) {
     while ($csvcontents = fgetcsv($handle)) {
         echo '<tr>';
         foreach ($csvcontents as $column) {
-            echo "<td>".htmlspecialchars($column)."</td>";
+            if(filter_var($column, FILTER_VALIDATE_URL)){
+                echo "<td>".$column."</td>";
+            } else
+                echo "<td>".preg_replace('/[^a-zA-Z0-9_ %\[\]\.\(\)%&-]/s', '', $column)."</td>";
+
         }
         echo '</tr>';
     }
     echo '</table>';
     fclose($handle);
 }
-
 ?>
