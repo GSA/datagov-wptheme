@@ -84,6 +84,7 @@ $ckan_default_server = '//' . $ckan_default_server;
                             $title = $menu_item->title;
                             $url = $menu_item->url;
                             $attribute = $menu_item->attr_title;
+
                             switch (strtolower($title)) {
                                 case 'twitter':
                                     $class = 'fa fa-twitter';
