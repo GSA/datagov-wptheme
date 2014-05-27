@@ -83,20 +83,20 @@ $ckan_default_server = '//' . $ckan_default_server;
                         foreach ((array)$menu_items as $key => $menu_item) {
                             $title = $menu_item->title;
                             $url = $menu_item->url;
-
+                            $attribute = $menu_item->attr_title;
                             switch (strtolower($title)) {
                                 case 'twitter':
                                     $class = 'fa fa-twitter';
                                     break;
                                 case 'github':
-                                    $class = 'fa fa-github';
+                                    $class = 'fa fa-github tooltips';
                                     break;
                                 case 'stack exchange':
                                     $class = 'fa fa-stack-exchange';
                                     break;
                             }
 
-                            $menu_list .= '<li><a href="' . $url . '"><i class="' . $class . '"></i><span>' . $title . '</span></a></li>' . "\n";
+                            $menu_list .= '<li><a class="' . $class . '" href="' . $url . '" title="'.$attribute.'"><i class="' . $class . '" ></i><span>' . $title . '</span></a></li>' . "\n";
                         }
 
                         $menu_list .= '</ul>';
