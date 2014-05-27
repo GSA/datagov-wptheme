@@ -97,7 +97,7 @@ $ckan_default_server = '//' . $ckan_default_server;
                                     break;
                             }
 
-                            $menu_list .= '<li><a class="' . $class . '" href="' . $url . '" title="'.$attribute.'"><i class="' . $class . '" ></i><span>' . $title . '</span></a></li>' . "\n";
+                            $menu_list .= '<li><a class="tooltips" href="' . $url . '" title="'.$attribute.'"><i class="' . $class . '" ></i><span>' . $title . '</span></a></li>' . "\n";
                         }
 
                         $menu_list .= '</ul>';
