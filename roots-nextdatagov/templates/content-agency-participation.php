@@ -55,7 +55,7 @@ while (have_posts()) {
 <?php
 $metric_sync = $wpdb->get_var("SELECT MAX(meta_value) FROM wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
 echo '<div style="font-style:italic;clear:both;">';
-echo "Data last updated on: " . date("m/d/Y H:i A", $metric_sync) . "<br />";
+echo "Data last updated on: " . gmdate("m/d/Y h:i A", $metric_sync) . " GMT<br />";
 echo "</div>";
 ?>
 
