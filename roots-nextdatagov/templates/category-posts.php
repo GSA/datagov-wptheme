@@ -1,13 +1,18 @@
 <?php
-$category = get_the_category();
-$term_name = $category[0]->cat_name;
-$term_slug = $category[0]->slug;
+$categories = get_the_category();
+$separator = ' ';
+$output = '';
+if($categories){
+    foreach($categories as $category) {
+        $category_array[] .= $category->slug;
+    }
+}
 $urlslice = explode("/", $_SERVER[REQUEST_URI]);
-if($urlslice[1]==$term_slug && $urlslice[2]=="page" ){
+if(in_array($urlslice[1],$category_array) && $urlslice[2]=="page" ){
     ?>
 <script>
     jQuery(document).ready(function($){
-        var slug = "/<?php echo $term_slug?>/";
+        var slug = "/<?php echo $urlslice[1]?>/";
         jQuery('.topic-subnav ul.nav a').each(function() {
             if (jQuery(this).attr('href')  ===  slug) {
                 jQuery(this).addClass('active');
