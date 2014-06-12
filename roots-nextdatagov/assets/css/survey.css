@@ -1,0 +1,233 @@
+/* CSS Document */
+
+/* start survey pop up styles*/
+body {
+background-color: #FFFFFF;
+font-family: Verdana;
+font-size: 13px;
+background-image: url('../img/logo.png');
+background-repeat: no-repeat;
+background-position: 10px 15px;
+margin: 0;
+}
+body:before {
+display: block;
+content: "";
+height: 10px;
+width: 100%;
+position: relative;
+background-color: #4679B2;
+}
+a:focus, input:focus, button:focus, textarea:focus {
+outline: 3px solid #EDB864;
+}
+#container {
+margin: 55px auto 0;
+}
+#container #intro {
+width: 500px;
+margin: auto;
+text-align: center;
+}
+fieldset {
+border: none;
+}
+a img {
+border: 0 none;
+}
+textarea {
+font-family: Verdana, Helvetica, Arial, sans-serif;
+font-size: 11px;
+}
+/* --------------------
+Question list styles */
+ul.showList {
+font-weight: normal;
+color: #000;
+line-height: normal;
+padding: 0px;
+margin: 0px;
+}
+li.outter {
+margin: 0px 0px 15px 10px;
+padding: 0px;
+list-style-type: none;
+list-style-position: outside;
+text-align: left;
+}
+.vocquestiontext {
+font-weight: bold;}
+.vocquestionnumber {
+}
+.required_question {
+}
+/* --------------
+Question types */
+.vocradiosshort {
+}
+/* combined answer text <= 90 chars */
+.vocradioslong {
+}
+/* > 90 chars */
+.place_vert {
+}
+.place_horiz {
+}
+.vocradio {
+}
+.vocdropdown {
+}
+.vocmultiselect {
+}
+.voccheckboxes {
+}
+.voccheckbox {
+}
+.voctextfield {
+}
+.voctextarea {
+}
+.text_question_area {
+width: 460px;
+height: 80px;
+margin: 10px;
+}
+/* ----------------------------
+Page-level visibility toggle */
+.current_page {
+}
+.hidden_page {
+display: none;
+}
+/* -----------------------------
+Required field error messages */
+.error_messages {
+width: 400px;
+border: 2px solid #CF0000;
+padding: 0px;
+padding-bottom: 12px;
+margin-bottom: 20px;
+background-color: #f0f0f0;
+font-size: 12px;
+}
+.error_messages h2 {
+text-align: left;
+font-weight: bold;
+padding: 5px 10px;
+font-size: 12px;
+margin: 0;
+background-color: #c00;
+color: #fff;
+}
+.error_messages p {
+margin: 8px 10px;
+}
+.error_messages ul {
+margin: 0;
+}
+/* ----------------------
+Survey page navigation */
+div.surveyNav {
+color: rgba(0, 0, 0, 0);
+text-decoration: none;
+font-weight: bold;
+font-size: 1em;
+margin: 15px 0px 10px;
+padding: 0px;
+text-align: center;
+}
+span.surveyNavPrev {
+display: inline-block;
+}
+span.surveyNavNext {
+display: inline-block;
+}
+span.surveyNavSub {
+text-align: left;
+display: inline-block;
+padding: 0px 0px 0px 10px;
+}
+.start-survey, a.surveyNav, a.surveyNav:link, a.surveyNav:visited, .surveyNavSub input {
+
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 16px;
+	
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	background-color: #4679B2;
+	padding: .825em;
+	color: #fff;
+	font-weight: bold;
+	text-decoration:none;
+	padding: 4px 8px;
+}
+.surveyNavNext a{color:#fff;}
+
+.surveyNavPrev a.surveyNav, .surveyNavPrev a.surveyNav:link, .surveyNavPrev a.surveyNav:visited {
+color: #022945;
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #ddf5ff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #ddf5ff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%, #ddf5ff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%, #ddf5ff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%, #ddf5ff 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ffffff 0%, #ddf5ff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ddf5ff', GradientType=0 ); /* IE6-9 */
+border: 1px #24496B solid;
+}
+.start-survey {
+margin: auto;
+}
+.start-survey:hover, .start-survey:active, a.surveyNav:hover, a.surveyNav:active, .surveyNavSub input:hover, .surveyNavSub input:hover {
+cursor: pointer;
+  background-color: #172d3f;
+  color: #FFF;
+}
+/* ---------------------
+System Thank You page */
+#thank_you_text {
+}
+#important_to_us {
+}
+/* ------------
+Poll Results */
+#poll_results_title {
+}
+#poll_results {
+}
+.question_results {
+margin: 20px 0px;
+}
+.question_statement {
+}
+.poll_answers {
+}
+.poll_answer {
+margin: 5px 0px;
+}
+.answer_statement {
+}
+.bar_container {
+}
+.poll_result_bar {
+background-color: LightBlue;
+display: inline-block;
+margin: 0px 5px;
+}
+.answer_percentage {
+}
+.total_question_answers {
+}

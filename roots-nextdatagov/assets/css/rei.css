@@ -1849,3 +1849,155 @@ background:none;
 }
 /*overriding background highlight of topics dropdown */
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus{background: none;color: inherit}
+
+/* Survey pop up css*/
+
+#vocModalOverlay {
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* places the modal overlay between the main page and the modal dialog*/
+    background-color: #000;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+#vocModal {
+    width: 50%;
+    margin: auto;
+    padding: 25px;
+    text-align: center;
+    background-color: #fff;
+    z-index: 10000; /* places the modal dialog on top of everything else */
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    display: none;
+    background-color: #FFF;
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position: 10px 15px
+}
+#vocModal:before {
+    display: block;
+    content: "";
+    height: 10px;
+    width: 100%;
+    padding: 0 25px;
+    position: relative;
+    left: -25px;
+    top: -25px;
+    background-color: #4679B2;
+}
+
+#vocModal p {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+#vocModal p.firstpara {
+    margin-top: 35px;
+}
+#vocModal h1 {
+    text-align: center;
+}
+#vocEnter, .vocCancelButton, .start-survey {
+    height: 30px;
+    font-size: 0.9em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+    font-weight: bold;
+}
+.vocCancelButton {
+    cursor: pointer;
+    color: #022945;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #ddf5ff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #ddf5ff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%, #ddf5ff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%, #ddf5ff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%, #ddf5ff 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%, #ddf5ff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ddf5ff', GradientType=0 ); /* IE6-9 */
+    border: 1px #24496B solid;
+    vertical-align:bottom;
+}
+#vocEnter, .start-survey {
+
+    margin-bottom: 0;
+    font-weight: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background-color: #4679B2;
+    color: #fff;
+    font-weight: bold;
+    text-decoration:none;
+}
+.banner {
+
+}
+.modalCloseButton {
+    float: right;
+    position: absolute;
+    top: 10px;
+    left: 95%;
+}
+.modalCloseButton img {
+    border: 0;
+}
+.screen-reader-offscreen {
+    position: absolute;
+    left: -999px;
+    width: 1px;
+    height: 1px;
+    top: auto;
+}
+#vocModal input.top-right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-decoration: none;
+    background-color: grey;
+    color: black;
+    font-weight: bold;
+    font-size: 80%;
+}
+.content {
+
+}
+
+.message {
+    margin: 15px 0 15px 0;
+}
+.footer {
+}
+.float-right {
+    float: right;
+}
+.privacy-policy {
+    text-decoration: none;
+    color: blue;
+    font-size: .9em;
+}
+.start-survey {
+    display: block;
+    margin: 25px auto 25px auto;
+    width: 150px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
