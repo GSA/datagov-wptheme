@@ -247,6 +247,7 @@ END;
                     $title         = get_the_title();
                     $dataset_count = get_post_meta($post->ID, 'metric_count', true);
                     $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
+                    $publisher     = get_post_meta($post->ID, 'metric_publisher', true);
 
 
                     if ($title != $agency_title && $dataset_count > 0 && $title != 'Department/Agency Level') {
@@ -256,6 +257,9 @@ END;
 
 
                         echo '<td style="text-indent: 10px;"class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">';
+                        if ($publisher) {
+                            echo '<i class="publisher">publisher</i> ';
+                        }
                         echo '<a style="color: #4295B0;" href="' . get_post_meta($post->ID, 'metric_url', true) . '">' . get_the_title() . '</a>';
                         echo '</td>';
 

@@ -461,8 +461,12 @@ tr.even, tr.even td a {
     background-color: #E0EDF7;
 }
 
-tr.datasets_published_per_month_row_tr_even.sub-agency td:first-child a{
+tr.datasets_published_per_month_row_tr_even.sub-agency td:first-child{
     padding-left:30px;
+}
+tr.sub-agency i.publisher {
+    font-size: smaller;
+    color: #ccc;
 }
 
 .panecontent {
