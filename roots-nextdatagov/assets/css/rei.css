@@ -457,6 +457,10 @@ tr.even, tr.even td a {
     padding: 5px;
 }
 
+.datasets_published_per_month_table_row_fields.datasets_last_year{
+    background-color: #E0EDF7;
+}
+
 tr.datasets_published_per_month_row_tr_even.sub-agency td:first-child a{
     padding-left:30px;
 }

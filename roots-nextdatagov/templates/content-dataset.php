@@ -227,25 +227,25 @@ if ($query->have_posts()) {
 
                 if ($lastYearDatasetCount = get_post_meta($post->ID, 'last_year_dataset_count', true)) {
                     $total[13] += $lastYearDatasetCount;
-                    echo '<td class="datasets_published_per_month_table_row_fields">' . '<a class="link_dataset" href="' . get_post_meta(
+                    echo '<td class="datasets_published_per_month_table_row_fields datasets_last_year">' . '<a class="link_dataset" href="' . get_post_meta(
                             $post->ID,
                             'last_year_dataset_url',
                             true
                         ) . '">' . number_format($lastYearDatasetCount) . '</a>';
                 } else {
-                    echo '<td class="datasets_published_per_month_table_row_fields">' . '-';
+                    echo '<td class="datasets_published_per_month_table_row_fields datasets_last_year">' . '-';
                 }
                 echo '</td>';
 
                 if ($totalDatasetCount = get_post_meta($post->ID, 'metric_count', true)) {
                     $total[14] += $totalDatasetCount;
-                    echo '<td class="datasets_published_per_month_table_row_fields">' . '<a class="link_dataset" href="' . get_post_meta(
+                    echo '<td class="datasets_published_per_month_table_row_fields datasets_total">' . '<a class="link_dataset" href="' . get_post_meta(
                             $post->ID,
                             'metric_url',
                             true
                         ) . '">' . number_format($totalDatasetCount) . '</a>';
                 } else {
-                    echo '<td class="datasets_published_per_month_table_row_fields">' . '-';
+                    echo '<td class="datasets_published_per_month_table_row_fields datasets_total">' . '-';
                 }
                 echo '</td>';
 
@@ -263,9 +263,11 @@ if ($query->have_posts()) {
 <tr>
 <td style="text-align:left; ">Total</td>
 <?php
-for ($i = 1; $i<15; $i++) {
+for ($i = 1; $i<13; $i++) {
     echo '<td>'.($total[$i]?number_format($total[$i]):'-').'</td>';
 }
+echo '<td class="last-year">'.($total[13]?number_format($total[13]):'-').'</td>';
+echo '<td class="total">'.($total[14]?number_format($total[14]):'-').'</td>';
 ?>
 </tr>
 </thead>
