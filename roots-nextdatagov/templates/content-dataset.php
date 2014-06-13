@@ -40,27 +40,37 @@ $total = array();
         </nav>
     </div>
 </div>
+
 <div class="single">
 <div class="container">
 
 <div id="main-inner" class="dataset-inner" style="margin-top:20px;">
 <div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month</div>
 <div class="view-content">
+
+<div style="float: right;margin-left:280px;"> <?php the_content(); ?></div>
+<?php
+$metric_sync = $wpdb->get_var("SELECT MAX(meta_value) FROM wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
+echo '<div style="font-style:italic;">';
+echo "Data last updated on: " . gmdate("m/d/Y h:i A", $metric_sync) . " GMT<br /><br />
+</div>";
+?>
+
 <table class="views-table cols-4 datasets_published_per_month_table">
 <thead class="datasets_published_per_month_thead">
 <tr class="datasets_published_per_month_row_tr_head">
     <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
         scope="col" rowspan=""> Agency Name
     </th>
-    <th id="C_NumberofDatasetsampToolspublishedbymonth"
+    <th
         class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col"
         colspan="12" style="text-align:center"
     ;> Number of Datasets published by month </th>
-    <th id="C_NumberofDatasetsampToolspublishedbymonth"
+    <th
         class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col"
         rowspan="2"> Total in the Past 12 Months
     </th>
-    <th id="C_NumberofDatasetsampToolspublishedbymonth"
+    <th
         class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col"
         rowspan="2"> Total from beginning
     </th>
@@ -107,13 +117,6 @@ $total = array();
 </tr>
 </thead>
 <tbody class="datasets_published_per_month_tbody">
-<div style="float: right;margin-left:280px;"> <?php the_content(); ?></div>
-<?php
-$metric_sync = $wpdb->get_var("SELECT MAX(meta_value) FROM wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
-echo '<div style="font-style:italic;">';
-echo "Data last updated on: " . gmdate("m/d/Y h:i A", $metric_sync) . " GMT<br /><br />";
-?>
-
 
 <?php $count = 0; ?>
 
@@ -261,17 +264,19 @@ if ($query->have_posts()) {
 </tbody>
 <thead>
 <tr>
-<td style="text-align:left; ">Total</td>
-<?php
-for ($i = 1; $i<13; $i++) {
-    echo '<td>'.($total[$i]?number_format($total[$i]):'-').'</td>';
-}
-echo '<td class="last-year">'.($total[13]?number_format($total[13]):'-').'</td>';
-echo '<td class="total">'.($total[14]?number_format($total[14]):'-').'</td>';
-?>
+    <td style="text-align:left; ">Total</td>
+    <?php
+    for ($i = 1; $i < 13; $i++) {
+        echo '<td>' . ($total[$i] ? number_format($total[$i]) : '-') . '</td>';
+    }
+    echo '<td class="last-year">' . ($total[13] ? number_format($total[13]) : '-') . '</td>';
+    echo '<td class="total">' . ($total[14] ? number_format($total[14]) : '-') . '</td>';
+    ?>
 </tr>
 </thead>
 </table>
 
+</div>
+</div>
 </div>
 </div>
