@@ -158,8 +158,8 @@ if($total_apps > 0) {
 <div class="container">
     <form style="width:100%;" action="" class="search-app navbar-left" method="get" role="search">
         <div class="input-group">
-            <label class="sr-only" for="search-header">Search for:</label>
-            <input type="search" placeholder="Search Applications" class="search-field form-control" name="q" value=""  id="search-header">
+            <label class="sr-only" for="search-app">Search for:</label>
+            <input type="search" placeholder="Search Applications" class="search-field form-control" name="q" value=""  id="search-app">
             <input type="hidden" value="score desc, name asc" name="sort">
       <span class="input-group-btn">
       <button class="search-submit btn btn-default" type="submit">
