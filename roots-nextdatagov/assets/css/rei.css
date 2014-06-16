@@ -2007,3 +2007,8 @@ background:none;
     width: 150px;
     font-size: 1.2em;
     cursor: pointer;
+}
+.place_horiz .vocradio {
+    float: left;
+    width: 200px;
+}
