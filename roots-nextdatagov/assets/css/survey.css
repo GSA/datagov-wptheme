@@ -39,6 +39,10 @@ textarea {
 font-family: Verdana, Helvetica, Arial, sans-serif;
 font-size: 11px;
 }
+.place_horiz .vocradio {
+    float: left;
+    width: 200px;
+}
 /* --------------------
 Question list styles */
 ul.showList {

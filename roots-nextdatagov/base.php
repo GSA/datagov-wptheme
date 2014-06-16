@@ -44,6 +44,18 @@ if (current_theme_supports('bootstrap-top-navbar')) {
 <!-- /.wrap -->
 
 <?php get_template_part('templates/footer'); ?>
+<div id="survey_target" style="border:none !important;"></div>
+<noscript>
+    <iframe src="http://survey.usa.gov/surveys/161"></iframe>
+</noscript>
+<style>
 
+    .banner{border:none;  padding-bottom:0px;}
+    .frontpage-search, body.home .header.banner.page-heading {
+        border-bottom: 1px solid #CCCCCC;
+
+    }
+</style>
+<script type="text/javascript" src="http://survey.usa.gov/widget/161/invitation.js?target_id=survey_target&stylesheet=<?php echo get_template_directory_uri() . '/assets/css/survey.css'; ?>"></script>
 </body>
 </html>
