@@ -109,27 +109,12 @@
                     You can use this form to contact the data.gov team or feel free to email us directly at
                     <a href='mailto:datagov@gsa.gov'>datagov@gsa.gov</a>
                 </div>
-
                 <div id="contact-us-form">
                     <?php
-
-                    $the_slug = 'contact-us';
-                    $args     = array(
-                        'name'           => $the_slug,
-                        'post_type'      => 'page',
-                        'post_status'    => 'publish',
-                        'posts_per_page' => 1
-                    );
-                    $my_posts = get_posts( $args );
-
-                    if ( $my_posts ) {
-                        foreach ( $my_posts as $post ) {
-                            setup_postdata( $post );
-                            the_content();
-                        }
+                    while( have_posts() ) {
+                        the_post();
+                        the_content();
                     }
-                    wp_reset_postdata();
-
                     ?>
                 </div>
             </div>
