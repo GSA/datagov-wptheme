@@ -72,7 +72,7 @@ echo "Data last updated on: " . gmdate("m/d/Y h:i A", $metric_sync) . " GMT<br /
     </th>
     <th
         class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col"
-        rowspan="2"> Total from beginning
+        rowspan="2"> Total datasets
     </th>
 </tr>
 <tr class="datasets_published_per_month_row_tr_head">
