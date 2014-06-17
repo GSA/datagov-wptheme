@@ -71,7 +71,7 @@ echo "</div>";
     <div class="open-data-sites-box">
         <div class="region">Agencies and Subagencies:</div>
         <div class="numbers">
-&nbsp;
+            &nbsp;
         </div>
     </div>
 </div>
@@ -103,12 +103,6 @@ echo "</div>";
 <tbody class="datasets_published_per_month_tbody metrics">
 <?php
 $count = 0;
-
-?>
-
-
-
-<?php
 
 $args = array(
     'orderby'          => 'title',
@@ -166,6 +160,7 @@ if ($query->have_posts()) {
             $subquery      = null;
             $subquery      = new WP_Query($subargs);
             $agency_title  = get_the_title();
+
             $dataset_count = get_post_meta($post->ID, 'metric_count', true);
             $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
 
@@ -201,51 +196,6 @@ END;
                 echo '</tr>';
             }
 
-
-            /**
-             * $title == 'Department/Agency Level'
-             */
-//            if ($subquery->have_posts()) {
-//
-//                while ($subquery->have_posts()) : $subquery->the_post();
-//
-//                    $title         = get_the_title();
-//                    $dataset_count = get_post_meta($post->ID, 'metric_count', true);
-//                    $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
-//
-//
-//                    if ($title != $agency_title && $dataset_count > 0 && $title == 'Department/Agency Level') {
-//
-//                        echo '<tr class="datasets_published_per_month_row_tr_even even sub-agency ' . $parentName . '">';
-//
-//                        echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">';
-//                        echo '<a style="color: #4295B0;" href="' . get_post_meta(
-//                                $post->ID,
-//                                'metric_url',
-//                                true
-//                            ) . '">' . get_the_title() . '</a>';
-//                        echo '</td>';
-//
-//                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
-//                        echo number_format(get_post_meta($post->ID, 'metric_count', true));
-//
-//                        echo '</td>';
-//
-//                        echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
-//                        if (get_post_meta($post->ID, 'metric_last_entry', true)) {
-//                            echo get_post_meta($post->ID, 'metric_last_entry', true);
-//                        } else {
-//                            echo "-";
-//                        }
-//                        echo '</td>';
-//                        echo '</tr>';
-//
-//                    }
-//
-//                endwhile;
-//            }
-
-
             /**
              * $title != 'Department/Agency Level'
              */
@@ -258,8 +208,7 @@ END;
                     $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
                     $publisher     = get_post_meta($post->ID, 'metric_publisher', true);
 
-
-                    if ($title != $agency_title && $dataset_count > 0 && $title != 'Department/Agency Level') {
+                    if ($dataset_count > 0 && $title != 'Department/Agency Level') {
 
 
                         echo '<tr class="datasets_published_per_month_row_tr_even even sub-agency ' . $parentName . '">';
@@ -303,7 +252,6 @@ END;
             $dataset_count = get_post_meta($post->ID, 'metric_count', true);
             $agency_title  = get_the_title();
             $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
-
 
             if ($dataset_count > 0) {
 
@@ -471,7 +419,7 @@ END;
                             $dataset_count = get_post_meta($post->ID, 'metric_count', true);
                             $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
 
-                            if ($title != $agency_title && $dataset_count > 0 && $title != 'Department/Agency Level') {
+                            if ($dataset_count > 0 && $title != 'Department/Agency Level') {
 
                                 echo '<tr class="datasets_published_per_month_row_tr_even even sub-agency ' . $parentName . '">';
 
@@ -509,7 +457,6 @@ END;
                         $dataset_count = get_post_meta($post->ID, 'metric_count', true);
 
                         $last_entry = get_post_meta($post->ID, 'metric_last_entry', true);
-
 
                         if ($dataset_count > 0) {
 
@@ -647,6 +594,6 @@ END;
                 $(this).remove()
             }
         });
-        $('#open-data-sites-boxes .numbers').html($('.datasets_published_per_month_table tr').size());
+        $('#open-data-sites-boxes .numbers').html($('.datasets_published_per_month_table tr').size()-2);
     });
 </script>
