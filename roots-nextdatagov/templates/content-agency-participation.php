@@ -70,7 +70,7 @@ echo "</div>";
 <div id="open-data-sites-boxes" class="agencies">
     <div class="open-data-sites-box">
         <div class="region">Agencies and Subagencies:</div>
-        <div class="numbers">
+        <div class="numbers agencies_total_count">
             &nbsp;
         </div>
     </div>
@@ -594,6 +594,6 @@ END;
                 $(this).remove()
             }
         });
-        $('#open-data-sites-boxes .numbers').html($('.datasets_published_per_month_table tr').size()-2);
+        $('.agencies_total_count').html($('.datasets_published_per_month_table tr').size()-2);
     });
 </script>
