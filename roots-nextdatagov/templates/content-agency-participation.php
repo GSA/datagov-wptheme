@@ -71,19 +71,7 @@ echo "</div>";
     <div class="open-data-sites-box">
         <div class="region">Agencies and Subagencies:</div>
         <div class="numbers">
-            <?php
-            $total_agencycount = $wpdb->get_var(
-                "SELECT count(*) FROM wp_postmeta where meta_key = 'metric_count' and meta_value > 0;"
-            );
-            $department_level = $wpdb->get_var(
-                "SELECT count(*) FROM wp_postmeta pm where pm.meta_key = 'metric_count' and pm.meta_value > 0 and post_id in(
-                                                                             SELECT ID from wp_posts where  post_type = 'metric_organization' and post_title = 'Department/Agency Level')"
-            );
-            $total_agencies = $total_agencycount - $department_level;
-            echo number_format($total_agencies);
-
-            ?>
-
+&nbsp;
         </div>
     </div>
 </div>
@@ -659,5 +647,6 @@ END;
                 $(this).remove()
             }
         });
+        $('#open-data-sites-boxes .numbers').html($('.datasets_published_per_month_table tr').size());
     });
 </script>
