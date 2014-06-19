@@ -469,6 +469,14 @@ tr.parent-agency a {
     font-size: larger;
 }
 
+.parent-agency td:first-child {
+    padding-left:25px;
+}
+
+.parent-agency .more-link.metrics {
+    margin-left:-25px;
+}
+
 tr.sub-agency a.sub-agency {
     font-style:italic;
 }
