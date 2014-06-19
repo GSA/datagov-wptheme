@@ -400,6 +400,10 @@ h1.title {
 
 }
 
+.clear2 {
+    clear:both;
+}
+
 table {
     border-spacing: 0;
     width: 100%;
@@ -458,11 +462,15 @@ tr.even, tr.even td a {
 }
 
 tr.datasets_published_per_month_row_tr_even.sub-agency td:first-child{
-    padding-left:30px;
+    padding-left:50px;
 }
-tr.sub-agency i.publisher {
-    font-size: smaller;
-    color: #ccc;
+
+tr.parent-agency a {
+    font-size: larger;
+}
+
+tr.sub-agency a.sub-agency {
+    font-style:italic;
 }
 
 .panecontent {
@@ -472,12 +480,12 @@ tr.sub-agency i.publisher {
     padding: 10px;
 }
 
-#open-data-sites-boxes.agencies .open-data-sites-box {
+.open-data-sites-boxes.agencies .open-data-sites-box {
     height: 40px;
     margin: 10px 0 0;
     padding-left: 10px;
     padding-right: 10px;
-    width: 500px;
+    width: 350px;
 }
 
 div.open-data-sites-box {
@@ -496,7 +504,7 @@ div.open-data-sites-box {
     width: 120px;
 }
 
-#open-data-sites-boxes.agencies .open-data-sites-box .region {
+.open-data-sites-boxes.agencies .open-data-sites-box .region {
     float: left;
     font-weight: bold;
     height: 30px;
@@ -508,7 +516,7 @@ div.open-data-sites-box div.region {
 
 }
 
-#open-data-sites-boxes.agencies .open-data-sites-box .numbers {
+.open-data-sites-boxes.agencies .open-data-sites-box .numbers {
     float: right;
     font-size: 25px;
     font-weight: bold;
@@ -1186,7 +1194,7 @@ a.faq-top {
         width: 280px;
     }
 
-    #open-data-sites-boxes.agencies .open-data-sites-box {
+    .open-data-sites-boxes.agencies .open-data-sites-box {
         margin: 10px 0 0;
         padding-left: 10px;
         padding-right: 10px;
@@ -1194,12 +1202,12 @@ a.faq-top {
         height: auto;
     }
 
-    #open-data-sites-boxes.agencies .open-data-sites-box .numbers {
+    .open-data-sites-boxes.agencies .open-data-sites-box .numbers {
         float: none;
         height: auto;
     }
 
-    #open-data-sites-boxes.agencies .open-data-sites-box .region {
+    .open-data-sites-boxes.agencies .open-data-sites-box .region {
         float: none;
         height: auto;
     }
@@ -1338,7 +1346,7 @@ a.faq-top {
         width: 280px;
     }
 
-    #open-data-sites-boxes.agencies .open-data-sites-box {
+    .open-data-sites-boxes.agencies .open-data-sites-box {
         margin: 10px 0 0;
         padding-left: 10px;
         padding-right: 10px;
@@ -1346,12 +1354,12 @@ a.faq-top {
         height: auto;
     }
 
-    #open-data-sites-boxes.agencies .open-data-sites-box .numbers {
+    .open-data-sites-boxes.agencies .open-data-sites-box .numbers {
         float: none;
         height: auto;
     }
 
-    #open-data-sites-boxes.agencies .open-data-sites-box .region {
+    .open-data-sites-boxes.agencies .open-data-sites-box .region {
         float: none;
         height: auto;
     }

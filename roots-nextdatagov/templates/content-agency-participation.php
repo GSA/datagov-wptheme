@@ -67,7 +67,7 @@ echo "Data last updated on: " . gmdate("m/d/Y h:i A", $metric_sync) . " GMT<br /
 echo "</div>";
 ?>
 
-<div id="open-data-sites-boxes" class="agencies">
+<div class="open-data-sites-boxes agencies">
     <div class="open-data-sites-box">
         <div class="region">Agencies and Subagencies:</div>
         <div class="numbers agencies_total_count">
@@ -75,11 +75,20 @@ echo "</div>";
         </div>
     </div>
 </div>
-<div class="clear"></div>
-<br/>
-<br/>
+<div class="clear2"></div>
 
-<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Departments/Agencies/Organizations</h3>
+<div class="open-data-sites-boxes agencies">
+    <div class="open-data-sites-box">
+        <div class="region">Publishers:</div>
+        <div class="numbers publishers_total_count">
+            &nbsp;
+        </div>
+    </div>
+</div>
+<div class="clear2"></div>
+<br />
+
+<h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Agencies/Publishers</h3>
 
 
 <div class="view-content">
@@ -87,7 +96,7 @@ echo "</div>";
 <thead class="datasets_published_per_month_thead">
 <tr class="datasets_published_per_month_row_tr_head">
     <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
-        scope="col" width="60%" align="left">Agency/Sub-Agency/Organization
+        scope="col" width="60%" align="left">Agency/Publisher
     </th>
     <th id="C_NumberofDatasetsampToolspublishedbymonth"
         class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col"
@@ -207,6 +216,7 @@ END;
                     $dataset_count = get_post_meta($post->ID, 'metric_count', true);
                     $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
                     $publisher     = get_post_meta($post->ID, 'metric_publisher', true);
+                    $class = $publisher ? 'publisher' : 'sub-agency';
 
                     if ($dataset_count > 0 && $title != 'Department/Agency Level') {
 
@@ -214,11 +224,8 @@ END;
                         echo '<tr class="datasets_published_per_month_row_tr_even even sub-agency ' . $parentName . '">';
 
 
-                        echo '<td style="text-indent: 10px;"class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">';
-//                        if ($publisher) {
-//                            echo '<i class="publisher">publisher</i> ';
-//                        }
-                        echo '<a style="color: #4295B0;" href="' . get_post_meta(
+                        echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">';
+                        echo '<a class="'.$class.'" style="color: #4295B0;" href="' . get_post_meta(
                                 $post->ID,
                                 'metric_url',
                                 true
@@ -300,7 +307,7 @@ END;
         <thead class="datasets_published_per_month_thead">
         <tr class="datasets_published_per_month_row_tr_head">
             <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
-                scope="col" width="60%" align="left">Agency/Sub-Agency/Organization
+                scope="col" width="60%" align="left">Agency/Publisher
             </th>
             <th id="C_NumberofDatasetsampToolspublishedbymonth"
                 class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields"
@@ -418,13 +425,15 @@ END;
                             $title         = get_the_title();
                             $dataset_count = get_post_meta($post->ID, 'metric_count', true);
                             $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
+                            $publisher     = get_post_meta($post->ID, 'metric_publisher', true);
+                            $class = $publisher ? 'publisher' : 'sub-agency';
 
                             if ($dataset_count > 0 && $title != 'Department/Agency Level') {
 
                                 echo '<tr class="datasets_published_per_month_row_tr_even even sub-agency ' . $parentName . '">';
 
-                                echo '<td style="text-indent: 10px;" class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;" >';
-                                echo '<a style="color: #4295B0;" href="' . get_post_meta(
+                                echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;" >';
+                                echo '<a class="'.$class.'" style="color: #4295B0;" href="' . get_post_meta(
                                         $post->ID,
                                         'metric_url',
                                         true
@@ -594,6 +603,7 @@ END;
                 $(this).remove()
             }
         });
-        $('.agencies_total_count').html($('.datasets_published_per_month_table tr').size()-2);
+        $('.agencies_total_count').html($('tr.sub-agency a.sub-agency').size()+$('tr.parent-agency').size());
+        $('.publishers_total_count').html($('tr.sub-agency a.publisher').size());
     });
 </script>
