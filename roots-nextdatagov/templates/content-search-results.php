@@ -77,7 +77,8 @@ function usasearch_display_results($query = '', $group = ''){
 
     if($rows == 0){
         echo "Sorry, no results found. Try entering fewer or broader query terms.";
-        ?>
+    }
+    ?>
     <form role="search" method="get" style="display: block" class="search-form form-inline<?php if(is_front_page()): ?> col-md-12 col-lg-12<?php else:?> navbar-right navbar-nav  col-sm-6 col-md-6 col-lg-6<?php endif;?>" action="/search-results/1/">
         <div class="input-group">
             <?php if(!is_front_page()): ?>
@@ -93,9 +94,7 @@ function usasearch_display_results($query = '', $group = ''){
                 </span>
         </div>
     </form><br /><br />
-        <?php
-    }
-
+    <?php
     $count = $rows > 1000 ? 1000 : $rows;
 
     $paging_info = get_paging_info($count,10,$cur_page);
@@ -192,9 +191,9 @@ function usasearch_display_results($query = '', $group = ''){
 
     echo $pager;
 
-	echo "<div class='search-results-alert'>
+	/*echo "<div class='search-results-alert'>
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
-        You are searching in entire Data.gov site. Show results in <a href='" . $protocol.$ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
+        You are searching in entire Data.gov site. Show results in <a href='" . $protocol.$ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";*/
 
     $output = '<br /><div style="text-align:center;"><img src ="../../../app/plugins/usa-search/images/binglogo_en.gif">';
     $output .= "<div class='search-notice'>Search results were retrieved using the " . get_option('domain', 'search.usa.gov') . " API at " . date('M n Y - H:i a',time()) .
