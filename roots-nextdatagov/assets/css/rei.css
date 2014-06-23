@@ -1475,7 +1475,7 @@ table.glossary tr.odd2 {
 }
 
 .customcontactform input[type='text'] {
-    width: 50%;
+    /*width: 50%;*/
     margin: 3px 10px 10px 0px;
 
 }
