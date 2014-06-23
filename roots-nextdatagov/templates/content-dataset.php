@@ -50,9 +50,9 @@ $total = array();
 
 <div style="float: right;margin-left:280px;"> <?php the_content(); ?></div>
 <?php
-$metric_sync = $wpdb->get_var("SELECT MAX(meta_value) FROM wp_postmeta WHERE meta_key = 'metric_sync_timestamp'");
+$metric_sync = get_option('metrics_updated_gmt');
 echo '<div style="font-style:italic;">';
-echo "Data last updated on: " . gmdate("m/d/Y h:i A", $metric_sync) . " GMT<br /><br />
+echo "Data last updated on: {$metric_sync}<br /><br />
 </div>";
 ?>
 
