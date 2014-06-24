@@ -2024,3 +2024,8 @@ background:none;
     font-size: 1.2em;
     cursor: pointer;
 }
+@media all and (orientation:portrait) {
+    /* Style adjustments for portrait mode goes here */
+    .bx-wrapper .bx-controls-direction a{display:none}
+    #webcontent{width:730px;}
+}
