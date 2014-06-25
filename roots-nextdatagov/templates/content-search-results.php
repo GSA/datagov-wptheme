@@ -75,7 +75,7 @@ function usasearch_display_results($query = '', $group = ''){
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
         You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
     ?>
-    <form role="search" method="get" style="display: block" class="search-form form-inline<?php if(is_front_page()): ?> col-md-12 col-lg-12<?php else:?> navbar-right navbar-nav  col-sm-6 col-md-6 col-lg-6<?php endif;?>" action="/search-results/1/">
+    <form role="search" method="get" style="display: block" class="search-form form-inline<?php if(is_front_page()): ?> col-md-12 col-lg-12<?php else:?> navbar-search navbar-nav  col-sm-6 col-md-6 col-lg-6<?php endif;?>" action="/search-results/1/">
         <div class="input-group">
             <?php if(!is_front_page()): ?>
             <label for="search-header" class="hide"><?php _e('Search for:', 'roots'); ?></label>
