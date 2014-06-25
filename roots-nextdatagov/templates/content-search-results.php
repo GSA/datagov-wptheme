@@ -89,7 +89,7 @@ function usasearch_display_results($query = '', $group = ''){
                     </button>
                 </span>
         </div>
-    </form><br /><br />
+    </form><br />
     <?php
     $count = $rows > 1000 ? 1000 : $rows;
 
