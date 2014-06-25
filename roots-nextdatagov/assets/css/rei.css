@@ -2029,3 +2029,6 @@ background:none;
     .bx-wrapper .bx-controls-direction a{display:none}
     #webcontent{width:730px;}
 }
+.navbar-search{
+    margin: 0 auto;
+}
