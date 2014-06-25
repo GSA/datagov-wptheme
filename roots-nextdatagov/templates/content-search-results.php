@@ -145,21 +145,22 @@ function usasearch_display_results($query = '', $group = ''){
     $results = str_replace('\ue001','</strong>' , $results);
 
     $results = json_decode($results,true);
-    echo ' <div class="usasearch-results-wrap">';
-    echo '<div class="search-results usasearch-results usasearch-boosted-results ">';
-    // Display recommended results
-	if ( isset( $results['boosted_results'] ) && $results['boosted_results'] != '' ) {
-        foreach($results['boosted_results'] as $result){
-            $title = $result['title'];
-            $url = $result['url'];
-            echo '<p style="color: #9E3030;">Recommended Results</p>';
-            echo '<a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
-            echo '<p style="text-indent:20px;">'.$result['description'] ."<br /><br /></p>";
+    if($rows > 0) {
+        echo ' <div class="usasearch-results-wrap">';
+        echo '<div class="search-results usasearch-results usasearch-boosted-results ">';
+        // Display recommended results
+        if ( isset( $results['boosted_results'] ) && $results['boosted_results'] != '' ) {
+            foreach($results['boosted_results'] as $result){
+                $title = $result['title'];
+                $url = $result['url'];
+                echo '<p style="color: #9E3030;">Recommended Results</p>';
+                echo '<a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
+                echo '<p style="text-indent:20px;">'.$result['description'] ."<br /><br /></p>";
+            }
         }
+        echo '</div>';
+        echo '</div>';
     }
-
-    echo '</div>';
-    echo '</div>';
     foreach($results['results'] as $result){
         $title = $result['title'];
         $url = $result['unescapedUrl'];
@@ -191,7 +192,7 @@ function usasearch_display_results($query = '', $group = ''){
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
         You are searching in entire Data.gov site. Show results in <a href='" . $protocol.$ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";*/
 
-    $output = '<br /><div style="text-align:center;"><img src ="../../../app/plugins/usa-search/images/binglogo_en.gif">';
+    $output = '<div style="text-align:center;"><img src ="../../../app/plugins/usa-search/images/binglogo_en.gif">';
     $output .= "<div class='search-notice'>Search results were retrieved using the " . get_option('domain', 'search.usa.gov') . " API at " . date('M n Y - H:i a',time()) .
         "<br>* The USASearch Program and Federal Government cannot vouch for the data or analyses derived from these data after the data have been retrieved from USASearch.</div></div>";
     $output .='</body></html>';
