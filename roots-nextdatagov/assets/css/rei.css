@@ -2031,4 +2031,5 @@ background:none;
 }
 .navbar-search{
     margin: 0 auto;
+    float: none;
 }
