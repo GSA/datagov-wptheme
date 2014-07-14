@@ -8,7 +8,7 @@ if($categories){
     }
 }
 $urlslice = explode("/", $_SERVER[REQUEST_URI]);
-if(in_array($urlslice[1],$category_array) && $urlslice[2]=="page" ){
+if(!empty($category_array) && in_array($urlslice[1],$category_array) && $urlslice[2]=="page" ){
     ?>
 <script>
     jQuery(document).ready(function($){
