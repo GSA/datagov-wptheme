@@ -50,10 +50,10 @@ function roots_title() {
       $title = '';
 
       if(!empty($parent)) {
-        $title .= '<span class="category-header topic-' . $parent->slug . '"><a href="' . site_url('/' . $parent->slug) . '"><div><i></i></div><span>' . $parent->name . '</span></a></span> &nbsp; &mdash; &nbsp; ';  
+        $title .= '<span class="category-header topic-' . $parent->slug . '"><a href="' . home_url('/' . $parent->slug) . '"><div><i></i></div><span>' . $parent->name . '</span></a></span> &nbsp; &mdash; &nbsp; ';  
       }
 
-      $title .= '<span class="category-header topic-' . $term->slug . '"><a href="' . site_url('/' . $parent->slug . '/' . $term->slug) . '"><div><i></i></div><span>' . $term->name . '</span></a></span>';
+      $title .= '<span class="category-header topic-' . $term->slug . '"><a href="' . home_url('/' . $parent->slug . '/' . $term->slug) . '"><div><i></i></div><span>' . $term->name . '</span></a></span>';
       
       return apply_filters('single_term_title', $title);
     } elseif (is_post_type_archive()) {
