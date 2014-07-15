@@ -103,15 +103,13 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 
 		if (!empty($sub_menu)) {
 
-			$expected_html = 'ul id="menu-' . $term_slug . '"';
+			$expected_html = 'ul id="menu-' . $term_slug;
 
 			if(strpos($sub_menu, $expected_html) == 1) {
 				$valid_sub_menu = true;		
 			}
 			
 		}
-
-		
 	?> 
 
 
