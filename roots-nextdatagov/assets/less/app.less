@@ -260,14 +260,7 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 .topic-cities a i:before {
   content: "\e001";
 }
-.topic-climate a i:before, 
-.topic-climate-ecosystems i:before, 
-.topic-coastalflooding a i:before, 
-.topic-energysupply a i:before, 
-.topic-foodsupply a i:before, 
-.topic-humanhealth a i:before, 
-.topic-transportation a i:before, 
-.topic-water a i:before {
+.topic-climate a i:before {
   content: "\e002";
 }
 .topic-consumer a i:before {
@@ -339,14 +332,7 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 
 .category-header.topic-business, 
 .category-header.topic-cities, 
-.category-header.topic-climate,
-.category-header.topic-climate-ecosystems, 
-.category-header.topic-coastalflooding,
-.category-header.topic-energysupply,
-.category-header.topic-foodsupply,
-.category-header.topic-humanhealth,
-.category-header.topic-transportation,
-.category-header.topic-water, 
+.category-header.topic-climate, 
 .category-header.topic-consumer,
 .category-header.topic-counties, 
 .category-header.topic-developers, 
@@ -770,6 +756,11 @@ body.category .page-header h1 {
   &:hover {
     color: #000;
     text-decoration: none;
+
+    span {
+      text-decoration : underline;
+    }
+
   }
 
   i {
