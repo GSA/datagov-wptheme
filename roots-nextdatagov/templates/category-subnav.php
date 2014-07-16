@@ -97,19 +97,25 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 
 
 	<?php 
-		$sub_menu = wp_nav_menu( array('menu' => $term_slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') ); 
 
-		$valid_sub_menu = false;		
+		$valid_sub_menu = false;
 
-		if (!empty($sub_menu)) {
+		if(!empty($term_slug)) {
 
-			$expected_html = 'ul id="menu-' . $term_slug;
+			$sub_menu = wp_nav_menu( array('menu' => $term_slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') ); 
 
-			if(strpos($sub_menu, $expected_html) == 1) {
-				$valid_sub_menu = true;		
+			if (!empty($sub_menu)) {
+
+				$expected_html = 'ul id="menu-' . $term_slug;
+
+				if(strpos($sub_menu, $expected_html) == 1) {
+					$valid_sub_menu = true;		
+				}
+				
 			}
-			
+
 		}
+
 	?> 
 
 
