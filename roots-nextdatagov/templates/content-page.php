@@ -5,7 +5,7 @@
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php if ( has_category() && $cat_slug !== 'uncategorized' ): ?>
+		<?php if ( has_category() && get_the_category()[0]->slug !== 'uncategorized' ): ?>
 
 			<h1 class="page-title">
 				<?php the_title(); ?>
