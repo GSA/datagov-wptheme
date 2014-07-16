@@ -9,7 +9,7 @@ $international_open_data = (get_option('international_open_data') != '') ? get_o
 $us_states_open_data = (get_option('us_states_open_data') != '') ? get_option('us_states_open_data') : '';
 $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_option('us_counties_open_data') : '';
 ?>
-<div class="wrap container">
+<div class="wrap container content-page">
     <?php
     while( have_posts() ) {
         the_post();
