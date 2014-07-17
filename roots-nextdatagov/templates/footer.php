@@ -127,7 +127,6 @@ $ckan_default_server = '//' . $ckan_default_server;
 <noscript>
  <iframe src="http://survey.usa.gov/surveys/161"></iframe>
 </noscript>
-/* hack to fix the border on home page */
 <style>
  .banner{border:none; paddingbottom:0px;}
  .frontpagesearch, body.home .header.banner.pageheading {
