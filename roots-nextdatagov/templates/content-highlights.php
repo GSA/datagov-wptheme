@@ -1,7 +1,15 @@
 <?php
-$category = get_the_category();
-if ( $category ) {
-	$term_slug = $category[0]->slug;
+if (is_category()) {
+    $cat_ID = get_query_var( 'cat' );
+
+    $category =  get_category( $cat_ID );
+    $term_name = $category->cat_name;
+    $term_slug = $category->slug;
+
+} else {
+    $category = get_the_category();
+    $term_name = $category[0]->cat_name;
+    $term_slug = $category[0]->slug;
 }
 
 $args = array(
