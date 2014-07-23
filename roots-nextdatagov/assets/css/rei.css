@@ -2033,3 +2033,7 @@ background:none;
     margin: 0 auto;
     float: none;
 }
+body.page.privacy-policy {
+    font-size: 16px;
+    color: #333;
+}
