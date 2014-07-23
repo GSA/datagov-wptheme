@@ -91,10 +91,6 @@ function usasearch_display_results($query = '', $group = ''){
     elseif($paging_info['curr_page'] >= $max)
         $sp = $paging_info['curr_page'] - floor($max/2);
 
-    if($paging_info['curr_page'] >= $max){
-        $pager .= "<li class='pager-current first'><a href='/search-results/1/?q=$query&group=$group' title='Page 1'>1</a></li>";
-    }
-
     for($i = $sp; $i <= ($sp + $max -1);$i++){
         if($i > $paging_info['pages'])
             continue;
