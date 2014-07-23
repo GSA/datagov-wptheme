@@ -1,4 +1,9 @@
-<?php include('category-subnav.php'); ?>
+<?php
+
+    $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
+    $group = (filter_var($_GET['group'], FILTER_SANITIZE_STRING) ) ? filter_var($_GET['group'], FILTER_SANITIZE_STRING) : "site" ;
+
+?>
 
 <div class="single">
 <div class="container">
