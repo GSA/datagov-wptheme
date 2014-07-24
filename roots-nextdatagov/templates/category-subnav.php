@@ -137,7 +137,7 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 <!-- adding parameter to url which passes the term slug for the cross site navigation-->
 <script type="text/javascript">
     jQuery(function($){
-        $('#main a[href^="http://catalog.data.gov"]').click(function(e) {
+        $('#main a[href*="//catalog.data.gov/"]').click(function(e) {
             var comm= 'topic=<?php echo $term_slug; ?>_navigation';
             e.preventDefault();
             window.location.href = $(this).attr("href")+'#'+ comm;
