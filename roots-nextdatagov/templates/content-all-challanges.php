@@ -57,7 +57,7 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
     if($countOpen > 0){
         ?>
         <div class="upcomingC">
-            <h1 style="margin-bottom:-20px;">Open Challenges</h1>
+            <div class="Appstitle" style="margin-bottom:-20px;">Open Challenges</div>
             <?php
             while( $apps->have_posts() ) {
                 $apps->the_post();
@@ -135,7 +135,7 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
     if($countCompleted > 0){
         ?>
         <div class="closedC">
-            <h1>Completed Challenges</h1>
+            <div class="Appstitle">Completed Challenges</div>
             <?php
             while( $apps2->have_posts() ) {
                 $apps2->the_post();
