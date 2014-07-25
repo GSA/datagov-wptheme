@@ -10,6 +10,15 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
 ?>
 <?php include('category-subnav.php'); ?>
 <div class="wrap container content-page">
+    <?php
+    while( have_posts() ) {
+        the_post();
+        ?>
+          <div class="Apps-wrapper">
+          <div class="Apps-post" id="post-<?php the_ID(); ?>">
+           <div id="appstitle" class="Appstitle" ><?php //the_title();?></div>
+        <?php the_content();   ?>
+        <?php }?>
   <div class="highlights-listing">
 <?php
       $args = array(
