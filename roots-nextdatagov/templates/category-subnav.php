@@ -142,7 +142,11 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
             e.preventDefault();
             window.location.href = $(this).attr("href")+'#'+ comm;
         });
-
+        $('#main a[href*="//qa-catalog-fe-data.reisys.com/"]').click(function(e) {
+            var comm= 'topic=<?php echo $term_slug; ?>_navigation';
+            e.preventDefault();
+            window.location.href = $(this).attr("href")+'#'+ comm;
+        });
     });
 
 </script>
