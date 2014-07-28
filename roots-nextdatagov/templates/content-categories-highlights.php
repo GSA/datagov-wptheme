@@ -16,9 +16,8 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
         ?>
           <div class="Apps-wrapper" style="margin-top:0px;">
           <div class="Apps-post" id="post-<?php the_ID(); ?>">
-
-        <?php the_content();   ?>
-        </div></div>
+         <?php the_content();   ?>
+         </div></div>
         <?php }?>
   <div class="highlights-listing">
 <?php
