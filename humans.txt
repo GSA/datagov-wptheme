@@ -8,7 +8,7 @@
 /* TEAM */
 
 Department: Office of Citizen Services and Innovative Technologies, General Services Administration
-Site: http://www.data.gov/contact
+Site: https://www.data.gov/contact
 Twitter: @usdatagov
 Location: Washington DC, USA
 
