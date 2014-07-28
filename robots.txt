@@ -1,5 +1,5 @@
 # This is a demonstration staging server and should not be indexed by search engines.
-# The canonical site to crawl is http://data.gov
+# The canonical site to crawl is https://data.gov
 
 User-agent: * # match all bots
 Disallow: / # keep them out

@@ -54,7 +54,7 @@
 
 
             <?php
-            $feed  = fetch_feed( 'http://opendata.stackexchange.com/feeds/tag/data.gov' ); // specify feed url
+            $feed  = fetch_feed( 'https://opendata.stackexchange.com/feeds/tag/data.gov' ); // specify feed url
             $items = $feed->get_items( 0, 7 ); // specify first and last item
 
             if ( ! empty( $items ) ) :

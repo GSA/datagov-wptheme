@@ -220,7 +220,7 @@ function usasearch_fetch_results($query, $group = NULL, $page = 0) {
     $query .= "&page=$page" ;
     $query .= "&index=web";
     //echo "the value of the query in usa search function is==> "."http://$action_domain/api/search.json?$query";
-    $response = wp_remote_get("http://$action_domain/api/search.json?$query");
+    $response = wp_remote_get("https://$action_domain/api/search.json?$query");
 
 
     return $response;

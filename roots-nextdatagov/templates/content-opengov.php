@@ -44,7 +44,7 @@ $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_optio
 <div style="display: none;">
     <div id="data_table_4" class="data_table_opengov">
         <?php
-        displayTable("http://www.data.gov/media/2013/11/opendatasites1.csv",true);
+        displayTable("https://www.data.gov/media/2013/11/opendatasites1.csv",true);
         ?>
     </div>
 </div>
@@ -52,7 +52,7 @@ $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_optio
 <div style="display: none;">
     <div id="data_table_5" class="data_table_opengov">
         <?php
-        displayTable("http://www.data.gov/media/2013/11/opendatasites1.csv",true);
+        displayTable("https://www.data.gov/media/2013/11/opendatasites1.csv",true);
         ?>
     </div>
 </div>
