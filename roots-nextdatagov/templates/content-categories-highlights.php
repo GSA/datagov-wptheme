@@ -9,12 +9,12 @@ $cat_slug = $category[0]->slug;
 $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysupply","foodsupply","humanhealth","transportation","water","climate");
 ?>
 <?php include('category-subnav.php'); ?>
-<div class="wrap container content-page">
+<div class="wrap container content-page" style="pading-top:0px;">
     <?php
     while( have_posts() ) {
         the_post();
         ?>
-          <div class="Apps-wrapper">
+          <div class="Apps-wrapper" style="margin-top:0px;">
           <div class="Apps-post" id="post-<?php the_ID(); ?>">
 
         <?php the_content();   ?>
