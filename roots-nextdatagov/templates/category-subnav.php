@@ -157,7 +157,6 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
             e.preventDefault();
             window.location.href = $(this).attr("href")+'#'+ comm;
         });
-
     });
 
 </script>
