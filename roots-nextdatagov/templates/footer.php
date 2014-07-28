@@ -123,16 +123,27 @@ $ckan_default_server = '//' . $ckan_default_server;
         </div>
     </div>
 </footer>
-<div id="survey_target" style="border:none !important;"></div>
-<noscript>
- <iframe src="//survey.usa.gov/surveys/161"></iframe>
-</noscript>
-<style>
- .banner{border:none; paddingbottom:0px;}
- .frontpagesearch, body.home .header.banner.pageheading {
- borderbottom: 1px solid #CCCCCC;
- }
-</style>
-<script type="text/javascript" src="//survey.usa.gov/widget/161/invitation.js?target_id=survey_target&stylesheet=<?php echo get_template_directory_uri() . '/assets/css/survey.css'; ?>"></script>
+
+<?php
+if(!get_option('SHOW_HTTPS_SURVEY')&&isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+    true;
+} else {
+?>
+
+    <div id="survey_target" style="border:none !important;"></div>
+    <noscript>
+        <iframe src="//survey.usa.gov/surveys/161"></iframe>
+    </noscript>
+    <style>
+        .banner{border:none; paddingbottom:0px;}
+        .frontpagesearch, body.home .header.banner.pageheading {
+            borderbottom: 1px solid #CCCCCC;
+        }
+    </style>
+    <script type="text/javascript" src="//survey.usa.gov/widget/161/invitation.js?target_id=survey_target&stylesheet=<?php echo get_template_directory_uri() . '/assets/css/survey.css'; ?>"></script>
+
+<?php
+}
+?>
 
 <?php wp_footer(); ?>
