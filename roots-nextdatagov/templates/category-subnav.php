@@ -3,7 +3,7 @@
 if (is_category()) {
 	$cat_ID = get_query_var( 'cat' );
 
-	$category =  get_category( $cat_ID ); 
+	$category =  get_category( $cat_ID );
 	$term_name = $category->cat_name;
 	$term_slug = $category->slug;
 
@@ -96,30 +96,30 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 <?php else: ?>
 
 
-	<?php 
+	<?php
 
 		$valid_sub_menu = false;
 
 		if(!empty($term_slug)) {
 
-			$sub_menu = wp_nav_menu( array('menu' => $term_slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') ); 
+			$sub_menu = wp_nav_menu( array('menu' => $term_slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') );
 
 			if (!empty($sub_menu)) {
 
 				$expected_html = 'ul id="menu-' . $term_slug;
 
 				if(strpos($sub_menu, $expected_html) == 1) {
-					$valid_sub_menu = true;		
+					$valid_sub_menu = true;
 				}
-				
+
 			}
 
 		}
 
-	?> 
+	?>
 
 
-	<?php if($valid_sub_menu): ?> 
+	<?php if($valid_sub_menu): ?>
 
 
 		<div class="subnav banner">
@@ -127,7 +127,7 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 				<nav class="topic-subnav" role="navigation">
 					<?php echo $sub_menu; ?>
 				</nav>
-			</div>			
+			</div>
 		</div>
 
 	<?php endif; ?>
@@ -137,25 +137,11 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 <!-- adding parameter to url which passes the term slug for the cross site navigation-->
 <script type="text/javascript">
     jQuery(function($){
-        $('#main a[href*="//catalog.data.gov/"]').click(function(e) {
-            var comm= 'topic=<?php echo $term_slug; ?>_navigation';
-            e.preventDefault();
-            window.location.href = $(this).attr("href")+'#'+ comm;
-        });
-        $('#main a[href*="//qa-catalog-fe-data.reisys.com/"]').click(function(e) {
-            var comm= 'topic=<?php echo $term_slug; ?>_navigation';
-            e.preventDefault();
-            window.location.href = $(this).attr("href")+'#'+ comm;
-        })
-        $('#main a[href*="//ckan-fe-data.reisys.com/"]').click(function(e) {
-            var comm= 'topic=<?php echo $term_slug; ?>_navigation';
-            e.preventDefault();
-            window.location.href = $(this).attr("href")+'#'+ comm;
-        });
-        $('#main a[href*="//uat-catalog-fe-data.reisys.com/"]').click(function(e) {
-            var comm= 'topic=<?php echo $term_slug; ?>_navigation';
-            e.preventDefault();
-            window.location.href = $(this).attr("href")+'#'+ comm;
+        var comm = 'topic=<?php echo $term_slug; ?>_navigation';
+
+        $('#main a[href*="catalog.data.gov"]').add('#main a[href*="fe-data.reisys.com"]').remove('#main a[href*="#topic"]').each(function(){
+            var newHref = $(this).attr('href') +'#topic=<?php echo $term_slug; ?>_navigation';
+            $(this).attr('href', newHref);
         });
     });
 </script>
