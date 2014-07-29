@@ -139,7 +139,7 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
     jQuery(function($){
         var comm = 'topic=<?php echo $term_slug; ?>_navigation';
 
-        $('#main a[href*="catalog.data.gov"]').add('#main a[href*="fe-data.reisys.com"]').remove('#main a[href*="#topic"]').each(function(){
+        $('#main a[href*="catalog.data.gov"]').add('#main a[href*="fe-data.reisys.com"]').not('#main a[href*="#topic"]').each(function(){
             var newHref = $(this).attr('href') +'#topic=<?php echo $term_slug; ?>_navigation';
             $(this).attr('href', newHref);
         });
