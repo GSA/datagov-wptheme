@@ -2037,3 +2037,68 @@ body.page.privacy-policy {
     font-size: 16px;
     color: #333;
 }
+/* Zebra tooltips*/
+.Zebra_Tooltip {
+    position: absolute;
+    z-index: 8000;
+    background: transparent;
+    font-family: Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+.Zebra_Tooltip .Zebra_Tooltip_Message {
+    position: relative;
+    padding: 20px;
+    font-size: inherit;
+    text-align: left;
+    font-weight: normal;
+    line-height: inherit;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    -moz-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    *margin-right: 0;
+    _width:expression(document.body.clientWidth > 250 ? '250px': 'auto'); /* max-width for IE6 */
+}
+
+.Zebra_Tooltip .Zebra_Tooltip_Arrow         { position: absolute; height: 10px; width: 20px; overflow: hidden }
+
+.Zebra_Tooltip .Zebra_Tooltip_Arrow_Bottom  { bottom: 0 }
+.Zebra_Tooltip .Zebra_Tooltip_Arrow_Top     { top: 0    }
+
+.Zebra_Tooltip .Zebra_Tooltip_Arrow div {
+    position: absolute;
+    border-style: solid;
+    border-width: 10px;
+    height: 0;
+    width: 0;
+    left: 0;
+    _border-left-color: pink;
+    _border-right-color: pink;
+    _filter: chroma(color=pink);
+}
+
+.Zebra_Tooltip .Zebra_Tooltip_Arrow_Bottom div  {
+    top: 0;
+    _border-bottom-color: pink;
+}
+
+.Zebra_Tooltip .Zebra_Tooltip_Arrow_Top div     {
+    bottom: 0;
+    _border-top-color: pink;
+}
+
+.Zebra_Tooltip .Zebra_Tooltip_Close {
+    text-decoration: none;
+    color: #FFF;
+    position: absolute;
+    right: 8px;
+    top: 1px;
+    font-size: inherit;
+    font-weight: bold;
+}
+
+.Zebra_Tooltip .Zebra_Tooltip_Close:hover {
+    color: #C40000;
+}

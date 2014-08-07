@@ -45,6 +45,10 @@ function roots_scripts() {
 			'jquery',
 			'wpp-frontend'
 		), '' );
+    wp_enqueue_script('zebra_tooltips', get_template_directory_uri() . '/assets/js/zebra_tooltips.js', array(
+        'jquery',
+        'wpp-frontend'
+    ), '' );
 	wp_enqueue_script('Federated-Analytics', get_template_directory_uri() . '/assets/js/Federated-Analytics.js', false, '' );
 //	wp_enqueue_script('cycle_all', get_template_directory_uri() . '/assets/js/jquery.cycle.all.js', array( 'jquery' ), '' );
 }
