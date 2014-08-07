@@ -129,3 +129,9 @@ function favicon()
 }
 
 add_action('admin_head', 'favicon');
+
+if( !is_admin()){
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"), false, '1.11.1', false);
+    wp_enqueue_script('jquery');
+}
