@@ -112,7 +112,7 @@ jQuery(".ext-link").each(function(){
         //jQuery('.ext-link').attr('aria-describedby', title);
     //}
 });
-$(document).ready(function() {
+jQuery(document).ready(function() {
 
     // show tooltips for any element that has a class named "tooltips"
     // the content of the tooltip will be taken from the element's "title" attribute
