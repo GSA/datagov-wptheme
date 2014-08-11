@@ -12,7 +12,7 @@ $cat_slug = $category[0]->slug;
 
 <script type="text/javascript">
 
-
+    setTimeout(function() {
     jQuery(document).ready(function(){
 
         if (jQuery(window).width() < 480) {
@@ -31,7 +31,7 @@ $cat_slug = $category[0]->slug;
                 slideMargin: 10
             });
         }
-    });
+    });},2000);
 </script>
 
 <div class="container">
