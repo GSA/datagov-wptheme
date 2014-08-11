@@ -92,7 +92,9 @@ $('ul#content-nav').each(function(){
 */
 jQuery(function() {
     jQuery('.topic-subnav ul.nav a').each(function() {
-        if (jQuery(this).attr('href')  ===  window.location.pathname) {
+        var str = jQuery(this).attr('href');
+        var res = str.replace("/page/", "/");
+        if (res ===  window.location.pathname) {
             jQuery(this).addClass('active');
         }
     });
