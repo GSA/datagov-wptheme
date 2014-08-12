@@ -2101,3 +2101,7 @@ body.page.privacy-policy {
 .Zebra_Tooltip .Zebra_Tooltip_Close:hover {
     color: #C40000;
 }
+.ie #cboxClose{
+    top:-8px;
+    right:-8px;
+}

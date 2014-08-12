@@ -122,3 +122,15 @@ setTimeout(function() {
         new $.Zebra_Tooltips($('.tooltips'));
 
     });},2000);
+if ($.browser.msie && $.browser.version == 10) {
+    $("html").addClass("ie ie10");
+}
+if ($.browser.msie && $.browser.version == 9) {
+    $("html").addClass("ie ie9");
+}
+if ($.browser.msie && $.browser.version == 8) {
+    $("html").addClass("ie ie8");
+}
+if ($.browser.msie && $.browser.version == 11) {
+    $("html").addClass("ie ie11");
+}
