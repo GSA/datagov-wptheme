@@ -52,7 +52,7 @@
 						href="/<?php echo $category[0]->slug; ?>"><i></i><span><?php echo $category[0]->cat_name; ?></span></a>
 				</h5>
 
-				<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<h2 class="entry-title"><a id="<?php echo 'post-title-' . get_the_ID(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<?php get_template_part( 'templates/entry-meta-author' ); ?>
 			</header>
 			<div class="entry-summary">
