@@ -106,7 +106,7 @@ function usasearch_display_results($query = '', $group = ''){
         $last = $paging_info['pages'];
 
         $pager .= "<li class='pager-next'><a href='/search-results/$next/?q=$query&group=$group' title='Page '" .$next. "> Next </a></li>";
-        $pager .= "<li class='pager-last last'><a href='/search-results/$last/?q=$query&group=$group' title='Page '".$last."'> Last </a></li>";
+        //$pager .= "<li class='pager-last last'><a href='/search-results/$last/?q=$query&group=$group' title='Page '".$last."'> Last </a></li>";
 
     }
 
