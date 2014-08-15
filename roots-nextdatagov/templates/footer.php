@@ -135,9 +135,9 @@ if(!get_option('SHOW_HTTPS_SURVEY')&&isset($_SERVER['HTTPS']) && $_SERVER['HTTPS
         <iframe src="//survey.usa.gov/surveys/161"></iframe>
     </noscript>
     <style>
-        .banner{border:none; paddingbottom:0px;}
+        .banner{border:none; padding-bottom:0px;}
         .frontpagesearch, body.home .header.banner.pageheading {
-            borderbottom: 1px solid #CCCCCC;
+            border-bottom: 1px solid #CCCCCC;
         }
     </style>
     <script type="text/javascript" src="//survey.usa.gov/widget/161/invitation.js?target_id=survey_target&stylesheet=<?php echo get_template_directory_uri() . '/assets/css/survey.css'; ?>"></script>
