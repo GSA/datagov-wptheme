@@ -76,8 +76,8 @@ function usasearch_display_results($query = '', $group = ''){
     if($paging_info['curr_page'] > 1){
         $previous = $paging_info['curr_page']-1;
 
-        $pager .= "<br clear='both'/><li class='pager-first first'><a href='/search-results/1/?q=$query&group=$group' title='Page 1'> First </a></li>";
-        $pager .= "<li class='pager-previous'><a href='/search-results/$previous/?q=$query&group=$group' title='Page $previous'> Prev </a></li>";
+       // $pager .= "<br clear='both'/><li class='pager-first first'><a href='/search-results/1/?q=$query&group=$group' title='Page 1'> First </a></li>";
+        $pager .= "<br clear='both'/><li class='pager-previous'><a href='/search-results/$previous/?q=$query&group=$group' title='Page $previous'> Prev </a></li>";
     }
 
     //setup starting point
