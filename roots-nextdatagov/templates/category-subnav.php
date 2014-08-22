@@ -12,7 +12,7 @@ if (is_category()) {
     $cat_ID = get_cat_ID( $category_name );
     $category =  get_category( $cat_ID );
     $term_name = $category->cat_name;
-    $term_slug = $category->slug;
+    $term_slug = $category_name;
 }
 
 
