@@ -2105,3 +2105,6 @@ body.page.privacy-policy {
     top:-8px;
     right:-8px;
 }
+.header.banner .page-header h1 {
+    padding-bottom: 0.5em;
+}
