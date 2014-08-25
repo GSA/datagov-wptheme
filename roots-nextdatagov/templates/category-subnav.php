@@ -119,11 +119,15 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 			if (!empty($category->category_parent) && (empty($sub_menu) || (!empty($sub_menu) && strpos($sub_menu, $expected_html) != 1))) {			    
 			    $parent_category =  get_category( $category->category_parent );
 			    $expected_html = 'ul id="menu-' . $parent_category->slug;
-				$sub_menu = wp_nav_menu( array('menu' => $parent_category->slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') );
+				$sub_menu = wp_nav_menu( array('menu' => $parent_category->slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') );				
 			}
 
 			if (!empty($sub_menu) && strpos($sub_menu, $expected_html) == 1) {
 				$valid_sub_menu = true;
+
+				if(!empty($parent_category)){
+					$term_slug = $parent_category->slug;
+				}
 			}
 
 		}
