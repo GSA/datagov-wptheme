@@ -10,9 +10,16 @@ if (is_category()) {
 } else {
     $category_name = get_query_var('category_name');
     $cat_ID = get_cat_ID( $category_name );
-    $category =  get_category( $cat_ID );
-    $term_name = $category->cat_name;
-    $term_slug = $category_name;
+
+    if(!empty($cat_ID)){
+    	$category =  get_category( $cat_ID );
+    	$term_name = $category->cat_name;
+    	$term_slug = $category_name;
+    } else {
+    	$category = get_the_category()[0];
+    	$term_slug = $category->slug;
+    	$term_name = $category->cat_name;
+    }
 }
 
 
@@ -106,14 +113,17 @@ if ( $subnav OR ( isset( $subnav_extra ) && $subnav_extra ) ):
 
 			$sub_menu = wp_nav_menu( array('menu' => $term_slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') );
 
-			if (!empty($sub_menu)) {
+			$expected_html = 'ul id="menu-' . $term_slug;
 
-				$expected_html = 'ul id="menu-' . $term_slug;
+			// if there's no menu, check to see if there's one for the parent category
+			if (!empty($category->category_parent) && (empty($sub_menu) || (!empty($sub_menu) && strpos($sub_menu, $expected_html) != 1))) {			    
+			    $parent_category =  get_category( $category->category_parent );
+			    $expected_html = 'ul id="menu-' . $parent_category->slug;
+				$sub_menu = wp_nav_menu( array('menu' => $parent_category->slug, 'echo' => false, 'fallback_cb' => '', 'menu_class' => 'nav navbar-nav') );
+			}
 
-				if(strpos($sub_menu, $expected_html) == 1) {
-					$valid_sub_menu = true;
-				}
-
+			if (!empty($sub_menu) && strpos($sub_menu, $expected_html) == 1) {
+				$valid_sub_menu = true;
 			}
 
 		}
