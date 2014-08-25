@@ -29,9 +29,8 @@ if(!empty($category_array) && in_array($urlslice[1],$category_array) && $urlslic
 	</div>
 
 	<?php
-
-	$cat_id = (!empty(get_query_var( 'cat' ))) ? (get_query_var( 'cat' )) : $categories[0]->cat_ID;
-
+    $cat_id = get_query_var( 'cat' );
+	$cat_id = (!empty($cat_id)) ? ($cat_id) : $categories[0]->cat_ID;
 	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 0;
 	$args  = array(
 		'post_type'      => 'post',
