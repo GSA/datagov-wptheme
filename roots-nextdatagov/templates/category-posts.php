@@ -30,10 +30,12 @@ if(!empty($category_array) && in_array($urlslice[1],$category_array) && $urlslic
 
 	<?php
 
+	$cat_id = (!empty(get_query_var( 'cat' ))) ? (get_query_var( 'cat' )) : $categories[0]->cat_ID;
+
 	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 0;
 	$args  = array(
 		'post_type'      => 'post',
-		'cat'            => get_query_var( 'cat' ),
+		'cat'            => $cat_id,
 		'tax_query'      => array(
 			array(
 				'taxonomy' => 'featured',
