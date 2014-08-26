@@ -9,7 +9,10 @@ $categories = get_the_category();
 
 	<?php
 
-	$cat_id = (!empty(get_query_var( 'cat' ))) ? (get_query_var( 'cat' )) : $categories[0]->cat_ID;
+    $cat_id = get_query_var( 'cat' );
+    if (!$cat_id) {
+        $cat_id = $categories[0]->cat_ID;
+    }
 
 	$args  = array(
     	'post_type' => 'Applications',

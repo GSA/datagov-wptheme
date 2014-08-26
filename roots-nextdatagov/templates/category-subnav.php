@@ -18,6 +18,17 @@ if (is_category()) {
     if (strpos($term_slug, '/') !== false) {
         $term_slug = substr(strstr($term_slug, '/'), 1);
     }
+} else {
+    if(!empty($cat_ID)){
+     $category =  get_category( $cat_ID );
+     $term_name = $category->cat_name;
+     $term_slug = $category_name;
+ } else {
+     $category = get_the_category();
+     $category = $category[0];
+     $term_slug = $category->slug;
+     $term_name = $category->cat_name;
+ }
 }
 
 
