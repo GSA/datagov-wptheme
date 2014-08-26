@@ -8,26 +8,18 @@ if (is_category()) {
 	$term_slug = $category->slug;
 
 } else {
-    $category_name = get_query_var('category_name');
-    //$cat_ID = get_cat_ID( $category_name );
+    $category_slug = get_query_var('category_name');
+    if (strpos($category_slug,'/')) {
+        list(, $sub_category_slug) = explode('/', $category_slug);
+        $category_slug = $sub_category_slug;
+    }
+    $category = get_category_by_slug($category_slug);
     $term_name = $category->cat_name;
-    $term_slug = $category_name;
+    $term_slug = $category_slug;
     if(strpos($term_slug, '/') !== FALSE ){
         $term_slug = substr(strstr($term_slug, '/'),1);
     }
-   /* if(!empty($cat_ID)){
-    	$category =  get_category( $cat_ID );
-    	$term_name = $category->cat_name;
-    	$term_slug = $category_name;
-    } else {
-    	$category = get_the_category();
-    	$category = $category[0];
-    	$term_slug = $category->slug;
-    	$term_name = $category->cat_name;
-    }*/
 }
-
-
 
 
 // show Links associated to a community
