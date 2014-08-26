@@ -3,9 +3,6 @@ $categories = get_the_category();
 ?>
 
 <div class="container">
-	<div class="page-header">
-		<h1>Featured Apps</h1>
-	</div>
 
 	<?php
 
@@ -33,6 +30,13 @@ $categories = get_the_category();
 	$category_query = new WP_Query( $args );
 
 	?>
+
+
+	<?php if(!empty($category_query->have_posts())): ?>
+		<div class="page-header">
+			<h1>Featured Apps</h1>
+		</div>
+	<?php endif; ?>
 
 	<?php while ( $category_query->have_posts() ) : $category_query->the_post(); ?>
 		<?php get_template_part( 'templates/content', 'featured-apps' ); ?>
