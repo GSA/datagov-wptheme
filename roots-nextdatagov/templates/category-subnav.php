@@ -17,8 +17,9 @@ if (is_category()) {
     	$term_slug = $category_name;
     } else {
     	$category = get_the_category();
-    	$term_slug = $category[0]->slug;
-    	$term_name = $category[0]->cat_name;
+    	$category = $category[0];
+    	$term_slug = $category->slug;
+    	$term_name = $category->cat_name;
     }
 }
 
