@@ -42,7 +42,12 @@ function roots_title()
         if (is_array($term)) {
             $url_slug = get_query_var('category_name');
             if ($url_slug) {
+                if(strpos($url_slug, '/') !== FALSE ){
+                    $url_slug = substr(strstr($url_slug, '/'),1);
+                }
+                else{
                 $term = try_to_guess_category_name($term, $url_slug);
+                }
             } else {
                 $term = $term[0];
             }
