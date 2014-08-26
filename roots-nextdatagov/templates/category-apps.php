@@ -32,7 +32,7 @@ $categories = get_the_category();
 	?>
 
 
-	<?php if(!empty($category_query->have_posts())): ?>
+	<?php if($category_query->have_posts()): ?>
 		<div class="page-header">
 			<h1>Featured Apps</h1>
 		</div>
