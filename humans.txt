@@ -24,6 +24,9 @@ Twitter: @JeanneHolm
 Architect: Philip Ashlock
 Site: https://github.com/philipashlock/
 
+Senior Engagement Liaison: Rebecca Williams
+Email: rebecca.williams@gsa.gov GitHub: @rebeccawilliams
+
 
 /* THANKS */
 Contributors: https://github.com/GSA/data.gov/graphs/contributors
