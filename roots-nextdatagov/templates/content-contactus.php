@@ -50,7 +50,7 @@
                     </span>
             </h1>
 
-            <p class="section-intro">Ask the community</p>
+            <p class="section-intro"><a href="https://opendata.stackexchange.com/questions/ask?tags=data.gov" target="_blank"> Ask the community </a></p>
 
 
             <?php
