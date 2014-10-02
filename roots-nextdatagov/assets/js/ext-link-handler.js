@@ -1,49 +1,4 @@
 // JavaScript Document
-var tID;
-var tDelay;
-var tURL;
-
-function autoLoadSite() {
-    if (--tDelay == 0) {
-        jQuery("span#extlink-counter").html("0");
-        clearInterval(tID);
-        window.location = tURL;
-    } else {
-        jQuery("span#extlink-counter").html(tDelay);                 
-    }
-}
-
-jQuery (function($){
-
-    $('body').delegate('#extlink-popup a.external', 'click', function(ev) { $('#cboxClose').trigger('click');});
-
-});
-
-jQuery( document ).ready(function() {
-    jQuery("a.external").click(function(){
-        var targetURL = (this.href.length > 50) ? this.href.substring(0, 40) + "..." : this.href;
-        tURL = this.href;
-        tDelay = 5;
-
-        jQuery.colorbox({
-            html: "<div id=\"extlink-popup\">" +
-                "<h3 class=\"extlink-title\">You are exiting Data.gov</h3>" +
-                "<div class=\"extlink-content\">" +
-                "<p>You will be taken to the following site in <span id=\"extlink-counter\">" +
-                tDelay + "</span> second(s).</p>" +
-                "<p><a id=\"click\" href=\"" + tURL + "\">" + targetURL + "</a></p></div></div>",
-            onCleanup: function(){clearInterval(tID)},
-
-            opacity: "0.35",
-            width: "400",
-            height: "150",
-            scrolling: false
-        });
-        tID = setInterval("autoLoadSite()", 1000);
-        return false;
-    });
-});
-
 jQuery(".colorbox-inline").colorbox({inline:true, width:"50%",opacity:0.7});
 
 /* jQuery tabs for ocean page */
@@ -84,12 +39,7 @@ $('ul#content-nav').each(function(){
   });
 });
 });
-//Assigining the active link based on current url
-/*$(document).ready(function () {
-    var windowLocationPathname = window.location.pathname;
-    $('.topic-subnav ul.nav').find('a[href^="' + windowLocationPathname + '"]').addClass('active');
-});
-*/
+
 jQuery(function() {
     jQuery('.topic-subnav ul.nav a').each(function() {
         var str = jQuery(this).attr('href');
@@ -104,17 +54,17 @@ jQuery(function() {
         }
     });
 });
-
-jQuery(".ext-link").each(function(){
-    if (jQuery(".ext-link").attr('title') == '') {
-        jQuery(".ext-link").attr('title','This link will direct you to an external website that may have different content and privacy policies from Data.gov.')
-        jQuery('.ext-link').attr('aria-describedby', 'external_disclaimer');
-    }//else{
-       // var title=jQuery(".ext-link").attr('title');
-        //jQuery('.ext-link').attr('aria-describedby', title);
-    //}
+jQuery(document).ready(function() {
+    document.domain="reisys.com";
+    jQuery(".ext-link").each(function(){
+        if (jQuery(".ext-link").attr('title') == '') {
+            jQuery(".ext-link").attr('title','This link will direct you to an external website that may have different content and privacy policies from Data.gov.')
+            jQuery('.ext-link').attr('aria-describedby', 'external_disclaimer');
+        }
+    });
 });
 setTimeout(function() {
+
     jQuery(document).ready(function() {
 
         // show tooltips for any element that has a class named "tooltips"
@@ -122,3 +72,6 @@ setTimeout(function() {
         new $.Zebra_Tooltips($('.tooltips'));
 
     });},2000);
+jQuery("#frame_embed").on("load", function () {
+    jQuery("#frame_embed").contents().find(".site-footer").hide();
+});
