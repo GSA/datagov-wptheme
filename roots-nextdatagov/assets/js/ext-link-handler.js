@@ -65,13 +65,14 @@ jQuery(document).ready(function() {
 });
 setTimeout(function() {
 
-    jQuery(document).ready(function() {
+
 
         // show tooltips for any element that has a class named "tooltips"
         // the content of the tooltip will be taken from the element's "title" attribute
         new $.Zebra_Tooltips($('.tooltips'));
 
-    });},2000);
+},2000);
 jQuery("#frame_embed").on("load", function () {
+    jQuery("#frame_embed").contents().find(".masthead").hide();
     jQuery("#frame_embed").contents().find(".site-footer").hide();
 });
