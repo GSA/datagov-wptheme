@@ -55,7 +55,12 @@ jQuery(function() {
     });
 });
 jQuery(document).ready(function() {
-    document.domain="reisys.com";
+    if (document.domain.indexOf('data.gov') > -1) {
+        document.domain="data.gov";
+    }
+    if (document.domain.indexOf('reisys.com') > -1) {
+        document.domain="reisys.com";
+    }
     jQuery(".ext-link").each(function(){
         if (jQuery(".ext-link").attr('title') == '') {
             jQuery(".ext-link").attr('title','This link will direct you to an external website that may have different content and privacy policies from Data.gov.')
