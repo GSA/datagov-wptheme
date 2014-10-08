@@ -54,7 +54,7 @@
     <div class="container">
         <div class="text-center getstarted">
             <h4><label for="search-header">Get Started<br>
-                    <small>Search over <?php echo number_format(get_option('ckan_total_count', 107111)); ?> datasets
+                    <small>Search over <a href="/metrics"><?php echo number_format(get_option('ckan_total_count', 107111)); ?> datasets</a>
                     </small>
                     <br/><i class="fa fa-caret-down"></i></label></h4>
         </div>
