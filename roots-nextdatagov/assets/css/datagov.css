@@ -1175,7 +1175,7 @@ ul.pager a:link, ul.pager a:visited {
     color: inherit;
 }
 #comments .media-list li {
-    border-bottom: 2px dashed #ccc;
+    border-bottom: 2px solid #ccc;
     margin: 30px 0;
     padding-bottom: 15px;
 }
