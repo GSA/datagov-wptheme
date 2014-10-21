@@ -2112,7 +2112,7 @@ body.page.privacy-policy {
 .category-header.topic-aapi span {
     margin-left: 0.5em;
 }
-#comments .media-list li {
+.media-list li.comment {
     border-bottom: 2px solid #ccc;
     margin: 30px 0;
     padding-bottom: 15px;
