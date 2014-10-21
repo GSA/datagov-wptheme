@@ -80,4 +80,6 @@ setTimeout(function() {
 jQuery("#frame_embed").on("load", function () {
     jQuery("#frame_embed").contents().find(".masthead").hide();
     jQuery("#frame_embed").contents().find(".site-footer").hide();
+    jQuery("#frame_embed").contents().find(".sub-nav").hide();
+
 });
