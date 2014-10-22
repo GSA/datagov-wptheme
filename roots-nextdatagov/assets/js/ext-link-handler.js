@@ -61,13 +61,14 @@ jQuery(document).ready(function() {
     if (document.domain.indexOf('reisys.com') > -1) {
         document.domain="reisys.com";
     }
-    jQuery(".ext-link").each(function(){
-        if (jQuery(".ext-link").attr('title') == '') {
-            jQuery(".ext-link").attr('title','This link will direct you to an external website that may have different content and privacy policies from Data.gov.')
-            jQuery('.ext-link').attr('aria-describedby', 'external_disclaimer');
+    jQuery(".ext-link").each(function(i) {
+        if (!jQuery(this).attr('title')) {
+            jQuery(this).attr('title', 'This link will direct you to an external website that may have different content and privacy policies from Data.gov.')
+            jQuery(this).attr('aria-describedby', 'external_disclaimer');
         }
     });
 });
+jQuery(document).ready(function() {
 setTimeout(function() {
 
 
@@ -77,6 +78,7 @@ setTimeout(function() {
         new $.Zebra_Tooltips($('.tooltips'));
 
 },2000);
+});
 jQuery("#frame_embed").on("load", function () {
     jQuery("#frame_embed").contents().find(".masthead").hide();
     jQuery("#frame_embed").contents().find(".site-footer").hide();
