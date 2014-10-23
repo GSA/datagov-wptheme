@@ -88,11 +88,11 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
                   <h2 class="entry-title"><?php  echo $highlights[ $i ]['title']; ?></h2>
               </header>
               <?php if ( $highlights[ $i ]['post_thumbnail_id'] ) : ?>
-              <div class="featured-image col-md-4">
-                  <?php echo $highlights[ $i ]['featuredImage']; ?>
+              <div class="featured-image col-md-2">
+                  <?php echo $highlights[ $i ]['featuredImage'][0]; ?>
               </div>
               <?php endif; ?>
-              <article class="<?php if ( $highlights[ $i ]['post_thumbnail_id'] ) : ?>col-md-8<?php else: ?>no-image<?php endif;?>">
+              <article class="<?php if ( $highlights[ $i ]['post_thumbnail_id'] ) : ?>col-md-10<?php else: ?>no-image<?php endif;?>">
                   <?php echo $highlights[ $i ]['content']; ?>
               </article>
               <?php if ( $highlights[ $i ]['postformat']  == 'image'): ?>
