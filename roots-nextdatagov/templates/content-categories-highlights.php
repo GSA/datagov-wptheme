@@ -89,7 +89,8 @@ $allowed_slug_arrays = array("climate-ecosystems","coastalflooding","energysuppl
               </header>
               <?php if ( $highlights[ $i ]['post_thumbnail_id'] ) : ?>
               <div class="featured-image col-md-2">
-                  <?php echo $highlights[ $i ]['featuredImage'][0]; ?>
+              
+                <img src="<?php echo $highlights[ $i ]['featuredImage'][0];?>" />
               </div>
               <?php endif; ?>
               <article class="<?php if ( $highlights[ $i ]['post_thumbnail_id'] ) : ?>col-md-10<?php else: ?>no-image<?php endif;?>">
