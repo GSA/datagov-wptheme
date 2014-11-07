@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/gsa/data.gov.png?label=ready&title=Ready)](https://waffle.io/gsa/data.gov)
 Data.gov
 ==============
 [Data.gov](http://data.gov) is based on two robust open source projects: [WordPress](http://wordpress.org) and [CKAN](http://ckan.org). The content seen at data.gov is powered by WordPress while the data catalog at catalog.data.gov is powered by CKAN. 
