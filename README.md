@@ -7,11 +7,11 @@
 ### CKAN
 
 * **CKAN.** The Data.gov team recommends the [latest version of CKAN](http://ckan.org/developers/docs-and-download/).
-* **Data.gov CKAN.** The code powering the [Data.gov](Data.gov) instance of CKAN. 
+* **Data.gov CKAN.** The code powering the Data.gov instance of CKAN. 
     * [release-datagov](https://github.com/okfn/ckan/tree/release-datagov) - The code used for the current [catalog.data.gov](catalog.data.gov).
-    * [GSA/ckan-php-client](https://github.com/GSA/ckan-php-client) - A CKAN php client for [Data.gov](Data.gov).
-    * [GSA/ckan-php-manager](https://github.com/GSA/ckan-php-manager) - A CKAN php manager for [Data.gov](Data.gov).
-* **Extensions.** The Data.gov team has developed several CKAN extensions, but these are still in the process of being packaged for more widespread use. Exentions include:
+    * [GSA/ckan-php-client](https://github.com/GSA/ckan-php-client) - A CKAN php client for Data.gov.
+    * [GSA/ckan-php-manager](https://github.com/GSA/ckan-php-manager) - A CKAN php manager for Data.gov.
+* **Extensions.** The Data.gov team has developed several CKAN extensions, but these are still in the process of being packaged for more widespread use. Extensions include:
     * [GSA/ckanext-geodatagov](https://github.com/GSA/ckanext-geodatagov) - A CKAN extension for geospatial data harvesting. 
     * [GSA/ckanext-datajson](https://github.com/GSA/ckanext-datajson) - A CKAN extension for [Project Open Data](project-open-data.github.io) /data.json harvesting. 
     * [GSA/USMetadata](https://github.com/GSA/USMetadata) - A CKAN extention to support the [Project Open Data](project-open-data.github.io) metadata schema. 
@@ -26,21 +26,21 @@
 * **Plugins.** See the routinely updated [plugins](plugins.md) page for a list of all the plugins used on [Data.gov](Data.gov).
     * [GSA/wp-open311](https://github.com/GSA/wp-open311) - A WordPress Plugin to interact with Open311 API.
 * **Custom.** Custom code for the Data.gov WordPress site.
-    * [GSA/custom-post-view-generator](https://github.com/GSA/custom-post-view-generator) - [Data.gov](Data.gov)'s custom WordPress post view generator. 
+    * [GSA/custom-post-view-generator](https://github.com/GSA/custom-post-view-generator) - Data.gov's custom WordPress post view generator. 
 * **Deployment.** Download the [latest version of WordPress](http://wordpress.org/download/). This is a standard WordPress install, so please refer to the [WordPress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
 
 ### Additional Data.gov Resources
 * **Data.gov/Developers.**  In addition to this repository, please be sure to look at the Data.gov Developers section for more updates and resources, including information on Data.gov's CKAN API: http://data.gov/developers/
-* **Design.** Design assests for [Data.gov](Data.gov).
+* **Design.** Design assets for Data.gov.
     * [GSA/datagov-design](https://github.com/GSA/datagov-design) - The source graphic files for logo, icons, layout.
-* **Communications.** Communication and publishing systems that power [Data.gov](Data.gov).
+* **Communications.** Communication and publishing systems that power Data.gov.
     * [GSA/idm](https://github.com/GSA/idm) - Identity Management for Data.gov and related systems. 
     * [GSA/open311-simple-crm](https://github.com/GSA/open311-simple-crm) - A simple CRM application built with the Open311 API. 
-* **Harvest Tools.** Tools to support [Data.gov](Data.gov) harvesting and compliance with the format and metadata schema requirements of Project Open Data. *Learn more at [Project Open Data](project-open-data.github.io).*
+* **Harvest Tools.** Tools to support Data.gov harvesting and compliance with the format and metadata schema requirements of Project Open Data. *Learn more at [Project Open Data](project-open-data.github.io).*
     * [GSA/data_gov_json_validator](https://github.com/GSA/data_gov_json_validator) - A Validator for Project Open Data metadata schema /data.json. 
     * [GSA/enterprise-data-inventory](https://github.com/GSA/enterprise-data-inventory) - A CKAN based enterprise data management system for private and public data management available at [inventory.data.gov](inventory.data.gov).
     * [GSA/project-open-data-dashboard](https://github.com/GSA/project-open-data-dashboard) - An automated dashboard assessing agency and department compliance with Project Open Data.
-* **Style Guide.** A content style guide for [Data.gov](Data.gov).
+* **Style Guide.** A content style guide for Data.gov.
     * [GSA/data.gov-styleguide](https://github.com/GSA/data.gov-styleguide) - A Style Guide for prose on Data.gov, heavily inspired by UK.gov's style guide.
 
 ## Ways to Contribute
@@ -61,7 +61,7 @@ NOTE: Before submitting an [issue](https://github.com/GSA/data.gov/issues), chec
 
 ## Contact 
 
-Please check back here or [contact us](https://www.data.gov/contact) for more details on the technologies used to create [Data.gov](Data.gov)
+Please check back here or [contact us](https://www.data.gov/contact) for more details on the technologies used to create Data.gov.
 
 ## License  
 
