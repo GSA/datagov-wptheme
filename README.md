@@ -45,7 +45,7 @@
 
 ## Ways to Contribute
 
-The Data.gov team manages all Data.gov updates, bugs, and features via GitHub's public [Issue Tracker](https://github.com/GSA/data.gov). In the spirit of open source software, everyone is encouraged to help improve this project. Here are some ways you can contribute:
+The Data.gov team manages all Data.gov updates, bugs, and feature additions via GitHub's public [Issue Tracker](https://github.com/GSA/data.gov). In the spirit of open source software, everyone is encouraged to help improve this project. Here are some ways you can contribute:
 - by reporting bugs
 - by suggesting new features
 - by translating to a new language
@@ -57,7 +57,7 @@ The Data.gov team manages all Data.gov updates, bugs, and features via GitHub's 
 
 Issues labeled [`help wanted`](https://github.com/GSA/data.gov/labels/help%20wanted) make it easy for you to find ways you can contribute today. 
 
-NOTE: Before submitting an [Issue](https://github.com/GSA/data.gov/issues), check to make sure it hasn't already been submitted. When submitting a bug report, please try to provide as much detail as possible, i.e. a screenshot or [Gist](https://gist.github.com/) that demonstrates the problem, your computer environment, and any relevant links. 
+NOTE: Before submitting an [issue](https://github.com/GSA/data.gov/issues), check to make sure it hasn't already been submitted. When submitting a bug report, please try to provide as much detail as possible, i.e. a screenshot or [gist](https://gist.github.com/) that demonstrates the problem, the technology you are using, and any relevant links. 
 
 ## Contact 
 
