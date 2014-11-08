@@ -21,7 +21,7 @@
 ### WordPress
 
 * **WordPress.** The Data.gov team recommends the [latest version of WordPress](http://wordpress.org/download/).
-* **Data.gov WordPress template** – The code powering the Data.gov WordPress template.
+* **Data.gov WordPress template.** The code powering the Data.gov WordPress template.
     * [GSA/data.gov](https://github.com/GSA/data.gov) or *this repository*. The source version control of the Data.gov WordPress template. The theme is provided in the `/themes/` folder. The theme is based on [roots.io](http://roots.io/starter-theme/).
 * **Plugins.** See the routinely updated [plugins](plugins.md) page for a list of all the plugins used on [Data.gov](Data.gov).
     * [GSA/wp-open311](https://github.com/GSA/wp-open311) - A WordPress Plugin to interact with Open311 API.
