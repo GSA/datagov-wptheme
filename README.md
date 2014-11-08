@@ -2,7 +2,7 @@
 
 [Data.gov](http://data.gov), created by the [U.S. General Services Administration](https://github.com/GSA/), is based on two robust open source projects: [CKAN](http://ckan.org) and [WordPress](http://wordpress.org). The data catalog at [catalog.data.gov](catalog.data.gov) is powered by CKAN, while the content seen at [Data.gov](Data.gov) is powered by WordPress.  
         
-**This repository provides the [Issue Tracker](https://github.com/GSA/data.gov/issues) for all code, bugs, and feature requests related to Data.gov.** Currently the repository is only used for source version control on the code for the WordPress template, but you will also find pointers to the relevant CKAN code and tools documented below.
+**This repository provides the [Issue Tracker](https://github.com/GSA/data.gov/issues) for all code, bugs, and feature requests related to Data.gov.** Currently the repository is only used for source version control on the code for the WordPress template, but you will also find pointers to the relevant CKAN code and additional resources documented below.
 
 ### CKAN
 
