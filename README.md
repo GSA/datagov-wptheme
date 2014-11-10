@@ -15,7 +15,7 @@
     * [GSA/ckanext-geodatagov](https://github.com/GSA/ckanext-geodatagov) - A CKAN extension for geospatial data harvesting. 
     * [GSA/ckanext-datajson](https://github.com/GSA/ckanext-datajson) - A CKAN extension for [Project Open Data](project-open-data.github.io) /data.json harvesting. 
     * [GSA/USMetadata](https://github.com/GSA/USMetadata) - A CKAN extention to support the [Project Open Data](project-open-data.github.io) metadata schema. 
-    * [GSA/datagov-custom](https://github.com/GSA/datagov-custom) - A CKAN extension to created track the metrics of the number of harvest sources per agency.
+    * [GSA/datagov-custom](https://github.com/GSA/datagov-custom) - A CKAN extension created to track the metrics of the number of harvest sources per agency.
 * **Deployment.** We are in the process of improving documentation and hope to provide build scripts and configurations for tools like [Vagrant](http://www.vagrantup.com/) to make setting up the Data.gov CKAN easier for others.  
 
 ### WordPress
