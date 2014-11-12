@@ -72,12 +72,12 @@ function usasearch_display_results($query = '', $group = ''){
     $count = $rows > 1000 ? 1000 : $rows;
 
     $paging_info = get_paging_info($count,10,$cur_page);
-    $pager = "<div class='item-list'><ul class='pager'>";
+    $pager = "<div class='pagination'><ul class='pagination'>";
     if($paging_info['curr_page'] > 1){
         $previous = $paging_info['curr_page']-1;
 
        // $pager .= "<br clear='both'/><li class='pager-first first'><a href='/search-results/1/?q=$query&group=$group' title='Page 1'> First </a></li>";
-        $pager .= "<br clear='both'/><li class='pager-previous'><a href='/search-results/$previous/?q=$query&group=$group' title='Page $previous'> Prev </a></li>";
+        $pager .= "<br clear='both'/><li class='pager-previous'><a href='/search-results/$previous/?q=$query&group=$group' title='Page $previous'> <span>Prev</span> </a></li>";
     }
 
     //setup starting point
@@ -97,7 +97,7 @@ function usasearch_display_results($query = '', $group = ''){
         if($paging_info['curr_page'] == $i){
             $pager .= "<li class='pager-current first'><strong> " .$i. "</strong></li>";
         }else{
-            $pager .= "<li class='pager-item'><a href='/search-results/$i/?q=$query&group=$group' title='Page'".$i.">" .$i. "</a> </li>";
+            $pager .= "<li class='pager-item'><a href='/search-results/$i/?q=$query&group=$group' title='Page'".$i."><span>" .$i. "</span></a> </li>";
         }
     }
 
@@ -105,7 +105,7 @@ function usasearch_display_results($query = '', $group = ''){
         $next = $paging_info['curr_page'] + 1;
         $last = $paging_info['pages'];
 
-        $pager .= "<li class='pager-next'><a href='/search-results/$next/?q=$query&group=$group' title='Page '" .$next. "> Next </a></li>";
+        $pager .= "<li class='pager-next'><a href='/search-results/$next/?q=$query&group=$group' title='Page '" .$next. "> <span>Next </span></a></li>";
         //$pager .= "<li class='pager-last last'><a href='/search-results/$last/?q=$query&group=$group' title='Page '".$last."'> Last </a></li>";
 
     }
@@ -166,9 +166,7 @@ function usasearch_display_results($query = '', $group = ''){
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
         You are searching in entire Data.gov site. Show results in <a href='" . $protocol.$ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";*/
 
-    $output = '<div style="text-align:center;"><img src ="../../../app/plugins/usa-search/images/binglogo_en.gif">';
-    $output .= "<div class='search-notice'>Search results were retrieved using the " . get_option('domain', 'search.usa.gov') . " API at " . date('M n Y - H:i a',time()) .
-        "<br>* The USASearch Program and Federal Government cannot vouch for the data or analyses derived from these data after the data have been retrieved from USASearch.</div></div>";
+    $output = '<div style="text-align:right;"><img src ="../../../app/plugins/usa-search/images/binglogo_en.gif"></div>';
     $output .='</body></html>';
     echo $output;
 
