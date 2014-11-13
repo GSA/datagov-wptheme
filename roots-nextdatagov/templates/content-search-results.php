@@ -95,7 +95,7 @@ function usasearch_display_results($query = '', $group = ''){
         if($i > $paging_info['pages'])
             continue;
         if($paging_info['curr_page'] == $i){
-            $pager .= "<li class='pager-current first'><strong> " .$i. "</strong></li>";
+            $pager .= "<li class='pager-current first'><strong><span> " .$i. "</span></strong></li>";
         }else{
             $pager .= "<li class='pager-item'><a href='/search-results/$i/?q=$query&group=$group' title='Page'".$i."><span>" .$i. "</span></a> </li>";
         }
