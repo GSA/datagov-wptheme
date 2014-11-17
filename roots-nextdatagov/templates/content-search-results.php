@@ -70,7 +70,7 @@ function usasearch_display_results($query = '', $group = ''){
     </form><br />
     <?php
     $count = $rows > 1000 ? 1000 : $rows;
-
+    $total_pages = ceil( $rows / 10 );
     $paging_info = get_paging_info($count,10,$cur_page);
     $pager = "<div class='pagination'><ul class='pagination'>";
     if($paging_info['curr_page'] > 1){
@@ -110,7 +110,9 @@ function usasearch_display_results($query = '', $group = ''){
 
     }
 
-    $pager .= "</div>";
+    $pager .= "<p class='counter'>";
+    printf( __( 'Page %1$s of %2$s' ), $cur_page, $total_pages );
+    $pager .= "</p></div>";
 
 
 
