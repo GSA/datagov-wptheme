@@ -25,7 +25,6 @@ function usasearch_display_results($query = '', $group = ''){
     $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
     $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_server : ('//' . $ckan_default_server);
        // current page number
-    $cur_page = 1;
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
     // Get response from usasearch server.
@@ -109,7 +108,7 @@ function usasearch_display_results($query = '', $group = ''){
         //$pager .= "<li class='pager-last last'><a href='/search-results/$last/?q=$query&group=$group' title='Page '".$last."'> Last </a></li>";
 
     }
-
+    if(empty ($cur_page)) $cur_page =1;
     $pager .= "<p class='counter'>";
     printf( __( 'Page %1$s of %2$s' ), $cur_page, $total_pages );
     $pager .= "</p></div>";
