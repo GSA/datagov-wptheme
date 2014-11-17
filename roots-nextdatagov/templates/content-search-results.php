@@ -25,9 +25,9 @@ function usasearch_display_results($query = '', $group = ''){
     $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
     $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_server : ('//' . $ckan_default_server);
        // current page number
+    $cur_page = 1;
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
-
     // Get response from usasearch server.
     if($group == 'site'){
 
