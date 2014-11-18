@@ -547,19 +547,8 @@ END;
                 ?> </td>
             <td width="20%" align="center">
                 <?php
-
-                $last_entry = $wpdb->get_var(
-                    "SELECT MAX(STR_TO_DATE(meta_value, '%m/%d/%Y')) FROM wp_postmeta WHERE meta_key = 'metric_last_entry'"
-                );
-                list($y, $m, $d) = explode('-', $last_entry);
-                $last_entry = "$m/$d/$y";
-                echo $last_entry;
-
-
-
-                ?>
-
-
+                list ($metric_sync_date,) = explode(' ', $metric_sync);
+                echo $metric_sync_date; ?>
             </td>
         </tr>
         </thead>
