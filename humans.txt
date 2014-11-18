@@ -12,17 +12,14 @@ Site: https://www.data.gov/contact
 Twitter: @usdatagov
 Location: Washington DC, USA
 
-Director: Marion Royal
-marion.royal@gsa.gov
+Program Director: Hyon Kim
+Email: hyon.kim@gsa.gov
 
-
-Deputy Program Director: Hyon Kim
-
-Architect: Philip Ashlock
+Chief Architect: Philip Ashlock
 Site: https://github.com/philipashlock/
 
 Senior Engagement Liaison: Rebecca Williams
-Email: rebecca.williams@gsa.gov GitHub: @rebeccawilliams
+Email: rebecca.williams@gsa.gov Site: https://github.com/rebeccawilliams
 
 
 /* THANKS */
