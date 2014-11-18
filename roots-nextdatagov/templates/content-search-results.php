@@ -188,7 +188,6 @@ function get_paging_info($tot_rows,$pp,$curr_page)
 
 }
 
-
 /**
  * Page callback function to redirect requests to catalog for data search.
  */
