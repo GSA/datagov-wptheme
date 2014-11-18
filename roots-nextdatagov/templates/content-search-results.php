@@ -1,7 +1,7 @@
 <?php
 
-    $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
-    $group = (filter_var($_GET['group'], FILTER_SANITIZE_STRING) ) ? filter_var($_GET['group'], FILTER_SANITIZE_STRING) : "site" ;
+$query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
+$group = (filter_var($_GET['group'], FILTER_SANITIZE_STRING) ) ? filter_var($_GET['group'], FILTER_SANITIZE_STRING) : "site" ;
 
 ?>
 
@@ -24,7 +24,7 @@ if(isset($query) && isset($group) && $group == 'site')
 function usasearch_display_results($query = '', $group = ''){
     $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
     $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_server : ('//' . $ckan_default_server);
-       // current page number
+    // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
     $cur_page = $parts[2];
     // Get response from usasearch server.
@@ -48,34 +48,40 @@ function usasearch_display_results($query = '', $group = ''){
     $res = json_decode($result_response['body']);
 
     $rows = $res->total;
-	echo "<div class='search-results-alert'>
+    echo "<div class='search-results-alert'>
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
         You are searching in entire Data.gov site. Show results in <a href='" . $ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";
     ?>
-    <form role="search" method="get" style="display: block" class="search-form form-inline<?php if(is_front_page()): ?> col-md-12 col-lg-12<?php else:?> navbar-search navbar-nav  col-sm-6 col-md-6 col-lg-6<?php endif;?>" action="/search-results/1/">
-        <div class="input-group">
-            <?php if(!is_front_page()): ?>
-            <label for="search-header" class="hide"><?php _e('Search for:', 'roots'); ?></label>
-            <?php endif; ?>
-            <input type="search" id="search-header" data-strings='{ "targets" : ["Monthly House Price Indexes", "Health Care Provider Charge Data", "Credit Card Complaints", "Manufacturing &amp; Trade Inventories &amp; Sales","Federal Student Loan Program Data"]}' value="<?php if (is_search()) { echo get_search_query(); } ?>" name="q" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
-            <input type="hidden" name="group" value="site">
+<form role="search" method="get" style="display: block" class="search-form form-inline<?php if(is_front_page()): ?> col-md-12 col-lg-12<?php else:?> navbar-search navbar-nav  col-sm-6 col-md-6 col-lg-6<?php endif;?>" action="/search-results/1/">
+    <div class="input-group">
+        <?php if(!is_front_page()): ?>
+        <label for="search-header" class="hide"><?php _e('Search for:', 'roots'); ?></label>
+        <?php endif; ?>
+        <input type="search" id="search-header" data-strings='{ "targets" : ["Monthly House Price Indexes", "Health Care Provider Charge Data", "Credit Card Complaints", "Manufacturing &amp; Trade Inventories &amp; Sales","Federal Student Loan Program Data"]}' value="<?php if (is_search()) { echo get_search_query(); } ?>" name="q" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
+        <input type="hidden" name="group" value="site">
                 <span class="input-group-btn">
                     <button type="submit" class="search-submit btn btn-default">
                         <i class="fa fa-search"></i>
                         <span class="sr-only"><?php _e('Search', 'roots'); ?></span>
                     </button>
                 </span>
-        </div>
-    </form><br />
+    </div>
+</form><br />
     <?php
     $count = $rows > 1000 ? 1000 : $rows;
     $total_pages = ceil( $rows / 10 );
     $paging_info = get_paging_info($count,10,$cur_page);
-    $pager = "<div class='pagination'><ul class='pagination'>";
+    if(empty ($cur_page)) $cur_page =1;
+    $pager_count .= "<p class='counter'>";
+    $pager_count .=  "Page $cur_page of $total_pages";
+    $pager_count .= "</p>";
+    $pager = "<div class='pagination'>";
+    $pager .= $pager_count;
+    $pager .="<ul class='pagination'>";
     if($paging_info['curr_page'] > 1){
         $previous = $paging_info['curr_page']-1;
 
-       // $pager .= "<br clear='both'/><li class='pager-first first'><a href='/search-results/1/?q=$query&group=$group' title='Page 1'> First </a></li>";
+        // $pager .= "<br clear='both'/><li class='pager-first first'><a href='/search-results/1/?q=$query&group=$group' title='Page 1'> First </a></li>";
         $pager .= "<br clear='both'/><li class='pager-previous'><a href='/search-results/$previous/?q=$query&group=$group' title='Page $previous'> <span>Prev</span> </a></li>";
     }
 
@@ -108,12 +114,8 @@ function usasearch_display_results($query = '', $group = ''){
         //$pager .= "<li class='pager-last last'><a href='/search-results/$last/?q=$query&group=$group' title='Page '".$last."'> Last </a></li>";
 
     }
-    if(empty ($cur_page)) $cur_page =1;
-    $pager .= "<p class='counter'>";
-    printf( __( 'Page %1$s of %2$s' ), $cur_page, $total_pages );
-    $pager .= "</p></div>";
 
-
+    $pager .= "</div>";
 
     // Convert '\ue000' and '\ue001' in the response string to <strong> tag.
     $results = str_replace('\ue000','<strong>', $result_response['body']);
@@ -163,7 +165,7 @@ function usasearch_display_results($query = '', $group = ''){
 
     echo $pager;
 
-	/*echo "<div class='search-results-alert'>
+    /*echo "<div class='search-results-alert'>
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
         You are searching in entire Data.gov site. Show results in <a href='" . $protocol.$ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";*/
 
@@ -188,8 +190,8 @@ function get_paging_info($tot_rows,$pp,$curr_page)
 
 
 /**
-* Page callback function to redirect requests to catalog for data search.
-*/
+ * Page callback function to redirect requests to catalog for data search.
+ */
 function usasearch_redirect_to_usasearch($query = '') {
     header("Location: //catalog.data.gov/dataset?q=$query");
     exit;
