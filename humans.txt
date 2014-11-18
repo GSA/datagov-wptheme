@@ -18,9 +18,6 @@ marion.royal@gsa.gov
 
 Deputy Program Director: Hyon Kim
 
-Evangelist: Jeanne Holm
-Twitter: @JeanneHolm
-
 Architect: Philip Ashlock
 Site: https://github.com/philipashlock/
 
