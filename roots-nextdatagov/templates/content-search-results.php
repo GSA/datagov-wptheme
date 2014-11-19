@@ -72,7 +72,7 @@ function usasearch_display_results($query = '', $group = ''){
     $total_pages = ceil( $rows / 10 );
     $paging_info = get_paging_info($count,10,$cur_page);
     if(empty ($cur_page)) $cur_page =1;
-    $pager_count .= "<p class='counter'>";
+    $pager_count = "<p class='counter'>";
     $pager_count .=  "Page $cur_page of $total_pages";
     $pager_count .= "</p>";
     $pager = "<div class='pagination'>";
