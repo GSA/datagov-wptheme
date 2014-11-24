@@ -318,7 +318,8 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 .topic-safety a i:before {
   content: "\e014";
 }
-.topic-states a i:before {
+.topic-states a i:before, 
+.topic-local a i:before {
   content: "\e015";
 }
 .topic-weather a i:before {
@@ -414,7 +415,7 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
    ========================================================================== */
 
 ul.topics {
-  margin: 0px;
+  margin: 0 0 15px 0;
   padding: 0px;
   text-align: center;
 
@@ -425,7 +426,7 @@ ul.topics {
 
     a {
       display: inline-block;
-      margin: 0px 10px 15px 10px;
+      margin: 0px 15px 20px 15px;
       outline: 0;
     }
 
@@ -436,8 +437,8 @@ ul.topics {
       width: 100px;
       text-align: center;
       clear: both;
-      padding-top: 18px;
-      font-size: 69px;
+      padding-top: 16px;
+      font-size: 65px;
       color: @blue-gray; /* @link-color; */
 
       &:hover {
@@ -447,7 +448,8 @@ ul.topics {
 
     a span {
       display: block;
-      width: 130px;
+      width: 100px;
+      font-size : 15px;
       word-wrap: break-word;
     }
 
@@ -499,6 +501,7 @@ ul.topics {
     padding-top: 20px;
     font-size: 50px;
     height: 75px;
+    width : 75px;
   }
 
   a span {
