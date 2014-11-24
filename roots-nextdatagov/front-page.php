@@ -46,9 +46,9 @@ $args = array(
     <li class="topic-consumer">
         <a href="/consumer"><i></i><span>Consumer</span></a>
     </li>	
-	<li class="topic-ecosystems">
+	<!--li class="topic-ecosystems">
 		<a href="/ecosystems"><i></i><span>Ecosystems</span></a>
-	</li>    
+	</li-->    
 	<li class="topic-education">
 		<a href="/education"><i></i><span>Education</span></a>
 	</li>
