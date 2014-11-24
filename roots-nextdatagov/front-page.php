@@ -58,6 +58,9 @@ $args = array(
 	<li class="topic-finance">
 		<a href="/finance"><i></i><span>Finance</span></a>
 	</li>
+	<li class="topic-geospatial">
+		<a href="/geospatial"><i></i><span>Geospatial</span></a>
+	</li>	
 	<li class="topic-health">
 		<a href="/health"><i></i><span>Health</span></a>
 	</li>
