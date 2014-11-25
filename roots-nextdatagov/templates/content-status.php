@@ -5,7 +5,7 @@
                 <span class="sr-only">Tweet</a>
             </a>
         <span class="author-image">
-            <img alt="" src="<?php the_field('twitter_photo'); ?>">
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/twitter.png" class="iconApp" alt="twitter">
         </span>
             <a class="author-link" href="https://twitter.com/<?php the_field('twitter_handle'); ?>">
                 <div>
