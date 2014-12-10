@@ -10,13 +10,13 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';
 /** This action is documented in wp-includes/feed-rss2.php */
 do_action( 'rss_tag_pre', 'atom' );
 ?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en" > <title type="text"><?php bloginfo_rss('name'); wp_title_rss(); ?></title> <subtitle type="text"><?php bloginfo_rss("description") ?></subtitle> <updated><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></updated> <link rel="alternate" type="<?php bloginfo_rss('html_type'); ?>" href="<?php bloginfo_rss('url') ?>" /> <id><?php bloginfo_rss('url') ?><?php bloginfo('atom_url'); ?></id><link rel="self" type="application/atom+xml" href="<?php self_link(); ?>" />
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en" >
+    <?php
+    do_action( 'atom_ns' );
+?>
+
+<title type="text"><?php bloginfo_rss('name'); wp_title_rss(); ?></title> <subtitle type="text"><?php bloginfo_rss("description") ?></subtitle> <updated><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></updated> <link rel="alternate" type="<?php bloginfo_rss('html_type'); ?>" href="<?php bloginfo_rss('url') ?>" /> <id><?php bloginfo_rss('url') ?><?php bloginfo('atom_url'); ?></id><link rel="self" type="application/atom+xml" href="<?php self_link(); ?>" />
 	<?php
-	/**
-	 * Fires just before the first Atom feed entry.
-	 *
-	 * @since 2.0.0
-	 */
 	do_action( 'atom_head' );
 	while ( have_posts() ) : the_post();
 	?>
@@ -26,12 +26,6 @@ do_action( 'rss_tag_pre', 'atom' );
 			<?php $author_url = get_the_author_meta('url'); if ( !empty($author_url) ) : ?>
 			<uri><?php the_author_meta('url')?></uri>
 			<?php endif;
-
-			/**
-			 * Fires at the end of each Atom feed author entry.
-			 *
-			 * @since 3.2.0
-			 */
 			do_action( 'atom_author' );
 		?>
 		</author>
@@ -46,11 +40,6 @@ do_action( 'rss_tag_pre', 'atom' );
 		<content type="<?php html_type_rss(); ?>" xml:base="<?php the_permalink_rss() ?>"><![CDATA[<?php the_content_feed('atom') ?>]]></content>
 <?php endif; ?>
 	<?php atom_enclosure();
-	/**
-	 * Fires at the end of each Atom feed item.
-	 *
-	 * @since 2.0.0
-	 */
 	do_action( 'atom_entry' );
 		?>
 	</entry>
