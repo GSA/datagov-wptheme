@@ -14,7 +14,6 @@ do_action( 'rss_tag_pre', 'atom' );
     <?php
     do_action( 'atom_ns' );
 ?>
-
 <title type="text"><?php bloginfo_rss('name'); wp_title_rss(); ?></title> <subtitle type="text"><?php bloginfo_rss("description") ?></subtitle> <updated><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></updated> <link rel="alternate" type="<?php bloginfo_rss('html_type'); ?>" href="<?php bloginfo_rss('url') ?>" /> <id><?php bloginfo_rss('url') ?><?php bloginfo('atom_url'); ?></id><link rel="self" type="application/atom+xml" href="<?php self_link(); ?>" />
 	<?php
 	do_action( 'atom_head' );
