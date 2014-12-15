@@ -6,7 +6,7 @@ Before contributing, we encourage you to read our CONTRIBUTING guide (you are he
 
 ## Ways to Contribute
 
-**The Data.gov team manages all Data.gov updates, bugs, and feature additions via GitHub's public [issue tracker](https://github.com/GSA/data.gov) in this repository.** 
+**The Data.gov team manages all Data.gov updates, bugs, and feature additions via GitHub's public [issue tracker](https://github.com/GSA/data.gov/issues) in this repository.** 
 
 If you do not already have a GitHub account, you can [sign up for GitHub here](https://github.com/). In the spirit of open source software, everyone is encouraged to help improve this project. Here are some ways you can contribute:
 - by reporting bugs
