@@ -42,33 +42,8 @@
     * [GSA/data.gov-styleguide](https://github.com/GSA/data.gov-styleguide) - A Style Guide for prose on Data.gov, heavily inspired by UK.gov's style guide.
 
 ## Ways to Contribute
+We're so glad you're thinking about contributing to Data.gov!
 
-The Data.gov team manages all Data.gov updates, bugs, and feature additions via GitHub's public [Issue Tracker](https://github.com/GSA/data.gov). In the spirit of open source software, everyone is encouraged to help improve this project. Here are some ways you can contribute:
-- by reporting bugs
-- by suggesting new features
-- by translating to a new language
-- by writing or editing documentation
-- by writing specifications
-- by writing code and documentation (**no pull request is too small**: fix typos, add code comments, clean up inconsistent whitespace)
-- by reviewing [pull requests](https://github.com/GSA/data.gov/pulls).
-- by closing issues
+Before contributing to Data.gov we encourage you to read our [CONTRIBUTING](https://github.com/GSA/data.gov/blob/master/CONTRIBUTING.md) guide, our [LICENSE](https://github.com/GSA/data.gov/blob/master/LICENSE.md), and our README (you are here), all of which should be in this repository. If you have any questions, you can email the Data.gov team at [datagov@gsa.gov](mailto:datagov@gsa.gov).
 
-Issues labeled [`help wanted`](https://github.com/GSA/data.gov/labels/help%20wanted) make it easy for you to find ways you can contribute today. 
 
-NOTE: Before submitting an [issue](https://github.com/GSA/data.gov/issues), check to make sure it hasn't already been submitted. When submitting a bug report, please try to provide as much detail as possible, i.e. a screenshot or [gist](https://gist.github.com/) that demonstrates the problem, the technology you are using, and any relevant links. 
-
-## Contact 
-
-Please check back here or [contact us](https://www.data.gov/contact) for more details on the technologies used to create Data.gov.
-
-## License  
-
-This project constitutes a work of the United States Government and is not subject to domestic copyright protection under 17 USC § 105.
-
-The project utilizes code licensed under the terms of the GNU General Public License and therefore is licensed under GPL v2 or later.
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-Visit http://www.gnu.org/licenses/ to learn more about the GNU General Public License.
