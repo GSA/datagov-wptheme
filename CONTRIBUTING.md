@@ -2,7 +2,7 @@
 
 We're so glad you're thinking about contributing to Data.gov!
 
-Before contributing, we encourage you to read our CONTRIBUTING policy (you are here), our LICENSE, and our README, all of which should be in this repository. If you have any questions, you can email the Data.gov team at [datagov@gsa.gov](mailto:datagov@gsa.gov).
+Before contributing, we encourage you to read our CONTRIBUTING policy (you are here), our [LICENSE](https://github.com/GSA/data.gov/blob/master/LICENSE.md), and our [README](https://github.com/GSA/data.gov/blob/master/README.md), all of which should be in this repository. If you have any questions, you can email the Data.gov team at [datagov@gsa.gov](mailto:datagov@gsa.gov).
 
 ## Ways to Contribute
 
