@@ -1,4 +1,4 @@
-This project utilizes code form https://wordpress.org/about/gpl/. Therefore, all code and content created by WordPress is licensed under the GNU General Public License. All contributions and code added by Data.gov is licensed under the public domain license.
+This project utilizes code form https://wordpress.org/. Therefore, all code and content created by WordPress is [licensed under the GNU General Public License](https://wordpress.org/about/gpl/). All contributions and code added by Data.gov is licensed under the public domain license.
 
 ## Public Domain
 
