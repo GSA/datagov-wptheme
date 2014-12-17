@@ -9,14 +9,13 @@
 * **CKAN.** The Data.gov team recommends the [latest version of CKAN](http://ckan.org/developers/docs-and-download/).
 * **Data.gov CKAN.** The code powering the Data.gov instance of CKAN. 
     * [release-datagov](https://github.com/GSA/ckan/tree/release-datagov) - The main development branch used for the current [catalog.data.gov](catalog.data.gov).
-    * [GSA/ckanext-geodatagov](https://github.com/GSA/ckanext-geodatagov) - Most data.gov specific CKAN customizations are contained within this extension, but the extension also provides additional geospatial capabilities
+    * [GSA/ckanext-geodatagov](https://github.com/GSA/ckanext-geodatagov) - Most data.gov specific CKAN customizations are contained within this extension, but the extension also provides additional geospatial capabilities.  
 * **Extensions.** The Data.gov team has developed several CKAN extensions, but these are still in the process of being packaged for more widespread use. The [full list of installed extensions can be seen via the CKAN API](http://catalog.data.gov/api/util/status). Custom extensions include:
-    * [GSA/ckanext-datajson](https://github.com/GSA/ckanext-datajson) - A CKAN extension for [Project Open Data](project-open-data.github.io) /data.json harvesting and publishing. 
-    * [GSA/USMetadata](https://github.com/GSA/USMetadata) - A CKAN extention to support the [Project Open Data](project-open-data.github.io) metadata schema within the CKAN user interface. 
-
-* **Other Tools** 
-    * [GSA/ckan-php-client](https://github.com/GSA/ckan-php-client) - A CKAN php client for Data.gov.
-    * [GSA/ckan-php-manager](https://github.com/GSA/ckan-php-manager) - A CKAN php manager for Data.gov.    
+   * [GSA/ckanext-datajson](https://github.com/GSA/ckanext-datajson) - A CKAN extension for [Project Open Data](project-open-data.github.io) /data.json harvesting and publishing. 
+   * [GSA/USMetadata](https://github.com/GSA/USMetadata) - A CKAN extention to support the [Project Open Data](project-open-data.github.io) metadata schema within the CKAN user interface. 
+* **Other Tools**  
+   * [GSA/ckan-php-client](https://github.com/GSA/ckan-php-client) - A CKAN php client for Data.gov.
+   * [GSA/ckan-php-manager](https://github.com/GSA/ckan-php-manager) - A CKAN php manager for Data.gov.    
 * **Deployment.** We are in the process of improving documentation and hope to provide build scripts and configurations for tools like [Vagrant](http://www.vagrantup.com/) to make setting up the Data.gov CKAN easier for others.  
 
 ### WordPress
