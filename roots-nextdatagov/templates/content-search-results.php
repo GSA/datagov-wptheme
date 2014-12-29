@@ -46,7 +46,7 @@ function usasearch_display_results($query = '', $group = ''){
 
     // this the total number of results
     $res = json_decode($result_response['body']);
-
+    $res= $res->web;
     $rows = $res->total;
     echo "<div class='search-results-alert'>
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
@@ -122,6 +122,7 @@ function usasearch_display_results($query = '', $group = ''){
     $results = str_replace('\ue001','</strong>' , $results);
 
     $results = json_decode($results,true);
+    $results= $results['web'];
     if($rows > 0) {
         echo ' <div class="usasearch-results-wrap">';
         echo '<div class="search-results usasearch-results usasearch-boosted-results ">';
@@ -147,7 +148,7 @@ function usasearch_display_results($query = '', $group = ''){
         } else {
             echo '<a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
         }
-        echo '<p style="text-indent:20px;">'.$result['content'] ."<br /><br /></p>";
+        echo '<p style="text-indent:20px;">'.$result['snippet'] ."<br /><br /></p>";
     }
 
     // Display related terms
@@ -220,8 +221,9 @@ function usasearch_fetch_results($query, $group = NULL, $page = 0) {
     $query .= "&page=$page" ;
     $query .= "&index=web";
     //echo "the value of the query in usa search function is==> "."http://$action_domain/api/search.json?$query";
-    $response = wp_remote_get("https://$action_domain/api/search.json?$query");
-
+    //$response = wp_remote_get("https://$action_domain/api/search.json?$query");
+    // new Api Query
+    $response = wp_remote_get("https://$action_domain/api/v2/search?$query");
 
     return $response;
 }
