@@ -154,7 +154,7 @@ function usasearch_display_results($query = '', $group = ''){
             echo '<a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
         }
         if ($search_version=='v1'){
-            echo '<p style="text-indent:20px;">'.$result['description'] ."<br /><br /></p>";
+            echo '<p style="text-indent:20px;">'.$result['content'] ."<br /><br /></p>";
         }
         if ($search_version=='v2'){
         echo '<p style="text-indent:20px;">'.$result['snippet'] ."<br /><br /></p>";
