@@ -22,6 +22,7 @@ if(isset($query) && isset($group) && $group == 'site')
 
 
 function usasearch_display_results($query = '', $group = ''){
+    $search_version = get_site_option('search_version', '');
     $ckan_default_server = (get_option('ckan_default_server') != '') ? get_option('ckan_default_server') : 'catalog.data.gov/dataset';
     $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_server : ('//' . $ckan_default_server);
     // current page number
@@ -46,7 +47,9 @@ function usasearch_display_results($query = '', $group = ''){
 
     // this the total number of results
     $res = json_decode($result_response['body']);
+    if ($search_version=='v2'){
     $res= $res->web;
+    }
     $rows = $res->total;
     echo "<div class='search-results-alert'>
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
@@ -122,7 +125,9 @@ function usasearch_display_results($query = '', $group = ''){
     $results = str_replace('\ue001','</strong>' , $results);
 
     $results = json_decode($results,true);
+    if ($search_version=='v2'){
     $results= $results['web'];
+    }
     if($rows > 0) {
         echo ' <div class="usasearch-results-wrap">';
         echo '<div class="search-results usasearch-results usasearch-boosted-results ">';
@@ -148,7 +153,12 @@ function usasearch_display_results($query = '', $group = ''){
         } else {
             echo '<a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
         }
+        if ($search_version=='v1'){
+            echo '<p style="text-indent:20px;">'.$result['description'] ."<br /><br /></p>";
+        }
+        if ($search_version=='v2'){
         echo '<p style="text-indent:20px;">'.$result['snippet'] ."<br /><br /></p>";
+        }
     }
 
     // Display related terms
@@ -204,7 +214,7 @@ function usasearch_fetch_results($query, $group = NULL, $page = 0) {
     // Set affiliate_name from variables table, checking for a value using ternary operator.
     $affiliate_name = (get_site_option('affiliate_name') != '') ? get_site_option('affiliate_name') : '';
     $api_key = get_site_option('api_key', '') ? get_site_option('api_key', '') : '';
-
+    $search_version = get_site_option('search_version', '');
     // Convert from zero-based numbering to one-based.
     if($page != 0)
         $page = $page;
@@ -214,17 +224,27 @@ function usasearch_fetch_results($query, $group = NULL, $page = 0) {
     // TODO put site into a variable
     $scope = $group?"site:www.data.gov/$group+":"";
     //$scope = $group?"site:www.data.gov/communities+":"";
-
+    if ($search_version=='v1'){
     $query = "query=" . $scope . urlencode($query);
     $query .= "&affiliate=$affiliate_name";
     $query .= "&api_key=$api_key";
     $query .= "&page=$page" ;
     $query .= "&index=web";
-    //echo "the value of the query in usa search function is==> "."http://$action_domain/api/search.json?$query";
-    //$response = wp_remote_get("https://$action_domain/api/search.json?$query");
-    // new Api Query
-    $response = wp_remote_get("https://$action_domain/api/v2/search?$query");
 
+
+
+    //echo "the value of the query in usa search function is==> "."http://$action_domain/api/search.json?$query";
+
+        $response = wp_remote_get("https://$action_domain/api/search.json?$query");
+    }
+    // new Api Query
+    if ($search_version=='v2'){
+        $query = "query=" . $scope . urlencode($query);
+        $query .= "&affiliate=$affiliate_name";
+        $query .= "&access_key=$api_key";
+
+        $response = wp_remote_get("https://$action_domain/api/v2/search?$query");
+    }
     return $response;
 }
 ?>
