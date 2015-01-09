@@ -150,7 +150,7 @@ function usasearch_display_results($query = '', $group = ''){
         $url = $result['unescapedUrl'];
         }
         if ($search_version=='v2'){
-            $url = $result['Url'];
+            $url = $result['url'];
         }
         $parse_url = parse_url($url);
         if($parse_url["host"]=="catalog.data.gov"){
