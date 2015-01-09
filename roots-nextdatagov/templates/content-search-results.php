@@ -244,13 +244,14 @@ function usasearch_fetch_results($query, $group = NULL, $page = 0) {
     }
     // new Api Query
     if ($search_version=='v2'){
-        $page=($page-1)*20;
+        $page=($page-1)*10;
         $query = "query=" . $scope . urlencode($query);
         $query .= "&affiliate=$affiliate_name";
         $query .= "&access_key=$api_key";
         $query .= "&offset=$page";
-
-        $response = wp_remote_get("https://$action_domain/api/v2/search?$query");
+        $query .= "&limit=10";
+        //echo "https://$action_domain/api/v2/search?$query";
+        $response = wp_remote_get("https://$action_domain/api/v2/search?$query");;
     }
     return $response;
 }
