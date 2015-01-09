@@ -146,7 +146,12 @@ function usasearch_display_results($query = '', $group = ''){
     }
     foreach($results['results'] as $result){
         $title = $result['title'];
+        if ($search_version=='v1'){
         $url = $result['unescapedUrl'];
+        }
+        if ($search_version=='v2'){
+            $url = $result['Url'];
+        }
         $parse_url = parse_url($url);
         if($parse_url["host"]=="catalog.data.gov"){
             echo '<img src="'.get_bloginfo('template_directory').'/assets/img/dataset_icon.png" ><a class="search-results" href ="'.$url.'">'.$title.'</a><br />';
