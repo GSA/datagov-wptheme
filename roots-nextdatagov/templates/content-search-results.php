@@ -184,8 +184,8 @@ function usasearch_display_results($query = '', $group = ''){
     /*echo "<div class='search-results-alert'>
         <div class='results-count'>$rows results found for &#34;$query&#34;</div>
         You are searching in entire Data.gov site. Show results in <a href='" . $protocol.$ckan_default_server . "?q=" . stripslashes( $query ) . "&sort=score+desc%2C+name+asc'> list of datasets </a>. </div>";*/
-
-    $output = '<div style="text-align:right;"><img src ="../../../app/plugins/usa-search/images/binglogo_en.gif"></div>';
+    $output = "";
+    //$output = '<div style="text-align:right;"><img src ="../../../app/plugins/usa-search/images/binglogo_en.gif"></div>';
     $output .='</body></html>';
     echo $output;
 
