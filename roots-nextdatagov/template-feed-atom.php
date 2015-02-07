@@ -16,6 +16,28 @@ do_action( 'rss_tag_pre', 'atom' );
 ?>
 <title type="text"><?php bloginfo_rss('name'); wp_title_rss(); ?></title> <subtitle type="text"><?php bloginfo_rss("description") ?></subtitle> <updated><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></updated> <link rel="alternate" type="<?php bloginfo_rss('html_type'); ?>" href="<?php bloginfo_rss('url') ?>" /> <id><?php bloginfo_rss('url') ?><?php bloginfo('atom_url'); ?></id><link rel="self" type="application/atom+xml" href="<?php self_link(); ?>" />
 	<?php
+    $category_name= "";
+    if(!empty($wp_query->query['category_name']))
+        $category_name = "/".$wp_query->query['category_name'];
+    $count_posts =  $wp_query->found_posts;
+    echo '<link rel="first" href="'.get_bloginfo('url').$category_name.'/feed/atom/" ></link>'."\n";
+    $postsperpage = get_option('posts_per_rss');
+    $total_pages = ceil($count_posts/$postsperpage);
+    $currentpage = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+    if ($currentpage > $total_pages)
+        $currentpage = $total_pages;
+    if ($currentpage < 1)
+        $currentpage = 1;
+    if ($currentpage > 1) {
+        $prevpage = $currentpage - 1;
+        echo '<link rel="previous" href="'.get_bloginfo('url').$category_name.'/feed/atom?paged='.$prevpage.'" ></link>'."\n";
+
+    }
+    if ($currentpage != $total_pages) {
+        $nextpage = $currentpage + 1;
+        echo '<link rel ="next" href="'.get_bloginfo('url').$category_name.'/feed/atom?paged='.$nextpage.'" ></link>'."\n";
+        echo '<link rel ="last" href="'.get_bloginfo('url').$category_name.'/feed/atom?paged='.$total_pages.'" ></link>'."\n";
+    }
 	do_action( 'atom_head' );
 	while ( have_posts() ) : the_post();
 	?>
