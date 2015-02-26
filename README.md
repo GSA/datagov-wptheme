@@ -1,6 +1,6 @@
 # Data.gov  
 
-[Data.gov](http://data.gov) is an open data website created by the [U.S. General Services Administration](https://github.com/GSA/) that is based on two robust open source projects: [CKAN](http://ckan.org) and [WordPress](http://wordpress.org). The data catalog at [catalog.data.gov](catalog.data.gov) is powered by CKAN, while the content seen at [Data.gov](Data.gov) is powered by WordPress.  
+[Data.gov](http://data.gov) is an open data website created by the [U.S. General Services Administration](https://github.com/GSA/) that is based on two robust open source projects: [CKAN](http://ckan.org) and [WordPress](http://wordpress.org). The data catalog at [catalog.data.gov](https://catalog.data.gov) is powered by CKAN, while the content seen at [Data.gov](http://Data.gov) is powered by WordPress.  
         
 **This repository provides the [issue tracker](https://github.com/GSA/data.gov/issues) for all code, bugs, and feature requests related to Data.gov.** Currently the repository is only used for source version control on the code for the WordPress template, but you will also find pointers to the relevant CKAN code and additional resources documented below.
 
@@ -11,8 +11,8 @@
     * [release-datagov](https://github.com/GSA/ckan/tree/release-datagov) - The main development branch used for the current [catalog.data.gov](https://catalog.data.gov).
     * [GSA/ckanext-geodatagov](https://github.com/GSA/ckanext-geodatagov) - Most data.gov specific CKAN customizations are contained within this extension, but the extension also provides additional geospatial capabilities.  
 * **Extensions.** The Data.gov team has developed several CKAN extensions, but these are still in the process of being packaged for more widespread use. The [full list of installed extensions can be seen via the CKAN API](http://catalog.data.gov/api/util/status). Custom extensions include:
-   * [GSA/ckanext-datajson](https://github.com/GSA/ckanext-datajson) - A CKAN extension for [Project Open Data](project-open-data.github.io) /data.json harvesting and publishing. 
-   * [GSA/USMetadata](https://github.com/GSA/USMetadata) - A CKAN extention to support the [Project Open Data](project-open-data.github.io) metadata schema within the CKAN user interface. 
+   * [GSA/ckanext-datajson](https://github.com/GSA/ckanext-datajson) - A CKAN extension for [Project Open Data](https://project-open-data.github.io) /data.json harvesting and publishing. 
+   * [GSA/USMetadata](https://github.com/GSA/USMetadata) - A CKAN extention to support the [Project Open Data](https://project-open-data.github.io) metadata schema within the CKAN user interface. 
 * **Other Tools**  
    * [GSA/ckan-php-client](https://github.com/GSA/ckan-php-client) - A CKAN php client for Data.gov.
    * [GSA/ckan-php-manager](https://github.com/GSA/ckan-php-manager) - A CKAN php manager for Data.gov.    
@@ -23,7 +23,7 @@
 * **WordPress.** The Data.gov team recommends the [latest version of WordPress](http://wordpress.org/download/).
 * **Data.gov WordPress template.** The code powering the Data.gov WordPress template.
     * [GSA/data.gov](https://github.com/GSA/data.gov) or *this repository*. The source version control of the Data.gov WordPress template. The theme is provided in the `/themes/` folder. The theme is based on [roots.io](http://roots.io/starter-theme/).
-* **Plugins.** See the routinely updated [plugins](plugins.md) page for a list of all the plugins used on [Data.gov](Data.gov).
+* **Plugins.** See the routinely updated [plugins](plugins.md) page for a list of all the plugins used on [Data.gov](http://Data.gov).
     * [GSA/datagov-custom](https://github.com/GSA/datagov-custom) - Most data.gov specific customizations are contained within this extension
 * **Deployment.** Download the [latest version of WordPress](http://wordpress.org/download/). This is a standard WordPress install, so please refer to the [WordPress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
 
