@@ -56,7 +56,7 @@ foreach ($organizations as $organization) {
             } ?>
             <?php
             if (sizeof($organization->harvest_results)): ?>
-                <dl class="harvest-stats <?php echo $organization->name ?>">
+                <dl id="<?php echo $organization->name ?>" class="harvest-stats <?php echo $organization->name ?>">
                     <dt><?php echo $organization->title ?> </dt>
                     <?php /* echo sizeof($organization->harvest_results) ?> harvest result(s): */ ?>
                     <?php
