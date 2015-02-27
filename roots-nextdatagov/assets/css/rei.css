@@ -2105,9 +2105,6 @@ body.page.privacy-policy {
     top:-8px;
     right:-8px;
 }
-.header.banner .page-header h1 {
-    padding-bottom: 0.5em;
-}
 .topic-aapi a i:before{content:"\e600";}
 .category-header.topic-aapi span {
     margin-left: 0.5em;
