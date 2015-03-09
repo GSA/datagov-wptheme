@@ -50,11 +50,19 @@
                     </span>
             </h1>
 
-            <p class="section-intro"><a class="ext-link tooltips" href="https://opendata.stackexchange.com/questions/ask?tags=data.gov" target="_blank" title="This link will direct you to an external website that may have different content and privacy policies from Data.gov."> Ask the community </a></p>
-
+            
+                <div class="section-intro row">
+                    <div class="col-md-6">                    
+                        <a class="ext-link tooltips block-link" href="https://opendata.stackexchange.com/questions/ask?tags=data.gov" title="This link will direct you to an external website that may have different content and privacy policies from Data.gov."> Ask the community </a>                                
+                    </div>
+                    <div class="col-md-6">
+                        <a class="ext-link tooltips block-link" href="https://opendata.stackexchange.com/questions/tagged/data.gov" title="This link will direct you to an external website that may have different content and privacy policies from Data.gov."> See all Data.gov questions </a>     
+                    </div>
+                </div>
+            
 
             <?php
-            $feed  = fetch_feed( 'https://opendata.stackexchange.com/feeds/tag/data.gov' ); // specify feed url
+            $feed  = fetch_feed( 'http://opendata.stackexchange.com/feeds/tag/data.gov' ); // specify feed url
             $items = $feed->get_items( 0, 7 ); // specify first and last item
 
             if ( ! empty( $items ) ) :
@@ -72,6 +80,7 @@
                     <?php endforeach; ?>
 
                 <?php endif; ?>
+            
 
         </section>
 
@@ -83,7 +92,11 @@
                     <span>Twitter</span>
                 </h1>
 
-                <p class="section-intro">Ask us at <a href="https://twitter.com/usdatagov">@usdatagov</a></p>
+                <div class="section-intro row">
+                    <div class="col-md-12">
+                        <a class="ext-link tooltips block-link" href="https://twitter.com/usdatagov">Ask us at @usdatagov</a>     
+                    </div>           
+                </div>                     
 
                 <div class="twitter-feed">
                     <?php echo do_shortcode( '[twitter-widget username="usdatagov" items="2" hidereplies="false" title=" " showintents="false" showretweets="true"]' ) ?>
@@ -172,7 +185,7 @@
         </div>
 
         <ul class="nav contact-link">
-            <li class="col-md-12">
+            <li class="col-md-6">
                 <a href="https://github.com/GSA/data.gov/#submitting-an-issue">
                     <i class="fa fa-github"></i>
                             <span>
@@ -180,6 +193,14 @@
                             </span>
                 </a>
             </li>
+            <li class="col-md-6">
+                <a href="/issue">
+                    <i class="fa fa-exclamation-circle"></i>
+                            <span>
+                                Report a problem with a dataset
+                            </span>
+                </a>
+            </li>            
         </ul>
 
     </section>
