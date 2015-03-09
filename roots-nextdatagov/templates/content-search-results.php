@@ -72,8 +72,8 @@ function usasearch_display_results($query = '', $group = ''){
 </form><br />
     <?php
     $count = $rows > 1000 ? 1000 : $rows;
-    $total_pages = ceil( $rows / 10 );
-    $paging_info = get_paging_info($count,10,$cur_page);
+    $total_pages = ceil( $rows / 20 );
+    $paging_info = get_paging_info($count,20,$cur_page);
     if(empty ($cur_page)) $cur_page =1;
     $pager_count = "<p class='counter'>";
     $pager_count .=  "Page $cur_page of $total_pages";
@@ -144,7 +144,8 @@ function usasearch_display_results($query = '', $group = ''){
         echo '</div>';
         echo '</div>';
     }
-    foreach($results['results'] as $result){
+    $input = array_map("unserialize", array_unique(array_map("serialize", $results['results'])));
+    foreach($input as $result){
         $title = $result['title'];
         if ($search_version=='v1'){
         $url = $result['unescapedUrl'];
@@ -249,9 +250,9 @@ function usasearch_fetch_results($query, $group = NULL, $page = 0) {
         $query .= "&affiliate=$affiliate_name";
         $query .= "&access_key=$api_key";
         $query .= "&offset=$page";
-        $query .= "&limit=10";
+        $query .= "&limit=20";
         //echo "https://$action_domain/api/v2/search?$query";
-        $response = wp_remote_get("https://$action_domain/api/v2/search?$query");;
+        $response = wp_remote_get("https://$action_domain/api/v2/search?$query");
     }
     return $response;
 }
