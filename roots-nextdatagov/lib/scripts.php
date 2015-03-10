@@ -49,7 +49,7 @@ function roots_scripts() {
         'jquery',
         'wpp-frontend'
     ), '' );
-	wp_enqueue_script('Federated-Analytics', 'https://analytics.usa.gov/dap/dap.min.js', false, '' );
+	wp_enqueue_script('Federated-Analytics', 'https://analytics.usa.gov/dap/dap.min.js?agency=GSA', false, null );
 //	wp_enqueue_script('cycle_all', get_template_directory_uri() . '/assets/js/jquery.cycle.all.js', array( 'jquery' ), '' );
 }
 
