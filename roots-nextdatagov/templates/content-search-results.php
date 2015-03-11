@@ -145,7 +145,17 @@ function usasearch_display_results($query = '', $group = ''){
         echo '</div>';
     }
     $input = array_map("unserialize", array_unique(array_map("serialize", $results['results'])));
-    foreach($input as $result){
+    $usedVals = array();
+    $outArray = array();
+    foreach ($input as $arrayItem)
+    {
+        if (!in_array($arrayItem['url'],$usedVals))
+        {
+            $outArray[] = $arrayItem;
+            $usedVals[] = $arrayItem['url'];
+        }
+    }
+    foreach($outArray as $result){
         $title = $result['title'];
         if ($search_version=='v1'){
         $url = $result['unescapedUrl'];
