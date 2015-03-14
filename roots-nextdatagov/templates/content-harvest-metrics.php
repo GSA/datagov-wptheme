@@ -66,7 +66,7 @@ foreach ($organizations as $organization) {
                             <strong>Total datasets</strong> <span><?php echo $harvest->total_datasets ?></span></br >
                             <strong>Url</strong><span> <a href="<?php echo $harvest->url ?>" target="_blank"><?php echo $harvest->url ?></a></span><br/>
                             <br/><em style="font-weight: bold;">Latest Harvest Job</em><br/>
-                            <strong>Run on</strong><span><?php echo date("l, d-M-Y H:i:s T", strtotime('$harvest->gather_finished' . ' UTC') ?></span><br/>
+                            <strong>Run on</strong><span><?php echo date("l, d-M-Y H:i:s T", strtotime($harvest->gather_finished)) ?></span><br/>
                             <?php if ($harvest->errored): ?>
                                 <strong>Errors</strong> <?php echo $harvest->errored ?><br/>
                             <?php endif; ?>
