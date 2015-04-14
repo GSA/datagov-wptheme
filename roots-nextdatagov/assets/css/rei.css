@@ -1840,6 +1840,9 @@ div.tweet-date {
 .harvest-stats dd span {
     font-size: 14px;
 }
+.harvest-stats dd + dd {
+  border-top: 2px solid #8DB4D3;
+}
 .main a:focus{
     outline: 2px solid #2A6496;
     outline-offset: 2px;
