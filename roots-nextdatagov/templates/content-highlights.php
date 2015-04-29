@@ -77,8 +77,8 @@ if ( ( $highlight_posts->have_posts() ) ):
 
 								<h2 class="entry-title" style="float:left;"><?php the_title(); ?></h2>
 								<?php if ( get_post_format() == 'image' ): ?>
-									<div class="dataset-link" style="clear:none;margin:0px; width:180px; float:right;">
-										<a class="btn btn-default btn-right"
+									<div class="dataset-link btn-right" style="clear:none;margin:0px; width:180px;">
+										<a class="btn btn-default"
 										   href="<?php the_field( 'link_to_dataset' ); ?>">
 											<span class="glyphicon glyphicon-download"></span> View this Dataset
 										</a>
