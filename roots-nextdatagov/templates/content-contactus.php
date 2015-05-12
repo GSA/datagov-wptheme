@@ -186,7 +186,7 @@
 
         <ul class="nav contact-link">
             <li class="col-md-6">
-                <a href="https://github.com/GSA/data.gov/#submitting-an-issue">
+                <a href="https://github.com/GSA/data.gov/blob/master/CONTRIBUTING.md#ways-to-contribute">
                     <i class="fa fa-github"></i>
                             <span>
                                 Report a problem with the website
