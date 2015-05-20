@@ -1,7 +1,7 @@
 <article <?php post_class(); ?>>
     <header>
         <h2 class="entry-title">
-	    <a id="<?php echo 'post-title-' . get_the_ID(); ?>" href="<?php echo str_replace(home_url(), "", get_permalink()); ?>"><?php the_title(); ?></a>
+	    <a id="<?php echo 'post-title-' . get_the_ID(); ?>" href="<?php echo $post->post_name; ?>"><?php the_title(); ?></a>
 	</h2>
         <?php get_template_part('templates/entry-meta-author'); ?>
     </header>
