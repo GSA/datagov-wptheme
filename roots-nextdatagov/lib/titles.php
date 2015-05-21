@@ -67,9 +67,34 @@ function roots_title()
                     ) . '"><div><i></i></div><span>' . $parent->name . '</span></a></span> &nbsp; &mdash; &nbsp; ';
             }
 
+
             $title .= '<span class="category-header topic-' . $term->slug . '"><a href="' . home_url(
                     '/' . $parent->slug . '/' . $term->slug
                 ) . '"><div><i></i></div><span>' . $term->name . '</span></a></span>';
+
+	    // try to get the post's parent/child category/term in case the post url has been customized 
+	    // through custom_permalinks
+	    if (get_post_meta($post->ID, 'custom_permalink', true )) {
+
+		$custom_permalink          = str_replace(home_url() . '/', '', get_permalink($post->ID));
+		$custom_permalink          = explode('/', $custom_permalink);
+		$custom_permalink_category = $custom_permalink[0];
+		$custom_permalink_term     = $custom_permalink[1];
+
+		$category_exists = (term_exists($custom_permalink_category, 'category') != 0) 
+			&& term_exists($custom_permalink_category, 'category') != null; 
+
+		$term_exists = (term_exists($custom_permalink_term, '', 'category') != 0)
+			&& term_exists($custom_permalink_term, '', 'category') != null;
+
+		if ($category_exists && $term_exists) {
+                	$title .= ' &nbsp; &mdash; &nbsp; <span class="category-header topic-' .
+				$custom_permalink_child . '"><a href="' . home_url(
+                             	'/' . $custom_permalink_category . '/' . $custom_permalink_term
+                         	) . '"><div><i></i></div><span>' . $custom_permalink_term . '</span></a></span>';
+		}
+
+	    }
 
             return apply_filters('single_term_title', $title);
         } elseif (is_post_type_archive()) {
