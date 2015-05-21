@@ -135,3 +135,13 @@ if( !is_admin()){
     wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"), false, '1.11.1', false);
     wp_enqueue_script('jquery');
 }
+
+/* Generate post urls for category pages */
+function generate_post_url($post_name){
+    $request_uri = esc_url($_SERVER['REQUEST_URI']);
+
+    //remove pagination from request_uri
+    $request_uri = preg_replace('/\/page\/\d+\//i', '', $request_uri); 
+
+    return $request_uri . '/' . $post_name;	
+}
