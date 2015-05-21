@@ -141,7 +141,11 @@ function generate_post_url($post_name){
     $request_uri = esc_url($_SERVER['REQUEST_URI']);
 
     //remove pagination from request_uri
-    $request_uri = preg_replace('/\/page\/\d+\//i', '', $request_uri); 
-
-    return $request_uri . $post_name;	
+    $modified_request_uri = preg_replace('/\/page\/\d+\//i', '', $request_uri); 
+	
+    if ($request_uri == $modified_request_uri) {
+	return $post_name;
+    } else {
+        return $modified_request_uri . '/' . $post_name;	
+    }
 }
