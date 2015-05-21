@@ -143,5 +143,5 @@ function generate_post_url($post_name){
     //remove pagination from request_uri
     $request_uri = preg_replace('/\/page\/\d+\//i', '', $request_uri); 
 
-    return $request_uri . '/' . $post_name;	
+    return $request_uri . $post_name;	
 }
