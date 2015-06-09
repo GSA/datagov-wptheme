@@ -1,0 +1,2434 @@
+{
+  "taxonomies": [
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nist-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Institute of Standards and Technology",
+        "unique id": "nist-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "olc-usdoj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Office of Legal Counsel",
+        "unique id": "olc-usdoj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "state-gov",
+        "Federal Agency": "Department of State",
+        "Sub Agency": "",
+        "unique id": "state-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bjs-usdoj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Bureau of Justice Statistics",
+        "unique id": "bjs-usdoj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "do-treas-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "Departmental Offices",
+        "unique id": "do-treas-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fgdc-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "Federal Geographic Data Committee",
+        "unique id": "fgdc-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ise-gov",
+        "Federal Agency": "Information Sharing Environment",
+        "Sub Agency": "",
+        "unique id": "ise-gov ",
+        "is_cfo": ""
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nlm-nih-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "National Institute on Drug Abuse",
+        "unique id": "nlm-nih-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "omb-eop-gov",
+        "Federal Agency": "Executive Office of the President",
+        "Sub Agency": "Office of Management and Budget",
+        "unique id": "omb-eop-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "stb-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Surface Transportation Board",
+        "unique id": "stb-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "blm-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "Bureau of Land Management",
+        "unique id": "blm-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "doc-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "",
+        "unique id": "doc-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fha-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Federal Highway Administration",
+        "unique id": "fha-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ma-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Maritime Administration",
+        "unique id": "ma-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nlrb-gov",
+        "Federal Agency": "National Labor Relations Board",
+        "Sub Agency": "",
+        "unique id": "nlrb-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ondcp-eop-gov",
+        "Federal Agency": "Executive Office of the President",
+        "Sub Agency": "Office of National Drug Control Policy",
+        "unique id": "ondcp-eop-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "stl-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Rural Development",
+        "unique id": "stl-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bls-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Bureau of Labor Statistics",
+        "unique id": "bls-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "dod-gov",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "",
+        "unique id": "dod-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fhfa-gov",
+        "Federal Agency": "Federal Housing Finance Agency",
+        "Sub Agency": "",
+        "unique id": "fhfa-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "mbda-doc-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "Minority Business Development Agency",
+        "unique id": "mbda-doc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "mcc-gov",
+        "Federal Agency": "Millenium Challenge Corporation",
+        "Sub Agency": "",
+        "unique id": "mcc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "noaa-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Oceanic and Atmospheric Administration",
+        "unique id": "noaa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "onhir-gov",
+        "Federal Agency": "Office of Navajo and Hopi Indian Relocation",
+        "Sub Agency": "",
+        "unique id": "onhir-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "trade-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "International Trade Administration",
+        "unique id": "trade-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "boem-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "Bureau of Ocean Energy Management",
+        "unique id": "boem-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "doe-gov",
+        "Federal Agency": "Department of Energy",
+        "Sub Agency": "",
+        "unique id": "doe-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fincen-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "Financial Crimes Enforcement Network",
+        "unique id": "fincen-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "mint-treas-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "United States Mint",
+        "unique id": "mint-treas-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nps-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "National Park Service",
+        "unique id": "nps-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ope-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "Office of Postsecondary Education",
+        "unique id": "ope-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "treasury-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "",
+        "unique id": "treasury-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bop-doj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Bureau of Prison",
+        "unique id": "bop-doj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "doi-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "",
+        "unique id": "doi-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "flra-gov",
+        "Federal Agency": "Federal Labor Relations Authority",
+        "Sub Agency": "",
+        "unique id": "flra-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "msha-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Mine Safety and Health Administration",
+        "unique id": "msha-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nrc-gov",
+        "Federal Agency": "Nuclear Regulatory Commission",
+        "Sub Agency": "",
+        "unique id": "nrc-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "opi-gsa-gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "Office of Performance Improvement",
+        "unique id": "opi-gsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ttb-treas-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "The Alcohol and Tobacco Tax and Trade Bureau",
+        "unique id": "ttb-treas-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bpd-treas-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "Bureau of the Public Debt",
+        "unique id": "bpd-treas-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "doj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "",
+        "unique id": "doj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fmc-gov",
+        "Federal Agency": "Federal Maritime Commission",
+        "Sub Agency": "",
+        "unique id": "fmc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "mspb-gov",
+        "Federal Agency": "Merit Systems Protection Board",
+        "Sub Agency": "",
+        "unique id": "mspb-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nrcs-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Natural Resources Conservation Service",
+        "unique id": "nrcs-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "opic-gov",
+        "Federal Agency": "Overseas Private Investment Corporation",
+        "Sub Agency": "",
+        "unique id": "opic-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "tva-gov",
+        "Federal Agency": "Tennessee Valley Authority",
+        "Sub Agency": "",
+        "unique id": "tva-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "brb-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Benefits Review Board",
+        "unique id": "brb-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "",
+        "unique id": "dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fmcsa-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Federal Motor Carrier Safety Administration",
+        "unique id": "fmcsa-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fms-treas-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "Financial Management Service",
+        "unique id": "fms-treas-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nara-gov",
+        "Federal Agency": "National Archives and Records Administration",
+        "Sub Agency": "",
+        "unique id": "nara-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nsf-gov",
+        "Federal Agency": "National Science Foundation",
+        "Sub Agency": "",
+        "unique id": "nsf-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "opm-gov",
+        "Federal Agency": "Office of Personnel Management",
+        "Sub Agency": "",
+        "unique id": "opm-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "U. S. Geological Survey/BRD",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "US Geological Survey",
+        "unique id": "brd-usgs-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bts-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Bureau of Transportation Statistics",
+        "unique id": "bts-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "",
+        "unique id": "dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fmshrc-gov",
+        "Federal Agency": "Federal Mine Safety and Health Review Commission",
+        "Sub Agency": "",
+        "unique id": "fmshrc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nasa-gov",
+        "Federal Agency": "National Aeronautics and Space Administration",
+        "Sub Agency": "",
+        "unique id": "nasa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ntia-doc-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Telecommunication and Information Administration",
+        "unique id": "ntia-doc-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "os-doi-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "Office of the Solicitor",
+        "unique id": "os-doi-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "U.S. Geological Survey/WRD",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "US Geological Survey",
+        "unique id": "wrd-usgs-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "California Institute of Technology",
+        "Federal Agency": "National Aeronautics and Space Administration",
+        "Sub Agency": "Jet Propulsion Laboratory",
+        "unique id": "jpl-nasa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "dtic-mil",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "Defense Technical Information Center",
+        "unique id": "dtic-mil",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fns-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Food and Nutrition Service",
+        "unique id": "fns-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nass-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "National Agricultural Statistics Service",
+        "unique id": "nass-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ntis-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Technical Information Service",
+        "unique id": "ntis-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "osc-gov",
+        "Federal Agency": "US Office of the Special Counsel",
+        "Sub Agency": "",
+        "unique id": "osc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "US Office of Surface Mining Reclamation and Enforcement",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "Office of Surface Mining",
+        "unique id": "osmre-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ccff-gov",
+        "Federal Agency": "Christopher Columbus Fellowship Foundation",
+        "Sub Agency": "",
+        "unique id": "ccff-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "eac-gov",
+        "Federal Agency": "Election Assistance Commission",
+        "Sub Agency": "",
+        "unique id": "eac-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ecab-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Employees' Compensation Appeals Board",
+        "unique id": "ecab-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fra-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Federal Railroad Administration",
+        "unique id": "fra-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Climatic Data Center (NCDC)",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Oceanic and Atmospheric Administration",
+        "unique id": "ncdc-noaa-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ntsb-gov",
+        "Federal Agency": "National Transportation Safety Board",
+        "Sub Agency": "",
+        "unique id": "ntsb-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "osers-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "Office of Special Education and Rehabilitative Services",
+        "unique id": "osers-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "us-army-mil",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "Department of the Army",
+        "unique id": "us-army-mil",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cdc-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Centers for Disease Control and Prevention",
+        "unique id": "cdc-hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "",
+        "unique id": "ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "frb-gov",
+        "Federal Agency": "Federal Reserve Board",
+        "Sub Agency": "",
+        "unique id": "frb-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Coastal Data Development Center (NCDDC)",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Oceanic and Atmospheric Administration",
+        "unique id": "ncddc-noaa-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nws-doc-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Weather Service",
+        "unique id": "nws-doc-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "osha-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Occupational Safety and Health Administration",
+        "unique id": "osha-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "usaid-gov",
+        "Federal Agency": "US Agency for International Development",
+        "Sub Agency": "",
+        "unique id": "usaid-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "census-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "US Census Bureau",
+        "unique id": "census-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "eda-doc-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "Economic Development Administration",
+        "unique id": "eda-doc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fs-fed-us",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "US Forest Service",
+        "unique id": "fs-fed-us",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Geodetic Survey (NGS)",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Oceanic and Atmospheric Administration",
+        "unique id": "ngs-noaa-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oalj-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Office of Administrative Law Judges",
+        "unique id": "oalj-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oshrc-gov",
+        "Federal Agency": "Occupational Safety and Health Review Commission",
+        "Sub Agency": "",
+        "unique id": "oshrc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "usao-usdoj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "US Attorney's Office",
+        "unique id": "usao-usdoj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "abmc-gov",
+        "Federal Agency": "American Battle Monuments Commission",
+        "Sub Agency": "",
+        "unique id": "abmc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ceq-eop-gov",
+        "Federal Agency": "Executive Office of the President",
+        "Sub Agency": "Council on Environmental Quality",
+        "unique id": "ceq-eop-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "eeoc-gov",
+        "Federal Agency": "US Equal Employment Opportunity Commission",
+        "Sub Agency": "",
+        "unique id": "eeoc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fsa-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "Federal Student Aid",
+        "unique id": "fsa-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Geophysical Data Center (NGDC)",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Oceanic and Atmospheric Administration",
+        "unique id": "ngdc-noaa-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oasp-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Office of the Assistant Secretary for Policy",
+        "unique id": "oasp-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "osm-doi-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "Office of Surface Mining",
+        "unique id": "osm-doi-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "usbr-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "US Bureau of Reclamation",
+        "unique id": "usbr-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "acf-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Administration for Children and Families",
+        "unique id": "acf-hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cfpb-gov",
+        "Federal Agency": "Consumer Financial Protection Bureau",
+        "Sub Agency": "",
+        "unique id": "cfpb-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cftc-gov",
+        "Federal Agency": "Commodity Futures Trading Commission",
+        "Sub Agency": "",
+        "unique id": "cftc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "eia-doe-gov",
+        "Federal Agency": "Department of Energy",
+        "Sub Agency": "Energy Information Administration",
+        "unique id": "eia-doe-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fsa-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Farm Service Agency",
+        "unique id": "fsa-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Geospatial Center of Excellence",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Natural Resources Conservation Service",
+        "unique id": "ftw-usda-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "occ-treas-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "Office of the Comptroller of the Currency",
+        "unique id": "occ-treas-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ost-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Office of the Secretary of Transportation",
+        "unique id": "ost-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "uscg-mil",
+        "Federal Agency": "Department of Homeland Security",
+        "Sub Agency": "United States Coast Guard",
+        "unique id": "uscg-mil",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Add New Organization",
+        "Federal Agency": "",
+        "Sub Agency": "",
+        "unique id": "",
+        "is_cfo": ""
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "civ-usdoj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Civil Division",
+        "unique id": "civ-usdoj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "eoir-doj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Executive Office for Immigration Review",
+        "unique id": "eoir-doj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fsis-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Food Safety and Inspection Service",
+        "unique id": "fsis-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Geospatial Program",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "US Geological Survey",
+        "unique id": "ngp-usgs-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oce-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Office of the Chief Economist",
+        "unique id": "oce-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "osti-gov",
+        "Federal Agency": "Department of Energy",
+        "Sub Agency": "Office of Scientific and Technical Information",
+        "unique id": "osti-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "uscis-dhs-gov",
+        "Federal Agency": "Department of Homeland Security",
+        "Sub Agency": "U.S. Citizenship and Immigration Services",
+        "unique id": "uscis-dhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ahrq-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Agency for Healthcare Research and Quality",
+        "unique id": "ahrq-hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cjis-doj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Criminal Justice Information Services",
+        "unique id": "cjis-doj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "epa-gov",
+        "Federal Agency": "Environmental Protection Agency",
+        "Sub Agency": "",
+        "unique id": "epa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fta-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Federal Transit Administration",
+        "unique id": "fta-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Ocean Service - NOS",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "National Oceanic and Atmospheric Administration",
+        "unique id": "nos-noaa-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ocfo-gsa-gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "Office of the Chief Financial Officer",
+        "unique id": "ocfo-gsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ostp-eop-gov",
+        "Federal Agency": "Executive Office of the President",
+        "Sub Agency": "Office of Science and Technology Policy",
+        "unique id": "ostp-eop-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "",
+        "unique id": "usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ams-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Agricultural Marketing Service",
+        "unique id": "ams-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cms-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Centers for Medicare and Medicaid Services",
+        "unique id": "cms-hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ers-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Economic Research Service",
+        "unique id": "ers-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ftc-gov",
+        "Federal Agency": "Federal Trade Commission",
+        "Sub Agency": "",
+        "unique id": "ftc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Practitioner Data Bank (NPDB)",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Health Resources and Services Administration",
+        "unique id": "npdb-hrsa-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ocio-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Office of the Chief Information Officer",
+        "unique id": "ocio-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ovae-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "Office of Vocational and Adult Education",
+        "unique id": "ovae-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "usgs-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "U.S. Geological Survey",
+        "unique id": "usgs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "aoa-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Administration on Aging",
+        "unique id": "aoa-hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "aphis-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Animal and Plant Health Inspection Service",
+        "unique id": "aphis-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cns-gov",
+        "Federal Agency": "Corporation for National and Community Service",
+        "Sub Agency": "",
+        "unique id": "cns-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "esba-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Employee Benefits Security Administration",
+        "unique id": "esba-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fvap-gov",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "Federal Voting Assistance Program",
+        "unique id": "fvap-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "National Soil Survey Center (NCSS)",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Natural Resources Conservation Service",
+        "unique id": "ncss-usda-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ocr-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "Office for Civil Rights",
+        "unique id": "ocr-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "pbgc-gov",
+        "Federal Agency": "Pension Benefit Guaranty Corporation",
+        "Sub Agency": "",
+        "unique id": "pbgc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "usip-org",
+        "Federal Agency": "US Institute of Peace",
+        "Sub Agency": "",
+        "unique id": "usip-org",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Arctic Landscape Conservation Cooperative",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "US Fish and Wildlife Service",
+        "unique id": "alcc-fws-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cops-doj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Community Oriented Policing Services",
+        "unique id": "cops-doj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "eta-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Employment and Training Administration",
+        "unique id": "eta-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fws-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "US Fish and Wildlife Service",
+        "unique id": "fws-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Naval Research Lab, Stennis Space Center",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "Department of the Navy",
+        "unique id": "nrlssc-navy-mil",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ocsit-gsa-gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "Office of Citizen Services and Innovative Technologies",
+        "unique id": "ocsit-gsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "pbs-gsa-gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "Public Buildings Service",
+        "unique id": "pbs-gsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "usitc-gov",
+        "Federal Agency": "US International Trade Commission",
+        "Sub Agency": "",
+        "unique id": "usitc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Army Corps of Engineers",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "Department of the Army",
+        "unique id": "usace-army-mil",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Core Science Analytics and Synthesis - CSAS",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "US Geological Survey",
+        "unique id": "csas-usgs-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Executive Office of the President",
+        "Federal Agency": "",
+        "Sub Agency": "",
+        "unique id": "eop-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "gipsa-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Grain Inspection, Packers, and Stockyard Administration",
+        "unique id": "gipsa-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nbc-doi-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "National Business Center",
+        "unique id": "nbc-doi-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oecd-state-gov",
+        "Federal Agency": "Department of State",
+        "Sub Agency": "Organisation for Economic Cooperation and Development",
+        "unique id": "oecd-state-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Performance Analysis and Integrity",
+        "Federal Agency": "Department of Veterans Affairs",
+        "Sub Agency": "Veterans Benefits Administration",
+        "unique id": "pai-va-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "uspto-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "US Patent and Trademark Office",
+        "unique id": "uspto-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ustda-gov",
+        "Federal Agency": "US Trade and Development Agency",
+        "Sub Agency": "",
+        "unique id": "ustda-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Army National Guard",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "Department of the Army",
+        "unique id": "arng-arm-mil",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cpo-gsa-gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "Office of the Chief People Officer",
+        "unique id": "cpo-gsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "exim-gov",
+        "Federal Agency": "Export-Import Bank of the US",
+        "Sub Agency": "",
+        "unique id": "exim-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "gpo-gov",
+        "Federal Agency": "National Archives and Records Administration",
+        "Sub Agency": "Office of the Federal Register",
+        "unique id": "gpo-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nca-va-gov",
+        "Federal Agency": "Department of Veterans Affairs",
+        "Sub Agency": "National Cemetery Administration",
+        "unique id": "nca-va-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Office of Minerals Evaluation",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "",
+        "unique id": "ios-doi-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "phmsa-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Pipeline and Hazardous Materials Safety Administration",
+        "unique id": "phmsa-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ustp-usdoj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "US Trustee Program",
+        "unique id": "ustp-usdoj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ars-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Agricultural Research Service",
+        "unique id": "ars-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "cpsc-gov",
+        "Federal Agency": "US Consumer Product Safety Commission",
+        "Sub Agency": "",
+        "unique id": "cpsc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "faa-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Federal Aviation Administration",
+        "unique id": "faa-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "gsa-gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "",
+        "unique id": "gsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nces-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "National Center for Education Statistics",
+        "unique id": "nces-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Office of the Deputy Chief Management Officer",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "",
+        "unique id": "osd-mil",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "rita-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Research and Innovative Technology Administration",
+        "unique id": "rita-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ustr-eop-gov",
+        "Federal Agency": "Executive Office of the President",
+        "Sub Agency": "US Trade Representative",
+        "unique id": "ustr-eop-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ascr-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Office of Assistant Secretary for Civil Rights",
+        "unique id": "ascr-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "crt-usdoj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Civil Rights Division",
+        "unique id": "crt-usdoj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fas-gsa-gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "Federal Acquisition Service",
+        "unique id": "fas-gsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "",
+        "unique id": "hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ncpc-gov",
+        "Federal Agency": "National Capital Planning Commission",
+        "Sub Agency": "",
+        "unique id": "ncpc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oge-gov",
+        "Federal Agency": "Office of Government Ethics",
+        "Sub Agency": "",
+        "unique id": "oge-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "rma-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Risk Management Agency",
+        "unique id": "rma-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Rock Island District",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "US Army Corps of Engineers",
+        "unique id": "rid-usace-army-mil",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "va-gov",
+        "Federal Agency": "Department of Veterans Affairs",
+        "Sub Agency": "",
+        "unique id": "va-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "atl-dod-gov",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "Acquisition Technology and Logistics",
+        "unique id": "atl-dod-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "csb-gov",
+        "Federal Agency": "Chemical Safety Board",
+        "Sub Agency": "",
+        "unique id": "csb-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fas-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Foreign Agricultural Service",
+        "unique id": "fas-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "hrsa-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Health Resources and Services Administration",
+        "unique id": "hrsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nda-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "National Appeals Division",
+        "unique id": "nda-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ogp-gsa-gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "Office of Governmentwide Policy",
+        "unique id": "ogp-gsa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "rrb-gov",
+        "Federal Agency": "Railroad Retirement Board",
+        "Sub Agency": "",
+        "unique id": "rrb-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "vba-va-gov",
+        "Federal Agency": "Department of Veterans Affairs",
+        "Sub Agency": "Veterans Benefits Administration",
+        "unique id": "vba-va-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "atr-usdoj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Antitrust Division",
+        "unique id": "atr-usdoj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "csosa-gov",
+        "Federal Agency": "Court Services and Offender Supervision Agency",
+        "Sub Agency": "",
+        "unique id": "csosa-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fca-gov",
+        "Federal Agency": "Farm Credit Administration",
+        "Sub Agency": "",
+        "unique id": "fca-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "hud-gov",
+        "Federal Agency": "Department of Housing and Urban Development",
+        "Sub Agency": "",
+        "unique id": "hud-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nea-gov",
+        "Federal Agency": "National Endowment for the Arts",
+        "Sub Agency": "",
+        "unique id": "nea-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oh-hud-gov",
+        "Federal Agency": "Department of Housing and Urban Development",
+        "Sub Agency": "Office of Housing",
+        "unique id": "oh-hud-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "samhsa-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Substance Abuse and Mental Health Services Administration",
+        "unique id": "samhsa-hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "vets-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Veterans Employment and Training Service",
+        "unique id": "vets-dol-gov ",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bbg-gov",
+        "Federal Agency": "Broadcasting Board of Governors",
+        "Sub Agency": "",
+        "unique id": "bbg-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Cultural Resources GIS",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "National Park Service",
+        "unique id": "crgis-nps-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fcc-gov",
+        "Federal Agency": "Federal Communications Commission",
+        "Sub Agency": "",
+        "unique id": "fcc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ic-fbi-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Federal Bureau of Investigation",
+        "unique id": "ic-fbi-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "neh-gov",
+        "Federal Agency": "National Endowment for the Humanities",
+        "Sub Agency": "",
+        "unique id": "neh-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oha-dhs-gov",
+        "Federal Agency": "Department of Homeland Security",
+        "Sub Agency": "Office of Health Affairs",
+        "unique id": "oha-dhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "sba-gov",
+        "Federal Agency": "Small Business Administration",
+        "Sub Agency": "",
+        "unique id": "sba-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "vha-va-gov",
+        "Federal Agency": "Department of Veterans Affairs",
+        "Sub Agency": "Veterans Health Administration",
+        "unique id": "vha-va-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bea-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "Bureau of Economic Analysis",
+        "unique id": "bea-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Data.gov",
+        "Federal Agency": "General Services Administration",
+        "Sub Agency": "Office of Citizen Services and Innovative Technologies",
+        "unique id": "gsa-gov1",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fda-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "US Food and Drug Administration",
+        "unique id": "fda-hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ies-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "Institute of Education Sciences",
+        "unique id": "ies-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nga-mil",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "National Geospatial-Intelligence Agency",
+        "unique id": "nga-mil",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oha-doi-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "Office of Hearings and Appeals",
+        "unique id": "oha-doi-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oha-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "Office of Hearings and Appeals",
+        "unique id": "oha-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "sec-gov",
+        "Federal Agency": "Securities and Exchange Commission",
+        "Sub Agency": "",
+        "unique id": "sec-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "wh-eop-gov",
+        "Federal Agency": "Executive Office of the President",
+        "Sub Agency": "White House",
+        "unique id": "wh-eop-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bep-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "Bureau of Engraving and Printing",
+        "unique id": "bep-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "dhs-gov",
+        "Federal Agency": "Department of Homeland Security",
+        "Sub Agency": "",
+        "unique id": "dhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fdic-gov",
+        "Federal Agency": "Federal Deposit Insurance Corporation",
+        "Sub Agency": "",
+        "unique id": "fdic-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ihs-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "Indian Health Services",
+        "unique id": "ihs-hhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nhtsa-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "National Highway Traffice Safety Administration",
+        "unique id": "nhtsa-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "oii-ed-gov",
+        "Federal Agency": "Department of Education",
+        "Sub Agency": "Office of Innovation and Improvement",
+        "unique id": "oii-ed-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "slsdc-dot-gov",
+        "Federal Agency": "Department of Transportation",
+        "Sub Agency": "Saint Lawrence Seaway Development Corporation",
+        "unique id": "slsdc-dot-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "whd-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Wage and Hour Division",
+        "unique id": "whd-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bia-doj-gov",
+        "Federal Agency": "Department of Justice",
+        "Sub Agency": "Board of Immigration Appeals",
+        "unique id": "bia-doj-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "dla-mil",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "Defense Logistics Agency",
+        "unique id": "dla-mil",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fec-gov",
+        "Federal Agency": "Federal Election Commission",
+        "Sub Agency": "",
+        "unique id": "fec-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "imls-gov",
+        "Federal Agency": "Institute of Museum and Library Services",
+        "Sub Agency": "",
+        "unique id": "imls-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nifa-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "National Institute of Food and Agriculture",
+        "unique id": "nifa-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ois-dhs-gov",
+        "Federal Agency": "Department of Homeland Security",
+        "Sub Agency": "Office of Immigration Statistics",
+        "unique id": "ois-dhs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ssa-gov",
+        "Federal Agency": "Social Security Administration",
+        "Sub Agency": "",
+        "unique id": "ssa-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "World Wide Human Geography Data Working Group",
+        "Federal Agency": "Department of Defense",
+        "Sub Agency": "National Geospatial-Intelligence Agency",
+        "unique id": "wwhgd-nga-org",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bie-doi-gov",
+        "Federal Agency": "Department of the Interior",
+        "Sub Agency": "Bureau of Indian Education",
+        "unique id": "bie-doi-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "dm-usda-gov",
+        "Federal Agency": "Department of Agriculture",
+        "Sub Agency": "Departmental Management",
+        "unique id": "dm-usda-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "fema-gov",
+        "Federal Agency": "Department of Homeland Security",
+        "Sub Agency": "Federal Emergency Management Agency",
+        "unique id": "fema-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "Innovate Inc.",
+        "Federal Agency": "Environmental Protection Agency",
+        "Sub Agency": "",
+        "unique id": "innovateteam-com",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nigc-gov",
+        "Federal Agency": "National Indian Gaming Commission",
+        "Sub Agency": "",
+        "unique id": "nigc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ojc-dol-gov",
+        "Federal Agency": "Department of Labor",
+        "Sub Agency": "Office of Job Corps",
+        "unique id": "ojc-dol-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "sss-gov",
+        "Federal Agency": "Selective Service System",
+        "Sub Agency": "",
+        "unique id": "sss-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "bis-doc-gov",
+        "Federal Agency": "Department of Commerce",
+        "Sub Agency": "Bureau of Industry and Security",
+        "unique id": "bis-doc-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "dni-gov",
+        "Federal Agency": "Director of National Intelligence",
+        "Sub Agency": "",
+        "unique id": "dni-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ferc-gov",
+        "Federal Agency": "Federal Energy Regulatory Commission",
+        "Sub Agency": "",
+        "unique id": "ferc-gov",
+        "is_cfo": "N"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "irs-gov",
+        "Federal Agency": "Department of the Treasury",
+        "Sub Agency": "Internal Revenue Service",
+        "unique id": "irs-gov",
+        "is_cfo": "Y"
+      }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "nih-hhs-gov",
+        "Federal Agency": "Department of Health and Human Services",
+        "Sub Agency": "National Institutes of Health",
+        "unique id": "nih-hhs-gov",
+        "is_cfo": "Y"
+      }
+    }
+  ]
+}
