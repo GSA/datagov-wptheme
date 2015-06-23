@@ -74,7 +74,7 @@ function roots_title()
 
 	    // try to get the post's parent/child category/term in case the post url has been customized 
 	    // through custom_permalinks
-	    if (get_post_meta($post->ID, 'custom_permalink', true )) {
+	    if (get_post_meta($post->ID, 'custom_permalink', true ) && $parent->slug == "" && $child_slug == "") {
 
 		$custom_permalink          = str_replace(home_url() . '/', '', get_permalink($post->ID));
 		$custom_permalink          = explode('/', $custom_permalink);
