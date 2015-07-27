@@ -67,6 +67,8 @@ jQuery(document).ready(function() {
             jQuery(this).attr('aria-describedby', 'external_disclaimer');
         }
     });
+    jQuery("#tribe-bar-search").attr("placeholder", "Search Events");
+
 });
 jQuery(document).ready(function() {
 setTimeout(function() {

@@ -2116,3 +2116,5 @@ body.page.privacy-policy {
     margin: 30px 0;
     padding-bottom: 15px;
 }
+.label-tribe-bar-search,.label-tribe-bar-date{display:none !important;}
+#tribe-bar-date, #tribe-bar-search{background:#fff !important;border:1px solid #ccc !important;font-weight: normal !important; padding:10px 0px 10px 10px !important;}
