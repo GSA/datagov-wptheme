@@ -64,24 +64,41 @@
 <?php endif; ?>
 
 
-<?php if(!is_front_page()): ?>
-<div class="header banner page-heading">
-    <div class="container">
-        <div class="page-header">
-          <h1>
-            <?php echo roots_title(); ?>
-          </h1>
-          
-          <?php if (is_category() OR is_tax()): ?>          
-          <div class="tagline">
-              <?php echo category_description(); ?>
-          </div>
-          <?php endif; ?>
-          
+    <?php if (!is_front_page()): ?>
+    <div class="header banner page-heading">
+        <div class="container">
+            <div class="page-header">
+                <h1>
+                    <?php echo roots_title(); ?>
+                </h1>
+
+                <?php if (is_category() OR is_tax()): ?>
+                <div class="tagline">
+                    <?php echo category_description(); ?>
+                </div>
+                <?php endif; ?>
+                <h1>
+                    <?php if (tribe_is_month()) {
+                    echo 'Calendar Grid';
+                } else if (tribe_is_event() && !tribe_is_day() && !is_single()) {
+                    echo 'Event List';
+                } else if (tribe_is_event() && !tribe_is_day() && is_single()) {
+                    echo 'Single Event';
+                } else if (tribe_is_day()) {
+                    echo 'Single Day';
+                }
+                    ?>
+                </h1>
+                <?php if (tribe_is_upcoming()) { ?>
+                <h1 class="home">Upcoming events</h1>
+                <?php } elseif (tribe_is_past()) { ?>
+                <h1 class="home">Past events</h1>
+                <?php } ?>
+            </div>
         </div>
     </div>
-</div>
-<?php endif; ?>
+    <?php endif; ?>
+
 
 </header>
 
