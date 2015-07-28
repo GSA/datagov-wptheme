@@ -68,6 +68,7 @@ jQuery(document).ready(function() {
         }
     });
     jQuery("#tribe-bar-search").attr("placeholder", "Search Events");
+    jQuery("#tribe-bar-date").attr("placeholder", "Select a Date");
 
 });
 jQuery(document).ready(function() {
