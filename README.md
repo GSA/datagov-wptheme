@@ -10,6 +10,7 @@
 * **Data.gov CKAN.** The code powering the Data.gov instance of CKAN. 
     * [release-datagov](https://github.com/GSA/ckan/tree/release-datagov) - The main development branch used for the current [catalog.data.gov](https://catalog.data.gov).
     * [GSA/ckanext-geodatagov](https://github.com/GSA/ckanext-geodatagov) - Most data.gov specific CKAN customizations are contained within this extension, but the extension also provides additional geospatial capabilities.  
+    * [ckanext-datagovtheme](https://github.com/GSA/ckanext-datagovtheme) - The CKAN theme for catalog.data.gov
 * **Extensions.** The Data.gov team has developed several CKAN extensions, but these are still in the process of being packaged for more widespread use. The [full list of installed extensions can be seen via the CKAN API](http://catalog.data.gov/api/util/status). Custom extensions include:
    * [GSA/ckanext-datajson](https://github.com/GSA/ckanext-datajson) - A CKAN extension for [Project Open Data](https://project-open-data.github.io) /data.json harvesting and publishing. 
    * [GSA/USMetadata](https://github.com/GSA/USMetadata) - A CKAN extension to support the [Project Open Data](https://project-open-data.github.io) metadata schema within the CKAN user interface. 
