@@ -77,19 +77,19 @@
                 <?php endif; ?>
                 <h1>
                     <?php if (tribe_is_month()) {
-                    echo 'Calendar Grid';
+                    echo 'Events';
                 } else if (tribe_is_event() && !tribe_is_day() && !is_single()) {
-                    echo 'Event List';
+                    echo 'Events';
                 } else if ( is_single()) {
                     echo 'Events';
                 } else if (tribe_is_day()) {
-                    echo 'Single day event';
+                    echo 'Events';
                 }
                 else if (tribe_is_upcoming()) {
-                    echo 'Upcoming events';
+                    echo 'Events';
                 }
                 else if (tribe_is_past()) {
-                    echo 'Past events';
+                    echo 'Events';
                 }else{ echo roots_title(); }
                     ?>
                 </h1>

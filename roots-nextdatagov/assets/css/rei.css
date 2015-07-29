@@ -2118,3 +2118,4 @@ body.page.privacy-policy {
 }
 .label-tribe-bar-search,.label-tribe-bar-date{display:none !important;}
 #tribe-bar-date, #tribe-bar-search{background:#fff !important;border:1px solid #ccc !important;font-weight: normal !important; padding:10px 0px 10px 10px !important;}
+.events-list .tribe-events-loop, .single-tribe_organizer .tribe-events-loop, .single-tribe_venue .tribe-events-loop, .tribe-events-day .tribe-events-loop{max-width: none!important;}
