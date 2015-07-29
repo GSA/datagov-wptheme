@@ -80,7 +80,7 @@
                     echo 'Events';
                 } else if (tribe_is_event() && !tribe_is_day() && !is_single()) {
                     echo 'Events';
-                } else if ( is_single()) {
+                } else if ( is_singular( 'tribe_events' )) {
                     echo 'Events';
                 } else if (tribe_is_day()) {
                     echo 'Events';
