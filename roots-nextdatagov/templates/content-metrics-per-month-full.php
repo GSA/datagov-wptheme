@@ -18,6 +18,13 @@ $cat_slug = $category[0]->slug;
 <div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month - Full History </div>
 <div class="view-content">
 
+<div>
+  This report is also available for download in the following formats:
+  <a target="_blank" href="/media/federal-agency-participation-full-by-metadata_created.csv"> CSV </a> |
+  <a target="_blank" href="/media/federal-agency-participation-full-by-metadata_created.json"> JSON </a>
+  <br/><br/>
+</div>
+
 <div style="float: right;margin-left:280px;"> <?php the_content(); ?></div>
 <?php
 
