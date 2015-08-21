@@ -26,14 +26,6 @@ $cat_slug = $category[0]->slug;
 </div>
 
 <div style="float: right;margin-left:280px;"> <?php the_content(); ?>
-    <ul class="year">
-        <?php $start= 2013;
-        $current = date('Y');
-        for ($i=$start;$i<= $current; $i++){
-            echo '<li><a href="#">'.$i.'</a></li>';
-        }
-        ?>
-    </ul>
 </div>
 <?php
 
@@ -48,6 +40,14 @@ if (!$metrics) {
   echo "Data last updated on: {$metrics_sync}<br /><br />
 </div>";
   ?>
+    <ul class="year">
+        <?php $start= 2013;
+        $current = date('Y');
+        for ($i=$start;$i<= $current; $i++){
+            echo '<li><a href="#">'.$i.'</a></li>';
+        }
+        ?>
+    </ul>
 
   <table class="views-table cols-4 datasets_published_per_month_table_full">
     <thead class="datasets_published_per_month_thead">
