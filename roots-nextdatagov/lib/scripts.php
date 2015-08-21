@@ -6,7 +6,7 @@
  * 1. /theme/assets/css/main.min.css
  *
  * Enqueue scripts in the following order:
- * 1. jquery-1.11.0.min.js via Google CDN
+ * 1. jquery-1.11.3.min.js via Google CDN
  * 2. /theme/assets/js/vendor/modernizr-2.7.1.min.js
  * 3. /theme/assets/js/main.min.js (in footer)
  */
@@ -23,7 +23,7 @@ function roots_scripts() {
 	// It's kept in the header instead of footer to avoid conflicts with plugins.
 	if ( ! is_admin() && current_theme_supports( 'jquery-cdn' ) ) {
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', false, null, false );
+		wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', false, null, false );
 		add_filter( 'script_loader_src', 'roots_jquery_local_fallback', 10, 1 );
 	}
 
@@ -33,7 +33,7 @@ function roots_scripts() {
 
 	wp_register_script('respond', get_template_directory_uri() . '/assets/js/vendor/respond.min.js', false, null, false );
 	wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.1.min.js', false, null, false );
-	wp_register_script('sticky', get_template_directory_uri() . '/assets/js/vendor/jquery.sticky.js', false, null, false );	
+	wp_register_script('sticky', get_template_directory_uri() . '/assets/js/vendor/jquery.sticky.js', false, null, false );
 	wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, 'ef6b28179899ea04cf86dbbfc9223298', true );
 
 	wp_enqueue_script('respond' );
@@ -45,10 +45,10 @@ function roots_scripts() {
 			'jquery',
 			'wpp-frontend'
 		), '' );
-    wp_enqueue_script('zebra_tooltips', get_template_directory_uri() . '/assets/js/zebra_tooltips.js', array(
-        'jquery',
-        'wpp-frontend'
-    ), '' );
+//    wp_enqueue_script('zebra_tooltips', get_template_directory_uri() . '/assets/js/zebra_tooltips.js', array(
+//        'jquery',
+//        'wpp-frontend'
+//    ), '' );
 	wp_enqueue_script('Federated-Analytics', 'https://analytics.usa.gov/dap/dap.min.js?agency=GSA', false, null );
 //	wp_enqueue_script('cycle_all', get_template_directory_uri() . '/assets/js/jquery.cycle.all.js', array( 'jquery' ), '' );
 }
@@ -60,7 +60,7 @@ function roots_jquery_local_fallback( $src, $handle = null ) {
 	static $add_jquery_fallback = false;
 
 	if ( $add_jquery_fallback ) {
-		echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/js/vendor/jquery-1.11.0.min.js"><\/script>\')</script>' . "\n";
+		echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/js/vendor/jquery-1.11.3.min.js"><\/script>\')</script>' . "\n";
 		$add_jquery_fallback = false;
 	}
 
