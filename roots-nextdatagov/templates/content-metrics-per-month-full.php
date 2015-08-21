@@ -47,7 +47,7 @@ if (!$metrics) {
 </div>";
   ?>
 
-  <table class="views-table cols-4 datasets_published_per_month_table">
+  <table class="views-table cols-4 datasets_published_per_month_table_full">
     <thead class="datasets_published_per_month_thead">
     <tr class="datasets_published_per_month_row_tr_head">
       <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
