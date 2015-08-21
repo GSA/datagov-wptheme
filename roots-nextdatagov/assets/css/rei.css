@@ -2126,5 +2126,11 @@ tfoot td {
     text-align: right;
 }
 .year{list-style-type:none;width:680px;margin:0;padding:0;text-align:right;float:right;}
-.year li{display:inline;margin:0 15px;}
-.year li a.active{text-decoration:underline;}
+.year li{display:inline; padding:0 10px; border-left:1px solid #8db4d3;}
+.year li:first-child{ border-left:none;}
+.dataTables_filter input {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.year li.active{text-decoration:underline;}
+
