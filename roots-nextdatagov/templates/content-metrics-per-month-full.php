@@ -27,10 +27,12 @@ $cat_slug = $category[0]->slug;
 
 <div style="float: right;margin-left:280px;"> <?php the_content(); ?>
     <ul class="year">
-        <li><a href="">2013</a></li>
-        <li><a href="">2014</a></li>
-        <li><a href="">2015</a></li>
-
+        <?php $start= 2013;
+        $current = date('Y');
+        for ($i=$start;$i<= $current; $i++){
+            echo '<li><a href="#">'.$i.'</a></li>';
+        }
+        ?>
     </ul>
 </div>
 <?php

@@ -95,8 +95,8 @@ jQuery(document).ready(function() {
         "ordering": false
 
     } );
-
-    $('.year li').on( 'click', function (e) {
+    metrics.columns( '.hideCol' ).visible( false );
+    jQuery('.year li').on( 'click', function (e) {
         e.preventDefault();
         var year_id = "."+$(this).text();
         metrics.columns(year_id).visible(!metrics.column(year_id).visible());
