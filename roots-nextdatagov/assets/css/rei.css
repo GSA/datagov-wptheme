@@ -415,12 +415,12 @@ table.datasets_published_per_month_table thead {
     color: #FFFFFF;
 }
 
-thead th, th {
+thead th, th, tfoot {
     background-color: #8DB4D3;
     color: #FFFFFE;
 }
 
-thead th, thead td {
+thead th, thead td, tfoot td {
     padding: 10px;
     text-align: right;
 }
@@ -2119,3 +2119,9 @@ body.page.privacy-policy {
 .label-tribe-bar-search,.label-tribe-bar-date{display:none !important;}
 #tribe-bar-date, #tribe-bar-search{background:#fff !important;border:1px solid #ccc !important;font-weight: normal !important; padding:10px 0px 10px 10px !important;}
 .events-list .tribe-events-loop, .single-tribe_organizer .tribe-events-loop, .single-tribe_venue .tribe-events-loop, .tribe-events-day .tribe-events-loop{max-width: none!important;}
+.datasets_published_per_month_table_row_fields {
+    text-align: right;
+}
+tfoot td {
+    text-align: right;
+}
