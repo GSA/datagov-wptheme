@@ -88,3 +88,17 @@ jQuery("#frame_embed").on("load", function () {
     jQuery("#frame_embed").contents().find(".sub-nav").hide();
 
 });
+jQuery(document).ready(function() {
+    var metrics =  jQuery('.datasets_published_per_month_table').DataTable( {
+        // "scrollX": true,
+        "paging":   false,
+        "ordering": false
+
+    } );
+
+    $('.year li').on( 'click', function (e) {
+        e.preventDefault();
+        var year_id = "."+$(this).text();
+        metrics.columns(year_id).visible(!metrics.column(year_id).visible());
+    });
+} );
