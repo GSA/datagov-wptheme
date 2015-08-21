@@ -25,7 +25,14 @@ $cat_slug = $category[0]->slug;
   <br/><br/>
 </div>
 
-<div style="float: right;margin-left:280px;"> <?php the_content(); ?></div>
+<div style="float: right;margin-left:280px;"> <?php the_content(); ?>
+    <ul class="year">
+        <li><a href="">2013</a></li>
+        <li><a href="">2014</a></li>
+        <li><a href="">2015</a></li>
+
+    </ul>
+</div>
 <?php
 
 $metrics = get_metrics_per_month_full();
@@ -61,7 +68,12 @@ if (!$metrics) {
       echo '<th></th>';
       foreach($metrics['total_by_month'] as $date=>$value) {
         list($month, $year) = explode(' ', $date);
-        echo '<th class="datasets_published_per_month_table_head_calendar"  >';
+          if ($year == date('Y') ){
+              echo '<th class="datasets_published_per_month_table_head_calendar showCol '.$year.'"  >';
+          }
+          else{
+              echo '<th class="datasets_published_per_month_table_head_calendar hideCol '.$year.'"  >';
+          }
         echo '  <span class="datasets_published_month">'.$month.'</span><br/>';
         echo '  <span class="datasets_published_year">'.$year.'</span>';
         echo '</th>';
@@ -101,7 +113,7 @@ END;
     ?>
 
     </tbody>
-    <thead>
+    <tfoot>
     <tr>
       <td style="text-align:left; ">Total</td>
       <?php
@@ -111,7 +123,7 @@ END;
       echo '<td class="total">' . ($metrics['total'] ? number_format($metrics['total']) : '-') . '</td>';
       ?>
     </tr>
-    </thead>
+    </tfoot>
   </table>
 
   <?php
