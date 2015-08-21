@@ -44,7 +44,11 @@ if (!$metrics) {
         <?php $start= 2013;
         $current = date('Y');
         for ($i=$start;$i<= $current; $i++){
+            if ($i == $current){
+                echo '<li><a href="#" class="active">'.$i.'</a></li>';
+            }else{
             echo '<li><a href="#">'.$i.'</a></li>';
+            }
         }
         ?>
     </ul>

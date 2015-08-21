@@ -98,6 +98,7 @@ jQuery(document).ready(function() {
     metrics.columns( '.hideCol' ).visible( false );
     jQuery('.year li').on( 'click', function (e) {
         e.preventDefault();
+        jQuery(this).toggleClass("active");
         var year_id = "."+$(this).text();
         metrics.columns(year_id).visible(!metrics.column(year_id).visible());
     });
