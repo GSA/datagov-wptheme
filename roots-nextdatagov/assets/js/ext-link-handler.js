@@ -92,7 +92,8 @@ jQuery(document).ready(function() {
     var metrics =  jQuery('.datasets_published_per_month_table_full').DataTable( {
         "scrollX": true,
         "paging":   false,
-        "ordering": false
+        "ordering": false,
+        "autoWidth":false
 
     } );
     metrics.columns( '.hideCol' ).visible( false );
