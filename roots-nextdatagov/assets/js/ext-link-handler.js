@@ -90,7 +90,7 @@ jQuery("#frame_embed").on("load", function () {
 });
 jQuery(document).ready(function() {
     var metrics =  jQuery('.datasets_published_per_month_table_full').DataTable( {
-        // "scrollX": true,
+        "scrollX": true,
         "paging":   false,
         "ordering": false
 

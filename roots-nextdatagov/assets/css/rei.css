@@ -2125,7 +2125,7 @@ body.page.privacy-policy {
 tfoot td {
     text-align: right;
 }
-.year{list-style-type:none;width:680px;margin:0;padding:0;text-align:right;float:right;}
+.year{list-style-type:none;width:670px;margin:0;padding:0;text-align:right;float:right;}
 .year li{display:inline; padding:0 10px; border-left:1px solid #8db4d3;}
 .year li:first-child{ border-left:none;}
 .dataTables_filter input {
