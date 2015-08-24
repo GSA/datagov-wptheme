@@ -2132,5 +2132,5 @@ tfoot td {
     margin-left: 10px;
     margin-bottom: 10px;
 }
-.year li.active{text-decoration:underline;}
+.year li a.active{text-decoration:underline;}
 
