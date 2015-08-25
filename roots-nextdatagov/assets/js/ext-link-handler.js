@@ -88,19 +88,34 @@ jQuery("#frame_embed").on("load", function () {
     jQuery("#frame_embed").contents().find(".sub-nav").hide();
 
 });
+
 jQuery(document).ready(function() {
     var metrics =  jQuery('.datasets_published_per_month_table_full').DataTable( {
-        "scrollX": true,
         "paging":   false,
         "ordering": false,
-        "autoWidth":false
-
+        "responsive": true,
+        "stateSave": true
     } );
+    metrics.columns.adjust().draw();
     metrics.columns( '.hideCol' ).visible( false );
     jQuery('.year li').on( 'click', function (e) {
         e.preventDefault();
         jQuery(this).toggleClass("active");
+        jQuery(this).find('i').toggleClass('fa-plus-circle fa-minus-circle');
         var year_id = "."+$(this).text();
         metrics.columns(year_id).visible(!metrics.column(year_id).visible());
+        var tablewidth=jQuery('.datasets_published_per_month_table_full').width();
+        jQuery(".upscroll").css("width",tablewidth);
     });
+    jQuery( ".datasets_published_per_month_table_full" ).wrap( "<div class='scroll' style='overflow:auto;'></div>" );
+    jQuery( ".dataTables_filter" ).after( "<div class='topscroll'><div class='upscroll'></div></div>" );
+
 } );
+jQuery(function(){
+    jQuery(".topscroll").scroll(function(){
+        jQuery(".scroll").scrollLeft(jQuery(".topscroll").scrollLeft());
+    });
+    jQuery(".scroll").scroll(function(){
+        jQuery(".topscroll").scrollLeft(jQuery(".scroll").scrollLeft());
+    });
+});

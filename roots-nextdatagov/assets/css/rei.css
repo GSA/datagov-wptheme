@@ -2133,4 +2133,10 @@ tfoot td {
     margin-bottom: 10px;
 }
 .year li.active{text-decoration:underline;}
+.topscroll{width:100%;overflow:auto;}
+.upscroll{height:20px;overflow:auto;}
+.datasets_published_per_month_table_full #C_AgencyName{text-align: left}
 
+.scrol .views-field-field-creation-date{
+    text-align: left;
+}

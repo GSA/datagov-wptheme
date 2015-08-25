@@ -45,13 +45,14 @@ if (!$metrics) {
         $current = date('Y');
         for ($i=$start;$i<= $current; $i++){
             if ($i == $current){
-                echo '<li class="active"><a href="#">'.$i.'</a></li>';
+                echo '<li class="active"><a href="#"><i class="fa fa-minus-circle" style="margin-right:5px">'.$i.'</i></a></li>';
             }else{
-            echo '<li><a href="#">'.$i.'</a></li>';
+                echo '<li><a href="#"><i class="fa fa-plus-circle" style="margin-right:5px">'.$i.'</i></a></li>';
             }
         }
         ?>
     </ul>
+
 
   <table class="views-table cols-4 datasets_published_per_month_table_full">
     <thead class="datasets_published_per_month_thead">
@@ -61,12 +62,12 @@ if (!$metrics) {
       </th>
       <th
         class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col"
-        colspan="<?php echo sizeof($metrics['total_by_month']);?>" style="text-align:center"
+        colspan="<?php echo sizeof($metrics['total_by_month']);?>" style="text-align:left"
         ;> Number of Datasets published by month
       </th>
       <th
         class="views-field views-field-field-dataset-count datasets_published_per_month_table_head_fields" scope="col"
-        rowspan="2"> Total datasets
+        rowspan="2"> Total Datasets
       </th>
     </tr>
     <tr class="datasets_published_per_month_row_tr_head">
