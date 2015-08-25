@@ -45,9 +45,9 @@ if (!$metrics) {
         $current = date('Y');
         for ($i=$start;$i<= $current; $i++){
             if ($i == $current){
-                echo '<li class="active"><a href="#"><i class="fa fa-minus-circle"><span style="margin-right:5px;">'.$i.'</span></i></a></li>';
+                echo '<li class="active"><a href="#"><i class="fa fa-minus-circle"><span style="margin-left:5px;">'.$i.'</span></i></a></li>';
             }else{
-                echo '<li><a href="#"><i class="fa fa-plus-circle"><span style="margin-right:5px;">'.$i.'</span></i></a></li>';
+                echo '<li><a href="#"><i class="fa fa-plus-circle"><span style="margin-left:5px;">'.$i.'</span></i></a></li>';
             }
         }
         ?>
