@@ -2134,7 +2134,7 @@ tfoot td {
 }
 .year li.active{text-decoration:underline;}
 .topscroll{width:100%;overflow:auto;}
-.upscroll{height:20px;overflow:auto;}
+.upscroll{height:20px;}
 .datasets_published_per_month_table_full #C_AgencyName{text-align: left}
 
 .scrol .views-field-field-creation-date{

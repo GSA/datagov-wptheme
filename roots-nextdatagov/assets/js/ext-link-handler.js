@@ -90,12 +90,25 @@ jQuery("#frame_embed").on("load", function () {
 });
 
 jQuery(document).ready(function() {
-    var metrics =  jQuery('.datasets_published_per_month_table_full').DataTable( {
-        "paging":   false,
-        "ordering": false,
-        "responsive": true,
-        "stateSave": true
-    } );
+    /* Chrome fix for the scroll bar */
+    var isChrome = window.chrome;
+    if(isChrome) {
+        var metrics =  jQuery('.datasets_published_per_month_table_full').DataTable( {
+            "paging":   false,
+            "ordering": false,
+            "responsive": true,
+            "autoWidth":false
+            //"stateSave": true
+        } );
+    }else {
+        var metrics =  jQuery('.datasets_published_per_month_table_full').DataTable( {
+            "paging":   false,
+            "ordering": false,
+            "responsive": true,
+            "autoWidth":true
+            //"stateSave": true
+        } );
+    }
     metrics.columns.adjust().draw();
     metrics.columns( '.hideCol' ).visible( false );
     jQuery('.year li').on( 'click', function (e) {
