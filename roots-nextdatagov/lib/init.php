@@ -10,6 +10,7 @@ function roots_setup() {
     register_nav_menus(array(
         'primary_navigation' => __('Primary Navigation', 'roots'),
         'footer_navigation' => __('Footer Navigation', 'roots'),
+        'footer2_navigation' => __('Footer2 Navigation', 'roots'),
         'social_navigation' => __('Social Links', 'roots'),
         'topics_navigation' => __('Topics Navigation', 'roots'),
     ));

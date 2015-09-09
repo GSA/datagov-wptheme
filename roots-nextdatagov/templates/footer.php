@@ -11,6 +11,7 @@ $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_serve
 ?>
 <footer class="content-info" role="contentinfo">
 
+
     <div class="container">
 
 
@@ -26,35 +27,10 @@ $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_serve
 
 
             <div class="col-md-4 col-lg-4">
-
-                <form role="search" method="get" style="display: block;" class="search-form form-inline"
-                      action="<?php echo $ckan_default_server ?>">
-                    <div class="input-group">
-                        <label class="sr-only" for="search-footer"><?php _e('Search for:', 'roots'); ?></label>
-                        <input type="search" id="search-footer" value="<?php if (is_search()) {
-                            echo get_search_query();
-                        } ?>" name="q" class="search-field form-control"
-                               placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
-              <span class="input-group-btn">
-                <button type="submit" class="search-submit btn btn-default">
-                    <i class="fa fa-search"></i>
-                    <span class="sr-only"><?php _e('Search', 'roots'); ?></span>
-                </button>
-            </span>
-                    </div>
-                </form>
-
                 <div class="footer-logo">
                     <a class="logo-brand" href="<?php echo home_url(); ?>/" alt="Data.gov"><?php bloginfo('name'); ?></a>
                 </div>
-
             </div>
-
-            <?php if (has_nav_menu('primary_navigation')) : ?>
-                <nav class="col-md-2 col-lg-2" role="navigation">
-                    <?php wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav')); ?>
-                </nav>
-            <?php endif; ?>
 
             <?php if (has_nav_menu('footer_navigation')) :
                 //add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
@@ -64,8 +40,17 @@ $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_serve
                     wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav'));
                     ?>
                 </nav>
+
             <?php endif; ?>
 
+            <?php if (has_nav_menu('footer2_navigation')) : ?>
+                <nav class="col-md-2 col-lg-2" role="navigation">
+                    <?php
+                    wp_nav_menu(array('theme_location' => 'footer2_navigation', 'menu_class' => 'nav'));
+                    ?>
+                </nav>
+
+            <?php endif; ?>
 
             <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 social-nav">
 
@@ -124,26 +109,6 @@ $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_serve
     </div>
 </footer>
 
-<?php
-if(!get_option('SHOW_HTTPS_SURVEY')&&isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
-    true;
-} else {
-?>
 
-    <div id="survey_target" style="border:none !important;"></div>
-    <noscript>
-        <iframe src="//survey.usa.gov/surveys/161"></iframe>
-    </noscript>
-    <style>
-        .banner{border:none; padding-bottom:0px;}
-        .frontpagesearch, body.home .header.banner.pageheading {
-            border-bottom: 1px solid #CCCCCC;
-        }
-    </style>
-    <script type="text/javascript" src="//survey.usa.gov/widget/161/invitation.js?target_id=survey_target&stylesheet=<?php echo get_template_directory_uri() . '/assets/css/survey.css'; ?>"></script>
-
-<?php
-}
-?>
 
 <?php wp_footer(); ?>
