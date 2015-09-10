@@ -26,16 +26,21 @@ $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_serve
     -->
 
 
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-5 col-lg-5">
                 <div class="footer-logo">
                     <a class="logo-brand" href="<?php echo home_url(); ?>/" alt="Data.gov"><?php bloginfo('name'); ?></a>
                 </div>
+                <?php if (has_nav_menu('footer2_navigation')) :
+
+                wp_nav_menu(array('theme_location' => 'footer2_navigation', 'menu_class' => 'nav'));
+
+                 endif; ?>
             </div>
 
             <?php if (has_nav_menu('footer_navigation')) :
                 //add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
                 ?>
-                <nav class="col-md-2 col-lg-2" role="navigation">
+                <nav class="col-md-3 col-lg-3 col-md-offset-1" role="navigation">
                     <?php
                     wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav'));
                     ?>
@@ -43,16 +48,9 @@ $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_serve
 
             <?php endif; ?>
 
-            <?php if (has_nav_menu('footer2_navigation')) : ?>
-                <nav class="col-md-2 col-lg-2" role="navigation">
-                    <?php
-                    wp_nav_menu(array('theme_location' => 'footer2_navigation', 'menu_class' => 'nav'));
-                    ?>
-                </nav>
 
-            <?php endif; ?>
 
-            <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 social-nav">
+            <div class="col-md-3 col-lg-3 social-nav">
 
                 <?php
 

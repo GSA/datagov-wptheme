@@ -2140,3 +2140,21 @@ tfoot td {
 .scrol .views-field-field-creation-date{
     text-align: left;
 }
+#menu-footer2 li{
+    display:inline;
+    float:left;
+    border-left:1px solid #428bca;
+    padding:0 8px;
+}
+#menu-footer2 li a{
+    font-size:13px;
+    padding:0px;
+}
+.footer-logo a.logo-brand{
+    margin-top:0px;
+    margin-bottom:1em;
+}
+#menu-footer2 li:first-child{
+    border-left:none;
+    padding:0 8px 0 0;
+}
