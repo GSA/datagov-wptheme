@@ -26,7 +26,7 @@ $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_serve
     -->
 
 
-            <div class="col-md-5 col-lg-5">
+            <div class="col-md-6 col-lg-6">
                 <div class="footer-logo">
                     <a class="logo-brand" href="<?php echo home_url(); ?>/" alt="Data.gov"><?php bloginfo('name'); ?></a>
                 </div>
@@ -40,7 +40,7 @@ $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_serve
             <?php if (has_nav_menu('footer_navigation')) :
                 //add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
                 ?>
-                <nav class="col-md-3 col-lg-3 col-md-offset-1" role="navigation">
+                <nav class="col-md-3 col-lg-3" role="navigation">
                     <?php
                     wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav'));
                     ?>
