@@ -6,8 +6,7 @@
             <div class="sr-only skip-link">
                 <a href="#main">Jump to Content</a>
             </div>
-            <div id="external_disclaimer" class="tooltip" role="tooltip" aria-hidden="true">This link will direct you to an external website that may have different content and privacy policies from Data.gov.
-            </div>
+
 
             <div>
                 <?php if(!is_front_page()): ?>
@@ -35,6 +34,8 @@
         </nav> 
        
   </div>
+    <div id="external_disclaimer" class="tooltip" role="tooltip" aria-hidden="true">This link will direct you to an external website that may have different content and privacy policies from Data.gov.
+    </div>
 </div>
 
 <?php if(is_front_page()): ?>
