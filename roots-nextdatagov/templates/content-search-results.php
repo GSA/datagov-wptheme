@@ -40,7 +40,11 @@ function usasearch_display_results($query = '', $group = ''){
 
 
     // Check if usasearch server responds successfully.
-    if ($result_response['response']['message'] != 'OK') {
+    if (is_wp_error($result_response) || $result_response['response']['message'] != 'OK') {
+        if (is_wp_error($result_response))
+        {
+            error_log($result_response->get_error_message());
+        }
         $error = 'Error connecting to search server.';
         return $error;
     }
