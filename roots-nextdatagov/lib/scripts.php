@@ -23,7 +23,7 @@ function roots_scripts() {
 	// It's kept in the header instead of footer to avoid conflicts with plugins.
 	if ( ! is_admin() && current_theme_supports( 'jquery-cdn' ) ) {
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', false, null, false );
+		wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js', false, null, false );
 		add_filter( 'script_loader_src', 'roots_jquery_local_fallback', 10, 1 );
 	}
 
@@ -34,7 +34,7 @@ function roots_scripts() {
 	wp_register_script('respond', get_template_directory_uri() . '/assets/js/vendor/respond.min.js', false, null, false );
 	wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.1.min.js', false, null, false );
 	wp_register_script('sticky', get_template_directory_uri() . '/assets/js/vendor/jquery.sticky.js', false, null, false );
-	wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, 'ef6b28179899ea04cf86dbbfc9223298', true );
+	wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '9d9fcd0116438544d6b6908948808fc4', true );
     wp_register_script( 'datatables', 'https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js', false, null, false );
     wp_register_script( 'fixedcolumns', 'https://cdn.datatables.net/fixedcolumns/3.1.0/js/dataTables.fixedColumns.min.js', false, null, false );
     wp_register_script( 'scroller', 'https://cdn.datatables.net/scroller/1.3.0/js/dataTables.scroller.min.js', false, null, false );
@@ -68,7 +68,7 @@ function roots_jquery_local_fallback( $src, $handle = null ) {
 	static $add_jquery_fallback = false;
 
 	if ( $add_jquery_fallback ) {
-		echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/js/vendor/jquery-1.11.3.min.js"><\/script>\')</script>' . "\n";
+		echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/js/vendor/jquery-1.12.0.min.js"><\/script>\')</script>' . "\n";
 		$add_jquery_fallback = false;
 	}
 

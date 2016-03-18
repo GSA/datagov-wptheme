@@ -82,6 +82,16 @@
     height: 400px;
     overflow: scroll;
 }
+.webcontainer .webtext.overflow:after {
+    content:'';
+    width: calc(100% - 40px);
+    margin:20px;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    background:linear-gradient(transparent 50px, white);
+}
 
 .webcontainer img.scale-with-grid {
     max-width: 250px;
@@ -97,6 +107,12 @@
     vertical-align: middle;
     display:inline-block;
     height: 100%;
+}
+
+.webcontainer .apps-more {
+    position: absolute;
+    right: 20px;
+    bottom: 29px;
 }
 
 div.pagination {

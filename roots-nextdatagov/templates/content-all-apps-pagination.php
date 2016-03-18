@@ -228,13 +228,29 @@ if ($total_apps > 0) {
                 <?php printf(__('Page %1$s of %2$s'), $currentpage, $total_pages); ?>
             </p>
             <div class="pagination-controls">
-            <?php
-            customPagination($query, 'developer-apps-showcase', $currentpage, $total_pages, true);
-            ?>
+                <?php
+                customPagination($query, 'developer-apps-showcase', $currentpage, $total_pages, true);
+                ?>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="appDescription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
     <?php
 } else { ?>
     <div class="search-results-alert">
