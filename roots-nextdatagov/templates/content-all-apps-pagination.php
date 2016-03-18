@@ -227,9 +227,11 @@ if ($total_apps > 0) {
             <p class="counter">
                 <?php printf(__('Page %1$s of %2$s'), $currentpage, $total_pages); ?>
             </p>
+            <div class="pagination-controls">
             <?php
             customPagination($query, 'developer-apps-showcase', $currentpage, $total_pages, true);
             ?>
+            </div>
         </div>
     </div>
 

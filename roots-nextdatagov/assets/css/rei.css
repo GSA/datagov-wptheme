@@ -99,6 +99,14 @@
     height: 100%;
 }
 
+div.pagination {
+    width: 100%;
+}
+.pagination-controls {
+    width: 100%;
+    text-align: center;
+}
+
 /* ==========================================================================
    Styles Below are for Category-Blogs and All category Blogs
    ========================================================================== */
