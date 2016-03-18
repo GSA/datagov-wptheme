@@ -77,17 +77,26 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 .webcontainer .thumbnail {
     height: 400px;
     overflow: scroll;
 }
 
-.webcontainer img.scale-with-grid{
-    max-width: 100px;
+.webcontainer img.scale-with-grid {
+    max-width: 250px;
+    max-height: 100px;
+    vertical-align: middle;
 }
 
-.webimage {
+.webcontainer .app-icon {
     text-align: center;
+    height: 100px;
+}
+.webcontainer .middle-helper {
+    vertical-align: middle;
+    display:inline-block;
+    height: 100%;
 }
 
 /* ==========================================================================

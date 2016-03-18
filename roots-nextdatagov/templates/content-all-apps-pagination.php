@@ -188,16 +188,19 @@ if ($total_apps > 0) {
                         ?>
                         <div class="webcontainer col-md-4 col-lg-3">
                             <div class="thumbnail">
-                                <img <?php if ($apparray[$i]['image_url'] == '') { ?>
-                                    class="scale-with-grid noImage"
-                                <?php } else { ?>
-                                    class="scale-with-grid" <?php } ?>
-                                    src="<?php echo $apparray[$i]['image_url'] ?>"
-                                    <?php if ($apparray[$i]['image_alt'] == '') { ?>
-                                        alt="<?php echo $apparray[$i]['title'] ?>"
+                                <div class="app-icon">
+                                    <span class="middle-helper"></span>
+                                    <img <?php if ($apparray[$i]['image_url'] == '') { ?>
+                                        class="scale-with-grid noImage"
                                     <?php } else { ?>
-                                        alt="<?php echo $apparray[$i]['image_alt'] ?>"
-                                    <?php } ?> >
+                                        class="scale-with-grid" <?php } ?>
+                                        src="<?php echo $apparray[$i]['image_url'] ?>"
+                                        <?php if ($apparray[$i]['image_alt'] == '') { ?>
+                                            alt="<?php echo $apparray[$i]['title'] ?>"
+                                        <?php } else { ?>
+                                            alt="<?php echo $apparray[$i]['image_alt'] ?>"
+                                        <?php } ?> >
+                                </div>
                                 <div class="caption">
                                     <h4><a href="<?php
                                         echo $apparray[$i]['field_application_url']; ?>">
