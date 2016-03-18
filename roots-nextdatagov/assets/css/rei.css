@@ -99,6 +99,11 @@
     vertical-align: middle;
 }
 
+.modal-body img.scale-with-grid{
+    max-width: 350px;
+    max-height: 150px;
+}
+
 .webcontainer .app-icon {
     text-align: center;
     height: 100px;
