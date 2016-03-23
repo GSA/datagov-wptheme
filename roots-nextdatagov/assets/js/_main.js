@@ -67,7 +67,7 @@ var ExampleSite = {
             $('.Apps-wrapper .thumbnail').each(
                 function () {
                     $(this).attr('data-toggle','modal').attr('data-target','#appDescription');
-                    $(this).css('overflow', 'hidden').css('height','200px');
+                    $(this).css('overflow', 'hidden').css('height','200px').css('cursor','pointer');
                     $(this).parents('.webcontainer').removeClass('col-md-4').addClass('col-md-3');
                     var a = $('<a>').text($(this).find('h4 a').text());
                     $(this).find('h4 a').hide();
