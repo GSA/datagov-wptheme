@@ -62,27 +62,34 @@ var ExampleSite = {
             if (!$('#appDescription').length) {
                 return;
             }
-            var button = $('<button type="button" class="btn btn-primary apps-more" data-toggle="modal" ' +
-                'data-target="#appDescription">More...</button>');
-            $('.thumbnail').each(
+            // var button = $('<button type="button" class="btn btn-primary apps-more" data-toggle="modal" ' +
+            //     'data-target="#appDescription">More...</button>');
+            $('.Apps-wrapper .thumbnail').each(
                 function () {
                     $(this).css('overflow', 'hidden');
-                    if ($(this).prop('scrollHeight') > $(this).prop('offsetHeight')) {
-                        // $(this).find('.webtext').addClass('overflow');
-                        $(this).append($(button).clone());
-                    }
+                    var a = $('<a>').text($(this).find('h4 a').text())
+                        .attr('data-toggle','modal').attr('data-target','#appDescription');
+                    $(this).find('h4 a').hide();
+                    $(this).find('h4').append(a);
+                    // $(this).find('h4 a').removeAttr("href").attr('data-toggle','modal')
+                    //     .attr('data-target','#appDescription').removeAttr('external');
+                    $(this).find('.content').hide();
+                    // if ($(this).prop('scrollHeight') > $(this).prop('offsetHeight')) {
+                    //     $(this).append($(button).clone());
+                    // }
                 }
             );
             $('#appDescription').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget); // Button that triggered the modal
                 var modal = $(this);
-                var thumbnail = $(button).parent();
+                var thumbnail = $(button).parents('.thumbnail');
                 modal.find('.modal-title').text($(thumbnail).find('h4').text());
                 modal.find('.modal-body').html('');
                 modal.find('.modal-body').append(
                     $(thumbnail).find('.app-icon').clone(),
-                    $(thumbnail).find('.content').clone()
+                    $(thumbnail).find('.content').clone().show()
                 );
+                modal.find('a.go-to-app').attr('href',$(thumbnail).attr('data-app-url'));
             });
         }
     },

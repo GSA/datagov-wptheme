@@ -133,7 +133,7 @@ $total_apps = count($apparray);
 if ($total_apps > 0)
     $apparray = merged_array_sort($apparray, 'title');
 
-$apps_per_page = 12;
+$apps_per_page = 1200;
 if (isset($apparray)) {
     $total_pages = ceil($total_apps / $apps_per_page);
 } else {
@@ -186,8 +186,8 @@ if ($total_apps > 0) {
                 for ($i = $start - 1; $i < $start - 1 + $apps_per_page; $i++) {
                     if (isset($apparray[$i])) {
                         ?>
-                        <div class="webcontainer col-md-4 col-lg-3">
-                            <div class="thumbnail">
+                        <div class="webcontainer col-md-3 col-lg-3">
+                            <div class="thumbnail" data-app-url="<?php echo $apparray[$i]['field_application_url'];?>">
                                 <div class="app-icon">
                                     <span class="middle-helper"></span>
                                     <img <?php if ($apparray[$i]['image_url'] == '') { ?>
@@ -223,33 +223,37 @@ if ($total_apps > 0) {
             </div>
 
         </div>
-        <div class='pagination'>
-            <p class="counter">
-                <?php printf(__('Page %1$s of %2$s'), $currentpage, $total_pages); ?>
-            </p>
-            <div class="pagination-controls">
-                <?php
-                customPagination($query, 'developer-apps-showcase', $currentpage, $total_pages, true);
-                ?>
-            </div>
-        </div>
         <!-- Modal -->
         <div class="modal fade" id="appDescription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
                     </div>
                     <div class="modal-body">
                         ...
                     </div>
                     <div class="modal-footer">
+                        <a href="" target="_blank" class="go-to-app btn btn-primary pull-left">Go to app...</a>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
+        <?php if ($total_pages > 1): ?>
+            <div class='pagination'>
+                <p class="counter">
+                    <?php printf(__('Page %1$s of %2$s'), $currentpage, $total_pages); ?>
+                </p>
+                <div class="pagination-controls">
+                    <?php
+                    customPagination($query, 'developer-apps-showcase', $currentpage, $total_pages, true);
+                    ?>
+                </div>
+            </div>
+        <?php endif ?>
     </div>
     <?php
 } else { ?>

@@ -79,7 +79,7 @@
 }
 
 .webcontainer .thumbnail {
-    height: 400px;
+    height: 200px;
     overflow: scroll;
 }
 .webcontainer .webtext.overflow:after {
@@ -94,7 +94,7 @@
 }
 
 .webcontainer img.scale-with-grid {
-    max-width: 250px;
+    max-width: 200px;
     max-height: 100px;
     vertical-align: middle;
 }
