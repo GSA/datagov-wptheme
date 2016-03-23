@@ -202,7 +202,7 @@ if ($total_apps > 0) {
                                         <?php } ?> >
                                 </div>
                                 <div class="caption">
-                                    <h4><a href="<?php
+                                    <h4 class="text-center"><a href="<?php
                                         echo $apparray[$i]['field_application_url']; ?>">
                                             <?php echo $apparray[$i]['title']; ?>
                                         </a></h4>

@@ -66,9 +66,9 @@ var ExampleSite = {
             //     'data-target="#appDescription">More...</button>');
             $('.Apps-wrapper .thumbnail').each(
                 function () {
+                    $(this).attr('data-toggle','modal').attr('data-target','#appDescription');
                     $(this).css('overflow', 'hidden');
-                    var a = $('<a>').text($(this).find('h4 a').text())
-                        .attr('data-toggle','modal').attr('data-target','#appDescription');
+                    var a = $('<a>').text($(this).find('h4 a').text());
                     $(this).find('h4 a').hide();
                     $(this).find('h4').append(a);
                     // $(this).find('h4 a').removeAttr("href").attr('data-toggle','modal')
@@ -80,9 +80,8 @@ var ExampleSite = {
                 }
             );
             $('#appDescription').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget); // Button that triggered the modal
+                var thumbnail = $(event.relatedTarget); // Button that triggered the modal
                 var modal = $(this);
-                var thumbnail = $(button).parents('.thumbnail');
                 modal.find('.modal-title').text($(thumbnail).find('h4').text());
                 modal.find('.modal-body').html('');
                 modal.find('.modal-body').append(
