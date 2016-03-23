@@ -83,7 +83,7 @@ var ExampleSite = {
             $('#appDescription').on('show.bs.modal', function (event) {
                 var thumbnail = $(event.relatedTarget); // Button that triggered the modal
                 var modal = $(this);
-                modal.find('.modal-title').text($(thumbnail).find('h4').text());
+                modal.find('.modal-title').text($(thumbnail).find('h4 a').first().text());
                 modal.find('.modal-body').html('');
                 modal.find('.modal-body').append(
                     $(thumbnail).find('.app-icon').clone().addClass('text-center'),
