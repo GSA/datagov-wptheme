@@ -86,7 +86,7 @@ var ExampleSite = {
                 modal.find('.modal-title').text($(thumbnail).find('h4').text());
                 modal.find('.modal-body').html('');
                 modal.find('.modal-body').append(
-                    $(thumbnail).find('.app-icon').clone(),
+                    $(thumbnail).find('.app-icon').clone().addClass('text-center'),
                     $(thumbnail).find('.content').clone().show()
                 );
                 modal.find('a.go-to-app').attr('href',$(thumbnail).attr('data-app-url'));
