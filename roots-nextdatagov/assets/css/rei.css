@@ -79,7 +79,7 @@
 }
 
 .webcontainer .thumbnail {
-    height: 200px;
+    height: 400px;
     overflow: scroll;
 }
 .webcontainer .webtext.overflow:after {

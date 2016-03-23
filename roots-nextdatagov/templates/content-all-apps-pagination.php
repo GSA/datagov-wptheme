@@ -186,7 +186,7 @@ if ($total_apps > 0) {
                 for ($i = $start - 1; $i < $start - 1 + $apps_per_page; $i++) {
                     if (isset($apparray[$i])) {
                         ?>
-                        <div class="webcontainer col-md-3 col-lg-3">
+                        <div class="webcontainer col-md-4 col-lg-3">
                             <div class="thumbnail" data-app-url="<?php echo $apparray[$i]['field_application_url'];?>">
                                 <div class="app-icon">
                                     <span class="middle-helper"></span>

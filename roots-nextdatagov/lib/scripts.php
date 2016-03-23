@@ -34,7 +34,7 @@ function roots_scripts() {
 	wp_register_script('respond', get_template_directory_uri() . '/assets/js/vendor/respond.min.js', false, null, false );
 	wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.1.min.js', false, null, false );
 	wp_register_script('sticky', get_template_directory_uri() . '/assets/js/vendor/jquery.sticky.js', false, null, false );
-	wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, 'f9ed73708a6319a2f5ac2eee4e741df1', true );
+	wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, 'e5d48cd877f505ab5e8e1ff80a020091', true );
     wp_register_script( 'datatables', 'https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js', false, null, false );
     wp_register_script( 'fixedcolumns', 'https://cdn.datatables.net/fixedcolumns/3.1.0/js/dataTables.fixedColumns.min.js', false, null, false );
     wp_register_script( 'scroller', 'https://cdn.datatables.net/scroller/1.3.0/js/dataTables.scroller.min.js', false, null, false );
