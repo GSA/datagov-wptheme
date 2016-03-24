@@ -82,15 +82,16 @@
     height: 400px;
     overflow: scroll;
 }
+
 .webcontainer .webtext.overflow:after {
-    content:'';
+    content: '';
     width: calc(100% - 40px);
-    margin:20px;
-    height:100%;
-    position:absolute;
-    left:0;
-    top:0;
-    background:linear-gradient(transparent 50px, white);
+    margin: 20px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(transparent 50px, white);
 }
 
 .webcontainer img.scale-with-grid {
@@ -99,7 +100,7 @@
     vertical-align: middle;
 }
 
-.modal-body img.scale-with-grid{
+.modal-body img.scale-with-grid {
     max-width: 350px;
     max-height: 150px;
 }
@@ -108,9 +109,10 @@
     text-align: center;
     height: 100px;
 }
+
 .webcontainer .middle-helper {
     vertical-align: middle;
-    display:inline-block;
+    display: inline-block;
     height: 100%;
 }
 
@@ -120,9 +122,14 @@
     bottom: 29px;
 }
 
+.app-title a {
+    font-size: 16px;
+}
+
 div.pagination {
     width: 100%;
 }
+
 .pagination-controls {
     width: 100%;
     text-align: center;
