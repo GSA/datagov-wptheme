@@ -6,6 +6,7 @@ $term_slug = $category[0]->slug;
 <?php
 $cat_name = $category[0]->cat_name;
 $cat_slug = $category[0]->slug;
+$total = 0;
 ?>
 <?php include('category-subnav.php'); ?>
 
@@ -119,7 +120,7 @@ if ($query->have_posts()) {
                 'orderby'          => 'title',
                 'order'            => 'ASC',
                 'post_type'        => 'metric_organization',
-                'posts_per_page'   => 500,
+                'posts_per_page'   => -1,
                 'post_status'      => 'publish',
                 'suppress_filters' => true,
                 'meta_query'       => array(
@@ -144,6 +145,7 @@ if ($query->have_posts()) {
             $dataset_count = get_post_meta($post->ID, 'metric_count', true);
             $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
 
+            $total += $dataset_count;
 
             if ($dataset_count > 0) {
 
@@ -310,7 +312,7 @@ $args = array(
     'orderby'          => 'title',
     'order'            => 'ASC',
     'post_type'        => 'metric_organization',
-    'posts_per_page'   => 500,
+    'posts_per_page'   => -1,
     'post_status'      => 'publish',
     'suppress_filters' => true,
     'meta_query'       => array(
@@ -341,7 +343,7 @@ if ($query->have_posts()) {
                 'orderby'          => 'title',
                 'order'            => 'ASC',
                 'post_type'        => 'metric_organization',
-                'posts_per_page'   => 500,
+                'posts_per_page'   => -1,
                 'post_status'      => 'publish',
                 'suppress_filters' => true,
                 'meta_query'       => array(
@@ -365,6 +367,8 @@ if ($query->have_posts()) {
             $agency_title  = get_the_title();
             $dataset_count = get_post_meta($post->ID, 'metric_count', true);
             $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
+
+            $total += $dataset_count;
 
             if ($dataset_count > 0) {
 
@@ -407,6 +411,7 @@ END;
                     $dataset_count  = get_post_meta($post->ID, 'metric_count', true);
                     $last_entry     = get_post_meta($post->ID, 'metric_last_entry', true);
                     $department_lvl = get_post_meta($post->ID, 'metric_department_lvl', true);
+
                     switch (true) {
                         case (bool)$department_lvl:
                             $class = 'department-lvl';
@@ -431,13 +436,13 @@ END;
                         echo '</td>';
 
                         echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
-                        echo number_format(get_post_meta($post->ID, 'metric_count', true));
+                        echo number_format($dataset_count);
 
                         echo '</td>';
 
                         echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
-                        if (get_post_meta($post->ID, 'metric_last_entry', true)) {
-                            echo get_post_meta($post->ID, 'metric_last_entry', true);
+                        if ($last_entry) {
+                            echo $last_entry;
                         } else {
                             echo "-";
                         }
@@ -457,6 +462,8 @@ END;
 
                 $last_entry = get_post_meta($post->ID, 'metric_last_entry', true);
 
+                $total += $dataset_count;
+
                 if ($dataset_count > 0) {
 
                     echo '<tr class="datasets_published_per_month_row_tr_odd odd">';
@@ -469,12 +476,16 @@ END;
                     echo '</td>';
 
                     echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
-                    echo number_format(get_post_meta($post->ID, 'metric_count', true));
+                    echo number_format($dataset_count);
 
                     echo '</td>';
 
                     echo '<td class="datasets_published_per_month_table_row_fields" width="20%" align="right">';
-                    echo get_post_meta($post->ID, 'metric_last_entry', true);
+                    if ($last_entry) {
+                        echo $last_entry;
+                    } else {
+                        echo "-";
+                    }
                     echo '</td>';
                     echo '</tr>';
                 }
@@ -503,46 +514,8 @@ END;
             <td width="60%" style="text-align: left;">Total</td>
             <td width="20%" align="center">
                 <?php
-                $total = 0;
-
-
-                $args = array(
-                    'orderby'          => '',
-                    'order'            => 'ASC',
-                    'post_type'        => 'metric_organization',
-                    'posts_per_page'   => 500,
-                    'post_status'      => 'publish',
-                    'suppress_filters' => true
-
-
-                );
-
-                $query = new WP_Query($args);
-
-                if ($query->have_posts()) {
-
-                    while ($query->have_posts()) : $query->the_post();
-                        $parent      = get_post_meta($post->ID, 'parent_agency', true);
-                        $parent_node = get_post_meta($post->ID, 'parent_organization', true);
-                        $cfo         = get_post_meta($post->ID, 'metric_sector', true);
-                        if ($parent || !$parent_node) {
-
-                            $total = $total + get_post_meta($post->ID, 'metric_count', true);
-
-                        }
-
-
-                        ?>
-
-                    <?php endwhile; ?>
-                <?php } ?>
-
-                <?php
-
 
                 echo number_format($total);
-
-
 
                 ?> </td>
             <td width="20%" align="center">
