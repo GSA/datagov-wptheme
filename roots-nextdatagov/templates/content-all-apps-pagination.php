@@ -189,7 +189,7 @@ if ($total_apps > 0) {
                     <div class="col-md-12 text-right">
                         <br/>
                         Filtered by Agency:
-                        <a href="?" type="button" class="btn btn-primary">
+                        <a href="?<?php echo $q_prefix ?>" type="button" class="btn btn-primary">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             <?php echo $current_app_agency_obj->name; ?>
                         </a>
