@@ -64,6 +64,7 @@ $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
 <?php
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 $args_featured = array(
     's' => $query,
     'post_type' => 'Applications',
@@ -96,6 +97,17 @@ $args_nonfeatured = array(
         )
     ),
 );
+
+$current_app_agency = (get_query_var('app_agency')) ? get_query_var('app_agency') : '';
+if ($current_app_agency) {
+    $agency_tax_query = array(
+        'taxonomy' => 'application_agencies',
+        'field' => 'slug',
+        'terms' => array($current_app_agency),
+    );
+    $args_featured['tax_query'][] = $agency_tax_query;
+    $args_nonfeatured['tax_query'][] = $agency_tax_query;
+}
 
 $result_featured = new WP_Query($args_featured);
 wp_reset_query();
@@ -153,22 +165,62 @@ if ($currentpage < 1) {
 }
 $start = ($currentpage - 1) * $apps_per_page + 1;
 
+$app_agencies = get_taxonomy_hierarchy('application_agencies');
+$current_app_agency_obj = get_term_by('slug', $current_app_agency, 'application_agencies');
+
 if ($total_apps > 0) {
     ?>
     <div class="container">
-        <form style="width:100%;" action="" class="search-app navbar-left" method="get" role="search">
+        <form style="width:100%;" action="" class="search-app navbar-form navbar-left" method="get" role="search">
             <div class="input-group">
                 <label class="sr-only" for="search-app">Search for:</label>
                 <input type="search" placeholder="Search Applications" class="search-field form-control" name="q"
-                       value="" id="search-app">
-                <input type="hidden" value="score desc, name asc" name="sort">
-      <span class="input-group-btn">
-      <button class="search-submit btn btn-default" type="submit">
-          <i class="fa fa-search"></i>
-          <span class="sr-only">Search</span>
-      </button>
-    </span>
+                       value="" id="search-app"/>
+                <input type="hidden" value="score desc, name asc" name="sort"/>
+                <span class="input-group-btn">
+                    <button class="search-submit btn btn-default" type="submit"/>
+                    <i class="fa fa-search"></i>
+                    <span class="sr-only">Search</span>
+                </span>
             </div>
+            <?php if ($app_agencies): ?>
+                <?php if ($current_app_agency && $current_app_agency_obj): ?>
+                    <div class="col-md-12 text-right">
+                        <br/>
+                        Filtered by Agency:
+                        <a href="?" type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            <?php echo $current_app_agency_obj->name; ?>
+                        </a>
+                    </div>
+                <?php else: ?>
+                    <div class="col-md-12">
+                        <br/>
+                        <button type="button" class="pull-right btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            Filter by Agency <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <?php foreach ($app_agencies as $parent_agency): ?>
+                                <li <?php if ($parent_agency->slug == $current_app_agency): ?>class="active"<?php endif; ?>>
+                                    <a href="?app_agency=<?php echo $parent_agency->slug; ?>">
+                                        <?php echo $parent_agency->name; ?>
+                                    </a>
+                                </li>
+                                <?php if (sizeof($parent_agency->children)): ?>
+                                    <?php foreach ($parent_agency->children as $agency): ?>
+                                        <li <?php if ($agency->slug == $current_app_agency): ?>class="active"<?php endif; ?>>
+                                            <a href="?app_agency=<?php echo $agency->slug; ?>">
+                                                &nbsp;-&nbsp;<?php echo $agency->name; ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
         </form>
         <?php
         if (!empty($query)) {
@@ -187,7 +239,7 @@ if ($total_apps > 0) {
                     if (isset($apparray[$i])) {
                         ?>
                         <div class="webcontainer col-md-4 col-lg-3">
-                            <div class="thumbnail" data-app-url="<?php echo $apparray[$i]['field_application_url'];?>">
+                            <div class="thumbnail" data-app-url="<?php echo $apparray[$i]['field_application_url']; ?>">
                                 <div class="app-icon">
                                     <span class="middle-helper"></span>
                                     <img <?php if ($apparray[$i]['image_url'] == '') { ?>
@@ -312,5 +364,3 @@ function merged_array_sort($a, $subkey)
     }
     return $c;
 }
-
-?>
