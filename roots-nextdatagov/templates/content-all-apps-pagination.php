@@ -65,10 +65,15 @@ $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
+$per_page = -1;
+if ('local' == WP_ENV) {
+    $per_page = 2;
+}
+
 $args_featured = array(
     's' => $query,
     'post_type' => 'Applications',
-    'posts_per_page' => -1,
+    'posts_per_page' => $per_page,
     'post_status' => 'publish',
     'orderby' => 'modified',
     'tax_query' => array(
@@ -84,7 +89,7 @@ $args_featured = array(
 $args_nonfeatured = array(
     's' => $query,
     'post_type' => 'Applications',
-    'posts_per_page' => -1,
+    'posts_per_page' => $per_page,
     'post_status' => 'publish',
     'orderby' => 'modified',
     'tax_query' => array(
@@ -115,6 +120,12 @@ $featured = array();
 $i = 0;
 while ($result_featured->have_posts()) {
     $result_featured->the_post();
+    $terms = wp_get_post_terms($post->ID, 'application_agencies');
+    if ($terms) {
+        foreach ($terms as $term) {
+            $featured[$i]['agencies'][] = $term->name;
+        }
+    }
     $featured[$i]['title'] = get_the_title($post->ID);
     $featured[$i]['conent'] = get_the_content($post->ID);
     $featured[$i]['field_application_url'] = get_post_meta($post->ID, 'field_application_url', true);
@@ -130,6 +141,13 @@ $not_featured = array();
 $i = 0;
 while ($result_nonfeatured->have_posts()) {
     $result_nonfeatured->the_post();
+    $not_featured[$i]['agencies'] = array();
+    $terms = wp_get_post_terms($post->ID, 'application_agencies');
+    if ($terms) {
+        foreach ($terms as $term) {
+            $not_featured[$i]['agencies'][] = $term->name;
+        }
+    }
     $not_featured[$i]['title'] = get_the_title($post->ID);
     $not_featured[$i]['conent'] = get_the_content($post->ID);
     $not_featured[$i]['field_application_url'] = get_post_meta($post->ID, 'field_application_url', true);
@@ -264,6 +282,11 @@ if ($total_apps > 0) {
                                         <div class="webtext">
                                             <?php echo $apparray[$i]['conent']; ?>
                                         </div>
+                                        <?php if (sizeof($apparray[$i]['agencies'])):?>
+                                        <div class="app-agencies">
+                                            Agencies: <i><?php echo join('; ',$apparray[$i]['agencies'])?></i>
+                                        </div>
+                                        <?php endif;?>
                                     </div>
                                 </div>
                             </div>

@@ -62,6 +62,11 @@ var ExampleSite = {
             if (!$('#appDescription').length) {
                 return;
             }
+            // var app_icon = $('<span>').addClass('glyphicon glyphicon-phone').attr('aria-hidden', true);
+            $('.app-icon img.scale-with-grid').error(function(){
+                // $(this).replaceWith(app_icon.clone());
+                $(this).hide();
+            });
             $('.Apps-wrapper .thumbnail').each(
                 function () {
                     $(this).attr('data-toggle', 'modal').attr('data-target', '#appDescription');
