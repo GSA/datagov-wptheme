@@ -284,7 +284,10 @@ if ($total_apps > 0) {
                                         </div>
                                         <?php if (sizeof($apparray[$i]['agencies'])):?>
                                         <div class="app-agencies">
-                                            Agencies: <i><?php echo join('; ',$apparray[$i]['agencies'])?></i>
+                                            <br />
+                                            <small>
+                                                Agencies: <i><?php echo join('; ',$apparray[$i]['agencies'])?></i>
+                                            </small>
                                         </div>
                                         <?php endif;?>
                                     </div>
