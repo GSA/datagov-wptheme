@@ -185,7 +185,8 @@ $start = ($currentpage - 1) * $apps_per_page + 1;
 
 $app_agencies = get_taxonomy_hierarchy('application_agencies');
 $current_app_agency_obj = get_term_by('slug', $current_app_agency, 'application_agencies');
-$q_prefix = $query ? 'q='.$query.'&' : '';
+
+$q_prefix = $query ? 'q=' . $query . '&' : '';
 
 if ($total_apps > 0) {
     ?>
@@ -221,18 +222,27 @@ if ($total_apps > 0) {
                         </button>
                         <ul class="dropdown-menu pull-right">
                             <?php foreach ($app_agencies as $parent_agency): ?>
-                                <li <?php if ($parent_agency->slug == $current_app_agency): ?>class="active"<?php endif; ?>>
+                                <li>
                                     <a href="?<?php echo $q_prefix ?>app_agency=<?php echo $parent_agency->slug; ?>">
-                                        <?php echo $parent_agency->name; ?>
+                                        <strong><?php echo $parent_agency->name; ?></strong>
                                     </a>
                                 </li>
                                 <?php if (sizeof($parent_agency->children)): ?>
                                     <?php foreach ($parent_agency->children as $agency): ?>
-                                        <li <?php if ($agency->slug == $current_app_agency): ?>class="active"<?php endif; ?>>
+                                        <li>
                                             <a href="?<?php echo $q_prefix ?>app_agency=<?php echo $agency->slug; ?>">
-                                                &nbsp;-&nbsp;<?php echo $agency->name; ?>
+                                                &nbsp;&ndash;&nbsp;<?php echo $agency->name; ?>
                                             </a>
                                         </li>
+                                        <?php if (sizeof($agency->children)): ?>
+                                            <?php foreach ($agency->children as $grandchild): ?>
+                                                <li>
+                                                    <a href="?<?php echo $q_prefix ?>app_agency=<?php echo $grandchild->slug; ?>">
+                                                        <em>&nbsp;&nbsp;&mdash;&nbsp;<?php echo $grandchild->name; ?></em>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        <? endif; ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
@@ -282,14 +292,14 @@ if ($total_apps > 0) {
                                         <div class="webtext">
                                             <?php echo $apparray[$i]['conent']; ?>
                                         </div>
-                                        <?php if (sizeof($apparray[$i]['agencies'])):?>
-                                        <div class="app-agencies">
-                                            <br />
-                                            <small>
-                                                Agencies: <i><?php echo join('; ',$apparray[$i]['agencies'])?></i>
-                                            </small>
-                                        </div>
-                                        <?php endif;?>
+                                        <?php if (sizeof($apparray[$i]['agencies'])): ?>
+                                            <div class="app-agencies">
+                                                <br/>
+                                                <small>
+                                                    Agencies: <i><?php echo join('; ', $apparray[$i]['agencies']) ?></i>
+                                                </small>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
