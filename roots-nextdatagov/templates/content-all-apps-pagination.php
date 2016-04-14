@@ -242,7 +242,7 @@ if ($total_apps > 0) {
                                                     </a>
                                                 </li>
                                             <?php endforeach; ?>
-                                        <? endif; ?>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
