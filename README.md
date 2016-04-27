@@ -24,7 +24,7 @@
 * **WordPress.** The Data.gov team recommends the [latest version of WordPress](http://wordpress.org/download/).
 * **Data.gov WordPress template.** The code powering the Data.gov WordPress template.
     * [GSA/data.gov](https://github.com/GSA/data.gov) or *this repository*. The source version control of the Data.gov WordPress template. The theme is provided in the `/themes/` folder. The theme is based on [roots.io](http://roots.io/starter-theme/).
-* **Plugins.** See the routinely updated [plugins](plugins.md) page for a list of all the plugins used on [Data.gov](http://Data.gov).
+* **Plugins.** See the routinely updated [plugins](plugins.md) page for a list of all the plugins used on [Data.gov](https://www.data.gov/).
     * [GSA/datagov-custom](https://github.com/GSA/datagov-custom) - Most data.gov specific customizations are contained within this extension
 * **Deployment.** Download the [latest version of WordPress](http://wordpress.org/download/). This is a standard WordPress install, so please refer to the [WordPress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
 
@@ -35,8 +35,8 @@
 * **Communications.** Communication and publishing systems that power Data.gov.
     * [GSA/idm](https://github.com/GSA/idm) - Identity Management for Data.gov and related systems. 
     * [GSA/open311-simple-crm](https://github.com/GSA/open311-simple-crm) - A simple CRM application built with the Open311 API. 
-* **Harvest Tools.** Tools to support Data.gov harvesting and compliance with the format and metadata schema requirements of Project Open Data. *Learn more at [Project Open Data](project-open-data.cio.gov).*
-    * [GSA/enterprise-data-inventory](https://github.com/GSA/enterprise-data-inventory) - A CKAN based enterprise data management system for private and public data management available at [inventory.data.gov](inventory.data.gov).
+* **Harvest Tools.** Tools to support Data.gov harvesting and compliance with the format and metadata schema requirements of Project Open Data. *Learn more at [Project Open Data](https://project-open-data.cio.gov/).*
+    * [GSA/enterprise-data-inventory](https://github.com/GSA/enterprise-data-inventory) - A CKAN based enterprise data management system for private and public data management available at [inventory.data.gov](https://inventory.data.gov/).
     * [GSA/project-open-data-dashboard](https://github.com/GSA/project-open-data-dashboard) - An automated dashboard assessing agency and department compliance with Project Open Data.
 * **Style Guide.** A content style guide for Data.gov.
     * [GSA/data.gov-styleguide](https://github.com/GSA/data.gov-styleguide) - A Style Guide for prose on Data.gov, heavily inspired by UK.gov's style guide.
