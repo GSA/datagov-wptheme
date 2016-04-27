@@ -12,10 +12,10 @@
 @font-face {
   font-family: "datagov-icons";
   src: url("../fonts/datagov-icons.eot");
-  src: url("../fonts/datagov-icons.eot?#iefix") format("embedded-opentype"), 
-       url("../fonts/datagov-icons.woff") format("woff"), 
-       url("../fonts/datagov-icons.ttf") format("truetype"), 
-       url("../fonts/datagov-icons.svg#datagov-icons") format("svg");
+  src: url("../fonts/datagov-icons.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/datagov-icons.woff") format("woff"),
+  url("../fonts/datagov-icons.ttf") format("truetype"),
+  url("../fonts/datagov-icons.svg#datagov-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -52,7 +52,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 /* ==========================================================================
    Header
    ========================================================================== */
-
 
 .navbar-brand,
 .logo-brand {
@@ -162,7 +161,7 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 
 .navbar-default ul#menu-primary-navigation.nav.navbar-nav > li.active a,
 .navbar-default ul#menu-primary-navigation.nav.navbar-nav > li a:hover,
-.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li a:focus, {
+.navbar-default ul#menu-primary-navigation.nav.navbar-nav > li a:focus {
   background-color: #fff !important;
   border-bottom: 5px solid @blue-gray-light;
   color: @blue-lightblue;
@@ -185,54 +184,50 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
   a {
     color: @blue-darkblue;
     border-bottom: 5px solid @blue-lightestblue;
-  
+
     .active {
       border-bottom: 5px solid @blue-gray-lightish;
-    }  
+    }
 
   }
 
-  nav li a:hover, 
+  nav li a:hover,
   nav li a.active {
     background-color: @blue-lightestblue;
     border-bottom: 5px solid @blue-gray-lightish;
   }
 
   .nav.navbar-nav li a {
-    padding-bottom : 9px;
+    padding-bottom: 9px;
   }
-
 
   .dropdown-menu {
 
     a, li.active a {
 
-      border-bottom : 0;
+      border-bottom: 0;
 
       .active, &:hover {
-        border-bottom : 0;    
+        border-bottom: 0;
       }
     }
 
     li a {
-      padding : .75em 1em;
-    }    
+      padding: .75em 1em;
+    }
 
     li.active a {
       background-color: @gray-lighter;
-      color : #000;   
+      color: #000;
 
       &:hover {
         background-color: @blue-lightestblue;
-      }   
+      }
     }
 
   }
 
 }
-
-
-
 
 /* ==========================================================================
     Icons
@@ -257,124 +252,140 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
 .topic-business a i:before {
   content: "\e000";
 }
+
 .topic-cities a i:before {
   content: "\e001";
 }
+
 .topic-climate a i:before {
   content: "\e002";
 }
+
 .topic-consumer a i:before {
   content: "\e003";
 }
+
 .topic-counties a i:before {
   content: "\e004";
 }
+
 .topic-developers a i:before {
   content: "\e005";
 }
+
 .topic-development a i:before {
   content: "\e006";
 }
+
 .topic-education a i:before {
   content: "\e007";
 }
+
 .topic-energy a i:before {
   content: "\e008";
 }
+
 .topic-ethics a i:before {
   content: "\e009";
 }
+
 .topic-finance a i:before {
   content: "\e00a";
 }
+
 .topic-food a i:before {
   content: "\e00b";
 }
+
 .topic-geospatial a i:before {
   content: "\e00c";
 }
+
 .topic-health a i:before {
   content: "\e00d";
 }
+
 .topic-highlights a i:before,
 .topic-impact a i:before {
   content: "\e00e";
 }
+
 .topic-jobs-and-skills a i:before {
   content: "\e00f";
 }
+
 .topic-law a i:before {
   content: "\e010";
 }
+
 .topic-manufacturing a i:before {
   content: "\e011";
 }
+
 .topic-ocean a i:before {
   content: "\e012";
 }
+
 .topic-research a i:before {
   content: "\e013";
 }
+
 .topic-safety a i:before {
   content: "\e014";
 }
-.topic-states a i:before, 
+
+.topic-states a i:before,
 .topic-local a i:before {
   content: "\e015";
 }
+
 .topic-weather a i:before {
   content: "\e016";
 }
+
 .topic-ecosystems a i:before {
   content: "\e017";
 }
 
-
-
-.category-header.topic-business, 
-.category-header.topic-cities, 
-.category-header.topic-climate, 
+.category-header.topic-business,
+.category-header.topic-cities,
+.category-header.topic-climate,
 .category-header.topic-consumer,
-.category-header.topic-counties, 
-.category-header.topic-developers, 
-.category-header.topic-development, 
-.category-header.topic-education, 
-.category-header.topic-energy, 
-.category-header.topic-ethics, 
-.category-header.topic-finance, 
-.category-header.topic-food, 
-.category-header.topic-geospatial, 
-.category-header.topic-health, 
-.category-header.topic-highlights, 
-.category-header.topic-impact, 
-.category-header.topic-jobs-and-skills, 
+.category-header.topic-counties,
+.category-header.topic-developers,
+.category-header.topic-development,
+.category-header.topic-education,
+.category-header.topic-energy,
+.category-header.topic-ethics,
+.category-header.topic-finance,
+.category-header.topic-food,
+.category-header.topic-geospatial,
+.category-header.topic-health,
+.category-header.topic-highlights,
+.category-header.topic-impact,
+.category-header.topic-jobs-and-skills,
 .category-header.topic-law
-.category-header.topic-manufacturing, 
-.category-header.topic-ocean, 
-.category-header.topic-research, 
-.category-header.topic-safety, 
-.category-header.topic-states, 
-.category-header.topic-weather, 
+.category-header.topic-manufacturing,
+.category-header.topic-ocean,
+.category-header.topic-research,
+.category-header.topic-safety,
+.category-header.topic-states,
+.category-header.topic-weather,
 .category-header.topic-ecosystems {
 
   div {
-      margin-right : 1em;
+    margin-right: 1em;
   }
-    
-      
+
   i {
-      width: 20px;
+    width: 20px;
   }
-    
 
   span {
     margin-left: .5em;
   }
-   
 
 }
-
-
 
 .more-link a {
   outline: 0;
@@ -406,9 +417,6 @@ ul.navbar-nav#menu-primary-navigation.nav > li > a {
   .fa;
   .fa-plus-circle;
 }
-
-
-
 
 /* ==========================================================================
    Topic Browse
@@ -449,7 +457,7 @@ ul.topics {
     a span {
       display: block;
       width: 100px;
-      font-size : 15px;
+      font-size: 15px;
       word-wrap: break-word;
     }
 
@@ -471,7 +479,6 @@ ul.topics {
 
 }
 
-
 /* ==========================================================================
    Browse topics dropdown menu
    ========================================================================== */
@@ -481,7 +488,7 @@ ul.topics {
 }
 
 .yamm ul.dropdown-menu.topics {
-  padding-bottom : 1.5em;
+  padding-bottom: 1.5em;
 }
 
 .yamm .dropdown-menu li {
@@ -501,7 +508,7 @@ ul.topics {
     padding-top: 20px;
     font-size: 50px;
     height: 75px;
-    width : 75px;
+    width: 75px;
   }
 
   a span {
@@ -519,8 +526,6 @@ ul.topics {
 
 }
 
-
-
 /* ==========================================================================
    Search
    ========================================================================== */
@@ -530,7 +535,6 @@ ul.topics {
 }
 
 div.frontpage-search {
-
 
   padding: 2em 0;
 
@@ -615,32 +619,27 @@ div.frontpage-search {
   padding: 2em 0;
 }
 
-
 /*  ==========================================================================
     Topic Headers
     ========================================================================== */
 
 .page-header .category-header a {
 
-
   i {
-    font-size : 35px;
+    font-size: 35px;
   }
 
   div {
-    float : left;
-    text-align : left;
+    float: left;
+    text-align: left;
     vertical-align: middle;
   }
 
   span {
-    padding-top : 8px;
+    padding-top: 8px;
   }
 
 }
-
-
-
 
 /* ==========================================================================
    Content
@@ -685,7 +684,7 @@ header .header.banner.page-heading {
 
 .page-header {
   padding-bottom: 0;
-  margin: @line-height-computed 0 ;
+  margin: @line-height-computed 0;
   border-bottom: none;
 
   h1 {
@@ -697,9 +696,8 @@ header .header.banner.page-heading {
 }
 
 body.category .page-header h1 {
-   padding-bottom: .5em;
+  padding-bottom: .5em;
 }
-
 
 .header.banner .page-header h1 {
   border: 0;
@@ -728,7 +726,7 @@ body.category .page-header h1 {
 
 #highlights.wrap-lightblue .page-header,
 #highlights.wrap-lightblue header,
-#highlights.wrap-lightblue article, {
+#highlights.wrap-lightblue article {
   color: #fff;
 }
 
@@ -761,7 +759,7 @@ body.category .page-header h1 {
     text-decoration: none;
 
     span {
-      text-decoration : underline;
+      text-decoration: underline;
     }
 
   }
@@ -778,17 +776,6 @@ body.category .page-header h1 {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==========================================================================
    Special Post Formats
@@ -956,7 +943,7 @@ body.single .entry-content .inline-image {
 }
 
 .btn-right {
-		float: right;
+  float: right;
 }
 
 article.hentry,
@@ -1089,187 +1076,174 @@ article.hentry,
 }
 
 .content .main .highlights-listing .category-header {
-  font-size : 1.25em !important;
-  margin : 0 !important;
+  font-size: 1.25em !important;
+  margin: 0 !important;
 }
-
 
 /* ==========================================================================
    Impact Section
    ========================================================================== */
 
-
 ul#impact-topics {
-  background-color : #fff;
-  z-index : 10;
-  width : 100%;
-  padding : 0 0 1em 0;
+  background-color: #fff;
+  z-index: 10;
+  width: 100%;
+  padding: 0 0 1em 0;
 }
-
 
 .category-impact .content {
 
   ul.topics {
 
-    text-align : left;
+    text-align: left;
     margin-bottom: 5em;
-  
+
     li {
       text-align: center;
 
       a {
-        margin : 0;
+        margin: 0;
 
         i {
-          font-size : 45px;
-          height : 70px;
-          width : 70px;
+          font-size: 45px;
+          height: 70px;
+          width: 70px;
         }
 
         span {
-          width : 110px;
-          font-size : .85em;
+          width: 110px;
+          font-size: .85em;
         }
 
-      }      
+      }
     }
   }
 }
 
-.term-highlights .content, 
+.term-highlights .content,
 .category-impact .content {
 
   .main .category-header {
-    border-bottom : 1px solid #eee;
-    margin-bottom : 2em;    
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2em;
 
     a {
-      padding-top : 2em;
-      outline : none;
+      padding-top: 2em;
+      outline: none;
 
       span {
-        font-size : 1.25em;
-        padding-bottom : .25em;
+        font-size: 1.25em;
+        padding-bottom: .25em;
       }
 
       i {
-        color : @blue-darkblue;
-        font-size : 1.5em;
-        margin-right : .25em;
-        float : left;
-      }      
+        color: @blue-darkblue;
+        font-size: 1.5em;
+        margin-right: .25em;
+        float: left;
+      }
 
     }
 
     a:active {
-      outline : none;
+      outline: none;
     }
 
   }
 
-
 }
-
 
 .impact-body {
-  font-size : 1.25em;
+  font-size: 1.25em;
 }
-
 
 @media (min-width: @screen-md-min) {
 
   .impact-body {
-    font-size : 2em;
+    font-size: 2em;
   }
 
 }
 
 .impact-meta-list {
-margin-bottom : 1em;
+  margin-bottom: 1em;
 }
-
 
 .impact-post {
 
-  margin-bottom : 9em;
+  margin-bottom: 9em;
 
   .impact-meta .meta-heading {
 
-    margin : 1em 0 0 0;
-    padding-bottom : .2em;
-    color : @blue-midblue;
-  
+    margin: 1em 0 0 0;
+    padding-bottom: .2em;
+    color: @blue-midblue;
+
     i {
-      margin-right : .3em;
-      width : 1em;
-    }  
+      margin-right: .3em;
+      width: 1em;
+    }
 
   }
 
   .meta-content {
-    padding-left : 1.5em;
-  } 
+    padding-left: 1.5em;
+  }
 
   .impact-title .meta-heading {
-    margin-top : .5em;
-    border-bottom : 2px solid @blue-gray-lightish;
+    margin-top: .5em;
+    border-bottom: 2px solid @blue-gray-lightish;
 
     a {
 
       i {
-        color : @gray-lightish;
-        font-size : .75em;
+        color: @gray-lightish;
+        font-size: .75em;
       }
 
       span {
-        color : @blue-darkblue;
-        font-weight : bold;
-        display : inline-block;
-        width : 85%;
+        color: @blue-darkblue;
+        font-weight: bold;
+        display: inline-block;
+        width: 85%;
       }
 
     }
 
     a:hover {
-      text-decoration : none;
+      text-decoration: none;
 
       span {
-        color : @blue-midblue;
+        color: @blue-midblue;
       }
 
       i {
-        color : @blue-darkblue;;
+        color: @blue-darkblue;;
       }
 
     }
 
   }
 
-
-
 }
-
-
 
 .impact-post .impact-meta.impact-data-sources {
 
-  background-color : @blue-lightestblue;
-  padding : .5em;
-  padding-top : 0;
+  background-color: @blue-lightestblue;
+  padding: .5em;
+  padding-top: 0;
 
   .meta-heading {
-    padding-top : .5em;
-    color : @blue-darkblue;
+    padding-top: .5em;
+    color: @blue-darkblue;
   }
 
   .meta-content {
-    font-size : .75em;
-    padding : 0;
+    font-size: .75em;
+    padding: 0;
   }
 
 }
-
-
 
 /* ==========================================================================
    Contact Page
@@ -1284,17 +1258,17 @@ section .section-intro {
 }
 
 .block-link {
-  padding: .25em .5em; 
-  border: 1px solid #efefef; 
-  display: inline-block; 
-  width:  100%
+  padding: .25em .5em;
+  border: 1px solid #efefef;
+  display: inline-block;
+  width: 100%
 }
 
-.block-link:hover, 
+.block-link:hover,
 .block-link:active {
-  color : #000;
-  border-color : #ccc;
-  text-decoration : none;
+  color: #000;
+  border-color: #ccc;
+  text-decoration: none;
 }
 
 .contact-nav li a,
@@ -1473,8 +1447,8 @@ figure.alignnone {
 @media (min-width: @screen-sm-min) {
 
   .navbar .container .navbar-brand {
-    margin-left : 0 !important;
-    margin-top : 5px;
+    margin-left: 0 !important;
+    margin-top: 5px;
   }
 
 }
@@ -1482,75 +1456,70 @@ figure.alignnone {
 @media (min-width: @screen-md-min) {
 
   .navbar-brand {
-    width : 200px;
-    margin-top : 0;
+    width: 200px;
+    margin-top: 0;
   }
-		
-	.btn-right {
-		float: left;		
-	}
+
+  .btn-right {
+    float: left;
+  }
 
   ul#menu-primary-navigation li,
   .navbar-header .navbar-brand {
 
-    font-size : 17px;
+    font-size: 17px;
   }
-
 
 }
 
 @media (min-width: @screen-lg-min) {
 }
 
-
-
-
 /* ==========================================================================
    Wordpress Tubepress plugin responsive css
    ========================================================================== */
 
-
 div.tubepress_container div.pagination {
-  float : left;
+  float: left;
 }
 
 .tubepress_normal_embedded_wrapper, .tubepress_thumbnail_area {
-width:auto!important;
+  width: auto !important;
 }
 
 .tubepress_container {
-width: 100% !important;
-height: 75% !important;
+  width: 100% !important;
+  height: 75% !important;
 }
 
-.tubepress_normal_embedded_wrapper{
-position: relative !important;
-padding-bottom: 56.25% !important;
-width:100% !important;
-padding-top: 30px !important; 
-height: 0 !important; 
-overflow: hidden !important;
-clear:both !important;
-margin-bottom: 2em !important;
+.tubepress_normal_embedded_wrapper {
+  position: relative !important;
+  padding-bottom: 56.25% !important;
+  width: 100% !important;
+  padding-top: 30px !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  clear: both !important;
+  margin-bottom: 2em !important;
 }
-  
+
 .youtube-player {
-position: absolute !important;
-top: 0 !important;
-left: 0 !important;
-width: 100% !important;
-height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .tubepress_thumb {
-overflow: visible;
-height : auto;
-text-align: center;
+  overflow: visible;
+  height: auto;
+  text-align: center;
 }
 
 .tubepress_thumb dl.tubepress_meta_group {
-height : 11em;
-display : inline-block;
-text-align: left;
-padding-top : .5em;
+  height: 11em;
+  display: inline-block;
+  text-align: left;
+  padding-top: .5em;
 }
