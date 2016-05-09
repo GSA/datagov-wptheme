@@ -53,11 +53,11 @@
 
                 <div class="section-intro row">
                     <div class="col-md-6">
-                        <a class="ext-link tooltips block-link"
+                        <a class=" block-link"
                            href="https://opendata.stackexchange.com/questions/ask?tags=data.gov"> Ask the community </a>
                     </div>
                     <div class="col-md-6">
-                        <a class="ext-link tooltips block-link"
+                        <a class=" block-link"
                            href="https://opendata.stackexchange.com/questions/tagged/data.gov"> See all Data.gov
                             questions </a>
                     </div>
@@ -97,7 +97,7 @@
 
                     <div class="section-intro row">
                         <div class="col-md-12">
-                            <a class="ext-link tooltips block-link" href="https://twitter.com/usdatagov">Ask us at
+                            <a class=" tooltips block-link" href="https://twitter.com/usdatagov">Ask us at
                                 @usdatagov</a>
                         </div>
                     </div>
