@@ -8,8 +8,11 @@ if (is_category()) {
 
 } else {
     $category = get_the_category();
-    $term_name = $category[0]->cat_name;
-    $term_slug = $category[0]->slug;
+    $term_name = $term_slug = '';
+    if (isset($category[0])){
+      $term_name = $category[0]->cat_name;
+      $term_slug = $category[0]->slug;
+    }
 }
 
 $args = array(
