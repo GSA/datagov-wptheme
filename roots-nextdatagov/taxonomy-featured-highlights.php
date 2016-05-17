@@ -96,7 +96,7 @@ $args = array(
       ?>
       <?php if ($category_query->have_posts()): ?>
           <div class="pull-right clearfix" style="margin-top:-45px;">
-              <a href="/<?php echo( isset( $category->slug ) ? $category->slug.'/highlights' : 'highlights' ) ?>" class="more-link">More Highlights</a>
+              <a href="/<?php echo( (isset( $category->slug ) && $category->slug) ? $category->slug.'/highlights' : 'highlights' ) ?>" class="more-link">More Highlights</a>
           </div>
           <?php endif; ?>
       <?php
