@@ -83,7 +83,7 @@
 				<div class="caption">
 					<h3>College Scorecard</h3>
 					<p>Department of Education</p>
-					<p><a href="#" class="btn btn-primary" role="button">Contact</a> <a href="#" class="btn btn-default" role="button">Read more...</a></p>
+					<p><a href="#" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/college-scorecard/" class="btn btn-default" role="button">Read more...</a></p>
 				</div>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 				<div class="caption">
 					<h3>Open Data Summer Camp</h3>
 					<p>Department of Agriculture (USDA)</p>
-					<p><a href="#" class="btn btn-primary" role="button">Contact</a> <a href="#" class="btn btn-default" role="button">Read more...</a></p>
+					<p><a href="#" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/open-data-summer-camp/" class="btn btn-default" role="button">Read more...</a></p>
 				</div>
 			</div>
 		</div>
