@@ -59,22 +59,22 @@
 	}
 
 	rewind_posts();
+	/*
+        ?>
+        <ul id="impact-topics" class="topics">
+        <?php  foreach ($industries as $industry): ?>
+            <li class="topic-<?php echo $industry->slug ?>"><a href="#<?php echo $industry->slug ?>"><i></i><span><?php echo $industry->name ?></span></a></li>
+        <?php endforeach; ?>
+        </ul>
 
-	?>
-	<ul id="impact-topics" class="topics">
-	<?php  foreach ($industries as $industry): ?>
-		<li class="topic-<?php echo $industry->slug ?>"><a href="#<?php echo $industry->slug ?>"><i></i><span><?php echo $industry->name ?></span></a></li>
-	<?php endforeach; ?>
-	</ul>
-<?php /*
-	<div class="wrap content-page">
+        <div class="wrap content-page">
 
-		<?php while ( $category_query->have_posts() ) : $category_query->the_post(); ?>
-			<?php include(locate_template('templates/content-impact.php')); ?>			
-		<?php endwhile; ?>
-		
-	</div>
-*/ ?>
+            <?php while ( $category_query->have_posts() ) : $category_query->the_post(); ?>
+                <?php include(locate_template('templates/content-impact.php')); ?>
+            <?php endwhile; ?>
+
+        </div>
+    */ ?>
 
 	<div class="row">
 		<div class="col-sm-12 col-md-6">
@@ -83,7 +83,7 @@
 				<div class="caption">
 					<h3>College Scorecard</h3>
 					<p>Department of Education</p>
-					<p><a href="#" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/college-scorecard/" class="btn btn-default" role="button">Read more...</a></p>
+					<p><a href="mailto:scorecarddata@rti.org" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/college-scorecard/" class="btn btn-default" role="button">Read more...</a></p>
 				</div>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 				<div class="caption">
 					<h3>Open Data Summer Camp</h3>
 					<p>Department of Agriculture (USDA)</p>
-					<p><a href="#" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/open-data-summer-camp/" class="btn btn-default" role="button">Read more...</a></p>
+					<p><a href="mailto:Cynthia.Larkins@wdc.usda.gov" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/open-data-summer-camp/" class="btn btn-default" role="button">Read more...</a></p>
 				</div>
 			</div>
 		</div>
