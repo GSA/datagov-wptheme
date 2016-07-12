@@ -113,8 +113,16 @@
   display:none;
 }
 
+.impact-content .hide-on-modal{
+  display:block;
+}
+
 .modal-body .show-on-modal{
   display:block;
+}
+
+.modal-body .hide-on-modal{
+  display:none;
 }
 
 .modal.in .modal-dialog {

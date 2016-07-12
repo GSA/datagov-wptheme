@@ -67,7 +67,11 @@
               </p>
               <?php endif; */?>
 
-              <p>
+              <p class="show-on-modal">
+                <?php the_content()?>
+              </p>
+
+              <p class="hide-on-modal">
                 <?php
                 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
                 add_filter('get_the_excerpt', 'datagov_custom_keep_my_links');
