@@ -67,18 +67,18 @@
               </p>
               <?php endif; */?>
 
-              <p class="show-on-modal">
+              <div class="show-on-modal">
                 <?php the_content()?>
-              </p>
+              </div>
 
-              <p class="hide-on-modal">
+              <div class="hide-on-modal">
                 <?php
                 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
                 add_filter('get_the_excerpt', 'datagov_custom_keep_my_links');
                 $more_tag = strpos($post->post_content, '<!--more-->');
                 ($more_tag) ? the_content('Continued') : the_excerpt();
                 ?>
-              </p>
+              </div>
 
             </div>
             <!--          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
