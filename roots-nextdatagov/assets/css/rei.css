@@ -105,6 +105,22 @@
     max-height: 150px;
 }
 
+.modal-body img.impact-icon {
+  max-width: 100%;
+}
+
+.impact-content .show-on-modal{
+  display:none;
+}
+
+.modal-body .show-on-modal{
+  display:block;
+}
+
+.modal.in .modal-dialog {
+  min-width: 80%;
+}
+
 .webcontainer .app-icon {
     text-align: center;
     height: 100px;

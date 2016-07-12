@@ -6,7 +6,6 @@ var ExampleSite = {
     common: {
         init: function () {
             // JS here
-
             $(function () {
                 $('a[href*="#"]:not([href="#"])').click(function () {
                     if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
@@ -20,7 +19,6 @@ var ExampleSite = {
                     }
                 });
             });
-
         },
         finalize: function () {
         }
@@ -29,8 +27,6 @@ var ExampleSite = {
     home: {
         init: function () {
             // JS here
-
-
             var
                 $demo = jQuery('.frontpage-search #search-header'),
                 strings = JSON.parse($demo.attr('data-strings')).targets,
@@ -44,14 +40,45 @@ var ExampleSite = {
             setInterval(function () {
                 $demo.attr('placeholder', randomString());
             }, 5500);
-
-
         }
     },
     // Impact page
-    impact: {
+    post_type_archive_impact: {
         init: function () {
+          console.log('impactModal init');
             // JS here
+          // http://getbootstrap.com/javascript/
+          if (!$('#impactModal').length) {
+            return;
+          }
+
+          $('.Impact-wrapper .thumbnail').each(
+            function () {
+              $(this).attr('data-toggle', 'modal').attr('data-target', '#impactModal');
+              $(this).css('overflow', 'hidden').css('height', '400px').css('cursor', 'pointer');
+              // $(this).parents('.webcontainer').removeClass('col-md-4').addClass('col-md-3');
+              // var a = $('<a>').text($(this).find('.app-title a').text());
+              // $(this).find('.app-title a').hide();
+              // $(this).find('.app-title').append(a);
+              // $(this).find('.content').hide();
+              // }
+            }
+          );
+
+          $('#impactModal').on('show.bs.modal', function (event) {
+            var impactLauncher = $(event.relatedTarget); // Button that triggered the modal
+            var modal = $(this);
+            modal.find('.modal-title').text($(impactLauncher).find('.impact-title').first().text());
+            modal.find('.modal-body .impact-img').html('');
+            modal.find('.modal-body .impact-content').html('');
+            modal.find('.modal-body .impact-img').append(
+              $(impactLauncher).find('.impact-icon').clone().addClass('text-center')
+            );
+            modal.find('.modal-body .impact-content').append(
+              $(impactLauncher).find('.impact-content').clone().show()
+            );
+            // modal.find('a.go-to-impact').attr('href', $(impactLauncher).attr('data-app-url'));
+          });
         }
     },
     // Applications page
