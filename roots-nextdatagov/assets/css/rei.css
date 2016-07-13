@@ -117,6 +117,12 @@
   display:block;
 }
 
+.impact-read-more-btn {
+  position: absolute;
+  right: 25px;
+  bottom: 21px;
+}
+
 .modal-body .show-on-modal{
   display:block;
 }

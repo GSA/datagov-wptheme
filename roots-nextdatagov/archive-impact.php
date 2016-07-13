@@ -83,11 +83,11 @@
                 $more_tag = strpos($post->post_content, '<!--more-->');
                 ($more_tag) ? the_content() : the_excerpt();
                 ?>
-                <a onclick="javascript:void(0)">more...</a>
               </div>
 
             </div>
-            <!--          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+            <p class="impact-read-more-btn">
+              <a class="btn btn-primary" role="button">Read more...</a></p>
           </div>
         </div>
       </div>
