@@ -19,6 +19,13 @@
     </div>
   </div>
 
+  <?php
+  remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+  add_filter('get_the_excerpt', 'datagov_custom_keep_my_links');
+  add_filter( 'excerpt_length', 'custom_excerpt_length_20', 999 );
+  add_filter( 'excerpt_more', 'excerpt_more_impact' );
+  ?>
+
   <div class="row Impact-wrapper">
     <?php while (have_posts()) : the_post(); ?>
       <div class="col-sm-6 col-md-4">
@@ -73,11 +80,10 @@
 
               <div class="hide-on-modal">
                 <?php
-                remove_filter('get_the_excerpt', 'wp_trim_excerpt');
-                add_filter('get_the_excerpt', 'datagov_custom_keep_my_links');
                 $more_tag = strpos($post->post_content, '<!--more-->');
-                ($more_tag) ? the_content('Continued') : the_excerpt();
+                ($more_tag) ? the_content() : the_excerpt();
                 ?>
+                <a onclick="javascript:void(0)">more...</a>
               </div>
 
             </div>
@@ -85,57 +91,12 @@
           </div>
         </div>
       </div>
-      <!---->
-      <!--    <article --><?php //post_class(); ?><!-- >-->
-      <!--      <header>-->
-      <!--        <h2 class="entry-title">-->
-      <!--          <a id="--><?php //echo 'post-title-' . get_the_ID(); ?><!--" href="--><?php //echo generate_post_url($post->post_name); ?><!--">--><?php //the_title(); ?><!--</a>-->
-      <!--        </h2>-->
-      <!--        --><?php //get_template_part('templates/entry-meta-author'); ?>
-      <!--      </header>-->
-      <!--      <div class="entry-summary">-->
-      <!--        <p>-->
-      <!--          -->
-      <!--        </p>-->
-      <!--        -->
-      <!--      </div>-->
-      <!--    </article>-->
-
     <?php endwhile; ?>
   </div>
 
-<!--<div class="row">-->
-<!--  <div class="col-sm-12 col-md-4">-->
-<!--    <div class="thumbnail">-->
-<!--      <img src="https://collegescorecard.ed.gov/img/hero-large.jpg" alt="...">-->
-<!--      <div class="caption">-->
-<!--        <h3>College Scorecard</h3>-->
-<!--        <p>Department of Education</p>-->
-<!--        <p><a href="mailto:scorecarddata@rti.org" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/college-scorecard/" class="btn btn-default" role="button">Read more...</a></p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="col-sm-12 col-md-4">-->
-<!--    <div class="thumbnail">-->
-<!--      <img src="https://nebula.wsimg.com/76bc7274deb35b88aae0db199c44479a?AccessKeyId=1EC2C512A0E17DC8D90B&disposition=0&alloworigin=1" alt="...">-->
-<!--      <div class="caption">-->
-<!--        <h3>Open Data Summer Camp</h3>-->
-<!--        <p>Department of Agriculture (USDA)</p>-->
-<!--        <p><a href="mailto:Cynthia.Larkins@wdc.usda.gov" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/open-data-summer-camp/" class="btn btn-default" role="button">Read more...</a></p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="col-sm-12 col-md-4">-->
-<!--    <div class="thumbnail">-->
-<!--      <img src="https://nebula.wsimg.com/76bc7274deb35b88aae0db199c44479a?AccessKeyId=1EC2C512A0E17DC8D90B&disposition=0&alloworigin=1" alt="...">-->
-<!--      <div class="caption">-->
-<!--        <h3>Open Data Summer Camp</h3>-->
-<!--        <p>Department of Agriculture (USDA)</p>-->
-<!--        <p><a href="mailto:Cynthia.Larkins@wdc.usda.gov" class="btn btn-primary" role="button">Contact</a> <a href="/impacts/open-data-summer-camp/" class="btn btn-default" role="button">Read more...</a></p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<?php
+remove_filter( 'excerpt_length', 'custom_excerpt_length');
+?>
 
 <?php /* if ($wp_query->max_num_pages > 1) : ?>
     <nav class="post-nav">
