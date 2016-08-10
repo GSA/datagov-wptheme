@@ -2,7 +2,7 @@
 
 | Plugin                        | Version       | Website  |
 |:----------------------------- |:-------------:|:---------|
-|acf-field-date-time-picker		|2.0.18.1		|https://github.com/soderlind/acf-field-date-time-picker|
+|acf-field-date-time-picker		|~2     		|https://github.com/soderlind/acf-field-date-time-picker|
 |advanced-custom-fields		    |~4      		|https://www.advancedcustomfields.com/|
 |akismet		                |~3      		|https://akismet.com/|
 |amazon-s3-and-cloudfront		|~1      		|https://wordpress.org/plugins/amazon-s3-and-cloudfront/|
