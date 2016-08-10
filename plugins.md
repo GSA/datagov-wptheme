@@ -1,7 +1,7 @@
 ## Community plugins
 
 | Plugin                        | Version       | Website  |
-| ----------------------------- |:-------------:| --------:|
+|:----------------------------- |:-------------:|:---------|
 |acf-field-date-time-picker		|2.0.18.1		|https://github.com/soderlind/acf-field-date-time-picker|
 |advanced-custom-fields		    |~4      		|https://www.advancedcustomfields.com/|
 |akismet		                |~3      		|https://akismet.com/|
@@ -36,7 +36,7 @@
 ## Locally hosted, modified or private plugins
 
 | Plugin                    | Version   | Website  |
-| ------------------------- |:---------:| --------------------------------:|
+|:------------------------- |:---------:|:--------------------------------|
 |arcgis-map		            |master  	|https://github.com/gsa/arcgis-map|
 |bwp-external-links		    |master     |https://github.com/gsa/bwp-external-links		(https://wordpress.org/plugins/bwp-external-links/)|
 |custom-permalinks		    |master     |https://github.com/gsa/custom-permalinks		(https://wordpress.org/plugins/custom-permalinks/)|
