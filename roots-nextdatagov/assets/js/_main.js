@@ -56,12 +56,6 @@ var ExampleSite = {
             function () {
               $(this).attr('data-toggle', 'modal').attr('data-target', '#impactModal');
               $(this).css('overflow', 'hidden').css('height', '400px').css('cursor', 'pointer');
-              // $(this).parents('.webcontainer').removeClass('col-md-4').addClass('col-md-3');
-              // var a = $('<a>').text($(this).find('.app-title a').text());
-              // $(this).find('.app-title a').hide();
-              // $(this).find('.app-title').append(a);
-              // $(this).find('.content').hide();
-              // }
             }
           );
 
@@ -77,7 +71,6 @@ var ExampleSite = {
             modal.find('.modal-body .impact-content').append(
               $(impactLauncher).find('.impact-content').clone().show()
             );
-            // modal.find('a.go-to-impact').attr('href', $(impactLauncher).attr('data-app-url'));
           });
         }
     },
