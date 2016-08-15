@@ -105,10 +105,6 @@
     max-height: 150px;
 }
 
-.modal-body img.impact-icon {
-  max-width: 100%;
-}
-
 .impact-content .show-on-modal{
   display:none;
 }
@@ -2328,4 +2324,8 @@ tfoot td {
 #menu-footer2 li:first-child {
     border-left: none;
     padding: 0 8px 0 0;
+}
+
+.impact .modal-title {
+  margin-right: 25px;
 }

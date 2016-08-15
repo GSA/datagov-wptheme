@@ -72,7 +72,7 @@ var ExampleSite = {
             modal.find('.modal-body .impact-img').html('');
             modal.find('.modal-body .impact-content').html('');
             modal.find('.modal-body .impact-img').append(
-              $(impactLauncher).find('.impact-icon').clone().addClass('text-center')
+              $(impactLauncher).find('.impact-icon').clone().addClass('text-center thumbnail')
             );
             modal.find('.modal-body .impact-content').append(
               $(impactLauncher).find('.impact-content').clone().show()

@@ -25,9 +25,6 @@
   </div>
 
   <?php
-  //  remove_filter('get_the_excerpt', 'wp_trim_excerpt');
-  //  add_filter('get_the_excerpt', 'datagov_custom_keep_my_links');
-  //  add_filter( 'excerpt_more', 'excerpt_more_impact' );
     add_filter( 'the_content_more_link', 'excerpt_more_impact' );
   ?>
 
@@ -68,18 +65,12 @@
                 </p>
               <?php endif; ?>
 
-              <?php /* $categs = get_the_category();
-              if (sizeof($categs)):?>
-              <p>
-                <strong>Categories:</strong>
-                <ul>
-                  <?php
-                  foreach($categs as $cat){
-                    echo '<li>'.$cat->name.'</li>';
-                  }?>
-                </ul>
+              <p class="show-on-modal">
+                <strong>Permanent:</strong>
+                <a href="<?php echo get_permalink(); ?>">
+                  <?php echo get_permalink(); ?>
+                </a>
               </p>
-              <?php endif; */ ?>
 
               <div class="show-on-modal">
                 <?php $post = get_post();
@@ -91,31 +82,14 @@
                 $more_tag = strpos($post->post_content, '<!--more-->');
                 ($more_tag) ? the_content('[Read more...]') : the_excerpt();
                 ?>
-<!--                <a>Read more</a>-->
               </div>
 
             </div>
-            <!--            <p class="impact-read-more-btn">-->
-            <!--              <a class="btn btn-primary" role="button">Read more...</a>-->
-            <!--            </p>-->
           </div>
         </div>
       </div>
     <?php endwhile; ?>
   </div>
-
-  <?php
-  //remove_filter( 'excerpt_length', 'custom_excerpt_length');
-  ?>
-
-  <?php /* if ($wp_query->max_num_pages > 1) : ?>
-    <nav class="post-nav">
-      <ul class="pager">
-        <li class="previous"><?php next_posts_link(__('&larr; Older posts', 'roots')); ?></li>
-        <li class="next"><?php previous_posts_link(__('Newer posts &rarr;', 'roots')); ?></li>
-      </ul>
-    </nav>
-  <?php endif; */ ?>
 </div>
 
 <!-- Modal -->
@@ -125,14 +99,13 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+        <h4 class="modal-title text-right" id="gridSystemModalLabel">Modal title</h4>
       </div>
       <div class="modal-body row">
         <div class="col-md-6 col-lg-6 impact-img"></div>
         <div class="col-md-6 col-lg-6 impact-content"></div>
       </div>
       <div class="modal-footer">
-        <!--        <a href="" target="_blank" class="go-to-impact btn btn-primary pull-left">Go to impact...</a>-->
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
