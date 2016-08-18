@@ -71,6 +71,9 @@ var ExampleSite = {
             modal.find('.modal-body .impact-content').append(
               $(impactLauncher).find('.impact-content').clone().show()
             );
+            modal.find('.modal-body .permalink-btn').attr('href',
+              $(impactLauncher).find('.permalink').attr('href')
+            );
           });
         }
     },

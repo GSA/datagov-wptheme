@@ -2329,3 +2329,7 @@ tfoot td {
 #impactModal .modal-title {
   margin-right: 25px;
 }
+
+.impact .thumbnail>img{
+  max-height: 250px;
+}

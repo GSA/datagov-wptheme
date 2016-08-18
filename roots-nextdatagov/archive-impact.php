@@ -65,9 +65,9 @@
                 </p>
               <?php endif; ?>
 
-              <p class="show-on-modal">
+              <p class="hidden">
                 <strong>Permanent:</strong>
-                <a href="<?php echo get_permalink(); ?>">
+                <a class="permalink" href="<?php echo get_permalink(); ?>">
                   <?php echo get_permalink(); ?>
                 </a>
               </p>
@@ -99,13 +99,22 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-right" id="gridSystemModalLabel">Modal title</h4>
+        <div class="modal-body row">
+          <div class="col-md-6 col-lg-6">
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+          </div>
+        </div>
       </div>
       <div class="modal-body row">
         <div class="col-md-6 col-lg-6 impact-img"></div>
         <div class="col-md-6 col-lg-6 impact-content"></div>
       </div>
       <div class="modal-footer">
+        <a href="#" target="_blank" class="pull-left btn btn-primary permalink-btn">
+          Share <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+        </a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
