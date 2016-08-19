@@ -26,6 +26,15 @@
 
   <?php
     add_filter( 'the_content_more_link', 'excerpt_more_impact' );
+    function impact_excerpt_length($length) {
+      return 15;
+    }
+
+    function impact_excerpt_more($more) {
+      return ' &hellip; <em><a aria-describedby="post-title-' .  get_the_ID() . '">' . __('Read more') . '</a></em>';
+    }
+    add_filter('excerpt_length', 'impact_excerpt_length');
+    add_filter('excerpt_more', 'impact_excerpt_more');
   ?>
 
   <div class="row Impact-wrapper">
@@ -99,7 +108,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
-        <div class="modal-body row">
+        <div class="row">
           <div class="col-md-6 col-lg-6 col-md-offset-6 col-lg-offset-6">
             <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
           </div>
