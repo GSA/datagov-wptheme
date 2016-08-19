@@ -93,7 +93,7 @@ var ExampleSite = {
 
         $('.modal-footer .permalink-btn').tooltip({
           trigger: 'click',
-          placement: 'bottom'
+          placement: 'right'
         });
 
         var clipboard = new Clipboard('.modal-footer .permalink-btn');
