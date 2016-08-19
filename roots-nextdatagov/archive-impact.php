@@ -100,9 +100,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
         <div class="modal-body row">
-          <div class="col-md-6 col-lg-6">
-          </div>
-          <div class="col-md-6 col-lg-6">
+          <div class="col-md-6 col-lg-6 col-md-offset-6 col-lg-offset-6">
             <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
           </div>
         </div>
@@ -112,9 +110,10 @@
         <div class="col-md-6 col-lg-6 impact-content"></div>
       </div>
       <div class="modal-footer">
-        <a href="#" target="_blank" class="pull-left btn btn-primary permalink-btn">
+        <button data-clipboard-text=""
+                class="pull-left btn btn-primary permalink-btn">
           Share <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
-        </a>
+        </button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
