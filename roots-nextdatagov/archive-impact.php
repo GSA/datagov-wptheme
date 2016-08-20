@@ -119,10 +119,9 @@
         <div class="col-md-6 col-lg-6 impact-content"></div>
       </div>
       <div class="modal-footer">
-        <button data-clipboard-text=""
-                class="pull-left btn btn-primary permalink-btn">
-          Share <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
-        </button>
+        <a class="pull-left btn btn-primary permalink-btn">
+          Full Page View
+        </a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

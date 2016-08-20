@@ -88,25 +88,25 @@ var ExampleSite = {
 
         var href = $(impactLauncher).find('.permalink').attr('href');
         modal.find('.modal-footer .permalink-btn')
-          .attr('data-clipboard-text', href);
+          .attr('href', href);
+          // .attr('data-clipboard-text', href);
 
-
-        $('.modal-footer .permalink-btn').tooltip({
-          trigger: 'click',
-          placement: 'right'
-        });
-
-        var clipboard = new Clipboard('.modal-footer .permalink-btn');
-
-        clipboard.on('success', function (e) {
-          setTooltip(e.trigger, 'Copied!');
-          hideTooltip(e.trigger);
-        });
-
-        clipboard.on('error', function (e) {
-          setTooltip(e.trigger, 'Failed!');
-          hideTooltip(e.trigger);
-        });
+        // $('.modal-footer .permalink-btn').tooltip({
+        //   trigger: 'click',
+        //   placement: 'right'
+        // });
+        //
+        // var clipboard = new Clipboard('.modal-footer .permalink-btn');
+        //
+        // clipboard.on('success', function (e) {
+        //   setTooltip(e.trigger, 'Copied!');
+        //   hideTooltip(e.trigger);
+        // });
+        //
+        // clipboard.on('error', function (e) {
+        //   setTooltip(e.trigger, 'Failed!');
+        //   hideTooltip(e.trigger);
+        // });
 
       });
     }
