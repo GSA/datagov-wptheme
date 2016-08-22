@@ -83,7 +83,8 @@
 
               <div class="show-on-modal">
                 <?php $post = get_post();
-                echo $post->post_content; ?>
+                $content = nl2br($post->post_content);
+                echo $content; ?>
               </div>
 
               <div class="hide-on-modal">
