@@ -10,31 +10,33 @@
     <div class="intro">
       <div class="container">
 
-        <div>
-          <div>Open data is fuel for innovators. It has the potential to generate more than&nbsp;<a
-              href="http://www.mckinsey.com/insights/business_technology/open_data_unlocking_innovation_and_performance_with_liquid_information"
-              target="_blank">$3 trillion a year</a> in additional value in sectors including finance, consumer
-            products, health, energy and education, according to a recent study. These are just a few examples of
-            companies leveraging open data. While we don’t endorse companies, we’re always interested in new examples:
-            <a href="http://www.twitter.com/usdatagov" target="_blank">Share them on Twitter</a>.
-          </div>
-        </div>
+        Open data is fuel for innovators. It has the potential to generate more than &nbsp;<a
+          href="http://www.mckinsey.com/insights/business_technology/open_data_unlocking_innovation_and_performance_with_liquid_information"
+          target="_blank">$3 trillion a year</a> in
+        additional value in sectors including finance, consumer products, health, energy and education, according to
+        a recent study. Do you have an example of the impact of open data on these sectors or on business, public
+        services, or research? We are always looking for more open data stories so please <a
+          href="https://docs.google.com/a/gsa.gov/forms/d/e/1FAIpQLSdL-LMmmIpzuvWlPNJbNwE5itADT8V6BcjhhXt97Ez7tc_NyA/viewform"
+          target="_blank">share</a> them.
 
       </div>
     </div>
   </div>
 
   <?php
-    add_filter( 'the_content_more_link', 'excerpt_more_impact' );
-    function impact_excerpt_length($length) {
-      return 15;
-    }
+  add_filter('the_content_more_link', 'excerpt_more_impact');
+  function impact_excerpt_length($length)
+  {
+    return 15;
+  }
 
-    function impact_excerpt_more($more) {
-      return ' &hellip; <em><a aria-describedby="post-title-' .  get_the_ID() . '">' . __('Read more') . '</a></em>';
-    }
-    add_filter('excerpt_length', 'impact_excerpt_length');
-    add_filter('excerpt_more', 'impact_excerpt_more');
+  function impact_excerpt_more($more)
+  {
+    return ' &hellip; <em><a aria-describedby="post-title-' . get_the_ID() . '">' . __('Read more') . '</a></em>';
+  }
+
+  add_filter('excerpt_length', 'impact_excerpt_length');
+  add_filter('excerpt_more', 'impact_excerpt_more');
   ?>
 
   <div class="row Impact-wrapper">
