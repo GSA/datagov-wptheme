@@ -18,15 +18,18 @@
       <?php the_content(); ?>
     </div>
 
-    <?php if(get_post_format() == 'image'): ?>    
+    <?php if(get_post_format() == 'image'): ?>
             <div class="dataset-link">
                 <a class="btn btn-default pull-right" href="<?php the_field('link_to_dataset'); ?>">
                   <span class="glyphicon glyphicon-download"></span> View this Dataset
                 </a>
-            </div>            
+            </div>
     <?php endif;?>
     <?php
-      $author_byline = get_field('author_byline');
+      $author_byline = false;
+      if(function_exists('get_field')) {
+        $author_byline = get_field('author_byline');
+      }
       if(!empty($author_byline))?>
           <em><?php echo $author_byline;?></em>
     <footer>
@@ -46,8 +49,8 @@
     <?php } ?>
 
 
-        
-    
+
+
 
 
 

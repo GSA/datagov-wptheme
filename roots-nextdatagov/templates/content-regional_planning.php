@@ -41,14 +41,17 @@ $cat_slug = $category[0]->slug;
             <?php echo "<strong>Group:</strong>&nbsp;";
 											?>
           <?php
-                $values = get_field('group');
+                $values = false;
+                if(function_exists('get_field')) {
+                  $values = get_field('group');
+                }
                 $taxanomy='category';
                 if($values)
                     {
 	                 echo '<ul>';
 	                    foreach($values as $value)
 	                    {
-		
+
 	                        $term = get_term( $value, $taxanomy );
 	                        $name = $term->name;
 	                        echo '<li>' . $name . '</li>';
@@ -56,10 +59,10 @@ $cat_slug = $category[0]->slug;
 
                     echo '</ul>';
                     }
- 
+
 // always good to see exactly what you are working with
 //var_dump($values);
- 
+
 ?>
     </div>
     <footer>

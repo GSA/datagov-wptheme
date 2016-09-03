@@ -2,10 +2,13 @@
 
 
 <?php
+$thumbnail = $agency_name = $contact_email_url = $dataset_url = false;
+if (function_exists('get_field')) {
   $thumbnail = get_field('thumbnail');
   $agency_name = get_field('agency_name');
   $contact_email_url = get_field('contact_email_url');
   $dataset_url = get_field('dataset_url');
+}
 ?>
 
 <div class="wrap container content-page">
@@ -22,9 +25,9 @@
 
     <div class="content impact-full">
       <div class="col-md-6 col-lg-6">
-        <?php if($thumbnail): ?>
-          <img class="thumbnail" src="<?php echo $thumbnail?>" alt="<?php the_title(); ?>" />
-        <?php endif?>
+        <?php if ($thumbnail): ?>
+          <img class="thumbnail" src="<?php echo $thumbnail ?>" alt="<?php the_title(); ?>"/>
+        <?php endif ?>
       </div>
       <div class="col-md-6 col-lg-6">
         <?php if ($agency = get_field("agency_name")): ?>

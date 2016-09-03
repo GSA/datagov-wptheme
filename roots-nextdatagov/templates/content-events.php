@@ -10,7 +10,10 @@
      <?php echo "<strong>Group:</strong>&nbsp;";
                     ?>
                     <?php
-                    $values = get_field('group');
+                    $values = false;
+                    if (function_exists('get_field')){
+                      $values = get_field('group');
+                    }
                     $taxanomy='category';
                     if($values)
                     {

@@ -1,5 +1,8 @@
 <?php
-$additional_author_name = get_field('author_name');
+$additional_author_name = false;
+if (function_exists('get_field')) {
+  $additional_author_name = get_field('author_name');
+}
 $author_name = get_the_author();
 $display_author_name = (!empty($additional_author_name)) ? $additional_author_name : $author_name;
 if(!empty($display_author_name))

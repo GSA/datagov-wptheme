@@ -43,18 +43,18 @@
     <?php while (have_posts()) : the_post(); ?>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img class="impact-icon" src="<?php echo get_field("thumbnail"); ?>" alt="<?php the_title(); ?>"/>
+          <img class="impact-icon" src="<?php if(function_exists('get_field')){echo get_field("thumbnail")}; ?>" alt="<?php the_title(); ?>"/>
           <div class="caption">
             <h3 class="impact-title"><?php the_title(); ?></h3>
             <div class="impact-content">
-              <?php if ($agency = get_field("agency_name")): ?>
+              <?php if (function_exists('get_field') && $agency = get_field("agency_name")): ?>
                 <p class="show-on-modal">
                   <strong>Agency:</strong>
                   <em><?php echo esc_html($agency); ?></em>
                 </p>
               <?php endif; ?>
 
-              <?php if ($contact = get_field("contact_email_url")): ?>
+              <?php if (function_exists('get_field') && $contact = get_field("contact_email_url")): ?>
                 <p class="show-on-modal">
                   <strong>Contact:</strong>
                   <?php if (is_email($contact)): ?>
@@ -68,7 +68,7 @@
                 </p>
               <?php endif; ?>
 
-              <?php if ($dataset_url = get_field("dataset_url")): ?>
+              <?php if (function_exists('get_field') && $dataset_url = get_field("dataset_url")): ?>
                 <p class="show-on-modal">
                   <strong>Dataset:</strong>
                   <a target="_blank"
