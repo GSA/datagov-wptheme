@@ -43,7 +43,7 @@
     <?php while (have_posts()) : the_post(); ?>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img class="impact-icon" src="<?php if(function_exists('get_field')){echo get_field("thumbnail")}; ?>" alt="<?php the_title(); ?>"/>
+          <img class="impact-icon" src="<?php if(function_exists('get_field')){echo get_field("thumbnail");} ?>" alt="<?php the_title(); ?>"/>
           <div class="caption">
             <h3 class="impact-title"><?php the_title(); ?></h3>
             <div class="impact-content">
