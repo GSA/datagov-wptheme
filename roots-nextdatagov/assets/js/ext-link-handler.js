@@ -1,5 +1,5 @@
 // JavaScript Document
-// jQuery(".colorbox-inline").colorbox({inline:true, width:"50%",opacity:0.7});
+jQuery(".colorbox-inline").colorbox({inline:true, width:"50%",opacity:0.7});
 
 /* jQuery tabs for ocean page */
 jQuery(document).ready(function () {
