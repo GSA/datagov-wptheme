@@ -10,15 +10,11 @@
     <div class="intro">
       <div class="container">
 
-        Open data is fuel for innovators. It has the potential to generate more than &nbsp;<a
-          href="http://www.mckinsey.com/insights/business_technology/open_data_unlocking_innovation_and_performance_with_liquid_information"
-          target="_blank">$3 trillion a year</a> in
-        additional value in sectors including finance, consumer products, health, energy and education, according to
-        a recent study. Do you have an example of the impact of open data on these sectors or on business, public
-        services, or research? We are always looking for more open data stories so please <a
+        Open government data enables us to create tools that deliver insights on topics ranging from education and
+        health to entrepreneurship and foreign aid. Below are a few examples of how government data is making a
+        difference and helping citizens. We are always looking for more open data stores so please <a
           href="https://docs.google.com/a/gsa.gov/forms/d/e/1FAIpQLSdL-LMmmIpzuvWlPNJbNwE5itADT8V6BcjhhXt97Ez7tc_NyA/viewform"
           target="_blank">share</a> them.
-
       </div>
     </div>
   </div>
@@ -43,7 +39,9 @@
     <?php while (have_posts()) : the_post(); ?>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img class="impact-icon" src="<?php if(function_exists('get_field')){echo get_field("thumbnail");} ?>" alt="<?php the_title(); ?>"/>
+          <img class="impact-icon" src="<?php if (function_exists('get_field')) {
+            echo get_field("thumbnail");
+          } ?>" alt="<?php the_title(); ?>"/>
           <div class="caption">
             <h3 class="impact-title"><?php the_title(); ?></h3>
             <div class="impact-content">
