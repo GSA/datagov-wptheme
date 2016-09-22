@@ -12,7 +12,7 @@
 
         Open government data enables us to create tools that deliver insights on topics ranging from education and
         health to entrepreneurship and foreign aid. Below are a few examples of how government data is making a
-        difference and helping citizens. We are always looking for more open data stores so please <a
+        difference and helping citizens. We are always looking for more open data stories so please <a
           href="https://docs.google.com/a/gsa.gov/forms/d/e/1FAIpQLSdL-LMmmIpzuvWlPNJbNwE5itADT8V6BcjhhXt97Ez7tc_NyA/viewform"
           target="_blank">share</a> them.
       </div>
