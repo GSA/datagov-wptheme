@@ -4,6 +4,10 @@
 /* ==========================================================================
    Styles Below are for Apps and challenges pages
    ========================================================================== */
+a {
+  cursor:pointer;
+}
+
 .Apps-wrapper {
     margin: 20px 0;
     position: relative;
