@@ -18,7 +18,7 @@ $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_optio
     ?>
   </div>
 
-  <div id="data_table_1" class="data_table_opengov modal fade">
+  <div id="data_table_1" class="data_table_opengov modal fade" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -38,7 +38,7 @@ $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_optio
   </div>
 
 
-  <div id="data_table_2"  class="data_table_opengov modal fade">
+  <div id="data_table_2"  class="data_table_opengov modal fade" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -58,7 +58,7 @@ $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_optio
 
 
 
-  <div id="data_table_3" class="data_table_opengov modal fade">
+  <div id="data_table_3" class="data_table_opengov modal fade" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -79,7 +79,7 @@ $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_optio
 
 
 
-  <div id="data_table_4" class="data_table_opengov modal fade">
+  <div id="data_table_4" class="data_table_opengov modal fade" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -100,7 +100,7 @@ $us_counties_open_data = (get_option('us_counties_open_data') != '') ? get_optio
 
 
 
-  <div id="data_table_5" class="data_table_opengov modal fade">
+  <div id="data_table_5" class="data_table_opengov modal fade" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
