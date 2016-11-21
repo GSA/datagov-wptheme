@@ -1,5 +1,12 @@
 # Data.gov  
 
+* [Current Deployment](https://github.com/GSA/catalog-deploy)
+* [Current Test/Dev](https://github.com/GSA/catalog-app)
+
+> Contribution or Collaboration on any code repository is encouraged; while we prefer technical questions be reserved to Github (preferably to the repositories above). We are equally as happy to take any feedback through Github as Github Issues or Pull Requests on any repository. We are always looking for feedback, feature requests, or technical inquiries on this repository or by email at datagov**@**gsa.gov. If you are a human that considers themselves or aspires to be a developer, security engineer, designer, editor/writer, or general innovator; we encourage you to take initiative and participate.
+
+----
+
 [Data.gov](http://data.gov) is an open data website created by the [U.S. General Services Administration](https://github.com/GSA/) that is based on two robust open source projects: [CKAN](http://ckan.org) and [WordPress](http://wordpress.org). The data catalog at [catalog.data.gov](https://catalog.data.gov) is powered by CKAN, while the content seen at [Data.gov](http://Data.gov) is powered by WordPress.  
         
 **This repository provides the [issue tracker](https://github.com/GSA/data.gov/issues) for all code, bugs, and feature requests related to Data.gov.** Currently the repository is only used for source version control on the code for the WordPress template, but you will also find pointers to the relevant CKAN code and additional resources documented below.
