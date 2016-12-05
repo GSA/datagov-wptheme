@@ -1,0 +1,13 @@
+﻿name: Data.gov
+description: 'Data.gov is an open data website created by the U.S. General Services Administration that is based on two robust open source projects: CKAN and WordPress. The data catalog at catalog.data.gov is powered by CKAN, while the content seen at Data.gov is powered by WordPress.'
+license: 'https://github.com/GSA/data.gov/blob/master/LICENSE.md'
+openSourceProject: 1
+governmentWideReuseProject: 1
+tags:
+    - Open
+    - Data
+    - Inventory
+    - Government
+    - Portal
+contact:
+    email: datagov@gsa.gov
