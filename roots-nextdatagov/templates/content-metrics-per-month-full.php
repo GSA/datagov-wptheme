@@ -18,10 +18,21 @@ $cat_slug = $category[0]->slug;
 <div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month - Full History </div>
 <div class="view-content">
 
+<?php
+
+$s3_config = get_option('tantan_wordpress_s3');
+
+$s3_bucket = trim($s3_config['bucket'],'/');
+$s3_prefix = trim($s3_config['object-prefix'],'/');
+
+$s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
+
+?>
+
 <div>
   This report is also available for download in the following formats:
-  <a target="_blank" href="/media/federal-agency-participation-full-by-metadata_created.csv"> CSV </a> |
-  <a target="_blank" href="/media/federal-agency-participation-full-by-metadata_created.json"> JSON </a>
+  <a target="_blank" href="<?php echo $s3_path; ?>federal-agency-participation-full-by-metadata_created.csv"> CSV </a> |
+  <a target="_blank" href="<?php echo $s3_path; ?>federal-agency-participation-full-by-metadata_created.json"> JSON </a>
   <br/><br/>
 </div>
 
