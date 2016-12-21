@@ -27,7 +27,12 @@ function usasearch_display_results($query = '', $group = ''){
     $ckan_default_server = strstr($ckan_default_server, '://') ? $ckan_default_server : ('//' . $ckan_default_server);
     // current page number
     $parts = explode('/', $_SERVER['REQUEST_URI']);
-    $cur_page = filter_var($parts[2], FILTER_VALIDATE_URL);
+    
+    $cur_page = $parts[2];
+  
+    if(!is_int($cur_page)){
+        $cur_page = 0;
+    }
     // Get response from usasearch server.
     if($group == 'site'){
 
