@@ -31,7 +31,7 @@ function usasearch_display_results($query = '', $group = ''){
     $cur_page = $parts[2];
   
     if(!is_int($cur_page)){
-        $cur_page = 0;
+        $cur_page = 1;
     }
     // Get response from usasearch server.
     if($group == 'site'){
