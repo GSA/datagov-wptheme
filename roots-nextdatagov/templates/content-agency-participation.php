@@ -37,7 +37,7 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 
 <div style="float:left;">
     This report is also available for download in the following formats: <a
-        href="<?php echo $s3_path; ?>federal-agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>federal-agency-participation.xls">
+        href="<?php echo $s3_path; ?>federal-agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>federal-agency-participation.xlsx">
         EXCEL </a><br/><br/>
 </div>
 <div style=""> <?php the_content(); ?>    </div>
