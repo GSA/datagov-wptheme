@@ -236,10 +236,14 @@ function usasearch_fetch_results($query, $group = NULL, $page = 0) {
     $api_key = get_site_option('api_key', '') ? get_site_option('api_key', '') : '';
     $search_version = get_site_option('search_version', '');
     // Convert from zero-based numbering to one-based.
-    if($page != 0)
+
+    $page = intval($page);
+
+    if ($page != 0) {
         $page = $page;
-    else
+    } else {
         $page = 1;
+    }
 
     // TODO put site into a variable
     $scope = $group?"site:www.data.gov/$group+":"";
