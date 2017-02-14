@@ -1,8 +1,8 @@
 <header>
 <div class="banner navbar navbar-default navbar-static-top yamm" role="banner">
   <div class="container">
-  
-        <div class="searchbox-row skip-navigation">   
+
+        <div class="searchbox-row skip-navigation">
             <div class="sr-only skip-link">
                 <a href="#main">Jump to Content</a>
             </div>
@@ -11,7 +11,7 @@
             <div>
                 <?php if(!is_front_page()): ?>
                 <?php get_search_form(); ?>
-                <?php endif; ?>  
+                <?php endif; ?>
             </div>
         </div>
 
@@ -25,17 +25,21 @@
             <a href="<?php echo home_url(); ?>/" alt="Data.gov"><h1 class="navbar-brand"><?php bloginfo('name'); ?></h1></a>
         </div>
 
-        <nav class="collapse navbar-collapse" role="navigation">    
+        <nav class="collapse navbar-collapse" role="navigation">
             <?php
             if (has_nav_menu('primary_navigation')) :
                 wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav navbar-right', 'walker' => new Datagov_Nav_Walker));
             endif;
-            ?>  
-        </nav> 
-       
+            ?>
+        </nav>
+
   </div>
     <div id="external_disclaimer" class="tooltip" role="tooltip" aria-hidden="true">This link will direct you to an external website that may have different content and privacy policies from Data.gov.
     </div>
+</div>
+
+<div class="container hidden print-logo">
+    <img src="/app/themes/roots-nextdatagov/assets/img/logo.svg" />
 </div>
 
 <?php if(is_front_page()): ?>
