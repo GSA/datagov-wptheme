@@ -75,7 +75,7 @@
             <div class="page-header">
 
 
-                <?php if (is_category() OR is_tax()): ?>
+                <?php if (is_category() || is_tax()): ?>
                 <div class="tagline">
                     <?php echo category_description(); ?>
                 </div>

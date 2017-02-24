@@ -10,8 +10,8 @@ function roots_title()
         } else {
             return __('Latest Posts', 'roots');
         }
-    } elseif (is_archive() OR is_single() OR is_page()) {
-        if (is_single() OR is_page()) {
+    } elseif (is_archive() ||  is_single() ||  is_page()) {
+        if (is_single() ||  is_page()) {
             global $post;
             if ($post) {
                 $term = get_the_category($post->ID);
