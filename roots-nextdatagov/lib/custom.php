@@ -51,7 +51,7 @@ function redirect_intro()
     if (!isset($post)) {
         return;
     }
-    if (is_page() OR is_single()) {
+    if (is_page() || is_single()) {
 
         $post       = & get_post($post->ID);
         $intro_page = has_term('browse', 'featured', $post);
@@ -141,11 +141,11 @@ function generate_post_url($post_name){
     $request_uri = esc_url($_SERVER['REQUEST_URI']);
 
     //remove pagination from request_uri
-    $modified_request_uri = preg_replace('/\/page\/\d+\//i', '', $request_uri); 
-	
+    $modified_request_uri = preg_replace('/\/page\/\d+\//i', '', $request_uri);
+
     if ($request_uri == $modified_request_uri) {
 	return $post_name;
     } else {
-        return $modified_request_uri . '/' . $post_name;	
+        return $modified_request_uri . '/' . $post_name;
     }
 }
