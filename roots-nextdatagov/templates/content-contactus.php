@@ -39,7 +39,34 @@
 
         </div>
 
+        <section class="row">
+            <div class="col-md-12">
+                <a name="question" class="contact-heading">
+                    <h1 class="icon-heading">
+                        <i class="fa fa-comments-o"></i>
+                        <span>
+                            Ask a Question
+                        </span>
+                    </h1>
+                </a>
 
+                <div>
+                    <div>
+                        You can use this form to contact the data.gov team or feel free to email us directly at
+                        <a href='mailto:datagov@gsa.gov'>datagov@gsa.gov</a>
+                    </div>
+                    <div id="contact-us-form">
+                        <?php
+                        while (have_posts()) {
+                            the_post();
+                            the_content();
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <div class="row">
 
             <section class="col-md-8">
@@ -108,35 +135,7 @@
                 </div>
             </section>
         </div>
-
-
-        <section class="row">
-            <div class="col-md-12">
-                <a name="question" class="contact-heading">
-                    <h1 class="icon-heading">
-                        <i class="fa fa-comments-o"></i>
-                        <span>
-                            Ask a Question
-                        </span>
-                    </h1>
-                </a>
-
-                <div>
-                    <div>
-                        You can use this form to contact the data.gov team or feel free to email us directly at
-                        <a href='mailto:datagov@gsa.gov'>datagov@gsa.gov</a>
-                    </div>
-                    <div id="contact-us-form">
-                        <?php
-                        while (have_posts()) {
-                            the_post();
-                            the_content();
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <section class="row">
             <div class="col-md-12">
