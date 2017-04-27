@@ -7,6 +7,21 @@ $term_slug = $category[0]->slug;
 $cat_name = $category[0]->cat_name;
 $cat_slug = $category[0]->slug;
 $total = 0;
+$agency_total = 0;
+$all_agencies = array(
+    'Federal Agencies/Publishers' => array('Federal', 'federal_id', 'federal_class'),
+    'Other Federal Agencies' => array('Other', 'other_id', 'other_class'),
+    'City Government Agencies' => array('City Government', 'city_goverment_id', 'city_goverment_class'),
+    'Commercial Agencies' => array('Commercial', 'commercial_id', 'commercial_class'),
+    'Cooperative Agencies' => array('Cooperative', 'cooperative_id', 'cooperative_class'),
+    'County Government Agencies' => array('County Government', 'county_government_id', 'county_government_class'),
+    'Non-Profit Agencies' => array('Non-Profit', 'non-profit_id', 'non-profit_class'),
+    'Other Non-Federal Agencies' => array('NonFed-O', 'nonfed-o_id', 'nonfed-o_class'),
+    'State Agencies' => array('State Agency', 'state_agency_id', 'state_agency_class'),
+    'State Government Agencies' => array('Government-State', 'government-state_id', 'government-state_class'),
+    'Tribal Agencies' => array('Tribal', 'tribal_id', 'tribal_class'),
+    'University Agencies' => array('University', 'university_id', 'university_class')
+    );
 ?>
 <?php include('category-subnav.php'); ?>
 
@@ -15,13 +30,8 @@ $total = 0;
 <?php
 while (have_posts()) {
     the_post();
-    ?>
-
-
-
+?>
     <div id="appstitle" class="Appstitle" style="margin-left:-20px;"><?php the_title(); ?></div>
-
-
 <?php } ?>
 
 <?php
@@ -41,13 +51,14 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
         EXCEL </a><br/><br/>
 </div>
 <div style=""> <?php the_content(); ?>    </div>
+
+<div class = "col-xs-5">
 <?php
 $metric_sync = get_option('metrics_updated_gmt');
 echo '<div style="font-style:italic;clear:both;">';
 echo "Data last updated on: {$metric_sync} <br />";
 echo "</div>";
 ?>
-
 <div class="open-data-sites-boxes agencies">
     <div class="open-data-sites-box">
         <div class="region">Agencies and Subagencies:</div>
@@ -68,28 +79,79 @@ echo "</div>";
 </div>
 <div class="clear2"></div>
 <br/>
+</div>
 
+<div class = "col-xs-7">
+<h4 class="fieldcontentregion agencytitle"
+    style="font-family: 'Abel',Helvetica,sans-serif;clear: both;margin-left:-1px;font-weight:bold;  ">
+    Dataset Counts by Agency</h4>
+<div class="view-content summary-div">
+    <table class="views-table cols-4 datasets_published_per_month_table">
+        <thead>
+        <?php 
+        foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
+            echo "<tr class ='cursor-scroll {$AgencyCategory[1]}'>";
+                echo "<td width='60%' style='text-align: left;'>&#9660; {$AgencyHeader}</td>";
+                echo "<td width='20%' align='center'></td>";
+                echo "<td width='20%' align='center' id='{$AgencyCategory[1]}'></td>";
+            echo '</tr>';
+        }
+        ?>
+        <tr>
+            <td width="60%" style="text-align: left;">Total</td>
+            <td width="20%" align="center"></td>
+            <td width="20%" align="center" id="total_dataset_sum"></td>
+        </tr>
+        </thead>
+    </table>
+</div>
+</div>
+<p class="blank-paragraph"> - <p>
 <!-- <h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Agencies/Publishers</h3> -->
 
 <?php
 
-$AllCategories = array(
-    'Federal Agencies/Publishers' => 'Federal',
-    'Other Federal Agencies' => 'Other',
-    'City Government Agencies' => 'City Government',
-    'Commercial Agencies' => 'Commercial',
-    'Cooperative Agencies' => 'Cooperative',
-    'County Government Agencies' => 'County Government',
-    'Non-Profit Agencies' => 'Non-Profit',
-    'Other Non-Federal Agencies' => 'Other NonFed',
-    'State Government Agencies' => 'State Government',
-    'Tribal Agencies' => 'Tribal',
-    'University Agencies' => 'University'
+foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
+
+    $args = array(
+        'orderby'          => 'title',
+        'order'            => 'ASC',
+        'post_type'        => 'metric_organization',
+        'posts_per_page'   => -1,
+        'post_status'      => 'publish',
+        'suppress_filters' => true,
+        'meta_query'       => array(
+            array(
+                'key'     => 'metric_sector',
+                'value'   => $AgencyCategory[0],
+                'compare' => 'LIKE'
+            )
+        )
     );
+    $query = null;
+    $query = new WP_Query($args);
 
-foreach($AllCategories as $AgencyHeader => $AgencyCategory) {
-
-    echo "<h3 class='fieldcontentregion agencytitle' style='margin-left:-1px;font-weight:bold; '>{$AgencyHeader}</h3>";
+    // This here checks if the agency has any datasets. If not, change div display to none.
+    $dataset_check = FALSE;
+    if($query->have_posts()) {
+        while ($query->have_posts()) : $query->the_post();
+            $dataset_count = get_post_meta($post->ID, 'metric_count', true);
+            if($dataset_count > 0) {
+                $dataset_check = TRUE;
+            }
+        endwhile;
+        if($dataset_check) {
+            echo "<div>";
+        } else {
+            echo "<div style='display:none;'>"; 
+        }
+    }
+    echo "<br class={$AgencyCategory[2]}>";
+    if($AgencyHeader != 'Federal Agencies/Publishers') {
+        echo "<br>";
+    }
+    echo "<h3 class=' col-xs-10 fieldcontentregion agencytitle' style='margin-left:-1px;font-weight:bold; '>{$AgencyHeader}</h3>";
+    echo "<h3 class = 'col-xs-1 scroll-arrow fieldcontentregion' style='margin-left:-1px;font-weight:bold; text-align:right;'>&#9650;</h3>";
     echo '<div class="view-content">';
     echo '<table class="views-table cols-4 datasets_published_per_month_table">';
     echo '<thead class="datasets_published_per_month_thead">';
@@ -111,25 +173,7 @@ foreach($AllCategories as $AgencyHeader => $AgencyCategory) {
     echo '<tbody class="datasets_published_per_month_tbody metrics">';
 
     $count = 0;
-
-    $args = array(
-        'orderby'          => 'title',
-        'order'            => 'ASC',
-        'post_type'        => 'metric_organization',
-        'posts_per_page'   => -1,
-        'post_status'      => 'publish',
-        'suppress_filters' => true,
-        'meta_query'       => array(
-            array(
-                'key'     => 'metric_sector',
-                'value'   => $AgencyCategory,
-                'compare' => 'LIKE'
-            )
-        )
-    );
-    $query = null;
-    $query = new WP_Query($args);
-
+    $agency_total = 0;
 
     if ($query->have_posts()) {
 
@@ -173,6 +217,7 @@ foreach($AllCategories as $AgencyHeader => $AgencyCategory) {
                 $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
 
                 $total += $dataset_count;
+                $agency_total += $dataset_count;
 
                 if ($dataset_count > 0) {
 
@@ -301,51 +346,49 @@ END;
 
 
         endwhile;
+
+        echo '<script type="text/javascript">';
+        echo 'jQuery(function ($) {';
+        echo <<<SCRIPT
+        $("#{$AgencyCategory[1]}").html($agency_total);
+SCRIPT;
+        echo '})';
+        echo '</script>';
     }
 
     echo '</tbody>';
     echo '</table>';
     echo '</div>';
-
+    echo '</div>';
 }
 
 ?>
 
-
-
-<h3 class="fieldcontentregion agencytitle"
-    style="font-family: 'Abel',Helvetica,sans-serif;clear: both;padding-top: 12px;margin-left:-1px;font-weight:bold;  ">
-    Summary</h3>
-
-
-<div class="view-content">
-
-    <table class="views-table cols-4 datasets_published_per_month_table">
-        <thead>
-        <tr>
-            <td width="60%" style="text-align: left;">Total</td>
-            <td width="20%" align="center">
-                <?php
-
-                echo number_format($total);
-
-                ?> </td>
-            <td width="20%" align="center">
-                <?php
-                list ($metric_sync_date,) = explode(' ', $metric_sync);
-                echo $metric_sync_date; ?>
-            </td>
-        </tr>
-        </thead>
-    </table>
-
-
-</div>
 </div>
 
 <style type="text/css">
     .agencyExpand {
         display: none;
+    }
+    .summary-div td {
+        padding: 5px 12px;
+    }
+    .fieldcontentregion{
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+    .blank-paragraph {
+        margin:0px;
+        padding: 0px;
+        visibility:hidden;
+    }
+    .cursor-scroll {
+        cursor: pointer;
+    }
+    .scroll-arrow {
+        position: relative;
+        left: 5%;
+        cursor: pointer;
     }
 </style>
 
@@ -370,5 +413,20 @@ END;
         $('.agencies_total_count').html($('tr.sub-agency a.sub-agency').size() + $('tr.parent-agency').size());
         $('.publishers_total_count').html($('tr.sub-agency a.publisher').size());
         $('.total_dataset_count').html('<?php $cnt = get_option('ckan_total_count'); echo $cnt>1000?number_format($cnt):'&gt;100,000'?>');
+        $('#total_dataset_sum').html("<?php echo $total ?>");
+        <?php
+        foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
+            echo <<<SCROLL
+            $(".{$AgencyCategory[1]}").click(function() {
+                $("html,body").animate({
+                    scrollTop: $(".{$AgencyCategory[2]}").offset().top}, 'medium');
+            });
+SCROLL;
+        }
+        ?>
+        $(".scroll-arrow").click(function() {
+          $("html, body").animate({ scrollTop: 440 }, "medium");
+          return false;
+        });
     });
 </script>
