@@ -52,7 +52,7 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 </div>
 <div style=""> <?php the_content(); ?>    </div>
 
-<div class = "col-xs-5">
+<div class = "col-md-5 col-xs-12">
 <?php
 $metric_sync = get_option('metrics_updated_gmt');
 echo '<div style="font-style:italic;clear:both;">';
@@ -81,28 +81,35 @@ echo "</div>";
 <br/>
 </div>
 
-<div class = "col-xs-7">
+<div class = "col-md-7 col-xs-12">
 <h4 class="fieldcontentregion agencytitle"
     style="font-family: 'Abel',Helvetica,sans-serif;clear: both;margin-left:-1px;font-weight:bold;  ">
-    Dataset Counts by Agency</h4>
+    Dataset Counts by Organization Type</h4>
 <div class="view-content summary-div">
     <table class="views-table cols-4 datasets_published_per_month_table">
         <thead>
-        <?php 
-        foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
-            echo "<tr class ='cursor-scroll {$AgencyCategory[1]}'>";
-                echo "<td width='60%' style='text-align: left;'>&#9660; {$AgencyHeader}</td>";
-                echo "<td width='20%' align='center'></td>";
-                echo "<td width='20%' align='center' id='{$AgencyCategory[1]}'></td>";
-            echo '</tr>';
-        }
-        ?>
-        <tr>
-            <td width="60%" style="text-align: left;">Total</td>
-            <td width="20%" align="center"></td>
-            <td width="20%" align="center" id="total_dataset_sum"></td>
-        </tr>
+            <tr>
+                <td>Organization Type</td>
+                <td></td>
+                <td>Datasets</td>
+            </tr>
         </thead>
+        <tbody class="datasets_published_per_month_tbody">
+            <?php 
+            foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
+                echo "<tr class ='cursor-scroll {$AgencyCategory[1]}'>";
+                    echo "<td class='datasets_published_per_month_table_row_fields' width='60%' style='text-align: left;'><a style='color: #4295B0;'>{$AgencyHeader}</a></td>";
+                    echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center'></td>";
+                    echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center' id='{$AgencyCategory[1]}'></td>";
+                echo '</tr>';
+            }
+            ?>
+            <tr>
+                <td class='datasets_published_per_month_table_row_fields' width="60%" style="text-align: left;"><a style="color: #4295B0;">Total</a></td>
+                <td class='datasets_published_per_month_table_row_fields' width="20%" align="center"></td>
+                <td class='datasets_published_per_month_table_row_fields' width="20%" align="center" id="total_dataset_sum"></td>
+            </tr>
+        </tbody>
     </table>
 </div>
 </div>
@@ -151,7 +158,7 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
         echo "<br>";
     }
     echo "<h3 class=' col-xs-10 fieldcontentregion agencytitle' style='margin-left:-1px;font-weight:bold; '>{$AgencyHeader}</h3>";
-    echo "<h3 class = 'col-xs-1 scroll-arrow fieldcontentregion' style='margin-left:-1px;font-weight:bold; text-align:right;'>&#9650;</h3>";
+    echo "<h3 class = 'col-xs-1 scroll-arrow fieldcontentregion' style='margin-left:-1px;font-weight:bold; text-align:right;'>&#9650;<span class='tooltiptext'>Scroll To Top</span></h3>";
     echo '<div class="view-content">';
     echo '<table class="views-table cols-4 datasets_published_per_month_table">';
     echo '<thead class="datasets_published_per_month_thead">';
@@ -389,6 +396,24 @@ SCRIPT;
         position: relative;
         left: 5%;
         cursor: pointer;
+    }
+    .scroll-arrow .tooltiptext {
+        visibility: hidden;
+        width: 100%;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 4px;
+        position: absolute;
+        z-index: 1;
+        font-size: .4em;
+        bottom: 100%;
+        left: 87%; 
+        margin-left: -60px;
+    }
+    .scroll-arrow:hover .tooltiptext {
+        visibility: visible;
     }
 </style>
 
