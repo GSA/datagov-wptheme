@@ -47,7 +47,7 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 
 <div style="float:left;">
     This report is also available for download in the following formats: <a
-        href="<?php echo $s3_path; ?>federal-agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>federal-agency-participation.xlsx">
+        href="<?php echo $s3_path; ?>agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
         EXCEL </a><br/><br/>
 </div>
 <div style=""> <?php the_content(); ?>    </div>
@@ -226,6 +226,7 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
                 $total += $dataset_count;
                 $agency_total += $dataset_count;
 
+
                 if ($dataset_count > 0) {
 
                     $parentName = $post->post_name;
@@ -354,10 +355,11 @@ END;
 
         endwhile;
 
+        $agency_total = number_format($agency_total);
         echo '<script type="text/javascript">';
         echo 'jQuery(function ($) {';
         echo <<<SCRIPT
-        $("#{$AgencyCategory[1]}").html($agency_total);
+        $("#{$AgencyCategory[1]}").html('{$agency_total}');
 SCRIPT;
         echo '})';
         echo '</script>';
@@ -438,7 +440,7 @@ SCRIPT;
         $('.agencies_total_count').html($('tr.sub-agency a.sub-agency').size() + $('tr.parent-agency').size());
         $('.publishers_total_count').html($('tr.sub-agency a.publisher').size());
         $('.total_dataset_count').html('<?php $cnt = get_option('ckan_total_count'); echo $cnt>1000?number_format($cnt):'&gt;100,000'?>');
-        $('#total_dataset_sum').html("<?php echo $total ?>");
+        $('#total_dataset_sum').html("<?php echo number_format($total) ?>");
         <?php
         foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
             echo <<<SCROLL
