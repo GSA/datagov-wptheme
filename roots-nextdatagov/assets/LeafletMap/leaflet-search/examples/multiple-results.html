@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="stylesheet" href="/maps/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="../src/leaflet-search.css" />
+<link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+<h3><a href="../"><big>◄</big> Leaflet.Control.Search</a></h3>
+
+<h4>Simple Example: <em>search markers in layer by title</em></h4>
+<div id="map"></div>
+
+<div id="post-it">
+<b>Search values:</b><br />
+darkgray, dodgerblue, gray, green, seashell
+</div>
+
+<script src="/maps/leaflet/dist/leaflet.js"></script>
+<script src="../src/leaflet-search.js"></script>
+<script>
+
+	//sample data values for populate map
+	var data = [
+		{"loc":[41.319190,13.182145], "title":"Darkgray"},
+		{"loc":[41.129190,13.392145], "title":"Darkgray"},
+
+		{"loc":[41.369290,13.112545], "title":"dodgerblue"},
+		{"loc":[41.179290,13.322545], "title":"dodgerblue"},
+		
+		{"loc":[41.407190,13.342145], "title":"gray"},
+		{"loc":[41.408190,13.452145], "title":"gray"},
+		{"loc":[41.409190,13.562145], "title":"gray"},
+
+		{"loc":[41.594008,12.383884], "title":"green"},
+		{"loc":[41.694008,12.483884], "title":"green"},
+		{"loc":[41.794008,12.583884], "title":"green"},
+
+		{"loc":[41.436175,13.673590], "title":"seashell"},
+		{"loc":[41.326175,13.583590], "title":"seashell"},
+		{"loc":[41.216175,13.493590], "title":"seashell"}
+	];
+
+	var map = new L.Map('map', {zoom: 9 });	//set center from first location
+
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	var markersLayer = new L.featureGroup();	//layer contain searched elements
+	
+	map.addLayer(markersLayer);
+
+	var controlSearch = new L.Control.Search({
+		position:'topright',		
+		layer: markersLayer,
+		initial: false,
+		zoom: 12,
+		marker: false
+	});
+
+	map.addControl( controlSearch );
+
+	////////////populate map with markers from sample data
+	for(i in data) {
+		var title = data[i].title,	//value searched
+			loc = data[i].loc,		//position found
+			marker = new L.Marker(new L.latLng(loc), {title: title} );//se property searched
+		marker.bindPopup('title: '+ title );
+		markersLayer.addLayer(marker);
+	}
+
+	map.fitBounds(markersLayer.getBounds());
+
+</script>
+
+<div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
+
+<script type="text/javascript" src="/labs-common.js"></script>
+
+</body>
+</html>

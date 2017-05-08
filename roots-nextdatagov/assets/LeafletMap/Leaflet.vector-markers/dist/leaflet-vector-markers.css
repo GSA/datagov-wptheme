@@ -1,0 +1,54 @@
+/*
+Author: Mathias Schneider
+License: MIT
+Version: 0.0.6
+*/
+/* Marker setup */
+.vector-marker {
+  width: 35px;
+  height: 46px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  text-align: center; }
+  .vector-marker path {
+    stroke: black;
+    stroke-opacity: 0.4;
+    stroke-width: 1; }
+  .vector-marker.not-accepted {
+    opacity: 0.5; }
+
+.vector-marker-shadow:before {
+  bottom: -13px;
+  box-shadow: 35px -10px 10px rgba(0, 0, 0, 0.4);
+  content: "";
+  height: 40%;
+  position: absolute;
+  right: 21px;
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transform: skew(150deg) rotate(-40deg);
+      -ms-transform: skew(150deg) rotate(-40deg);
+          transform: skew(150deg) rotate(-40deg);
+  width: 60%;
+  z-index: -1; }
+
+.vector-marker i {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 32px;
+  color: #333;
+  margin: auto;
+  display: inline-block;
+  font-size: 14px; }
+
+.vector-marker i.maki-icon {
+  width: 24px;
+  left: 4px;
+  top: 4px; }
+
+.vector-marker .icon-white {
+  color: #fff; }

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="stylesheet" href="/maps/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="../src/leaflet-search.css" />
+<link rel="stylesheet" href="../style.css" />
+<style>
+.twitter-tip.search-tip {
+	background:##86e9f3;
+	cursor:pointer;
+}
+.twitter-tip b {
+	color:#356b8d;
+	font-size:16px;
+}
+.twitter-pop img {
+	vertical-align:top;
+}
+</style>
+</head>
+
+<body>
+<h3><a href="../"><big>◄</big> Leaflet.Control.Search</a></h3>
+
+<h4>Twitter Example: <em>search twetts by jsonp service, filtering geolocated data</em></h4>
+<div id="map"></div>
+
+<script src="/maps/leaflet/dist/leaflet.js"></script>
+<script src="../src/leaflet-search.js"></script>
+<script>
+
+	var map = new L.Map('map', {zoom: 9, center: new L.latLng([41.575730,13.002411]) });
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+	
+	function formatJSON(rawjson) {	//callback that remap fields name
+		var json = {},
+			key, loc, res = [];
+		
+		res = rawjson.results;
+					
+		for(var i in res)
+		{
+			if(res[i].geo && res[i].geo.type=='Point')	//is geolocated twitt
+			{			
+				loc = L.latLng( res[i].geo.coordinates );
+				
+				loc.tipText = '<b>'+res[i].from_user +'</b><br>'+res[i].text;
+				
+				loc.popupText = '<div class="twitter-pop">'+res[i].from_user +'<br>'+
+								'<img src="'+ res[i].profile_image_url +'">'+
+								res[i].text+'<br>'+
+								'<small>'+res[i].created_at+'</small>'+
+								'</div>';
+
+				key = res[i].text;
+			
+				json[ key ]= loc;	
+			}
+		}
+		
+		return json;
+	}
+	
+	function makeTip(text, loc)
+	{
+		var tip = L.DomUtil.create('div', 'twitter-tip');
+		tip.innerHTML = loc.tipText;
+		return tip;
+	}
+	
+	var searchOpts = {
+			url: 'http://search.twitter.com/search.json?q={s}',
+			jsonpParam: 'callback',
+			formatData: formatJSON,
+			buildTip: makeTip,
+			minLength: 3,
+			autoType: false,
+			marker: {
+				icon: true
+			}
+		};
+		
+	var searchControl = new L.Control.Search(searchOpts);
+	
+	searchControl.on('search:locationfound',function(e) {	
+	
+		var	popup = e.latlng.popupText,
+			marker = this._markerLoc;		
+		marker.bindPopup(popup).openPopup();
+	});
+	
+	map.addControl( searchControl );
+
+</script>
+
+<div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
+
+<script type="text/javascript" src="/labs-common.js"></script>
+
+</body>
+</html>

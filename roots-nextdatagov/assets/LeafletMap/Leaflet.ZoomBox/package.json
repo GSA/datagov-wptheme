@@ -1,0 +1,21 @@
+{
+	"name": "leaflet-zoombox",
+	"version": "0.3.4",
+	"description": "ZoomBox Control for Leaflet",
+	"main": "L.Control.ZoomBox.js",
+  	"homepage": "http://github.com/consbio/Leaflet.ZoomBox",
+  	"author": {
+	  	"name": "Brendan Ward",
+	  	"email": "bcward@consbio.org"
+	},
+	"devDependencies": {
+		"uglify-js": "~2.4.16",
+		"jake": "~8.0.10",
+        "node-minify": "~1.0.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/consbio/Leaflet.ZoomBox"
+	},
+	"keywords": ["leaflet"]
+}

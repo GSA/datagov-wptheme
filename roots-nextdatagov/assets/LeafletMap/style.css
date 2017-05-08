@@ -1,0 +1,49 @@
+#mapid { 
+	height: 650px; 
+	width: 990px;
+	border: 1px solid #333333;
+	position: relative;
+	left: 13%;
+}
+.leaflet-popup-content {
+	font-weight: bold;
+	height: 20px;
+	padding: 0px;
+	line-height: 1.3em;
+}
+.leaflet-popup-content h3, h4{
+	line-height: 1.3em;
+	font-size: .8em;
+	margin: 1px;
+}
+.leaflet-fusesearch-panel {
+	position: relative;
+	top: 2%;
+	left: 50%;
+	z-index: 1000;
+	width: 300px;
+}
+.leaflet-fusesearch-panel .content {
+	background-color: white;
+	box-shadow: 1px grey;
+}
+.leaflet-fusesearch-panel .content .search-input {
+	width: 98%;
+	font-size: 1.3em;
+	outline: none;
+	box-shadow: 1px 1px 1px 1px grey;
+}
+.leaflet-fusesearch-panel .content a {
+	display: none;
+}
+.leaflet-fusesearch-panel .content p {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.search-input {
+	color: black;
+	width: 200px;
+	height: 30px;
+	font-size: 1.3em;
+}
+
