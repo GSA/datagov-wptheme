@@ -373,7 +373,7 @@ SCRIPT;
 </div>
 
 <style type="text/css">
-    .agencyExpand {
+    .agencyHide {
         display: none;
     }
     .summary-div td {
@@ -413,6 +413,9 @@ SCRIPT;
     }
     .scroll-arrow:hover .tooltiptext {
         visibility: visible;
+    }
+    .datasets_published_per_month_row_tr_even {
+        display: none;
     }
 </style>
 
