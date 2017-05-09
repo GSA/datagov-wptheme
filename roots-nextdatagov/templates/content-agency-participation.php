@@ -143,7 +143,7 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
     if($query->have_posts()) {
         while ($query->have_posts()) : $query->the_post();
             $dataset_count = get_post_meta($post->ID, 'metric_count', true);
-            if($dataset_count > 0) {
+            if($dataset_count) {
                 $dataset_check = TRUE;
             }
         endwhile;
@@ -154,9 +154,6 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
         }
     }
     echo "<br class={$AgencyCategory[2]}>";
-    if($AgencyHeader != 'Federal Agencies/Publishers') {
-        echo "<br>";
-    }
     echo "<h3 class=' col-xs-10 fieldcontentregion agencytitle' style='margin-left:-1px;font-weight:bold; '>{$AgencyHeader}</h3>";
     echo "<h3 class = 'col-xs-1 scroll-arrow fieldcontentregion' style='margin-left:-1px;font-weight:bold; text-align:right;'>&#9650;<span class='tooltiptext'>Scroll To Top</span></h3>";
     echo '<div class="view-content">';
