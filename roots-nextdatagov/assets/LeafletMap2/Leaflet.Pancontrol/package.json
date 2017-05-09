@@ -1,0 +1,35 @@
+{
+  "name": "leaflet.pancontrol",
+  "version": "1.0.0",
+  "description": "Map pan control for Leaflet",
+  "main": "src/L.Control.Pan.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kartena/Leaflet.Pancontrol.git"
+  },
+  "keywords": [
+    "leaflet",
+    "map",
+    "pan"
+  ],
+  "author": "Mattias Bengtsson <mattias.jc.bengtsson@gmail.com>",
+  "contributors": [
+    "Grant Lucas (https://github.com/grantlucas)",
+    "Patrik Norman (https://github.com/patsy)",
+    "Per Liedman <per.liedman@kartena.se> (https://github.com/perliedman/)",
+    "Benjamin (https://github.com/bdparrish)"
+  ],
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/kartena/Leaflet.Pancontrol/issues"
+  },
+  "dependencies": {
+    "leaflet": "~1.0.2"
+  }
+}

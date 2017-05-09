@@ -1,0 +1,82 @@
+{
+  "name": "Leaflet.vector-markers",
+  "version": "0.0.6",
+  "description": "Vector SVG markers for Leaflet, with an option for Font Awesome/Twitter Bootstrap icons.",
+  "main": "dist/leaflet-vector-markers.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hiasinho/Leaflet.vector-markers.git"
+  },
+  "scripts": {
+    "clean:lib": "rm -Rf ./lib",
+    "compile:lib": "babel src --out-dir lib",
+    "build:lib": "npm run clean:lib && npm run compile:lib",
+    "build:dist": "webpack src/index.js dist/leaflet-vector-markers.js && webpack -p src/index.js dist/leaflet-vector-markers.min.js && webpack src/leaflet-vector-markers.scss dist/leaflet-vector-markers.css",
+    "build": "npm run build:lib && npm run build:dist",
+    "watch": "babel src --watch --out-dir lib",
+    "start": "npm run lint && npm run test && npm run build",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "onchange": "onchange 'src/*.js' 'src/**/*.js' -- npm run lintAndTest",
+    "dev": "npm run watch & npm run onchange",
+    "prepublish": "npm ls && npm start",
+    "examples": "webpack-dev-server --config ./examples/webpack.config.js",
+    "lint": "eslint ./src",
+    "lintAndTest": "npm run lint && jest"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.3.7",
+    "leaflet": "^0.7.0",
+    "postcss-loader": "^0.9.1"
+  },
+  "peerDependencies": {
+    "leaflet": "^0.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.0.4",
+    "babel-jest": "^12.1.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.11.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "jest-cli": "^12.1.1",
+    "node-sass": "^3.7.0",
+    "onchange": "^2.4.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "keywords": [
+    "Leaflet",
+    "Markers",
+    "Map",
+    "SVG",
+    "Vector",
+    "Icon"
+  ],
+  "author": "Mathias Maisberger <mathias@hiasinho.com>",
+  "licenses": {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  },
+  "bugs": {
+    "url": "https://github.com/hiasinho/Leaflet.vector-markers/issues"
+  },
+  "homepage": "https://github.com/hiasinho/Leaflet.vector-markers",
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/fbjs",
+      "<rootDir>/node_modules/jest-cli",
+      "<rootDir>/node_modules/leaflet",
+      "<rootDir>/src/index",
+      "<rootDir>/src/Icon",
+      "<rootDir>/src/VectorMarkers"
+    ]
+  }
+}
