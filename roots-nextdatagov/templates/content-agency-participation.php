@@ -27,6 +27,7 @@ $all_agencies = array(
 
 <div class="single">
 <div class="container">
+
 <?php
 while (have_posts()) {
     the_post();
@@ -51,6 +52,12 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
         EXCEL </a><br/><br/>
 </div>
 <div style=""> <?php the_content(); ?>    </div>
+
+<br>
+<p style = "text-align: right;">
+    <a class = "Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Datasets Published Per Month</a>
+</p>
+<br>
 
 <div class = "col-md-7 col-xs-12">
 <h4 class="fieldcontentregion agencytitle"
@@ -87,7 +94,7 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 </div>
 
 
-<div class = "col-md-5 col-xs-12">
+<div class = "col-md-5 col-sm-12">
 <?php
 $metric_sync = get_option('metrics_updated_gmt');
 echo '<div style="font-style:italic;clear:both;">';
@@ -119,7 +126,6 @@ echo "</div>";
 <!-- <h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Agencies/Publishers</h3> -->
 
 <?php
-
 foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
 
     $args = array(
@@ -418,6 +424,12 @@ SCRIPT;
     }
     .datasets_published_per_month_row_tr_even {
         display: none;
+    }
+    .Published-Per-Month-Link {
+        background-color: #efefef;
+        padding: 13px 65px;
+        border: 1px solid #E8E8E8;
+        margin-right: 3%;
     }
 </style>
 
