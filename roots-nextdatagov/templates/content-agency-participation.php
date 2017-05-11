@@ -9,18 +9,18 @@ $cat_slug = $category[0]->slug;
 $total = 0;
 $agency_total = 0;
 $all_agencies = array(
-    'Federal Agencies/Publishers' => array('Federal', 'federal_id', 'federal_class'),
-    'Other Federal Agencies' => array('Other', 'other_id', 'other_class'),
-    'City Government Agencies' => array('City Government', 'city_goverment_id', 'city_goverment_class'),
-    'Commercial Agencies' => array('Commercial', 'commercial_id', 'commercial_class'),
-    'Cooperative Agencies' => array('Cooperative', 'cooperative_id', 'cooperative_class'),
-    'County Government Agencies' => array('County Government', 'county_government_id', 'county_government_class'),
-    'Non-Profit Agencies' => array('Non-Profit', 'non-profit_id', 'non-profit_class'),
-    'Other Non-Federal Agencies' => array('NonFed-O', 'nonfed-o_id', 'nonfed-o_class'),
-    'State Agencies' => array('State Agency', 'state_agency_id', 'state_agency_class'),
-    'State Government Agencies' => array('Government-State', 'government-state_id', 'government-state_class'),
-    'Tribal Agencies' => array('Tribal', 'tribal_id', 'tribal_class'),
-    'University Agencies' => array('University', 'university_id', 'university_class')
+    'Federal Government' => array('Federal', 'federal_id', 'federal_class'),
+    'Other Federal' => array('Other', 'other_id', 'other_class'),
+    'City Government' => array('City Government', 'city_goverment_id', 'city_goverment_class'),
+    'Commercial' => array('Commercial', 'commercial_id', 'commercial_class'),
+    'Cooperative' => array('Cooperative', 'cooperative_id', 'cooperative_class'),
+    'County Government' => array('County Government', 'county_government_id', 'county_government_class'),
+    'Non-Profit' => array('Non-Profit', 'non-profit_id', 'non-profit_class'),
+    'Other Non-Federal' => array('NonFed-O', 'nonfed-o_id', 'nonfed-o_class'),
+    'State' => array('State Agency', 'state_agency_id', 'state_agency_class'),
+    'State Government' => array('Government-State', 'government-state_id', 'government-state_class'),
+    'Tribal' => array('Tribal', 'tribal_id', 'tribal_class'),
+    'University' => array('University', 'university_id', 'university_class')
     );
 ?>
 <?php include('category-subnav.php'); ?>
@@ -51,35 +51,6 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
         EXCEL </a><br/><br/>
 </div>
 <div style=""> <?php the_content(); ?>    </div>
-
-<div class = "col-md-5 col-xs-12">
-<?php
-$metric_sync = get_option('metrics_updated_gmt');
-echo '<div style="font-style:italic;clear:both;">';
-echo "Data last updated on: {$metric_sync} <br />";
-echo "</div>";
-?>
-<div class="open-data-sites-boxes agencies">
-    <div class="open-data-sites-box">
-        <div class="region">Agencies and Subagencies:</div>
-        <div class="numbers agencies_total_count">
-            &nbsp;
-        </div>
-    </div>
-</div>
-<div class="clear2"></div>
-
-<div class="open-data-sites-boxes agencies">
-    <div class="open-data-sites-box">
-        <div class="region">Publishers:</div>
-        <div class="numbers publishers_total_count">
-            &nbsp;
-        </div>
-    </div>
-</div>
-<div class="clear2"></div>
-<br/>
-</div>
 
 <div class = "col-md-7 col-xs-12">
 <h4 class="fieldcontentregion agencytitle"
@@ -112,8 +83,39 @@ echo "</div>";
         </tbody>
     </table>
 </div>
-</div>
 <p class="blank-paragraph"> - <p>
+</div>
+
+
+<div class = "col-md-5 col-xs-12">
+<?php
+$metric_sync = get_option('metrics_updated_gmt');
+echo '<div style="font-style:italic;clear:both;">';
+echo "Data last updated on: {$metric_sync} <br />";
+echo "</div>";
+?>
+<div class="open-data-sites-boxes agencies">
+    <div class="open-data-sites-box">
+        <div class="region">Agencies and Subagencies:</div>
+        <div class="numbers agencies_total_count">
+            &nbsp;
+        </div>
+    </div>
+</div>
+<div class="clear2"></div>
+
+<div class="open-data-sites-boxes agencies">
+    <div class="open-data-sites-box">
+        <div class="region">Publishers:</div>
+        <div class="numbers publishers_total_count">
+            &nbsp;
+        </div>
+    </div>
+</div>
+<div class="clear2"></div>
+<br/>
+</div>
+
 <!-- <h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Agencies/Publishers</h3> -->
 
 <?php
@@ -433,7 +435,10 @@ SCRIPT;
         });
         $('.more-link').each(function () {
             var rel = $(this).attr('rel');
-            if (!$('.sub-agency.' + rel).size()) {
+            if ($('.sub-agency.' + rel).size() < 1) {
+                $(this).remove()
+            } else if ($('.sub-agency.' + rel).size() < 2) {
+                $(this).parent().parent().next('.datasets_published_per_month_row_tr_even').show()
                 $(this).remove()
             }
         });
