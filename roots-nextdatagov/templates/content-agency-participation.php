@@ -46,19 +46,23 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 
 ?>
 
-<div style="float:left;">
-    This report is also available for download in the following formats: <a
-        href="<?php echo $s3_path; ?>agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
-        EXCEL </a><br/><br/>
+<div style="">
+    <div class = "col-md-8">
+        This report is also available for download in the following formats: <a href="<?php echo $s3_path; ?>agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
+        EXCEL </a><br/><br>
+    </div>
+    <div class = "col-md-4">
+        <p style = "">
+            <a class = "Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Datasets Published Per Month</a>
+        </p>
+        <br>
+    </div>
 </div>
+
+<div class = "col-xs-12">
 <div style=""> <?php the_content(); ?>    </div>
-
-<br>
-<p style = "text-align: right;">
-    <a class = "Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Datasets Published Per Month</a>
-</p>
-<br>
-
+</div>
+ 
 <div class = "col-md-7 col-xs-12">
 <h4 class="fieldcontentregion agencytitle"
     style="font-family: 'Abel',Helvetica,sans-serif;clear: both;margin-left:-1px;font-weight:bold;  ">
@@ -83,9 +87,9 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
             }
             ?>
             <tr>
-                <td class='datasets_published_per_month_table_row_fields' width="60%" style="text-align: left;"><a style="color: #4295B0;">Total</a></td>
+                <td class='datasets_published_per_month_table_row_fields' width="60%" style="text-align: left;"><b style="color: #284A78;" >Total<b></td>
                 <td class='datasets_published_per_month_table_row_fields' width="20%" align="center"></td>
-                <td class='datasets_published_per_month_table_row_fields' width="20%" align="center" id="total_dataset_sum"></td>
+                <td style="font-weight: 700;"class='datasets_published_per_month_table_row_fields' width="20%" align="center" id="total_dataset_sum"></td>
             </tr>
         </tbody>
     </table>
@@ -427,7 +431,7 @@ SCRIPT;
     }
     .Published-Per-Month-Link {
         background-color: #efefef;
-        padding: 13px 65px;
+        padding: 10px 30px;
         border: 1px solid #E8E8E8;
         margin-right: 3%;
     }
