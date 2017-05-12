@@ -18,6 +18,11 @@ $cat_slug = $category[0]->slug;
 <div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month - Full History </div>
 <div class="view-content">
 
+<p style = "">
+    <a class = "Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric">Go Back to Agency Participation Page</a>
+</p>
+    <br>
+
 <?php
 
 $s3_config = get_option('tantan_wordpress_s3');
@@ -71,6 +76,9 @@ if (!$metrics) {
       <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
           scope="col" rowspan=""> Agency Name
       </th>
+      <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
+          scope="col" rowspan=""> Organization Type
+      </th>
       <th
         class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col"
         colspan="<?php echo sizeof($metrics['total_by_month']);?>" style="text-align:left"
@@ -109,6 +117,7 @@ if (!$metrics) {
       echo <<<END
       <tr class="datasets_published_per_month_row_tr_odd odd">
         <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['title']}</td>
+        <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['organization_type']}</td>
 END;
         foreach($organization['metrics'] as $metric) {
           $count = number_format($metric['count']);
@@ -152,3 +161,15 @@ END;
 </div>
 </div>
 </div>
+<style type="text/css">
+  .Published-Per-Month-Link {
+      background-color: #efefef;
+      padding: 10px 30px;
+      border: 1px solid #E8E8E8;
+      margin-right: 3%;
+  }
+  .Published-Per-Month-Link:hover {
+    background-color: white;
+  }
+
+</style>
