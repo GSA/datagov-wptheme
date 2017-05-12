@@ -170,6 +170,7 @@ END;
   }
   .Published-Per-Month-Link:hover {
     background-color: white;
+    text-decoration: none;
   }
 
 </style>
