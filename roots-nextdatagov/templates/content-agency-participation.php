@@ -63,6 +63,7 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 <div style=""> <?php the_content(); ?>    </div>
 </div>
  
+<br>
 <div class = "col-md-7 col-xs-12">
 <h4 class="fieldcontentregion agencytitle"
     style="font-family: 'Abel',Helvetica,sans-serif;clear: both;margin-left:-1px;font-weight:bold;  ">
@@ -451,10 +452,7 @@ SCRIPT;
         });
         $('.more-link').each(function () {
             var rel = $(this).attr('rel');
-            if ($('.sub-agency.' + rel).size() < 1) {
-                $(this).remove()
-            } else if ($('.sub-agency.' + rel).size() < 2) {
-                $(this).parent().parent().next('.datasets_published_per_month_row_tr_even').show()
+            if ($('.sub-agency.' + rel).size() < 2) {
                 $(this).remove()
             }
         });
