@@ -33,3 +33,5 @@ Template Name: OpenGov
 <?php
 	wp_enqueue_script('main', get_template_directory_uri().'/assets/LeafletMap2/main.js');
 ?>
+
+<!--  app/themes/roots-nextdatagov/assets/LeafletMap2/update.txt GO TO THIS FILE TO SEE HOW TO ADD NEW DATA TO MAP -->
