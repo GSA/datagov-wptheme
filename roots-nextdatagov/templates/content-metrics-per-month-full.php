@@ -16,10 +16,10 @@ $cat_slug = $category[0]->slug;
 
 <div id="main-inner" class="dataset-inner" style="margin-top:20px;">
 <div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month - Full History </div>
-<div class="view-content">
 
-<p style = "">
-    <a class = "Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric">Go Back to Agency Participation Page</a>
+<div class="view-content">
+<p>
+    <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric">Go Back to Agency Participation Page</a>
 </p>
     <br>
 
@@ -69,7 +69,7 @@ if (!$metrics) {
         ?>
     </ul>
 
-
+  <div class="scroll" style="overflow:auto; width:100%">
   <table class="views-table cols-4 datasets_published_per_month_table_full">
     <thead class="datasets_published_per_month_thead">
     <tr class="datasets_published_per_month_row_tr_head">
@@ -156,6 +156,9 @@ END;
   <?php
 }
 ?>
+
+</div>
+
 
 </div>
 </div>

@@ -35,8 +35,8 @@ while (have_posts()) {
     <div id="appstitle" class="Appstitle" style="margin-left:-20px;"><?php the_title(); ?></div>
 <?php } ?>
     <br>
-    <p class = "col-sm-12" style = "">
-        <a class = "Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
+    <p class="col-sm-12">
+        <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
     </p>
     <br>
 <?php
@@ -51,13 +51,13 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 ?>
 
 <div style="">
-    <div class = "col-md-12">
+    <div class="col-md-12">
         This report is also available for download in the following formats: <a href="<?php echo $s3_path; ?>agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
         EXCEL </a><br/><br>
     </div>
 </div>
 
-<div class = "col-xs-12">
+<div class="col-xs-12">
 <div style=""> <?php the_content(); ?>    </div>
 </div>
  
@@ -97,7 +97,7 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 </div>
 
 
-<div class = "col-md-5 col-sm-12">
+<div class="col-md-5 col-sm-12">
 <?php
 $metric_sync = get_option('metrics_updated_gmt');
 echo '<div style="font-style:italic;clear:both;">';
@@ -166,7 +166,7 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
     }
     echo "<br class={$AgencyCategory[2]}>";
     echo "<h3 class=' col-xs-10 fieldcontentregion agencytitle' style='margin-left:-1px;font-weight:bold; '>{$AgencyHeader}</h3>";
-    echo "<h3 class = 'col-xs-1 scroll-arrow fieldcontentregion' style='margin-left:-1px;font-weight:bold; text-align:right;'>&#9650;<span class='tooltiptext'>Scroll To Top</span></h3>";
+    echo "<h3 class='col-xs-1 scroll-arrow fieldcontentregion' style='margin-left:-1px;font-weight:bold; text-align:right;'>&#9650;<span class='tooltiptext'>Scroll To Top</span></h3>";
     echo '<div class="view-content">';
     echo '<table class="views-table cols-4 datasets_published_per_month_table">';
     echo '<thead class="datasets_published_per_month_thead">';
