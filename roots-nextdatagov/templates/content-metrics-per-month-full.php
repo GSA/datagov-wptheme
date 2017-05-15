@@ -202,6 +202,7 @@ END;
 </div>
 </div>
 </div>
+
 <style type="text/css">
   .Published-Per-Month-Link {
       background-color: #efefef;
@@ -291,4 +292,5 @@ DATES;
       document.getElementById('no_match').style.display = "none";
     }
   }  
+ 
 </script>
