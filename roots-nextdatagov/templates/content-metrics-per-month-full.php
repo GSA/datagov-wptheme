@@ -61,18 +61,22 @@ if (!$metrics) {
         $current = date('Y');
         for ($i=$start;$i<= $current; $i++){
             if ($i == $current){
-                echo '<li class="active"><a href="#"><i class="fa fa-minus-circle"><span style="margin-left:5px;">'.$i.'</span></i></a></li>';
-            }else{
-                echo '<li><a href="#"><i class="fa fa-plus-circle"><span style="margin-left:5px;">'.$i.'</span></i></a></li>';
+              $display_minus="inline-block";
+              $display_plus="none";
+            } else {
+              $display_minus='none';
+              $display_plus="inline-block";
             }
+                echo "<li class='active minus_li_{$i}' style='display:{$display_minus}'><a><i class='fa fa-minus-circle minus{$i}'><span style='margin-left:5px;'>".$i."</span></i></a></li>";
+                echo "<li class='plus_li_{$i}'style='display:{$display_plus};'><a><i class='fa fa-plus-circle plus{$i}'><span style='margin-left:5px;'>".$i."</span></i></a></li>";
         }
         ?>
     </ul>
 
-  <div class="scroll" style="overflow:auto; width:100%">
-  <table class="views-table cols-4 datasets_published_per_month_table_full">
+  <div class="scroll" style="overflow:auto; width:100%;">
+  <table class="views-table cols-4 datasets_published_per_month_table_full" style="width:100%;">
     <thead class="datasets_published_per_month_thead">
-    <tr class="datasets_published_per_month_row_tr_head">
+    <tr class="datasets_published_per_month_row_tr_head" style="width:100%">
       <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
           scope="col" rowspan=""> Agency Name
       </th>
@@ -81,7 +85,7 @@ if (!$metrics) {
       </th>
       <th
         class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col"
-        colspan="<?php echo sizeof($metrics['total_by_month']);?>" style="text-align:left"
+        colspan="5" style="text-align:left"
         ;> Number of Datasets published by month
       </th>
       <th
@@ -92,16 +96,18 @@ if (!$metrics) {
     <tr class="datasets_published_per_month_row_tr_head">
       <?php
       echo '<th></th>';
+      echo '<th></th>';
       foreach($metrics['total_by_month'] as $date=>$value) {
         list($month, $year) = explode(' ', $date);
           if ($year == date('Y') ){
-              echo '<th class="datasets_published_per_month_table_head_calendar showCol '.$year.'"  >';
+            $display = '';
           }
           else{
-              echo '<th class="datasets_published_per_month_table_head_calendar hideCol '.$year.'"  >';
+            $display = 'none';
           }
-        echo '  <span class="datasets_published_month">'.$month.'</span><br/>';
-        echo '  <span class="datasets_published_year">'.$year.'</span>';
+        echo "<th class='datasets_published_per_month_table_head_calendar showCol th_{$year}' style='display:{$display};'>";
+        echo "  <span class='datasets_published_month'>".$month.'</span><br/>';
+        echo "  <span class='datasets_published_year'>".$year.'</span>';
         echo '</th>';
       }
       ?>
@@ -121,8 +127,15 @@ if (!$metrics) {
 END;
         foreach($organization['metrics'] as $metric) {
           $count = number_format($metric['count']);
+          list($month, $year) = explode(' ', $metric['title']);
+          $current = date('Y');
+          if($year == $current){
+            $display = "";
+          } else {
+            $display = "none";
+          }
           echo <<<END
-          <td class="datasets_published_per_month_table_row_fields">
+          <td class="datasets_published_per_month_table_row_fields td_{$year}" style="display:{$display}">
           <a class="link_dataset" href="{$metric['web_url']}">{$count}</a>
         </td>
 END;
@@ -143,9 +156,17 @@ END;
     <tfoot>
     <tr>
       <td style="text-align:left; ">Total</td>
+      <td></td>
       <?php
       foreach($metrics['total_by_month'] as $date=>$value){
-        echo '<td>' . ($value ? number_format($value) : '-') . '</td>';
+        list($month, $year) = explode(' ', $date);
+        if ($year == date('Y') ){
+          $display = '';
+        }
+        else{
+          $display = 'none';
+        }
+        echo "<td class='tf_{$year}' style='display:{$display};'>" . ($value ? number_format($value) : '-') . '</td>';
       }
       echo '<td class="total">' . ($metrics['total'] ? number_format($metrics['total']) : '-') . '</td>';
       ?>
@@ -177,3 +198,39 @@ END;
   }
 
 </style>
+<script type="text/javascript">
+  jQuery(function ($) {
+  <?php $start= 2013;
+    $current = date('Y');
+    for($i=$start;$i<= $current; $i++){
+      ${$i} = 0;
+      foreach($metrics['total_by_month'] as $date => $value) {
+        list($month, $year) = explode(' ', $date);
+        if($year == $i){
+          ${$i} += 1;
+        } 
+      }
+      echo <<<DATES
+      $(".plus{$i}").on("click", function() {
+        var new_colspan = $(".views-field-field-creation-date").prop("colspan") + ${$i};
+        $(".minus_li_{$i}").show();
+        $(".plus_li_{$i}").hide();
+        $(".th_{$i}").show();
+        $(".td_{$i}").show();
+        $(".tf_{$i}").show();
+        $(".views-field-field-creation-date").attr('colspan', new_colspan);
+      });
+      $(".minus{$i}").on("click", function() {
+        var new_colspan = $(".views-field-field-creation-date").prop("colspan") - ${$i};
+        $(".plus_li_{$i}").show();
+        $(".minus_li_{$i}").hide();
+        $(".th_{$i}").hide();
+        $(".td_{$i}").hide();
+        $(".tf_{$i}").hide();
+        $(".views-field-field-creation-date").attr('colspan', new_colspan);
+      });
+DATES;
+    }
+  ?>
+  })  
+</script>
