@@ -81,10 +81,10 @@ if (!$metrics) {
     <input type="search" id="searchInput" class placeholder aria-controls="DataTables_Table_0" onkeyup="searchFunction()">
   </label>
 </div>
-<div class="topscroll" style="overflow: scroll;">
+<div class="topscroll" style="overflow-x: scroll;">
   <div class="upscroll"></div>
 </div>
-  <div class="scroll" style="overflow:scroll; width:100%;">
+  <div class="scroll" style="overflow-x:scroll; width:100%;">
   <table class="views-table cols-4 datasets_published_per_month_table_full dataTable" style="width:100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
     <thead class="datasets_published_per_month_thead">
     <tr class="datasets_published_per_month_row_tr_head" style="width:100%" role="row">
@@ -202,6 +202,7 @@ END;
 </div>
 </div>
 </div>
+<br>
 
 <style type="text/css">
   .Published-Per-Month-Link {
@@ -242,6 +243,8 @@ END;
         if($(".views-field-field-creation-date").prop("colspan") == 1) {
           new_colspan -= 1;
         }
+        console.log(new_colspan);
+        console.log(${$i});
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
         if(new_colspan > 0){
           $('.views-field-field-creation-date').show();
@@ -254,6 +257,8 @@ END;
         $(".th_{$i}").hide();
         $(".td_{$i}").hide();
         $(".tf_{$i}").hide();
+        console.log(new_colspan);
+        console.log(${$i});
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
         if(new_colspan === 0){
           $('.views-field-field-creation-date').hide();
