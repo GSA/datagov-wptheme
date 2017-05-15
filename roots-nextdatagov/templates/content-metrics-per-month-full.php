@@ -219,6 +219,7 @@ END;
 </style>
 <script type="text/javascript">
   jQuery(function ($) {
+  var new_colspan;
   <?php $start= 2013;
     $current = date('Y');
     for($i=$start;$i<= $current; $i++){
@@ -234,15 +235,19 @@ END;
       }
       echo <<<DATES
       $(".plus{$i}").on("click", function() {
-        var new_colspan = $(".views-field-field-creation-date").prop("colspan") + ${$i};
+        if(new_colspan > 0) {
+          new_colspan = $(".views-field-field-creation-date").prop("colspan") + ${$i};
+        } else {
+          new_colspan = ${$i};
+        }
         $(".minus_li_{$i}").show();
         $(".plus_li_{$i}").hide();
         $(".th_{$i}").show();
         $(".td_{$i}").show();
         $(".tf_{$i}").show();
-        if($(".views-field-field-creation-date").prop("colspan") == 1) {
-          new_colspan -= 1;
-        }
+        // if($(".views-field-field-creation-date").prop("colspan") == 1) {
+        //   new_colspan -= 1;
+        // }
         console.log(new_colspan);
         console.log(${$i});
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
@@ -251,7 +256,7 @@ END;
         }
       });
       $(".minus{$i}").on("click", function() {
-        var new_colspan = $(".views-field-field-creation-date").prop("colspan") - ${$i};
+        new_colspan = $(".views-field-field-creation-date").prop("colspan") - ${$i};
         $(".plus_li_{$i}").show();
         $(".minus_li_{$i}").hide();
         $(".th_{$i}").hide();
