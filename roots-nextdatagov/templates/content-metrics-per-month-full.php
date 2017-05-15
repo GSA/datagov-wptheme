@@ -291,6 +291,8 @@ DATES;
     } else {
       document.getElementById('no_match').style.display = "none";
     }
+    var match_message = "Showing " + anyMatch + " entries (filtered from " + (tr.length - 4) + " total entries)";
+    document.getElementById('DataTables_Table_0_info').innerHTML = match_message;
   }  
  
 </script>
