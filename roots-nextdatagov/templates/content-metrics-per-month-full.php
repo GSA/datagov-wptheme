@@ -18,10 +18,6 @@ $cat_slug = $category[0]->slug;
 <div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month - Full History </div>
 
 <div class="view-content">
-<p>
-    <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric">Go Back to Agency Participation Page</a>
-</p>
-    <br>
 
 <?php
 
@@ -34,15 +30,20 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 
 ?>
 
-<div>
+<div class = "container-fluid">
+<div class = "col-md-8" style="padding-left:0px">
   This report is also available for download in the following formats:
-  <a target="_blank" href="<?php echo $s3_path; ?>federal-agency-participation-full-by-metadata_created.csv"> CSV </a> |
-  <a target="_blank" href="<?php echo $s3_path; ?>federal-agency-participation-full-by-metadata_created.json"> JSON </a>
-  <br/><br/>
+  <a target="_blank" href="<?php echo $s3_path; ?>agency-participation-full-by-metadata_created.csv"> CSV </a> |
+  <a target="_blank" href="<?php echo $s3_path; ?>agency-participation-full-by-metadata_created.json"> JSON </a>
+  <br><br>
+</div>
+<div class = "col-md-4">
+    <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric">Go Back to Metrics Page</a>
+</div>
 </div>
 
-<div style="float: right;margin-left:280px;"> <?php the_content(); ?>
-</div>
+<br><br>
+<div> <?php the_content(); ?></div>
 <?php
 
 $metrics = get_metrics_per_month_full();
@@ -56,7 +57,7 @@ if (!$metrics) {
   echo "Data last updated on: {$metrics_sync}<br /><br />
 </div>";
   ?>
-    <ul class="year">
+    <ul class="year" >
         <?php $start= 2013;
         $current = date('Y');
         for ($i=$start;$i<= $current; $i++){
@@ -73,8 +74,18 @@ if (!$metrics) {
         ?>
     </ul>
 
+<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper">
+<div id="DataTables_Table_0_filter" class="dataTables_filter">
+  <label>
+    Search:
+    <input type="search" class placeholder aria-controls="DataTables_Table_0">
+  </label>
+</div>
+<div class="topscroll">
+  <div class="upscroll" style="width: 940px;"></div>
+</div>
   <div class="scroll" style="overflow:auto; width:100%;">
-  <table class="views-table cols-4 datasets_published_per_month_table_full" style="width:100%;">
+  <table class="views-table cols-4 datasets_published_per_month_table_full" style="width:100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
     <thead class="datasets_published_per_month_thead">
     <tr class="datasets_published_per_month_row_tr_head" style="width:100%">
       <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
@@ -85,7 +96,7 @@ if (!$metrics) {
       </th>
       <th
         class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col"
-        colspan="5" style="text-align:left"
+        colspan="" style="text-align:left"
         ;> Number of Datasets published by month
       </th>
       <th
@@ -119,6 +130,11 @@ if (!$metrics) {
     foreach($metrics['organizations'] as $organization){
       if (!$organization['total']) {
         continue;
+      }
+      if($organization['organization_type'] === 'Federal-Other'){
+        $organization['organization_type'] = 'Other Federal';
+      } else if($organization['organization_type'] === 'Other'){
+        $organization['organization_type'] = 'Other Non-Federal';
       }
       echo <<<END
       <tr class="datasets_published_per_month_row_tr_odd odd">
@@ -179,7 +195,7 @@ END;
 ?>
 
 </div>
-
+<div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria
 
 </div>
 </div>
@@ -196,7 +212,7 @@ END;
     background-color: white;
     text-decoration: none;
   }
-
+  .year li:nth-child(2) { border-left:0px; }
 </style>
 <script type="text/javascript">
   jQuery(function ($) {
@@ -210,6 +226,9 @@ END;
           ${$i} += 1;
         } 
       }
+      if($current == $i) {
+        echo "$('.views-field-field-creation-date').attr('colspan', ${$i});";
+      }
       echo <<<DATES
       $(".plus{$i}").on("click", function() {
         var new_colspan = $(".views-field-field-creation-date").prop("colspan") + ${$i};
@@ -218,16 +237,29 @@ END;
         $(".th_{$i}").show();
         $(".td_{$i}").show();
         $(".tf_{$i}").show();
+        if($(".views-field-field-creation-date").prop("colspan") == 1) {
+          new_colspan--;
+        }
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
+        console.log(new_colspan);
+        console.log(${$i});
+        if(new_colspan > 0){
+          $('.views-field-field-creation-date').show();
+        }
       });
       $(".minus{$i}").on("click", function() {
         var new_colspan = $(".views-field-field-creation-date").prop("colspan") - ${$i};
+        console.log(${$i})
         $(".plus_li_{$i}").show();
         $(".minus_li_{$i}").hide();
         $(".th_{$i}").hide();
         $(".td_{$i}").hide();
         $(".tf_{$i}").hide();
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
+        console.log(new_colspan);
+        if(new_colspan === 0){
+          $('.views-field-field-creation-date').hide();
+        }
       });
 DATES;
     }
