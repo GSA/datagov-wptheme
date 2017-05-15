@@ -1,0 +1,8 @@
+__tests__
+coverage
+examples
+.editorconfig
+.eslintrc
+.travis.yml
+bower.json
+webpack.config.js

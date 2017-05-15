@@ -1,0 +1,23 @@
+html, body, #map {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+.title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  opacity: 0.5;
+}
+p {
+  margin: 5px;
+}

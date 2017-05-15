@@ -1,0 +1,30 @@
+{
+  "name": "Leaflet.vector-markers",
+  "version": "0.0.6",
+  "homepage": "https://github.com/hiasinho/Leaflet.vector-markers",
+  "description": "Vector SVG markers for Leaflet, with an option for Font Awesome/Twitter Bootstrap icons.",
+  "keywords": [
+    "Leaflet",
+    "Markers",
+    "Map",
+    "SVG",
+    "Vector",
+    "Icon"
+  ],
+  "authors": [
+    "Mathias Maisberger"
+  ],
+  "main": [
+    "dist/leaflet-vector-markers.js",
+    "dist/leaflet-vector-markers.css"
+  ],
+  "license": "MIT",
+  "private": false,
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ]
+}

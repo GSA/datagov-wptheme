@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="stylesheet" href="/maps/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="../src/leaflet-search.css" />
+<link rel="stylesheet" href="../style.css" />
+<style>
+.search-input {
+	font-family:Courier
+}
+.search-input,
+.leaflet-control-search {
+	max-width:400px;
+}
+</style>
+</head>
+
+<body>
+<h3><a href="../"><big>◄</big> Leaflet.Control.Search</a></h3>
+
+<h4>Google GeoCoding API: <em>search locations name by Google Maps API</em></h4>
+<div id="map"></div>
+
+<div id="post-it">
+<b>Search values:</b><br />
+Google Geocoding API <br />
+<small><a href="https://developers.google.com/maps/documentation/geocoding/">developers.google.com</a></small>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+<script src="/maps/leaflet/dist/leaflet.js"></script>
+<script src="../src/leaflet-search.js"></script>
+<script>
+
+	var map = new L.Map('map', {zoom: 9, center: new L.latLng([41.575730,13.002411]) });
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	var geocoder = new google.maps.Geocoder();
+
+	function googleGeocoding(text, callResponse)
+	{
+		geocoder.geocode({address: text}, callResponse);
+	}
+
+	function formatJSON(rawjson)
+	{
+		var json = {},
+			key, loc, disp = [];
+
+		for(var i in rawjson)
+		{
+			key = rawjson[i].formatted_address;
+			
+			loc = L.latLng( rawjson[i].geometry.location.lat(), rawjson[i].geometry.location.lng() );
+			
+			json[ key ]= loc;	//key,value format
+		}
+
+		return json;
+	}
+
+	map.addControl( new L.Control.Search({
+			sourceData: googleGeocoding,
+			formatData: formatJSON,
+			markerLocation: true,
+			autoType: false,
+			autoCollapse: true,
+			minLength: 2
+		}) );
+
+</script>
+
+<div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
+
+<script type="text/javascript" src="/labs-common.js"></script>
+
+</body>
+</html>

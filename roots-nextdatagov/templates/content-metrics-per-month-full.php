@@ -16,6 +16,7 @@ $cat_slug = $category[0]->slug;
 
 <div id="main-inner" class="dataset-inner" style="margin-top:20px;">
 <div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month - Full History </div>
+
 <div class="view-content">
 
 <?php
@@ -29,15 +30,20 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 
 ?>
 
-<div>
+<div class = "container-fluid">
+<div class = "col-md-8" style="padding-left:0px">
   This report is also available for download in the following formats:
-  <a target="_blank" href="<?php echo $s3_path; ?>federal-agency-participation-full-by-metadata_created.csv"> CSV </a> |
-  <a target="_blank" href="<?php echo $s3_path; ?>federal-agency-participation-full-by-metadata_created.json"> JSON </a>
-  <br/><br/>
+  <a target="_blank" href="<?php echo $s3_path; ?>agency-participation-full-by-metadata_created.csv"> CSV </a> |
+  <a target="_blank" href="<?php echo $s3_path; ?>agency-participation-full-by-metadata_created.json"> JSON </a>
+  <br><br>
+</div>
+<div class = "col-md-4">
+    <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric">Go Back to Metrics Page</a>
+</div>
 </div>
 
-<div style="float: right;margin-left:280px;"> <?php the_content(); ?>
-</div>
+<br><br>
+<div> <?php the_content(); ?></div>
 <?php
 
 $metrics = get_metrics_per_month_full();
@@ -51,29 +57,46 @@ if (!$metrics) {
   echo "Data last updated on: {$metrics_sync}<br /><br />
 </div>";
   ?>
-    <ul class="year">
+    <ul class="year" >
         <?php $start= 2013;
         $current = date('Y');
         for ($i=$start;$i<= $current; $i++){
             if ($i == $current){
-                echo '<li class="active"><a href="#"><i class="fa fa-minus-circle"><span style="margin-left:5px;">'.$i.'</span></i></a></li>';
-            }else{
-                echo '<li><a href="#"><i class="fa fa-plus-circle"><span style="margin-left:5px;">'.$i.'</span></i></a></li>';
+              $display_minus="inline-block";
+              $display_plus="none";
+            } else {
+              $display_minus='none';
+              $display_plus="inline-block";
             }
+                echo "<li class='active minus_li_{$i}' style='display:{$display_minus}'><a><i class='fa fa-minus-circle minus{$i}'><span style='margin-left:5px;'>".$i."</span></i></a></li>";
+                echo "<li class='plus_li_{$i}'style='display:{$display_plus};'><a><i class='fa fa-plus-circle plus{$i}'><span style='margin-left:5px;'>".$i."</span></i></a></li>";
         }
         ?>
     </ul>
 
-
-  <table class="views-table cols-4 datasets_published_per_month_table_full">
+<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper">
+<div id="DataTables_Table_0_filter" class="dataTables_filter">
+  <label>
+    Search:
+    <input type="search" class placeholder aria-controls="DataTables_Table_0">
+  </label>
+</div>
+<div class="topscroll">
+  <div class="upscroll" style="width: 940px;"></div>
+</div>
+  <div class="scroll" style="overflow:auto; width:100%;">
+  <table class="views-table cols-4 datasets_published_per_month_table_full" style="width:100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
     <thead class="datasets_published_per_month_thead">
-    <tr class="datasets_published_per_month_row_tr_head">
+    <tr class="datasets_published_per_month_row_tr_head" style="width:100%">
       <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
           scope="col" rowspan=""> Agency Name
       </th>
+      <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
+          scope="col" rowspan=""> Organization Type
+      </th>
       <th
         class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col"
-        colspan="<?php echo sizeof($metrics['total_by_month']);?>" style="text-align:left"
+        colspan="" style="text-align:left"
         ;> Number of Datasets published by month
       </th>
       <th
@@ -84,16 +107,18 @@ if (!$metrics) {
     <tr class="datasets_published_per_month_row_tr_head">
       <?php
       echo '<th></th>';
+      echo '<th></th>';
       foreach($metrics['total_by_month'] as $date=>$value) {
         list($month, $year) = explode(' ', $date);
           if ($year == date('Y') ){
-              echo '<th class="datasets_published_per_month_table_head_calendar showCol '.$year.'"  >';
+            $display = '';
           }
           else{
-              echo '<th class="datasets_published_per_month_table_head_calendar hideCol '.$year.'"  >';
+            $display = 'none';
           }
-        echo '  <span class="datasets_published_month">'.$month.'</span><br/>';
-        echo '  <span class="datasets_published_year">'.$year.'</span>';
+        echo "<th class='datasets_published_per_month_table_head_calendar showCol th_{$year}' style='display:{$display};'>";
+        echo "  <span class='datasets_published_month'>".$month.'</span><br/>';
+        echo "  <span class='datasets_published_year'>".$year.'</span>';
         echo '</th>';
       }
       ?>
@@ -106,14 +131,27 @@ if (!$metrics) {
       if (!$organization['total']) {
         continue;
       }
+      if($organization['organization_type'] === 'Federal-Other'){
+        $organization['organization_type'] = 'Other Federal';
+      } else if($organization['organization_type'] === 'Other'){
+        $organization['organization_type'] = 'Other Non-Federal';
+      }
       echo <<<END
       <tr class="datasets_published_per_month_row_tr_odd odd">
         <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['title']}</td>
+        <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['organization_type']}</td>
 END;
         foreach($organization['metrics'] as $metric) {
           $count = number_format($metric['count']);
+          list($month, $year) = explode(' ', $metric['title']);
+          $current = date('Y');
+          if($year == $current){
+            $display = "";
+          } else {
+            $display = "none";
+          }
           echo <<<END
-          <td class="datasets_published_per_month_table_row_fields">
+          <td class="datasets_published_per_month_table_row_fields td_{$year}" style="display:{$display}">
           <a class="link_dataset" href="{$metric['web_url']}">{$count}</a>
         </td>
 END;
@@ -134,9 +172,17 @@ END;
     <tfoot>
     <tr>
       <td style="text-align:left; ">Total</td>
+      <td></td>
       <?php
       foreach($metrics['total_by_month'] as $date=>$value){
-        echo '<td>' . ($value ? number_format($value) : '-') . '</td>';
+        list($month, $year) = explode(' ', $date);
+        if ($year == date('Y') ){
+          $display = '';
+        }
+        else{
+          $display = 'none';
+        }
+        echo "<td class='tf_{$year}' style='display:{$display};'>" . ($value ? number_format($value) : '-') . '</td>';
       }
       echo '<td class="total">' . ($metrics['total'] ? number_format($metrics['total']) : '-') . '</td>';
       ?>
@@ -149,6 +195,74 @@ END;
 ?>
 
 </div>
+<div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria
+
 </div>
 </div>
 </div>
+</div>
+<style type="text/css">
+  .Published-Per-Month-Link {
+      background-color: #efefef;
+      padding: 10px 30px;
+      border: 1px solid #E8E8E8;
+      margin-right: 3%;
+  }
+  .Published-Per-Month-Link:hover {
+    background-color: white;
+    text-decoration: none;
+  }
+  .year li:nth-child(2) { border-left:0px; }
+</style>
+<script type="text/javascript">
+  jQuery(function ($) {
+  <?php $start= 2013;
+    $current = date('Y');
+    for($i=$start;$i<= $current; $i++){
+      ${$i} = 0;
+      foreach($metrics['total_by_month'] as $date => $value) {
+        list($month, $year) = explode(' ', $date);
+        if($year == $i){
+          ${$i} += 1;
+        } 
+      }
+      if($current == $i) {
+        echo "$('.views-field-field-creation-date').attr('colspan', ${$i});";
+      }
+      echo <<<DATES
+      $(".plus{$i}").on("click", function() {
+        var new_colspan = $(".views-field-field-creation-date").prop("colspan") + ${$i};
+        $(".minus_li_{$i}").show();
+        $(".plus_li_{$i}").hide();
+        $(".th_{$i}").show();
+        $(".td_{$i}").show();
+        $(".tf_{$i}").show();
+        if($(".views-field-field-creation-date").prop("colspan") == 1) {
+          new_colspan--;
+        }
+        $(".views-field-field-creation-date").attr('colspan', new_colspan);
+        console.log(new_colspan);
+        console.log(${$i});
+        if(new_colspan > 0){
+          $('.views-field-field-creation-date').show();
+        }
+      });
+      $(".minus{$i}").on("click", function() {
+        var new_colspan = $(".views-field-field-creation-date").prop("colspan") - ${$i};
+        console.log(${$i})
+        $(".plus_li_{$i}").show();
+        $(".minus_li_{$i}").hide();
+        $(".th_{$i}").hide();
+        $(".td_{$i}").hide();
+        $(".tf_{$i}").hide();
+        $(".views-field-field-creation-date").attr('colspan', new_colspan);
+        console.log(new_colspan);
+        if(new_colspan === 0){
+          $('.views-field-field-creation-date').hide();
+        }
+      });
+DATES;
+    }
+  ?>
+  })  
+</script>

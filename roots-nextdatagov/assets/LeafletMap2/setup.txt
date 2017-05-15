@@ -1,0 +1,37 @@
+https://github.com/tmcw/awesome-geojson
+https://github.com/tmcw/geojson-join
+https://github.com/mapbox/geojsonhint
+https://github.com/mapbox/geojsonio-cli
+https://github.com/mapbox/csv2geojson
+https://github.com/tmcw/geojson2dsv
+https://github.com/topojson/topojson
+http://geojson.io/#map=2/20.0/0.0
+https://github.com/johan/world.geo.json/tree/master/countries/USA
+http://www.latlong.net/
+leaflet search
+
+
+This here will go over how to use the leaflet.js library to create an interactive map overlapped with geoJson data.
+1) Convert csv files to geoJson files. USE -----> https://github.com/mapbox/csv2geojson
+2) If the geoJson files lack coordinates, there a resources online for finding point coordinates, polygons, and multipolygons.
+	-http://www.latlong.net/ #This is good for finding coordinates for cities
+	-https://github.com/johan/world.geo.json/tree/master/countries/USA #This is good for finding polygon and multipolygon coordinates for US states
+3) I personally copied and pasted the coordinates to each json feature, perhaps/probably there is a better way.
+	-https://github.com/mapbox/geojsonhint #This allows you to check/debug geojson files for errors
+	-https://github.com/tmcw/geojson-join #Join a stream of GeoJSON against a dataset.
+	-https://github.com/mapbox/geojsonio-cli #A cli for geojson.io
+	-https://github.com/tmcw/geojson2dsv #Converts GeoJson to CSV
+	-https://github.com/topojson/topojson
+4) You can use this url: http://geojson.io/#map=2/20.0/0.0 to check how your geoJson would look on a map very quickly.
+5) After your geoJson is ready, you can use leaflet.js to create an interactive map.
+	-http://leafletjs.com/ #Highly Recommend checking out their tutorials and Documentation, it is easy to follow and pick up
+	1)You will need to get map tiles for your map.
+		-Check out Mapbox, OpenStreetMaps, Stamen for some map tiles. Mapbox charges after a certain limit.
+			1)https://www.mapbox.com/studio/styles/
+			2)https://www.openstreetmap.org/#map=3/10.83/-17.40&layers=C
+			3)http://maps.stamen.com/#watercolor/12/37.7706/-122.3782
+	2)https://github.com/stefanocudini/leaflet-search #Use this to set up a search feature. Other pluggins available.
+	3) Check out the HTMl and JS. It is commented and goes over the features of the map.
+
+
+

@@ -1,0 +1,97 @@
+body {
+	background:#b5d0d0;
+	color:#285585;
+	font-family:Arial;
+}
+body#home {
+	background:url('images/back.png') no-repeat top left #b5d0d0;
+	margin-left:150px;
+}
+
+a {
+	color:#1978cf;
+}
+a:hover {
+	color:#fff;
+}
+h2, h3, h4 {
+	white-space:nowrap;
+	margin:1em 0 0 0;
+}
+h3 a,
+h3 a:hover {
+	text-decoration:none;
+}
+#desc {
+	float: left;
+	margin-bottom: 1em;
+	position: relative;
+	white-space:nowrap;
+	font-size:1em;
+}
+#map {
+	border-radius:.125em;
+	border:2px solid #1978cf;
+	margin: 4px 0;
+	float:left;
+	width:600px;
+	height:400px;	
+}
+ul {
+	font-size:.85em;
+	margin:0;
+	padding:0;
+}
+li {
+	margin:0 0 2px 18px;
+}
+#post-it {
+	width:9em;
+	height:9em;
+	margin-left:2em;
+	padding:1em;
+	float:left;
+	background:#fbf5bf;
+	border:1px solid #c6bb58;
+	box-shadow: 2px 2px 6px #999;
+	color:#666;
+}
+#copy {
+	position:fixed;
+	z-index:1000;
+	right:150px;
+	top:-8px;
+	font-size:.85em;
+	padding:8px 8px 2px 8px;
+	background: #323b44;
+	border: 2px solid #737c85;		
+	border-radius:.7em;
+	opacity: 0.9;
+	box-shadow:0 0 8px #5f7182;
+	color:#eee
+}
+#copy a {
+	color:#ccc;
+	text-decoration:none
+}
+#copy a:hover {
+	color:#fff
+}
+#ribbon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+	filter: alpha(opacity=80);
+	-khtml-opacity: .8;
+	-moz-opacity: .8;
+	opacity: .8;		
+}
+.contents {
+	float:left;
+	margin:0 2em 2em 0;
+}
+#comments {
+	clear:both;
+}
+

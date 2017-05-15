@@ -1,0 +1,27 @@
+This will go over how to update the datagov map when new data is ready to be added.
+
+1)The geojson and javascript files used to populate the open-gov/map is located in this directory: app/themes/roots-nextdatagov/assets/LeafletMap2/data
+
+2) There are 6 files, 3 geoJson and 3 javascript. They are then separated into international, us_cities, and us_states.
+
+3) When new data is ready (most likely a csv file), I recommend merging a new csv files with just the new data into the corresponding 3 geoJson files.
+        Tools: - https://github.com/node-geojson/geojson-join #Join a stream of GeoJSON against a dataset.
+               - https://github.com/tmcw/geojson2dsv #Converts GeoJson to CSV
+               - https://github.com/mapbox/csv2geojson # Convert csv files to geoJson files
+               - https://github.com/mapbox/geojsonhint #This allows you to check/debug geojson files for errors
+
+4) When the new datasets are added to the geoJson files, you will then need to find coordinates or polygons to populate to the geometry property.
+        Tools: -http://www.latlong.net/ #This is good for finding coordinates for cities
+               -https://github.com/johan/world.geo.json/tree/master/countries/USA #This is good for finding polygon and multipolygon coordinates for US states
+
+5) You can use this url: http://geojson.io/#map=2/20.0/0.0 to check how your geoJson would look on a map very quickly.
+
+6) After your geoJson is ready, transfer your geoJson files into the corresponding js files. Ex: cat international.geojson > international.js
+
+7) This is important because it is the javascript files that are actually used with the map.
+
+8) You will then need to add 'var internationalGeoJson =' to the beginning of the international.js file.
+        - add 'var statesGeoJson =' to beginning of the us_states.js file.
+        - add 'var localGeoJson =' to beginning of the us_cities_counties.js file.
+
+9) After this, you are done. And your new datasets should be present on the datagov map. Check out setup.txt for more information on how the map was created. Check out the main.js file. It is commented and explains features of the map.
