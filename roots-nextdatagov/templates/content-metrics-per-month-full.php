@@ -81,10 +81,10 @@ if (!$metrics) {
     <input type="search" id="searchInput" class placeholder aria-controls="DataTables_Table_0" onkeyup="searchFunction()">
   </label>
 </div>
-<div class="topscroll">
+<div class="topscroll" style="overflow: scroll;">
   <div class="upscroll"></div>
 </div>
-  <div class="scroll" style="overflow:auto; width:100%;">
+  <div class="scroll" style="overflow:scroll; width:100%;">
   <table class="views-table cols-4 datasets_published_per_month_table_full dataTable" style="width:100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
     <thead class="datasets_published_per_month_thead">
     <tr class="datasets_published_per_month_row_tr_head" style="width:100%" role="row">
@@ -240,7 +240,7 @@ END;
         $(".td_{$i}").show();
         $(".tf_{$i}").show();
         if($(".views-field-field-creation-date").prop("colspan") == 1) {
-          new_colspan--;
+          new_colspan -= 1;
         }
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
         if(new_colspan > 0){
@@ -262,6 +262,15 @@ END;
 DATES;
     }
   ?>
+
+    $(".topscroll").on('scroll', function(e){
+      $(".scroll").scrollLeft($(".topscroll").scrollLeft());
+    });
+    $(".scroll").on('scroll', function(e){
+      $('.upscroll').width($('.datasets_published_per_month_table_full').width());
+      $(".topscroll").scrollLeft($(".scroll").scrollLeft());
+    });
+
   })
 
   function searchFunction() {
@@ -293,6 +302,6 @@ DATES;
     }
     var match_message = "Showing " + anyMatch + " entries (filtered from " + (tr.length - 4) + " total entries)";
     document.getElementById('DataTables_Table_0_info').innerHTML = match_message;
-  }  
+  }
  
 </script>
