@@ -78,16 +78,16 @@ if (!$metrics) {
 <div id="DataTables_Table_0_filter" class="dataTables_filter">
   <label>
     Search:
-    <input type="search" class placeholder aria-controls="DataTables_Table_0">
+    <input type="search" id="searchInput" class placeholder aria-controls="DataTables_Table_0" onkeyup="searchFunction()">
   </label>
 </div>
 <div class="topscroll">
-  <div class="upscroll" style="width: 940px;"></div>
+  <div class="upscroll"></div>
 </div>
   <div class="scroll" style="overflow:auto; width:100%;">
-  <table class="views-table cols-4 datasets_published_per_month_table_full" style="width:100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+  <table class="views-table cols-4 datasets_published_per_month_table_full dataTable" style="width:100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
     <thead class="datasets_published_per_month_thead">
-    <tr class="datasets_published_per_month_row_tr_head" style="width:100%">
+    <tr class="datasets_published_per_month_row_tr_head" style="width:100%" role="row">
       <th id="C_AgencyName" class="views-field views-field-title datasets_published_per_month_table_head_fields"
           scope="col" rowspan=""> Agency Name
       </th>
@@ -104,7 +104,7 @@ if (!$metrics) {
         rowspan="2"> Total Datasets
       </th>
     </tr>
-    <tr class="datasets_published_per_month_row_tr_head">
+    <tr class="datasets_published_per_month_row_tr_head" role="row">
       <?php
       echo '<th></th>';
       echo '<th></th>';
@@ -137,7 +137,7 @@ if (!$metrics) {
         $organization['organization_type'] = 'Other Non-Federal';
       }
       echo <<<END
-      <tr class="datasets_published_per_month_row_tr_odd odd">
+      <tr class="datasets_published_per_month_row_tr_odd odd" role="row">
         <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['title']}</td>
         <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['organization_type']}</td>
 END;
@@ -167,11 +167,13 @@ END;
       echo '</tr>';
     }
     ?>
-
+    <tr style="display: none;" id="no_match">
+      <td>No Matching Records Found</td>
+    </tr>
     </tbody>
-    <tfoot>
+    <tfoot id="tfoot">
     <tr>
-      <td style="text-align:left; ">Total</td>
+      <td id="id_foot" style="text-align:left; ">Total</td>
       <td></td>
       <?php
       foreach($metrics['total_by_month'] as $date=>$value){
@@ -182,9 +184,9 @@ END;
         else{
           $display = 'none';
         }
-        echo "<td class='tf_{$year}' style='display:{$display};'>" . ($value ? number_format($value) : '-') . '</td>';
+        echo "<td id='id_foot' class='tf_{$year}' style='display:{$display};'>" . ($value ? number_format($value) : '-') . '</td>';
       }
-      echo '<td class="total">' . ($metrics['total'] ? number_format($metrics['total']) : '-') . '</td>';
+      echo '<td id="id_foot" class="total">' . ($metrics['total'] ? number_format($metrics['total']) : '-') . '</td>';
       ?>
     </tr>
     </tfoot>
@@ -195,9 +197,8 @@ END;
 ?>
 
 </div>
-<div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria
+<div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria></div>
 
-</div>
 </div>
 </div>
 </div>
@@ -241,22 +242,18 @@ END;
           new_colspan--;
         }
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
-        console.log(new_colspan);
-        console.log(${$i});
         if(new_colspan > 0){
           $('.views-field-field-creation-date').show();
         }
       });
       $(".minus{$i}").on("click", function() {
         var new_colspan = $(".views-field-field-creation-date").prop("colspan") - ${$i};
-        console.log(${$i})
         $(".plus_li_{$i}").show();
         $(".minus_li_{$i}").hide();
         $(".th_{$i}").hide();
         $(".td_{$i}").hide();
         $(".tf_{$i}").hide();
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
-        console.log(new_colspan);
         if(new_colspan === 0){
           $('.views-field-field-creation-date').hide();
         }
@@ -264,5 +261,34 @@ END;
 DATES;
     }
   ?>
-  })  
+  })
+
+  function searchFunction() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("DataTables_Table_0");
+    tr = table.getElementsByTagName("tr");
+    var anyMatch = 0;
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        console.log(td.id);
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td.id === "id_foot") {
+          if(td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            anyMatch++;
+          }
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      } 
+    }
+    if(!anyMatch){
+      document.getElementById('no_match').style.display = "";
+    } else {
+      document.getElementById('no_match').style.display = "none";
+    }
+  }  
 </script>
