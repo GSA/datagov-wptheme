@@ -127,48 +127,58 @@ if (!$metrics) {
     <tbody class="datasets_published_per_month_tbody">
 
     <?php
-    foreach($metrics['organizations'] as $organization){
-      if (!$organization['total']) {
-        continue;
-      }
-      if($organization['organization_type'] === 'Federal-Other'){
-        $organization['organization_type'] = 'Other Federal';
-      } else if($organization['organization_type'] === 'Other'){
-        $organization['organization_type'] = 'Other Non-Federal';
-      }
-      echo <<<END
-      <tr class="datasets_published_per_month_row_tr_odd odd" role="row">
-        <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['title']}</td>
-        <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['organization_type']}</td>
-END;
-        foreach($organization['metrics'] as $metric) {
-          $count = number_format($metric['count']);
-          list($month, $year) = explode(' ', $metric['title']);
-          $current = date('Y');
-          if($year == $current){
-            $display = "";
-          } else {
-            $display = "none";
+    $organization_types = array('Federal', 'Federal-Other', 'City Government', 'Commercial', 'Cooperative', 'County Government', 'Non-Profit', 'Other', 'State', 'State Government', 'Tribal', 'University');
+
+    foreach ($organization_types as $organization_type) {
+
+      foreach($metrics['organizations'] as $organization){
+
+        if($organization['organization_type'] === $organization_type){
+
+          if (!$organization['total']) {
+            continue;
+          }
+          if($organization['organization_type'] === 'Federal-Other'){
+            $organization['organization_type'] = 'Other Federal';
+          } else if($organization['organization_type'] === 'Other'){
+            $organization['organization_type'] = 'Other Non-Federal';
           }
           echo <<<END
-          <td class="datasets_published_per_month_table_row_fields td_{$year}" style="display:{$display}">
-          <a class="link_dataset" href="{$metric['web_url']}">{$count}</a>
-        </td>
+          <tr class="datasets_published_per_month_row_tr_odd odd" role="row">
+            <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['title']}</td>
+            <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['organization_type']}</td>
 END;
+            foreach($organization['metrics'] as $metric) {
+              $count = number_format($metric['count']);
+              list($month, $year) = explode(' ', $metric['title']);
+              $current = date('Y');
+              if($year == $current){
+                $display = "";
+              } else {
+                $display = "none";
+              }
+              echo <<<END
+              <td class="datasets_published_per_month_table_row_fields td_{$year}" style="display:{$display}">
+              <a class="link_dataset" href="{$metric['web_url']}">{$count}</a>
+            </td>
+END;
+            }
+
+          $total = number_format($organization['total']);
+          echo <<<END
+              <td class="datasets_published_per_month_table_row_fields">
+              <a class="link_dataset" href="{$organization['web_url']}">{$total}</a>
+            </td>
+END;
+
+          echo '</tr>';
         }
-
-      $total = number_format($organization['total']);
-      echo <<<END
-          <td class="datasets_published_per_month_table_row_fields">
-          <a class="link_dataset" href="{$organization['web_url']}">{$total}</a>
-        </td>
-END;
-
-      echo '</tr>';
+      }
     }
     ?>
     <tr style="display: none;" id="no_match">
       <td>No Matching Records Found</td>
+      <td></td>
     </tr>
     </tbody>
     <tfoot id="tfoot">
@@ -284,7 +294,7 @@ DATES;
   })
 
   function searchFunction() {
-    var input, filter, table, tr, td, i;
+    var input, filter, table, tr, td, td1, i;
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("DataTables_Table_0");
@@ -293,10 +303,10 @@ DATES;
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[0];
+      td1 = tr[i].getElementsByTagName("td")[1];
       if (td) {
-        console.log(td.id);
-        if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td.id === "id_foot") {
-          if(td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td.id === "id_foot"  || td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          if(td.innerHTML.toUpperCase().indexOf(filter) > -1 || td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
             anyMatch++;
           }
           tr[i].style.display = "";
