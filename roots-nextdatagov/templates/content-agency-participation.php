@@ -34,11 +34,7 @@ while (have_posts()) {
 ?>
     <div id="appstitle" class="Appstitle" style="margin-left:-20px;"><?php the_title(); ?></div>
 <?php } ?>
-    <br>
-    <p class="col-sm-12">
-        <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
-    </p>
-    <br>
+
 <?php
 
 $s3_config = get_option('tantan_wordpress_s3');
@@ -50,11 +46,14 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 
 ?>
 
-<div style="">
-    <div class="col-md-12">
-        This report is also available for download in the following formats: <a href="<?php echo $s3_path; ?>agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
-        EXCEL </a><br/><br>
-    </div>
+<div class="col-md-7">
+    This report is also available for download in the following formats: <a href="<?php echo $s3_path; ?>agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
+    EXCEL </a><br/><br>
+</div>
+<div class="col-md-5" style="z-index: 99;">
+    <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
+    <br>
+    <br>
 </div>
 
 <div class="col-xs-12">
