@@ -6,8 +6,7 @@ $term_slug = $category[0]->slug;
 <?php
 $cat_name = $category[0]->cat_name;
 $cat_slug = $category[0]->slug;
-
-
+$colspan = date('m');
 ?>
 <?php include('category-subnav.php'); ?>
 
@@ -96,7 +95,7 @@ if (!$metrics) {
       </th>
       <th
         class="views-field views-field-field-creation-date datasets_published_per_month_table_head_fields" scope="col"
-        colspan="" style="text-align:left"
+        colspan= "<?php echo $colspan; ?>" style="text-align:left"
         ;> Number of Datasets published by month
       </th>
       <th
@@ -229,7 +228,6 @@ END;
 </style>
 <script type="text/javascript">
   jQuery(function ($) {
-  var new_colspan;
   <?php $start= 2013;
     $current = date('Y');
     for($i=$start;$i<= $current; $i++){
@@ -240,10 +238,8 @@ END;
           ${$i} += 1;
         } 
       }
-      if($current == $i) {
-        echo "$('.views-field-field-creation-date').attr('colspan', ${$i});";
-      }
       echo <<<DATES
+      var new_colspan = {$colspan};
       $(".plus{$i}").on("click", function() {
         if(new_colspan > 0) {
           new_colspan = $(".views-field-field-creation-date").prop("colspan") + ${$i};
@@ -255,11 +251,6 @@ END;
         $(".th_{$i}").show();
         $(".td_{$i}").show();
         $(".tf_{$i}").show();
-        // if($(".views-field-field-creation-date").prop("colspan") == 1) {
-        //   new_colspan -= 1;
-        // }
-        console.log(new_colspan);
-        console.log(${$i});
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
         if(new_colspan > 0){
           $('.views-field-field-creation-date').show();
@@ -272,8 +263,6 @@ END;
         $(".th_{$i}").hide();
         $(".td_{$i}").hide();
         $(".tf_{$i}").hide();
-        console.log(new_colspan);
-        console.log(${$i});
         $(".views-field-field-creation-date").attr('colspan', new_colspan);
         if(new_colspan === 0){
           $('.views-field-field-creation-date').hide();

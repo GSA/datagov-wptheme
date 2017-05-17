@@ -8,6 +8,10 @@ $cat_name = $category[0]->cat_name;
 $cat_slug = $category[0]->slug;
 $total = 0;
 $agency_total = 0;
+
+$total_agencies = 0;
+
+
 $all_agencies = array(
     'Federal Government' => array('Federal', 'federal_id', 'federal_class'),
     'Other Federal' => array('Other', 'other_id', 'other_class'),
@@ -198,7 +202,6 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
             $parent_org   = get_post_meta($post->ID, 'parent_organization', true);
             $agency_title = get_the_title();
 
-
             if ($parent) {
 
                 $subargs = array(
@@ -217,7 +220,7 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
                         ),
                         array(
                             'key'     => 'metric_sector',
-                            'value'   => $AgencyCategory,
+                            'value'   => $AgencyCategory[0],
                             'compare' => 'LIKE'
                         )
                     )
@@ -225,6 +228,7 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
 
                 $subquery     = null;
                 $subquery     = new WP_Query($subargs);
+
                 $agency_title = get_the_title();
 
                 $dataset_count = get_post_meta($post->ID, 'metric_count', true);
@@ -232,7 +236,6 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
 
                 $total += $dataset_count;
                 $agency_total += $dataset_count;
-
 
                 if ($dataset_count > 0) {
 
@@ -277,6 +280,7 @@ END;
                         $last_entry     = get_post_meta($post->ID, 'metric_last_entry', true);
                         $publisher      = get_post_meta($post->ID, 'metric_publisher', true);
                         $department_lvl = get_post_meta($post->ID, 'metric_department_lvl', true);
+
                         switch (true) {
                             case (bool)$department_lvl:
                                 $class = 'department-lvl';
