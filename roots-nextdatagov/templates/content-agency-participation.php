@@ -16,7 +16,6 @@ $all_agencies = array(
     'Federal Government' => array('Federal', 'federal_id', 'federal_class'),
     'Other Federal' => array('Other', 'other_id', 'other_class'),
     'City Government' => array('City Government', 'city_goverment_id', 'city_goverment_class'),
-    'Commercial' => array('Commercial', 'commercial_id', 'commercial_class'),
     'Cooperative' => array('Cooperative', 'cooperative_id', 'cooperative_class'),
     'County Government' => array('County Government', 'county_government_id', 'county_government_class'),
     'Non-Profit' => array('Non-Profit', 'non-profit_id', 'non-profit_class'),
@@ -50,7 +49,7 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 
 ?>
 
-<div class="col-md-7">
+<div class="col-md-7" style="z-index: 99;">
     This report is also available for download in the following formats: <a href="<?php echo $s3_path; ?>agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
     EXCEL </a><br/><br>
 </div>
@@ -197,13 +196,13 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
 
         while ($query->have_posts()) : $query->the_post();
 
-            $id           = $post->ID;
+                
+            $id           = $post->ID; 
             $parent       = get_post_meta($post->ID, 'parent_agency', true);
             $parent_org   = get_post_meta($post->ID, 'parent_organization', true);
             $agency_title = get_the_title();
 
             if ($parent) {
-
                 $subargs = array(
                     'orderby'          => 'title',
                     'order'            => 'ASC',
@@ -266,7 +265,7 @@ END;
                     echo get_post_meta($post->ID, 'metric_last_entry', true);
                     echo '</td>';
                     echo '</tr>';
-                }
+                } 
 
                 /**
                  * $title != 'Department/Agency Level'
@@ -320,8 +319,7 @@ END;
                             echo '</td>';
                             echo '</tr>';
 
-                        }
-
+                        } 
 
                     endwhile;
                 }
@@ -329,13 +327,11 @@ END;
 
             } elseif (!$parent_org) {
 
-
                 $dataset_count = get_post_meta($post->ID, 'metric_count', true);
                 $agency_title  = get_the_title();
                 $last_entry    = get_post_meta($post->ID, 'metric_last_entry', true);
 
                 if ($dataset_count > 0) {
-
 
                     echo '<tr class="datasets_published_per_month_row_tr_even odd">';
                     echo '<td class="datasets_published_per_month_table_row_fields" width="60%" style="text-align: left;">';
@@ -462,6 +458,16 @@ SCRIPT;
             }
         });
         $('.agencies_total_count').html($('tr.sub-agency a.sub-agency').size() + $('tr.parent-agency').size());
+
+        // // $('tr').hide();
+        // $('tr.sub-agency').show();
+        // // $('tr.sub-agency a.publisher').hide();
+        // // $('tr.sub-agency a.department-lvl').hide();
+        // console.log($('tr.sub-agency a.sub-agency').size());
+        // $('tr.sub-agency a.sub-agency').show();
+        // // $('tr.sub-agency a.sub-agency').remove();
+        // $('tr.parent-agency').show();
+
         $('.publishers_total_count').html($('tr.sub-agency a.publisher').size());
         $('.total_dataset_count').html('<?php $cnt = get_option('ckan_total_count'); echo $cnt>1000?number_format($cnt):'&gt;100,000'?>');
         $('#total_dataset_sum').html("<?php echo number_format($total) ?>");
