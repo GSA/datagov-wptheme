@@ -31,12 +31,6 @@ $all_agencies = array(
 <div class="single">
 <div class="container">
 
-<?php
-while (have_posts()) {
-    the_post();
-?>
-    <div id="appstitle" class="Appstitle" style="margin-left:-20px;"><?php the_title(); ?></div>
-<?php } ?>
 
 <?php
 
@@ -47,55 +41,63 @@ $s3_prefix = trim($s3_config['object-prefix'],'/');
 
 $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 
+while (have_posts()) {
+    the_post();
+}
 ?>
 
-<div class="col-md-7" style="z-index: 99;">
-    Download the metrics data: <a href="<?php echo $s3_path; ?>agency-participation.csv"> [CSV] </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
-    [EXCEL] </a><br/><br>
-</div>
-<div class="col-md-5" style="z-index: 99;">
-    <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
-    <br>
-    <br>
+
+<div class="row content-page" style="margin-bottom : 2em">
+    <div class="col-md-7">
+        Download the metrics data: 
+        <a href="<?php echo $s3_path; ?>agency-participation.csv"> [CSV] </a> | 
+        <a href="<?php echo $s3_path; ?>agency-participation.xlsx"> [EXCEL] </a>
+    </div>
+    <div class="col-md-5">
+        <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
+    </div>
 </div>
 
-<div class="col-xs-12">
-<div style=""> <?php the_content(); ?>    </div>
-</div>
- 
-<br>
+<div class="row">
+    <div class="col-xs-12">
+        <?php the_content(); ?>
+    </div>
+ </div>
+
+<div class="row">
+
 <div class = "col-md-7 col-xs-12">
-<h4 class="fieldcontentregion agencytitle"
-    style="font-family: 'Abel',Helvetica,sans-serif;clear: both;margin-left:-1px;font-weight:bold;  ">
-    Dataset Counts by Organization Type</h4>
-<div class="view-content summary-div">
-    <table class="views-table cols-4 datasets_published_per_month_table">
-        <thead>
-            <tr>
-                <td>Organization Type</td>
-                <td></td>
-                <td>Datasets</td>
-            </tr>
-        </thead>
-        <tbody class="datasets_published_per_month_tbody">
-            <?php 
-            foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
-                echo "<tr class ='cursor-scroll {$AgencyCategory[1]}'>";
-                    echo "<td class='datasets_published_per_month_table_row_fields' width='60%' style='text-align: left;'><a style='color: #4295B0;'>{$AgencyHeader}</a></td>";
-                    echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center'></td>";
-                    echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center' id='{$AgencyCategory[1]}'></td>";
-                echo '</tr>';
-            }
-            ?>
-            <tr>
-                <td class='datasets_published_per_month_table_row_fields' width="60%" style="text-align: left;"><b style="color: #284A78;" >Total<b></td>
-                <td class='datasets_published_per_month_table_row_fields' width="20%" align="center"></td>
-                <td style="font-weight: 700;"class='datasets_published_per_month_table_row_fields' width="20%" align="center" id="total_dataset_sum"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<p class="blank-paragraph"> - <p>
+    <h4 class="fieldcontentregion agencytitle"
+        style="font-family: 'Abel',Helvetica,sans-serif;clear: both;margin-left:-1px;font-weight:bold;  ">
+        Dataset Counts by Organization Type</h4>
+
+    <div class="view-content summary-div">
+        <table class="views-table cols-4 datasets_published_per_month_table">
+            <thead>
+                <tr>
+                    <td>Organization Type</td>
+                    <td></td>
+                    <td>Datasets</td>
+                </tr>
+            </thead>
+            <tbody class="datasets_published_per_month_tbody">
+                <?php 
+                foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
+                    echo "<tr class ='cursor-scroll {$AgencyCategory[1]}'>";
+                        echo "<td class='datasets_published_per_month_table_row_fields' width='60%' style='text-align: left;'><a style='color: #4295B0;'>{$AgencyHeader}</a></td>";
+                        echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center'></td>";
+                        echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center' id='{$AgencyCategory[1]}'></td>";
+                    echo '</tr>';
+                }
+                ?>
+                <tr>
+                    <td class='datasets_published_per_month_table_row_fields' width="60%" style="text-align: left;"><b style="color: #284A78;" >Total<b></td>
+                    <td class='datasets_published_per_month_table_row_fields' width="20%" align="center"></td>
+                    <td style="font-weight: 700;"class='datasets_published_per_month_table_row_fields' width="20%" align="center" id="total_dataset_sum"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
@@ -125,7 +127,9 @@ echo "</div>";
     </div>
 </div>
 <div class="clear2"></div>
-<br/>
+
+</div>
+
 </div>
 
 <!-- <h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Agencies/Publishers</h3> -->
@@ -167,8 +171,10 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
         }
     }
     echo "<br class={$AgencyCategory[2]}>";
-    echo "<h3 class=' col-xs-10 fieldcontentregion agencytitle' style='margin-left:-1px;font-weight:bold; '>{$AgencyHeader}</h3>";
+    echo '<div class="row agencytitle">';
+    echo "<h3 class=' col-xs-10 fieldcontentregion' style='margin-left:-1px;font-weight:bold; '>{$AgencyHeader}</h3>";
     echo "<h3 class='col-xs-1 scroll-arrow fieldcontentregion' style='margin-left:-1px;font-weight:bold; text-align:right;'>&#9650;<span class='tooltiptext'>Scroll To Top</span></h3>";
+    echo '</div>';
     echo '<div class="view-content">';
     echo '<table class="views-table cols-4 datasets_published_per_month_table">';
     echo '<thead class="datasets_published_per_month_thead">';
