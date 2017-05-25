@@ -50,8 +50,8 @@ $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
 ?>
 
 <div class="col-md-7" style="z-index: 99;">
-    This report is also available for download in the following formats: <a href="<?php echo $s3_path; ?>agency-participation.csv"> CSV </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
-    EXCEL </a><br/><br>
+    Download the metrics data: <a href="<?php echo $s3_path; ?>agency-participation.csv"> [CSV] </a> | <a href="<?php echo $s3_path; ?>agency-participation.xlsx">
+    [EXCEL] </a><br/><br>
 </div>
 <div class="col-md-5" style="z-index: 99;">
     <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
