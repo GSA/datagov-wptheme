@@ -464,16 +464,6 @@ SCRIPT;
             }
         });
         $('.agencies_total_count').html($('tr.sub-agency a.sub-agency').size() + $('tr.parent-agency').size());
-
-        // // $('tr').hide();
-        // $('tr.sub-agency').show();
-        // // $('tr.sub-agency a.publisher').hide();
-        // // $('tr.sub-agency a.department-lvl').hide();
-        // console.log($('tr.sub-agency a.sub-agency').size());
-        // $('tr.sub-agency a.sub-agency').show();
-        // // $('tr.sub-agency a.sub-agency').remove();
-        // $('tr.parent-agency').show();
-
         $('.publishers_total_count').html($('tr.sub-agency a.publisher').size());
         $('.total_dataset_count').html('<?php $cnt = get_option('ckan_total_count'); echo $cnt>1000?number_format($cnt):'&gt;100,000'?>');
         $('#total_dataset_sum').html("<?php echo number_format($total) ?>");
@@ -488,7 +478,7 @@ SCROLL;
         }
         ?>
         $(".scroll-arrow").click(function() {
-          $("html, body").animate({ scrollTop: 440 }, "medium");
+          $("html, body").animate({ scrollTop: 340 }, "medium");
           return false;
         });
     });
