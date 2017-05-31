@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="stylesheet" href="/maps/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="../src/leaflet-search.css" />
+<link rel="stylesheet" href="../style.css" />
+<style>
+.maptest {
+	border-radius:.125em;
+	border:2px solid #1978cf;
+	box-shadow: 0 0 8px #999;
+	width:235px;
+	height:240px;
+}
+.maptest_wrap {
+	float:left;
+	margin:10px;
+}
+h4 {
+	margin:0
+}
+</style>
+</head>
+
+<body>
+<h3><a href="../"><big>◄</big> Leaflet.Control.Search</a></h3>
+<h4>Testing area</h4>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/maps/leaflet/dist/leaflet.js"></script>
+<script src="../src/leaflet-search.js"></script>
+
+<div class="maptest_wrap">
+<h4>search in layer</h4>
+<div id="map_simple" class="maptest"></div>
+<script>
+
+	var data = [
+		{"loc":[41.575330,13.102411], "title":"aquamarine"},
+		{"loc":[41.575730,13.002411], "title":"black"},
+		{"loc":[41.807149,13.162994], "title":"blue"},
+		{"loc":[41.507149,13.172994], "title":"chocolate"},
+		{"loc":[41.847149,14.132994], "title":"coral"},
+		{"loc":[41.219190,13.062145], "title":"cyan"},
+		{"loc":[41.344190,13.242145], "title":"darkblue"},	
+		{"loc":[41.679190,13.122145], "title":"darkred"},
+		{"loc":[41.329190,13.192145], "title":"darkgray"},
+		{"loc":[41.379290,13.122545], "title":"dodgerblue"},
+		{"loc":[41.409190,13.362145], "title":"gray"},
+		{"loc":[41.794008,12.583884], "title":"green"},	
+		{"loc":[41.805008,12.982884], "title":"greenyellow"},
+		{"loc":[41.536175,13.273590], "title":"red"},
+		{"loc":[41.516175,13.373590], "title":"rosybrown"},
+		{"loc":[41.506175,13.173590], "title":"royalblue"},
+		{"loc":[41.836175,13.673590], "title":"salmon"},
+		{"loc":[41.796175,13.570590], "title":"seagreen"},
+		{"loc":[41.436175,13.573590], "title":"seashell"},
+		{"loc":[41.336175,13.973590], "title":"silver"},
+		{"loc":[41.236175,13.273590], "title":"skyblue"},
+		{"loc":[41.546175,13.473590], "title":"yellow"},
+		{"loc":[41.239190,13.032145], "title":"white"}
+	];
+
+	var map = new L.Map('map_simple', {zoom: 9, center: new L.latLng(data[0].loc) });	//set center from first location
+
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	var markersLayer = new L.LayerGroup();	//layer contain searched elements
+	map.addLayer(markersLayer);
+
+	map.addControl( new L.Control.Search({layer: markersLayer}) );  //inizialize search control
+
+	////////////populate map with markers from sample data
+	for(i in data) {
+		var title = data[i].title,	//value searched
+			loc = data[i].loc,		//position found
+			marker = new L.Marker(new L.latLng(loc), {title: title} );//se property searched
+		marker.bindPopup('title: '+ title );
+		markersLayer.addLayer(marker);
+	}
+</script>
+</div>
+
+<div class="maptest_wrap">
+<h4>search in GeoJSON</h4>
+<div id="map_vector" class="maptest"></div>
+<script src="data/us-states.js"></script>
+<script>
+
+	var map = new L.Map('map_vector', {zoom: 5, center: new L.latLng([37.8, -96]) });
+
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	var featuresLayer = new L.GeoJSON(us_states, {
+			style: function(f) { return {color: f.properties.color }; }
+		});
+
+	map.addLayer(featuresLayer);
+
+	var searchControl = new L.Control.Search({layer: featuresLayer, propertyName: 'name', marker: false});
+
+	searchControl.on('search:locationfound', function(e) {
+		
+		e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+
+	}).on('search:collapsed', function(e) {
+
+		featuresLayer.eachLayer(function(layer) {	//restore feature color
+			featuresLayer.resetStyle(layer);
+		});	
+	});
+
+	map.addControl( searchControl );  //inizialize search control
+
+</script>
+</div>
+
+<div class="maptest_wrap">
+<h4>Ajax</h4>
+<div id="map_ajax" class="maptest"></div>
+<script>
+
+	var map = new L.Map('map_ajax', {zoom: 9, center: new L.latLng([41.575730,13.002411]) });
+
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	map.addControl( new L.Control.Search({url: 'search.php?q={s}', text:'Color...', markerLocation: true}) );
+	//view source of search.php for more details
+
+</script>
+</div>
+
+<div class="maptest_wrap">
+<h4>JSONP</h4>
+<div id="map_jsonp" class="maptest"></div>
+<script>
+
+	var map = new L.Map('map_jsonp', {zoom: 9, center: new L.latLng([41.575730,13.002411]) });
+
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	map.addControl( new L.Control.Search({url: 'search.php?q={s}', jsonpParam:'callback', text:'Color...', markerLocation: true}) );
+	//view source of search.php for more details
+
+</script>
+</div>
+
+<div class="maptest_wrap">
+<h4>sourceData AJAX(by jQuery)</h4>
+<div id="map_ajaxjquery" class="maptest"></div>
+<script>
+
+	var map = new L.Map('map_ajaxjquery', {zoom: 9, center: new L.latLng([41.575730,13.002411]) });
+
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	function searchByAjax(text, callResponse)//callback for 3rd party ajax requests
+	{
+		return $.ajax({
+			url: 'search.php',	//read comments in search.php for more information usage
+			type: 'GET',
+			data: {q: text},
+			dataType: 'json',
+			success: callResponse
+		});
+	}
+
+	map.addControl( new L.Control.Search({sourceData: searchByAjax, text:'Color...', markerLocation: true}) );
+
+</script>
+</div>
+
+<div class="maptest_wrap">
+<h4>jsonpUrl, formatData, Cities</h4>
+<div id="map_filterjson" class="maptest"></div>
+<script>
+
+	var map = new L.Map('map_filterjson', {zoom: 9, center: new L.latLng([41.575730,13.002411]) });
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+	
+	var jsonpUrl = 'http://open.mapquestapi.com/nominatim/v1/search.php?q={s}'+
+				   '&format=json&osm_type=N&limit=100&addressdetails=0',
+		jsonpName = 'json_callback';
+
+	function formatJSON(rawjson) {	//callback that remap fields name
+		var json = {},
+			key, loc, disp = [];
+			
+		for(var i in rawjson)
+		{	
+			disp = rawjson[i].display_name.split(',');	
+
+			key = disp[0] +', '+ disp[1];
+			
+			loc = L.latLng( rawjson[i].lat, rawjson[i].lon );
+			
+			json[ key ]= loc;	//key,value format
+		}
+		
+		return json;
+	}
+	
+	var searchOpts = {
+			url: jsonpUrl,
+			jsonpParam: jsonpName,
+			formatData: formatJSON,
+			minLength: 2,
+			autoType: false,
+			marker: {
+				icon: true
+			}
+		};
+		
+	map.addControl( new L.Control.Search(searchOpts) );
+
+</script>
+</div>
+
+
+<div class="maptest_wrap">
+<h4>search in layer, Custom Tip</h4>
+<div id="map_customtip" class="maptest"></div>
+<script>
+
+	var map = new L.Map('map_customtip', {zoom: 9, center: new L.latLng(data[0].loc) });	//set center from first location
+
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	var markersLayer = new L.LayerGroup();	//layer contain searched elements
+	map.addLayer(markersLayer);
+
+	function customTip(text,val) {
+		return '<a href="#">'+text+'<em style="background:'+text+'; width:14px;height:14px;float:right"></em></a>';
+	}
+
+	map.addControl( new L.Control.Search({layer: markersLayer, buildTip: customTip, autoType: false }) );  //inizialize search control
+
+	////////////populate map with markers from sample data
+	for(i in data) {
+		var title = data[i].title,	//value searched
+			loc = data[i].loc,		//position found
+			marker = new L.Marker(new L.latLng(loc), {title: title} );//se property searched
+		marker.bindPopup('title: '+ title );
+		markersLayer.addLayer(marker);
+	}
+</script>
+</div>
+
+<div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
+
+<script type="text/javascript" src="/labs-common.js"></script>
+
+</body>
+</html>

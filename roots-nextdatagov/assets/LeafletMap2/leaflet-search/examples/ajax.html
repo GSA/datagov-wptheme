@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="stylesheet" href="/maps/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="../src/leaflet-search.css" />
+<link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+<h3><a href="../"><big>◄</big> Leaflet.Control.Search</a></h3>
+
+<h4>AJAX Example: <em>search locations by Ajax request, with custom icon marker</em></h4>
+<div id="map"></div>
+
+<div id="post-it">
+<b>Search values:</b><br />
+black, blue, cyan, darkblue, darkred, darkgray, gray, gree, red, yellow, white
+</div>
+
+<script src="/maps/leaflet/dist/leaflet.js"></script>
+<script src="../src/leaflet-search.js"></script>
+<script>
+
+	var map = new L.Map('map', {zoom: 9, center: new L.latLng([41.575730,13.002411]), zoomControl:false });
+
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+	
+	L.control.search({
+		url: 'search.php?q={s}',
+		textPlaceholder: 'Color...',
+		position: 'topright',
+		hideMarkerOnCollapse: true,
+		marker: {
+			icon: new L.Icon({iconUrl:'data/custom-icon.png', iconSize: [20,20]}),
+			circle: {
+				radius: 20,
+				color: '#0a0',
+				opacity: 1
+			}
+		}
+	}).addTo(map);
+
+	L.control.zoom().addTo(map);
+
+</script>
+
+<div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
+
+<script type="text/javascript" src="/labs-common.js"></script>
+
+</body>
+</html>

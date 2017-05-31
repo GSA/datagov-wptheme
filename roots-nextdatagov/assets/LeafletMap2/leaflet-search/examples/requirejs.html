@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+<link rel="stylesheet" href="../src/leaflet-search.css" />
+<link rel="stylesheet" href="../style.css" />
+
+</head>
+
+<body>
+<h3><a href="../"><big>◄</big> Leaflet.Control.Search</a></h3>
+
+<h4>RequireJs Example: <em>load library by AMD module compatible</em></h4>
+<div id="map"></div>
+
+<div id="post-it">
+<b>Search values:</b><br />
+aquamarine, black, blue, cyan, darkblue, darkred, darkgray, dodgerblue, gray, green, red, skyblue, yellow, white ...
+</div>
+
+<script src="https://unpkg.com/requirejs@2.2.0/require.js"></script>
+<script>
+require.config({
+	paths: {
+	    "leaflet": "https://unpkg.com/leaflet@0.7.7/dist/leaflet",
+	    "leafletSearch": "../src/leaflet-search",
+	    "data": "data/colors"
+	},
+	shim: {
+		"leaflet-search": ["leaflet"]
+	}
+});
+
+require(["leaflet", "leafletSearch", "data"],function(L, LeafletSearch, Data) {
+
+	var map = new L.Map('map', {
+		layers: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
+		center: L.latLng(Data[0].loc),
+		zoom: 9
+	});
+
+	var markers = Data.map(function(row) {
+		return L.marker(row.loc, {title: row.title }).bindPopup( row.title );
+	});
+
+	//console.log(new LeafletSearch());
+	
+	var dataLayer = L.layerGroup(markers).addTo(map);
+
+	new LeafletSearch({
+		layer: dataLayer,
+		initial: false,
+		zoom: 12
+	}).addTo(map);
+
+});
+</script>
+
+<div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
+
+<script type="text/javascript" src="/labs-common.js"></script>
+
+</body>
+</html>

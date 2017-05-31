@@ -600,7 +600,7 @@ div.open-data-sites-box div.numbers {
 }
 
 .agencytitle {
-    margin: 12px;
+    margin-top : 2em;
 }
 
 .fieldcontentregion {
@@ -2336,4 +2336,87 @@ tfoot td {
 
 .impact .thumbnail>img{
   max-height: 200px;
+}
+
+/*Additional CSS for Metrics/Agency Participation Page*/
+.agencyHide {
+    display: none;
+}
+
+.summary-div td {
+    padding: 5px 12px;
+}
+
+.fieldcontentregion{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.blank-paragraph {
+    margin:0px;
+    padding: 0px;
+    visibility:hidden;
+}
+
+.cursor-scroll {
+    cursor: pointer;
+}
+
+.scroll-arrow {
+    position: relative;
+    left: 5%;
+    cursor: pointer;
+}
+
+.scroll-arrow .tooltiptext {
+    visibility: hidden;
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    font-size: .4em;
+    bottom: 100%;
+    left: 87%; 
+    margin-left: -60px;
+}
+
+.scroll-arrow:hover .tooltiptext {
+    visibility: visible;
+}
+
+.datasets_published_per_month_row_tr_even {
+    display: none;
+}
+
+.Published-Per-Month-Link {
+    background-color: #efefef;
+    padding: 10px 30px;
+    border: 1px solid #E8E8E8;
+    margin-right: 3%;
+}
+
+.Published-Per-Month-Link:hover {
+    background-color: white;
+    text-decoration: none;
+}
+
+/*Additional CSS for Metrics Full-History Page*/
+.Published-Per-Month-Link {
+    background-color: #efefef;
+    padding: 10px 30px;
+    border: 1px solid #E8E8E8;
+    margin-right: 3%;
+}
+
+.Published-Per-Month-Link:hover {
+    background-color: white;
+    text-decoration: none;
+}
+
+.year li:nth-child(2) { 
+    border-left:0px; 
 }
