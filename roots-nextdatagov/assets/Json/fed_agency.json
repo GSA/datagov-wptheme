@@ -2469,6 +2469,16 @@
         "unique id": "ibwc-gov",
         "is_cfo": "N"
       }
+    },
+    {
+      "taxonomy": {
+        "vocabulary": "Federal Organization",
+        "term": "ornl-gov",
+        "Federal Agency": "Department of Energy",
+        "Sub Agency": "Oak Ridge National Laboratory",
+        "unique id": "ornl-gov",
+        "is_cfo": "Y"
+      }
     }
   ]
 }
