@@ -69,12 +69,12 @@ function roots_title()
 
 
             $title .= '<span class="category-header topic-' . $term->slug . '"><a href="' . home_url(
-                    '/' . $parent->slug . '/' . $term->slug
+                    '/' . $term->slug
                 ) . '/"><div><i></i></div><span>' . $term->name . '</span></a></span>';
 
             // try to get the post's parent/child category/term in case the post url has been customized
             // through custom_permalinks
-            if (get_post_meta($post->ID, 'custom_permalink', true) && $parent->slug == "" && $child_slug == "") {
+            if (is_object($post) && get_post_meta($post->ID, 'custom_permalink', true) && $parent->slug == "") {
 
                 $custom_permalink = str_replace(home_url() . '/', '', get_permalink($post->ID));
                 $custom_permalink = explode('/', $custom_permalink);
