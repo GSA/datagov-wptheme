@@ -47,13 +47,13 @@ while (have_posts()) {
 ?>
 
 
-<div class="row content-page" style="margin-bottom : 2em">
-    <div class="col-md-7">
+<div class="row content-page" style="margin-bottom:2em">
+    <div class="col-md-7 col-xs-12 download_metrics_data">
         Download the metrics data: 
         <a href="<?php echo $s3_path; ?>agency-participation.csv"> [CSV] </a> | 
         <a href="<?php echo $s3_path; ?>agency-participation.xlsx"> [EXCEL] </a>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 col-xs-12">
         <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
     </div>
 </div>
@@ -64,9 +64,9 @@ while (have_posts()) {
     </div>
  </div>
 
-<div class="row">
+<div class="row flex_parent_row">
 
-<div class = "col-md-7 col-xs-12">
+<div class = "col-md-7 col-xs-12 dataset_counts_by_organization">
     <h4 class="fieldcontentregion agencytitle"
         style="font-family: 'Abel',Helvetica,sans-serif;clear: both;margin-left:-1px;font-weight:bold;  ">
         Dataset Counts by Organization Type</h4>
@@ -101,7 +101,7 @@ while (have_posts()) {
 </div>
 
 
-<div class="col-md-5 col-sm-12">
+<div class="col-md-5 col-xs-12 data_last_updated">
 <?php
 $metric_sync = get_option('metrics_updated_gmt');
 echo '<div style="font-style:italic;clear:both;">';

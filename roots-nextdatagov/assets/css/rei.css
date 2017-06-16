@@ -1178,6 +1178,28 @@ a.faq-top {
     display: none;
 }
 
+@media only screen and (max-width: 990px) {
+
+    .download_metrics_data {
+        height: 50px;
+    }
+
+    .flex_parent_row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .data_last_updated {
+        order: 2;
+        margin-bottom: 6%;
+        margin-top: -3%;
+    }
+
+    .dataset_counts_by_organization {
+        order: 1;
+    }
+    
+}
 /* Media Queries */
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -2420,3 +2442,4 @@ tfoot td {
 .year li:nth-child(2) { 
     border-left:0px; 
 }
+
