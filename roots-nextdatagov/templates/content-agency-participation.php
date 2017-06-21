@@ -100,8 +100,7 @@ while (have_posts()) {
     </div>
 </div>
 
-
-<div class="col-md-5 col-xs-12 data_last_updated">
+<div class="col-md-5 col-xs-12 data_last_updated" style="margin-top:1%">
 <?php
 $metric_sync = get_option('metrics_updated_gmt');
 echo '<div style="font-style:italic;clear:both;">';
