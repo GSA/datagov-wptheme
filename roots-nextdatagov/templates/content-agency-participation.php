@@ -47,7 +47,7 @@ while (have_posts()) {
 ?>
 
 
-<div class="row content-page" style="margin-bottom:2em">
+<div class="row content-page">
     <div class="col-md-7 col-xs-12 download_metrics_data">
         Download the metrics data: 
         <a href="<?php echo $s3_path; ?>agency-participation.csv"> [CSV] </a> | 
@@ -100,7 +100,7 @@ while (have_posts()) {
     </div>
 </div>
 
-<div class="col-md-5 col-xs-12 data_last_updated" style="margin-top:3%">
+<div class="col-md-5 col-xs-12 data_last_updated">
 <?php
 $metric_sync = get_option('metrics_updated_gmt');
 echo '<div style="font-style:italic;clear:both;">';
