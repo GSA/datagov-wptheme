@@ -478,7 +478,7 @@ div.pagination {
 }
 
 .data_last_updated {
-    margin-top:3%;
+    margin-top: 3%;
 }
 
 .datasets_published_per_month_row_tr_even {
@@ -705,7 +705,7 @@ tr.even td a.link_dataset {
     .data_last_updated {
         order: 2;
         margin-bottom: 30px;
-        margin-top: -3%;
+        margin-top: 0%;
     }
 
     .dataset_counts_by_organization {
