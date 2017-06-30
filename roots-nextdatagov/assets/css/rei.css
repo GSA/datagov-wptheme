@@ -431,6 +431,99 @@ div.pagination {
    Styles Below are for Metrics and Dataset Published
    ========================================================================== */
 
+.agencytitle {
+    margin-top : 2em;
+}
+
+.agencyHide {
+    display: none;
+}
+
+.blank-paragraph {
+    margin:0px;
+    padding: 0px;
+    visibility:hidden;
+}
+
+.clearfix:after, .clearfix .inner:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: auto;
+    visibility: hidden;
+}
+
+.clear2 {
+    clear: both;
+}
+
+.content-page {
+    margin-bottom: 2em;
+}
+
+.cursor-scroll {
+    cursor: pointer;
+}
+
+.dataset-inner {
+
+}
+
+.datasets_published_per_month_table_row_fields {
+    border-bottom: 1px solid #444444;
+    padding: 5px;
+}
+
+.data_last_updated {
+    margin-top: 3%;
+}
+
+.datasets_published_per_month_row_tr_even {
+    display: none;
+}
+
+div.open-data-sites-box {
+    background: -moz-linear-gradient(center top, #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: linear-gradient(center top, #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: linear-gradient(to bottom, #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#E6E6E6', GradientType=0);
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    display: block;
+    float: left;
+    height: 120px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 120px;
+}
+
+div.open-data-sites-box div.region {
+    color: #666666;
+
+}
+
+div.open-data-sites-box div.numbers {
+    color: #3366AC;
+}
+
+.download_metrics_data {
+    margin-bottom: 10px;
+}
+
+.fieldcontentregion {
+    color: #284A78;
+}
+
+
+.fieldcontentregion{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
 h1.title {
     background: -moz-linear-gradient(center top, #5EA0D2 0%, #033162 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
@@ -447,23 +540,87 @@ h1.title {
     text-transform: uppercase;
 }
 
-.clearfix:after, .clearfix .inner:after {
-    clear: both;
-    content: ".";
+.open-data-sites-boxes.agencies .open-data-sites-box {
+    height: 40px;
+    margin: 10px 0 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 350px;
+}
+
+
+.open-data-sites-boxes.agencies .open-data-sites-box .region {
+    float: left;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+}
+
+
+.open-data-sites-boxes.agencies .open-data-sites-box .numbers {
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 0;
+}
+
+.parent-agency td:first-child {
+    padding-left: 25px;
+}
+
+.parent-agency .more-link.metrics {
+    margin-left: -25px;
+}
+
+.panecontent {
+    background: url("../img/bottomgradient.png") repeat-x scroll center bottom rgba(0, 0, 0, 0);
     display: block;
-    font-size: 0;
-    height: 0;
-    line-height: 0;
-    overflow: auto;
+    margin: 0;
+    padding: 10px;
+}
+
+.Published-Per-Month-Link {
+    background-color: #efefef;
+    padding: 10px 30px;
+    border: 1px solid #E8E8E8;
+    margin-right: 3%;
+}
+
+.Published-Per-Month-Link:hover {
+    background-color: white;
+    text-decoration: none;
+}
+
+.summary-div td {
+    padding: 5px 12px;
+}
+
+.scroll-arrow {
+    position: relative;
+    left: 5%;
+    cursor: pointer;
+}
+
+.scroll-arrow .tooltiptext {
     visibility: hidden;
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    font-size: .4em;
+    bottom: 100%;
+    left: 87%; 
+    margin-left: -60px;
 }
 
-.dataset-inner {
-
-}
-
-.clear2 {
-    clear: both;
+.scroll-arrow:hover .tooltiptext {
+    visibility: visible;
 }
 
 table {
@@ -493,34 +650,25 @@ tbody {
 
 tr.odd, tr.odd td {
     text-align: right;
-
 }
 
 tr.odd, tr.odd td a {
-
     text-decoration: none;
     color: #000000;
 }
 
 tr.even, tr.odd {
-
     padding: 0.1em 0.6em;
 }
 
 tr.even, tr.even td {
     background-color: #FFFFFF;
-
 }
 
 tr.even, tr.even td a {
     background-color: #FFFFFF;
     text-decoration: none;
     color: #000000;
-}
-
-.datasets_published_per_month_table_row_fields {
-    border-bottom: 1px solid #444444;
-    padding: 5px;
 }
 
 tr.datasets_published_per_month_row_tr_even.sub-agency td:first-child {
@@ -531,90 +679,57 @@ tr.parent-agency a {
     font-size: larger;
 }
 
-.parent-agency td:first-child {
-    padding-left: 25px;
-}
-
-.parent-agency .more-link.metrics {
-    margin-left: -25px;
-}
-
 tr.sub-agency a.sub-agency {
     font-style: italic;
 }
 
-.panecontent {
-    background: url("../img/bottomgradient.png") repeat-x scroll center bottom rgba(0, 0, 0, 0);
-    display: block;
-    margin: 0;
-    padding: 10px;
-}
-
-.open-data-sites-boxes.agencies .open-data-sites-box {
-    height: 40px;
-    margin: 10px 0 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 350px;
-}
-
-div.open-data-sites-box {
-    background: -moz-linear-gradient(center top, #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    background: linear-gradient(center top, #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    background: linear-gradient(to bottom, #FFFFFF 0%, #E6E6E6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#E6E6E6', GradientType=0);
-    border: 1px solid #CCCCCC;
-    border-radius: 5px;
-    display: block;
-    float: left;
-    height: 120px;
-    margin: 5px;
-    padding: 5px;
-    text-align: center;
-    width: 120px;
-}
-
-.open-data-sites-boxes.agencies .open-data-sites-box .region {
-    float: left;
-    font-weight: bold;
-    height: 30px;
-    line-height: 30px;
-}
-
-div.open-data-sites-box div.region {
-    color: #666666;
-
-}
-
-.open-data-sites-boxes.agencies .open-data-sites-box .numbers {
-    float: right;
-    font-size: 25px;
-    font-weight: bold;
-    height: 30px;
-    line-height: 30px;
-    margin-top: 0;
-}
-
-div.open-data-sites-box div.numbers {
-    color: #3366AC;
-}
-
-.agencytitle {
-    margin-top : 2em;
-}
-
-.fieldcontentregion {
-    color: #284A78;
-}
-
 tr.odd td a.link_dataset {
-
     color: #4295B0;
 }
 
 tr.even td a.link_dataset {
-
     color: #4295B0;
+}
+
+@media only screen and (max-width: 990px) {
+
+    .download_metrics_data {
+        height: 50px;
+    }
+
+    .flex_parent_row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .data_last_updated {
+        order: 2;
+        margin-bottom: 30px;
+        margin-top: 0%;
+    }
+
+    .dataset_counts_by_organization {
+        margin-top: 3%
+        order: 1;
+    }
+
+}
+
+/*Additional CSS for Metrics Full-History Page*/
+.Published-Per-Month-Link {
+    background-color: #efefef;
+    padding: 10px 30px;
+    border: 1px solid #E8E8E8;
+    margin-right: 3%;
+}
+
+.Published-Per-Month-Link:hover {
+    background-color: white;
+    text-decoration: none;
+}
+
+.year li:nth-child(2) { 
+    border-left:0px; 
 }
 
 /* ==========================================================================
@@ -2336,87 +2451,4 @@ tfoot td {
 
 .impact .thumbnail>img{
   max-height: 200px;
-}
-
-/*Additional CSS for Metrics/Agency Participation Page*/
-.agencyHide {
-    display: none;
-}
-
-.summary-div td {
-    padding: 5px 12px;
-}
-
-.fieldcontentregion{
-    margin-top: 0px;
-    padding-top: 0px;
-}
-
-.blank-paragraph {
-    margin:0px;
-    padding: 0px;
-    visibility:hidden;
-}
-
-.cursor-scroll {
-    cursor: pointer;
-}
-
-.scroll-arrow {
-    position: relative;
-    left: 5%;
-    cursor: pointer;
-}
-
-.scroll-arrow .tooltiptext {
-    visibility: hidden;
-    width: 100%;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 4px;
-    position: absolute;
-    z-index: 1;
-    font-size: .4em;
-    bottom: 100%;
-    left: 87%; 
-    margin-left: -60px;
-}
-
-.scroll-arrow:hover .tooltiptext {
-    visibility: visible;
-}
-
-.datasets_published_per_month_row_tr_even {
-    display: none;
-}
-
-.Published-Per-Month-Link {
-    background-color: #efefef;
-    padding: 10px 30px;
-    border: 1px solid #E8E8E8;
-    margin-right: 3%;
-}
-
-.Published-Per-Month-Link:hover {
-    background-color: white;
-    text-decoration: none;
-}
-
-/*Additional CSS for Metrics Full-History Page*/
-.Published-Per-Month-Link {
-    background-color: #efefef;
-    padding: 10px 30px;
-    border: 1px solid #E8E8E8;
-    margin-right: 3%;
-}
-
-.Published-Per-Month-Link:hover {
-    background-color: white;
-    text-decoration: none;
-}
-
-.year li:nth-child(2) { 
-    border-left:0px; 
 }
