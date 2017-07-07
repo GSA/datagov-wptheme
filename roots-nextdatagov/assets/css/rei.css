@@ -691,7 +691,7 @@ tr.even td a.link_dataset {
     color: #4295B0;
 }
 
-@media only screen and (max-width: 990px) {
+@media only screen and (min-width: 330px) and (max-width: 990px) {
 
     .download_metrics_data {
         height: 50px;
@@ -712,6 +712,17 @@ tr.even td a.link_dataset {
         margin-top: 3%
         order: 1;
     }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+    .Published-Per-Month-Link {
+        padding: 10px 10px !important;
+        position: relative;
+        top: 10px;
+    }
+
 
 }
 
@@ -1578,14 +1589,11 @@ a.faq-top {
 
     .imagearea {
         float: none;
-
         width: 100%;
     }
 
     #regionsidebar {
-
         float: none;
-
         width: 100%;
     }
 
