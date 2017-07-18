@@ -2343,16 +2343,6 @@
     {
       "taxonomy": {
         "vocabulary": "Federal Organization",
-        "term": "Innovate Inc.",
-        "Federal Agency": "Environmental Protection Agency",
-        "Sub Agency": "",
-        "unique id": "innovateteam-com",
-        "is_cfo": "N"
-      }
-    },
-    {
-      "taxonomy": {
-        "vocabulary": "Federal Organization",
         "term": "nigc-gov",
         "Federal Agency": "National Indian Gaming Commission",
         "Sub Agency": "",
