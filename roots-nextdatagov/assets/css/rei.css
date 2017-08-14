@@ -615,7 +615,7 @@ h1.title {
     z-index: 1;
     font-size: .4em;
     bottom: 100%;
-    left: 87%; 
+    left: 87%;
     margin-left: -60px;
 }
 
@@ -709,7 +709,7 @@ tr.even td a.link_dataset {
     }
 
     .dataset_counts_by_organization {
-        margin-top: 3%
+        margin-top: 3%;
         order: 1;
     }
 
@@ -739,8 +739,8 @@ tr.even td a.link_dataset {
     text-decoration: none;
 }
 
-.year li:nth-child(2) { 
-    border-left:0px; 
+.year li:nth-child(2) {
+    border-left:0px;
 }
 
 /* ==========================================================================
