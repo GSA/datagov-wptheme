@@ -126,13 +126,21 @@ if (!$metrics) {
     <tbody class="datasets_published_per_month_tbody">
 
     <?php
-    $organization_types = array('Federal', 'Federal-Other', 'City Government', 'Commercial', 'Cooperative', 'County Government', 'Non-Profit', 'Other', 'State', 'State Government', 'Tribal', 'University');
-
-    foreach ($organization_types as $organization_type) {
+    //FIND ALL ORG TYPES AND SORT BY MOST DATASETS TO LEAST-----------//
+      $org_type_array = array();
+      foreach ($metrics['organizations'] as $organization) {
+        if (array_key_exists($organization['organization_type'],$org_type_array)){
+          $org_type_array[$organization['organization_type']] += $organization['total'];
+        }
+        else {
+          $org_type_array[$organization['organization_type']] = $organization['total'];
+        }  
+      }
+      $org_type_array = asort($org_type_array);
+    //FIND ALL ORG TYPES AND SORT BY MOST DATASETS TO LEAST-----------//
+      error_log(print_r($org_type_array,true));  
 
       foreach($metrics['organizations'] as $organization){
-
-        if($organization['organization_type'] === $organization_type){
 
           if (!$organization['total']) {
             continue;
@@ -172,8 +180,6 @@ END;
 
           echo '</tr>';
         }
-      }
-    }
     ?>
     <tr style="display: none;" id="no_match">
       <td>No Matching Records Found</td>
