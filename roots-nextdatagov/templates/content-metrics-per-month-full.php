@@ -138,6 +138,14 @@ if (!$metrics) {
       }
       arsort($org_type_array);
     //FIND ALL ORG TYPES AND SORT BY MOST DATASETS TO LEAST-----------//
+    $federal_other_key = array_search('Federal-Other', array_keys($org_type_array), true);
+
+    if ($federal_other_key !== false) {
+        $first_splice_org_type_array = array_slice($org_type_array, 0, 1, true) + array_slice($org_type_array, $federal_other_key, 1, true);
+        $second_splice_org_type_array = array_slice($org_type_array, 1, $federal_other_key - 1, true);
+        $third_splice_org_type_array = array_slice($org_type_array, $federal_other_key + 1, NULL, true);
+        $org_type_array = $first_splice_org_type_array + $second_splice_org_type_array + $third_splice_org_type_array;
+    }
 
     foreach($org_type_array as $org_type_key => $org_type){
 
@@ -157,7 +165,6 @@ if (!$metrics) {
           <tr class="datasets_published_per_month_row_tr_odd odd" role="row">
             <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['title']}</td>
             <td class="datasets_published_per_month_table_row_fields" style="color:#000000;text-align:left;">{$organization['organization_type']}</td>
-    }
 END;
             foreach($organization['metrics'] as $metric) {
               $count = number_format($metric['count']);
