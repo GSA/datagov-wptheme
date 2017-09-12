@@ -13,10 +13,7 @@ $colspan = date('m');
 
 <div class="single">
 <div class="container">
-
 <div id="main-inner" class="dataset-inner" style="margin-top:20px;">
-<div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month - Full History </div>
-
 <div class="view-content">
 
 <?php
@@ -290,7 +287,9 @@ DATES;
       $(".topscroll").scrollLeft($(".scroll").scrollLeft());
     });
 
-  })
+    $('#menu-metrics>li>a.active').removeClass("active");
+    $('#full-history>a').addClass("active");
+  });
 
   function searchFunction() {
     var input, filter, table, tr, td, td1, i;

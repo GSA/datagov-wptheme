@@ -486,5 +486,7 @@ SCROLL;
             scrollTop:  $(".agencytitle").offset().top - 50 }, "medium");
           return false;
         });
+        $('#menu-metrics>li>a.active').removeClass("active");
+        $('#agency-participation>a').addClass("active");
     });
 </script>

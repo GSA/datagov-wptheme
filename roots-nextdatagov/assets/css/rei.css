@@ -462,6 +462,7 @@ div.pagination {
 
 .content-page {
     margin-bottom: .5em;
+    padding-top: 1.5em !important;
 }
 
 .cursor-scroll {
