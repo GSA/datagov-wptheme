@@ -9,7 +9,7 @@ $cat_slug = $category[0]->slug;
 $colspan = date('m');
 ?>
 <?php include('category-subnav.php'); ?>
-<?php include('category-metrics-subnav.php'); ?>
+<?php include('category-subnav-metrics.php'); ?>
 
 <div class="single">
 <div class="container">
