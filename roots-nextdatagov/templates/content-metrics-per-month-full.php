@@ -126,13 +126,32 @@ if (!$metrics) {
     <tbody class="datasets_published_per_month_tbody">
 
     <?php
-    $organization_types = array('Federal', 'Federal-Other', 'City Government', 'Commercial', 'Cooperative', 'County Government', 'Non-Profit', 'Other', 'State', 'State Government', 'Tribal', 'University');
+    //FIND ALL ORG TYPES AND SORT BY MOST DATASETS TO LEAST-----------//
+      $org_type_array = array();
+      foreach ($metrics['organizations'] as $organization) {
+        if (array_key_exists($organization['organization_type'],$org_type_array)){
+          $org_type_array[$organization['organization_type']] += $organization['total'];
+        }
+        else {
+          $org_type_array[$organization['organization_type']] = $organization['total'];
+        }  
+      }
+      arsort($org_type_array);
+    //FIND ALL ORG TYPES AND SORT BY MOST DATASETS TO LEAST-----------//
+    $federal_other_key = array_search('Federal-Other', array_keys($org_type_array), true);
 
-    foreach ($organization_types as $organization_type) {
+    if ($federal_other_key !== false) {
+        $first_splice_org_type_array = array_slice($org_type_array, 0, 1, true) + array_slice($org_type_array, $federal_other_key, 1, true);
+        $second_splice_org_type_array = array_slice($org_type_array, 1, $federal_other_key - 1, true);
+        $third_splice_org_type_array = array_slice($org_type_array, $federal_other_key + 1, NULL, true);
+        $org_type_array = $first_splice_org_type_array + $second_splice_org_type_array + $third_splice_org_type_array;
+    }
+
+    foreach($org_type_array as $org_type_key => $org_type){
 
       foreach($metrics['organizations'] as $organization){
 
-        if($organization['organization_type'] === $organization_type){
+        if($org_type_key == $organization['organization_type']) {
 
           if (!$organization['total']) {
             continue;

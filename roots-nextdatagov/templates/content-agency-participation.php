@@ -3,35 +3,37 @@ $category = get_the_category();
 $term_name = $category[0]->cat_name;
 $term_slug = $category[0]->slug;
 ?>
+
 <?php
 $cat_name = $category[0]->cat_name;
 $cat_slug = $category[0]->slug;
 $total = 0;
 $agency_total = 0;
-
 $total_agencies = 0;
 
+$all_agencies = array();
+$all_agencies_with_id = array();
+global $wpdb;
 
-$all_agencies = array(
-    'Federal Government' => array('Federal', 'federal_id', 'federal_class'),
-    'Other Federal' => array('Other', 'other_id', 'other_class'),
-    'City Government' => array('City Government', 'city_goverment_id', 'city_goverment_class'),
-    'Cooperative' => array('Cooperative', 'cooperative_id', 'cooperative_class'),
-    'County Government' => array('County Government', 'county_government_id', 'county_government_class'),
-    'Non-Profit' => array('Non-Profit', 'non-profit_id', 'non-profit_class'),
-    'Other Non-Federal' => array('NonFed-O', 'nonfed-o_id', 'nonfed-o_class'),
-    'State' => array('State Agency', 'state_agency_id', 'state_agency_class'),
-    'State Government' => array('Government-State', 'government-state_id', 'government-state_class'),
-    'Tribal' => array('Tribal', 'tribal_id', 'tribal_class'),
-    'University' => array('University', 'university_id', 'university_class')
-    );
+$mysql_org_types = $wpdb->get_results( "SELECT DISTINCT meta_value FROM wp_postmeta WHERE meta_key='metric_sector' AND meta_value IS NOT NULL ORDER BY meta_value ASC");
+
+foreach ($mysql_org_types as $value) {
+    if($value->meta_value != 'Federal Government' AND $value->meta_value != 'Other Federal'){
+        array_push($all_agencies, $value->meta_value);
+    }
+}
+$all_agencies = array_merge(array('Federal Government', 'Other Federal'),$all_agencies);
+
+foreach ($all_agencies as $all_agencies_value) {
+    $space_to_hyphen = str_replace(" ", "-", $all_agencies_value);
+    $all_agencies_with_id[$all_agencies_value] = $space_to_hyphen;
+}
 ?>
+
 <?php include('category-subnav.php'); ?>
 
 <div class="single">
 <div class="container">
-
-
 <?php
 
 $s3_config = get_option('tantan_wordpress_s3');
@@ -82,11 +84,11 @@ while (have_posts()) {
             </thead>
             <tbody class="datasets_published_per_month_tbody">
                 <?php 
-                foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
-                    echo "<tr class ='cursor-scroll {$AgencyCategory[1]}'>";
+                foreach ($all_agencies_with_id as $AgencyHeader => $AgencyId) {
+                    echo "<tr class ='cursor-scroll {$AgencyId}'>";
                         echo "<td class='datasets_published_per_month_table_row_fields' width='60%' style='text-align: left;'><a style='color: #4295B0;'>{$AgencyHeader}</a></td>";
                         echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center'></td>";
-                        echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center' id='{$AgencyCategory[1]}'></td>";
+                        echo "<td class='datasets_published_per_month_table_row_fields' width='20%' align='center' id='{$AgencyId}'></td>";
                     echo '</tr>';
                 }
                 ?>
@@ -134,7 +136,7 @@ echo "</div>";
 <!-- <h3 class="fieldcontentregion agencytitle" style="margin-left:-1px;">Agencies/Publishers</h3> -->
 
 <?php
-foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
+foreach ($all_agencies_with_id as $AgencyHeader => $AgencyId) {
 
     $args = array(
         'orderby'          => 'title',
@@ -146,8 +148,8 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
         'meta_query'       => array(
             array(
                 'key'     => 'metric_sector',
-                'value'   => $AgencyCategory[0],
-                'compare' => 'LIKE'
+                'value'   => $AgencyHeader,
+                'compare' => '='
             )
         )
     );
@@ -168,8 +170,11 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
         } else {
             echo "<div style='display:none;'>"; 
         }
+    } else {
+        echo "<div style='display:none;'>"; 
     }
-    echo "<br class={$AgencyCategory[2]}>";
+
+    echo "<br class={$AgencyId}_scroll>";
     echo '<div class="row agencytitle">';
     echo "<h3 class=' col-xs-10 fieldcontentregion' style='margin-left:-1px;font-weight:bold; '>{$AgencyHeader}</h3>";
     echo "<h3 class='col-xs-1 scroll-arrow fieldcontentregion' style='margin-left:-1px;font-weight:bold; text-align:right;'>&#9650;<span class='tooltiptext'>Scroll To Top</span></h3>";
@@ -220,12 +225,12 @@ foreach($all_agencies as $AgencyHeader => $AgencyCategory) {
                         array(
                             'key'     => 'parent_organization',
                             'value'   => $id,
-                            'compare' => 'LIKE'
+                            'compare' => '='
                         ),
                         array(
                             'key'     => 'metric_sector',
-                            'value'   => $AgencyCategory[0],
-                            'compare' => 'LIKE'
+                            'value'   => $AgencyHeader,
+                            'compare' => '='
                         )
                     )
                 );
@@ -371,7 +376,10 @@ END;
         echo '<script type="text/javascript">';
         echo 'jQuery(function ($) {';
         echo <<<SCRIPT
-        $("#{$AgencyCategory[1]}").html('{$agency_total}');
+        $("#{$AgencyId}").html('{$agency_total}');
+        if({$agency_total} == 0){
+          $("#{$AgencyId}").parent().css("display", "none");
+        }
 SCRIPT;
         echo '})';
         echo '</script>';
@@ -467,17 +475,18 @@ SCRIPT;
         $('.total_dataset_count').html('<?php $cnt = get_option('ckan_total_count'); echo $cnt>1000?number_format($cnt):'&gt;100,000'?>');
         $('#total_dataset_sum').html("<?php echo number_format($total) ?>");
         <?php
-        foreach ($all_agencies as $AgencyHeader => $AgencyCategory) {
+        foreach ($all_agencies_with_id as $AgencyHeader => $AgencyId) {
             echo <<<SCROLL
-            $(".{$AgencyCategory[1]}").click(function() {
+            $(".{$AgencyId}").click(function() {
                 $("html,body").animate({
-                    scrollTop: $(".{$AgencyCategory[2]}").offset().top}, 'medium');
+                    scrollTop: $(".{$AgencyId}_scroll").offset().top}, 'medium');
             });
 SCROLL;
         }
         ?>
         $(".scroll-arrow").click(function() {
-          $("html, body").animate({ scrollTop: 340 }, "medium");
+          $("html, body").animate({ 
+            scrollTop:  $(".agencytitle").offset().top - 50 }, "medium");
           return false;
         });
     });
