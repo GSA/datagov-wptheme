@@ -461,7 +461,8 @@ div.pagination {
 }
 
 .content-page {
-    margin-bottom: 2em;
+    margin-bottom: .5em;
+    padding-top: 1.5em !important;
 }
 
 .cursor-scroll {
@@ -511,7 +512,7 @@ div.open-data-sites-box div.numbers {
 }
 
 .download_metrics_data {
-    margin-bottom: 10px;
+    margin-bottom: .5em;
 }
 
 .fieldcontentregion {
@@ -692,10 +693,6 @@ tr.even td a.link_dataset {
 }
 
 @media only screen and (min-width: 330px) and (max-width: 990px) {
-
-    .download_metrics_data {
-        height: 50px;
-    }
 
     .flex_parent_row {
         display: flex;
