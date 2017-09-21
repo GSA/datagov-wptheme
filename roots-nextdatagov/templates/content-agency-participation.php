@@ -31,6 +31,7 @@ foreach ($all_agencies as $all_agencies_value) {
 ?>
 
 <?php include('category-subnav.php'); ?>
+<?php include('category-subnav-metrics.php'); ?>
 
 <div class="single">
 <div class="container">
@@ -48,15 +49,11 @@ while (have_posts()) {
 }
 ?>
 
-
 <div class="row content-page">
-    <div class="col-md-7 col-xs-12 download_metrics_data">
+    <div class="col-xs-12 download_metrics_data">
         Download the metrics data: 
         <a href="<?php echo $s3_path; ?>agency-participation.csv"> [CSV] </a> | 
         <a href="<?php echo $s3_path; ?>agency-participation.xlsx"> [EXCEL] </a>
-    </div>
-    <div class="col-md-5 col-xs-12">
-        <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric/federalagency/dataset-published-per-month">Go to Datasets Published Per Month</a>
     </div>
 </div>
 
@@ -489,5 +486,7 @@ SCROLL;
             scrollTop:  $(".agencytitle").offset().top - 50 }, "medium");
           return false;
         });
+        $('#menu-metrics>li>a.active').removeClass("active");
+        $('#agency-participation>a').addClass("active");
     });
 </script>

@@ -9,42 +9,30 @@ $cat_slug = $category[0]->slug;
 $colspan = date('m');
 ?>
 <?php include('category-subnav.php'); ?>
+<?php include('category-subnav-metrics.php'); ?>
 
 <div class="single">
 <div class="container">
-
 <div id="main-inner" class="dataset-inner" style="margin-top:20px;">
-<div class="Appstitle" style="padding-left:5px; margin-bottom:10px;margin-left:-5px;">Datasets Published per Month - Full History </div>
-
 <div class="view-content">
 
 <?php
-
 $s3_config = get_option('tantan_wordpress_s3');
-
 $s3_bucket = trim($s3_config['bucket'],'/');
 $s3_prefix = trim($s3_config['object-prefix'],'/');
-
 $s3_path = 'https://s3.amazonaws.com/'.$s3_bucket.'/'.$s3_prefix.'/';
-
 ?>
 
-<div class = "container-fluid">
-<div class = "col-md-8" style="padding-left:0px">
+<div class="col-md-12" style="padding-left:0px">
   Download the metrics full history data: 
   <a target="_blank" href="<?php echo $s3_path; ?>agency-participation-full-by-metadata_created.csv"> [CSV] </a> |
   <a target="_blank" href="<?php echo $s3_path; ?>agency-participation-full-by-metadata_created.json"> [JSON] </a>
-  <br><br>
-</div>
-<div class = "col-md-4">
-    <a class="Published-Per-Month-Link" title="Datasets Published Per Month" href="/metric">Go Back to Metrics Page</a>
-</div>
 </div>
 
-<br><br>
+<br>
 <div> <?php the_content(); ?></div>
-<?php
 
+<?php
 $metrics = get_metrics_per_month_full();
 
 if (!$metrics) {
@@ -299,7 +287,9 @@ DATES;
       $(".topscroll").scrollLeft($(".scroll").scrollLeft());
     });
 
-  })
+    $('#menu-metrics>li>a.active').removeClass("active");
+    $('#full-history>a').addClass("active");
+  });
 
   function searchFunction() {
     var input, filter, table, tr, td, td1, i;
