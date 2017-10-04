@@ -1,6 +1,7 @@
 <?php
 
 $query = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
+$query = str_replace(array("'",'"'),'', $query);
 $group = (filter_var($_GET['group'], FILTER_SANITIZE_STRING) ) ? filter_var($_GET['group'], FILTER_SANITIZE_STRING) : "site" ;
 
 ?>
