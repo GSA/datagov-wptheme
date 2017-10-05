@@ -32,7 +32,7 @@ var localGeoJson = {
       "type": "Feature",
       "properties": {
         "Item": "Asheville",
-        "Link": "http://opendatacatalog.ashevillenc.gov/",
+        "Link": "http://data.ashevillenc.gov/",
         "Type": "US City or County"
       },
       "geometry":{"type":"Point","coordinates":[-82.551487, 35.595058]}
