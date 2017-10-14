@@ -44,7 +44,7 @@
                         echo get_field("thumbnail");
                     } ?>" alt="<?php the_title(); ?>"/>
                     <div class="caption">
-                        <h3 class="impact-title"><?php the_title(); ?></h3>
+                        <h3 class="impact-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
                         <div class="impact-content">
                             <?php if (function_exists('get_field') && $agency = get_field("agency_name")): ?>
                                 <p class="show-on-modal">
