@@ -89,7 +89,7 @@ var ExampleSite = {
         var href = $(impactLauncher).find('.permalink').attr('href');
         modal.find('.modal-footer .permalink-btn')
           .attr('href', href);
-          // .attr('data-clipboard-text', href);
+        // .attr('data-clipboard-text', href);
 
         // $('.modal-footer .permalink-btn').tooltip({
         //   trigger: 'click',

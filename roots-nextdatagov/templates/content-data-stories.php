@@ -1,7 +1,11 @@
 <?php
+
+$stories_per_page = 3;
+
 $args = array(
     'post_type' => 'impact',
-    'public' => true
+    'public' => true,
+    'posts_per_page' => $stories_per_page
 );
 
 $the_query = new WP_Query($args);
@@ -13,6 +17,8 @@ function remove_more_link_scroll($link)
 }
 
 add_filter('the_content_more_link', 'remove_more_link_scroll');
+
+$i = 0;
 
 ?>
 
@@ -44,4 +50,9 @@ add_filter('the_content_more_link', 'remove_more_link_scroll');
             </div>
         </article>
     <?php endwhile; ?>
+    <?php if ($the_query->found_posts > $stories_per_page ) : ?>
+        <div class="col-md-3 col-md-offset-9 more-stories"><a href="/stories" class="btn btn-lg">
+                <i class="fa fa-book" aria-hidden="true"></i><span>More stories &gt;&gt;</span></a>
+        </div>
+    <?php endif; ?>
 </div>

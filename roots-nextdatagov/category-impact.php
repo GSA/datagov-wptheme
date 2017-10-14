@@ -3,17 +3,18 @@
 <div class="container">
 
     <div class="row impact-buttons">
-        <div class="topic-developers col-md-6"><a href="#data-stories"
-                                                  class="btn btn-lg"><span><i></i>Data stories</span></a></div>
-        <div class="topic-business col-md-6"><a href="#business-impact"
-                                                class="btn btn-lg"><i></i><span>Business Impact</span></a></div>
+        <div class="col-md-6"><a href="#data-stories" class="btn btn-lg">
+                <i class="fa fa-book" aria-hidden="true"></i><span>Data stories</span></a>
+        </div>
+        <div class="col-md-6"><a href="#business-impact" class="btn btn-lg">
+                <i class="fa fa-bar-chart-o" aria-hidden="true"></i><span>Business Impact</span></a>
+        </div>
     </div>
 
+    <br />
 
-    <hr/>
-
-    <h2 class="category-header topic-developers"><a name="data-stories"
-                                                    href="#data-stories"><i></i><span>Data stories</span></a></h2>
+    <h4 class="category-header"><a name="data-stories" href="#data-stories">
+            <i class="fa fa-book" aria-hidden="true"></i><span>Data stories</span></a></h4>
 
     <?php include(locate_template('templates/content-data-stories.php')); ?>
 
@@ -52,8 +53,9 @@
         <?php get_search_form(); ?>
     <?php endif; ?>
 
-    <h2 class="category-header topic-business"><a name="business-impact" href="#business-impact"><i></i><span>Business impact</span></a>
-    </h2>
+    <h4 class="category-header"><a name="business-impact" href="#business-impact">
+            <i class="fa fa-bar-chart-o" aria-hidden="true"></i><span>Business impact</span></a>
+    </h4>
 
     <?php
 
