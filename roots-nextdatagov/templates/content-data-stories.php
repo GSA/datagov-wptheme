@@ -29,7 +29,7 @@
     <?php endwhile; ?>
     <?php if ($the_query->found_posts > $stories_per_page ) : ?>
         <div class="col-md-3 col-md-offset-9 more-stories"><a href="/stories" class="btn btn-lg">
-                <i class="fa fa-book" aria-hidden="true"></i><span>More stories &gt;&gt;</span></a>
+                <i class="fa fa-book" aria-hidden="true"></i><span>More Stories &gt;&gt;</span></a>
         </div>
     <?php endif; ?>
 </div>
