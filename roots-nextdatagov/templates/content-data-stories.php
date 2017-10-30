@@ -1,30 +1,7 @@
-<?php
-
-$stories_per_page = 3;
-
-$args = array(
-    'post_type' => 'impact',
-    'public' => true,
-    'posts_per_page' => $stories_per_page
-);
-
-$the_query = new WP_Query($args);
-
-function remove_more_link_scroll($link)
-{
-    $link = preg_replace('|#more-[0-9]+|', '', $link);
-    return $link;
-}
-
-add_filter('the_content_more_link', 'remove_more_link_scroll');
-
-$i = 0;
-
-?>
-
-<div class="wrap container impact">
+<div class="wraper impact container">
 
     <?php if (!$the_query->have_posts()) : ?>
+
         <div class="alert alert-warning">
             <?php _e('Sorry, no results were found.', 'roots'); ?>
         </div>
@@ -52,7 +29,7 @@ $i = 0;
     <?php endwhile; ?>
     <?php if ($the_query->found_posts > $stories_per_page ) : ?>
         <div class="col-md-3 col-md-offset-9 more-stories"><a href="/stories" class="btn btn-lg">
-                <i class="fa fa-book" aria-hidden="true"></i><span>More stories &gt;&gt;</span></a>
+                <i class="fa fa-book" aria-hidden="true"></i><span>More Stories &gt;&gt;</span></a>
         </div>
     <?php endif; ?>
 </div>

@@ -24,6 +24,7 @@ if (function_exists('get_field')) {
     <?php endif; ?>
 
     <div class="content impact-full">
+      <div class="row"><button type="button" class="btn btn-primary pull-right" ><a href="<?php echo get_site_url(); ?>/stories">Back to Stories</a></button></div>
       <div class="col-md-6 col-lg-6">
         <?php if ($thumbnail): ?>
           <img class="thumbnail" src="<?php echo $thumbnail ?>" alt="<?php the_title(); ?>"/>
