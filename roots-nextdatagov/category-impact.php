@@ -43,10 +43,9 @@
   $category_query = new WP_Query($args);
 
   ?>
-
   <?php if($the_query->have_posts() && $category_query->have_posts()) : ?>
     <div class="row impact-buttons">
-        <div class="col-md-6"><a href="#data-stories" class="btn btn-lg">
+        <div class="col-md-6"><a href="<?php echo get_home_url(); ?>/stories" class="btn btn-lg">
                 <i class="fa fa-book fa-2" aria-hidden="true"></i><span>Data Stories</span></a>
         </div>
         <div class="col-md-6"><a href="#business-impact" class="btn btn-lg">
@@ -56,8 +55,8 @@
   <?php endif; ?>
   <?php if($the_query->have_posts()) : ?>
     <hr/>
-    <h4 class="category-header"><a name="data-stories" href="#data-stories">
-            <i class="fa fa-book" aria-hidden="true"></i><span>Data Stories</span></a></h4>
+    <h4 class="category-header">
+            <i class="fa fa-book" aria-hidden="true"></i><span>Data Stories</span></h4>
 
     <?php include(locate_template('templates/content-data-stories.php')); ?>
   <?php endif; ?>
@@ -69,8 +68,8 @@
         <?php get_search_form(); ?>
     <?php endif; ?>
     <hr/>
-    <h4 class="category-header"><a name="business-impact" href="#business-impact">
-            <i class="fa fa-bar-chart-o" aria-hidden="true"></i><span>Business Impact</span></a>
+    <h4 class="category-header">
+            <i class="fa fa-bar-chart-o" aria-hidden="true"></i><span>Business Impact</span>
     </h4>
 
     <?php
