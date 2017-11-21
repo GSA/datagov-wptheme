@@ -1,6 +1,11 @@
 <?php
+function sanitize_string($s) {
+    $result = preg_replace("/[^a-zA-Z0-9 '\-]+/", "", html_entity_decode($s, ENT_QUOTES));
+    return $result;
+}
 
-$query = filter_var(str_replace(array("'",'"'),'', $_GET['q']), FILTER_SANITIZE_STRING);
+$querysearch = sanitize_string($_GET['q']);
+$query = filter_var(str_replace(array("'",'"'),'', $querysearch), FILTER_SANITIZE_STRING);
 $group = (filter_var($_GET['group'], FILTER_SANITIZE_STRING) ) ? filter_var($_GET['group'], FILTER_SANITIZE_STRING) : "site" ;
 
 ?>
