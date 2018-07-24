@@ -130,11 +130,17 @@ function favicon()
 
 add_action('admin_head', 'favicon');
 
-if( !is_admin()){
-    wp_deregister_script('jquery');
-    wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"), false, '1.11.1', false);
-    wp_enqueue_script('jquery');
+//New function to update jquery to 3.1.1
+function datagov_replace_core_jquery_version() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.3.1.min.js', false, null, false );
+    wp_deregister_script( 'jquery-migrate' );
+    wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-3.0.1.min.js', false, null, true );
+    wp_enqueue_script('jquery' );
+    wp_enqueue_script('jquery-migrate' );
 }
+//Add action to update jquery.  Weight > 100 required to override root_scripts function in scripts.php
+add_action( 'wp_enqueue_scripts', 'datagov_replace_core_jquery_version', 101);
 
 /* Generate post urls for category pages */
 function generate_post_url($post_name){
