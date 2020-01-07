@@ -325,7 +325,7 @@ if ($total_apps > 0) {
                         ...
                     </div>
                     <div class="modal-footer">
-                        <a href="" target="_blank" class="go-to-app btn btn-primary pull-left">Go to app...</a>
+                        <a href="" target="_blank" rel="noopener noreferrer" class="go-to-app btn btn-primary pull-left">Go to app...</a>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
