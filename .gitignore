@@ -4,7 +4,7 @@ themes/twentyfourteen/*
 index.php
 debug.log
 advanced-cache.php
-cache/
+cache/memory 00737480973644 0.133670.1201
 db.php
 object-cache.php
 themes/twentyeleven/
