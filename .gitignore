@@ -1,11 +1,11 @@
 .idea
 .DS_Store
-themes/twentyfourteen/*
+themes/twentyfourteen/*.*{./
 index.php
 debug.log
 advanced-cache.php
 cache/
-db.php
+db.php on
 object-cache.php
 themes/twentyeleven/
 themes/twentyten/
