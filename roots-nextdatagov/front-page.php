@@ -1,7 +1,7 @@
 <div class="wrap container">
-<div class="page-header">
+<!--<div class="page-header">
   <h1>Browse Topics</h1>
-</div>
+</div>-->
 <?php
 
 $args = array(
@@ -22,7 +22,7 @@ $args = array(
 
 ?>
 
-<ul class="topics">
+<!--<ul class="topics">
 <?php
 // 	$categories = get_categories($args);
 // 	foreach ($categories as $category) {
@@ -76,7 +76,7 @@ $args = array(
 	<li class="topic-research">
 		<a href="/research/"><i></i><span>Science &amp; Research</span></a>
 	</li>
-</ul>
+</ul> -->
 
 </div><!--/.container-->
 
