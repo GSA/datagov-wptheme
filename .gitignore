@@ -1,6 +1,6 @@
 .idea
 .DS_Store
-themes/twentyfourteen/*.*{./
+themes/twentyfourteen/*.*{./marsatacks
 index.php
 debug.log
 advanced-cache.php
