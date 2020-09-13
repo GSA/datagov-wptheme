@@ -1,5 +1,4 @@
 # Data.gov  
-[![Stories in Ready](https://badge.waffle.io/gsa/data.gov.png?label=ready&title=Ready)](https://waffle.io/gsa/data.gov)
 
 * [Current Deployment](https://github.com/GSA/catalog-deploy)
 * [Current Test/Dev](https://github.com/GSA/catalog-app)
