@@ -1,5 +1,4 @@
 # Data.gov  
-[![Stories in Ready](https://badge.waffle.io/gsa/data.gov.png?label=ready&title=Ready)](https://waffle.io/gsa/data.gov)
 
 * [Current Deployment](https://github.com/GSA/catalog-deploy)
 * [Current Test/Dev](https://github.com/GSA/catalog-app)
@@ -37,7 +36,7 @@
 * **Deployment.** Download the [latest version of WordPress](http://wordpress.org/download/). This is a standard WordPress install, so please refer to the [WordPress Docs](http://codex.wordpress.org/Installing_WordPress). In the near future we hope to release the configuration for installing the Data.gov WordPress using [WordPress CLI](http://wp-cli.org/). 
 
 ### Additional Data.gov Resources
-* **Data.gov/Developers.**  In addition to this repository, please be sure to look at the Data.gov Developers section for more updates and resources, including information on Data.gov's CKAN API: http://data.gov/developers/
+* **Data.gov/Developers.**  In addition to this repository, please be sure to look at the Data.gov Developers section for more updates and resources, including information on Data.gov's CKAN API: http://data.gov/developers/.
 * **Design.** Design assets for Data.gov.
     * [GSA/datagov-design](https://github.com/GSA/datagov-design) - The source graphic files for logo, icons, layout.
 * **Communications.** Communication and publishing systems that power Data.gov.
