@@ -133,7 +133,7 @@ add_action('admin_head', 'favicon');
 //New function to update jquery to 3.1.1
 function datagov_replace_core_jquery_version() {
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', false, null, false );
+    wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', false, null, false );
     wp_deregister_script( 'jquery-migrate' );
     wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-3.1.0.min.js', false, null, true );
     wp_enqueue_script('jquery' );
