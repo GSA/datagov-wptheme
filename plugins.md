@@ -55,4 +55,6 @@
 |wp-no-taxonomy-base        |master     |https://github.com/philipashlock/wp-no-taxonomy-base    (http://markoheijnen.com/)|
 |wp-wp-open311              |master     |https://github.com/gsa/wp-open311|
 |wp-rss-multi-importer      |master     |https://github.com/gsa/wp-rss-multi-importer    (http://www.allenweiss.com/wp_plugin)|
+Staten lytter
 |wp-sitemap-page            |master     |https://github.com/gsa/wp-sitemap-page    (http://tonyarchambeau.com/)|
+Open Github 
